@@ -37,10 +37,12 @@ import org.openhab.binding.lifx.internal.dto.GetColorZonesRequest;
 import org.openhab.binding.lifx.internal.dto.GetLightInfraredRequest;
 import org.openhab.binding.lifx.internal.dto.GetLightPowerRequest;
 import org.openhab.binding.lifx.internal.dto.GetRequest;
+import org.openhab.binding.lifx.internal.dto.HevCycleState;
 import org.openhab.binding.lifx.internal.dto.Packet;
 import org.openhab.binding.lifx.internal.dto.PowerState;
 import org.openhab.binding.lifx.internal.dto.SetColorRequest;
 import org.openhab.binding.lifx.internal.dto.SetColorZonesRequest;
+import org.openhab.binding.lifx.internal.dto.SetHevCycleRequest;
 import org.openhab.binding.lifx.internal.dto.SetLightInfraredRequest;
 import org.openhab.binding.lifx.internal.dto.SetLightPowerRequest;
 import org.openhab.binding.lifx.internal.dto.SetPowerRequest;
@@ -309,6 +311,15 @@ public class LifxLightStateChanger implements LifxLightStateListener {
     }
 
     @Override
+    public void handleHevCycleStateChange(@Nullable HevCycleState oldHevCycleState, HevCycleState newHevCycleState) {
+        if (!newHevCycleState.equals(oldHevCycleState)) {
+            SetHevCycleRequest packet = new SetHevCycleRequest(newHevCycleState.isEnable(),
+                    newHevCycleState.getDuration());
+            replacePacketsInMap(packet);
+        }
+    }
+
+    @Override
     public void handleInfraredChange(@Nullable PercentType oldInfrared, PercentType newInfrared) {
         PercentType infrared = pendingLightState.getInfrared();
         if (infrared != null) {
@@ -325,7 +336,7 @@ public class LifxLightStateChanger implements LifxLightStateListener {
 
     @Override
     public void handleTileEffectChange(@Nullable Effect oldEffect, Effect newEffect) {
-        if (oldEffect == null || !oldEffect.equals(newEffect)) {
+        if (!newEffect.equals(oldEffect)) {
             SetTileEffectRequest packet = new SetTileEffectRequest(newEffect);
             replacePacketsInMap(packet);
         }
