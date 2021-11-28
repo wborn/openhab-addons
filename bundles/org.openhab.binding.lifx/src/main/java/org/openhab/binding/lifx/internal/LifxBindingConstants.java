@@ -24,9 +24,6 @@ import org.openhab.core.thing.type.ChannelTypeUID;
 /**
  * The {@link LifxBinding} class defines common constants, which are used across
  * the whole binding.
- *
- * @author Dennis Nobel - Initial contribution
- * @author Wouter Born - Added packet interval, power on brightness constants
  */
 @NonNullByDefault
 public class LifxBindingConstants {
