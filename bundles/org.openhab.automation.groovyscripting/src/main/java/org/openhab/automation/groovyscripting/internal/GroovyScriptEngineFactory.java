@@ -48,7 +48,7 @@ public class GroovyScriptEngineFactory extends AbstractScriptEngineFactory {
 
     public GroovyScriptEngineFactory() {
         String scriptDir = OpenHAB.getConfigFolder() + File.separator + FILE_DIRECTORY;
-        logger.debug("Adding script directory {} to the GroovyScriptEngine class path.", scriptDir);
+        logger.debug("Adding script directory {} to the GroovyScriptEngine class path", scriptDir);
         gcl.addClasspath(scriptDir);
     }
 
