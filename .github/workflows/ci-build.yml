@@ -57,7 +57,7 @@ jobs:
           java-version: ${{ matrix.java }}
 
       - name: Set up Maven ${{ matrix.maven }}
-        uses: stCarolas/setup-maven@v4.4
+        uses: wborn/setup-maven@v4
         with:
           maven-version: ${{ matrix.maven }}
 
