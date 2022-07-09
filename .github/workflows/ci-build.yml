@@ -63,7 +63,7 @@ jobs:
 
       - name: Build
         id: build
-        run: mvn clean verify -B -T 1.5C -U
+        run: mvn i18n:generate-default-translations
         env:
           MAVEN_OPTS: >-
             -Xmx2g
