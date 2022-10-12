@@ -33,8 +33,6 @@
   <modules>
     <module>bom</module>
     <module>bundles</module>
-    <module>features</module>
-    <module>itests</module>
   </modules>
 
   <scm>
