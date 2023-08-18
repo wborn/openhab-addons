@@ -1,5 +1,7 @@
 # openHAB Add-ons
 
+Test
+
 <img align="right" width="220" src="./logo.png" />
 
 [![GitHub Actions Build Status](https://github.com/openhab/openhab-addons/actions/workflows/ci-build.yml/badge.svg?branch=main)](https://github.com/openhab/openhab-addons/actions/workflows/ci-build.yml)
