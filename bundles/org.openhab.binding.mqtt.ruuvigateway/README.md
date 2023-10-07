@@ -7,11 +7,11 @@ Ruuvi Cloud Subscription is not needed at all as the integration is local.
 Compared to Ruuvi Tag Bluetooth binding, this binding has the benefit of relying on strong and reliable antenna of Ruuvi Gateway, as opposed to e.g. usually much weaker antenna integrated onto computer motherboard.
 Obvious downside compared to the bluetooth binding is the requirement of having Ruuvi Gateway device.
 
-Both RuuviTag and RuuviTag Pro are supported. 
+Both RuuviTag and RuuviTag Pro are supported.
 
 ## Setup the Gateway
 
-Before using this binding, Ruuvi Gateway needs to configured to publish the sensor data via MQTT. 
+Before using this binding, Ruuvi Gateway needs to configured to publish the sensor data via MQTT.
 
 For further instructions, refer to relevant section in [Ruuvi Gateway documentation](https://ruuvi.com/gateway-config/).
 For most convenient usage of this binding, please ensure that "Use 'ruuvi' on the prefix' MQTT setting is enabled on Ruuvi Gateway.
@@ -24,19 +24,18 @@ This binding discovers the Ruuvi Tags via the MQTT bridge; the discovered things
 
 ## Thing Configuration
 
-
 There is only thing type supported by this binding, `ruuvitag_beacon`.
 No manual configuration is needed, and discovery function can be used instead.
 
 For users that prefer manual configuration, we list here the configurable parameters.
 
-| Parameter | Description                               | Required | Default |
+| Parameter |                Description                | Required | Default |
 |-----------|-------------------------------------------|----------|---------|
 | `topic`   | MQTT topic containing the gateway payload | Y        | (N/A)   |
 
 ## Channels
 
-| Channel ID                | Item Type                | Description                                                              |
+|        Channel ID         |        Item Type         |                               Description                                |
 |---------------------------|--------------------------|--------------------------------------------------------------------------|
 | temperature               | Number:Temperature       | The measured temperature                                                 |
 | humidity                  | Number:Dimensionless     | The measured humidity                                                    |
@@ -88,3 +87,4 @@ Number:Pressure         pressure    "Air Pressure [%.0f %unit%]"     { channel="
 Number:Acceleration      acceleration_ms "Acceleration z [%.2f m/s²]" { channel="mqtt:ruuvitag_beacon:myTag1:accelerationz" }
 Number:Acceleration      acceleration_g  "Acceleration z (g-force) [%.2f gₙ]" { channel="mqtt:ruuvitag_beacon:myTag1:accelerationz" }
 ```
+

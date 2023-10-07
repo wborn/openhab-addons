@@ -6,8 +6,8 @@ This extension adds support for [Ruuvi Tag](https://ruuvi.com/) Sensor Beacons.
 
 Only a single thing type is added by this extension:
 
-| Thing Type ID   | Description               |
-| --------------- | ------------------------- |
+|  Thing Type ID  |        Description        |
+|-----------------|---------------------------|
 | ruuvitag_beacon | A Ruuvi Tag Sensor Beacon |
 
 Under normal conditions the ruuvitag should submit data every 10 seconds.
@@ -26,8 +26,8 @@ There is only a single configuration parameter `address`, which corresponds to t
 
 A Ruuvi Tag Smart Beacon has the following channels:
 
-| Channel ID                | Item Type                | Description                    |
-| ------------------------- | ------------------------ | ------------------------------ |
+|        Channel ID         |        Item Type         |          Description           |
+|---------------------------|--------------------------|--------------------------------|
 | temperature               | Number:Temperature       | The measured temperature       |
 | humidity                  | Number:Dimensionless     | The measured humidity          |
 | pressure                  | Number:Pressure          | The measured air pressure      |
@@ -61,3 +61,4 @@ Number:Pressure         pressure    "Air Pressure [%.0f %unit%]"     { channel="
 Number:Acceleration      acceleration_ms "Acceleration z [%.2f m/s²]" { channel="bluetooth:ruuvitag:hci0:beacon:accelerationz" }
 Number:Acceleration      acceleration_g  "Acceleration z (g-force) [%.2f gₙ]" { channel="bluetooth:ruuvitag:hci0:beacon:accelerationz" }
 ```
+

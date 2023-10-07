@@ -1,24 +1,24 @@
 # radoneye
 
-This extension adds support for [RadonEye](http://radonftlab.com/radon-sensor-product/radon-detector/rd200/) radon bluetooth detector. 
+This extension adds support for [RadonEye](http://radonftlab.com/radon-sensor-product/radon-detector/rd200/) radon bluetooth detector.
 
 ## Supported Things
 
 Following thing types are supported by this extension:
 
-| Thing Type ID       | Description                            |
-| ------------------- | -------------------------------------- |
-| radoneye_rd200      | Original RadonEye  (RD200)             |
+| Thing Type ID  |        Description         |
+|----------------|----------------------------|
+| radoneye_rd200 | Original RadonEye  (RD200) |
 
 ## Discovery
 
-As any other Bluetooth device, RadonEye devices are discovered automatically by the corresponding bridge. 
+As any other Bluetooth device, RadonEye devices are discovered automatically by the corresponding bridge.
 
 ## Thing Configuration
 
 Supported configuration parameters for the things:
 
-| Property        | Type    | Default | Required | Description                                                     |
+|    Property     |  Type   | Default | Required |                           Description                           |
 |-----------------|---------|---------|----------|-----------------------------------------------------------------|
 | address         | String  |         | Yes      | Bluetooth address of the device (in format "XX:XX:XX:XX:XX:XX") |
 | fwVersion       | Integer | 1       | No       | The major version of the firmware on the device                 |
@@ -28,10 +28,9 @@ Supported configuration parameters for the things:
 
 Following channels are supported for `RadonEye` thing:
 
-| Channel ID         | Item Type                | Description                                 |
-| ------------------ | ------------------------ | ------------------------------------------- |
-| radon              | Number:Density           | The measured radon level                    |
-
+| Channel ID |   Item Type    |       Description        |
+|------------|----------------|--------------------------|
+| radon      | Number:Density | The measured radon level |
 
 ## Example
 
@@ -46,3 +45,4 @@ radoneye.items:
 ```
 Number:Density          radon    "Radon level [%d %unit%]"   { channel="bluetooth:radoneye_rd200:adapter1:sensor1:radon" }
 ```
+

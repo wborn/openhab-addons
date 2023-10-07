@@ -24,7 +24,7 @@ No auto discovery supported.
 
 ### `device` Thing Configuration
 
-| Parameter       | Type   | Description                                              | Advanced | Required |
+|    Parameter    |  Type  |                       Description                        | Advanced | Required |
 |-----------------|--------|----------------------------------------------------------|----------|----------|
 | url             | String | URL of evcc web UI, e.g. `https://demo.evcc.io`          | No       | Yes      |
 | refreshInterval | Number | Interval the status is polled in seconds (minimum is 15) | Yes      | No       |
@@ -38,7 +38,7 @@ Default value for _refreshInterval_ is 60 seconds.
 Those channels exist only once.
 Please note that some of them are only available when evcc is properly configured.
 
-| Channel                    | Type                 | Read/Write | Description                                                                                                  |
+|          Channel           |         Type         | Read/Write |                                                 Description                                                  |
 |----------------------------|----------------------|------------|--------------------------------------------------------------------------------------------------------------|
 | general#batteryCapacity    | Number:Energy        | R          | Capacity of (home) battery.                                                                                  |
 | general#batteryPower       | Number:Power         | R          | Current power from battery.                                                                                  |
@@ -53,7 +53,7 @@ Please note that some of them are only available when evcc is properly configure
 Those channels exist per configured loadpoint.
 Please note that you have to replace _N_ with your loadpoint number.
 
-| Channel                             | Type                   | Read/Write | Description                                                                                         |
+|               Channel               |          Type          | Read/Write |                                             Description                                             |
 |-------------------------------------|------------------------|------------|-----------------------------------------------------------------------------------------------------|
 | loadpointN#activePhases             | Number                 | R          | Current number of active phases while charging                                                      |
 | loadpointN#chargeCurrent            | Number:ElectricCurrent | R          | Current amperage per connected phase while charging                                                 |
@@ -174,3 +174,4 @@ sitemap evcc label="evcc Demo" {
     }
 }
 ```
+

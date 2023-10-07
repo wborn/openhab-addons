@@ -21,17 +21,17 @@ Or you can connect it for example to a Raspberry Pi and use [ser2net Linux tool]
 ## Supported Things
 
 Monoprice 10761 & 39261 or Dayton Audio DAX66 amplifiers use the `amplifier` thing id. Up to 18 zones with 3 linked amps and 6 source inputs are supported.
-Note: Compatible clones (including 4 zone versions) from McLELLAND, Factor, Soundavo, etc. should work as well.  
+Note: Compatible clones (including 4 zone versions) from McLELLAND, Factor, Soundavo, etc. should work as well.
 
-***The following three thing types were implemented via available documentation only and have not been tested. Please open an issue for any bugs found when using these thing types.***  
+***The following three thing types were implemented via available documentation only and have not been tested. Please open an issue for any bugs found when using these thing types.***
 
-Monoprice 31028 or OSD Audio PAM1270 70 volt amplifiers use the `monoprice70` thing id. 6 zones per amp (not linkable) and 2 source inputs are supported.  
+Monoprice 31028 or OSD Audio PAM1270 70 volt amplifiers use the `monoprice70` thing id. 6 zones per amp (not linkable) and 2 source inputs are supported.
 
-Dayton Audio DAX88 amplifiers use the `dax88` thing id. 8 zones (2 un-amplified) per amp (not linkable) and 8 source inputs are supported.  
+Dayton Audio DAX88 amplifiers use the `dax88` thing id. 8 zones (2 un-amplified) per amp (not linkable) and 8 source inputs are supported.
 
 Xantech MRC88, MX88, MRAUDIO8X8 or CM8X8 amplifiers use the `xantech` thing id. Up to 16 zones with 2 linked amps and 8 source inputs are supported.
-Some Xantech amps provide unsolicited zone updates for keypad actions and may work with the `disableKeypadPolling` option set to true which will prevent un-necessary polling of the amplifier. 
-Note: MRC44 amps do not support serial control.  
+Some Xantech amps provide unsolicited zone updates for keypad actions and may work with the `disableKeypadPolling` option set to true which will prevent un-necessary polling of the amplifier.
+Note: MRC44 amps do not support serial control.
 
 ## Discovery
 
@@ -42,7 +42,7 @@ You have to add all things manually.
 
 The thing has the following configuration parameters (number of sources and zones is amplifier dependent):
 
-| Parameter Label        | Parameter ID         | Description                                                                                                                    | Accepted values  |
+|    Parameter Label     |     Parameter ID     |                                                          Description                                                           | Accepted values  |
 |------------------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------|------------------|
 | Serial Port            | serialPort           | Serial port to use for connecting to the whole house amplifier device                                                          | Serial port name |
 | Address                | host                 | Host name or IP address of the amplifier or serial over IP device                                                              | Host name or IP  |
@@ -66,9 +66,13 @@ Some notes:
 - On the 10761/DAX66 amp, activating the 'Page All Zones' feature can only be done through the +12v trigger input on the back of the amplifier.
 
 - On Linux, you may get an error stating the serial port cannot be opened when the MonopriceAudio binding tries to load.
+
 - You can get around this by adding the `openhab` user to the `dialout` group like this: `usermod -a -G dialout openhab`.
+
 - Also on Linux you may have issues with the USB if using two serial USB devices e.g. MonopriceAudio and RFXcom.
+
 - See the [general documentation about serial port configuration](/docs/administration/serial.html) for more on symlinking the USB ports.
+
 - Here is an example of ser2net.conf (for ser2net version < 4) you can use to share your serial port /dev/ttyUSB0 on IP port 8080 using [ser2net Linux tool](https://sourceforge.net/projects/ser2net/):
 
 ```text
@@ -93,7 +97,7 @@ connection: &conMono
 The following channels are available:
 Note that `dnd`, `page` and `keypad` are not available on all thing types.
 
-| Channel ID                    | Item Type | Description                                                                                                                           |
+|          Channel ID           | Item Type |                                                              Description                                                              |
 |-------------------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------|
 | all#allpower                  | Switch    | Turn all zones on or off simultaneously (those specified by the ignoreZones config option will not turn on)                           |
 | all#allsource                 | Number    | Select the input source for all zones simultaneously (1-8) [number of sources is amplifier dependent] (except ignoreZones)            |
@@ -187,3 +191,4 @@ sitemap monoprice label="Audio Control" {
     // repeat for total number of zones used (substitute z1)
 }
 ```
+

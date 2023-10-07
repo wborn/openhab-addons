@@ -20,10 +20,10 @@ If you are running 203.2.4 or newer firmware you can enable the websockets suppo
 
 The exposed channels are :
 
-| Name    | Type           | Description |
-| ------- |:--------------:|:-----------:|
-| control | Rollershutter  | It reacts to standard roller shutter commands _UP/DOWN/STOP_. The percentual closure (dimmer) is also supported - you can partially open window, but thing state is only open/close. |
-| status  | String         | Shows the window status (Stopped, Moving, Not ready, Blocked) |
+|  Name   |     Type      |                                                                                     Description                                                                                      |
+|---------|:-------------:|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| control | Rollershutter | It reacts to standard roller shutter commands _UP/DOWN/STOP_. The percentual closure (dimmer) is also supported - you can partially open window, but thing state is only open/close. |
+| status  |    String     |                                                            Shows the window status (Stopped, Moving, Not ready, Blocked)                                                             |
 
 ## Full Example
 

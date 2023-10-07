@@ -25,14 +25,14 @@ It defaults to 2 zones.
 The DenonMarantz AVR thing requires the `host` it can connect to.
 There are more parameters which all have defaults set.
 
-| Parameter           | Values                                    | Default |
-|---------------------|-------------------------------------------|---------|
-| host                | hostname / IP address of the AVR          | -       |
-| zoneCount           | [1, 2, 3 or 4]                            | 2       |
-| telnetEnabled       | true, false                               | false   |
-| telnetPort          | port number, e.g. 23                      | 23      |
-| httpPort            | port number, e.g. 80                      | 80 (1)  |
-| httpPollingInterval | polling interval in seconds (minimal 5)   | 5       |
+|      Parameter      |                 Values                  | Default |
+|---------------------|-----------------------------------------|---------|
+| host                | hostname / IP address of the AVR        | -       |
+| zoneCount           | [1, 2, 3 or 4]                          | 2       |
+| telnetEnabled       | true, false                             | false   |
+| telnetPort          | port number, e.g. 23                    | 23      |
+| httpPort            | port number, e.g. 80                    | 80 (1)  |
+| httpPollingInterval | polling interval in seconds (minimal 5) | 5       |
 
 (1) Models >= 2016 use port 8080 and have a slightly different API
 
@@ -40,39 +40,39 @@ There are more parameters which all have defaults set.
 
 The DenonMarantz AVR supports the following channels (some channels are model specific):
 
-| Channel Type ID         | Item Type    | Description  |
-|-------------------------|--------------|--------------|
-| _General_               |              |
-|  general#power            | Switch (RW) | Power on/off
-|  general#surroundProgram  | String (R) | current surround program (e.g. STEREO)
-|  general#artist | String (R) | artist of current track
-|  general#album | String (R) |  album of current track
-|  general#track | String (R) |  title of current track
-|  general#command          | String (W) | Command to send to the AVR (for use in Rules)
-| _Main zone_             |              |
-|  mainZone#power    | Switch (RW) | Main zone power on/off
-|  mainZone#volume       | Dimmer (RW) | Main zone volume
-|  mainZone#volumeDB     | Number (RW) | Main zone volume in dB (-80 offset)
-|  mainZone#mute             | Switch (RW) | Main zone mute
-|  mainZone#input            | String (RW) | Main zone input (e.g. TV, TUNER, ..)
-|  _Zone 2_               |              |
-|  zone2#power | Switch (RW) | Zone 2 power on/off
-|  zone2#volume | Dimmer (RW) | Zone 2 volume
-|  zone2#volumeDB | Number (RW) | Zone 2 volume in dB (-80 offset)
-|  zone2#mute | Switch (RW) | Zone 2 mute
-|  zone2#input | String (RW) | Zone 2 input
-|  _Zone 3_               |              |
-|  zone3#power | Switch (RW) | Zone 3 power on/off
-|  zone3#volume | Dimmer (RW) | Zone 3 volume
-|  zone3#volumeDB | Number (RW) | Zone 3 volume in dB (-80 offset)
-|  zone3#mute | Switch (RW) | Zone 3 mute
-|  zone3#input | String (RW) | Zone 3 input
-|  _Zone 4_               |              |
-|  zone4#power | Switch (RW) | Zone 4 power on/off
-|  zone4#volume | Dimmer (RW) | Zone 4 volume
-|  zone4#volumeDB | Number (RW) | Zone 4 volume in dB (-80 offset)
-|  zone4#mute | Switch (RW) | Zone 4 mute
-|  zone4#input | String (RW) | Zone 4 input
+|     Channel Type ID     |  Item Type  |                  Description                  |
+|-------------------------|-------------|-----------------------------------------------|
+| _General_               |             |
+| general#power           | Switch (RW) | Power on/off                                  |
+| general#surroundProgram | String (R)  | current surround program (e.g. STEREO)        |
+| general#artist          | String (R)  | artist of current track                       |
+| general#album           | String (R)  | album of current track                        |
+| general#track           | String (R)  | title of current track                        |
+| general#command         | String (W)  | Command to send to the AVR (for use in Rules) |
+| _Main zone_             |             |
+| mainZone#power          | Switch (RW) | Main zone power on/off                        |
+| mainZone#volume         | Dimmer (RW) | Main zone volume                              |
+| mainZone#volumeDB       | Number (RW) | Main zone volume in dB (-80 offset)           |
+| mainZone#mute           | Switch (RW) | Main zone mute                                |
+| mainZone#input          | String (RW) | Main zone input (e.g. TV, TUNER, ..)          |
+| _Zone 2_                |             |
+| zone2#power             | Switch (RW) | Zone 2 power on/off                           |
+| zone2#volume            | Dimmer (RW) | Zone 2 volume                                 |
+| zone2#volumeDB          | Number (RW) | Zone 2 volume in dB (-80 offset)              |
+| zone2#mute              | Switch (RW) | Zone 2 mute                                   |
+| zone2#input             | String (RW) | Zone 2 input                                  |
+| _Zone 3_                |             |
+| zone3#power             | Switch (RW) | Zone 3 power on/off                           |
+| zone3#volume            | Dimmer (RW) | Zone 3 volume                                 |
+| zone3#volumeDB          | Number (RW) | Zone 3 volume in dB (-80 offset)              |
+| zone3#mute              | Switch (RW) | Zone 3 mute                                   |
+| zone3#input             | String (RW) | Zone 3 input                                  |
+| _Zone 4_                |             |
+| zone4#power             | Switch (RW) | Zone 4 power on/off                           |
+| zone4#volume            | Dimmer (RW) | Zone 4 volume                                 |
+| zone4#volumeDB          | Number (RW) | Zone 4 volume in dB (-80 offset)              |
+| zone4#mute              | Switch (RW) | Zone 4 mute                                   |
+| zone4#input             | String (RW) | Zone 4 input                                  |
 
 (R) = read-only (no updates possible)
 (RW) = read-write
@@ -123,3 +123,4 @@ These resources can be useful to learn what to send using the `command`channel:
 - [AVR-3311CI/AVR-3311/AVR-991](https://www.awe-europe.com/documents/Control%20Docs/Denon/Archive/AVR3311CI_AVR3311_991_PROTOCOL_V7.1.0.pdf)
 - [Denon/Marantz Control Protocol](https://assets.eu.denon.com/DocumentMaster/DE/AVR1713_AVR1613_PROTOCOL_V8.6.0.pdf)
 - [Denon DRA-100 Control Protocol](https://assets.denon.com/DocumentMaster/RU/DRA-100_PROTOCOL_Ver100.pdf)
+

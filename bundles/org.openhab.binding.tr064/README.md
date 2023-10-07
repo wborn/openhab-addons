@@ -45,12 +45,12 @@ It only needs to be changed from the default value of `5` seconds when the remot
 ### `fritzbox`
 
 The `fritzbox` devices can give additional informations in dedicated channels, controlled
- by additional parameters (visible if Show Advanced is selected), w.r.t. to `generic` devices.
+by additional parameters (visible if Show Advanced is selected), w.r.t. to `generic` devices.
 If the parameters are specified, the corresponding channels will be added to the device.
 
 One or more TAM (telephone answering machines) are supported by most fritzbox devices.
 By setting the `tamIndices` parameter you can instruct the binding to add channels for these
- devices to the thing.
+devices to the thing.
 Values start with `0`.
 This is an optional parameter and multiple values are allowed: add one value per line in the Main User Interface.
 
@@ -107,20 +107,20 @@ Channels are grouped according to the subdevice they belong to.
 
 Advanced channels appear only if the corresponding parameters are set in the Thing definition.
 
-| channel                    | item-type                 | advanced | description                                                    |
-|----------------------------|---------------------------|:--------:|----------------------------------------------------------------|
-| `callDeflectionEnable`     | `Switch`                  |     x    | Enable/Disable the call deflection setup with the given index. |
-| `callList`                 | `String`                  |     x    | A string containing the call list as JSON (see below)          |
-| `deviceLog`                | `String`                  |     x    | A string containing the last log messages                      |
-| `missedCalls`              | `Number`                  |          | Number of missed calls within the given number of days.        |
-| `outboundCalls`            | `Number`                  |     x    | Number of outbound calls within the given number of days.      |
-| `inboundCalls`             | `Number`                  |     x    | Number of inbound calls within the given number of days.       |
-| `reboot`                   | `Switch`                  |          | Reboot                                                         |
-| `rejectedCalls`            | `Number`                  |     x    | Number of rejected calls within the given number of days.      |
-| `securityPort`             | `Number`                  |     x    | The port for connecting via HTTPS to the TR-064 service.       |
-| `tamEnable`                | `Switch`                  |     x    | Enable/Disable the answering machine with the given index.     |
-| `tamNewMessages`           | `Number`                  |     x    | The number of new messages of the given answering machine.     |
-| `uptime`                   | `Number:Time`             |          | Uptime of the device                                           |
+|        channel         |   item-type   | advanced |                          description                           |
+|------------------------|---------------|:--------:|----------------------------------------------------------------|
+| `callDeflectionEnable` | `Switch`      |    x     | Enable/Disable the call deflection setup with the given index. |
+| `callList`             | `String`      |    x     | A string containing the call list as JSON (see below)          |
+| `deviceLog`            | `String`      |    x     | A string containing the last log messages                      |
+| `missedCalls`          | `Number`      |          | Number of missed calls within the given number of days.        |
+| `outboundCalls`        | `Number`      |    x     | Number of outbound calls within the given number of days.      |
+| `inboundCalls`         | `Number`      |    x     | Number of inbound calls within the given number of days.       |
+| `reboot`               | `Switch`      |          | Reboot                                                         |
+| `rejectedCalls`        | `Number`      |    x     | Number of rejected calls within the given number of days.      |
+| `securityPort`         | `Number`      |    x     | The port for connecting via HTTPS to the TR-064 service.       |
+| `tamEnable`            | `Switch`      |    x     | Enable/Disable the answering machine with the given index.     |
+| `tamNewMessages`       | `Number`      |    x     | The number of new messages of the given answering machine.     |
+| `uptime`               | `Number:Time` |          | Uptime of the device                                           |
 
 Call lists are provided via the `callList` channel for one or more days (as configured) as JSON.
 The JSON consists of an array of individual calls with the fields `date`, `type`, `localNumber`, `remoteNumber`, `duration`.
@@ -128,7 +128,7 @@ The call-types are the same as provided by the FritzBox, i.e. `1` (inbound), `2`
 
 ### LAN `subdeviceLan` channels
 
-| channel              | item-type                 | advanced | description                                                                                                  |
+|       channel        |         item-type         | advanced |                                                 description                                                  |
 |----------------------|---------------------------|:--------:|--------------------------------------------------------------------------------------------------------------|
 | `wifi24GHzEnable`    | `Switch`                  |          | Enable/Disable the 2.4 GHz WiFi device.                                                                      |
 | `wifi5GHzEnable`     | `Switch`                  |          | Enable/Disable the 5.0 GHz WiFi device.                                                                      |
@@ -139,46 +139,47 @@ The call-types are the same as provided by the FritzBox, i.e. `1` (inbound), `2`
 | `macSpeed1`          | `Number:DataTransferRate` |    x     | Wifi Speed of the device with the given MAC. This is set in case the Device is connected to 2.4Ghz           |
 | `macSignalStrength2` | `Number`                  |    x     | Wifi Signal Strength of the device with the given MAC. This is set in case the Device is connected to 5Ghz   |
 | `macSpeed2`          | `Number:DataTransferRate` |    x     | Wifi Speed of the device with the given MAC. This is set in case the Device is connected to 5Ghz             |
+
 Older FritzBox devices may not support 5 GHz WiFi.
 In this case you have to use the `wifi5GHzEnable` channel for switching the guest WiFi.
 
 ### WANConnection `subdevice` channels
 
-| channel                    | item-type                 | advanced | description                                                    |
-|----------------------------|---------------------------|:--------:|----------------------------------------------------------------|
-| `Uptime`                   | `Number:Time`             |          | Uptime                                                         |
-| `pppUptime`                | `Number:Time`             |          | Uptime (if using PPP)                                          |
-| `wanConnectionStatus`      | `String`                  |          | Connection Status                                              |
-| `wanPppConnectionStatus`   | `String`                  |          | Connection Status (if using PPP)                               |
-| `wanIpAddress`             | `String`                  |    x     | WAN IP Address                                                 |
-| `wanPppIpAddress`          | `String`                  |    x     | WAN IP Address (if using PPP)                                  |
+|         channel          |   item-type   | advanced |           description            |
+|--------------------------|---------------|:--------:|----------------------------------|
+| `Uptime`                 | `Number:Time` |          | Uptime                           |
+| `pppUptime`              | `Number:Time` |          | Uptime (if using PPP)            |
+| `wanConnectionStatus`    | `String`      |          | Connection Status                |
+| `wanPppConnectionStatus` | `String`      |          | Connection Status (if using PPP) |
+| `wanIpAddress`           | `String`      |    x     | WAN IP Address                   |
+| `wanPppIpAddress`        | `String`      |    x     | WAN IP Address (if using PPP)    |
 
 ### WAN `subdevice` channels
 
-| channel                    | item-type                 | advanced | description                                                    |
-|----------------------------|---------------------------|:--------:|----------------------------------------------------------------|
-| `dslCRCErrors`             | `Number:Dimensionless`    |    x     | DSL CRC Errors                                                 |
-| `dslDownstreamMaxRate`     | `Number:DataTransferRate` |    x     | DSL Max Downstream Rate                                        |
-| `dslDownstreamCurrRate`    | `Number:DataTransferRate` |    x     | DSL Curr. Downstream Rate                                      |
-| `dslDownstreamNoiseMargin` | `Number:Dimensionless`    |    x     | DSL Downstream Noise Margin                                    |
-| `dslDownstreamAttenuation` | `Number:Dimensionless`    |    x     | DSL Downstream Attenuation                                     |
-| `dslEnable`                | `Switch`                  |          | DSL Enable                                                     |
-| `dslFECErrors`             | `Number:Dimensionless`    |    x     | DSL FEC Errors                                                 |
-| `dslHECErrors`             | `Number:Dimensionless`    |    x     | DSL HEC Errors                                                 |
-| `dslStatus`                | `String`                  |          | DSL Status                                                     |
-| `dslUpstreamMaxRate`       | `Number:DataTransferRate` |    x     | DSL Max Upstream Rate                                          |
-| `dslUpstreamCurrRate`      | `Number:DataTransferRate` |    x     | DSL Curr. Upstream Rate                                        |
-| `dslUpstreamNoiseMargin`   | `Number:Dimensionless`    |    x     | DSL Upstream Noise Margin                                      |
-| `dslUpstreamAttenuation`   | `Number:Dimensionless`    |    x     | DSL Upstream Attenuation                                       |
-| `wanAccessType`            | `String`                  |    x     | Access Type                                                    |
-| `wanMaxDownstreamRate`     | `Number:DataTransferRate` |    x     | Max. Downstream Rate                                           |
-| `wanMaxUpstreamRate`       | `Number:DataTransferRate` |    x     | Max. Upstream Rate                                             |
-| `wanCurrentDownstreamRate` | `Number:DataTransferRate` |    x     | Current Downstream Rate (average last 15 seconds)              |
-| `wanCurrentUpstreamRate`   | `Number:DataTransferRate` |    x     | Current Upstream Rate (average last 15 seconds)                |
-| `wanPhysicalLinkStatus`    | `String`                  |    x     | Link Status                                                    |
-| `wanTotalBytesReceived`    | `Number:DataAmount`       |    x     | Total Bytes Received                                           |
-| `wanTotalBytesSent`        | `Number:DataAmount`       |    x     | Total Bytes Sent                                               |
- 
+|          channel           |         item-type         | advanced |                    description                    |
+|----------------------------|---------------------------|:--------:|---------------------------------------------------|
+| `dslCRCErrors`             | `Number:Dimensionless`    |    x     | DSL CRC Errors                                    |
+| `dslDownstreamMaxRate`     | `Number:DataTransferRate` |    x     | DSL Max Downstream Rate                           |
+| `dslDownstreamCurrRate`    | `Number:DataTransferRate` |    x     | DSL Curr. Downstream Rate                         |
+| `dslDownstreamNoiseMargin` | `Number:Dimensionless`    |    x     | DSL Downstream Noise Margin                       |
+| `dslDownstreamAttenuation` | `Number:Dimensionless`    |    x     | DSL Downstream Attenuation                        |
+| `dslEnable`                | `Switch`                  |          | DSL Enable                                        |
+| `dslFECErrors`             | `Number:Dimensionless`    |    x     | DSL FEC Errors                                    |
+| `dslHECErrors`             | `Number:Dimensionless`    |    x     | DSL HEC Errors                                    |
+| `dslStatus`                | `String`                  |          | DSL Status                                        |
+| `dslUpstreamMaxRate`       | `Number:DataTransferRate` |    x     | DSL Max Upstream Rate                             |
+| `dslUpstreamCurrRate`      | `Number:DataTransferRate` |    x     | DSL Curr. Upstream Rate                           |
+| `dslUpstreamNoiseMargin`   | `Number:Dimensionless`    |    x     | DSL Upstream Noise Margin                         |
+| `dslUpstreamAttenuation`   | `Number:Dimensionless`    |    x     | DSL Upstream Attenuation                          |
+| `wanAccessType`            | `String`                  |    x     | Access Type                                       |
+| `wanMaxDownstreamRate`     | `Number:DataTransferRate` |    x     | Max. Downstream Rate                              |
+| `wanMaxUpstreamRate`       | `Number:DataTransferRate` |    x     | Max. Upstream Rate                                |
+| `wanCurrentDownstreamRate` | `Number:DataTransferRate` |    x     | Current Downstream Rate (average last 15 seconds) |
+| `wanCurrentUpstreamRate`   | `Number:DataTransferRate` |    x     | Current Upstream Rate (average last 15 seconds)   |
+| `wanPhysicalLinkStatus`    | `String`                  |    x     | Link Status                                       |
+| `wanTotalBytesReceived`    | `Number:DataAmount`       |    x     | Total Bytes Received                              |
+| `wanTotalBytesSent`        | `Number:DataAmount`       |    x     | Total Bytes Sent                                  |
+
 **Note:** AVM FritzBox devices use 4-byte-unsigned-integers for `wanTotalBytesReceived` and `wanTotalBytesSent`, because of that the counters are reset after around 4GB data.
 
 ## `PHONEBOOK` Profile
@@ -271,3 +272,4 @@ Example `*.items` file using the `PHONEBOOK` profile for storing the name of a c
 ```java
 Call IncomingCallResolved "Caller name: [%s]" { channel="avmfritz:fritzbox:fritzbox:incoming_call" [profile="transform:PHONEBOOK", phonebook="tr064_3Afritzbox_3AfritzboxTR064", phoneNumberIndex="1", matchCount="8"] }
 ```
+

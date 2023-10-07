@@ -16,7 +16,7 @@ Air Humidifier Classic 200S (Same as 300S without the nightlight from initial ch
 
 This binding supports the follow thing types:
 
-| Thing          | Thing Type | Thing Type UID | Discovery | Description                                                           |
+|     Thing      | Thing Type | Thing Type UID | Discovery |                              Description                              |
 |----------------|------------|----------------|-----------|-----------------------------------------------------------------------|
 | Bridge         | Bridge     | bridge         | Manual    | A single connection to the VeSync API                                 |
 | Air Purifier   | Thing      | airPurifier    | Automatic | An Air Purifier supporting V2 e.g. Core200S/Core300S or Core400S unit |
@@ -35,7 +35,7 @@ Once the bridge is configured auto discovery will discover supported devices fro
 
 ### Bridge configuration parameters
 
-| Name                             | Type   | Description                                               | Recommended Values |
+|               Name               |  Type  |                        Description                        | Recommended Values |
 |----------------------------------|--------|-----------------------------------------------------------|--------------------|
 | username                         | String | The username as used in the VeSync mobile application     |                    |
 | password                         | String | The password as used in the VeSync mobile application     |                    |
@@ -55,10 +55,10 @@ uses, therefore it's best left not configured or taken from auto-discovered info
 
 Device's will be found communicated with via the MAC Id first and if unsuccessful then by the deviceName.
 
-| Name                   | Type                    | Description                                                         |
-|------------------------|-------------------------|---------------------------------------------------------------------|
-| deviceName             | String                  | The name given to the device under Settings -> Device Name          |
-| macId                  | String                  | The mac for the device under Settings -> Device Info -> MAC Address |
+|    Name    |  Type  |                             Description                             |
+|------------|--------|---------------------------------------------------------------------|
+| deviceName | String | The name given to the device under Settings -> Device Name          |
+| macId      | String | The mac for the device under Settings -> Device Info -> MAC Address |
 
 ## Channels
 
@@ -66,7 +66,7 @@ Channel names in **bold** are read/write, everything else is read-only
 
 ### AirPurifier Thing
 
-| Channel              | Type                 | Description                                                | Model's Supported | Controllable Values   |
+|       Channel        |         Type         |                        Description                         | Model's Supported |  Controllable Values  |
 |----------------------|----------------------|------------------------------------------------------------|-------------------|-----------------------|
 | **enabled**          | Switch               | Whether the hardware device is enabled (Switched on)       | 600S, 400S, 300S  | [ON, OFF]             |
 | **childLock**        | Switch               | Whether the child lock (display lock is enabled)           | 600S, 400S, 300S  | [ON, OFF]             |
@@ -88,7 +88,7 @@ Channel names in **bold** are read/write, everything else is read-only
 
 ### AirHumidifier Thing
 
-| Channel                    | Type                 | Description                                                   | Model's Supported                     | Controllable Values |
+|          Channel           |         Type         |                          Description                          |           Model's Supported           | Controllable Values |
 |----------------------------|----------------------|---------------------------------------------------------------|---------------------------------------|---------------------|
 | **enabled**                | Switch               | Whether the hardware device is enabled (Switched on)          | 200S, Dual200S, 300S, 600S, OasisMist | [ON, OFF]           |
 | **display**                | Switch               | Whether the display is enabled (display is shown)             | 200S, Dual200S, 300S, 600S, OasisMist | [ON, OFF]           |
@@ -326,3 +326,4 @@ The binding code is based on a lot of work done by other developers:
 
 - Contributors of (<https://github.com/webdjoe/pyvesync>) - Python interface for VeSync
 - Rene Scherer, Holger Eisold - (<https://www.openhab.org/addons/bindings/surepetcare>) Sure Petcare Binding for openHAB as a reference point for the starting blocks of this code
+

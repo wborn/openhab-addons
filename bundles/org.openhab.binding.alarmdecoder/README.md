@@ -122,7 +122,7 @@ Device#         111111   22221111 33222222
 Thing config file example:
 
 ```java
-  Thing keypad keypad1 [ addressMask=0, sendCommands=true ]
+Thing keypad keypad1 [ addressMask=0, sendCommands=true ]
 ```
 
 ### zone
@@ -137,7 +137,7 @@ Parameters:
 Thing config file example:
 
 ```java
-  Thing zone frontdoor [ address=10, channel=1 ]
+Thing zone frontdoor [ address=10, channel=1 ]
 ```
 
 ### rfzone
@@ -151,7 +151,7 @@ Parameters:
 Thing config file example:
 
 ```java
-  Thing rfzone motion1 [ serial=0180010 ]
+Thing rfzone motion1 [ serial=0180010 ]
 ```
 
 ### vzone
@@ -168,7 +168,7 @@ Parameters:
 Thing config file example:
 
 ```java
-  Thing vzone watersensor [ address=41 ]
+Thing vzone watersensor [ address=41 ]
 ```
 
 ### lrr
@@ -183,7 +183,7 @@ For panels that support multiple partitions, the partition for which a given lrr
 Thing config file example:
 
 ```java
-  Thing lrr lrr [ partition=0 ]
+Thing lrr lrr [ partition=0 ]
 ```
 
 ## Channels
@@ -192,52 +192,52 @@ The alarmdecoder things expose the following channels:
 
 ### zone
 
-|  channel     | type    |RO/RW| description                  |
-|--------------|---------|-----|------------------------------|
-| contact      | Contact |RO   |Zone contact state            |
+| channel |  type   | RO/RW |    description     |
+|---------|---------|-------|--------------------|
+| contact | Contact | RO    | Zone contact state |
 
 ### rfzone
 
-|  channel     | type    |RO/RW| description                  |
-|--------------|---------|-----|------------------------------|
-| lowbat       | Switch  | RO  |Low battery                   |
-| supervision  | Switch  | RO  |Supervision warning           |
-| loop1        | Contact | RO  |Loop 1 state                  |
-| loop2        | Contact | RO  |Loop 2 state                  |
-| loop3        | Contact | RO  |Loop 3 state                  |
-| loop4        | Contact | RO  |Loop 4 state                  |
+|   channel   |  type   | RO/RW |     description     |
+|-------------|---------|-------|---------------------|
+| lowbat      | Switch  | RO    | Low battery         |
+| supervision | Switch  | RO    | Supervision warning |
+| loop1       | Contact | RO    | Loop 1 state        |
+| loop2       | Contact | RO    | Loop 2 state        |
+| loop3       | Contact | RO    | Loop 3 state        |
+| loop4       | Contact | RO    | Loop 4 state        |
 
 ### vzone
 
-|  channel     | type    |RO/RW| description                  |
-|--------------|---------|-----|------------------------------|
-| command      | String  | WO  |"OPEN" or "CLOSED" command    |
-| state        | Switch  | RW  |Zone state (ON = closed)      |
+| channel |  type  | RO/RW |        description         |
+|---------|--------|-------|----------------------------|
+| command | String | WO    | "OPEN" or "CLOSED" command |
+| state   | Switch | RW    | Zone state (ON = closed)   |
 
 ### keypad
 
-|  channel     | type    |RO/RW| description                  |
-|--------------|---------|-----|------------------------------|
-| zone         | Number  | RO  |Zone number for status        |
-| text         | String  | RO  |Keypad message text           |
-| ready        | Switch  | RO  |Panel ready                   |
-| armedaway    | Switch  | RO  |Armed/Away Indicator          |
-| armedhome    | Switch  | RO  |Armed/Stay Indicator          |
-| backlight    | Switch  | RO  |Keypad backlight on           |
-| program      | Switch  | RO  |Programming mode              |
-| beeps        | Number  | RO  |Number of beeps for message   |
-| bypassed     | Switch  | RO  |Zone bypassed                 |
-| acpower      | Switch  | RO  |Panel on AC power             |
-| chime        | Switch  | RO  |Chime enabled                 |
-| alarmoccurred| Switch  | RO  |Alarm occurred in the past    |
-| alarm        | Switch  | RO  |Alarm is currently sounding   |
-| lowbat       | Switch  | RO  |Low battery warning           |
-| delayoff     | Switch  | RO  |Entry delay off               |
-| fire         | Switch  | RO  |Fire detected                 |
-| sysfault     | Switch  | RO  |System fault                  |
-| perimeter    | Switch  | RO  |Perimeter only                |
-| command      | String  | RW  |Keypad command                |
-| intcommand   | Number  | RW  |Integer keypad command        |
+|    channel    |  type  | RO/RW |         description         |
+|---------------|--------|-------|-----------------------------|
+| zone          | Number | RO    | Zone number for status      |
+| text          | String | RO    | Keypad message text         |
+| ready         | Switch | RO    | Panel ready                 |
+| armedaway     | Switch | RO    | Armed/Away Indicator        |
+| armedhome     | Switch | RO    | Armed/Stay Indicator        |
+| backlight     | Switch | RO    | Keypad backlight on         |
+| program       | Switch | RO    | Programming mode            |
+| beeps         | Number | RO    | Number of beeps for message |
+| bypassed      | Switch | RO    | Zone bypassed               |
+| acpower       | Switch | RO    | Panel on AC power           |
+| chime         | Switch | RO    | Chime enabled               |
+| alarmoccurred | Switch | RO    | Alarm occurred in the past  |
+| alarm         | Switch | RO    | Alarm is currently sounding |
+| lowbat        | Switch | RO    | Low battery warning         |
+| delayoff      | Switch | RO    | Entry delay off             |
+| fire          | Switch | RO    | Fire detected               |
+| sysfault      | Switch | RO    | System fault                |
+| perimeter     | Switch | RO    | Perimeter only              |
+| command       | String | RW    | Keypad command              |
+| intcommand    | Number | RW    | Integer keypad command      |
 
 _Note_ - The `intcommand` channel is provided for backward compatibility with the OH1 version of the binding.
 The integer to command string mappings are provided by the optional keypad `commandMapping` parameter.
@@ -245,12 +245,12 @@ The default mapping is "0=0,1=1,2=2,3=3,4=4,5=5,6=6,7=7,8=8,9=9,10=*,11=#".
 
 ### lrr
 
-|  channel     | type    |RO/RW| description                  |
-|--------------|---------|-----|------------------------------|
-| partition    | Number  | RO  |Partition number (0=system)   |
-| eventdata    | Number  | RO  |CID event data (user or zone) |
-| cidmessage   | String  | RO  |SIA Contact ID Protocol msg.  |
-| reportcode   | String  | RO  |CID report code               |
+|  channel   |  type  | RO/RW |          description          |
+|------------|--------|-------|-------------------------------|
+| partition  | Number | RO    | Partition number (0=system)   |
+| eventdata  | Number | RO    | CID event data (user or zone) |
+| cidmessage | String | RO    | SIA Contact ID Protocol msg.  |
+| reportcode | String | RO    | CID report code               |
 
 ## Full Example
 

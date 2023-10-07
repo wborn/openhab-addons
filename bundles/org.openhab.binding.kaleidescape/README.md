@@ -9,15 +9,15 @@ See [Kaleidescape-System-Control-Protocol-Reference-Manual.pdf](https://support.
 ## Supported Things
 
 All movie player components including the original K-Player series, M Class Players, Cinema One, Alto, and Strato are supported.
-It is important to choose the correct thing type to ensure the available channels are correct for the component being used.  
+It is important to choose the correct thing type to ensure the available channels are correct for the component being used.
 
 The supported thing types are:  
 `player` Any KPlayer, M Class [M300, M500, M700] or Cinema One 1st Gen player  
 `cinemaone` Cinema One (2nd Gen)  
 `alto`  
-`strato` Includes Strato, Strato S, or Strato C  
+`strato` Includes Strato, Strato S, or Strato C
 
-The binding supports either a TCP/IP connection or direct serial port connection (19200-8-N-1) to the Kaleidescape component.  
+The binding supports either a TCP/IP connection or direct serial port connection (19200-8-N-1) to the Kaleidescape component.
 
 ## Discovery
 
@@ -28,7 +28,7 @@ In the Inbox, select Search For Things and then choose the Kaleidescape Binding 
 
 The thing has the following configuration parameters:
 
-| Parameter Label          | Parameter ID           | Description                                                                                                                          | Accepted values                                      |
+|     Parameter Label      |      Parameter ID      |                                                             Description                                                              |                   Accepted values                    |
 |--------------------------|------------------------|--------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
 | Address                  | host                   | Host name or IP address of the Kaleidescape component                                                                                | A host name or IP address                            |
 | Port                     | port                   | Communication port of the IP connection                                                                                              | 10000 (default - should not need to change)          |
@@ -47,7 +47,6 @@ Some notes:
 - In this case, the running time channels will also only sporadically update.
 - When updatePeriod is set to 1 (values greater than 1 are not yet supported by the control protocol), the component sends running time status update messages every second.
 - Be aware that this could cause performance impacts to your openHAB system.
-
 - On Linux, you may get an error stating the serial port cannot be opened when the Kaleidescape binding tries to load.
 - You can get around this by adding the `openhab` user to the `dialout` group like this: `usermod -a -G dialout openhab`.
 - Also on Linux you may have issues with the USB if using two serial USB devices e.g. Kaleidescape and RFXcom.
@@ -57,80 +56,80 @@ Some notes:
 
 The following channels are available:
 
-| Channel ID                 | Item Type   | Description                                                                                                      |
-|----------------------------|-------------|------------------------------------------------------------------------------------------------------------------|
-| ui#power                   | Switch      | Turn the zone On or Off (system standby)                                                                         |
-| ui#volume                  | Dimmer      | A virtual volume that tracks the volume in K control apps, use as a proxy to adjust a real volume item via rules |
-| ui#mute                    | Switch      | A virtual mute switch that tracks the mute status in K control apps, use as a proxy to control a real mute item  |
-| ui#control                 | Player      | Control Movie Playback e.g. play/pause/next/previous/ffward/rewind                                               |
-| ui#title_name              | String      | The title of the movie currently playing                                                                         |
-| ui#play_mode               | String      | The current playback mode of the movie                                                                           |
-| ui#play_speed              | String      | The speed of playback scanning                                                                                   |
-| ui#title_num               | Number      | The current movie title number that is playing                                                                   |
-| ui#title_length            | Number:Time | The total running time of the currently playing movie (seconds)                                                  |
-| ui#title_loc               | Number:Time | The running time elapsed of the currently playing movie (seconds)                                                |
-| ui#chapter_num             | Number      | The current chapter number of the movie that is playing                                                          |
-| ui#chapter_length          | Number:Time | The total running time of the current chapter (seconds)                                                          |
-| ui#chapter_loc             | Number:Time | The running time elapsed of the current chapter                                                                  |
-| ui#movie_media_type        | String      | The type of media that is currently playing                                                                      |
-| ui#movie_location          | String      | Identifies the location in the movie, ie: Main content, Intermission, or End Credits                             |
-| ui#aspect_ratio            | String      | Identifies the aspect ratio of the movie                                                                         |
-| ui#video_mode              | String      | Raw output of video mode data from the component, format: 00:00:00                                               |
-| ui#video_mode_composite    | String      | Identifies the video mode currently active on the composite video output                                         |
-| ui#video_mode_component    | String      | Identifies the video mode currently active on the component video output                                         |
-| ui#video_mode_hdmi         | String      | Identifies the video mode currently active on the HDMI video output                                              |
-| ui#video_color             | String      | Provides color information about the current video output (Strato Only)                                          |
-| ui#video_color_eotf        | String      | Identifies the Electro-Optical Transfer Function standard of the current video output (Strato Only)              |
-| ui#content_color           | String      | Provides color information about the currently playing content (Strato Only)                                     |
-| ui#content_color_eotf      | String      | Identifies the Electro-Optical Transfer Function standard of the currently playing content (Strato Only)         |
-| ui#scale_mode              | String      | Identifies whether the image from the player requires scaling                                                    |
-| ui#screen_mask             | String      | Provides aspect ratio and masking information for the current video image                                        |
-| ui#screen_mask2            | String      | Provides masking information based on aspect ratio and overscan area                                             |
-| ui#cinemascape_mask        | String      | When in CinemaScape mode, provides information about the frame aspect ratio                                      |
-| ui#cinemascape_mode        | String      | Identifies the CinemaScape mode currently active                                                                 |
-| ui#ui_state                | String      | Provides information about which screen is visible in the Kaleidescape user interface                            |
-| ui#child_mode_state        | String      | Indicates if the onscreen display is displaying the child user interface                                         |
-| ui#readiness_state         | String      | Indicates the system's current idle mode (Not available on Premiere system players)                              |
-| ui#highlighted_selection   | String      | Specifies the handle of the movie or album currently selected on the user interface                              |
-| ui#user_defined_event      | String      | Will contain custom event messages generated by scripts, sent from another component, or system events           |
-| ui#user_input              | String      | Indicates if the user is being prompted for input, what type of input, and any currently entered characters      |
-| ui#user_input_prompt       | String      | Indicates user input prompt info and properties currently shown on screen                                        |
-| -- music channels (not available on Alto and Strato) --                                                                                                     |
-| music#control              | Player      | Control Music Playback e.g. play/pause/next/previous/ffward/rewind                                               |
-| music#repeat               | Switch      | Controls repeat playback for music                                                                               |
-| music#random               | Switch      | Controls random playback for music                                                                               |
-| music#track                | String      | The name of the currently playing track                                                                          |
-| music#artist               | String      | The name of the currently playing artist                                                                         |
-| music#album                | String      | The name of the currently playing album                                                                          |
-| music#play_mode            | String      | The current playback mode of the music                                                                           |
-| music#play_speed           | String      | The speed of playback scanning                                                                                   |
-| music#track_length         | Number:Time | The total running time of the current playing track (seconds)                                                    |
-| music#track_position       | Number:Time | The running time elapsed of the current playing track (seconds)                                                  |
-| music#track_progress       | Number      | The percentage complete of the current playing track                                                             |
-| music#track_handle         | String      | The handle of the currently playing track                                                                        |
-| music#album_handle         | String      | The handle of the currently playing album                                                                        |
-| music#nowplay_handle       | String      | The handle of the current now playing list                                                                       |
-| -- metadata display channels (music related channels not available on Alto and Strato) --                                                                   |
-| detail#type                | String      | Indicates if the currently selected item is a Movie or Album                                                     |
-| detail#title               | String      | The title of the selected movie                                                                                  |
-| detail#album_title         | String      | The title of the selected album                                                                                  |
-| detail#cover_art           | Image       | Cover art image of the currently selected item                                                                   |
-| detail#cover_url           | String      | The url of the cover art                                                                                         |
-| detail#hires_cover_url     | String      | The url of the high resolution cover art                                                                         |
-| detail#rating              | String      | The MPAA rating of the selected movie                                                                            |
-| detail#year                | String      | The release year of the selected item                                                                            |
-| detail#running_time        | Number:Time | The total running time of the selected item (seconds)                                                            |
-| detail#actors              | String      | A list of actors appearing in the selected movie                                                                 |
-| detail#artist              | String      | The artist of the selected album                                                                                 |
-| detail#directors           | String      | A list of directors of the selected movie                                                                        |
-| detail#genres              | String      | A list of genres of the selected item                                                                            |
-| detail#rating_reason       | String      | An explaination of why the selected movie received its rating                                                    |
-| detail#synopsis            | String      | A synopsis of the selected movie                                                                                 |
-| detail#review              | String      | A review of the selected album                                                                                   |
-| detail#color_description   | String      | Indicates if the selected movie is in Color, Black and White, etc.                                               |
-| detail#country             | String      | The country that the selected movie originates from                                                              |
-| detail#aspect_ratio        | String      | The aspect ratio of the selected movie                                                                           |
-| detail#disc_location       | String      | Indicates where the disc for the selected item is currently residing in the system (ie Vault, Tray, etc.)        |
+|                                        Channel ID                                         |  Item Type  |                                                   Description                                                    |
+|-------------------------------------------------------------------------------------------|-------------|------------------------------------------------------------------------------------------------------------------|
+| ui#power                                                                                  | Switch      | Turn the zone On or Off (system standby)                                                                         |
+| ui#volume                                                                                 | Dimmer      | A virtual volume that tracks the volume in K control apps, use as a proxy to adjust a real volume item via rules |
+| ui#mute                                                                                   | Switch      | A virtual mute switch that tracks the mute status in K control apps, use as a proxy to control a real mute item  |
+| ui#control                                                                                | Player      | Control Movie Playback e.g. play/pause/next/previous/ffward/rewind                                               |
+| ui#title_name                                                                             | String      | The title of the movie currently playing                                                                         |
+| ui#play_mode                                                                              | String      | The current playback mode of the movie                                                                           |
+| ui#play_speed                                                                             | String      | The speed of playback scanning                                                                                   |
+| ui#title_num                                                                              | Number      | The current movie title number that is playing                                                                   |
+| ui#title_length                                                                           | Number:Time | The total running time of the currently playing movie (seconds)                                                  |
+| ui#title_loc                                                                              | Number:Time | The running time elapsed of the currently playing movie (seconds)                                                |
+| ui#chapter_num                                                                            | Number      | The current chapter number of the movie that is playing                                                          |
+| ui#chapter_length                                                                         | Number:Time | The total running time of the current chapter (seconds)                                                          |
+| ui#chapter_loc                                                                            | Number:Time | The running time elapsed of the current chapter                                                                  |
+| ui#movie_media_type                                                                       | String      | The type of media that is currently playing                                                                      |
+| ui#movie_location                                                                         | String      | Identifies the location in the movie, ie: Main content, Intermission, or End Credits                             |
+| ui#aspect_ratio                                                                           | String      | Identifies the aspect ratio of the movie                                                                         |
+| ui#video_mode                                                                             | String      | Raw output of video mode data from the component, format: 00:00:00                                               |
+| ui#video_mode_composite                                                                   | String      | Identifies the video mode currently active on the composite video output                                         |
+| ui#video_mode_component                                                                   | String      | Identifies the video mode currently active on the component video output                                         |
+| ui#video_mode_hdmi                                                                        | String      | Identifies the video mode currently active on the HDMI video output                                              |
+| ui#video_color                                                                            | String      | Provides color information about the current video output (Strato Only)                                          |
+| ui#video_color_eotf                                                                       | String      | Identifies the Electro-Optical Transfer Function standard of the current video output (Strato Only)              |
+| ui#content_color                                                                          | String      | Provides color information about the currently playing content (Strato Only)                                     |
+| ui#content_color_eotf                                                                     | String      | Identifies the Electro-Optical Transfer Function standard of the currently playing content (Strato Only)         |
+| ui#scale_mode                                                                             | String      | Identifies whether the image from the player requires scaling                                                    |
+| ui#screen_mask                                                                            | String      | Provides aspect ratio and masking information for the current video image                                        |
+| ui#screen_mask2                                                                           | String      | Provides masking information based on aspect ratio and overscan area                                             |
+| ui#cinemascape_mask                                                                       | String      | When in CinemaScape mode, provides information about the frame aspect ratio                                      |
+| ui#cinemascape_mode                                                                       | String      | Identifies the CinemaScape mode currently active                                                                 |
+| ui#ui_state                                                                               | String      | Provides information about which screen is visible in the Kaleidescape user interface                            |
+| ui#child_mode_state                                                                       | String      | Indicates if the onscreen display is displaying the child user interface                                         |
+| ui#readiness_state                                                                        | String      | Indicates the system's current idle mode (Not available on Premiere system players)                              |
+| ui#highlighted_selection                                                                  | String      | Specifies the handle of the movie or album currently selected on the user interface                              |
+| ui#user_defined_event                                                                     | String      | Will contain custom event messages generated by scripts, sent from another component, or system events           |
+| ui#user_input                                                                             | String      | Indicates if the user is being prompted for input, what type of input, and any currently entered characters      |
+| ui#user_input_prompt                                                                      | String      | Indicates user input prompt info and properties currently shown on screen                                        |
+| -- music channels (not available on Alto and Strato) --                                   |
+| music#control                                                                             | Player      | Control Music Playback e.g. play/pause/next/previous/ffward/rewind                                               |
+| music#repeat                                                                              | Switch      | Controls repeat playback for music                                                                               |
+| music#random                                                                              | Switch      | Controls random playback for music                                                                               |
+| music#track                                                                               | String      | The name of the currently playing track                                                                          |
+| music#artist                                                                              | String      | The name of the currently playing artist                                                                         |
+| music#album                                                                               | String      | The name of the currently playing album                                                                          |
+| music#play_mode                                                                           | String      | The current playback mode of the music                                                                           |
+| music#play_speed                                                                          | String      | The speed of playback scanning                                                                                   |
+| music#track_length                                                                        | Number:Time | The total running time of the current playing track (seconds)                                                    |
+| music#track_position                                                                      | Number:Time | The running time elapsed of the current playing track (seconds)                                                  |
+| music#track_progress                                                                      | Number      | The percentage complete of the current playing track                                                             |
+| music#track_handle                                                                        | String      | The handle of the currently playing track                                                                        |
+| music#album_handle                                                                        | String      | The handle of the currently playing album                                                                        |
+| music#nowplay_handle                                                                      | String      | The handle of the current now playing list                                                                       |
+| -- metadata display channels (music related channels not available on Alto and Strato) -- |
+| detail#type                                                                               | String      | Indicates if the currently selected item is a Movie or Album                                                     |
+| detail#title                                                                              | String      | The title of the selected movie                                                                                  |
+| detail#album_title                                                                        | String      | The title of the selected album                                                                                  |
+| detail#cover_art                                                                          | Image       | Cover art image of the currently selected item                                                                   |
+| detail#cover_url                                                                          | String      | The url of the cover art                                                                                         |
+| detail#hires_cover_url                                                                    | String      | The url of the high resolution cover art                                                                         |
+| detail#rating                                                                             | String      | The MPAA rating of the selected movie                                                                            |
+| detail#year                                                                               | String      | The release year of the selected item                                                                            |
+| detail#running_time                                                                       | Number:Time | The total running time of the selected item (seconds)                                                            |
+| detail#actors                                                                             | String      | A list of actors appearing in the selected movie                                                                 |
+| detail#artist                                                                             | String      | The artist of the selected album                                                                                 |
+| detail#directors                                                                          | String      | A list of directors of the selected movie                                                                        |
+| detail#genres                                                                             | String      | A list of genres of the selected item                                                                            |
+| detail#rating_reason                                                                      | String      | An explaination of why the selected movie received its rating                                                    |
+| detail#synopsis                                                                           | String      | A synopsis of the selected movie                                                                                 |
+| detail#review                                                                             | String      | A review of the selected album                                                                                   |
+| detail#color_description                                                                  | String      | Indicates if the selected movie is in Color, Black and White, etc.                                               |
+| detail#country                                                                            | String      | The country that the selected movie originates from                                                              |
+| detail#aspect_ratio                                                                       | String      | The aspect ratio of the selected movie                                                                           |
+| detail#disc_location                                                                      | String      | Indicates where the disc for the selected item is currently residing in the system (ie Vault, Tray, etc.)        |
 
 ## Full Example
 
@@ -431,3 +430,4 @@ then
     kactions.sendKCommand("GET_CONTENT_DETAILS:" + z1_Music_AlbumHandle.state.toString + ":")
 end
 ```
+

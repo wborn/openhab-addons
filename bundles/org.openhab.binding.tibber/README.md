@@ -3,7 +3,7 @@
 The Tibber Binding connects to the [Tibber API](https://developer.tibber.com), and enables users to retrieve electricity data:
 
 - Default: Frequent polls are performed to retrieve electricity price and cost/consumption information
-- Optional: For users having Tibber Pulse, a websocket connection is established to retrieve live measurements  
+- Optional: For users having Tibber Pulse, a websocket connection is established to retrieve live measurements
 
 Refresh time (poll frequency) is set manually as part of setup, minimum 1 minute.
 
@@ -19,7 +19,7 @@ The channels (i.e. measurements) associated with the Binding:
 
 Tibber Default:
 
-| Channel ID         | Description                                             | Read-only |
+|     Channel ID     |                       Description                       | Read-only |
 |--------------------|---------------------------------------------------------|-----------|
 | Current Total      | Current Total Price (energy + tax)                      | True      |
 | Starts At          | Current Price Timestamp                                 | True      |
@@ -37,7 +37,7 @@ Tibber Default:
 
 Tibber Pulse (optional):
 
-| Channel ID              | Description                              | Read-only |
+|       Channel ID        |               Description                | Read-only |
 |-------------------------|------------------------------------------|-----------|
 | Timestamp               | Timestamp for live measurements          | True      |
 | Power                   | Live Power Consumption                   | True      |
@@ -251,3 +251,4 @@ Number:Energy              TibberAPILiveLastMeterProduction      "Min Power Prod
 Number:Power               TibberAPILiveMinPowerproduction       "Min Power Production [%.0f W]"             {channel="tibber:tibberapi:7cfae492:live_minPowerproduction"}
 Number:Power               TibberAPILiveMaxPowerproduction       "Max Power Production [%.0f W]"             {channel="tibber:tibberapi:7cfae492:live_maxPowerproduction"}
 ```
+

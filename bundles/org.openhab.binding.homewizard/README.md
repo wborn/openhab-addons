@@ -18,7 +18,7 @@ Auto discovery is not available for this binding.
 
 The P1 Meter thing can be configured through the web interface.
 
-| Parameter    | Required | Default | Description                                                                                       |
+|  Parameter   | Required | Default |                                            Description                                            |
 |--------------|----------|---------|---------------------------------------------------------------------------------------------------|
 | ipAddress    | *        |         | This specifies the IP address (or host name) where the meter can be found.                        |
 | refreshDelay |          | 5       | This specifies the interval in seconds used by the binding to read updated values from the meter. |
@@ -34,7 +34,7 @@ Thing homewizard:p1_wifi_meter:my_meter [ ipAddress="192.178.1.67", refreshDelay
 
 ## Channels
 
-| Channel ID             | Item Type     | Description                                                                                |
+|       Channel ID       |   Item Type   |                                        Description                                         |
 |------------------------|---------------|--------------------------------------------------------------------------------------------|
 | total_energy_import_t1 | Number:Energy | The most recently reported total imported energy in kWh by counter 1.                      |
 | total_energy_import_t2 | Number:Energy | The most recently reported total imported energy in kWh by counter 2.                      |
@@ -54,3 +54,4 @@ Number:Energy Energy_Import_T1 "Imported Energy T1 [%.0f kWh]" {channel="homewiz
 Number:Power  Active_Power_L1  "Active Power Phase 1 [%.1f W]" {channel="homewizard:p1_wifi_meter:my_meter:active_power_l1" }
 DateTime      Gas_Update       "Gas Update Time [%1$tH:%1$tM]" {channel="homewizard:p1_wifi_meter:my_meter:gas_timestamp" }
 ```
+

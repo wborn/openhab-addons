@@ -21,8 +21,8 @@ Some of these could change, like of firmware version.
 Therefore these properties are updated with a 1 hour frequency.
 The following NUT variables are read and added to the thing as properties:
 
-| Property         | Description               |
-| ---------------- | ------------------------- |
+|     Property     |        Description        |
+|------------------|---------------------------|
 | ups.firmware     | UPS firmware              |
 | ups.firmware.aux | Auxiliary device firmware |
 | ups.id           | UPS system identifier     |
@@ -41,8 +41,8 @@ The thing configuration requires the name of the UPS device as configured on the
 If the NUT service isn't running locally the ip address or domain name (FDQN) of the server running NUT must be configured.
 Optional, port, username and password might need to be configured if required.
 
-| Parameter | Default   | Mandatory | Description                                     |
-| --------- | --------- | --------- | ----------------------------------------------- |
+| Parameter |  Default  | Mandatory |                   Description                   |
+|-----------|-----------|-----------|-------------------------------------------------|
 | device    |           | Yes       | UPS device name, `ups` for example              |
 | host      | localhost | Yes       | UPS server hostname                             |
 | port      | 3493      | No        | UPS server port, 3493 for example               |
@@ -54,8 +54,8 @@ Optional, port, username and password might need to be configured if required.
 
 The following channels are available:
 
-| Channel Name        | Item Type                | Unit | Description                                                         | Advanced |
-| ------------------- | ------------------------ | ---- | ------------------------------------------------------------------- | -------- |
+|    Channel Name     |        Item Type         | Unit |                             Description                             | Advanced |
+|---------------------|--------------------------|------|---------------------------------------------------------------------|----------|
 | upsAlarm            | String                   |      | UPS alarms                                                          | no       |
 | upsLoad             | Number:Dimensionless     | %    | Load on UPS (percent)                                               | yes      |
 | upsPower            | Number:Power             | VA   | Current value of apparent power (Volt-Amps)                         | yes      |
@@ -85,8 +85,8 @@ Channels can be created with as type: `Number`, `Number:<Quantity>`, `String` or
 
 The following channel properties are needed:
 
-| Property        | Description                    | Example                                       |
-| --------------- | ------------------------------ | --------------------------------------------- |
+|    Property     |          Description           |                    Example                    |
+|-----------------|--------------------------------|-----------------------------------------------|
 | networkupstools | Links to NUT variable          | `networkupstools="input.voltage.low.warning"` |
 | unit            | The unit of Quantity Type data | `unit="V"`                                    |
 
@@ -121,3 +121,4 @@ Number:Frequency ups_out_freq "Output Frequency" {channel="networkupstools:ups:u
 Number:ElectricPotential ups_low_voltage  "Low Voltage [%.1f V]" {channel="networkupstools:ups:ups2:upsLowVoltage"}
 Number:ElectricCurrent ups_low_current "Input Current [%d A]" {channel="networkupstools:ups:ups2:upsLowCurrent"}
 ```
+

@@ -34,9 +34,9 @@ The ISM8 does currently support 4 different devices at the same moment of time (
 Once you have an overview of your heating system set you can start to create the channels accordingly.
 Each channel should be created in the following way:
 
-| Type   | Name    | Description                | Configuration   |
-|--------|---------|----------------------------|-----------------|
-| Number | DpId004 | "Kesseltemperatur"         | id, type, write |
+|  Type  |  Name   |    Description     |  Configuration  |
+|--------|---------|--------------------|-----------------|
+| Number | DpId004 | "Kesseltemperatur" | id, type, write |
 
 Type:
 
@@ -55,10 +55,10 @@ Description:
 Configuration:
 
 - id=1            - Please enter here the ID of the data point you'd like to map to this channel.
-A list of the available IDs are available within the Wolf manual.
-The supported IDs are depending on the firmware version of the ISM8 and the connected systems.
+  A list of the available IDs are available within the Wolf manual.
+  The supported IDs are depending on the firmware version of the ISM8 and the connected systems.
 - type="1.001"    - Please enter here the knx type of the data point.
-You can find the data type in the Wolf ISM8 document as well.
+  You can find the data type in the Wolf ISM8 document as well.
 - write=true      - This parameter defines if the channel is bidirectional, but the parameter is optional and by default false.
 
 Note:

@@ -16,7 +16,7 @@ more information.
 
 ## Supported Things
 
-| Thing     | Type   | Description                                                                |
+|   Thing   |  Type  |                                Description                                 |
 |-----------|--------|----------------------------------------------------------------------------|
 | `bridge`  | Bridge | Pilight bridge required for the communication with the pilight daemon.     |
 | `contact` | Thing  | Pilight contact (read-only).                                               |
@@ -33,10 +33,10 @@ different pilight `bridge` things.
 
 The `bridge` requires the following configuration parameters:
 
-| Parameter Label | Parameter ID | Description                                                                                                                                                                              | Required |
-|-----------------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
-| IP Address      | ipAddress    | Host name or IP address of the pilight daemon                                                                                                                                            | yes      |
-| Port            | port         | Port number on which the pilight daemon is listening. Default: 5000                                                                                                                      | yes      |
+| Parameter Label | Parameter ID |                                                                                       Description                                                                                       | Required |
+|-----------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| IP Address      | ipAddress    | Host name or IP address of the pilight daemon                                                                                                                                           | yes      |
+| Port            | port         | Port number on which the pilight daemon is listening. Default: 5000                                                                                                                     | yes      |
 | Delay           | delay        | Delay (in millisecond) between consecutive commands. Recommended value without band pass filter: 1000. Recommended value with band pass filter: somewhere between 200-500. Default: 500 | no       |
 
 Important: you must explicitly configure the port in the pilight daemon config or otherwise a random port will be used
@@ -46,7 +46,7 @@ and the binding will not be able to connect.
 
 These things have all one required parameter:
 
-| Parameter Label | Parameter ID | Description            | Required |
+| Parameter Label | Parameter ID |      Description       | Required |
 |-----------------|--------------|------------------------|----------|
 | Name            | name         | Name of pilight device | yes      |
 
@@ -56,7 +56,7 @@ The `bridge` thing has no channels.
 
 The `contact`, `dimmer` and `switch` things all have one channel:
 
-| Thing     | Channel  | Type    | Description             |
+|   Thing   | Channel  |  Type   |       Description       |
 |-----------|----------|---------|-------------------------|
 | `contact` | state    | Contact | State of the contact    |
 | `dimmer`  | dimlevel | Dimmer  | Dim level of the dimmer |
@@ -116,3 +116,4 @@ Slider item=piano_light
 Text item=weather_temperature
 Text item=weather_humidity
 ```
+

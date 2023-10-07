@@ -16,13 +16,13 @@ The device acts as a bridge and is exposed as "LaMetric Time" Thing.
 The "LaMetric Time" Thing is directly responsible for device operations which include the display, audio, bluetooth, and notifications.
 All apps are implemented as separate things under the bridge.
 
-| App               | Thing Type   | Description                                      |
-|-------------------|--------------|--------------------------------------------------|
-| Clock             | clockApp     | Clock that dispays time and date                 |
-| Timer             | countdownApp | A countdown timer that counts by seconds         |
-| Radio             | radioApp     | Streaming radio player                           |
-| Stopwatch         | stopwatchApp | Stopwatch that counts up by seconds              |
-| Weather           | weatherApp   | Current weather conditions as well as a forecast |
+|    App    |  Thing Type  |                   Description                    |
+|-----------|--------------|--------------------------------------------------|
+| Clock     | clockApp     | Clock that dispays time and date                 |
+| Timer     | countdownApp | A countdown timer that counts by seconds         |
+| Radio     | radioApp     | Streaming radio player                           |
+| Stopwatch | stopwatchApp | Stopwatch that counts up by seconds              |
+| Weather   | weatherApp   | Current weather conditions as well as a forecast |
 
 ## Discovery
 
@@ -40,10 +40,10 @@ The binding requires no special configuration.
 
 The bridge requires a host and an API key. The key can be found by visiting [the LaMetric dev portal](https://developer.lametric.com/user/devices).
 
-| Configuration Parameter | Type    | Description                                            | Default | Required |
-|-------------------------|---------|--------------------------------------------------------|---------|----------|
-| host                    | text    | Host name or network address of the LaMetric Time      |         | Yes      |
-| apiKey                  | text    | API key to access LaMetric Time                        |         | Yes      |
+| Configuration Parameter | Type |                    Description                    | Default | Required |
+|-------------------------|------|---------------------------------------------------|---------|----------|
+| host                    | text | Host name or network address of the LaMetric Time |         | Yes      |
+| apiKey                  | text | API key to access LaMetric Time                   |         | Yes      |
 
 ### Core (Built-in) Apps (Thing ID: "clockApp", "countdownApp", "radioApp", "stopwatchApp", "weatherApp")
 
@@ -53,9 +53,9 @@ If you do not specify a widget ID, the first available one will be used automati
 Widgets are instances of the application.
 For example, if you duplicated the weather app for two locations, the app would have two widgets.
 
-| Configuration Parameter | Type    | Description                                                     | Default                   | Required |
-|-------------------------|---------|-----------------------------------------------------------------|---------------------------|----------|
-| widgetId                | text    | The identifier for the exact instance of the app (widget)       | The first widget ID found | No       |
+| Configuration Parameter | Type |                        Description                        |          Default          | Required |
+|-------------------------|------|-----------------------------------------------------------|---------------------------|----------|
+| widgetId                | text | The identifier for the exact instance of the app (widget) | The first widget ID found | No       |
 
 ### Sample Thing Configuration
 
@@ -74,7 +74,7 @@ Bridge lametrictime:device:demo [ host="somehost", apiKey="ksfjsdkfsksjfs" ]
 
 ### Device
 
-| Channel ID     | Item Type                                        | Description                                                                                                                                                                                                           |
+|   Channel ID   |                    Item Type                     |                                                                                                      Description                                                                                                      |
 |----------------|--------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | brightness     | Dimmer                                           | The brightness of the display. Please note that changing the brightness will automatically set the 'brightnessMode' to 'manual'.                                                                                      |
 | brightnessMode | String (possible values are 'auto' and 'manual') | The mode for the display brightness. If set to 'auto' the brightness is set by the device automatically based on environment illumination. If set to 'manual' the brightness can be changed via 'brightness' channel. |
@@ -92,33 +92,33 @@ They exist as one-way communication only.
 
 #### Clock App
 
-| Channel ID | Item Type | Description                                                         |
+| Channel ID | Item Type |                             Description                             |
 |------------|-----------|---------------------------------------------------------------------|
 | setAlarm   | DateTime  | Set the alarm using the given time (note that the date is not used) |
 | command    | String    | Send a command to the app (disableAlarm)                            |
 
 #### Timer App
 
-| Channel ID | Item Type | Description                                     |
+| Channel ID | Item Type |                   Description                   |
 |------------|-----------|-------------------------------------------------|
-| duration   | Number    | Set the duration of the timer in seconds    |
+| duration   | Number    | Set the duration of the timer in seconds        |
 | command    | String    | Send a command to the app (start, pause, reset) |
 
 #### Radio App
 
-| Channel ID | Item Type | Description                                           |
-|------------|-----------|-------------------------------------------------------|
-| control    | Player    | Control interface to manipulate the radio             |
+| Channel ID | Item Type |                Description                |
+|------------|-----------|-------------------------------------------|
+| control    | Player    | Control interface to manipulate the radio |
 
 #### Stopwatch App
 
-| Channel ID | Item Type | Description                                     |
+| Channel ID | Item Type |                   Description                   |
 |------------|-----------|-------------------------------------------------|
 | command    | String    | Send a command to the app (start, pause, reset) |
 
 #### Weather App
 
-| Channel ID | Item Type | Description                          |
+| Channel ID | Item Type |             Description              |
 |------------|-----------|--------------------------------------|
 | command    | String    | Send a command to the app (forecast) |
 
@@ -188,37 +188,37 @@ Sample sitemap configuration:
 For this reason, the brightness modes and example applications are repeated here.
 
 ```perl
-  Text label="LaMetric Time Demo" {
-      Frame label="Device Controls" {
-          Slider item=DeviceBrightness
-          Switch item=DeviceBrightnessMode mappings=[AUTO="Automatic",MANUAL="Manual"]
-          Slider item=DeviceVolume
-          Switch item=DeviceBluetooth
-          Selection item=DeviceApp mappings=["com.lametric.clock:widgetid"="Clock","com.lametric.countdown:widgetid"="Timer"]
-      }
-      Frame label="Device Notifications" {
-          Switch item=NotifyInfo
-          Switch item=NotifyWarning
-          Switch item=NotifyAlert
-      }
-      Frame label="Clock" {
-          Switch item=SetAlarmIn1Min
-          Selection item=ClockCommand mappings=["disableAlarm"="Disable Alarm"]
-      }
-      Frame label="Timer" {
-          Switch item=Set2MinTimer
-          Selection item=TimerCommand mappings=["start"="Start","pause"="Pause","reset"="Reset"]
-      }
-      Frame label="Radio" {
-          Default item=RadioControl
-      }
-      Frame label="Stopwatch" {
-          Selection item=StopwatchCommand mappings=["start"="Start","pause"="Pause","reset"="Reset"]
-      }
-      Frame label="Weather" {
-          Selection item=WeatherCommand mappings=["forecast"="Forecast"]
-      }
-  }
+Text label="LaMetric Time Demo" {
+    Frame label="Device Controls" {
+        Slider item=DeviceBrightness
+        Switch item=DeviceBrightnessMode mappings=[AUTO="Automatic",MANUAL="Manual"]
+        Slider item=DeviceVolume
+        Switch item=DeviceBluetooth
+        Selection item=DeviceApp mappings=["com.lametric.clock:widgetid"="Clock","com.lametric.countdown:widgetid"="Timer"]
+    }
+    Frame label="Device Notifications" {
+        Switch item=NotifyInfo
+        Switch item=NotifyWarning
+        Switch item=NotifyAlert
+    }
+    Frame label="Clock" {
+        Switch item=SetAlarmIn1Min
+        Selection item=ClockCommand mappings=["disableAlarm"="Disable Alarm"]
+    }
+    Frame label="Timer" {
+        Switch item=Set2MinTimer
+        Selection item=TimerCommand mappings=["start"="Start","pause"="Pause","reset"="Reset"]
+    }
+    Frame label="Radio" {
+        Default item=RadioControl
+    }
+    Frame label="Stopwatch" {
+        Selection item=StopwatchCommand mappings=["start"="Start","pause"="Pause","reset"="Reset"]
+    }
+    Frame label="Weather" {
+        Selection item=WeatherCommand mappings=["forecast"="Forecast"]
+    }
+}
 ```
 
 ## Rules
@@ -281,3 +281,4 @@ rule "Set 2 Minute Timer"
          TimerDuration.sendCommand(120)
 end
 ```
+

@@ -56,36 +56,36 @@ Each radio must be configured via its ip address, port, pin, and a refresh rate.
 
 All devices support some of the following channels:
 
-| Channel Type ID | Item Type | Description | Access |
-|-----------------|-----------|-------------|------- |
-| power | Switch | Switch the radio on or off | R/W |
-| volume-percent | Dimmer | Radio volume (min=0, max=100) | R/W |
-| volume-absolute | Number | Radio volume (min=0, max=32) | R/W |
-| mute | Switch | Mute the radio | R/W |
-| mode | Number | The radio mode, e.g. FM radio, internet radio, AUX, etc. (model-specific, see list below) | R/W |
-| preset | Number | Preset radio stations configured in the radio (write-only) | W |
-| play-info-name | String | The name of the current radio station or track | R |
-| play-info-text | String | Additional information e.g. of the current radio station | R |
+| Channel Type ID | Item Type |                                        Description                                        | Access |
+|-----------------|-----------|-------------------------------------------------------------------------------------------|--------|
+| power           | Switch    | Switch the radio on or off                                                                | R/W    |
+| volume-percent  | Dimmer    | Radio volume (min=0, max=100)                                                             | R/W    |
+| volume-absolute | Number    | Radio volume (min=0, max=32)                                                              | R/W    |
+| mute            | Switch    | Mute the radio                                                                            | R/W    |
+| mode            | Number    | The radio mode, e.g. FM radio, internet radio, AUX, etc. (model-specific, see list below) | R/W    |
+| preset          | Number    | Preset radio stations configured in the radio (write-only)                                | W      |
+| play-info-name  | String    | The name of the current radio station or track                                            | R      |
+| play-info-text  | String    | Additional information e.g. of the current radio station                                  | R      |
 
 The radio mode depends on the internet radio model (and its firmware version!).
 This list is just an example how the mapping looks like for some of the devices, please try it out and adjust your sitemap for your particular radio.
 
-| Radio Mode               | 0              | 1                       | 2            | 3            | 4         | 5        | 6            | 7            | 8         | 9         | 10     | 11     | 12     | 13     |
-|--------------------------|----------------|-------------------------|--------------|--------------|-----------|----------|--------------|--------------|-----------|-----------|--------|--------|--------|--------|
-| Hama IR100               | Internet Radio | Spotify                 | Music Player | AUX in       | -         | -        | -            | -            | -          | -         |-       | - | - | - |
-| Hama IR110               | Internet Radio | Spotify                 | Music Player | AUX in       | -         | -        | -            | -            | -          | -         |-       | - | - | - |
-| Hama DIR3100             | Internet Radio | Spotify                 | -            | Music Player | DAB Radio | FM Radio  | AUX in      | -            | -          | -          | -     | - | - | - |
-| Medion MD87180           | Internet Radio | Music Player (USB, LAN) | DAB Radio    | FM Radio     | AUX in    | -        | -            | -            | -          | -         |-       | - | - | - |
-| Medion MD 86988          | Internet Radio | Music Player            | FM Radio     | AUX in       | -         | -        | -            | -            | -          | -         |-       | - | - | - |
-| Technisat DigitRadio 580 | Internet Radio | Spotify                 | -            | Music Player | DAB Radio | FM Radio | AUX in       | CD           | Bluetooth | -         |-        | - | - | - |
-| Technisat VIOLA 2 C IR   | Internet Radio | Podcasts                | DAB Radio    | FM Radio     | -         | -        | -            |              |           | -         |-        | - | - | - |
-| Dual IR 3a               | Internet Radio | Spotify                 | -            | Music Player | DAB Radio | FM Radio | Bluetooth    | -            | -          | -         |-       | - | - | - |
-| Silvercrest SIRD 14 C1   | -              | Napster                 | Deezer       | Qobuz        | Spotify   | TIDAL    | Spotify      | Music Player | DAB Radio | FM Radio  | AUX in | - |  - | - |
-| Silvercrest SIRD 14 C2   | Internet Radio | TIDAL                   | Deezer       | Qobuz        | Spotify   | -        | Music Player | DAB Radio    | FM Radio  | AUX in    |-       | - | - | - |
-| Auna KR200 Kitchen Radio | Internet Radio | Spotify                 | -            | Music Player | DAB Radio | FM Radio | AUX in       | -            | -          | -         |-       | - | - | - |
-| Auna Connect CD          | Internet Radio | Spotify                 | -            | Music Player | DAB Radio | FM Radio | CD           | Bluetooth    | AUX in    | -         | -      | - | - | - |
-| Teufel 3sixty            | Internet Radio | Spotify                 | -            | USB/Network  | DAB Radio | FM Radio | Bluetooth    | AUX in       | -          | -         | -      | - | - | - |
-| Ruark R5                 | Internet Radio | TIDAL                   | Deezer       | Amazon Music | Spotify   | Local Music | Music Player | DAB Radio | FM Radio   | Bluetooth | AUX in  | Phono | Optical | CD |
+|        Radio Mode        |       0        |            1            |      2       |      3       |     4     |      5      |      6       |      7       |     8     |     9     |   10   |  11   |   12    | 13 |
+|--------------------------|----------------|-------------------------|--------------|--------------|-----------|-------------|--------------|--------------|-----------|-----------|--------|-------|---------|----|
+| Hama IR100               | Internet Radio | Spotify                 | Music Player | AUX in       | -         | -           | -            | -            | -         | -         | -      | -     | -       | -  |
+| Hama IR110               | Internet Radio | Spotify                 | Music Player | AUX in       | -         | -           | -            | -            | -         | -         | -      | -     | -       | -  |
+| Hama DIR3100             | Internet Radio | Spotify                 | -            | Music Player | DAB Radio | FM Radio    | AUX in       | -            | -         | -         | -      | -     | -       | -  |
+| Medion MD87180           | Internet Radio | Music Player (USB, LAN) | DAB Radio    | FM Radio     | AUX in    | -           | -            | -            | -         | -         | -      | -     | -       | -  |
+| Medion MD 86988          | Internet Radio | Music Player            | FM Radio     | AUX in       | -         | -           | -            | -            | -         | -         | -      | -     | -       | -  |
+| Technisat DigitRadio 580 | Internet Radio | Spotify                 | -            | Music Player | DAB Radio | FM Radio    | AUX in       | CD           | Bluetooth | -         | -      | -     | -       | -  |
+| Technisat VIOLA 2 C IR   | Internet Radio | Podcasts                | DAB Radio    | FM Radio     | -         | -           | -            |              |           | -         | -      | -     | -       | -  |
+| Dual IR 3a               | Internet Radio | Spotify                 | -            | Music Player | DAB Radio | FM Radio    | Bluetooth    | -            | -         | -         | -      | -     | -       | -  |
+| Silvercrest SIRD 14 C1   | -              | Napster                 | Deezer       | Qobuz        | Spotify   | TIDAL       | Spotify      | Music Player | DAB Radio | FM Radio  | AUX in | -     | -       | -  |
+| Silvercrest SIRD 14 C2   | Internet Radio | TIDAL                   | Deezer       | Qobuz        | Spotify   | -           | Music Player | DAB Radio    | FM Radio  | AUX in    | -      | -     | -       | -  |
+| Auna KR200 Kitchen Radio | Internet Radio | Spotify                 | -            | Music Player | DAB Radio | FM Radio    | AUX in       | -            | -         | -         | -      | -     | -       | -  |
+| Auna Connect CD          | Internet Radio | Spotify                 | -            | Music Player | DAB Radio | FM Radio    | CD           | Bluetooth    | AUX in    | -         | -      | -     | -       | -  |
+| Teufel 3sixty            | Internet Radio | Spotify                 | -            | USB/Network  | DAB Radio | FM Radio    | Bluetooth    | AUX in       | -         | -         | -      | -     | -       | -  |
+| Ruark R5                 | Internet Radio | TIDAL                   | Deezer       | Amazon Music | Spotify   | Local Music | Music Player | DAB Radio    | FM Radio  | Bluetooth | AUX in | Phono | Optical | CD |
 
 ## Full Example
 
@@ -123,3 +123,4 @@ sitemap demo label="Main Menu"
     }
 }
 ```
+

@@ -9,7 +9,7 @@ The openHAB Cloud service (and thus the connector to it) is useful for different
 
 * It allows remote access to local openHAB instances without having to expose ports to the Internet or to require a complex VPN setup.
 * It serves as a connector to Google Cloud Messaging (GCM) and Apple Push Notifications (APN) for pushing notifications to mobile phone apps.
-* It provides integrations with 3rd party services that require OAuth2 authentication, such as Amazon Alexa or Google Home applications 
+* It provides integrations with 3rd party services that require OAuth2 authentication, such as Amazon Alexa or Google Home applications
 
 ## Installation via UI
 
@@ -32,10 +32,10 @@ You will need these values to register on the website before connection is accep
 
 Location of UUID and Secret:
 
-| File   | Regular Installation         | APT Installation                      |
-|--------|------------------------------|---------------------------------------|
-| UUID   | userdata/uuid                | /var/lib/openhab/uuid                 |
-| Secret | userdata/openhabcloud/secret | /var/lib/openhab/openhabcloud/secret  |
+|  File  |     Regular Installation     |           APT Installation           |
+|--------|------------------------------|--------------------------------------|
+| UUID   | userdata/uuid                | /var/lib/openhab/uuid                |
+| Secret | userdata/openhabcloud/secret | /var/lib/openhab/openhabcloud/secret |
 
 ## Configuration
 
@@ -43,7 +43,7 @@ After installing this add-on, you will find configuration options in the openHAB
 
 ![Configuration](doc/configuration.png)
 
-By default both remote access and push notifications are enabled.  
+By default both remote access and push notifications are enabled.
 
 ### Advanced Configuration
 

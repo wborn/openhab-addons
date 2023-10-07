@@ -21,15 +21,15 @@ There is no user configuration related to sprinkler things. Sprinklers do need a
 
 This binding automatically detects all zones and programs for each sprinkler and creates these dynamic channels:
 
-| channel          | type   | description                                                      |
-|------------------|--------|------------------------------------------------------------------|
-| zone_%           | Switch | This channel controls the manual zone watering (ON/OFF)          |
-| program_%        | Switch | This channel controls the manual program watering (ON/OFF)       |
-| enable_program_% | Switch | This channel controls the automatic program scheduling (ON/OFF)  |
+|     channel      |  type  |                           description                           |
+|------------------|--------|-----------------------------------------------------------------|
+| zone_%           | Switch | This channel controls the manual zone watering (ON/OFF)         |
+| program_%        | Switch | This channel controls the manual program watering (ON/OFF)      |
+| enable_program_% | Switch | This channel controls the automatic program scheduling (ON/OFF) |
 
 Beside the dynamic channels each sprinkler thing provides these standard channels:
 
-| channel        | type        | description                                                        |
+|    channel     |    type     |                            description                             |
 |----------------|-------------|--------------------------------------------------------------------|
 | mode           | String      | This channel represents the mode of sprinkler device (auto/manual) |
 | next_start     | DateTime    | This channel represents the start time of the next watering        |
@@ -82,3 +82,4 @@ Text item=IrrigationRainDelay
 Switch item=IrrigationRainDelay mappings=[0="OFF", 24="24", 48="48", 72="72"]  
 Text item=IrrigationNextStart visibility=[IrrigationP1Enable==ON]  
 ```
+

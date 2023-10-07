@@ -18,9 +18,9 @@ The default update interval is set to 5 seconds. Intervals from 1 to 300 seconds
 
 ## Thing Configuration
 
-The thing has a few configuration parameters:  
+The thing has a few configuration parameters:
 
-| Parameter       | Description                                                           |
+|    Parameter    |                              Description                              |
 |-----------------|-----------------------------------------------------------------------|
 | password        | User-defined password during initializing the Power Meter. Mandatory. |
 | ip              | The IP address of the meter. Mandatory.                               |
@@ -30,7 +30,7 @@ The thing has a few configuration parameters:
 
 The meter has the following channels:
 
-| Channel Type ID                                              | Item Type                | Label                             | Description                              |
+|                       Channel Type ID                        |        Item Type         |               Label               |               Description                |
 |--------------------------------------------------------------|--------------------------|-----------------------------------|------------------------------------------|
 | general_group#frequency                                      | Number:Frequency         | Main Frequency                    | Frequency in Hertz                       |
 | general_group#temperature                                    | Number:Temperature       | Internal Temperature              | Internal Temperature of the energy meter |
@@ -244,3 +244,4 @@ sitemap mecmeter label="MecMeter"
     
 }
 ```
+

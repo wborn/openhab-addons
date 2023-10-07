@@ -37,8 +37,8 @@ Thing sensebox:box:home [ senseBoxId = "foothesmurfingbar", refreshInterval = 60
 In the table is shown more detailed information about each Channel type.
 The binding introduces the following channels:
 
-| Channel ID                                      | Channel Description                                         | Supported item type  | Advanced |
-| ----------------------------------------------- | ----------------------------------------------------------- | -------------------- | -------- |
+|                   Channel ID                    |                     Channel Description                     | Supported item type  | Advanced |
+|-------------------------------------------------|-------------------------------------------------------------|----------------------|----------|
 | descriptors#location                            | Location of the box                                         | Point                | False    |
 | measurements#uvIntensity                        | Intensity of Ultraviolet radiation                          | Number:Intensity     | False    |
 | measurements#illuminance                        | Illuminance                                                 | Number:Illuminance   | False    |
@@ -102,6 +102,6 @@ sitemap sensebox label="SenseBox Davos" {
 - <https://docs.opensensemap.org/>
 - <https://docs.opensensemap.org/#api-Boxes-findBox>
 - <https://docs.opensensemap.org/#api-Measurements-getMeasurements>
-
 - <https://api.opensensemap.org/boxes/:boxId>
 - <https://api.opensensemap.org/boxes/:senseBoxId/sensors>
+

@@ -18,7 +18,7 @@ usable by the binding.
 
 ## Channels
 
-| Channel Type ID | Item Type | Description                                   |
+| Channel Type ID | Item Type |                  Description                  |
 |-----------------|-----------|-----------------------------------------------|
 | jobs            | Number    | Total number of print jobs on the printer     |
 | waitingJobs     | Number    | Number of waiting print jobs on the printer   |

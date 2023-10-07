@@ -20,7 +20,7 @@ This binding supports one ThingType: `controller`.
 
 The `controller` Thing has the following configuration parameters:
 
-| Parameter                   | Description                                                                                                                                                                                 | Required | Default value |
+|          Parameter          |                                                                                         Description                                                                                         | Required | Default value |
 |-----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------------|
 | hostname                    | Network/IP address of the IHC / ELKO controller without https prefix, but can contain TCP port if default port is not used.                                                                 | yes      |               |
 | username                    | User name to login to the IHC / ELKO controller.                                                                                                                                            | yes      |               |
@@ -34,11 +34,11 @@ The `controller` Thing has the following configuration parameters:
 
 List of default controller channels.
 
-| Channel             | Item Type    | Description                                                    |
-| ------------------- | ------------ | -------------------------------------------------------------- |
-| controllerState     | String       | Displays IHC / ELKO controller state.                          |
-| controllerUptime    | Number       | Displays IHC / ELKO controller uptime in seconds.              |
-| controllerTime      | DateTime     | Displays IHC / ELKO controller date and time                   |
+|     Channel      | Item Type |                    Description                    |
+|------------------|-----------|---------------------------------------------------|
+| controllerState  | String    | Displays IHC / ELKO controller state.             |
+| controllerUptime | Number    | Displays IHC / ELKO controller uptime in seconds. |
+| controllerTime   | DateTime  | Displays IHC / ELKO controller date and time      |
 
 When `createChannelsAutomatically` parameter is enabled, binding will automatically create channels accordingly to project file.
 Binding create channels for dataline_inputs, dataline_outputs, airlink_inputs, airlink_outputs, airlink_relays, airlink_dimmings, resource_temperatures and resource_humidity_levels, and also channels for wireless device signal strengths and low battery warnings.
@@ -46,8 +46,8 @@ User can manually add other channels or disable channel auto generation and add 
 
 List of supported channel types.
 
-| Channel Type              | Item Type     | Description                                                                                                                               | Supported channel parameters                                |
-| ------------------------- | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+|       Channel Type        |   Item Type   |                                                                Description                                                                |                Supported channel parameters                 |
+|---------------------------|---------------|-------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------|
 | switch                    | Switch        | Generic switch channel.                                                                                                                   | resourceId, direction, commandToReact, pulseWidth, inverted |
 | contact                   | Contact       | Generic contact channel.                                                                                                                  | resourceId, inverted                                        |
 | number                    | Number        | Generic number channel.                                                                                                                   | resourceId, direction, commandToReact, pulseWidth           |
@@ -61,21 +61,21 @@ List of supported channel types.
 
 Channel parameters:
 
-| Channel parameter     | Param Type   | Required | Default value | Description                                                                                              |
-| --------------------- | ------------ | -------- | ------------- | -------------------------------------------------------------------------------------------------------- |
-| resourceId            | Integer      | yes      |               | Resource Id in decimal format from project file.                                                         |
-| direction             | Text         | no       | ReadWrite     | Direction of the channel (ReadWrite, WriteOnly, ReadOnly).                                               |
-| commandToReact        | String       | no       |               | Command to react. If not defined, channel react to all commands.                                         |
-| pulseWidth            | Integer      | no       |               | Pulse width in milliseconds. If defined, binding send pulse rather than command value to IHC controller. |
-| inverted              | Boolean      | no       | false         | openHAB state is inverted compared to IHC output/input signal.                                           |
-| serialNumber          | Integer      | yes      |               | Serial number of RF device in decimal format.                                                            |
-| longPressTime         | Integer      | yes      | 1000          | Long press time in milliseconds.                                                                         |
+| Channel parameter | Param Type | Required | Default value |                                               Description                                                |
+|-------------------|------------|----------|---------------|----------------------------------------------------------------------------------------------------------|
+| resourceId        | Integer    | yes      |               | Resource Id in decimal format from project file.                                                         |
+| direction         | Text       | no       | ReadWrite     | Direction of the channel (ReadWrite, WriteOnly, ReadOnly).                                               |
+| commandToReact    | String     | no       |               | Command to react. If not defined, channel react to all commands.                                         |
+| pulseWidth        | Integer    | no       |               | Pulse width in milliseconds. If defined, binding send pulse rather than command value to IHC controller. |
+| inverted          | Boolean    | no       | false         | openHAB state is inverted compared to IHC output/input signal.                                           |
+| serialNumber      | Integer    | yes      |               | Serial number of RF device in decimal format.                                                            |
+| longPressTime     | Integer    | yes      | 1000          | Long press time in milliseconds.                                                                         |
 
 There are several ways to find the correct resource id's:
 
 1. Find directly from your IHC / ELKO LS project file (.vis file).
-1. Via IHC / ELKO Visual application. Hold ctrl button from keyboard while mouse over the select item in Visual.
-1. Enable debug level from binding. Binding will then print basic resource ID from the project file, if `loadProjectFile` configuration variable is enabled.
+2. Via IHC / ELKO Visual application. Hold ctrl button from keyboard while mouse over the select item in Visual.
+3. Enable debug level from binding. Binding will then print basic resource ID from the project file, if `loadProjectFile` configuration variable is enabled.
 
 The binding supports resource id's _**only**_ in decimal format.
 Hexadecimal values (start with 0x prefix) need to be converted to decimal format.
@@ -85,16 +85,16 @@ Resource id _0x3f4d14 is 0x3f4d14 in hexadecimal format, which is 4148500 in dec
 
 Mapping table between data types:
 
-| IHC / ELKO data type    | openHAB item type | Channel type     | Resource id from project file                                                                                                              |
-|-------------------------|-------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| WSFloatingPointValue    | Number            | number           | <resource_temperature id="_0x3f4d14" …>                                                                                                    |
-| WSIntegerValue          | Number, Dimmer    | number, dimmer   | <airlink_dimming id="_0x3ec5d" …>, <resource_integer id="_0x97e20b" …>, <resource_counter id="_0x97df0c" …>                                |
-| WSBooleanValue          | Switch, Contact   | switch, contact  | <dataline_input id="_0x3f295a" …>, <dataline_output id="_0x3ce35b" …>, <airlink_input id="_0x5b555c" …>, <resource_flag id="_0x97e00a" …>  |
-| WSTimerValue            | Number            | number           | <resource_timer id="_0x97de10" …>                                                                                                          |
-| WSWeekdayValue          | Number            | number           | <resource_weekday id="_0x97e109" …>                                                                                                        |
-| WSEnumValue             | String, Number    | string, number   | <resource_enum id="_0x98050f" …>                                                                                                           |
-| WSDateValue             | DateTime          | datetime         | <resource_date id="_0x97dd0e" …>                                                                                                           |
-| WSTimeValue             | DateTime          | datetime         | <resource_time id="_0x97db0d" …>                                                                                                           |
+| IHC / ELKO data type | openHAB item type |  Channel type   |                                                       Resource id from project file                                                       |
+|----------------------|-------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|
+| WSFloatingPointValue | Number            | number          | <resource_temperature id="_0x3f4d14" …>                                                                                                   |
+| WSIntegerValue       | Number, Dimmer    | number, dimmer  | <airlink_dimming id="_0x3ec5d" …>, <resource_integer id="_0x97e20b" …>, <resource_counter id="_0x97df0c" …>                               |
+| WSBooleanValue       | Switch, Contact   | switch, contact | <dataline_input id="_0x3f295a" …>, <dataline_output id="_0x3ce35b" …>, <airlink_input id="_0x5b555c" …>, <resource_flag id="_0x97e00a" …> |
+| WSTimerValue         | Number            | number          | <resource_timer id="_0x97de10" …>                                                                                                         |
+| WSWeekdayValue       | Number            | number          | <resource_weekday id="_0x97e109" …>                                                                                                       |
+| WSEnumValue          | String, Number    | string, number  | <resource_enum id="_0x98050f" …>                                                                                                          |
+| WSDateValue          | DateTime          | datetime        | <resource_date id="_0x97dd0e" …>                                                                                                          |
+| WSTimeValue          | DateTime          | datetime        | <resource_time id="_0x97db0d" …>                                                                                                          |
 
 ## Profiles
 
@@ -103,18 +103,18 @@ This profile can be used to transforms trigger events to item commands without w
 
 Profile support following configuration parameters:
 
-| Parameter             | Param Type   | Required | Default value | Description                                                                                               |
-| --------------------- | ------------ | -------- | ------------- | --------------------------------------------------------------------------------------------------------- |
-| short-press-command   | String       | no       | ON            | Define the command be send when short button press is detected.                                           |
-| long-press-command    | String       | no       | INCREASE      | Define the command be send when long button press is detected.                                            |
-| long-press-time       | Integer      | no       | 1000          | Define the long button press time in milliseconds.                                                        |
-| repeat-time           | Integer      | no       | 200           | How often long button press command is send in milliseconds. If 0, long press command is sent only ones.  |
-| timeout               | Integer      | no       | 10000         | Timeout for repeated long press command. Cancel long press command sending when this limit is exceeded.   |
+|      Parameter      | Param Type | Required | Default value |                                               Description                                                |
+|---------------------|------------|----------|---------------|----------------------------------------------------------------------------------------------------------|
+| short-press-command | String     | no       | ON            | Define the command be send when short button press is detected.                                          |
+| long-press-command  | String     | no       | INCREASE      | Define the command be send when long button press is detected.                                           |
+| long-press-time     | Integer    | no       | 1000          | Define the long button press time in milliseconds.                                                       |
+| repeat-time         | Integer    | no       | 200           | How often long button press command is send in milliseconds. If 0, long press command is sent only ones. |
+| timeout             | Integer    | no       | 10000         | Timeout for repeated long press command. Cancel long press command sending when this limit is exceeded.  |
 
 Supported commands:
 
-| Command     | Supported Item Type |
-| ----------- | ------------------- |
+|   Command   | Supported Item Type |
+|-------------|---------------------|
 | ON          | Switch              |
 | OFF         | Switch              |
 | STOP        | Player              |

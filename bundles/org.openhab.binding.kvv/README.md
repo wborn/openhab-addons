@@ -54,7 +54,7 @@ If `maxTrains` is set to three, each stop creates three sets of channels.
 Each set consists of the following three channels:
 
 | Channel                                                    | Type   | Description                                                   |
-| :--------------------------------------------------------- | :----- | :------------------------------------------------------------ |
+|:-----------------------------------------------------------|:-------|:--------------------------------------------------------------|
 | kvv:stop:${bridgeId}:${stopId}:train${trainId}-name        | String | Name of the line, e.g. _S5_                                   |
 | kvv:stop:${bridgeId}:${stopId}:train${trainId}-destination | String | Name of the stop the train is heading to                      |
 | kvv:stop:${bridgeId}:${stopId}:train${trainId}-eta         | String | Duration until the train arrives. Can be relative or absolute |
@@ -132,3 +132,4 @@ sitemap kvv label="KVV" {
     }
 }
 ```
+

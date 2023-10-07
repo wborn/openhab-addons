@@ -9,8 +9,8 @@ Examples: Lights, pool filters, wash machines, ...
 
 ## Supported Things
 
-| Thing type id | Name                                                 |
-| ------------- | ---------------------------------------------------- |
+| Thing type id |                         Name                         |
+|---------------|------------------------------------------------------|
 | senechome     | Senec Home Lithium Battery, V2.0, V2.1, V3 and V3duo |
 
 **Note:** Not all channels are available for all Senec Home types. E.g.
@@ -35,8 +35,8 @@ The property `limitationTresholdValue` is used as threshold for channel `powerLi
 
 ## Channels
 
-| Channel                       | Type           | Description                                                              |
-| ----------------------------- | -------------- | ------------------------------------------------------------------------ |
+|            Channel            |      Type      |                               Description                                |
+|-------------------------------|----------------|--------------------------------------------------------------------------|
 | powerLimitation               | percent        | How much is your pv generator limited (0% if not limited anyway)         |
 | powerLimitationState          | ON/OFF         | Power limitation active (based on configuration)                         |
 | currentMPP1                   | ampere         | PV generator current on MPP1                                             |
@@ -183,3 +183,4 @@ Text label="Power Grid"{
     }
 }
 ```
+

@@ -60,26 +60,26 @@ It will not be possible to receive alarms and control them from openHAB in this 
 
 ### ELRO Connects account
 
-| Parameter                   | Advanced | Description                                            |
-|-----------------------------|:--------:|--------------------------------------------------------|
-| `username`                  |          | Username for the ELRO Connects cloud account, required |
-| `password`                  |          | Password for the ELRO Connects cloud account, required |
-| `enableBackgroundDiscovery` | Y        | Enable background discovery of hubs, polling the ELRO Connects cloud account every 5 min. |
+|          Parameter          | Advanced |                                        Description                                        |
+|-----------------------------|:--------:|-------------------------------------------------------------------------------------------|
+| `username`                  |          | Username for the ELRO Connects cloud account, required                                    |
+| `password`                  |          | Password for the ELRO Connects cloud account, required                                    |
+| `enableBackgroundDiscovery` |    Y     | Enable background discovery of hubs, polling the ELRO Connects cloud account every 5 min. |
 
 ### K1 connector hub
 
-| Parameter                   | Advanced | Description                                            |
-|-----------------------------|:--------:|--------------------------------------------------------|
-| `connectorId`               |          | Required parameter, should be set to ST_xxxxxxxxxxxx with xxxxxxxxxxxx the lowercase MAC address of the connector. It will be discovered when an `account` bridge has been initialized. This parameter can also be found in the ELRO Connects mobile application |
-| `ipAdress`                  | Y        | IP address of the ELRO Connects K1 Connector, not required if connector and openHAB server in same subnet |
-| `refreshInterval`           | Y        |  This parameter controls the connection refresh heartbeat interval. The default is 60s |
-| `legacyFirmware`            | Y        | Flag for legacy firmware, should be set to true if ELRO Connects K1 Connector firmware has version lower or equal to 2.0.14. If the connector is discovered from the account, this parameter will be set automatically. The default is false |
+|     Parameter     | Advanced |                                                                                                                           Description                                                                                                                            |
+|-------------------|:--------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `connectorId`     |          | Required parameter, should be set to ST_xxxxxxxxxxxx with xxxxxxxxxxxx the lowercase MAC address of the connector. It will be discovered when an `account` bridge has been initialized. This parameter can also be found in the ELRO Connects mobile application |
+| `ipAdress`        |    Y     | IP address of the ELRO Connects K1 Connector, not required if connector and openHAB server in same subnet                                                                                                                                                        |
+| `refreshInterval` |    Y     | This parameter controls the connection refresh heartbeat interval. The default is 60s                                                                                                                                                                            |
+| `legacyFirmware`  |    Y     | Flag for legacy firmware, should be set to true if ELRO Connects K1 Connector firmware has version lower or equal to 2.0.14. If the connector is discovered from the account, this parameter will be set automatically. The default is false                     |
 
 ### Devices connected to K1 connected hub
 
-| Parameter                   | Advanced | Description                                            |
-|-----------------------------|:--------:|--------------------------------------------------------|
-| `deviceId`                  |          | Required parameter, set by discovery. For manual configuration, use the ´elroconnects <connectorId> devices´ console command to get a list of available devices. It should be a number |
+| Parameter  | Advanced |                                                                                      Description                                                                                       |
+|------------|:--------:|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `deviceId` |          | Required parameter, set by discovery. For manual configuration, use the ´elroconnects <connectorId> devices´ console command to get a list of available devices. It should be a number |
 
 ## Channels
 
@@ -91,9 +91,9 @@ The `account` bridge thing does not have any channels.
 
 The `connector` bridge thing has only one channel:
 
-| Channel ID         | Item Type      | Access Mode | Description                                        |
-|--------------------|----------------|:-----------:|----------------------------------------------------|
-| `scene`            | String         | RW          | current scene                                      |
+| Channel ID | Item Type | Access Mode |  Description  |
+|------------|-----------|:-----------:|---------------|
+| `scene`    | String    |     RW      | current scene |
 
 The `scene` channel has a dynamic state options list with all possible scene choices available in the hub.
 
@@ -105,13 +105,13 @@ The payload for the trigger channel is the `deviceId` for the device triggering 
 
 All these things have the same channels:
 
-| Channel ID         | Item Type            | Access Mode | Description                                 |
-|--------------------|----------------------|:-----------:|---------------------------------------------|
-| `muteAlarm`        | Switch               | RW          | mute alarm                                  |
-| `testAlarm`        | Switch               | RW          | test alarm                                  |
-| `signal`           | Number               | R           | signal strength between 0 and 4, higher is stronger |
-| `battery`          | Number               | R           | battery level in %                          |
-| `lowBattery`       | Switch               | R           | on for low battery (below 15%)              |
+|  Channel ID  | Item Type | Access Mode |                     Description                     |
+|--------------|-----------|:-----------:|-----------------------------------------------------|
+| `muteAlarm`  | Switch    |     RW      | mute alarm                                          |
+| `testAlarm`  | Switch    |     RW      | test alarm                                          |
+| `signal`     | Number    |      R      | signal strength between 0 and 4, higher is stronger |
+| `battery`    | Number    |      R      | battery level in %                                  |
+| `lowBattery` | Switch    |      R      | on for low battery (below 15%)                      |
 
 Each also has a trigger channel, resp. `smokeAlarm`, `coAlarm`, `heatAlarm` and `waterAlarm`.
 The payload for these trigger channels is empty.
@@ -120,12 +120,12 @@ The payload for these trigger channels is empty.
 
 The `entrysensor` thing has the following channels:
 
-| Channel ID         | Item Type            | Access Mode | Description                                 |
-|--------------------|----------------------|:-----------:|---------------------------------------------|
-| `entry`            | Contact              | R           | open/closed door/window                     |
-| `signal`           | Number               | R           | signal strength between 0 and 4, higher is stronger |
-| `battery`          | Number               | R           | battery level in %                          |
-| `lowBattery`       | Switch               | R           | on for low battery (below 15%)              |
+|  Channel ID  | Item Type | Access Mode |                     Description                     |
+|--------------|-----------|:-----------:|-----------------------------------------------------|
+| `entry`      | Contact   |      R      | open/closed door/window                             |
+| `signal`     | Number    |      R      | signal strength between 0 and 4, higher is stronger |
+| `battery`    | Number    |      R      | battery level in %                                  |
+| `lowBattery` | Switch    |      R      | on for low battery (below 15%)                      |
 
 The `entrysensor` thing also has a trigger channel, `entryAlarm`.
 
@@ -133,12 +133,12 @@ The `entrysensor` thing also has a trigger channel, `entryAlarm`.
 
 The `motionsensor` thing has the following channels:
 
-| Channel ID         | Item Type            | Access Mode | Description                                 |
-|--------------------|----------------------|:-----------:|---------------------------------------------|
-| `motion`           | Switch               | R           | on when motion detected                     |
-| `signal`           | Number               | R           | signal strength between 0 and 4, higher is stronger |
-| `battery`          | Number               | R           | battery level in %                          |
-| `lowBattery`       | Switch               | R           | on for low battery (below 15%)               |
+|  Channel ID  | Item Type | Access Mode |                     Description                     |
+|--------------|-----------|:-----------:|-----------------------------------------------------|
+| `motion`     | Switch    |      R      | on when motion detected                             |
+| `signal`     | Number    |      R      | signal strength between 0 and 4, higher is stronger |
+| `battery`    | Number    |      R      | battery level in %                                  |
+| `lowBattery` | Switch    |      R      | on for low battery (below 15%)                      |
 
 The `motionsensor` thing also has a trigger channel, `motionAlarm`.
 
@@ -146,21 +146,21 @@ The `motionsensor` thing also has a trigger channel, `motionAlarm`.
 
 The `temperaturesensor` thing has the following channels:
 
-| Channel ID         | Item Type            | Access Mode | Description                                 |
-|--------------------|----------------------|:-----------:|---------------------------------------------|
-| `temperature`      | Number:Temperature   | R           | temperature                                 |
-| `humidity`         | Number:Dimensionless | R           | device status                               |
-| `signal`           | Number               | R           | signal strength between 0 and 4, higher is stronger |
-| `battery`          | Number               | R           | battery level in %                          |
-| `lowBattery`       | Switch               | R           | on for low battery (below 15%)              |
+|  Channel ID   |      Item Type       | Access Mode |                     Description                     |
+|---------------|----------------------|:-----------:|-----------------------------------------------------|
+| `temperature` | Number:Temperature   |      R      | temperature                                         |
+| `humidity`    | Number:Dimensionless |      R      | device status                                       |
+| `signal`      | Number               |      R      | signal strength between 0 and 4, higher is stronger |
+| `battery`     | Number               |      R      | battery level in %                                  |
+| `lowBattery`  | Switch               |      R      | on for low battery (below 15%)                      |
 
 ### Plug-in switch
 
 The `powersocket` thing has only one channel:
 
-| Channel ID         | Item Type            | Access Mode | Description                                 |
-|--------------------|----------------------|:-----------:|---------------------------------------------|
-| `powerState`       | Switch               | RW          | power on/off                                |
+|  Channel ID  | Item Type | Access Mode | Description  |
+|--------------|-----------|:-----------:|--------------|
+| `powerState` | Switch    |     RW      | power on/off |
 
 ## Console Commands
 
@@ -212,3 +212,4 @@ then
     ...
 end
 ```
+

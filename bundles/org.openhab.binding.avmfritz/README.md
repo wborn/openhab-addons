@@ -73,7 +73,7 @@ The [FRITZ!DECT 500](https://avm.de/produkte/fritzdect/fritzdect-500/) is a dimm
 
 #### Supported Channel Groups
 
-| Channel Group ID                                       | Description         | Available on thing |
+|                    Channel Group ID                    |     Description     | Available on thing |
 |--------------------------------------------------------|---------------------|--------------------|
 | `device`                                               | Device information. | FRITZ!DECT 440     |
 | `sensors`                                              | Sensor data.        | FRITZ!DECT 440     |
@@ -168,7 +168,7 @@ The AIN (actor identification number) can be found in the FRITZ!Box interface ->
 
 ## Supported Channels
 
-| Channel Type ID       | Item Type                | Description                                                                                                                                        | Available on thing                                                                                  |
+|    Channel Type ID    |        Item Type         |                                                                    Description                                                                     |                                         Available on thing                                          |
 |-----------------------|--------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------|
 | incoming_call         | Call                     | Details about incoming call. %2$s contains the external, calling number, %1$s is the internal, receiving number.                                   | FRITZ!Box                                                                                           |
 | outgoing_call         | Call                     | Details about outgoing call. %1$s contains the external, called number, %2$s is the internal, calling number.                                      | FRITZ!Box                                                                                           |
@@ -201,12 +201,12 @@ The AIN (actor identification number) can be found in the FRITZ!Box interface ->
 | contact_state         | Contact                  | Contact state information (OPEN/CLOSED).                                                                                                           | HAN-FUN contact (e.g. SmartHome Tür-/Fensterkontakt or SmartHome Bewegungsmelder)- FRITZ!OS 7       |
 | last_change           | DateTime                 | States the last time the button was pressed.                                                                                                       | FRITZ!DECT 400, FRITZ!DECT 440, HAN-FUN switch (e.g. SmartHome Wandtaster) - FRITZ!OS 7             |
 | rollershutter         | Rollershutter            | Rollershutter control and status. Accepts UP/DOWN/STOP commands and the opening level in percent. States the opening level in percent.             | HAN-FUN blind (e.g. Rolltron DECT 1213) - FRITZ!OS 7                                                |
-| obstruction_alarm     | Obstruction Alarm        | Rollershutter obstruction alarm (ON/OFF)                                                                                                         | HAN-FUN blind (e.g. Rolltron DECT 1213) - FRITZ!OS 7                                                  |
-| temperature_alarm     | Temperature Alarm        | Rollershutter temperature alarm (ON/OFF)                                                                                                    | HAN-FUN blind (e.g. Rolltron DECT 1213) - FRITZ!OS 7                                                       |
+| obstruction_alarm     | Obstruction Alarm        | Rollershutter obstruction alarm (ON/OFF)                                                                                                           | HAN-FUN blind (e.g. Rolltron DECT 1213) - FRITZ!OS 7                                                |
+| temperature_alarm     | Temperature Alarm        | Rollershutter temperature alarm (ON/OFF)                                                                                                           | HAN-FUN blind (e.g. Rolltron DECT 1213) - FRITZ!OS 7                                                |
 
 ### Triggers
 
-| Channel Type ID | Item Type | Description                                                                    | Available on thing                                        |
+| Channel Type ID | Item Type |                                  Description                                   |                    Available on thing                     |
 |-----------------|-----------|--------------------------------------------------------------------------------|-----------------------------------------------------------|
 | press           | Trigger   | Dispatches a `PRESSED` event when a button is pressed.                         | FRITZ!DECT440, HAN-FUN switch (e.g. SmartHome Wandtaster) |
 | press           | Trigger   | Dispatches a `SHORT_PRESSED` or `LONG_PRESSED` event when a button is pressed. | FRITZ!DECT 400                                            |
@@ -376,3 +376,4 @@ then
     logInfo("demo", "Button pressed")
 end
 ```
+

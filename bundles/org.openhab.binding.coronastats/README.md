@@ -16,14 +16,14 @@ This can be used as bridge for country things you may add manually.
 
 ### World
 
-| Parameter | Default | Required | Description                                                                              |
-| --------- | :-----: | :------: | ---------------------------------------------------------------------------------------- |
+| Parameter | Default | Required |                                       Description                                        |
+|-----------|:-------:|:--------:|------------------------------------------------------------------------------------------|
 | `refresh` |   30    |    no    | Define the interval for polling the data from website in minutes. Minimum is 15 minutes. |
 
 ### Country
 
-| Parameter     | Default | Required | Description                                       |
-| ------------- | :-----: | :------: | ------------------------------------------------- |
+|   Parameter   | Default | Required |                    Description                    |
+|---------------|:-------:|:--------:|---------------------------------------------------|
 | `countryCode` |    -    |   yes    | 2-letter code for the country you want to display |
 
 For the correct 2-letter country code have a look at the website [https://corona-stats.online/](https://corona-stats.online/)
@@ -32,8 +32,8 @@ For the correct 2-letter country code have a look at the website [https://corona
 
 ### World and Country
 
-| channels       | type                 | description                                    |
-| -------------- | -------------------- | ---------------------------------------------- |
+|    channels    |         type         |                  description                   |
+|----------------|----------------------|------------------------------------------------|
 | `cases`        | Number:Dimensionless | Total cases                                    |
 | `today_cases`  | Number:Dimensionless | Increase of total cases today                  |
 | `deaths`       | Number:Dimensionless | Deaths                                         |
@@ -124,3 +124,4 @@ Text label="Corona" {
 }
 
 ```
+

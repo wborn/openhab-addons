@@ -7,15 +7,15 @@ The binding uses Ambient Weather's real-time API, so updates from weather statio
 
 The binding currently supports weather data from these weather stations.
 
-| Thing                    | ID        |
-|--------------------------|-----------|
-| Account                  | bridge    |
-| WS-0900-IP               | ws0900ip  |
-| WS-1400-IP / WS-1401-IP  | ws1400ip  |
-| WS-2902A / WS2902C       | ws2902a   |
-| WS-2902B                 | ws2902b   |
-| WS-8482                  | ws8482    |
-| WS-0265                  | ws0265    |
+|          Thing          |    ID    |
+|-------------------------|----------|
+| Account                 | bridge   |
+| WS-0900-IP              | ws0900ip |
+| WS-1400-IP / WS-1401-IP | ws1400ip |
+| WS-2902A / WS2902C      | ws2902a  |
+| WS-2902B                | ws2902b  |
+| WS-8482                 | ws8482   |
+| WS-0265                 | ws0265   |
 
 Other stations can be added relatively easily with changes in just several places in the source code.
 
@@ -27,72 +27,72 @@ Automatic discovery is currently not supported due to the lack of weather statio
 
 ### Account
 
-| Parameter        | Parameter ID      | Required/Optional | Description |
-|------------------|-------------------|-------------------|-------------|
-| API Key          | apiKey            | Required          | Obtain the API key on the _My Account_ page of your `ambientweather.net` dashboard. |
-| Application Key  | apiKey            | Required          | Obtain the Application key on the _My Account_ page of your `ambientweather.net` dashboard. |
+|    Parameter    | Parameter ID | Required/Optional |                                         Description                                         |
+|-----------------|--------------|-------------------|---------------------------------------------------------------------------------------------|
+| API Key         | apiKey       | Required          | Obtain the API key on the _My Account_ page of your `ambientweather.net` dashboard.         |
+| Application Key | apiKey       | Required          | Obtain the Application key on the _My Account_ page of your `ambientweather.net` dashboard. |
 
 ### Weather Station
 
-| Parameter        | Parameter ID      | Required/Optional | Description |
-|------------------|-------------------|-------------------|-------------|
-| MAC Address      | macAddress        | Required          | This is the weather station's MAC address. It must be configured in your `ambientweather.net` dashboard. |
+|  Parameter  | Parameter ID | Required/Optional |                                               Description                                                |
+|-------------|--------------|-------------------|----------------------------------------------------------------------------------------------------------|
+| MAC Address | macAddress   | Required          | This is the weather station's MAC address. It must be configured in your `ambientweather.net` dashboard. |
 
 ## Channels
 
 The following channels are supported by the binding. Note that specific weather station models may support only some or all of these channels.
 
-| Channel Group ID             | Channel ID                      | Item Type               | Description                                                   |
-|------------------------------|---------------------------------|-------------------------|---------------------------------------------------------------|
-| station                      | name                            | String                  | Station name given by the user                                |
-| station                      | location                        | String                  | Location of the station given by the user                     |
-|                              |                                 |                         |                                                               |
-| weatherData\<station-type\>  | observationTime                 | DateTime                | Time that the conditions were observed                        |
-| weatherData\<station-type\>  | batteryIndicator                | String                  | Battery condition indicator (1 Good, 0 Not good)              |
-| weatherData\<station-type\>  | temperature                     | Number:Temperature      | Actual observed temperature                                   |
-| weatherData\<station-type\>  | feelingTemperature              | Number:Temperature      | "Real feel" temperature                                       |
-| weatherData\<station-type\>  | dewPoint                        | Number:Temperature      | Dew point                                                     |
-| weatherData\<station-type\>  | relativeHumidity                | Number:Dimensionless    | Relative humidity                                             |
-| weatherData\<station-type\>  | pressureAbsolute                | Number:Pressure         | Absolute barometric pressure                                  |
-| weatherData\<station-type\>  | pressureRelative                | Number:Pressure         | Relative barometric pressure                                  |
-| weatherData\<station-type\>  | pressureTrend                   | String                  | 3-hour trend (FALLING RAPIDLY ... STEADY ... RISING RAPIDLY   |
-| weatherData\<station-type\>  | windSpeed                       | Number:Speed            | Wind speed                                                    |
-| weatherData\<station-type\>  | windDirectionDegrees            | Number:Angle            | Wind direction in degrees                                     |
-| weatherData\<station-type\>  | windDirection                   | String                  | Wind direction                                                |
-| weatherData\<station-type\>  | windSpeedMaxDaily               | Number:Speed            | Maximum daily wind speed                                      |
-| weatherData\<station-type\>  | windGust                        | Number:Speed            | Wind gust                                                     |
-| weatherData\<station-type\>  | windGustMaxDaily                | Number:Speed            | Maximum daily wind gust                                       |
-| weatherData\<station-type\>  | windSpeedAvg2Minute             | Number:Speed            | Two-minute wind speed average                                 |
-| weatherData\<station-type\>  | windDirectionDegreesAvg2Min     | Number:Angle            | Two-minute wind direction average                             |
-| weatherData\<station-type\>  | windDirectionAvg2Min            | String                  | Two-minute wind direction average                             |
-| weatherData\<station-type\>  | windSpeedAvg10Minute            | Number:Speed            | Ten-minute wind speed average                                 |
-| weatherData\<station-type\>  | windDirectionDegreesAvg10Min    | Number:Angle            | Ten-minute wind direction average                             |
-| weatherData\<station-type\>  | windDirectionAvg10Min           | String                  | Ten-minute wind direction average                             |
-| weatherData\<station-type\>  | rainHourlyRate                  | Number:Speed            | Hourly rate of rainfall                                       |
-| weatherData\<station-type\>  | rainDay                         | Number:Length           | Rainfall amount for the day                                   |
-| weatherData\<station-type\>  | rainWeek                        | Number:Length           | Rainfall amount for the week                                  |
-| weatherData\<station-type\>  | rainMonth                       | Number:Length           | Rainfall amount for the month                                 |
-| weatherData\<station-type\>  | rainYear                        | Number:Length           | Rainfall amount for the year                                  |
-| weatherData\<station-type\>  | rainTotal                       | Number:Length           | Rainfall amount since last weather station reset              |
-| weatherData\<station-type\>  | rainEvent                       | Number:Length           | Rainfall for most recent rain event                           |
-| weatherData\<station-type\>  | rainLastTime                    | DateTime                | Last time it rained                                           |
-| weatherData\<station-type\>  | solarRadiation                  | Number:Intensity        | Solar radiation                                               |
-| weatherData\<station-type\>  | uvIndex                         | Number:Dimensionless    | UV index                                                      |
-|                              |                                 |                         |                                                               |
-| indoorSensor                 | temperature                     | Number:Temperature      | Temperature                                                   |
-| indoorSensor                 | humidity                        | Number:Dimensionless    | Humidity                                                      |
-| indoorSensor                 | batteryIndicator                | String                  | Battery indicator                                             |
-|                              |                                 |                         |                                                               |
-| remoteSensor\<1-10\>         | temperature                     | Number:Temperature      | Temperature                                                   |
-| remoteSensor\<1-10\>         | dewPoint                        | Number:Temperature      | Dew Point                                                     |
-| remoteSensor\<1-10\>         | feelingTemperature              | Number:Temperature      | "Real feel" temperature                                       |
-| remoteSensor\<1-10\>         | humidity                        | Number:Dimensionless    | Humidity                                                      |
-| remoteSensor\<1-10\>         | batteryIndicator                | String                  | Battery indicator                                             |
-| remoteSensor\<1-10\>         | co2                             | Number:Dimensionless    | Carbon Dioxide level                                          |
-| remoteSensor\<1-10\>         | relay                           | Switch                  | Relay                                                         |
-| remoteSensor\<1-10\>         | soilTemperature                 | Number:Temperature      | Soil temperature                                              |
-| remoteSensor\<1-10\>         | soilMoisture                    | Number:Dimensionless    | Soil moisture                                                 |
-| remoteSensor\<1-10\>         | soilMoistureLevel               | String                  | Soil moisture level (VERY DRY ... VERY WET)                   |
+|      Channel Group ID       |          Channel ID          |      Item Type       |                         Description                         |
+|-----------------------------|------------------------------|----------------------|-------------------------------------------------------------|
+| station                     | name                         | String               | Station name given by the user                              |
+| station                     | location                     | String               | Location of the station given by the user                   |
+|                             |                              |                      |                                                             |
+| weatherData\<station-type\> | observationTime              | DateTime             | Time that the conditions were observed                      |
+| weatherData\<station-type\> | batteryIndicator             | String               | Battery condition indicator (1 Good, 0 Not good)            |
+| weatherData\<station-type\> | temperature                  | Number:Temperature   | Actual observed temperature                                 |
+| weatherData\<station-type\> | feelingTemperature           | Number:Temperature   | "Real feel" temperature                                     |
+| weatherData\<station-type\> | dewPoint                     | Number:Temperature   | Dew point                                                   |
+| weatherData\<station-type\> | relativeHumidity             | Number:Dimensionless | Relative humidity                                           |
+| weatherData\<station-type\> | pressureAbsolute             | Number:Pressure      | Absolute barometric pressure                                |
+| weatherData\<station-type\> | pressureRelative             | Number:Pressure      | Relative barometric pressure                                |
+| weatherData\<station-type\> | pressureTrend                | String               | 3-hour trend (FALLING RAPIDLY ... STEADY ... RISING RAPIDLY |
+| weatherData\<station-type\> | windSpeed                    | Number:Speed         | Wind speed                                                  |
+| weatherData\<station-type\> | windDirectionDegrees         | Number:Angle         | Wind direction in degrees                                   |
+| weatherData\<station-type\> | windDirection                | String               | Wind direction                                              |
+| weatherData\<station-type\> | windSpeedMaxDaily            | Number:Speed         | Maximum daily wind speed                                    |
+| weatherData\<station-type\> | windGust                     | Number:Speed         | Wind gust                                                   |
+| weatherData\<station-type\> | windGustMaxDaily             | Number:Speed         | Maximum daily wind gust                                     |
+| weatherData\<station-type\> | windSpeedAvg2Minute          | Number:Speed         | Two-minute wind speed average                               |
+| weatherData\<station-type\> | windDirectionDegreesAvg2Min  | Number:Angle         | Two-minute wind direction average                           |
+| weatherData\<station-type\> | windDirectionAvg2Min         | String               | Two-minute wind direction average                           |
+| weatherData\<station-type\> | windSpeedAvg10Minute         | Number:Speed         | Ten-minute wind speed average                               |
+| weatherData\<station-type\> | windDirectionDegreesAvg10Min | Number:Angle         | Ten-minute wind direction average                           |
+| weatherData\<station-type\> | windDirectionAvg10Min        | String               | Ten-minute wind direction average                           |
+| weatherData\<station-type\> | rainHourlyRate               | Number:Speed         | Hourly rate of rainfall                                     |
+| weatherData\<station-type\> | rainDay                      | Number:Length        | Rainfall amount for the day                                 |
+| weatherData\<station-type\> | rainWeek                     | Number:Length        | Rainfall amount for the week                                |
+| weatherData\<station-type\> | rainMonth                    | Number:Length        | Rainfall amount for the month                               |
+| weatherData\<station-type\> | rainYear                     | Number:Length        | Rainfall amount for the year                                |
+| weatherData\<station-type\> | rainTotal                    | Number:Length        | Rainfall amount since last weather station reset            |
+| weatherData\<station-type\> | rainEvent                    | Number:Length        | Rainfall for most recent rain event                         |
+| weatherData\<station-type\> | rainLastTime                 | DateTime             | Last time it rained                                         |
+| weatherData\<station-type\> | solarRadiation               | Number:Intensity     | Solar radiation                                             |
+| weatherData\<station-type\> | uvIndex                      | Number:Dimensionless | UV index                                                    |
+|                             |                              |                      |                                                             |
+| indoorSensor                | temperature                  | Number:Temperature   | Temperature                                                 |
+| indoorSensor                | humidity                     | Number:Dimensionless | Humidity                                                    |
+| indoorSensor                | batteryIndicator             | String               | Battery indicator                                           |
+|                             |                              |                      |                                                             |
+| remoteSensor\<1-10\>        | temperature                  | Number:Temperature   | Temperature                                                 |
+| remoteSensor\<1-10\>        | dewPoint                     | Number:Temperature   | Dew Point                                                   |
+| remoteSensor\<1-10\>        | feelingTemperature           | Number:Temperature   | "Real feel" temperature                                     |
+| remoteSensor\<1-10\>        | humidity                     | Number:Dimensionless | Humidity                                                    |
+| remoteSensor\<1-10\>        | batteryIndicator             | String               | Battery indicator                                           |
+| remoteSensor\<1-10\>        | co2                          | Number:Dimensionless | Carbon Dioxide level                                        |
+| remoteSensor\<1-10\>        | relay                        | Switch               | Relay                                                       |
+| remoteSensor\<1-10\>        | soilTemperature              | Number:Temperature   | Soil temperature                                            |
+| remoteSensor\<1-10\>        | soilMoisture                 | Number:Dimensionless | Soil moisture                                               |
+| remoteSensor\<1-10\>        | soilMoistureLevel            | String               | Soil moisture level (VERY DRY ... VERY WET)                 |
 
 ## Example
 

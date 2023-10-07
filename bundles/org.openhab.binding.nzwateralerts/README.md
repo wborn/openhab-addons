@@ -17,37 +17,37 @@ The binding and thing ID is `nzwateralerts:wateralert`.
 
 ### Configuration Values
 
-| Value           | Type         | Description                            |
-| --------------- | ------------ | -------------------------------------- |
-| location        | string       | The location to get water data from. Refer to the list below for values. |
-| refreshInterval | number       | The time interval (in hours) to refresh the data.
+|      Value      |  Type  |                               Description                                |
+|-----------------|--------|--------------------------------------------------------------------------|
+| location        | string | The location to get water data from. Refer to the list below for values. |
+| refreshInterval | number | The time interval (in hours) to refresh the data.                        |
 
 ### Supported city/area list
 
-| City                     | Config Value                               |
-| ------------------------ | ------------------------------------------ |
-| Bream Bay                | bewaterwise:whangarei:breambay             |
-| Dargaville & Baylys      | bewaterwise:kaipara:dargavilleampbaylys    |
-| Glinks Gully             | bewaterwise:kaipara:glinksgully            |
-| Hamilton City            | smartwater:hamilton:hamilton               |
-| Kaikohe / Ngawha         | bewaterwise:farnorth:kaikohengawha         |
-| Kaitaia                  | bewaterwise:farnorth:kaitaia               |
-| Kerikeri / Waipapa       | bewaterwise:farnorth:kerikeriwaipapa       |
-| Mangapai                 | bewaterwise:whangarei:mangapai             |
-| Mangawhai                | bewaterwise:kaipara:mangawhai              |
-| Maungakaramea            | bewaterwise:whangarei:maungakaramea        |
-| Maungaturoto             | bewaterwise:kaipara:maungaturoto           |
-| Moerewa / Kawakawa       | bewaterwise:farnorth:moerewakawakawa       |
-| Napier                   | napiercitycouncil:napier:napier            |
-| Okaihau                  | bewaterwise:farnorth:okaihau               |
-| Opononi / Omapere        | bewaterwise:farnorth:opononiomapere        |
-| Rawene                   | bewaterwise:farnorth:rawene                |
-| Ruawai                   | bewaterwise:kaipara:ruawai                 |
-| Russell                  | bewaterwise:farnorth:russell               |
-| Waipa District           | smartwater:waipa:waipa                     |
-| Waikato District         | smartwater:waikato:waikato                 |
-| Waitangi / Paihia / Opua | bewaterwise:farnorth:waitangipaihiaopua    |
-| Whangarei                | bewaterwise:whangarei:whangarei            |
+|           City           |              Config Value               |
+|--------------------------|-----------------------------------------|
+| Bream Bay                | bewaterwise:whangarei:breambay          |
+| Dargaville & Baylys      | bewaterwise:kaipara:dargavilleampbaylys |
+| Glinks Gully             | bewaterwise:kaipara:glinksgully         |
+| Hamilton City            | smartwater:hamilton:hamilton            |
+| Kaikohe / Ngawha         | bewaterwise:farnorth:kaikohengawha      |
+| Kaitaia                  | bewaterwise:farnorth:kaitaia            |
+| Kerikeri / Waipapa       | bewaterwise:farnorth:kerikeriwaipapa    |
+| Mangapai                 | bewaterwise:whangarei:mangapai          |
+| Mangawhai                | bewaterwise:kaipara:mangawhai           |
+| Maungakaramea            | bewaterwise:whangarei:maungakaramea     |
+| Maungaturoto             | bewaterwise:kaipara:maungaturoto        |
+| Moerewa / Kawakawa       | bewaterwise:farnorth:moerewakawakawa    |
+| Napier                   | napiercitycouncil:napier:napier         |
+| Okaihau                  | bewaterwise:farnorth:okaihau            |
+| Opononi / Omapere        | bewaterwise:farnorth:opononiomapere     |
+| Rawene                   | bewaterwise:farnorth:rawene             |
+| Ruawai                   | bewaterwise:kaipara:ruawai              |
+| Russell                  | bewaterwise:farnorth:russell            |
+| Waipa District           | smartwater:waipa:waipa                  |
+| Waikato District         | smartwater:waikato:waikato              |
+| Waitangi / Paihia / Opua | bewaterwise:farnorth:waitangipaihiaopua |
+| Whangarei                | bewaterwise:whangarei:whangarei         |
 
 ### Example
 

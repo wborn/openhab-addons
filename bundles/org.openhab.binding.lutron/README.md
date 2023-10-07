@@ -79,13 +79,13 @@ Two different bridges are now supported by the binding for current Lutron system
 The LIP protocol is supported by ipbridge while the LEAP protocol is supported by leapbridge.
 Current systems support one or both protocols as shown below.
 
-|Bridge Device           | LIP | LEAP |
-|------------------------|-----|------|
-|HomeWorks QS Processor  |  X  |      |
-|RadioRA 2 Main Repeater |  X  |      |
-|RA2 Select Main Repeater|  X  |  X   |
-|Caseta Smart Bridge Pro |  X  |  X   |
-|Caseta Smart Bridge     |     |  X   |
+|      Bridge Device       | LIP | LEAP |
+|--------------------------|-----|------|
+| HomeWorks QS Processor   | X   |      |
+| RadioRA 2 Main Repeater  | X   |      |
+| RA2 Select Main Repeater | X   | X    |
+| Caseta Smart Bridge Pro  | X   | X    |
+| Caseta Smart Bridge      |     | X    |
 
 If your system supports only one protocol, then the choice of bridge is easy.
 If you have a system that supports both protocols, you must decide which you wish to use.
@@ -94,7 +94,7 @@ You should be aware of the following functional differences between the protocol
 
 - Using LIP on Caseta you can’t receive notifications of occupancy group status changes (occupied/unoccupied/unknown), but using LEAP you can.
 - Conversely, LIP provides notifications of keypad key presses, while LEAP does not (as far as is currently known).
-This means that using ipbridge you can trigger rules and take actions on keypad key presses/releases, but using leapbridge you can’t.
+  This means that using ipbridge you can trigger rules and take actions on keypad key presses/releases, but using leapbridge you can’t.
 - Caseta and RA2 Select device discovery is supported via LEAP, but not via LIP.
 - The leapbridge is a bit more complicated to configure because LEAP uses an SSL connections and authenticates using certificates.
 - LIP is a publicly documented protocol, while LEAP is not. This means that Lutron could make a change that breaks LEAP support at any time.
@@ -676,58 +676,58 @@ Thing sysvar qsstate [ integrationId=80 ]
 
 The following is a summary of channels for all RadioRA 2 binding things:
 
-| Thing               | Channel           | Item Type     | Description                                  |
-|---------------------|-------------------|---------------|--------------------------------------------- |
-| dimmer              | lightlevel        | Dimmer        | Increase/decrease the light level            |
-| switch              | switchstatus      | Switch        | On/off status of the switch                  |
-| fan                 | fanspeed          | String        | Set/get fan speed using string options       |
-| fan                 | fanlevel          | Dimmer        | Set/get fan speed using a dimmer channel     |
-| occupancysensor     | occupancystatus   | Switch        | Occupancy sensor status                      |
-| ogroup              | groupstate        | String        | Occupancy group status                       |
-| cco                 | switchstatus      | Switch        | On/off status of the CCO                     |
-| keypads (all)       | button*           | Switch        | Keypad button                                |
-| keypads(except pico)| led*              | Switch        | LED indicator for the associated button      |
-| vcrx                | cci*              | Contact       | Contact closure input on/off status          |
-| shade               | shadelevel        | Rollershutter | Level of the shade (100% = full open)        |
-| blind               | blindliftlevel    | Rollershutter | Level of the blind (100% = full open)        |
-| blind               | blindtiltlevel    | Rollershutter | Tilt of the blind slats                      |
-| greenmode           | step              | Number        | Get/set active green mode step number        |
-| timeclock           | clockmode         | Number        | Get/set active clock mode index number       |
-| timeclock           | sunrise           | DateTime      | Get the timeclock's sunrise time             |
-| timeclock           | sunset            | DateTime      | Get the timeclock's sunset time              |
-| timeclock           | execevent         | Number        | Execute event or monitor events executed     |
-| timeclock           | enableevent       | Number        | Enable event or monitor events enabled       |
-| timeclock           | disableevent      | Number        | Disable event or monitor events disabled     |
-| sysvar              | varstate          | Number        | Get/set system state variable value          |
+|        Thing         |     Channel     |   Item Type   |               Description                |
+|----------------------|-----------------|---------------|------------------------------------------|
+| dimmer               | lightlevel      | Dimmer        | Increase/decrease the light level        |
+| switch               | switchstatus    | Switch        | On/off status of the switch              |
+| fan                  | fanspeed        | String        | Set/get fan speed using string options   |
+| fan                  | fanlevel        | Dimmer        | Set/get fan speed using a dimmer channel |
+| occupancysensor      | occupancystatus | Switch        | Occupancy sensor status                  |
+| ogroup               | groupstate      | String        | Occupancy group status                   |
+| cco                  | switchstatus    | Switch        | On/off status of the CCO                 |
+| keypads (all)        | button*         | Switch        | Keypad button                            |
+| keypads(except pico) | led*            | Switch        | LED indicator for the associated button  |
+| vcrx                 | cci*            | Contact       | Contact closure input on/off status      |
+| shade                | shadelevel      | Rollershutter | Level of the shade (100% = full open)    |
+| blind                | blindliftlevel  | Rollershutter | Level of the blind (100% = full open)    |
+| blind                | blindtiltlevel  | Rollershutter | Tilt of the blind slats                  |
+| greenmode            | step            | Number        | Get/set active green mode step number    |
+| timeclock            | clockmode       | Number        | Get/set active clock mode index number   |
+| timeclock            | sunrise         | DateTime      | Get the timeclock's sunrise time         |
+| timeclock            | sunset          | DateTime      | Get the timeclock's sunset time          |
+| timeclock            | execevent       | Number        | Execute event or monitor events executed |
+| timeclock            | enableevent     | Number        | Enable event or monitor events enabled   |
+| timeclock            | disableevent    | Number        | Disable event or monitor events disabled |
+| sysvar               | varstate        | Number        | Get/set system state variable value      |
 
 The channels available on each keypad device (i.e. keypad, ttkeypad, intlkeypad, grafikeyekeypad, pico, vcrx, and virtualkeypad) will vary with keypad type and model.
 Appropriate channels will be created automatically by the keypad, ttkeypad, intlkeypad, grafikeyekeypad, and pico thing handlers based on the setting of the `model` parameter for those thing types.
 
 ### Commands supported by channels
 
-| Thing     | Channel       | Native Type  | Accepts                                               |
-|-----------|---------------|--------------|-------------------------------------------------------|
-|dimmer     |lightlevel     |PercentType   |OnOffType, PercentType (rounded/truncated to integer)  |
-|switch     |switchstatus   |OnOffType     |OnOffType                                              |
-|fan        |fanspeed       |StringType    |"OFF","LOW","MEDIUM","MEDIUMHIGH","HIGH"               |
-|fan        |fanlevel       |PercentType   |OnOffType, PercentType                                 |
-|occ. sensor|occupancystatus|OnOffType     |(_readonly_)                                           |
-|ogroup     |groupstate     |StringType    |"OCCUPIED","UNOCCUPIED","UNKNOWN" (_readonly_)         |
-|cco        |switchstatus   |OnOffType     |OnOffType, RefreshType                                 |
-|keypads    |button*        |OnOffType     |OnOffType                                              |
-|           |led*           |OnOffType     |OnOffType, RefreshType                                 |
-|           |cci*           |OpenClosedType|(_readonly_)                                           |
-|shade      |shadelevel     |PercentType   |PercentType, UpDownType, StopMoveType.STOP, RefreshType|
-|blind      |blindliftlevel |PercentType   |PercentType, UpDownType, StopMoveType.STOP, RefreshType|
-|           |blindtiltlevel |PercentType   |PercentType, UpDownType, StopMoveType.STOP, RefreshType|
-|greenmode  |step           |DecimalType   |DecimalType, OnOffType (ON=2,OFF=1), RefreshType       |
-|timeclock  |clockmode      |DecimalType   |DecimalType, RefreshType                               |
-|           |sunrise        |DateTimeType  |RefreshType (_readonly_)                               |
-|           |sunset         |DateTimeType  |RefreshType (_readonly_)                               |
-|           |execevent      |DecimalType   |DecimalType                                            |
-|           |enableevent    |DecimalType   |DecimalType                                            |
-|           |disableevent   |DecimalType   |DecimalType                                            |
-|sysvar     |varstate       |DecimalType   |DecimalType (rounded/truncated to integer)             |
+|    Thing    |     Channel     |  Native Type   |                         Accepts                         |
+|-------------|-----------------|----------------|---------------------------------------------------------|
+| dimmer      | lightlevel      | PercentType    | OnOffType, PercentType (rounded/truncated to integer)   |
+| switch      | switchstatus    | OnOffType      | OnOffType                                               |
+| fan         | fanspeed        | StringType     | "OFF","LOW","MEDIUM","MEDIUMHIGH","HIGH"                |
+| fan         | fanlevel        | PercentType    | OnOffType, PercentType                                  |
+| occ. sensor | occupancystatus | OnOffType      | (_readonly_)                                            |
+| ogroup      | groupstate      | StringType     | "OCCUPIED","UNOCCUPIED","UNKNOWN" (_readonly_)          |
+| cco         | switchstatus    | OnOffType      | OnOffType, RefreshType                                  |
+| keypads     | button*         | OnOffType      | OnOffType                                               |
+|             | led*            | OnOffType      | OnOffType, RefreshType                                  |
+|             | cci*            | OpenClosedType | (_readonly_)                                            |
+| shade       | shadelevel      | PercentType    | PercentType, UpDownType, StopMoveType.STOP, RefreshType |
+| blind       | blindliftlevel  | PercentType    | PercentType, UpDownType, StopMoveType.STOP, RefreshType |
+|             | blindtiltlevel  | PercentType    | PercentType, UpDownType, StopMoveType.STOP, RefreshType |
+| greenmode   | step            | DecimalType    | DecimalType, OnOffType (ON=2,OFF=1), RefreshType        |
+| timeclock   | clockmode       | DecimalType    | DecimalType, RefreshType                                |
+|             | sunrise         | DateTimeType   | RefreshType (_readonly_)                                |
+|             | sunset          | DateTimeType   | RefreshType (_readonly_)                                |
+|             | execevent       | DecimalType    | DecimalType                                             |
+|             | enableevent     | DecimalType    | DecimalType                                             |
+|             | disableevent    | DecimalType    | DecimalType                                             |
+| sysvar      | varstate        | DecimalType    | DecimalType (rounded/truncated to integer)              |
 
 Most channels receive immediate notifications of device state changes from the Lutron control system.
 The only exceptions are **greenmode** _step_, which is periodically polled and accepts REFRESH commands to initiate immediate polling, and **timeclock** _sunrise_ and _sunset_, which must be polled daily using REFRESH commands to retrieve current values.
@@ -801,7 +801,7 @@ In a non-bridged system, these parameters should be left at their default of 0.
 
 This binding currently supports the following thing types:
 
-| Thing            | Type ID | Description                                          |
+|      Thing       | Type ID |                     Description                      |
 |------------------|---------|------------------------------------------------------|
 | ra-rs232         | Bridge  | RadioRA device that supports RS232 communication     |
 | ra-dimmer        | Thing   | Dimmer control                                       |
@@ -810,7 +810,7 @@ This binding currently supports the following thing types:
 
 ## Thing Configuration Parameters
 
-| Thing            | Parameter    | Description                                                            |
+|      Thing       |  Parameter   |                              Description                               |
 |------------------|--------------|------------------------------------------------------------------------|
 | ra-rs232         | portName     | The serial port to use to communicate with Chronos or RS232 module     |
 |                  | baud         | (Optional) Baud Rate (defaults to 9600)                                |
@@ -827,7 +827,7 @@ This binding currently supports the following thing types:
 
 The following channels are supported:
 
-| Thing Type                 | Channel ID   | Item Type | Description                        |
+|         Thing Type         |  Channel ID  | Item Type |            Description             |
 |----------------------------|--------------|-----------|------------------------------------|
 | ra-dimmer                  | lightlevel   | Dimmer    | Increase/Decrease dimmer intensity |
 | ra-switch/ra-phantomButton | switchstatus | Switch    | On/Off state of switch             |
@@ -896,9 +896,9 @@ lutron:hwdimmer:dimmer1 [address="[01:01:03:02:04]", fadeTime="1", defaultLevel=
 
 The following channels are supported:
 
-| Thing Type      | Channel Type ID   | Item Type    | Description                                  |
-|-----------------|-------------------|--------------|--------------------------------------------- |
-| dimmer          | lightlevel        | Dimmer       | Increase/decrease the light level            |
+| Thing Type | Channel Type ID | Item Type |            Description            |
+|------------|-----------------|-----------|-----------------------------------|
+| dimmer     | lightlevel      | Dimmer    | Increase/decrease the light level |
 
 # Lutron Grafik Eye 3x/4x binding via GRX-PRG or GRX-CI-PRG
 
@@ -937,7 +937,7 @@ lutron:grafikeye:home (lutron:prgbridge:home) [ controlUnit=1, fade=10, polling=
 
 ### Bridge channels
 
-| Channel Type ID | Readonly | Item Type | Description                                                   |
+| Channel Type ID | Readonly | Item Type |                          Description                          |
 |-----------------|----------|-----------|---------------------------------------------------------------|
 | zonelowerstop   | No       | Switch    | Stops zone lowering on all control units                      |
 | zoneraisestop   | No       | Switch    | Stops zone raising on all control units                       |
@@ -956,17 +956,17 @@ lutron:grafikeye:home (lutron:prgbridge:home) [ controlUnit=1, fade=10, polling=
 
 ### Grafik Eye channels
 
-| Channel Type ID   | Readonly | Item Type     | Description                                                    |
-|-------------------|----------|---------------|--------------------------------------------------------------- |
-| scene             | No       | Number        | The current scene                                              |
-| scenelock         | No       | Switch        | Locks/unlocks the current scene                                |
-| sceneseq          | No       | Switch        | Starts/Stops the scene sequence                                |
-| zonelock          | No       | Switch        | Locks/unlocks the zones                                        |
-| zonefade          | No       | Number        | The seconds to fade from one intensity to the next             |
-| zonelowerX        | No       | Switch        | Lowers the specified zone                                      |
-| zoneraiseX        | No       | Switch        | Raises the specified zone                                      |
-| zoneintensityX    | No       | Number        | Specifies the zone intensity                                   |
-| zoneshadeX        | No       | Rollershutter | Specifies the shade zone                                       |
+| Channel Type ID | Readonly |   Item Type   |                    Description                     |
+|-----------------|----------|---------------|----------------------------------------------------|
+| scene           | No       | Number        | The current scene                                  |
+| scenelock       | No       | Switch        | Locks/unlocks the current scene                    |
+| sceneseq        | No       | Switch        | Starts/Stops the scene sequence                    |
+| zonelock        | No       | Switch        | Locks/unlocks the zones                            |
+| zonefade        | No       | Number        | The seconds to fade from one intensity to the next |
+| zonelowerX      | No       | Switch        | Lowers the specified zone                          |
+| zoneraiseX      | No       | Switch        | Raises the specified zone                          |
+| zoneintensityX  | No       | Number        | Specifies the zone intensity                       |
+| zoneshadeX      | No       | Rollershutter | Specifies the shade zone                           |
 
 ### Notes
 

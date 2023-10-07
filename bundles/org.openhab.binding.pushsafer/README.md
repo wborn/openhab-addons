@@ -11,7 +11,7 @@ You are able to create multiple instances of this Thing to broadcast to differen
 
 ## Thing Configuration
 
-| Configuration Parameter | Type    | Description                                                                                                                                           |
+| Configuration Parameter |  Type   |                                                                      Description                                                                      |
 |-------------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `apikey`                | text    | Your private-key to access the Pushsafer [Message API](https://www.pushsafer.com/pushapi). **mandatory**                                              |
 | `user`                  | text    | Your username or email address to validate against the Pushsafer Message API. **mandatory**                                                           |
@@ -67,3 +67,4 @@ actions.sendPushsaferAttachmentMessage("Hello World!", "openHAB", "data:[<media 
 // in case you want to send the content of an Image Item (RawType)
 actions.sendPushsaferAttachmentMessage("Hello World!", "openHAB", myImageItem.state.toFullString, null, null)
 ```
+

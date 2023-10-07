@@ -11,7 +11,7 @@ For a list of certified products see this page: <https://www.studer-innotec.com/
 This bundle adds the following thing type to the Modbus binding.
 Note, that the things will show up under the Modbus binding.
 
-| Thing Type IDs | Description                                                                                                          | Picture                             |
+| Thing Type IDs |                                                     Description                                                      |               Picture               |
 |----------------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------|
 | bsp            | For BSP that offer a highly precise measuring for Xtender, VarioTrack and VarioString systems                        | ![BSP](doc/bsp.png)                 |
 | xtender        | For the Xtender models for system capacities from 0.5kVA to 72kVA that allow for the optimal use of available energy | ![Xtender](doc/xtender.png)         |
@@ -29,17 +29,17 @@ Please refer to your device's vendor documentation how model blocks are laid for
 
 OR: If there is no offset configured (default config) on the dip switch in RS-485, the following are mostly interesting for getting things up and running:
 
-|--------|-----------------------|
-| Offset | Device                |
-|--------|-----------------------|
-| 10     | Multicast Xtender     |
-| 11-19  | Xtender 1-9           |
-| 20     | Multicast Variotrack  |
-| 21-35  | Variotrack 1-15       |
-| 40     | Multicast Variostring |
-| 41-55  | Variostring 1-15      |
-| 61     | BSP/Xcom-CAN          |
-|--------|-----------------------|
+|----------|-------------------------|
+| Offset   | Device                  |
+| -------- | ----------------------- |
+| 10       | Multicast Xtender       |
+| 11-19    | Xtender 1-9             |
+| 20       | Multicast Variotrack    |
+| 21-35    | Variotrack 1-15         |
+| 40       | Multicast Variostring   |
+| 41-55    | Variostring 1-15        |
+| 61       | BSP/Xcom-CAN            |
+| -------- | ----------------------- |
 
 More Details about that can be found in the technical specification and appendix for Studer RTU Modbus protocol. Check default config (dip switches 1 and 2 off) while configuring the pin-out on the RS-485!
 
@@ -47,7 +47,7 @@ Multicast writes on any devices of given class, but reads only on the first avai
 
 The following parameters are valid for all thing types:
 
-| Parameter | Type    | Required | Default if omitted      | Description                                                                |
+| Parameter |  Type   | Required |   Default if omitted    |                                Description                                 |
 |-----------|---------|----------|-------------------------|----------------------------------------------------------------------------|
 | address   | integer | yes      | `first slave of device` | Address of slave                                                           |
 | refresh   | integer | yes      | 5                       | Poll interval in seconds. Increase this if you encounter connection errors |
@@ -60,70 +60,70 @@ The following Channels, and their associated channel types are shown below divid
 
 All channels read for a BSP device
 
-| Channel            | Type                     | Description           |
-| ------------------ | ------------------------ | --------------------- |
-| power              | Number:Power             | Power                 |
-| batteryVoltage     | Number:ElectricPotential | Battery voltage       |
-| batteryCurrent     | Number:ElectricCurrent   | Battery current       |
-| stateOfCharge      | Number:Dimensionless     | State of Charge       |
-| batteryTemperature | Number:Temperature       | Battery temperature   |
+|      Channel       |           Type           |     Description     |
+|--------------------|--------------------------|---------------------|
+| power              | Number:Power             | Power               |
+| batteryVoltage     | Number:ElectricPotential | Battery voltage     |
+| batteryCurrent     | Number:ElectricCurrent   | Battery current     |
+| stateOfCharge      | Number:Dimensionless     | State of Charge     |
+| batteryTemperature | Number:Temperature       | Battery temperature |
 
 ### Xtender
 
 All channels read for a Xtender device
 
-| Channel           | Type                     | Description             |
-| ----------------- | ------------------------ | ----------------------- |
-| inputVoltage      | Number:ElectricPotential | Input voltage           |
-| inputCurrent      | Number:ElectricCurrent   | Input current           |
-| inputActivePower  | Number:Power             | Input active power      |
-| inputFrequency    | Number:Frequency         | Input frequency         |
-| outputVoltage     | Number:ElectricPotential | Output voltage          |
-| outputCurrent     | Number:ElectricCurrent   | Output current          |
-| outputActivePower | Number:Power             | Output active power     |
-| outputFrequency   | Number:Frequency         | Output frequency        |
-| operatingState    | String                   | Operating state         |
-| stateInverter     | String                   | State of the inverter   |
+|      Channel      |           Type           |      Description      |
+|-------------------|--------------------------|-----------------------|
+| inputVoltage      | Number:ElectricPotential | Input voltage         |
+| inputCurrent      | Number:ElectricCurrent   | Input current         |
+| inputActivePower  | Number:Power             | Input active power    |
+| inputFrequency    | Number:Frequency         | Input frequency       |
+| outputVoltage     | Number:ElectricPotential | Output voltage        |
+| outputCurrent     | Number:ElectricCurrent   | Output current        |
+| outputActivePower | Number:Power             | Output active power   |
+| outputFrequency   | Number:Frequency         | Output frequency      |
+| operatingState    | String                   | Operating state       |
+| stateInverter     | String                   | State of the inverter |
 
 ### VarioTrack
 
 All channels read for a VarioTrack device
 
-| Channel              | Type                     | Description                               |
-| -------------------- | ------------------------ | ----------------------------------------- |
-| modelVarioTrack      | String                   | Model of VarioTrack                       |
-| voltagePVGenerator   | Number:ElectricPotential | Voltage of the PV generator               |
-| powerPVGenerator     | Number:Power             | Power of the PV generator                 |
-| productionCurrentDay | Number:Energy            | Production in (kWh) for the current day   |
-| batteryVoltage       | Number:ElectricPotential | Battery voltage                           |
-| batteryCurrent       | Number:ElectricCurrent   | Battery current                           |
-| operatingMode        | String                   | Operating mode                            |
-| stateVarioTrack      | String                   | State of the VarioTrack                   |
+|       Channel        |           Type           |               Description               |
+|----------------------|--------------------------|-----------------------------------------|
+| modelVarioTrack      | String                   | Model of VarioTrack                     |
+| voltagePVGenerator   | Number:ElectricPotential | Voltage of the PV generator             |
+| powerPVGenerator     | Number:Power             | Power of the PV generator               |
+| productionCurrentDay | Number:Energy            | Production in (kWh) for the current day |
+| batteryVoltage       | Number:ElectricPotential | Battery voltage                         |
+| batteryCurrent       | Number:ElectricCurrent   | Battery current                         |
+| operatingMode        | String                   | Operating mode                          |
+| stateVarioTrack      | String                   | State of the VarioTrack                 |
 
 ### VarioString
 
 All channels read for a VarioString device
 
-| Channel                 | Type                     | Description                                   |
-| ----------------------- | ------------------------ | --------------------------------------------- |
-| PVVoltage               | Number:ElectricPotential | PV voltage                                    |
-| PVCurrent               | Number:ElectricCurrent   | PV current                                    |
-| PVPower                 | Number:Power             | PV power                                      |
-| ProductionPVCurrentDay  | Number:Energy            | Production PV in (kWh) for the current day    |
-| PV1Voltage              | Number:ElectricPotential | PV1 voltage                                   |
-| PV1Current              | Number:ElectricCurrent   | PV1 current                                   |
-| PV1Power                | Number:Power             | PV1 power                                     |
-| ProductionPV1CurrentDay | Number:Energy            | Production PV1 in (kWh) for the current day   |
-| PV2Voltage              | Number:ElectricPotential | PV2 voltage                                   |
-| PV2Current              | Number:ElectricCurrent   | PV2 current                                   |
-| PV2Power                | Number:Power             | PV2 power                                     |
-| ProductionPV2CurrentDay | Number:Energy            | Production PV2 in (kWh) for the current day   |
-| batteryVoltage          | Number:ElectricPotential | Battery voltage                               |
-| batteryCurrent          | Number:ElectricCurrent   | Battery current                               |
-| PVMode                  | String                   | PV operating mode                             |
-| PV1Mode                 | String                   | PV1 operating mode                            |
-| PV2Mode                 | String                   | PV2 operating mode                            |
-| stateVarioString        | String                   | State of the VarioString                      |
+|         Channel         |           Type           |                 Description                 |
+|-------------------------|--------------------------|---------------------------------------------|
+| PVVoltage               | Number:ElectricPotential | PV voltage                                  |
+| PVCurrent               | Number:ElectricCurrent   | PV current                                  |
+| PVPower                 | Number:Power             | PV power                                    |
+| ProductionPVCurrentDay  | Number:Energy            | Production PV in (kWh) for the current day  |
+| PV1Voltage              | Number:ElectricPotential | PV1 voltage                                 |
+| PV1Current              | Number:ElectricCurrent   | PV1 current                                 |
+| PV1Power                | Number:Power             | PV1 power                                   |
+| ProductionPV1CurrentDay | Number:Energy            | Production PV1 in (kWh) for the current day |
+| PV2Voltage              | Number:ElectricPotential | PV2 voltage                                 |
+| PV2Current              | Number:ElectricCurrent   | PV2 current                                 |
+| PV2Power                | Number:Power             | PV2 power                                   |
+| ProductionPV2CurrentDay | Number:Energy            | Production PV2 in (kWh) for the current day |
+| batteryVoltage          | Number:ElectricPotential | Battery voltage                             |
+| batteryCurrent          | Number:ElectricCurrent   | Battery current                             |
+| PVMode                  | String                   | PV operating mode                           |
+| PV1Mode                 | String                   | PV1 operating mode                          |
+| PV2Mode                 | String                   | PV2 operating mode                          |
+| stateVarioString        | String                   | State of the VarioString                    |
 
 ## Example
 
@@ -180,3 +180,4 @@ Text item=Studer_ProductionPVCurrentDay_Left
 Text item=Studer_PVMode_Left
 Text item=Studer_stateVarioString_Left
 ```
+

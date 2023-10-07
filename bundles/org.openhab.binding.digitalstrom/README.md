@@ -1,6 +1,6 @@
 # digitalSTROM Binding
 
-  This binding integrates the [digitalSTROM-System](https://www.digitalstrom.de/).
+This binding integrates the [digitalSTROM-System](https://www.digitalstrom.de/).
 The integration happens through the digitalSTROM-Server, which acts as a gateway to connect the digitalSTROM-Devices.
 The digitalSTROM-Server communicates through the digitalSTROM-Meters with the digitalSTROM-Devices, which are directly connected to the power-line.
 
@@ -26,20 +26,20 @@ They also automatically change or add the channels, if the color-group or output
 
 - The following table shows all tested digitalSTROM-Devices with their output-modes.
 
-| HW-Type | Output-Mode    | Tested color group  |
-|-----------------|------------------------|--------------|
-| GE-KL200 | switched | yellow  |
-| GE-KM200 | switched, dimmed | yellow |
-| GE-TKM210 | switched, dimmed | yellow |
-| GE-SDM200 | switched, dimmed | yellow |
-| GE-UMV200 | 1-10V dimmed | yellow |
-| GR-KL200 | standard output-mode | grey |
-| GR-KL210 | standard output-mode| grey |
-| GR-KL220 | standard output-mode | grey |
-| SW-KL200 | switch, powersave, wipe | black, yellow |
-| SW-UMR200 | single switched, combined switch, combined 2 stage switch, combined 3 stage switch | yellow , black |
-| SW-ZWS200 | switch, powersave, wipe | black, yellow |
-| BL-KM200 | switch, pwm | blue |
+|  HW-Type  |                                    Output-Mode                                     | Tested color group |
+|-----------|------------------------------------------------------------------------------------|--------------------|
+| GE-KL200  | switched                                                                           | yellow             |
+| GE-KM200  | switched, dimmed                                                                   | yellow             |
+| GE-TKM210 | switched, dimmed                                                                   | yellow             |
+| GE-SDM200 | switched, dimmed                                                                   | yellow             |
+| GE-UMV200 | 1-10V dimmed                                                                       | yellow             |
+| GR-KL200  | standard output-mode                                                               | grey               |
+| GR-KL210  | standard output-mode                                                               | grey               |
+| GR-KL220  | standard output-mode                                                               | grey               |
+| SW-KL200  | switch, powersave, wipe                                                            | black, yellow      |
+| SW-UMR200 | single switched, combined switch, combined 2 stage switch, combined 3 stage switch | yellow , black     |
+| SW-ZWS200 | switch, powersave, wipe                                                            | black, yellow      |
+| BL-KM200  | switch, pwm                                                                        | blue               |
 
 - Binary-inputs were tested with SW-UMR200.
 - Sensor channels were tested with dS-iSens200 and power sensor with all other supported devices, which are listed in the table above.
@@ -50,12 +50,12 @@ Furthermore the digitalSTROM-Scene concept is part of the digitalSTROM-Binding.
 These scenes are implemented as virtual things.
 The different scene thing types are listed in the following table.
 
-| Thing-Type-ID | Label    | Description |
-|-----------------|------------------------|--------------|
-| appScene  | Apartment-Scene | Represents a digitalSTROM Apartment-Scene.  |
-| zoneScene  | Zone-Scene | Represents a digitalSTROM Zone-Scene.  |
-| groupScene  | Group-Scene | Represents a digitalSTROM Group-Scene.  |
-| namedScene  | Named-Scene | Represents a digitalSTROM Scene, which has a user-defined name.  |
+| Thing-Type-ID |      Label      |                           Description                           |
+|---------------|-----------------|-----------------------------------------------------------------|
+| appScene      | Apartment-Scene | Represents a digitalSTROM Apartment-Scene.                      |
+| zoneScene     | Zone-Scene      | Represents a digitalSTROM Zone-Scene.                           |
+| groupScene    | Group-Scene     | Represents a digitalSTROM Group-Scene.                          |
+| namedScene    | Named-Scene     | Represents a digitalSTROM Scene, which has a user-defined name. |
 
 ### digitalSTROM-Zone-Temperature-Control
 
@@ -93,31 +93,31 @@ The digitalSTROM-Server thing has the following configuration parameter groups: 
 If the digitalSTROM-Server isn’t found automatically, e.g. because the server isn’t placed at the local network or the mDNS-service is deactivated, you have to insert the network address or URL and the authentication data manually through the graphical user interface or type it into the \*.thing with textual configuration.
 If you use your user name and password for authentication and there is already a token for this application, it will be automatically retrieved from the digitalSTROM-Server, otherwise a new application-token will be generated.
 
-| Parameter Label | Parameter ID | Description  | Required | Advanced
-|--------------|------------|--------------------------------|----------------- |------------- |
-| Network address | dSSAddress | Network address of the digitalSTROM-Server.| true | false |
-| User name | userName | Name of a registered user to authenticate to the digitalSTROM-Server.| user name and password or Application-Token | false |
-| Password | password | Password of a registered user to authenticate to the digitalSTROM-Server. | user name and password or Application-Token | false |
-| Application-Token | applicationToken | The Application-Token to authenticate to the digitalSTROM-Server. | user name and password or Application-Token| false |
+|  Parameter Label  |   Parameter ID   |                                Description                                |                  Required                   | Advanced |
+|-------------------|------------------|---------------------------------------------------------------------------|---------------------------------------------|----------|
+| Network address   | dSSAddress       | Network address of the digitalSTROM-Server.                               | true                                        | false    |
+| User name         | userName         | Name of a registered user to authenticate to the digitalSTROM-Server.     | user name and password or Application-Token | false    |
+| Password          | password         | Password of a registered user to authenticate to the digitalSTROM-Server. | user name and password or Application-Token | false    |
+| Application-Token | applicationToken | The Application-Token to authenticate to the digitalSTROM-Server.         | user name and password or Application-Token | false    |
 
 #### Server information
 
 The parameter group _Server information_ only includes informative parameters, which have no special functionality.
 
-| Parameter Label | Parameter ID | Description  | Required | Advanced
-|-----------------|-------------|--------------------------|---------- |------------- |
-| dSID | dSID | The unique identifier of a digitalSTROM-server. | false| false |
+| Parameter Label | Parameter ID |                   Description                   | Required | Advanced |
+|-----------------|--------------|-------------------------------------------------|----------|----------|
+| dSID            | dSID         | The unique identifier of a digitalSTROM-server. | false    | false    |
 
 #### General configuration:
 
 Here you can set general binding configuration parameters, which are shown in following table:
 
-| Parameter Label | Parameter ID| Description  | Required | Advanced | default
-|-----------------|------------------|-----------------------------------------|---------------- |------------- | ----------------- |
-| Sensor update interval | sensorDataUpdateInterval | Sets the seconds after the digitalSTROM-Device sensor data will be updated. If the priority is higher than 'never'. | false | false | 60 |
-| Total power update interval | totalPowerUpdateInterval | Sets the interval in seconds, after the digitalSTROM total power consumption and total electric meter sensor data will be updated. | false | false | 30 |
-| Days to be slaked trash bin devices | defaultTrashBinDeleateTime| Sets the days after the temporary saved digitalSTROM-Device configuration from not reachable digitalSTROM-Devices get permanently deleted. | false | false | 7 |
-| Wait time sensor reading | sensorWaitTime| Waiting time between the evaluation of the sensor values and the reading of the scenes in seconds. **ATTENTION:** digitalSTROM rule 8 and 9 require a waiting period of 1 minute. Values less than 60 seconds could affect the digitalSTROM system. | false | true | 60 |
+|           Parameter Label           |        Parameter ID        |                                                                                                                     Description                                                                                                                     | Required | Advanced | default |
+|-------------------------------------|----------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|---------|
+| Sensor update interval              | sensorDataUpdateInterval   | Sets the seconds after the digitalSTROM-Device sensor data will be updated. If the priority is higher than 'never'.                                                                                                                                 | false    | false    | 60      |
+| Total power update interval         | totalPowerUpdateInterval   | Sets the interval in seconds, after the digitalSTROM total power consumption and total electric meter sensor data will be updated.                                                                                                                  | false    | false    | 30      |
+| Days to be slaked trash bin devices | defaultTrashBinDeleateTime | Sets the days after the temporary saved digitalSTROM-Device configuration from not reachable digitalSTROM-Devices get permanently deleted.                                                                                                          | false    | false    | 7       |
+| Wait time sensor reading            | sensorWaitTime             | Waiting time between the evaluation of the sensor values and the reading of the scenes in seconds. **ATTENTION:** digitalSTROM rule 8 and 9 require a waiting period of 1 minute. Values less than 60 seconds could affect the digitalSTROM system. | false    | true     | 60      |
 
 At the thing file, a manual configuration looks e.g. like
 
@@ -129,18 +129,18 @@ Bridge digitalstrom:dssBridge:dssBridge1 [ dSSAddress="dss.local.",  userName="d
 
 In addition to the configuration the digitalSTROM-Server has the following properties.
 
-| Property-Name | Description |
-| ------------- | ----------- |
-| serverCert    | The SSL-Certificate of the digitalSTROM-Server. |
-| dS-Installation-Name | The digitalSTROM-System installation name. |
-| version | The digitalSTROM-Server-Application version. |
-| distroVersion | The digitalSTROM-Server firmware version. |
-| Hardware | The digitalSTROM-Server hardware identifier. |
-| Revision | The digitalSTROM-Server hardware revision number. |
-| Serial | The digitalSTROM-Server hardware serial number. |
-| Ethernet | The digitalSTROM-Server IEEE mac address. |
-| MachineID | The digitalSTROM-Server unique id. |
-| Kernel | The digitalSTROM-Server Linux kernel release string. |
+|    Property-Name     |                     Description                      |
+|----------------------|------------------------------------------------------|
+| serverCert           | The SSL-Certificate of the digitalSTROM-Server.      |
+| dS-Installation-Name | The digitalSTROM-System installation name.           |
+| version              | The digitalSTROM-Server-Application version.         |
+| distroVersion        | The digitalSTROM-Server firmware version.            |
+| Hardware             | The digitalSTROM-Server hardware identifier.         |
+| Revision             | The digitalSTROM-Server hardware revision number.    |
+| Serial               | The digitalSTROM-Server hardware serial number.      |
+| Ethernet             | The digitalSTROM-Server IEEE mac address.            |
+| MachineID            | The digitalSTROM-Server unique id.                   |
+| Kernel               | The digitalSTROM-Server Linux kernel release string. |
 
 ### digitalSTROM-Devices
 
@@ -152,41 +152,41 @@ Each digitalSTROM-Device needs the device ID named dSID as configuration paramet
 The device ID is printed as serial number at the digitalSTROM-Device and can also be found within the web-interface of the digitalSTROM-Server.
 The following table shows the parameter:
 
-| Parameter Label | Parameter ID| Description  | Required | Advanced
-|-----------------|------------------------|--------------|----------------- |------------- |
-| ID | dSID| The unique identifier of a digitalSTORM-device. | true | false |
+| Parameter Label | Parameter ID |                   Description                   | Required | Advanced |
+|-----------------|--------------|-------------------------------------------------|----------|----------|
+| ID              | dSID         | The unique identifier of a digitalSTORM-device. | true     | false    |
 
 #### Sensor setup
 
 The GE, BL and SW digitalSTROM-Devices usually have sensors to capture power consumption data.
 So these devices have the following parameters to read them out.
 
-| Parameter Label | Parameter ID| Description  | Required | Advanced | Default |
-|-----------------|--------------------|-----------------------------|----------------- |------------- | -----------|
-| Active power refresh priority | activePowerRefreshPriority | Sets the refresh priority for the active power sensor value. Can be never, low priority, medium priority or high priority. | false | false | never |
-| Electric meter refresh priority | electricMeterRefreshPriority | Sets the refresh priority for the electric meter sensor value. Can be never, low priority, medium priority or high priority. | false | false | never |
-| Output current refresh priority | outputCurrentRefreshPriority | Sets the refresh priority for the output current sensor value. Can be never, low priority, medium priority or high priority. | false | false | never |
+|         Parameter Label         |         Parameter ID         |                                                         Description                                                          | Required | Advanced | Default |
+|---------------------------------|------------------------------|------------------------------------------------------------------------------------------------------------------------------|----------|----------|---------|
+| Active power refresh priority   | activePowerRefreshPriority   | Sets the refresh priority for the active power sensor value. Can be never, low priority, medium priority or high priority.   | false    | false    | never   |
+| Electric meter refresh priority | electricMeterRefreshPriority | Sets the refresh priority for the electric meter sensor value. Can be never, low priority, medium priority or high priority. | false    | false    | never   |
+| Output current refresh priority | outputCurrentRefreshPriority | Sets the refresh priority for the output current sensor value. Can be never, low priority, medium priority or high priority. | false    | false    | never   |
 
 #### Properties
 
 Furthermore a supported digitalSTROM-Device has some informative properties.
 The following table shows all informative properties:
 
-| Property-Name | Description |
-| ------------- | ------------------------------------- |
-|dSUID | The unique identifier of a digitalSTORM-device with virtual devices. |
-| deviceName | he name of a digitalSTROM-Device. |
-| meterDSID | Identifier of the meter to which the device is connected. |
-| hwInfo | The hardware type from this digitalSTROM-Device. |
-| zoneID |The digitalSTROM-Device is part of this zone. |
-| groups | The digitalSTROM-Device is part of this user-defined or functional groups. |
-| output mode | The current digitalSTROM-Device output mode e.g. 22 = dimmable. |
+| Property-Name  |                                 Description                                 |
+|----------------|-----------------------------------------------------------------------------|
+| dSUID          | The unique identifier of a digitalSTORM-device with virtual devices.        |
+| deviceName     | he name of a digitalSTROM-Device.                                           |
+| meterDSID      | Identifier of the meter to which the device is connected.                   |
+| hwInfo         | The hardware type from this digitalSTROM-Device.                            |
+| zoneID         | The digitalSTROM-Device is part of this zone.                               |
+| groups         | The digitalSTROM-Device is part of this user-defined or functional groups.  |
+| output mode    | The current digitalSTROM-Device output mode e.g. 22 = dimmable.             |
 | funcColorGroup | The current digitalSTROM-Device functional color group e.g. yellow = light. |
 
 The device scene configurations will also be persisted in the properties. There are in the format:
 
-| Property-Name | Description |
-| ------------- | ------------------------------------- |
+| Property-Name  |                                                                                     Description                                                                                     |
+|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | scene[sceneID] | {Scene: [sceneID], dontcare: [don't care flag], localPrio: [local prio flag], specialMode: [special mode flag]}(0..1), {sceneValue: [scene value], sceneAngle: [scene angle]}(0..1) |
 
 ### digitalSTROM-Meter
@@ -197,43 +197,43 @@ A digitalSTROM-Meter needs, like the digitalSTROM-Devices, only the unique digit
 
 In contrast to the digitalSTROM-Device there are other informal properties. The following table shows the available properties:
 
-| Property-Name | Description |
-| ------------- | ------------------------------------- |
-| hwName | The hardware name of the digitalSTROM-Meter |
-| swVersion | The software version of the digitalSTROM-Meter |
-| apiVersion | The api version of the digitalSTROM-Meter |
-| dspSwVersion | The dsp software version of the digitalSTROM-Meter |
-| dSUID | The dSUID of the digitalSTROM-Meter |
-| deviceName | The user defined name of the digitalSTROM-Meter |
-| armSwVersion | The arm software version of the digitalSTROM-Meter |
-| hwVersion | The hardware version of the digitalSTROM-Meter |
+| Property-Name |                    Description                     |
+|---------------|----------------------------------------------------|
+| hwName        | The hardware name of the digitalSTROM-Meter        |
+| swVersion     | The software version of the digitalSTROM-Meter     |
+| apiVersion    | The api version of the digitalSTROM-Meter          |
+| dspSwVersion  | The dsp software version of the digitalSTROM-Meter |
+| dSUID         | The dSUID of the digitalSTROM-Meter                |
+| deviceName    | The user defined name of the digitalSTROM-Meter    |
+| armSwVersion  | The arm software version of the digitalSTROM-Meter |
+| hwVersion     | The hardware version of the digitalSTROM-Meter     |
 
 ### digitalSTROM-Zone-Temperature-Control
 
 The thing type of a digitalSTROM-Zone-Temperature-Control is **zone_temperature_control**.
 As configuration only the zone ID or the zone name, to identify the controlled zone, is needed.
 
-| Parameter Label | Parameter ID| Description  | Required | Advanced |
-|-----------------|------------------------|----------------------------------|----------------- |------------- |
-| Zone ID or name | zoneID | The zone id or zone name of the temperature controlled zone.  | true | false |
+| Parameter Label | Parameter ID |                         Description                          | Required | Advanced |
+|-----------------|--------------|--------------------------------------------------------------|----------|----------|
+| Zone ID or name | zoneID       | The zone id or zone name of the temperature controlled zone. | true     | false    |
 
 #### Properties
 
-| Property-Name | Description |
-| ------------- | ------------------------------------- |
-| controlMode | The currently configured control mode. |
-| controlDSUID | The dSID of the meter or service that runs the control algorithm. |
-| controlState | The currently configured control state. |
+| Property-Name |                            Description                            |
+|---------------|-------------------------------------------------------------------|
+| controlMode   | The currently configured control mode.                            |
+| controlDSUID  | The dSID of the meter or service that runs the control algorithm. |
+| controlState  | The currently configured control state.                           |
 
 ### digitalSTROM-Scenes
 
 The digitalSTROM-Scenes can be defined with following parameters.
 
-| Parameter Label | Parameter ID| Description  | Required | Advanced |
-|-----------------|------------------------|----------------------------------|----------------- |------------- |
-| Zone ID or name | zoneID | The zone ID or zone name of the called scene. 0 or empty is broadcast to all. | false | false |
-| Group ID or name | groupID | The group ID or group name of the called scene. 0 or empty is broadcast to all. | false | false |
-| Scene ID or name | sceneID |The call scene ID or scene name, e.g. preset 1 for scene ID 5. Callable scenes are from 0 to 126. | false | false |
+| Parameter Label  | Parameter ID |                                            Description                                            | Required | Advanced |
+|------------------|--------------|---------------------------------------------------------------------------------------------------|----------|----------|
+| Zone ID or name  | zoneID       | The zone ID or zone name of the called scene. 0 or empty is broadcast to all.                     | false    | false    |
+| Group ID or name | groupID      | The group ID or group name of the called scene. 0 or empty is broadcast to all.                   | false    | false    |
+| Scene ID or name | sceneID      | The call scene ID or scene name, e.g. preset 1 for scene ID 5. Callable scenes are from 0 to 126. | false    | false    |
 
 The Scene-Thing-Type _Named-Scene_ and _Group-Scene_ have all parameters.
 The _Apartment-Scene_ only has the parameters _Scene name_ and _Scene ID_ and the _Zone-Scene_ has all parameters without _Group ID or name_.
@@ -277,51 +277,51 @@ All devices support some of the following channels:
 
 digitalSTROM-Devices with an activated output mode.
 
-| Channel Type ID | Item Type    | Description  | supported device type |
-|-------|---------|------------------------------------|----------------- |
-| light_dimmer | Dimmer | The _light_dimm_ channel allows to dimm a light device.  | GE, SW |
-| light_switch | Switch | The _light_switch_ channel allows to turn a light device on or off. | GE, SW |
-| light_2_stage | String| The _light_2_stage_ channel allows to turn both light devices on or off or switch only 1 of the both light device on or off. | SW-UMR200 |
-| light_3_stage | String | The _light_3_stage_ channel allows to turn both light devices on or off or switch both light devices separated from each other on or off. | SW-UMR200 |
-| shade | Rollershutter | The _shade_ channel allows to control shade device e.g. a roller shutter or awnings. | GR |
-| shade_angle | Dimmer | The _shade_angle_ channel allows to control the relative slat position in percent of blinds. | GR |
-| general_dimmer | Dimmer | The _general_dimmer_ channel allows to control the power of a device e.g. a ceiling fan. | SW |
-| general_switch | Switch | The _general_switch_ channel allows to turn a device on or off e.g. a HIFI-System. | SW |
-| general_2_stage  | String | The _general_2_stage_ channel allows to turn both relais of the device on or off or switch only 1 of the both relais on or off. | SW-UMR200 |
-| general_3_stage  | String | The _general_3_stage_ channel allows to turn both relais of the device on or off or switch both relais of the device separated from each other on or off. | SW-UMR200 |
-| heating_switch | Switch | The _heating_switch_ channel allows to turn a heating device on or off. | BL |
-| heating_dimmer | Dimmer | The _heating_switch_ channel allows to control the value in percent of heating valve. | BL |
+| Channel Type ID |   Item Type   |                                                                        Description                                                                        | supported device type |
+|-----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| light_dimmer    | Dimmer        | The _light_dimm_ channel allows to dimm a light device.                                                                                                   | GE, SW                |
+| light_switch    | Switch        | The _light_switch_ channel allows to turn a light device on or off.                                                                                       | GE, SW                |
+| light_2_stage   | String        | The _light_2_stage_ channel allows to turn both light devices on or off or switch only 1 of the both light device on or off.                              | SW-UMR200             |
+| light_3_stage   | String        | The _light_3_stage_ channel allows to turn both light devices on or off or switch both light devices separated from each other on or off.                 | SW-UMR200             |
+| shade           | Rollershutter | The _shade_ channel allows to control shade device e.g. a roller shutter or awnings.                                                                      | GR                    |
+| shade_angle     | Dimmer        | The _shade_angle_ channel allows to control the relative slat position in percent of blinds.                                                              | GR                    |
+| general_dimmer  | Dimmer        | The _general_dimmer_ channel allows to control the power of a device e.g. a ceiling fan.                                                                  | SW                    |
+| general_switch  | Switch        | The _general_switch_ channel allows to turn a device on or off e.g. a HIFI-System.                                                                        | SW                    |
+| general_2_stage | String        | The _general_2_stage_ channel allows to turn both relais of the device on or off or switch only 1 of the both relais on or off.                           | SW-UMR200             |
+| general_3_stage | String        | The _general_3_stage_ channel allows to turn both relais of the device on or off or switch both relais of the device separated from each other on or off. | SW-UMR200             |
+| heating_switch  | Switch        | The _heating_switch_ channel allows to turn a heating device on or off.                                                                                   | BL                    |
+| heating_dimmer  | Dimmer        | The _heating_switch_ channel allows to control the value in percent of heating valve.                                                                     | BL                    |
 
 digitalSTROM-Zone-Temperature-Controlled
 
-| Channel Type ID | Item Type    | Description  |
-|-------|---------|------------------------------------|
-| heating_temperature_controled | Number | The _heating_temperature_controled_ channel allows to set a target temperature of a zone. |
-| heating_dimmer | Dimmer | The _heating_switch_ channel allows to control the value in percent of heating valve. |
+|        Channel Type ID        | Item Type |                                        Description                                        |
+|-------------------------------|-----------|-------------------------------------------------------------------------------------------|
+| heating_temperature_controled | Number    | The _heating_temperature_controled_ channel allows to set a target temperature of a zone. |
+| heating_dimmer                | Dimmer    | The _heating_switch_ channel allows to control the value in percent of heating valve.     |
 
 ### Sensor-Channels
 
 digitalSTROM-Devices which have sensors data.
 
-| Channel Type ID | Item Type    | Description  | supported device type |
-|-------|---------|------------------------------------|----------------- |
-| active_power | Number | This channel indicates the current active power in watt (W) of the device." | GE, SW, BL |
-| output_current | Number | This channel indicates the current output current in milliamper (mA) of the device." | GE, SW, BL |
-| electric_meter | Number | This channel indicates the current electric meter value in killowatts hours (kWh) of the device. | GE, SW, BL |
-| temperature_indoors | Number |  This channel indicates the current temperature indoors in Celsius (°C) of the device. | dS-iSens200 |
-| temperature_outdoors | Number |  This channel indicates the current temperature outdoors in Celsius (°C) of the device. | --- |
-| brightness_indoors | Number |  This channel indicates the current brightness indoors in Lux (Lx) of the device. | --- |
-| brightness_outdoors | Number |  This channel indicates the current brightness outdoors in Lux (Lx) of the device. | --- |
-| relative_humidity_indoors | Number |  This channel indicates the current relative humidity indoors in percent of the device. | dS-iSens200 |
-| relative_humidity_outdoors | Number |  This channel indicates the current relative humidity outdoors in percent of the device. | --- |
-| air_pressure | Number |  This channel indicates the current relative humidity outdoors in hectopscal (hPa bzw. mbar) of the device. | --- |
-| wind_speed | Number |  This channel indicates the current wind speed in m/s of the device. | --- |
-| wind_direction | Number |  This channel indicates the current wind direction in degree of the device. | --- |
-| precipitation | Number |  This channel indicates the current precipitation in milliliter per square meter of the device. | --- |
-| carbon_dioxide | Number |  This channel indicates the current carbon dioxide in parts per million of the device. | --- |
-| sound_pressure_level | Number |  This channel indicates the current carbon dioxide in Dezibel (dB) of the device. | --- |
-| room_temperation_set_point | Number |  This channel indicates the current room temperation set point in Celsius (°C) of the device. | --- |
-| room_temperation_control_variable | Number |  This channel indicates the current room temperation control variable in Celsius (°C) of the device. | --- |
+|          Channel Type ID          | Item Type |                                                Description                                                 | supported device type |
+|-----------------------------------|-----------|------------------------------------------------------------------------------------------------------------|-----------------------|
+| active_power                      | Number    | This channel indicates the current active power in watt (W) of the device."                                | GE, SW, BL            |
+| output_current                    | Number    | This channel indicates the current output current in milliamper (mA) of the device."                       | GE, SW, BL            |
+| electric_meter                    | Number    | This channel indicates the current electric meter value in killowatts hours (kWh) of the device.           | GE, SW, BL            |
+| temperature_indoors               | Number    | This channel indicates the current temperature indoors in Celsius (°C) of the device.                      | dS-iSens200           |
+| temperature_outdoors              | Number    | This channel indicates the current temperature outdoors in Celsius (°C) of the device.                     | ---                   |
+| brightness_indoors                | Number    | This channel indicates the current brightness indoors in Lux (Lx) of the device.                           | ---                   |
+| brightness_outdoors               | Number    | This channel indicates the current brightness outdoors in Lux (Lx) of the device.                          | ---                   |
+| relative_humidity_indoors         | Number    | This channel indicates the current relative humidity indoors in percent of the device.                     | dS-iSens200           |
+| relative_humidity_outdoors        | Number    | This channel indicates the current relative humidity outdoors in percent of the device.                    | ---                   |
+| air_pressure                      | Number    | This channel indicates the current relative humidity outdoors in hectopscal (hPa bzw. mbar) of the device. | ---                   |
+| wind_speed                        | Number    | This channel indicates the current wind speed in m/s of the device.                                        | ---                   |
+| wind_direction                    | Number    | This channel indicates the current wind direction in degree of the device.                                 | ---                   |
+| precipitation                     | Number    | This channel indicates the current precipitation in milliliter per square meter of the device.             | ---                   |
+| carbon_dioxide                    | Number    | This channel indicates the current carbon dioxide in parts per million of the device.                      | ---                   |
+| sound_pressure_level              | Number    | This channel indicates the current carbon dioxide in Dezibel (dB) of the device.                           | ---                   |
+| room_temperation_set_point        | Number    | This channel indicates the current room temperation set point in Celsius (°C) of the device.               | ---                   |
+| room_temperation_control_variable | Number    | This channel indicates the current room temperation control variable in Celsius (°C) of the device.        | ---                   |
 
 *If no supported device type is at the table, digitalSTROM currently does not offer a device, which support this type of sensor.
 
@@ -329,50 +329,50 @@ digitalSTROM-Devices which have sensors data.
 
 digitalSTROM-Devices which are able to set a binary-input sensor like SW-UMR200 or SW-AKM200.
 
-| Channel Type ID | Item Type    | Description  | supported device type |
-|-------|---------|------------------------------------|----------------- |
-| binary_input_presence | Switch |  Will be activated, if a presence is detected.  | SW |
-| binary_input_brightness | Switch |  Will be activated, if the brightness is higher than a setted value. | SW |
-| binary_input_presence_in_darkness | Switch |  Will be activated, if a presence is detected. Sensor has an integrated twilight sensor.  | SW |
-| binary_input_twilight | Switch |  Will be activated by twilight.  | SW |
-| binary_input_motion | Switch |  Will be activated, if a motion is detected. | SW |
-| binary_input_motion_in_darkness | Switch |  Will be activated, if a motion is detected. Sensor has an integrated twilight sensor. | SW |
-| binary_input_smoke | Switch |  Will be activated, if smoke is detected. | SW |
-| binary_input_wind_strenght_above_limit | Switch |   Will be activated, if wind strength is above a user adjusted limit. | SW |
-| binary_input_rain | Switch |  Will be activated, if rain is detected. | SW |
-| binary_input_sun_radiation | Switch |  Will be activated, if the sun light is above threshold. | SW |
-| binary_input_temperation_below_limit | Switch |  Will be activated, if the temperature is below a limit. | SW |
-| binary_input_battery_status_is_low | Switch |  Will be activated, if the battery status is low. | SW |
-| binary_input_window_is_open | Switch |  Will be activated, if a window is open. | SW |
-| binary_input_door_is_open | Switch |  Will be activated, if a door is open. | SW |
-| binary_input_window_is_tilted | Switch |  Will be activated, if a window is tilted. | SW |
-| binary_input_garage_door_is_open | Switch |  Will be activated, if a garage door is open. | SW |
-| binary_input_sun_protection | Switch |  Will be activated, if the sun light is too heavy. | SW |
-| binary_input_frost | Switch |  Will be activated by frost. | SW |
-| binary_input_heating_operation_on_off | Switch |  Will be activated, if heating operation is on, otherwise it will be deactivated. | SW |
-| binary_input_change_over_heating_cooling | Switch |  Will be activated, if heating is activated, otherwise cooling is activated. | SW |
+|             Channel Type ID              | Item Type |                                       Description                                       | supported device type |
+|------------------------------------------|-----------|-----------------------------------------------------------------------------------------|-----------------------|
+| binary_input_presence                    | Switch    | Will be activated, if a presence is detected.                                           | SW                    |
+| binary_input_brightness                  | Switch    | Will be activated, if the brightness is higher than a setted value.                     | SW                    |
+| binary_input_presence_in_darkness        | Switch    | Will be activated, if a presence is detected. Sensor has an integrated twilight sensor. | SW                    |
+| binary_input_twilight                    | Switch    | Will be activated by twilight.                                                          | SW                    |
+| binary_input_motion                      | Switch    | Will be activated, if a motion is detected.                                             | SW                    |
+| binary_input_motion_in_darkness          | Switch    | Will be activated, if a motion is detected. Sensor has an integrated twilight sensor.   | SW                    |
+| binary_input_smoke                       | Switch    | Will be activated, if smoke is detected.                                                | SW                    |
+| binary_input_wind_strenght_above_limit   | Switch    | Will be activated, if wind strength is above a user adjusted limit.                     | SW                    |
+| binary_input_rain                        | Switch    | Will be activated, if rain is detected.                                                 | SW                    |
+| binary_input_sun_radiation               | Switch    | Will be activated, if the sun light is above threshold.                                 | SW                    |
+| binary_input_temperation_below_limit     | Switch    | Will be activated, if the temperature is below a limit.                                 | SW                    |
+| binary_input_battery_status_is_low       | Switch    | Will be activated, if the battery status is low.                                        | SW                    |
+| binary_input_window_is_open              | Switch    | Will be activated, if a window is open.                                                 | SW                    |
+| binary_input_door_is_open                | Switch    | Will be activated, if a door is open.                                                   | SW                    |
+| binary_input_window_is_tilted            | Switch    | Will be activated, if a window is tilted.                                               | SW                    |
+| binary_input_garage_door_is_open         | Switch    | Will be activated, if a garage door is open.                                            | SW                    |
+| binary_input_sun_protection              | Switch    | Will be activated, if the sun light is too heavy.                                       | SW                    |
+| binary_input_frost                       | Switch    | Will be activated by frost.                                                             | SW                    |
+| binary_input_heating_operation_on_off    | Switch    | Will be activated, if heating operation is on, otherwise it will be deactivated.        | SW                    |
+| binary_input_change_over_heating_cooling | Switch    | Will be activated, if heating is activated, otherwise cooling is activated.             | SW                    |
 
 ### Metering-Channels
 
 The digitalSTROM-Meters
 
-| Channel Type ID | Item Type    | Description  | supported device type |
-|-------|---------|------------------------------------|----------------- |
-| consumption_Wh | Number | The _consumption_Wh_ channel indicates the current power consumption in watt (W)  of the  circuit. | circuit |
-| energy_Wh | Number | The _energy_Wh_ channel indicates the current electric meter value in killowatt hours of the circuit. | circuit  |
+| Channel Type ID | Item Type |                                              Description                                              | supported device type |
+|-----------------|-----------|-------------------------------------------------------------------------------------------------------|-----------------------|
+| consumption_Wh  | Number    | The _consumption_Wh_ channel indicates the current power consumption in watt (W)  of the  circuit.    | circuit               |
+| energy_Wh       | Number    | The _energy_Wh_ channel indicates the current electric meter value in killowatt hours of the circuit. | circuit               |
 
 The digitalSTROM-Server
 
-| Channel Type ID | Item Type    | Description  | supported device type |
-|-------|---------|------------------------------------|----------------- |
-| total_consumption_Wh | Number | The _total_consumption_Wh_ channel indicates the current consumption power in watt (W)  of all connected circuits to the digitalSTROM-System. | dssBridge |
-| total_energy_Wh | Number | The _total_energy_Wh_ channel indicates the current electric meter value in killowatt hours of all connected circuits to the digitalSTROM-System. | dssBridge  |
+|   Channel Type ID    | Item Type |                                                                    Description                                                                    | supported device type |
+|----------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| total_consumption_Wh | Number    | The _total_consumption_Wh_ channel indicates the current consumption power in watt (W)  of all connected circuits to the digitalSTROM-System.     | dssBridge             |
+| total_energy_Wh      | Number    | The _total_energy_Wh_ channel indicates the current electric meter value in killowatt hours of all connected circuits to the digitalSTROM-System. | dssBridge             |
 
 ### Scenes
 
-| Channel Type ID | Item Type    | Description  | supported device type |
-|-------|---------|------------------------------------|----------------- |
-| scene | Switch | The scene channel allows to call or undo a scene from digitalSTROM. | all scene-types |
+| Channel Type ID | Item Type |                             Description                             | supported device type |
+|-----------------|-----------|---------------------------------------------------------------------|-----------------------|
+| scene           | Switch    | The scene channel allows to call or undo a scene from digitalSTROM. | all scene-types       |
 
 **Notes:**
 
@@ -531,8 +531,8 @@ Because the digitalSTROM-Server can't inform the binding about save scene events
 The current troubleshooting to read out the new scene configuration after a save scene action at the digitalSTROM-Server is the following:
 
 1. delete the thing to delete the persistently saved scene configuration
-1. restart the server to delete the temporary saved scene configuration
-1. add the thing again to read out the scene configuration again.
+2. restart the server to delete the temporary saved scene configuration
+3. add the thing again to read out the scene configuration again.
 
 ### Initial state of digitalSTROM-Scenes and devices
 
@@ -540,7 +540,7 @@ To get the device and scene state after a server start or restart, the binding u
 Because of that there are two things to be observed:
 
 1. If a device status has changed through a device scene or a directly set output value, the status is maybe not correct.
-1. If the last called group scene was not read out yet, it can takes some time until the status will be updated.
+2. If the last called group scene was not read out yet, it can takes some time until the status will be updated.
 
 ### Textual configuration notice
 
@@ -553,4 +553,5 @@ If you configure your system with textual configuration files, like _\*.thing_, 
 If you want to create a rule, which uses things of the digitalSTROM-Binding, there are also two things you have to consider.
 
 1. If the rule contains several digitalSTROM-Devices, which can be summarized in a digitalSTROM-Scene, e.g. some lights in a zone, please use an equivalent supported scene. That will significantly reduce the communication to the digitalSTROM-Server, increases performance and does not bypass the digitalSTROM state-machine.
-1. If you implement your own temperature control algorithm for a zone/room, e.g. because you want to use other temperature sensors, and call more than one digitalSTROM-BL-KM200, please use the _zone_temperature_control_ for valve value control. The _zone_temperature_control_ for valve value control will call all digitalSTROM-BL-KM200 with one command and increases the performance. To get the needed channel at the _zone_temperature_control_ you have to choose a control mode unequal to _pid-controlled_ for the affected zone at the digitalSTROM-heating-control-app.
+2. If you implement your own temperature control algorithm for a zone/room, e.g. because you want to use other temperature sensors, and call more than one digitalSTROM-BL-KM200, please use the _zone_temperature_control_ for valve value control. The _zone_temperature_control_ for valve value control will call all digitalSTROM-BL-KM200 with one command and increases the performance. To get the needed channel at the _zone_temperature_control_ you have to choose a control mode unequal to _pid-controlled_ for the affected zone at the digitalSTROM-heating-control-app.
+

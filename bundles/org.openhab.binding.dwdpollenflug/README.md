@@ -18,14 +18,14 @@ This can be used for `region` things you may add manually.
 
 ### Bridge
 
-| Parameter | Default | Required | Description                                                                          |
-| --------- | :-----: | :------: | ------------------------------------------------------------------------------------ |
+| Parameter | Default | Required |                                     Description                                      |
+|-----------|:-------:|:--------:|--------------------------------------------------------------------------------------|
 | `refresh` |   30    |    no    | Define the interval for polling the data from DWD in minutes. Minimum is 15 minutes. |
 
 ### Region
 
-| Parameter  | Default | Required | Description                                                         |
-| ---------- | :-----: | :------: | ------------------------------------------------------------------- |
+| Parameter  | Default | Required |                             Description                             |
+|------------|:-------:|:--------:|---------------------------------------------------------------------|
 | `regionID` |    -    |   yes    | The id of the region. The available options are in the table below. |
 
 #### Manual region or partregion selection
@@ -33,8 +33,8 @@ This can be used for `region` things you may add manually.
 The region ID is the partregion_id or if there is no partregion the region_id from this [json](https://opendata.dwd.de/climate_environment/health/alerts/s31fg.json) of DWD.
 You can refer to the following table.
 
-| regionID | Region                         | Partregion                                         |
-| -------- | ------------------------------ | -------------------------------------------------- |
+| regionID |             Region             |                     Partregion                     |
+|----------|--------------------------------|----------------------------------------------------|
 | 11       | Schleswig-Holstein und Hamburg | Inseln und Marschen                                |
 | 12       | Schleswig-Holstein und Hamburg | Geest, Schleswig-Holstein und Hamburg              |
 | 20       | Mecklenburg-Vorpommern         | -                                                  |
@@ -67,16 +67,16 @@ You can refer to the following table.
 
 The bridge thing has following channels:
 
-| channel               | description                                    |
-| --------------------- | ---------------------------------------------- |
+|        channel        |                  description                   |
+|-----------------------|------------------------------------------------|
 | `updates#refreshed`   | Hold the time of the bridge's last refresh     |
 | `updates#last_update` | The time when data was last updated by DWD     |
 | `updates#next_update` | The time when data will be updated next by DWD |
 
 For each of the eight pollen types reported by DWD the region thing has three channels for today, tomorrow and the day after tomorrow.
 
-| channels               | pollen type | german name |
-| ---------------------- | ----------- | ----------- |
+|        channels        | pollen type | german name |
+|------------------------|-------------|-------------|
 | `alder#today`          | alder       | Erle        |
 | `alder#tomorrow`       |             |             |
 | `alder#dayafter_to`    |             |             |
@@ -104,8 +104,8 @@ For each of the eight pollen types reported by DWD the region thing has three ch
 
 There are the following possible string values:
 
-| value | description                 |
-| ----- | --------------------------- |
+| value |         description         |
+|-------|-----------------------------|
 | -1    | not specified               |
 | 0     | no pollen pollution         |
 | 0-1   | no to low pollen count      |
@@ -199,3 +199,4 @@ Text label="Pollenflugindex" {
     }
 }
 ```
+

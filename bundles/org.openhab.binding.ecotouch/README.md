@@ -4,10 +4,10 @@ The openHAB EcoTouch binding allows interaction with a [Waterkotte](https://www.
 
 ## Supported Things
 
-| Thing type      | Description                                      |
-|-----------------|--------------------------------------------------|
-| geo             | Waterkotte EcoTouch Geo + EcoVent                |
-| air             | Waterkotte EcoTouch Air + EcoVent                |
+| Thing type |            Description            |
+|------------|-----------------------------------|
+| geo        | Waterkotte EcoTouch Geo + EcoVent |
+| air        | Waterkotte EcoTouch Air + EcoVent |
 
 This binding was tested with a Waterkotte DS 5027 Ai DS 5010.5Ai geothermal heat pump.
 
@@ -19,49 +19,49 @@ Discovery is not supported. You need to provide the IP address of the display un
 
 Things can be fully configured via the UI. The following information is useful when configuring things via thing configuration files.
 
-| Property                        | Type    | Default | Required | Description |
-|---------------------------------|---------|---------|----------|-------------|
-| ip                              | String  |         | yes      | IP address or hostname of the display unit of the heat pump |
-| username                        | String  |         | yes      | since software version 1.6.xx of the display unit: "waterkotte"; previously "admin". |
-| password                        | String  |         | yes      | since software version 1.6.xx of the display unit: "waterkotte"; previously "wtkadmin". |
-| refresh                         | Integer |      60 | no       | time in s after which all channels will be requested again from the heat pump |
+| Property |  Type   | Default | Required |                                       Description                                       |
+|----------|---------|---------|----------|-----------------------------------------------------------------------------------------|
+| ip       | String  |         | yes      | IP address or hostname of the display unit of the heat pump                             |
+| username | String  |         | yes      | since software version 1.6.xx of the display unit: "waterkotte"; previously "admin".    |
+| password | String  |         | yes      | since software version 1.6.xx of the display unit: "waterkotte"; previously "wtkadmin". |
+| refresh  | Integer | 60      | no       | time in s after which all channels will be requested again from the heat pump           |
 
 ## Channels
 
 Standard channels:
 
-| Channel ID                 | Type                 | Read-Only | Description                                                     |
-|----------------------------|----------------------|-----------|-----------------------------------------------------------------|
-| adapt_heating              | Number:Temperature   | no        | Allows to adjust the heating temperature by an offset           |
-| alarm                      | Number:Dimensionless | yes       | Alarm                                                           |
-| cop_cooling                | Number:Dimensionless | yes       | COP Cooling                                                     |
-| cop_heating                | Number:Dimensionless | yes       | COP Heating                                                     |
-| enable_cooling             | Switch               | no        | Enable Cooling                                                  |
-| enable_heating             | Switch               | no        | Enable Heating                                                  |
-| enable_warmwater           | Switch               | no        | Enable Warm Water                                               |
-| power_compressor           | Number:Power         | yes       | Power Compressor                                                |
-| power_cooling              | Number:Power         | yes       | Power Cooling                                                   |
-| power_heating              | Number:Power         | yes       | Power Heating                                                   |
-| state_alarm                | Switch               | yes       | State Alarm                                                     |
-| temperature_cooling_return | Number:Temperature   | yes       | Temperature Cooling Return                                      |
-| temperature_cooling_set2   | Number:Temperature   | no        | Temperature Cooling Setpoint BMS                                |
-| temperature_flow           | Number:Temperature   | yes       | Temperature Flow                                                |
-| temperature_heating_return | Number:Temperature   | yes       | Temperature Heating Return                                      |
-| temperature_heating_set    | Number:Temperature   | yes       | Temperature Heating Setpoint                                    |
-| temperature_outside        | Number:Temperature   | yes       | The current outside temperature                                 |
-| temperature_outside_24h    | Number:Temperature   | yes       | The outside temperature averaged over one day                   |
-| temperature_return         | Number:Temperature   | yes       | Temperature Return                                              |
-| temperature_return_set     | Number:Temperature   | yes       | Temperature Return Setpoint                                     |
-| temperature_room           | Number:Temperature   | yes       | Temperature Room                                                |
-| temperature_room_1h        | Number:Temperature   | yes       | Temperature Room 1h Average                                     |
-| temperature_source_in      | Number:Temperature   | yes       | Temperature Source Input                                        |
-| temperature_source_out     | Number:Temperature   | yes       | Temperature Source Output                                       |
-| temperature_water          | Number:Temperature   | yes       | Temperature Water                                               |
-| temperature_water_set2     | Number:Temperature   | no        | Temperature Water Setpoint BMS                                  |
+|         Channel ID         |         Type         | Read-Only |                      Description                      |
+|----------------------------|----------------------|-----------|-------------------------------------------------------|
+| adapt_heating              | Number:Temperature   | no        | Allows to adjust the heating temperature by an offset |
+| alarm                      | Number:Dimensionless | yes       | Alarm                                                 |
+| cop_cooling                | Number:Dimensionless | yes       | COP Cooling                                           |
+| cop_heating                | Number:Dimensionless | yes       | COP Heating                                           |
+| enable_cooling             | Switch               | no        | Enable Cooling                                        |
+| enable_heating             | Switch               | no        | Enable Heating                                        |
+| enable_warmwater           | Switch               | no        | Enable Warm Water                                     |
+| power_compressor           | Number:Power         | yes       | Power Compressor                                      |
+| power_cooling              | Number:Power         | yes       | Power Cooling                                         |
+| power_heating              | Number:Power         | yes       | Power Heating                                         |
+| state_alarm                | Switch               | yes       | State Alarm                                           |
+| temperature_cooling_return | Number:Temperature   | yes       | Temperature Cooling Return                            |
+| temperature_cooling_set2   | Number:Temperature   | no        | Temperature Cooling Setpoint BMS                      |
+| temperature_flow           | Number:Temperature   | yes       | Temperature Flow                                      |
+| temperature_heating_return | Number:Temperature   | yes       | Temperature Heating Return                            |
+| temperature_heating_set    | Number:Temperature   | yes       | Temperature Heating Setpoint                          |
+| temperature_outside        | Number:Temperature   | yes       | The current outside temperature                       |
+| temperature_outside_24h    | Number:Temperature   | yes       | The outside temperature averaged over one day         |
+| temperature_return         | Number:Temperature   | yes       | Temperature Return                                    |
+| temperature_return_set     | Number:Temperature   | yes       | Temperature Return Setpoint                           |
+| temperature_room           | Number:Temperature   | yes       | Temperature Room                                      |
+| temperature_room_1h        | Number:Temperature   | yes       | Temperature Room 1h Average                           |
+| temperature_source_in      | Number:Temperature   | yes       | Temperature Source Input                              |
+| temperature_source_out     | Number:Temperature   | yes       | Temperature Source Output                             |
+| temperature_water          | Number:Temperature   | yes       | Temperature Water                                     |
+| temperature_water_set2     | Number:Temperature   | no        | Temperature Water Setpoint BMS                        |
 
 Advanced channels:
 
-| Channel ID                       | Type                 | Read-Only | Description                                                             |
+|            Channel ID            |         Type         | Read-Only |                               Description                               |
 |----------------------------------|----------------------|-----------|-------------------------------------------------------------------------|
 | compressor_power                 | Number:Dimensionless | yes       | Percent Power Compressor                                                |
 | coolEnableTemp                   | Number:Temperature   | no        | Temperature Cooling Enable                                              |
@@ -139,20 +139,20 @@ Advanced channels:
 
 If the Ecovent Unit is attached to the heat pump, the following additional channels are available:
 
-| Channel ID                 | Type                 | Read-Only | Description |
-|----------------------------|----------------------|-----------|-------------|
-| ecovent_CO2_value          | Number:Dimensionless | yes       | EcoVent CO2                                                     |
-| ecovent_mode               | Number:Dimensionless | no        | EcoVent Mode (0..5: Day, Night, Timer, Party, Vacation, Bypass) |
-| ecovent_moisture_value     | Number:Dimensionless | yes       | EcoVent Air Moisture                                            |
-| ecovent_output_y1          | Number:Dimensionless | yes       | EcoVent Fan                                                     |
-| ecovent_temp_exhaust_air   | Number:Temperature   | yes       | EcoVent Temperature Exhaust Air                                 |
-| ecovent_temp_exit_air      | Number:Temperature   | yes       | EcoVent Temperature Exit Air                                    |
-| ecovent_temp_outdoor_air   | Number:Temperature   | yes       | EcoVent Temperature Outdoor Air                                 |
-| ecovent_temp_supply_air    | Number:Temperature   | yes       | EcoVent Temperature Supply Air                                  |
+|        Channel ID        |         Type         | Read-Only |                           Description                           |
+|--------------------------|----------------------|-----------|-----------------------------------------------------------------|
+| ecovent_CO2_value        | Number:Dimensionless | yes       | EcoVent CO2                                                     |
+| ecovent_mode             | Number:Dimensionless | no        | EcoVent Mode (0..5: Day, Night, Timer, Party, Vacation, Bypass) |
+| ecovent_moisture_value   | Number:Dimensionless | yes       | EcoVent Air Moisture                                            |
+| ecovent_output_y1        | Number:Dimensionless | yes       | EcoVent Fan                                                     |
+| ecovent_temp_exhaust_air | Number:Temperature   | yes       | EcoVent Temperature Exhaust Air                                 |
+| ecovent_temp_exit_air    | Number:Temperature   | yes       | EcoVent Temperature Exit Air                                    |
+| ecovent_temp_outdoor_air | Number:Temperature   | yes       | EcoVent Temperature Outdoor Air                                 |
+| ecovent_temp_supply_air  | Number:Temperature   | yes       | EcoVent Temperature Supply Air                                  |
 
 The air heatpump has the following additional channels:
 
-| Channel ID              | Type               | Read-Only | Description             |
+|       Channel ID        |        Type        | Read-Only |       Description       |
 |-------------------------|--------------------|-----------|-------------------------|
 | temperature_suction_air | Number:Temperature | yes       | Temperature Suction Air |
 | temperature_sump        | Number:Temperature | yes       | Temperature Sump        |
@@ -203,17 +203,18 @@ sitemap ecotouch label="Waterkotte EcoTouch"
 A snippet to show the current state of the heatpump (you need to have the corresponding items in your .items-file):
 
 ```java
-    Text label="State" icon="settings" {
-        Text item=HeatPump_state_sourcepump   label="State Source Pump [%s]"      valuecolor=[==ON="green", ==OFF="red"]
-        Text item=HeatPump_state_heatingpump  label="State Heating Pump [%s]"     valuecolor=[==ON="green", ==OFF="red"]
-        Text item=HeatPump_state_evd          label="State EVD [%s]"              valuecolor=[==ON="green", ==OFF="red"]
-        Text item=HeatPump_state_compressor1  label="State Compressor 1 [%s]"     valuecolor=[==ON="green", ==OFF="red"]
-        Text item=HeatPump_state_extheater    label="State External Heater [%s]"  valuecolor=[==ON="green", ==OFF="red"]
-        Text item=HeatPump_state_alarm        label="State Alarm [%s]"            valuecolor=[==ON="green", ==OFF="red"]
-        Text item=HeatPump_state_cooling      label="State Cooling [%s]"          valuecolor=[==ON="green", ==OFF="red"]
-        Text item=HeatPump_state_water        label="State Water [%s]"            valuecolor=[==ON="green", ==OFF="red"]
-        Text item=HeatPump_state_pool         label="State Pool [%s]"             valuecolor=[==ON="green", ==OFF="red"]
-        Text item=HeatPump_state_solar        label="State Solar [%s]"            valuecolor=[==ON="green", ==OFF="red"]
-        Text item=HeatPump_state_cooling4way  label="State Cooling4Way [%s]"      valuecolor=[==ON="green", ==OFF="red"]
-    }
+Text label="State" icon="settings" {
+    Text item=HeatPump_state_sourcepump   label="State Source Pump [%s]"      valuecolor=[==ON="green", ==OFF="red"]
+    Text item=HeatPump_state_heatingpump  label="State Heating Pump [%s]"     valuecolor=[==ON="green", ==OFF="red"]
+    Text item=HeatPump_state_evd          label="State EVD [%s]"              valuecolor=[==ON="green", ==OFF="red"]
+    Text item=HeatPump_state_compressor1  label="State Compressor 1 [%s]"     valuecolor=[==ON="green", ==OFF="red"]
+    Text item=HeatPump_state_extheater    label="State External Heater [%s]"  valuecolor=[==ON="green", ==OFF="red"]
+    Text item=HeatPump_state_alarm        label="State Alarm [%s]"            valuecolor=[==ON="green", ==OFF="red"]
+    Text item=HeatPump_state_cooling      label="State Cooling [%s]"          valuecolor=[==ON="green", ==OFF="red"]
+    Text item=HeatPump_state_water        label="State Water [%s]"            valuecolor=[==ON="green", ==OFF="red"]
+    Text item=HeatPump_state_pool         label="State Pool [%s]"             valuecolor=[==ON="green", ==OFF="red"]
+    Text item=HeatPump_state_solar        label="State Solar [%s]"            valuecolor=[==ON="green", ==OFF="red"]
+    Text item=HeatPump_state_cooling4way  label="State Cooling4Way [%s]"      valuecolor=[==ON="green", ==OFF="red"]
+}
 ```
+

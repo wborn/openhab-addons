@@ -30,11 +30,11 @@ There is no configuration at binding level.
 
 The IPX800v3 (ID : 'ipx800v3') accepts the following configuration parameters :
 
-| Property            | Default | Required | Description                 |
-|---------------------|---------|----------|-----------------------------|
-| hostname            |         | Yes      | IP address or hostname.     |
-| portNumber          | 9870    | No       | TCP client connection port. |
-| pullInterval*       | 5000    | No       | Refresh interval (in ms)    |
+|   Property    | Default | Required |         Description         |
+|---------------|---------|----------|-----------------------------|
+| hostname      |         | Yes      | IP address or hostname.     |
+| portNumber    | 9870    | No       | TCP client connection port. |
+| pullInterval* | 5000    | No       | Refresh interval (in ms)    |
 
 The binding will query periodically the 'globalstatus.xml' page of the IPX to get fresh informations.
 This is especially usefull for Analog inputs and Counter as modification of these values on PLC side does not trigger any M2M message.
@@ -50,30 +50,30 @@ They are usually commuted by physical devices like pushbuttons, magnets...
 
 Each input will have these associated channels:
 
-| Group    | Channel Name           | Item Type   | R/W | Description                                                                 |
-|----------|------------------------|-------------|-----|-----------------------------------------------------------------------------|
-| contact  | `portnumber`           | Contact     |  R  | Status of the actual port (OPEN, CLOSED)                                    |
-| contact  | `portnumber`-duration  | Number:Time |  R  | Updated when the port status changes to the duration of the previous state. |
+|  Group  |     Channel Name      |  Item Type  | R/W |                                 Description                                 |
+|---------|-----------------------|-------------|-----|-----------------------------------------------------------------------------|
+| contact | `portnumber`          | Contact     | R   | Status of the actual port (OPEN, CLOSED)                                    |
+| contact | `portnumber`-duration | Number:Time | R   | Updated when the port status changes to the duration of the previous state. |
 
 Associated events:
 
-| Channel Type ID    | Options           | Description                                      | Conf Dependency |
-|--------------------|-------------------|--------------------------------------------------|-----------------|
-| `portnumber`-event |                   | Triggered on or after a port status change       |                 |
-|                    | PRESSED           | Triggered when state changes from OPEN to CLOSED |                 |
-|                    | RELEASED          | Triggered when state changes from CLOSED to OPEN |                 |
-|                    | LONG_PRESS        | Triggered when RELEASED after a long period      | longPressTime   |
-|                    | SHORT_PRESS       | Triggered when RELEASED before a long period     | longPressTime   |
-|                    | PULSE             | Triggered during CLOSED state                    | pulsePeriod     |
+|  Channel Type ID   |   Options   |                   Description                    | Conf Dependency |
+|--------------------|-------------|--------------------------------------------------|-----------------|
+| `portnumber`-event |             | Triggered on or after a port status change       |                 |
+|                    | PRESSED     | Triggered when state changes from OPEN to CLOSED |                 |
+|                    | RELEASED    | Triggered when state changes from CLOSED to OPEN |                 |
+|                    | LONG_PRESS  | Triggered when RELEASED after a long period      | longPressTime   |
+|                    | SHORT_PRESS | Triggered when RELEASED before a long period     | longPressTime   |
+|                    | PULSE       | Triggered during CLOSED state                    | pulsePeriod     |
 
 #### Configuration
 
-| Property        | Default | Unit | Description                                                                     |
-|-----------------|---------|------|---------------------------------------------------------------------------------|
-| debouncePeriod  |    0(*) | ms   | Debounce time (ignores flappling within this time). No debounce is done if '0'. |
-| longPressTime   |    0(*) | ms   | Delay before triggering long press event. Ignored if '0'.                       |
-| pulsePeriod     |    0(*) | ms   | Period of pulse event triggering while the entry is closed. Ignored if '0'.     |
-| pulseTimeout    |    0(*) | ms   | Period of time after pulsing will be stopped. None if '0'.                      |
+|    Property    | Default | Unit |                                   Description                                   |
+|----------------|---------|------|---------------------------------------------------------------------------------|
+| debouncePeriod | 0(*)    | ms   | Debounce time (ignores flappling within this time). No debounce is done if '0'. |
+| longPressTime  | 0(*)    | ms   | Delay before triggering long press event. Ignored if '0'.                       |
+| pulsePeriod    | 0(*)    | ms   | Period of pulse event triggering while the entry is closed. Ignored if '0'.     |
+| pulseTimeout   | 0(*)    | ms   | Period of time after pulsing will be stopped. None if '0'.                      |
 
 - Values below 100ms should be avoided as the JVM could skip them and proceed in the same time slice.
 
@@ -81,25 +81,25 @@ Associated events:
 
 Each output will have these associated channels:
 
-| Group    | Channel Name           | Item Type   | R/W | Description                                                                 |
-|----------|------------------------|-------------|-----|-----------------------------------------------------------------------------|
-| relay    | `portnumber`           | Switch      | R/W | Status of the actual port (ON, OFF)                                         |
-| relay    | `portnumber`-duration  | Number:Time |  R  | Updated when the port status changes to the duration of the previous state. |
+| Group |     Channel Name      |  Item Type  | R/W |                                 Description                                 |
+|-------|-----------------------|-------------|-----|-----------------------------------------------------------------------------|
+| relay | `portnumber`          | Switch      | R/W | Status of the actual port (ON, OFF)                                         |
+| relay | `portnumber`-duration | Number:Time | R   | Updated when the port status changes to the duration of the previous state. |
 
 #### Configuration
 
-| Property        | Default | Description                                                              |
-|-----------------|---------|--------------------------------------------------------------------------|
-| pulse           |  false  | If set, the output will be in pulse mode, releasing it after the contact |
+| Property | Default |                               Description                                |
+|----------|---------|--------------------------------------------------------------------------|
+| pulse    | false   | If set, the output will be in pulse mode, releasing it after the contact |
 
 ### Counters Channels
 
 Each counter will have these associated channels:
 
-| Group    | Channel Name             | Item Type   | R/W | Description                                                                    |
-|----------|--------------------------|-------------|-----|--------------------------------------------------------------------------------|
-| counter  | `counternumber`          | Number      |  R  | Actual value of the counter                                                    |
-| counter  | `counternumber`-duration | Number:Time |  R  | Updated when the counter status changes to the duration of the previous state. |
+|  Group  |       Channel Name       |  Item Type  | R/W |                                  Description                                   |
+|---------|--------------------------|-------------|-----|--------------------------------------------------------------------------------|
+| counter | `counternumber`          | Number      | R   | Actual value of the counter                                                    |
+| counter | `counternumber`-duration | Number:Time | R   | Updated when the counter status changes to the duration of the previous state. |
 
 #### Configuration
 
@@ -109,17 +109,17 @@ This channel has no configuration setting.
 
 Each analog port will have these associated channels:
 
-| Group  | Channel Name          | Item Type                | R/W | Description                                                                 |
+| Group  |     Channel Name      |        Item Type         | R/W |                                 Description                                 |
 |--------|-----------------------|--------------------------|-----|-----------------------------------------------------------------------------|
-| analog | `portnumber`          | Number                   |  R  | Value of the port.                                                          |
-| analog | `portnumber`-duration | Number:Time              |  R  | Updated when the port status changes to the duration of the previous state. |
-| analog | `portnumber`-voltage  | Number:ElectricPotential |  R  | Electrical equivalency of the analogic value                                |
+| analog | `portnumber`          | Number                   | R   | Value of the port.                                                          |
+| analog | `portnumber`-duration | Number:Time              | R   | Updated when the port status changes to the duration of the previous state. |
+| analog | `portnumber`-voltage  | Number:ElectricPotential | R   | Electrical equivalency of the analogic value                                |
 
 #### Configuration
 
-| Property   | Default | Description                                                                         |
+|  Property  | Default |                                     Description                                     |
 |------------|---------|-------------------------------------------------------------------------------------|
-| hysteresis |    0    | If set, the channel will ignore status if change (+ or -) is less than hysteresis/2 |
+| hysteresis | 0       | If set, the channel will ignore status if change (+ or -) is less than hysteresis/2 |
 
 ## Rule Actions
 
@@ -128,13 +128,13 @@ Multiple actions are supported by this binding. In classic rules these are acces
 Getting ipxActions variable in scripts
 
 ```java
- val ipxActions = getActions("gce","gce:ipx800v3:43cc8d07")
- if(null === ipxActions) {
-        logInfo("actions", "ipxActions not found, check thing ID")
-        return
- } else {
-        // do something with sunActions
- }
+val ipxActions = getActions("gce","gce:ipx800v3:43cc8d07")
+if(null === ipxActions) {
+       logInfo("actions", "ipxActions not found, check thing ID")
+       return
+} else {
+       // do something with sunActions
+}
 ```
 
 ### resetCounter(counterId)
@@ -186,3 +186,4 @@ Switch output3 "Chaudière" <furnace> (gIPXOutputs) {channel="gce:ipx800v3:ipx:r
 Switch output4 "Lumière Porche" <light> (gIPXOutputs) {channel="gce:ipx800v3:ipx:relay#4"}
 
 ```
+

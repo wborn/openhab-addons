@@ -18,9 +18,9 @@ A bridge is required to connect to your MELCloud account.
 Discovery is used _after_ a bridge has been created and configured with your login information.
 
 1. Add the binding
-1. Add a new thing of type melcloudaccount and configure with username and password
-1. Go to Inbox and start discovery devices using MELCloud Binding
-1. Supported devices (A.C. Device, Heatpump Device) should appear in your inbox
+2. Add a new thing of type melcloudaccount and configure with username and password
+3. Go to Inbox and start discovery devices using MELCloud Binding
+4. Supported devices (A.C. Device, Heatpump Device) should appear in your inbox
 
 Binding support also manual thing configuration by thing files.
 
@@ -31,44 +31,44 @@ This is a bit difficult to get. The easiest way of getting this is enable debug 
 
 MELCloud account configuration:
 
-| Config   | Mandatory | Description                             |
+|  Config  | Mandatory |               Description               |
 |----------|-----------|-----------------------------------------|
 | username | x         | Email address tied to MELCloud account. |
 | password | x         | Password to MELCloud account.           |
 | language |           | Language ID, see table below.           |
 
-| LanguageId  | Language          |
-|-------------|-------------------|
-| 0           | English (default) |
-| 1           | Bulgarian         |
-| 2           | Czech             |
-| 3           | Danish            |
-| 4           | German            |
-| 5           | Estonian          |
-| 6           | Spanish           |
-| 7           | French            |
-| 8           | Armenian          |
-| 9           | Latvian           |
-| 10          | Lithuanian        |
-| 11          | Hungarian         |
-| 12          | Dutch             |
-| 13          | Norwegian         |
-| 14          | Polish            |
-| 15          | Portuguese        |
-| 16          | Russian           |
-| 17          | Finnish           |
-| 18          | Swedish           |
-| 19          | Italian           |
-| 20          | Ukrainian         |
-| 21          | Turkish           |
-| 22          | Greek             |
-| 23          | Croatian          |
-| 24          | Romanian          |
-| 25          | Slovenian         |
+| LanguageId |     Language      |
+|------------|-------------------|
+| 0          | English (default) |
+| 1          | Bulgarian         |
+| 2          | Czech             |
+| 3          | Danish            |
+| 4          | German            |
+| 5          | Estonian          |
+| 6          | Spanish           |
+| 7          | French            |
+| 8          | Armenian          |
+| 9          | Latvian           |
+| 10         | Lithuanian        |
+| 11         | Hungarian         |
+| 12         | Dutch             |
+| 13         | Norwegian         |
+| 14         | Polish            |
+| 15         | Portuguese        |
+| 16         | Russian           |
+| 17         | Finnish           |
+| 18         | Swedish           |
+| 19         | Italian           |
+| 20         | Ukrainian         |
+| 21         | Turkish           |
+| 22         | Greek             |
+| 23         | Croatian          |
+| 24         | Romanian          |
+| 25         | Slovenian         |
 
 A.C. device and Heatpump device configuration:
 
-| Config          | Mandatory | Description                                                                           |
+|     Config      | Mandatory |                                      Description                                      |
 |-----------------|-----------|---------------------------------------------------------------------------------------|
 | deviceID        | x         | MELCloud device ID.                                                                   |
 | buildingID      |           | MELCloud building ID. If not defined, binding tries to find matching id by device ID. |
@@ -78,33 +78,33 @@ A.C. device and Heatpump device configuration:
 
 A.C. device channels
 
-| Channel             | Type               | Description                                                                              | Read Only |
-|---------------------|--------------------|------------------------------------------------------------------------------------------|-----------|
-| power               | Switch             | Power Status of Device.                                                                  | False     |
-| operationMode       | String             | Operation mode: "1" = Heat, "2" = Dry, "3" = Cool, "7" = Fan, "8" = Auto.                | False     |
-| setTemperature      | Number:Temperature | Set Temperature: Min = 10, Max = 40.                                                     | False     |
-| fanSpeed            | String             | Fan speed: "0" = Auto, "1" = 1, "2" = 2, "3" = 3, "4" = 4, "5" = 5.                      | False     |
-| vaneHorizontal      | String             | Vane Horizontal: "0" = Auto, "1" = 1, "2" = 2, "3" = 3, "4" = 4, "5" = 5, "12" = Swing.  | False     |
-| vaneVertical        | String             | Vane Vertical: "0" = Auto, "1" = 1, "2" = 2, "3" = 3, "4" = 4, "5" = 5, "7" = Swing.     | False     |
-| roomTemperature     | Number:Temperature | Room temperature.                                                                        | True      |
-| lastCommunication   | DateTime           | Last Communication time when MELCloud communicated to the device.                        | True      |
-| nextCommunication   | DateTime           | Next communication time when MELCloud will communicate to the device.                    | True      |
-| offline             | Switch             | Is device in offline state.                                                              | True      |
-| hasPendingCommand   | Switch             | Device has a pending command(s).                                                         | True      |
+|      Channel      |        Type        |                                       Description                                       | Read Only |
+|-------------------|--------------------|-----------------------------------------------------------------------------------------|-----------|
+| power             | Switch             | Power Status of Device.                                                                 | False     |
+| operationMode     | String             | Operation mode: "1" = Heat, "2" = Dry, "3" = Cool, "7" = Fan, "8" = Auto.               | False     |
+| setTemperature    | Number:Temperature | Set Temperature: Min = 10, Max = 40.                                                    | False     |
+| fanSpeed          | String             | Fan speed: "0" = Auto, "1" = 1, "2" = 2, "3" = 3, "4" = 4, "5" = 5.                     | False     |
+| vaneHorizontal    | String             | Vane Horizontal: "0" = Auto, "1" = 1, "2" = 2, "3" = 3, "4" = 4, "5" = 5, "12" = Swing. | False     |
+| vaneVertical      | String             | Vane Vertical: "0" = Auto, "1" = 1, "2" = 2, "3" = 3, "4" = 4, "5" = 5, "7" = Swing.    | False     |
+| roomTemperature   | Number:Temperature | Room temperature.                                                                       | True      |
+| lastCommunication | DateTime           | Last Communication time when MELCloud communicated to the device.                       | True      |
+| nextCommunication | DateTime           | Next communication time when MELCloud will communicate to the device.                   | True      |
+| offline           | Switch             | Is device in offline state.                                                             | True      |
+| hasPendingCommand | Switch             | Device has a pending command(s).                                                        | True      |
 
 Heatpump device channels
 
-| Channel             | Type               | Description                                                                | Read Only |
-|---------------------|--------------------|----------------------------------------------------------------------------|-----------|
-| power               | Switch             | Power Status of Device.                                                    | False     |
-| forcedHotWaterMode  | Switch             | If water mode is Heat Now (true) or Auto (false)                           | False     |
-| setTemperatureZone1 | Number:Temperature | Set Temperature Zone 1: Min = 10, Max = 30.                                | False     |
-| roomTemperatureZone1| Number:Temperature | Room temperature Zone 1.                                                   | True      |
-| tankWaterTemperature| Number:Temperature | Tank water temperature.                                                    | True      |
-| lastCommunication   | DateTime           | Last Communication time when MELCloud communicated to the device.          | True      |
-| nextCommunication   | DateTime           | Next communication time when MELCloud will communicate to the device.      | True      |
-| offline             | Switch             | Is device in offline state.                                                | True      |
-| hasPendingCommand   | Switch             | Device has a pending command(s).                                           | True      |
+|       Channel        |        Type        |                              Description                              | Read Only |
+|----------------------|--------------------|-----------------------------------------------------------------------|-----------|
+| power                | Switch             | Power Status of Device.                                               | False     |
+| forcedHotWaterMode   | Switch             | If water mode is Heat Now (true) or Auto (false)                      | False     |
+| setTemperatureZone1  | Number:Temperature | Set Temperature Zone 1: Min = 10, Max = 30.                           | False     |
+| roomTemperatureZone1 | Number:Temperature | Room temperature Zone 1.                                              | True      |
+| tankWaterTemperature | Number:Temperature | Tank water temperature.                                               | True      |
+| lastCommunication    | DateTime           | Last Communication time when MELCloud communicated to the device.     | True      |
+| nextCommunication    | DateTime           | Next communication time when MELCloud will communicate to the device. | True      |
+| offline              | Switch             | Is device in offline state.                                           | True      |
+| hasPendingCommand    | Switch             | Device has a pending command(s).                                      | True      |
 
 ## Full Example for items configuration
 
@@ -142,3 +142,4 @@ DateTime    heatpumpNextCommunication   { channel="melcloud:heatpumpdevice:myacc
 Switch      heatpumpOffline             { channel="melcloud:heatpumpdevice:myaccount:attic:offline" }
 Switch      heatpumpHasPendingCommand   { channel="melcloud:heatpumpdevice:myaccount:attic:hasPendingCommand" }
 ```
+

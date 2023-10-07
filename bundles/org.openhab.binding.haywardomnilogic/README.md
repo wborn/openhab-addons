@@ -8,7 +8,7 @@ The Hayward Omnilogic API interacts with Hayward's cloud server requiring a conn
 
 The table below lists the Hayward OmniLogic binding thing types:
 
-| Things                       | Description                                                                     | Thing Type    |
+|            Things            |                                   Description                                   |  Thing Type   |
 |------------------------------|---------------------------------------------------------------------------------|---------------|
 | Hayward OmniLogix Connection | Connection to Hayward's Server                                                  | bridge        |
 | Backyard                     | Backyard                                                                        | backyard      |
@@ -29,7 +29,7 @@ The binding will automatically discover the Omnilogic pool things from the cloud
 
 Hayward OmniLogic Connection Parameters:
 
-| Property             | Default                                                          | Required | Description                                  |
+|       Property       |                             Default                              | Required |                 Description                  |
 |----------------------|------------------------------------------------------------------|----------|----------------------------------------------|
 | Host Name            | <https://app1.haywardomnilogic.com/HAAPI/HomeAutomation/API.ash> | Yes      | Host name of the Hayward API server          |
 | User Name            | None                                                             | Yes      | Your Hayward User Name (not email address)   |
@@ -41,89 +41,89 @@ Hayward OmniLogic Connection Parameters:
 
 ### Backyard Channels
 
-| Channel Type ID | Item Type          | Description                      | Read Write |
+| Channel Type ID |     Item Type      |           Description            | Read Write |
 |-----------------|--------------------|----------------------------------|:----------:|
-| backyardAirTemp | Number:Temperature | Backyard air temp sensor reading |      R     |
-| backyardStatus  | String             | Backyard status                  |      R     |
-| backyardState   | String             | Backyard state                   |      R     |
-| backyardAlarm1  | String             | Backyard alarm #1                |      R     |
-| backyardAlarm2  | String             | Backyard alarm #2                |      R     |
-| backyardAlarm3  | String             | Backyard alarm #3                |      R     |
-| backyardAlarm4  | String             | Backyard alarm #4                |      R     |
-| backyardAlarm5  | String             | Backyard alarm #5                |      R     |
+| backyardAirTemp | Number:Temperature | Backyard air temp sensor reading |     R      |
+| backyardStatus  | String             | Backyard status                  |     R      |
+| backyardState   | String             | Backyard state                   |     R      |
+| backyardAlarm1  | String             | Backyard alarm #1                |     R      |
+| backyardAlarm2  | String             | Backyard alarm #2                |     R      |
+| backyardAlarm3  | String             | Backyard alarm #3                |     R      |
+| backyardAlarm4  | String             | Backyard alarm #4                |     R      |
+| backyardAlarm5  | String             | Backyard alarm #5                |     R      |
 
 ### Body of Water Channels
 
-| Channel Type ID | Item Type          | Description                        | Read Write |
+| Channel Type ID |     Item Type      |            Description             | Read Write |
 |-----------------|--------------------|------------------------------------|:----------:|
-| bowFlow         | Switch             | Body of Water flow sensor feedback |      R     |
-| bowWaterTemp    | Number:Temperature | Body of Water temperature          |      R     |
+| bowFlow         | Switch             | Body of Water flow sensor feedback |     R      |
+| bowWaterTemp    | Number:Temperature | Body of Water temperature          |     R      |
 
 ### Chlorinator Channels
 
-| Channel Type ID       | Item Type            | Description                                              | Read Write |
+|    Channel Type ID    |      Item Type       |                       Description                        | Read Write |
 |-----------------------|----------------------|----------------------------------------------------------|:----------:|
-| chlorEnable           | Switch               | Chlorinator enable                                       |     R/W    |
-| chlorOperatingMode    | String               | Chlorinator operating mode                               |      R     |
-| chlorTimedPercent     | Number:Dimensionless | Chlorinator timed percent                                |     R/W    |
-| chlorOperatingState   | Number               | Chlorinator operating state                              |      R     |
-| chlorScMode           | String               | Chlorinator super chlorinate mode                        |      R     |
-| chlorError            | Number               | Chlorinator error                                        |      R     |
-| chlorAlert            | String               | Chlorinator alert                                        |      R     |
-| chlorAvgSaltLevel     | Number:Dimensionless | Chlorinator average salt level in Part per Million (ppm) |      R     |
-| chlorInstantSaltLevel | Number:Dimensionless | Chlorinator instant salt level in Part per Million (ppm) |      R     |
-| chlorStatus           | Number               | Chlorinator K1/K2 relay status                           |      R     |
+| chlorEnable           | Switch               | Chlorinator enable                                       |    R/W     |
+| chlorOperatingMode    | String               | Chlorinator operating mode                               |     R      |
+| chlorTimedPercent     | Number:Dimensionless | Chlorinator timed percent                                |    R/W     |
+| chlorOperatingState   | Number               | Chlorinator operating state                              |     R      |
+| chlorScMode           | String               | Chlorinator super chlorinate mode                        |     R      |
+| chlorError            | Number               | Chlorinator error                                        |     R      |
+| chlorAlert            | String               | Chlorinator alert                                        |     R      |
+| chlorAvgSaltLevel     | Number:Dimensionless | Chlorinator average salt level in Part per Million (ppm) |     R      |
+| chlorInstantSaltLevel | Number:Dimensionless | Chlorinator instant salt level in Part per Million (ppm) |     R      |
+| chlorStatus           | Number               | Chlorinator K1/K2 relay status                           |     R      |
 
 ### Colorlogic Light Channels
 
-| Channel Type ID            | Item Type | Description                   | Read Write |
+|      Channel Type ID       | Item Type |          Description          | Read Write |
 |----------------------------|-----------|-------------------------------|:----------:|
-| colorLogicLightEnable      | Switch    | Colorlogic Light enable       |     R/W    |
-| colorLogicLightState       | String    | Colorlogic Light state        |      R     |
-| colorLogicLightCurrentShow | String    | Colorlogic Light current show |     R/W    |
+| colorLogicLightEnable      | Switch    | Colorlogic Light enable       |    R/W     |
+| colorLogicLightState       | String    | Colorlogic Light state        |     R      |
+| colorLogicLightCurrentShow | String    | Colorlogic Light current show |    R/W     |
 
 ### Filter Channels
 
-| Channel Type ID     | Item Type            | Description            | Read Write |
+|   Channel Type ID   |      Item Type       |      Description       | Read Write |
 |---------------------|----------------------|------------------------|:----------:|
-| filterEnable        | Switch               | Filter enable          |     R/W    |
-| filterValvePosition | String               | Filter valve position  |      R     |
-| filterSpeedPercent  | Number:Dimensionless | Filter speed in %      |     R/W    |
-| filterSpeedRpm      | Number               | Filter speed in RPM    |     R/W    |
-| filterSpeedSelect   | String               | Filter speed presets   |     R/W    |
-| filterState         | String               | Filter state           |      R     |
-| filterLastSpeed     | Number:Dimensionless | Filter last speed in % |      R     |
+| filterEnable        | Switch               | Filter enable          |    R/W     |
+| filterValvePosition | String               | Filter valve position  |     R      |
+| filterSpeedPercent  | Number:Dimensionless | Filter speed in %      |    R/W     |
+| filterSpeedRpm      | Number               | Filter speed in RPM    |    R/W     |
+| filterSpeedSelect   | String               | Filter speed presets   |    R/W     |
+| filterState         | String               | Filter state           |     R      |
+| filterLastSpeed     | Number:Dimensionless | Filter last speed in % |     R      |
 
 ### Heater Channels
 
-| Channel Type ID | Item Type | Description   | Read Write |
+| Channel Type ID | Item Type |  Description  | Read Write |
 |-----------------|-----------|---------------|:----------:|
-| heaterState     | String    | Heater state  |      R     |
-| heaterEnable    | Switch    | Heater enable |      R     |
+| heaterState     | String    | Heater state  |     R      |
+| heaterEnable    | Switch    | Heater enable |     R      |
 
 ### Pump Channels
 
-| Channel Type ID  | Item Type            | Description          | Read Write |
+| Channel Type ID  |      Item Type       |     Description      | Read Write |
 |------------------|----------------------|----------------------|:----------:|
-| pumpEnable       | Switch               | Pump enable          |     R/W    |
-| pumpSpeedPercent | Number:Dimensionless | Pump speed in %      |     R/W    |
-| pumpSpeedRpm     | Number               | Pump speed in RPM    |     R/W    |
-| pumpSpeedSelect  | String               | Pump speed presets   |     R/W    |
-| pumpState        | String               | Pump state           |      R     |
-| pumpLastSpeed    | Number:Dimensionless | Pump last speed in % |      R     |
+| pumpEnable       | Switch               | Pump enable          |    R/W     |
+| pumpSpeedPercent | Number:Dimensionless | Pump speed in %      |    R/W     |
+| pumpSpeedRpm     | Number               | Pump speed in RPM    |    R/W     |
+| pumpSpeedSelect  | String               | Pump speed presets   |    R/W     |
+| pumpState        | String               | Pump state           |     R      |
+| pumpLastSpeed    | Number:Dimensionless | Pump last speed in % |     R      |
 
 ### Relay Channels
 
 | Channel Type ID | Item Type | Description | Read Write |
 |-----------------|-----------|-------------|:----------:|
-| relayState      | Switch    | Relay state |     R/W    |
+| relayState      | Switch    | Relay state |    R/W     |
 
 ### Virtual Heater Channels
 
-| Channel Type ID       | Item Type          | Description             | Read Write |
+|    Channel Type ID    |     Item Type      |       Description       | Read Write |
 |-----------------------|--------------------|-------------------------|:----------:|
-| heaterEnable          | Switch             | Heater enable           |      R     |
-| heaterCurrentSetpoint | Number:Temperature | Heater Current Setpoint |     R/W    |
+| heaterEnable          | Switch             | Heater enable           |     R      |
+| heaterCurrentSetpoint | Number:Temperature | Heater Current Setpoint |    R/W     |
 
 ## Full Example
 

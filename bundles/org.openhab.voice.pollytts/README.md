@@ -12,7 +12,7 @@ You can find pricing information on the [documentation page](https://aws.amazon.
 
 * Sign up for Amazon Web Services (AWS). [link](https://portal.aws.amazon.com/billing/signup)
 
-When you sign up for AWS, your account is automatically signed up for all services in AWS, including Amazon Polly. 
+When you sign up for AWS, your account is automatically signed up for all services in AWS, including Amazon Polly.
 
 * Create an IAM User. [link](https://docs.aws.amazon.com/polly/latest/dg/setting-up.html)
 
@@ -29,7 +29,7 @@ The following settings can be edited in UI (**Settings / Other Services - Polly 
 * **Secret Key** - The AWS credentials secret key (required).
 * **Service Region** - The service region used for accessing Polly (required). To reduce latency select the region closest to you. E.g. "eu-west-1" (see [regions](https://docs.aws.amazon.com/general/latest/gr/rande.html#pol_region))
 * **Audio Format** - Allows for overriding the system default audio format.
- 
+
 Use "default" to select the system default audio format.
 The default audio format can be overriden with the value "mp3" or "ogg".
 
@@ -72,3 +72,4 @@ say("Hello there", "pollytts:Joanne", "enhancedjavasound")
 say("" + item.state, "pollytts:Joey", "enhancedjavasound")  
 say("<speak>Children, come to dinner <prosody volume='x-loud'>Right now!</prosody></speak>")  
 ```
+

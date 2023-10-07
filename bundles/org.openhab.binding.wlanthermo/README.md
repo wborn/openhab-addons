@@ -14,8 +14,8 @@ This binding supports the following version of WlanThermo:
 - Mini V1 (untested, but should be working)
 - Mini V2
 
- Pitmaster support is currently only enabled for Mini V1/V2.  
- If you have a WlanThermo Nano with Pitmaster, please contact the author of this binding to include the support in future releases.
+Pitmaster support is currently only enabled for Mini V1/V2.  
+If you have a WlanThermo Nano with Pitmaster, please contact the author of this binding to include the support in future releases.
 
 ## Discovery
 
@@ -37,18 +37,18 @@ Depending on the WlanThermo you're using, the following channels are available.
 
 If username/password is given in the thing, most channels are writeable.
 
-#### The device itself provides the following channels:  
+#### The device itself provides the following channels:
 
-| channel             | type                 | description                              |
+|       channel       |         type         |               description                |
 |---------------------|----------------------|------------------------------------------|
 | soc                 | Number:Dimensionless | Battery Level in %                       |
 | charging            | Switch               | On, if device is charging, off otherwise |
 | rssi_signalstrength | Number               | Signal Strength in range [0 ... 4]       |
 | rssi                | Number               | Signal Strength in dBm                   |
 
-#### The following channels apply for all 8 probes of the WlanThermo Nano:  
+#### The following channels apply for all 8 probes of the WlanThermo Nano:
 
-| channel            | type               | description                                                          |
+|      channel       |        type        |                             description                              |
 |--------------------|--------------------|----------------------------------------------------------------------|
 | name               | String             | The name of this probe                                               |
 | type               | String             | The type of this probe                                               |
@@ -64,7 +64,7 @@ If username/password is given in the thing, most channels are writeable.
 
 #### The following channels are available for the Pitmaster
 
-| channel    | type                 | description                                                                                 |
+|  channel   |         type         |                                         description                                         |
 |------------|----------------------|---------------------------------------------------------------------------------------------|
 | state      | String               | Indicates type of the Pitmaster channel. Value can be "off", "manual", "auto" or "autotune" |
 | setpoint   | Number:Temperature   | the target temperature of the probe assigned to the pitmaster channel                       |
@@ -78,14 +78,14 @@ All channels are read only!
 
 #### The device itself provides the following channels:
 
-| channel  | type                 | description                   |
-|----------|----------------------|-------------------------------|
-| cpu_load | Number:Dimensionless | CPU Load in %                 |
-| cpu_temp | Number:Temperature   | CPU Temperature               |
+| channel  |         type         |   description   |
+|----------|----------------------|-----------------|
+| cpu_load | Number:Dimensionless | CPU Load in %   |
+| cpu_temp | Number:Temperature   | CPU Temperature |
 
 #### The following channels apply for all 10 probes of the WlanThermo Mini:
 
-| channel            | type               | description                                                          |
+|      channel       |        type        |                             description                              |
 |--------------------|--------------------|----------------------------------------------------------------------|
 | name               | String             | The name of this probe                                               |
 | temp               | Number:Temperature | The current temperature                                              |
@@ -99,7 +99,7 @@ All channels are read only!
 
 #### The following channels apply for both Pitmaster channels of the WlanThermo Mini:
 
-| channel    | type                 | description                                                             |
+|  channel   |         type         |                               description                               |
 |------------|----------------------|-------------------------------------------------------------------------|
 | enabled    | Switch               | Indicates if this pitmaster channel is active                           |
 | current    | Number:Temperature   | The current temperature of the probe assigned to this pitmaster channel |
@@ -112,7 +112,7 @@ All channels are read only!
 
 The following trigger apply for all channels of Nano and Mini:
 
-| trigger       | values | description                                                                |
+|    trigger    | values |                                description                                 |
 |---------------|--------|----------------------------------------------------------------------------|
 | alarm_openhab | MIN    | Triggers repeatedly if current temp is below minimum temperature threshold |
 | alarm_openhab | MAX    | Triggers repeatedly if current temp is above maximum temperature threshold |
@@ -525,3 +525,4 @@ sitemap wlanthermo label="WlanThermo" {
 }
 
 ```
+

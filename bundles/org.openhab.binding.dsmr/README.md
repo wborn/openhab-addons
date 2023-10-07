@@ -57,23 +57,23 @@ If a bridge is manually configured it is possible to auto detect available meter
 
 The configuration for the `dsmrBridge` consists of the following parameters:
 
-| Parameter           | Description                                                                                                 |
-|---------------------|-------------------------------------------------------------------------------------------------------------|
-| serialPort          | The serial port where the P1-port is connected to (e.g. Linux: `/dev/ttyUSB1`, Windows: `COM2`) (mandatory) |
-| receivedTimeout     | The time out period in which messages are expected to arrive, default is 120 seconds                        |
-| baudrate            | Baudrate when no auto detect. valid values: 4800, 9600, 19200, 38400, 57600, 115200                         |
-| databits            | Data bits when no auto detect. valid values: 5, 6, 7, 8                                                     |
-| parity              | Parity when no auto detect. valid values: E(ven), N(one), O(dd)                                             |
-| stopbits            | Stop bits when no auto detect. valid values: 1, 1.5, 2                                                      |
+|    Parameter    |                                                 Description                                                 |
+|-----------------|-------------------------------------------------------------------------------------------------------------|
+| serialPort      | The serial port where the P1-port is connected to (e.g. Linux: `/dev/ttyUSB1`, Windows: `COM2`) (mandatory) |
+| receivedTimeout | The time out period in which messages are expected to arrive, default is 120 seconds                        |
+| baudrate        | Baudrate when no auto detect. valid values: 4800, 9600, 19200, 38400, 57600, 115200                         |
+| databits        | Data bits when no auto detect. valid values: 5, 6, 7, 8                                                     |
+| parity          | Parity when no auto detect. valid values: E(ven), N(one), O(dd)                                             |
+| stopbits        | Stop bits when no auto detect. valid values: 1, 1.5, 2                                                      |
 
 The configuration for the `smartyBridge` consists of the following parameters:
 
-| Parameter           | Description                                                                                                 |
-|---------------------|-------------------------------------------------------------------------------------------------------------|
-| serialPort          | The serial port where the P1-port is connected to (e.g. Linux: `/dev/ttyUSB1`, Windows: `COM2`) (mandatory) |
-| decryptionKey       | The meter specific decryption key (mandatory)                                                               |
-| additionalKey       | Additional key for meters that require a secondary key. Some meters in Austria require this                 |
-| receivedTimeout     | The time out period in which messages are expected to arrive, default is 120 seconds                        |
+|    Parameter    |                                                 Description                                                 |
+|-----------------|-------------------------------------------------------------------------------------------------------------|
+| serialPort      | The serial port where the P1-port is connected to (e.g. Linux: `/dev/ttyUSB1`, Windows: `COM2`) (mandatory) |
+| decryptionKey   | The meter specific decryption key (mandatory)                                                               |
+| additionalKey   | Additional key for meters that require a secondary key. Some meters in Austria require this                 |
+| receivedTimeout | The time out period in which messages are expected to arrive, default is 120 seconds                        |
 
 **Note:** _The manual configuration is only needed if the DSMR-device requires non DSMR-standard Serial Port parameters (i.e. something different then `115200 8N1` or `9600 7E1`)_
 
@@ -90,7 +90,7 @@ The information in this paragraph in necessary if you choose to configure the me
 
 Supported meters:
 
-| Meter Thing                                     | Thing type ID                | M-Bus channel | Refresh rate |
+|                   Meter Thing                   |        Thing type ID         | M-Bus channel | Refresh rate |
 |-------------------------------------------------|------------------------------|---------------|--------------|
 | DSMR V2 / V3 Device                             | `device_v2_v3`               | -1            | 10 seconds   |
 | DSMR V4 Device                                  | `device_v4`                  | -1            | 10 seconds   |
@@ -136,10 +136,10 @@ You can ask your supplier / installer for this information or you can retrieve i
 
 The configuration for the meters consists of the following parameters:
 
-| Parameter           | Description                                                                          |
-|---------------------|--------------------------------------------------------------------------------------|
-| refresh             | Time in seconds with which the state of the device is updated. Default is 60 seconds |
-| channel             | M-Bus channel. See the table above                                                   |
+| Parameter |                                     Description                                      |
+|-----------|--------------------------------------------------------------------------------------|
+| refresh   | Time in seconds with which the state of the device is updated. Default is 60 seconds |
+| channel   | M-Bus channel. See the table above                                                   |
 
 #### Examples
 
@@ -164,7 +164,7 @@ The following channels are supported:
 - \- channel is not supported
 - O channel is supported only if the device has this functionality
 
-| Channel Type ID                                  | Item Type                | Description                                                            | Ace4000 | DSMR V2.1 | DSMR V2.2 | DSMR V3.0 | DSMR V4.0 | DSMR V4.0.4 | DSMR V4.2 | DSMR V5 | SMARTY V1.0 | e-MUCS V1.0 | Austian |
+|                 Channel Type ID                  |        Item Type         |                              Description                               | Ace4000 | DSMR V2.1 | DSMR V2.2 | DSMR V3.0 | DSMR V4.0 | DSMR V4.0.4 | DSMR V4.2 | DSMR V5 | SMARTY V1.0 | e-MUCS V1.0 | Austian |
 |--------------------------------------------------|--------------------------|------------------------------------------------------------------------|---------|-----------|-----------|-----------|-----------|-------------|-----------|---------|-------------|-------------|---------|
 |                                                  |                          | **Channels for the generic device**                                    |         |           |           |           |           |             |           |         |             |             |         |
 | `p1_text_code`                                   | String                   | Text code from the device                                              | -       | Y         | Y         | Y         | Y         | Y           | Y         | -       | -           | -           | -       |
@@ -355,3 +355,4 @@ Bridge definition {
         electricity_v5 [channel=0]
 }
 ```
+

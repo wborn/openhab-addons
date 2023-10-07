@@ -54,11 +54,8 @@ To enable DEBUG logging for the binding, login to Karaf console and enter:
 
 - `username` - The username used to connect to <https://mypages.verisure.com>
   - The user has to have Administrator rights to have full SmartLock functionality
-
 - `password` - The password used to connect to <https://mypages.verisure.com>
-
 - `refresh` - Specifies the refresh interval in seconds
-
 - `pin` - The username's pin code to arm/disarm alarm and lock/unlock door. In the case of more than one installation and different pin-codes, use a comma separated string where pin-code matches order of installations. The installation order can be found using DEBUG log settings.
   - Two installations where the first listed installation uses a 6 digit pin-code and second listed installation uses a 4 digit pin-code: 123456,1234
 
@@ -70,9 +67,9 @@ If you define the bridge in a things-file the bridge type id is defined as `brid
 
 The following channels are supported:
 
-| Channel Type ID | Item Type | Description                                                                                     |
-|-----------------|-----------|-------------------------------------------------------------------------------------------------|
-| status          | String    | This channel can be used to trigger an instant refresh by sending a RefreshType.REFRESH command.|
+| Channel Type ID | Item Type |                                           Description                                            |
+|-----------------|-----------|--------------------------------------------------------------------------------------------------|
+| status          | String    | This channel can be used to trigger an instant refresh by sending a RefreshType.REFRESH command. |
 
 ### Verisure Alarm
 
@@ -85,15 +82,15 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID     | Item Type | Description                                                                               |
-|---------------------|-----------|-------------------------------------------------------------------------------------------|
-| changedByUser       | String    | This channel reports the user that last changed the state of the alarm.                   |
-| changedVia          | String    | This channel reports the method used to change the status.                                |
-| timestamp           | DateTime  | This channel reports the last time the alarm status was changed.                          |
-| installationName    | String    | This channel reports the installation name.                                               |
-| installationId      | Number    | This channel reports the installation ID.                                                 |
-| alarmStatus         | String    | This channel is used to arm/disarm the alarm. Available alarm status are "DISARMED", "ARMED_HOME" and "ARMED_AWAY".|
-| alarmTriggerChannel | trigger   | This is a trigger channel that receives events.                                           |
+|   Channel Type ID   | Item Type |                                                     Description                                                     |
+|---------------------|-----------|---------------------------------------------------------------------------------------------------------------------|
+| changedByUser       | String    | This channel reports the user that last changed the state of the alarm.                                             |
+| changedVia          | String    | This channel reports the method used to change the status.                                                          |
+| timestamp           | DateTime  | This channel reports the last time the alarm status was changed.                                                    |
+| installationName    | String    | This channel reports the installation name.                                                                         |
+| installationId      | Number    | This channel reports the installation ID.                                                                           |
+| alarmStatus         | String    | This channel is used to arm/disarm the alarm. Available alarm status are "DISARMED", "ARMED_HOME" and "ARMED_AWAY". |
+| alarmTriggerChannel | trigger   | This is a trigger channel that receives events.                                                                     |
 
 ### Verisure Yaleman SmartLock
 
@@ -106,20 +103,20 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID         | Item Type | Description                                                                                              |
-|-------------------------|-----------|----------------------------------------------------------------------------------------------------------|
-| changedByUser           | String    | This channel reports the user that last changed the state of the alarm.                                  |
-| timestamp               | DateTime  | This channel reports the last time the alarm status was changed.                                         |
-| changedVia              | String    | This channel reports the method used to change the status.                                               |
-| motorJam                | Switch    | This channel reports if the SmartLock motor has jammed.                                                  |
-| location                | String    | This channel reports the location of the device.                                                         |
-| installationName        | String    | This channel reports the installation name.                                                              |
-| installationId          | Number    | This channel reports the installation ID.                                                                |
-| smartLockStatus         | Switch    | This channel is used to lock/unlock.                                                                     |
+|     Channel Type ID     | Item Type |                                                                          Description                                                                          |
+|-------------------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| changedByUser           | String    | This channel reports the user that last changed the state of the alarm.                                                                                       |
+| timestamp               | DateTime  | This channel reports the last time the alarm status was changed.                                                                                              |
+| changedVia              | String    | This channel reports the method used to change the status.                                                                                                    |
+| motorJam                | Switch    | This channel reports if the SmartLock motor has jammed.                                                                                                       |
+| location                | String    | This channel reports the location of the device.                                                                                                              |
+| installationName        | String    | This channel reports the installation name.                                                                                                                   |
+| installationId          | Number    | This channel reports the installation ID.                                                                                                                     |
+| smartLockStatus         | Switch    | This channel is used to lock/unlock.                                                                                                                          |
 | autoRelock              | Switch    | This channel is used to configure auto-lock functionality. Only supported for users with Administrator rights.                                                |
-| smartLockVolume         | String    | This channel is used to set the volume level. Available volume settings are "SILENCE", "LOW" and "HIGH". Only supported for users with Administrator rights.|
-| smartLockVoiceLevel     | String    | This channel is used to set the voice level. Available voice level settings are "ESSENTIAL" and "NORMAL". Only supported for users with Administrator rights.|
-| smartLockTriggerChannel | trigger    | This is a trigger channel that receives events. |
+| smartLockVolume         | String    | This channel is used to set the volume level. Available volume settings are "SILENCE", "LOW" and "HIGH". Only supported for users with Administrator rights.  |
+| smartLockVoiceLevel     | String    | This channel is used to set the voice level. Available voice level settings are "ESSENTIAL" and "NORMAL". Only supported for users with Administrator rights. |
+| smartLockTriggerChannel | trigger   | This is a trigger channel that receives events.                                                                                                               |
 
 ### Verisure SmartPlug
 
@@ -132,14 +129,14 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID         | Item Type | Description                                                       |
-|-------------------------|-----------|-------------------------------------------------------------------|
-| hazardous               | Switch    | This channel reports if the smart plug is configured as hazardous.|
-| location                | String    | This channel reports the location of the device.                  |
-| installationName        | String    | This channel reports the installation name.                       |
-| installationId          | Number    | This channel reports the installation ID.                         |
-| smartPlugStatus         | Switch    | This channel is used to turn smart plug on/off.                   |
-| smartPlugTriggerChannel | trigger   | This is a trigger channel that receives events.                   |
+|     Channel Type ID     | Item Type |                            Description                             |
+|-------------------------|-----------|--------------------------------------------------------------------|
+| hazardous               | Switch    | This channel reports if the smart plug is configured as hazardous. |
+| location                | String    | This channel reports the location of the device.                   |
+| installationName        | String    | This channel reports the installation name.                        |
+| installationId          | Number    | This channel reports the installation ID.                          |
+| smartPlugStatus         | Switch    | This channel is used to turn smart plug on/off.                    |
+| smartPlugTriggerChannel | trigger   | This is a trigger channel that receives events.                    |
 
 ### Verisure Smoke Detector
 
@@ -152,17 +149,17 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID             | Item Type             | Description                                                                 |
-|-----------------------------|-----------------------|-----------------------------------------------------------------------------|
-| temperature                 | Number:Temperature    | This channel reports the current temperature.                               |
-| humidity                    | Number                | This channel reports the current humidity in percentage.                    |
-| humidityEnabled             | Switch                | This channel reports if the Climate is device capable of reporting humidity.|
-| timestamp                   | DateTime              | This channel reports the last time this sensor was updated.                 |
-| location                    | String                | This channel reports the location of the device.                            |
-| installationName            | String                | This channel reports the installation name.                                 |
-| installationId              | Number                | This channel reports the installation ID.                                   |
-| lowBattery                  | Switch                | This channel reports if the battery level is low.                           |
-| smokeDetectorTriggerChannel | trigger               | This is a trigger channel that receives events.                             |
+|       Channel Type ID       |     Item Type      |                                 Description                                  |
+|-----------------------------|--------------------|------------------------------------------------------------------------------|
+| temperature                 | Number:Temperature | This channel reports the current temperature.                                |
+| humidity                    | Number             | This channel reports the current humidity in percentage.                     |
+| humidityEnabled             | Switch             | This channel reports if the Climate is device capable of reporting humidity. |
+| timestamp                   | DateTime           | This channel reports the last time this sensor was updated.                  |
+| location                    | String             | This channel reports the location of the device.                             |
+| installationName            | String             | This channel reports the installation name.                                  |
+| installationId              | Number             | This channel reports the installation ID.                                    |
+| lowBattery                  | Switch             | This channel reports if the battery level is low.                            |
+| smokeDetectorTriggerChannel | trigger            | This is a trigger channel that receives events.                              |
 
 ### Verisure Water Detector
 
@@ -175,14 +172,14 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID             | Item Type             | Description                                                  |
-|-----------------------------|-----------------------|--------------------------------------------------------------|
-| temperature                 | Number:Temperature    | This channel reports the current temperature.                |
-| timestamp                   | DateTime              | This channel reports the last time this sensor was updated.  |
-| location                    | String                | This channel reports the location of the device.             |
-| installationName            | String                | This channel reports the installation name.                  |
-| installationId              | Number                | This channel reports the installation ID.                    |
-| waterDetectorTriggerChannel | trigger               | This is a trigger channel that receives events.              |
+|       Channel Type ID       |     Item Type      |                         Description                         |
+|-----------------------------|--------------------|-------------------------------------------------------------|
+| temperature                 | Number:Temperature | This channel reports the current temperature.               |
+| timestamp                   | DateTime           | This channel reports the last time this sensor was updated. |
+| location                    | String             | This channel reports the location of the device.            |
+| installationName            | String             | This channel reports the installation name.                 |
+| installationId              | Number             | This channel reports the installation ID.                   |
+| waterDetectorTriggerChannel | trigger            | This is a trigger channel that receives events.             |
 
 ### Verisure Siren
 
@@ -195,15 +192,15 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID     | Item Type             | Description                                                |
-|---------------------|-----------------------|------------------------------------------------------------|
-| temperature         | Number:Temperature    | This channel reports the current temperature.              |
-| timestamp           | DateTime              | This channel reports the last time this sensor was updated.|
-| location            | String                | This channel reports the location.                         |
-| installationName    | String                | This channel reports the installation name.                |
-| installationId      | Number                | This channel reports the installation ID.                  |
-| lowBattery          | Switch                | This channel reports if the battery level is low.          |
-| sirenTriggerChannel | trigger               | This is a trigger channel that receives events.            |
+|   Channel Type ID   |     Item Type      |                         Description                         |
+|---------------------|--------------------|-------------------------------------------------------------|
+| temperature         | Number:Temperature | This channel reports the current temperature.               |
+| timestamp           | DateTime           | This channel reports the last time this sensor was updated. |
+| location            | String             | This channel reports the location.                          |
+| installationName    | String             | This channel reports the installation name.                 |
+| installationId      | Number             | This channel reports the installation ID.                   |
+| lowBattery          | Switch             | This channel reports if the battery level is low.           |
+| sirenTriggerChannel | trigger            | This is a trigger channel that receives events.             |
 
 ### Verisure Night Control
 
@@ -236,15 +233,15 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID          | Item Type | Description                                                                 |
-|--------------------------|-----------|-----------------------------------------------------------------------------|
-| state                    | Contact   | This channel reports the if the door/window is open or closed (OPEN/CLOSED).|
-| timestamp                | DateTime  | This channel reports the last time this sensor was updated.                 |
-| location                 | String    | This channel reports the location of the device.                            |
-| installationName         | String    | This channel reports the installation name.                                 |
-| installationId           | Number    | This channel reports the installation ID.                                   |
-| lowBattery               | Switch    | This channel reports if the battery level is low.                           |
-| doorWindowTriggerChannel | trigger   | This is a trigger channel that receives events.                             |
+|     Channel Type ID      | Item Type |                                 Description                                  |
+|--------------------------|-----------|------------------------------------------------------------------------------|
+| state                    | Contact   | This channel reports the if the door/window is open or closed (OPEN/CLOSED). |
+| timestamp                | DateTime  | This channel reports the last time this sensor was updated.                  |
+| location                 | String    | This channel reports the location of the device.                             |
+| installationName         | String    | This channel reports the installation name.                                  |
+| installationId           | Number    | This channel reports the installation ID.                                    |
+| lowBattery               | Switch    | This channel reports if the battery level is low.                            |
+| doorWindowTriggerChannel | trigger   | This is a trigger channel that receives events.                              |
 
 ### Verisure User Presence
 
@@ -257,15 +254,15 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID    | Item Type | Description                                                             |
-|--------------------|-----------|-------------------------------------------------------------------------|
-| userLocationStatus | String    | This channel reports the user presence status (HOME/AWAY).              |
-| timestamp          | DateTime  | This channel reports the last time the User Presence status was changed.|
-| userName           | String    | This channel reports the user's name.                                   |
-| webAccount         | String    | This channel reports the user's email address.                          |
-| userDeviceName     | String    | This channel reports the name of the user device.                       |
-| installationName   | String    | This channel reports the installation name.                             |
-| installationId     | Number    | This channel reports the installation ID.                               |
+|  Channel Type ID   | Item Type |                               Description                                |
+|--------------------|-----------|--------------------------------------------------------------------------|
+| userLocationStatus | String    | This channel reports the user presence status (HOME/AWAY).               |
+| timestamp          | DateTime  | This channel reports the last time the User Presence status was changed. |
+| userName           | String    | This channel reports the user's name.                                    |
+| webAccount         | String    | This channel reports the user's email address.                           |
+| userDeviceName     | String    | This channel reports the name of the user device.                        |
+| installationName   | String    | This channel reports the installation name.                              |
+| installationId     | Number    | This channel reports the installation ID.                                |
 
 ### Verisure Broadband Connection
 
@@ -278,12 +275,12 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID | Item Type | Description                                                                    |
-|-----------------|-----------|--------------------------------------------------------------------------------|
-| connected       | String    | This channel reports the broadband connection status (true means connected).   |
-| timestamp       | DateTime  | This channel reports the last time the Broadband connection status was checked.|
-| installationName| String    | This channel reports the installation name.                                    |
-| installationId  | Number    | This channel reports the installation ID.                                      |
+| Channel Type ID  | Item Type |                                   Description                                   |
+|------------------|-----------|---------------------------------------------------------------------------------|
+| connected        | String    | This channel reports the broadband connection status (true means connected).    |
+| timestamp        | DateTime  | This channel reports the last time the Broadband connection status was checked. |
+| installationName | String    | This channel reports the installation name.                                     |
+| installationId   | Number    | This channel reports the installation ID.                                       |
 
 ### Verisure Mice Detection
 
@@ -296,7 +293,7 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID             | Item Type          | Description                                                                         |
+|       Channel Type ID       |     Item Type      |                                     Description                                     |
 |-----------------------------|--------------------|-------------------------------------------------------------------------------------|
 | countLatestDetection        | Number             | This channel reports the number of mice counts the latest detection during last 24. |
 | countLast24Hours            | Number             | This channel reports the total number of mice counts the last 24h.                  |
@@ -321,7 +318,7 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID     | Item Type | Description                                                             |
+|   Channel Type ID   | Item Type |                               Description                               |
 |---------------------|-----------|-------------------------------------------------------------------------|
 | lastEventLocation   | String    | This channel reports location for last event in event log.              |
 | lastEventDeviceId   | String    | This channel reports device ID for last event in event log.             |
@@ -343,7 +340,7 @@ The following channels are supported:
 
 The following channels are supported:
 
-| Channel Type ID     | Item Type | Description                                                          |
+|   Channel Type ID   | Item Type |                             Description                              |
 |---------------------|-----------|----------------------------------------------------------------------|
 | model               | String    | This channel reports gateway model.                                  |
 | location            | String    | This channel reports gateway location.                               |
@@ -361,26 +358,26 @@ The following channels are supported:
 To be able to get trigger events you need an active Event Log thing, you can either get it via auto-detection or create your own in a things-file.
 The following trigger events are defined per thing type:
 
-| Event Type        | Thing Type    | Description                                                |
-|-------------------|---------------|------------------------------------------------------------|
-| LOCK              | SmartLock     | SmartLock has been locked.                                 |
-| UNLOCK            | SmartLock     | SmartLock has been locked.                                 |
-| LOCK_FAILURE      | SmartLock     | SmartLock has failed to lock/unlock.                       |
-| ARM               | Alarm         | Alarm has been armed.                                      |
-| DISARM            | Alarm         | Alarm has been disarmed.                                   |
-| DOORWINDOW_OPENED | DoorWindow    | DoorWindow has detected a door/window that opened.         |
-| DOORWINDOW_CLOSED | DoorWindow    | DoorWindow has detected a door/window that closed.         |
-| INTRUSION         | DoorWindow    | DoorWindow has detected an intrusion.                      |
-| FIRE              | SmokeDetector | SmokeDetector has detected fire/smoke.                     |
-| WATER             | WaterDetector | WaterDetector has detected a water leak.                   |
-| MICE              | MiceDetector  | WaterMiceDetector has detected a mouse.                    |
-| COM_FAILURE       | All           | Communication failure detected.                            |
-| COM_RESTORED      | All           | Communication restored.                                    |
-| COM_TEST          | All           | Communication test.                                        |
-| BATTERY_LOW       | All           | Battery low level detected.                                |
-| BATTERY_RESTORED  | All           | Battery level restored.                                    |
-| SABOTAGE_ALARM    | All           | Sabotage alarm detected.                                   |
-| SABOTAGE_RESTORED | All           | Sabotage alarm restored.                                   |
+|    Event Type     |  Thing Type   |                    Description                     |
+|-------------------|---------------|----------------------------------------------------|
+| LOCK              | SmartLock     | SmartLock has been locked.                         |
+| UNLOCK            | SmartLock     | SmartLock has been locked.                         |
+| LOCK_FAILURE      | SmartLock     | SmartLock has failed to lock/unlock.               |
+| ARM               | Alarm         | Alarm has been armed.                              |
+| DISARM            | Alarm         | Alarm has been disarmed.                           |
+| DOORWINDOW_OPENED | DoorWindow    | DoorWindow has detected a door/window that opened. |
+| DOORWINDOW_CLOSED | DoorWindow    | DoorWindow has detected a door/window that closed. |
+| INTRUSION         | DoorWindow    | DoorWindow has detected an intrusion.              |
+| FIRE              | SmokeDetector | SmokeDetector has detected fire/smoke.             |
+| WATER             | WaterDetector | WaterDetector has detected a water leak.           |
+| MICE              | MiceDetector  | WaterMiceDetector has detected a mouse.            |
+| COM_FAILURE       | All           | Communication failure detected.                    |
+| COM_RESTORED      | All           | Communication restored.                            |
+| COM_TEST          | All           | Communication test.                                |
+| BATTERY_LOW       | All           | Battery low level detected.                        |
+| BATTERY_RESTORED  | All           | Battery level restored.                            |
+| SABOTAGE_ALARM    | All           | Sabotage alarm detected.                           |
+| SABOTAGE_RESTORED | All           | Sabotage alarm restored.                           |
 
 ## Example
 
@@ -574,3 +571,4 @@ then
 end
 
 ```
+

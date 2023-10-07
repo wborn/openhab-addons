@@ -28,7 +28,7 @@ The Auxiliary channel type will be dynamically assigned based on the controller 
 
 Heater status can be OFF (0), Enabled/ON (3), or Heating (1).
 
-| Channel Type ID     | Item Type                  |
+|   Channel Type ID   |         Item Type          |
 |---------------------|----------------------------|
 | status              | String                     |
 | system_type         | Number                     |
@@ -64,7 +64,7 @@ The following is a table of aux_n channel values (String) to lighting set descri
 The binding will automatically detect which color system is enabled and add the appropriate channel type with the following option labels.
 Colors can be set, but only On or Off is reported back as the current state of the channel.
 
-| String Value | jandy Color    | Jandy LED Water Colors | Pentair SAm/SAL | Hayward Universal | Pentair intelliBrite |
+| String Value |  jandy Color   | Jandy LED Water Colors | Pentair SAm/SAL | Hayward Universal | Pentair intelliBrite |
 |--------------|----------------|------------------------|-----------------|-------------------|----------------------|
 | "off"        | Off            | Off                    | Off             | Off               | Off                  |
 | "on"         | On             | On                     | On              | On                | On                   |
@@ -114,3 +114,4 @@ Number AquaLinkPoolHeaterStatus  "Pool Heater [%s]" (Group_AquaLink) {channel="i
 Switch AquaLinkSpaHeater "Spa Heater" (Group_AquaLink) {channel="iaqualink:controller:pool:spa_heater"}
 Switch AquaLinkPoolHeater  "Pool Heater" (Group_AquaLink) {channel="iaqualink:controller:pool:pool_heater"}
 ```
+

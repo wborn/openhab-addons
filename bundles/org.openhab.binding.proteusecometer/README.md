@@ -33,17 +33,17 @@ configuration:
 
 ## Channels
 
-| channel               | type                 | description                                          |
-|-----------------------|----------------------|------------------------------------------------------|
-| temperature           | Number:Temperature   | Temperature measured by the sensor                   |
-| sensorLevel           | Number:Length        | Distance between sensor and water surface            |
-| usableLevel           | Number:Volume        | How much liquid is usable                            |
-| usableLevelInPercent  | Number:Dimensionless | How much liquid is usable relative to total capacity |
-| totalCapacity         | Number:Volume        | Total capacity of measured cistern/tank              |
+|       channel        |         type         |                     description                      |
+|----------------------|----------------------|------------------------------------------------------|
+| temperature          | Number:Temperature   | Temperature measured by the sensor                   |
+| sensorLevel          | Number:Length        | Distance between sensor and water surface            |
+| usableLevel          | Number:Volume        | How much liquid is usable                            |
+| usableLevelInPercent | Number:Dimensionless | How much liquid is usable relative to total capacity |
+| totalCapacity        | Number:Volume        | Total capacity of measured cistern/tank              |
 
 ## Full Example
 
-Thing proteusecometer:EcoMeterS:e90705eaa4 "Proteus EcoMeter S" [ usbPort="/dev/ttyUSB0" ]
+Thing proteusecometer:EcoMeterS:e90705eaa4 "Proteus EcoMeter S" [ usbPort="/dev/ttyUSB0"]
 
 Number:Temperature   Temperature          "Measured temperature [%.1f °C]" { channel="proteusecometer:EcoMeterS:e90705eaa4:temperature" }
 Number:Length        SensorLevelCm        "Sensor Level"                   { channel="proteusecometer:EcoMeterS:e90705eaa4:sensorLevel" }

@@ -7,11 +7,11 @@ As the binding uses the [broadlink-java-api](https://github.com/mob41/broadlink-
 
 _Note:_ So far only the Floureon Thermostat and Rm Mini 3 devices has been tested! The other things are "best guess" implementations.
 
-| Things                  | Description                                                         | Thing Type           |
-|-------------------------|---------------------------------------------------------------------|----------------------|
-| Floureon Thermostat     | broadlink based Thermostat sold with the branding Floureon          | floureonthermostat   |
-| Hysen Thermostat        | broadlink based Thermostat sold with the branding Hysen             | hysenthermostat      |
-| Rm Mini                 | broadlink based Universal Controller sold with the branding Rm Mini | rmuniversalremote    |
+|       Things        |                             Description                             |     Thing Type     |
+|---------------------|---------------------------------------------------------------------|--------------------|
+| Floureon Thermostat | broadlink based Thermostat sold with the branding Floureon          | floureonthermostat |
+| Hysen Thermostat    | broadlink based Thermostat sold with the branding Hysen             | hysenthermostat    |
+| Rm Mini             | broadlink based Universal Controller sold with the branding Rm Mini | rmuniversalremote  |
 
 ## Discovery
 
@@ -31,26 +31,26 @@ The autodiscovery process finds both parts automatically.
 
 ### Floureon-/Hysenthermostat
 
-| Channel Type ID               | Item Type          | Description                                                          |
-|-------------------------------|--------------------|----------------------------------------------------------------------|
-| power                         | Switch             | Switch display on/off and enable/disables heating                    |
-| mode                          | String             | Current mode of the thermostat (`auto` or `manual`)                  |
-| sensor                        | String             | The sensor (`internal`/`external`) used for triggering the thermostat|
-| roomtemperature               | Number:Temperature | Room temperature, measured directly at the device                    |
-| roomtemperatureexternalsensor | Number:Temperature | Room temperature, measured by an external sensor                     |
-| active                        | Switch             | Show if thermostat is currently actively heating                     |
-| setpoint                      | Number:Temperature | Temperature setpoint that open/close valve                           |
-| temperatureoffset             | Number:Temperature | Manual temperature adjustment                                        |
-| remotelock                    | Switch             | Locks the device to only allow remote actions                        |
-| time                          | DateTime           | The time and day of week of the device                               |
+|        Channel Type ID        |     Item Type      |                              Description                              |
+|-------------------------------|--------------------|-----------------------------------------------------------------------|
+| power                         | Switch             | Switch display on/off and enable/disables heating                     |
+| mode                          | String             | Current mode of the thermostat (`auto` or `manual`)                   |
+| sensor                        | String             | The sensor (`internal`/`external`) used for triggering the thermostat |
+| roomtemperature               | Number:Temperature | Room temperature, measured directly at the device                     |
+| roomtemperatureexternalsensor | Number:Temperature | Room temperature, measured by an external sensor                      |
+| active                        | Switch             | Show if thermostat is currently actively heating                      |
+| setpoint                      | Number:Temperature | Temperature setpoint that open/close valve                            |
+| temperatureoffset             | Number:Temperature | Manual temperature adjustment                                         |
+| remotelock                    | Switch             | Locks the device to only allow remote actions                         |
+| time                          | DateTime           | The time and day of week of the device                                |
 
 ### RM Mini Universal Controller
 
-| Channel Type ID               | Item Type          | Description                                                          |
-|-------------------------------|--------------------|----------------------------------------------------------------------|
-| learningmode                 | Switch             | Put device in infrared learning mode when turned on                  |
-| savelearned                  | String             | Saves the learned keys using the provided name                       |
-| sendlearned                  | String             | Send previously learned keys by name                                 |
+| Channel Type ID | Item Type |                     Description                     |
+|-----------------|-----------|-----------------------------------------------------|
+| learningmode    | Switch    | Put device in infrared learning mode when turned on |
+| savelearned     | String    | Saves the learned keys using the provided name      |
+| sendlearned     | String    | Send previously learned keys by name                |
 
 ## Full Example
 
@@ -74,3 +74,4 @@ Switch              Bathroom_Thermostat_Lock             "Lock"                 
 DateTime            Bathroom_Thermostat_Time             "Time [%1$tm/%1$td %1$tH:%1$tM]"        <time>         { channel="broadlinkthermostat:floureonthermostat:bathroomthermostat:time"}
 
 ```
+

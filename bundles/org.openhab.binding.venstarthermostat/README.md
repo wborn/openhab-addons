@@ -18,8 +18,8 @@ to enter them in the thermostat configuration in openHAB.
 
 ## Supported Things
 
-| Thing Type           | Description                                                                       |
-|----------------------|-----------------------------------------------------------------------------------|
+|      Thing Type      |                                    Description                                     |
+|----------------------|------------------------------------------------------------------------------------|
 | colorTouchThermostat | A Venstar [ColorTouch](https://www.venstar.com/thermostats/colortouch/) thermostat |
 
 ## Discovery
@@ -32,7 +32,7 @@ After adding the Inbox item, enter the user name and password from the physical 
 
 ### ColorTouch Thermostat
 
-| Parameter | Description                                                                  | Required |
+| Parameter |                                 Description                                  | Required |
 |-----------|------------------------------------------------------------------------------|----------|
 | username  | The username set on the thermostats configuration screen (typically 'admin') | yes      |
 | password  | The password set set on the thermostats configuration screen                 | yes      |
@@ -41,7 +41,7 @@ After adding the Inbox item, enter the user name and password from the physical 
 
 ### Channels
 
-| Channel            | Type               | Description                           | Notes                                                  |
+|      Channel       |        Type        |              Description              |                         Notes                          |
 |--------------------|--------------------|---------------------------------------|--------------------------------------------------------|
 | awayMode           | String             | Home or Away Mode                     |                                                        |
 | awayModeRaw        | Number             | Away Mode Raw (Read Only)             | 0 (Home) 1 (Away)                                      |
@@ -69,7 +69,7 @@ The Venstar thermostat provides data about how many minutes the system has been 
 A time stamp is provided with each runtime data set which represents the end of each day.
 The binding reads the runtime data and time stamps and provides them all as separate channels.
 
-| Channel                | Type                 | Description                                  | Notes                                                      |
+|        Channel         |         Type         |                 Description                  |                           Notes                            |
 |------------------------|----------------------|----------------------------------------------|------------------------------------------------------------|
 | timestampDay0          | DateTime             | Time Stamp of last runtime update            | This is always the current time today                      |
 | timestampDay1          | DateTime             | Time Stamp of 00:00, end of yesterday        | This represents the end of 1 day ago                       |
@@ -157,3 +157,4 @@ sitemap demo label="Venstar Color Thermostat Demo"
    }
 }
 ```
+

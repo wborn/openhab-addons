@@ -32,9 +32,9 @@ Please note that:
 
 - All things need a bridge.
 - The sensor id parameter supports only the dotted format, including the family id (e.g. `28.7AA256050000`).
-DS2409 MicroLAN couplers (hubs) are supported by adding their id and the branch (`main` or `aux`) in a directory-like format in front of the sensor id (e.g. `1F.EDC601000000/main/28.945042000000`).
+  DS2409 MicroLAN couplers (hubs) are supported by adding their id and the branch (`main` or `aux`) in a directory-like format in front of the sensor id (e.g. `1F.EDC601000000/main/28.945042000000`).
 - Refresh time is the minimum time in seconds between two checks of that thing.
-It defaults to 300s for analog channels and 10s for digital channels.
+  It defaults to 300s for analog channels and 10s for digital channels.
 - Some thing channels need additional configuration, please see below in the channels section.
 
 ### OWFS Bridge (`owserver`)
@@ -49,7 +49,7 @@ The `port` parameter is used to adjust non-standard OWFS installations.
 It defaults to `4304`, which is the default of each OWFS installation.
 
 Bridges of type `owserver` are extensible with channels of type `owfs-number` and `owfs-string`.
-  
+
 ### Generic (`basic`)
 
 The `basic` thing supports iButton-like chips (DS1420, DS2401/DS1990A), temperature sensors (DS18B20, DS18S20, DS1822), digital i/o chips (DS2405, DS2406, DS2408, DS2413) and counter chips (DS2423).
@@ -128,32 +128,32 @@ Please note: support for this sensor is considered experimental.
 
 ## Channels
 
-| Type-ID             | Thing                      | Item                     | readonly   | Description                                        |
-|---------------------|----------------------------|--------------------------|------------|----------------------------------------------------|
-| absolutehumidity    | ms-tx, ams, bms, edsenv    | Number:Density           | yes        | absolute humidity                                  |
-| current             | ms-tx, ams                 | Number:ElectricCurrent   | yes        | current                                            |
-| counter             | counter2                   | Number                   | yes        | countervalue                                       |
-| dewpoint            | ms-tx, ams, bms, edsenv    | Number:Temperature       | yes        | dewpoint                                           |
-| dio                 | digitalX, ams              | Switch                   | no         | digital I/O, can be configured as input or output  |
-| humidity            | ms-tx, ams, bms, edsenv    | Number:Dimensionless     | yes        | relative humidity                                  |
-| humidityconf        | ms-tx                      | Number:Dimensionless     | yes        | relative humidity                                  |
-| light               | ams, bms, edsenv           | Number:Illuminance       | yes        | lightness                                          |
-| owfs-number         | owserver                   | Number                   | yes        | direct access to OWFS nodes                        |
-| owfs-string         | owserver                   | String                   | yes        | direct access to OWFS nodes                        |
-| present             | all                        | Switch                   | yes        | sensor found on bus (yes = ON)                     |
-| pressure            | edsenv                     | Number:Pressure          | yes        | environmental pressure                             |
-| supplyvoltage       | ms-tx                      | Number:ElectricPotential | yes        | sensor supplyvoltage                               |
-| temperature         | temperature, ms-tx, edsenv | Number:Temperature       | yes        | environmental temperature                          |
-| temperature-por     | temperature                | Number:Temperature       | yes        | environmental temperature                          |
-| temperature-por-res | temperature, ams, bms      | Number:Temperature       | yes        | environmental temperature                          |
-| voltage             | ms-tx, ams                 | Number:ElectricPotential | yes        | voltage input                                      |
-| bae-pwm-frequency   | bae091x                    | Number:Frequency         | no         | frequency for PWM output                           |
-| bae-pwm-duty        | bae091x                    | Number:Dimensionless     | no         | duty cycle (0-100%) for PWM output                 |
-| bae-di              | bae091x                    | Switch                   | yes        | digital input                                      |
-| bae-do              | bae091x                    | Switch                   | no         | digital output                                     |
-| bae-pio             | bae091x                    | Switch                   | yes        | digital in-/output                                 |
-| bae-analog          | bae091x                    | Number:ElectricPotential | yes        | analog input                                       |
-| bae-counter         | bae091x                    | Number                   | yes        | countervalue                                       |
+|       Type-ID       |           Thing            |           Item           | readonly |                    Description                    |
+|---------------------|----------------------------|--------------------------|----------|---------------------------------------------------|
+| absolutehumidity    | ms-tx, ams, bms, edsenv    | Number:Density           | yes      | absolute humidity                                 |
+| current             | ms-tx, ams                 | Number:ElectricCurrent   | yes      | current                                           |
+| counter             | counter2                   | Number                   | yes      | countervalue                                      |
+| dewpoint            | ms-tx, ams, bms, edsenv    | Number:Temperature       | yes      | dewpoint                                          |
+| dio                 | digitalX, ams              | Switch                   | no       | digital I/O, can be configured as input or output |
+| humidity            | ms-tx, ams, bms, edsenv    | Number:Dimensionless     | yes      | relative humidity                                 |
+| humidityconf        | ms-tx                      | Number:Dimensionless     | yes      | relative humidity                                 |
+| light               | ams, bms, edsenv           | Number:Illuminance       | yes      | lightness                                         |
+| owfs-number         | owserver                   | Number                   | yes      | direct access to OWFS nodes                       |
+| owfs-string         | owserver                   | String                   | yes      | direct access to OWFS nodes                       |
+| present             | all                        | Switch                   | yes      | sensor found on bus (yes = ON)                    |
+| pressure            | edsenv                     | Number:Pressure          | yes      | environmental pressure                            |
+| supplyvoltage       | ms-tx                      | Number:ElectricPotential | yes      | sensor supplyvoltage                              |
+| temperature         | temperature, ms-tx, edsenv | Number:Temperature       | yes      | environmental temperature                         |
+| temperature-por     | temperature                | Number:Temperature       | yes      | environmental temperature                         |
+| temperature-por-res | temperature, ams, bms      | Number:Temperature       | yes      | environmental temperature                         |
+| voltage             | ms-tx, ams                 | Number:ElectricPotential | yes      | voltage input                                     |
+| bae-pwm-frequency   | bae091x                    | Number:Frequency         | no       | frequency for PWM output                          |
+| bae-pwm-duty        | bae091x                    | Number:Dimensionless     | no       | duty cycle (0-100%) for PWM output                |
+| bae-di              | bae091x                    | Switch                   | yes      | digital input                                     |
+| bae-do              | bae091x                    | Switch                   | no       | digital output                                    |
+| bae-pio             | bae091x                    | Switch                   | yes      | digital in-/output                                |
+| bae-analog          | bae091x                    | Number:ElectricPotential | yes      | analog input                                      |
+| bae-counter         | bae091x                    | Number                   | yes      | countervalue                                      |
 
 ### Digital I/O (`dio`)
 
@@ -311,3 +311,4 @@ sitemap demo label="Main Menu"
     }
 }
 ```
+

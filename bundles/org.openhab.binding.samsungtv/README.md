@@ -10,8 +10,8 @@ Because Samsung does not publish any documentation about the TV's UPnP interface
 
 Tested TV models:
 
-| Model          | State   | Notes                                                                                                                                                  |
-| -------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|     Model      |  State  |                                                                         Notes                                                                          |
+|----------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | KU6519         | PARTIAL | Supported channels: `volume`, `mute`, `power`,  `keyCode` (at least)                                                                                   |
 | LE40D579       | PARTIAL | Supported channels: `volume`, `mute`, `channel`, `keyCode`, `sourceName`,  `programTitle`, `channelName`,  `power`                                     |
 | LE40C650       | PARTIAL | Supported channels: `volume`, `mute`, `channel`, `keyCode`, `brightness`, `contrast`, `colorTemperature`, `power` (only power off, unable to power on) |
@@ -54,8 +54,8 @@ Different ports are used in different models. It may be 55000, 8001 or 8002.
 
 TVs support the following channels:
 
-| Channel Type ID  | Item Type | Description                                                                                                                         |
-| ---------------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Channel Type ID  | Item Type |                                                             Description                                                             |
+|------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------|
 | volume           | Dimmer    | Volume level of the TV.                                                                                                             |
 | mute             | Switch    | Mute state of the TV.                                                                                                               |
 | brightness       | Dimmer    | Brightness of the TV picture.                                                                                                       |
@@ -94,8 +94,8 @@ Switch  TV_ArtMode       "Art Mode"                            (gLivingRoomTV)  
 List of known apps and the respective name that can be passed on to the `sourceApp` channel.
 Values are confirmed to work on UE50MU6179.
 
-| App           | Value in sourceApp | Description                       |
-| ------------- | ------------------ | --------------------------------- |
+|      App      | Value in sourceApp |            Description            |
+|---------------|--------------------|-----------------------------------|
 | ARD Mediathek | `ARD Mediathek`    | German public TV broadcasting app |
 | Browser       | `Internet`         | Built-in WWW browser              |
 | Netflix       | `Netflix`          | Netflix App                       |

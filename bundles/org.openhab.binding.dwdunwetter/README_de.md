@@ -9,16 +9,17 @@ Ein Thing stellt dabei eine oder mehrere Warnungen für eine Gemeinde bereit.
 
 ## Thing Konfiguration
 
-| Property     | Standard | Erforderlich | Beschreibung                                                                                                                                                                                                                                                                                                                                                      |
+|   Property   | Standard | Erforderlich |                                                                                                                                                                           Beschreibung                                                                                                                                                                            |
 |--------------|----------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | cellId       | -        | Ja           | ID der abzufragenden Zelle. Siehe [cap_warncellids_csv.csv](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv "cap_warncellids_csv.csv"), nur IDs die mit einer 8 (Ausnahme für Berlin: 7) beginnen werden unterstützt. Es kann auch mittels % eine Gesamtmenge abgefragt werden, z.B. 8111% alle Gemeinden die mit 8111 anfangen. |
 | refresh      | 30       | Nein         | Abfrageintervall in Minuten. Minimum 15 Minuten.                                                                                                                                                                                                                                                                                                                  |
 | warningCount | 1        | Nein         | Anzahl der Warnungen, die als Channels bereitgestellt werden sollen                                                                                                                                                                                                                                                                                               |
 
 ### Cell ID
+
 <!-- See page 10-13 (in German) of https://www.dwd.de/DE/wetter/warnungen_aktuell/objekt_einbindung/einbindung_karten_geodienste.pdf?__blob=publicationFile&v=14 for Cell ID documentation. -->
 Verwende [diese Liste](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv) für gültige IDs, bitte bedenke dass **nur IDs die mit einer "8" beginnen und neun Ziffern haben unterstützt werden**.
-Ausnahme für Berlin, wo die ID der Stadtbezirke genutzt wird. Diese beginnt mit "7".
+Ausnahme für Berlin, wo die ID der Stadtbezirke genutzt wird. Diese beginnt mit "-->
 
 Unter Verwendung des Prozent-Zeichens (%) als wildcard, kann man mehrere Zellen abfragen.
 Zum Beispiel werden mit dem Wert `8111%` alle Zellen abgefragt, die mit `8111` beginnen.
@@ -43,7 +44,7 @@ Die vom DWD gelieferten Warnungen werden dabei nach Severity (Warnstufe) sortier
 Dadurch ist sichergestellt, dass in den Channels für die erste Warnung (...1) immer die Warnung mit der höchsten Warnstufe steht.
 Werden mehr Warnungen vom DWD geliefert, als an Channels konfiguriert ist, werden dadurch die Warnungen mit der niedrigsten Warnstufe verworfen.
 
-| Channel      | Type            | Beschreibung                                                                                           |
+|   Channel    |      Type       |                                              Beschreibung                                              |
 |--------------|-----------------|--------------------------------------------------------------------------------------------------------|
 | warningN     | Switch          | Schalter, der auf ON steht, wenn eine Warnung vorliegt, OFF sonst.                                     |
 | UpdatedN     | Trigger Channel | Sendet das Event "NEW", wenn diese Warnung das erste mal gesendet wird.                                |
@@ -59,7 +60,7 @@ Werden mehr Warnungen vom DWD geliefert, als an Channels konfiguriert ist, werde
 | urgencyN     | String          | Zeitrahmen der Meldung, Mögliche Werte sind Future (Vorabinformation) und Immediate (Konkrete Warnung) |
 | instructionN | String          | Zusatztext zur Warnung (Instruktionen und Sicherheitshinweise)                                         |
 
-Sämtliche Channels sind ReadOnly!  
+Sämtliche Channels sind ReadOnly!
 
 Der Channel _warningN_ dient hauptsächlich dazu, um z.B. in Sitemaps dynamisch Warnungen ein- oder auszublenden, bzw. um in Regeln zu prüfen, ob überhaupt eine Warnung vorliegt.
 Er ist nicht geeignet um auf das Erscheinen einer Warnung zu prüfen.

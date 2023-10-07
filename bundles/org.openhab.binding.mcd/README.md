@@ -23,26 +23,26 @@ This section shows the configuration parameters of both supported things.
 
 The MCD Bridge (`mcdBridge`) needs to be configured with your valid C&S MCD / sync API credentials.
 
-| parameter | description                        |
-|-----------|------------------------------------|
-| userEmail     | Email of account                   |
-| userPassword  | valid password for the given email |
+|  parameter   |            description             |
+|--------------|------------------------------------|
+| userEmail    | Email of account                   |
+| userPassword | valid password for the given email |
 
 ### MCD Sensor Thing
 
 Each sensor thing (`mcdSensor`) needs to be configured with the identical serial number, that is assigned to this sensor in MCD.
 
-| parameter      | description                        |
-|----------------|------------------------------------|
-| serialNumber  | serial number of the sensor in MCD |
+|  parameter   |            description             |
+|--------------|------------------------------------|
+| serialNumber | serial number of the sensor in MCD |
 
 ## Channels
 
 The `mcdSensor` thing supports the following channels.  To see the sensors' events, please visit [Managing Care Digital](https://cundsdokumentation.de/) and navigate to the dashboard.
 
-| channel     | type   | description                                   |
-|-------------|--------|-----------------------------------------------|
-| lastEvent | String | shows the last event that was sent with date and time |
+|  channel  |  type  |                                    description                                     |
+|-----------|--------|------------------------------------------------------------------------------------|
+| lastEvent | String | shows the last event that was sent with date and time                              |
 | sendEvent | String | stateless channel for sending events to the API, see list below for valid commands |
 
 The channel `sendEvent` accepts valid Sensor Event Definitions as well as the corresponding ID.
@@ -51,65 +51,65 @@ As soon as new events are added to the API, you can use their ID, even if the De
 For more information about the API, you can have a look at the [C&S Sync API](https://cunds-syncapi.azurewebsites.net/ApiDocumentation).
 
 | Valid String Type Commands |
-|------------|
-| BEDEXIT |
-| BEDENTRY |
-| FALL |
-| CHANGEPOSITION |
-| BATTERYSTATE |
-| INACTIVITY |
-| ALARM |
-| OPEN |
-| CLOSE |
-| ON |
-| OFF |
-| ACTIVITY |
-| CAPACITY |
-| GAS |
-| VITALVALUE |
-| ROOMEXIT |
-| ROOMENTRY |
-| REMOVESENSOR |
-| SITDOWN |
-| STANDUP |
-| INACTIVITYROOM |
-| SMOKEALARM |
-| HEAT |
-| COLD |
-| QUALITYAIR |
-| ALARMAIR |
-| ROOMTEMPERATURE |
-| HUMIDITY |
-| AIRPRESSURE |
-| CO2 |
-| INDEXUV |
-| WEARTIME |
-| FIRSTURINE |
-| NEWDIAPER |
-| DIAPERREMOVED |
-| NOCONNECTION |
-| LOWBATTERY |
-| CONTROLLSENSOR |
-| LYING |
-| SPILLED |
-| DAMAGED |
-| GEOEXIT |
-| GEOENTRY |
-| WALKING |
-| RESTING |
-| TURNAROUND |
-| HOMEEMERGENCY |
-| TOILETFLUSH |
-| DORSALPOSITION |
-| ABDOMINALPOSITION |
-| LYINGLEFT |
-| LYINGRIGHT |
-| LYINGHALFLEFT |
-| LYINGHALFRIGHT |
-| MOVEMENT |
-| PRESENCE |
-| NUMBERPERSONS |
-| BRIGHTNESSZONE |
+|----------------------------|
+| BEDEXIT                    |
+| BEDENTRY                   |
+| FALL                       |
+| CHANGEPOSITION             |
+| BATTERYSTATE               |
+| INACTIVITY                 |
+| ALARM                      |
+| OPEN                       |
+| CLOSE                      |
+| ON                         |
+| OFF                        |
+| ACTIVITY                   |
+| CAPACITY                   |
+| GAS                        |
+| VITALVALUE                 |
+| ROOMEXIT                   |
+| ROOMENTRY                  |
+| REMOVESENSOR               |
+| SITDOWN                    |
+| STANDUP                    |
+| INACTIVITYROOM             |
+| SMOKEALARM                 |
+| HEAT                       |
+| COLD                       |
+| QUALITYAIR                 |
+| ALARMAIR                   |
+| ROOMTEMPERATURE            |
+| HUMIDITY                   |
+| AIRPRESSURE                |
+| CO2                        |
+| INDEXUV                    |
+| WEARTIME                   |
+| FIRSTURINE                 |
+| NEWDIAPER                  |
+| DIAPERREMOVED              |
+| NOCONNECTION               |
+| LOWBATTERY                 |
+| CONTROLLSENSOR             |
+| LYING                      |
+| SPILLED                    |
+| DAMAGED                    |
+| GEOEXIT                    |
+| GEOENTRY                   |
+| WALKING                    |
+| RESTING                    |
+| TURNAROUND                 |
+| HOMEEMERGENCY              |
+| TOILETFLUSH                |
+| DORSALPOSITION             |
+| ABDOMINALPOSITION          |
+| LYINGLEFT                  |
+| LYINGRIGHT                 |
+| LYINGHALFLEFT              |
+| LYINGHALFRIGHT             |
+| MOVEMENT                   |
+| PRESENCE                   |
+| NUMBERPERSONS              |
+| BRIGHTNESSZONE             |
 
 ## Full Example
 
@@ -137,3 +137,4 @@ demo.sitemap:
 Text item=sendEvent
 Text item=lastValue
 ```
+

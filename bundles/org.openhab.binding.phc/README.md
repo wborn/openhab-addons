@@ -1,6 +1,6 @@
 # PHC Binding
 
-This binding allows you to integrate modules(at the Moment AM, EM, JRM and DIM) of PHC, without the PHC control (STM), in openHAB.  
+This binding allows you to integrate modules(at the Moment AM, EM, JRM and DIM) of PHC, without the PHC control (STM), in openHAB.
 
 The serial protocol is mainly extracted, with thanks to the developers from the projects [PHCtoUDP](https://sourceforge.net/projects/phctoudp/) and [OpenHC](https://sourceforge.net/projects/openhc/?source=directory).
 
@@ -9,23 +9,23 @@ While the Wiki is offline you can find a PDF version [here](https://phc-forum.de
 
 ## Serial Communication
 
-The binding was tested with QinHeng Electronics HL-340 USB-Serial adapter (RS485) and the Digitus DA-70157 (FTDI/FT323RL) on Raspbian Ubilinux (Up Board) and Windows 10:  
+The binding was tested with QinHeng Electronics HL-340 USB-Serial adapter (RS485) and the Digitus DA-70157 (FTDI/FT323RL) on Raspbian Ubilinux (Up Board) and Windows 10:
 
-| Device/OS                | adaptor       | result       |
-|--------------------------|---------------|--------------|
-| Windows 10               | HL-340        | ok           |
-|                          | FTDI          | good         |
-| Raspberry Pi 3B/Jessie   | HL-340        | not reliable |
-|                          | FTDI          | doesn´t work |
-|                          | on board      | bad          |
-| Up Board/ubilinux(Jessie)| HL-340        | not reliable |
-|                          | FTDI          | good         |
+|         Device/OS         | adaptor  |    result    |
+|---------------------------|----------|--------------|
+| Windows 10                | HL-340   | ok           |
+|                           | FTDI     | good         |
+| Raspberry Pi 3B/Jessie    | HL-340   | not reliable |
+|                           | FTDI     | doesn´t work |
+|                           | on board | bad          |
+| Up Board/ubilinux(Jessie) | HL-340   | not reliable |
+|                           | FTDI     | good         |
 
 If there are many modules on one bridge, the initialization can take a few minutes. If it does not work you can plug in the modules one after the other.
 Sometimes after initialization, you might have to switch two times or the reaction could be a bit slow, but after you used a channel it should all work fine.
 
 For all devices running with Linux that use the ch341 driver (HL-340), the new version (ch34x) is needed.
-A guide how to install this can be found here: [CH340/341 UART Driver for Raspberry Pi](https://github.com/aperepel/raspberrypi-ch340-driver).  
+A guide how to install this can be found here: [CH340/341 UART Driver for Raspberry Pi](https://github.com/aperepel/raspberrypi-ch340-driver).
 
 If you don´t have the same kernel as used in the guide you have to compile the module yourself. In the guide is described a specific way for the Raspberry Pi. With another Linux version you can go the normal way with linux-headers.
 
@@ -41,10 +41,10 @@ There are two alternatives, the first of which is much simpler.
 
 The simplest way would be to connect the RS485 adaptor to the PHC power supply like in the table below and Out at the power supply to the first module like the STM before.
 
-|  adaptor | PHC power supply |
-|----------|------------------|
-| 485+     | +A               |
-| 485-     | -B               |
+| adaptor | PHC power supply |
+|---------|------------------|
+| 485+    | +A               |
+| 485-    | -B               |
 
 #### Make a direct RJ12 connection
 
@@ -92,21 +92,21 @@ Please note, if you define the things manually (not in the UI) that the ThingID 
 
 - **address:** Type the address of the module like the DIP switches (you can also find in the PHC software) of the module, e.g. 10110. (mandatory)
 
-- **upDownTime[1-4] (only JRM):** (advanced) The time in seconds that the shutter needs to move up or down, with a resolution of 1/10 seconds. The default, if no value is specified, is 30 seconds.
+- **upDownTime[1-4](only JRM):** (advanced) The time in seconds that the shutter needs to move up or down, with a resolution of 1/10 seconds. The default, if no value is specified, is 30 seconds.
 
-- **dimTime[1-2] (only DIM):** (advanced) The time in seconds in that the dimmer should move 100%. The default is 2 seconds, then for example dimming from 0 to 100% takes 2 second.
+- **dimTime[1-2](only DIM):** (advanced) The time in seconds in that the dimmer should move 100%. The default is 2 seconds, then for example dimming from 0 to 100% takes 2 second.
 
 ## Channels
 
-| Thing Type             | Channel-Group Id | Channels | Item Type        |
-|------------------------|------------------|----------|------------------|
-| AM                     | am               | 00-07    | Switch           |
-| EM                     | em               | 00-15    | Switch(read only)|
-| EM                     | emLed            | 00-07    | Switch           |
-| JRM                    | jrm              | 00-03    | Rollershutter    |
-| JRM                    | jrmT             | 00-03    | Number           |
-| DIM                    | dim              | 00-01    | Dimmer           |
-| DIM                    | dimT             | 00-01    | Number           |
+| Thing Type | Channel-Group Id | Channels |     Item Type     |
+|------------|------------------|----------|-------------------|
+| AM         | am               | 00-07    | Switch            |
+| EM         | em               | 00-15    | Switch(read only) |
+| EM         | emLed            | 00-07    | Switch            |
+| JRM        | jrm              | 00-03    | Rollershutter     |
+| JRM        | jrmT             | 00-03    | Number            |
+| DIM        | dim              | 00-01    | Dimmer            |
+| DIM        | dimT             | 00-01    | Number            |
 
 **Channel UID:** ```phc:<Thing Type>:<ThingID>:<Channel Group>#<Channel>``` e.g. ```phc:AM:01101:am#03```
 
@@ -115,9 +115,9 @@ Please note, if you define the things manually (not in the UI) that the ThingID 
 - **emLed:** Outgoing switch channels e.g. for LEDs in light shutters.
 - **jrm:** Outgoing shutter channels.
 - **jrmT:** Time for shutter channels in seconds with an accuracy of 1/10 seconds.
-These channels are used instead of the configuration parameters.
-If you send the time via this channel, the Binding uses this time till you send another.
-After reboot the config parameter is used by default.
+  These channels are used instead of the configuration parameters.
+  If you send the time via this channel, the Binding uses this time till you send another.
+  After reboot the config parameter is used by default.
 - **dim:** Outgoing dimmer channels.
 
 ## Full Example
@@ -164,3 +164,4 @@ Switch Input_3 {channel="phc:EM:00110:em#02"}
 ...
 Switch Input_16 {channel="phc:EM:00110:em#15"}
 ```
+

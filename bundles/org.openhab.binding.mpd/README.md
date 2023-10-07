@@ -16,7 +16,7 @@ If zeroconf is enabled in the Music Player Daemon, it is discovered. Each Music 
 
 The ThingType mpd requires the following configuration parameters:
 
-| Parameter Label | Parameter ID | Description                                                              | Required |
+| Parameter Label | Parameter ID |                               Description                                | Required |
 |-----------------|--------------|--------------------------------------------------------------------------|----------|
 | IP Address      | ipAddress    | Host name or IP address of the Music Player Daemon                       | yes      |
 | Port            | port         | Port number on which the Music Player Daemon is listening. Default: 6600 | yes      |
@@ -26,7 +26,7 @@ The ThingType mpd requires the following configuration parameters:
 
 The following channels are currently available:
 
-| Channel Type ID | Item Type | Description               |
+| Channel Type ID | Item Type |        Description        |
 |-----------------|-----------|---------------------------|
 | control         | Player    | Start/Pause/Next/Previous |
 | volume          | Dimmer    | Volume in percent         |
@@ -100,3 +100,4 @@ then
         actions.sendCommand("play");
 end
 ```
+

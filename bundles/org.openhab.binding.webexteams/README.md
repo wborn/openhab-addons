@@ -34,20 +34,20 @@ A default room id is required for use with the `sendMessage` action.
 
 ### `account` Thing Configuration
 
-| Name            | Type    | Description                           | Default | Required | Advanced |
-|-----------------|---------|---------------------------------------|---------|----------|----------|
-| token           | text    | (Bot) authentication token            | N/A     | no       | no       |
-| clientId        | text    | (Person) client id                    | N/A     | no       | no       |
-| clientSecret    | text    | (Person) client secret                | N/A     | no       | no       |
-| refreshPeriod   | integer | Refresh period for channels (seconds) | 300     | no       | no       |
-| roomId          | text    | ID of the default room                | N/A     | no       | no       |
+|     Name      |  Type   |              Description              | Default | Required | Advanced |
+|---------------|---------|---------------------------------------|---------|----------|----------|
+| token         | text    | (Bot) authentication token            | N/A     | no       | no       |
+| clientId      | text    | (Person) client id                    | N/A     | no       | no       |
+| clientSecret  | text    | (Person) client secret                | N/A     | no       | no       |
+| refreshPeriod | integer | Refresh period for channels (seconds) | 300     | no       | no       |
+| roomId        | text    | ID of the default room                | N/A     | no       | no       |
 
 ## Channels
 
-| Thing              | channel      | type      | description                                                  |
-|--------------------|--------------|-----------|--------------------------------------------------------------|
-| WebexTeams Account | status       | String    | Account presence status: active, call, inactive, ...         |
-| WebexTeams Account | lastactivity | DateTime  | The date and time of the person's last activity within Webex |
+|       Thing        |   channel    |   type   |                         description                          |
+|--------------------|--------------|----------|--------------------------------------------------------------|
+| WebexTeams Account | status       | String   | Account presence status: active, call, inactive, ...         |
+| WebexTeams Account | lastactivity | DateTime | The date and time of the person's last activity within Webex |
 
 Note: status and lastactivity are only updated for person integrations
 

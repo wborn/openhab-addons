@@ -151,7 +151,7 @@ DeviceID + GroupID = ThingUID
 
 For example:
 
-| Device ID | Group ID |ThingUID  |
+| Device ID | Group ID | ThingUID |
 |-----------|----------|----------|
 | 0xE6C     | 4        | 0xE6C4   |
 | 0xB4CA    | 4        | 0xB4CA4  |
@@ -212,3 +212,4 @@ Text label="Hallway" icon="light"
     Switch item=Hallway_BulbCommand mappings=[next_mode='Mode +', previous_mode='Mode -', mode_speed_up='Speed +', mode_speed_down='Speed -', set_white='White', night_mode='Night' ]
 }
 ```
+

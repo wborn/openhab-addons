@@ -13,7 +13,7 @@ The Go-eCharger HOMEfix with 11kW and 22kW is supported too.
 
 The thing has three configuration parameters:
 
-| Parameter       | Description                                   | Required |
+|    Parameter    |                  Description                  | Required |
 |-----------------|-----------------------------------------------|----------|
 | ip              | The IP-address of your Go-eCharger            | yes      |
 | apiVersion      | The API version to use (1=default or 2)       | no       |

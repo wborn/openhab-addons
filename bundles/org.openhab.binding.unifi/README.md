@@ -27,14 +27,14 @@ It requires a network accessible instance of the [Ubiquiti Networks Controller S
 
 The following table describes the Bridge configuration parameters:
 
-| Parameter                | Description                                                                 | Config   | Default |
-| ------------------------ | --------------------------------------------------------------------------- |--------- | ------- |
-| host                     | Hostname of IP address of the UniFi Controller                              | Required | -       |
-| port                     | Port of the UniFi Controller. For UniFi OS, the default port is usually 443 | Required | -       |
-| unifios                  | If the UniFi Controller is running on UniFi OS                              | Required | false   |
-| username                 | The username to access the UniFi Controller                                 | Required | -       |
-| password                 | The password to access the UniFi Controller                                 | Required | -       |
-| refresh                  | Refresh interval in seconds                                                 | Optional | 10      |
+| Parameter |                                 Description                                 |  Config  | Default |
+|-----------|-----------------------------------------------------------------------------|----------|---------|
+| host      | Hostname of IP address of the UniFi Controller                              | Required | -       |
+| port      | Port of the UniFi Controller. For UniFi OS, the default port is usually 443 | Required | -       |
+| unifios   | If the UniFi Controller is running on UniFi OS                              | Required | false   |
+| username  | The username to access the UniFi Controller                                 | Required | -       |
+| password  | The password to access the UniFi Controller                                 | Required | -       |
+| refresh   | Refresh interval in seconds                                                 | Optional | 10      |
 
 ## Thing Configuration
 
@@ -44,24 +44,24 @@ You must define a UniFi Controller (Bridge) before defining UniFi Things for thi
 
 The following table describes the `site` configuration parameters:
 
-| Parameter    | Description                                                  | Config   | Default |
-| ------------ | -------------------------------------------------------------|--------- | ------- |
-| sid          | The name, description or id of the site                      | Required | -       |
+| Parameter |               Description               |  Config  | Default |
+|-----------|-----------------------------------------|----------|---------|
+| sid       | The name, description or id of the site | Required | -       |
 
 ### `wlan`
 
 The following table describes the `wlan` configuration parameters:
 
-| Parameter    | Description                                                  | Config   | Default |
-| ------------ | -------------------------------------------------------------|--------- | ------- |
-| wid          | The name or id of the WLAN                                   | Required | -       |
+| Parameter |        Description         |  Config  | Default |
+|-----------|----------------------------|----------|---------|
+| wid       | The name or id of the WLAN | Required | -       |
 
 ### `wirelessClient` & `wiredClient`
 
 The following table describes the `wirelessClient` & `wiredClient` configuration parameters:
 
-| Parameter    | Description                                                  | Config   | Default |
-| ------------ | -------------------------------------------------------------|--------- | ------- |
+|  Parameter   |                         Description                          |  Config  | Default |
+|--------------|--------------------------------------------------------------|----------|---------|
 | cid          | The MAC address, IP address, hostname or alias of the client | Required | -       |
 | site         | The site where the client should be found                    | Optional | -       |
 | considerHome | The interval in seconds to consider the client as home       | Optional | 180     |
@@ -72,10 +72,10 @@ Here's some additional notes regarding the thing configuration parameters:
 
 The `cid` parameter is a universal "client identifier". It accepts the following values:
 
-  1. MAC address [highest priority]
-  1. IP address
-  1. Hostname (as show by the controller)
-  1. Alias (as defined by you in the controller UI) [lowest priority]
+1. MAC address [highest priority]
+2. IP address
+3. Hostname (as show by the controller)
+4. Alias (as defined by you in the controller UI) [lowest priority]
 
 The priority essentially means the binding attempts to lookup by MAC address, then by IP address, then by hostname and finally by alias.
 Once it finds a matching client, it short circuits and stops searching.
@@ -98,7 +98,7 @@ For example, using the default of `180` (seconds), the binding will report a cli
 
 The following table describes the `poePort` configuration parameters:
 
-| Parameter  | Description                                               | Config   |
+| Parameter  |                        Description                        |  Config  |
 |------------|-----------------------------------------------------------|----------|
 | portNumber | The port number as reported by the switch (starts with 1) | Required |
 | macAddress | The MAC address of the switch device the port is part of  | Required |
@@ -109,7 +109,7 @@ The following table describes the `poePort` configuration parameters:
 
 The `site` information that is retrieved is available as these channels:
 
-| Channel ID            | Item Type | Description                                                            | Permissions |
+|      Channel ID       | Item Type |                              Description                               | Permissions |
 |-----------------------|-----------|------------------------------------------------------------------------|-------------|
 | totalClients          | Number    | Total number of clients connected                                      | Read        |
 | wirelessClients       | Number    | Number of wireless clients connected                                   | Read        |
@@ -121,20 +121,20 @@ The `site` information that is retrieved is available as these channels:
 The `guestVouchersGenerate` string channel is a command only channel that will trigger voucher creation.
 It has configuration parameters to tailor the vouchers created:
 
-| Parameter                | Description                                                                 | Config   | Default |
-| ------------------------ | --------------------------------------------------------------------------- |--------- | ------- |
-| voucherCount             | Number of vouchers to create                                                | Optional |    1    |
-| voucherExpiration        | Minutes a voucher is valid after activation (default is 1 day)              | Optional |  1440   |
-| voucherUsers             | Number of users for voucher, 0 for no limit                                 | Optional |    1    |
-| voucherUpLimit           | Upload speed limit in kbps, no limit if not set                             | Optional |         |
-| voucherDownLimit         | Download speed limit in kbps, no limit if not set                           | Optional |         |
-| voucherDataQuota         | Data transfer quota in MB per user, no limit if not set                     | Optional |         |
+|     Parameter     |                          Description                           |  Config  | Default |
+|-------------------|----------------------------------------------------------------|----------|---------|
+| voucherCount      | Number of vouchers to create                                   | Optional | 1       |
+| voucherExpiration | Minutes a voucher is valid after activation (default is 1 day) | Optional | 1440    |
+| voucherUsers      | Number of users for voucher, 0 for no limit                    | Optional | 1       |
+| voucherUpLimit    | Upload speed limit in kbps, no limit if not set                | Optional |         |
+| voucherDownLimit  | Download speed limit in kbps, no limit if not set              | Optional |         |
+| voucherDataQuota  | Data transfer quota in MB per user, no limit if not set        | Optional |         |
 
 ### `wlan`
 
 The `wlan` information that is retrieved is available as these channels:
 
-| Channel ID      | Item Type | Description                                                                     | Permissions |
+|   Channel ID    | Item Type |                                   Description                                   | Permissions |
 |-----------------|-----------|---------------------------------------------------------------------------------|-------------|
 | enable          | Switch    | Enable status of the WLAN                                                       | Read, Write |
 | wirelessClients | Number    | Number of wireless clients connected                                            | Read        |
@@ -161,7 +161,7 @@ This is the notation used in QR Codes that can be scanned by mobile phones.
 
 The `wirelessClient` information that is retrieved is available as these channels:
 
-| Channel ID | Item Type            | Description                                                          | Permissions |
+| Channel ID |      Item Type       |                             Description                              | Permissions |
 |------------|----------------------|----------------------------------------------------------------------|-------------|
 | online     | Switch               | Online status of the client                                          | Read        |
 | name       | String               | Name of device (from the controller web UI)                          | Read        |
@@ -186,7 +186,7 @@ _Note: All channels with the Write permission require administrator credentials 
 
 The `wiredClient` information that is retrieved is available as these channels:
 
-| Channel ID | Item Type            | Description                                                          | Permissions |
+| Channel ID |      Item Type       |                             Description                              | Permissions |
 |------------|----------------------|----------------------------------------------------------------------|-------------|
 | online     | Switch               | Online status of the client                                          | Read        |
 | name       | String               | Name of device (from the controller web UI)                          | Read        |
@@ -212,7 +212,7 @@ Sending `ON` to this channel will trigger a reconnect via the controller.
 
 The `poePort` information that is retrieved is available as these channels:
 
-| Channel ID | Item Type                | Description                                           | Permissions |
+| Channel ID |        Item Type         |                      Description                      | Permissions |
 |------------|--------------------------|-------------------------------------------------------|-------------|
 | online     | Switch                   | Online status of the port                             | Read        |
 | mode       | Selection                | Select the PoE mode: off, auto, pasv24 or passthrough | Read, Write |
@@ -247,14 +247,14 @@ The `generateVoucher(s)` actions parameters match the configuration parameters f
 With the actions, these parameters can be controlled in a rule or script.
 `null` values for the parameters are allowed, and will set the parameter to the default value.
 
-| Parameter     | Description                                                                 | Default |
-| ------------- | --------------------------------------------------------------------------- | ------- |
-| count         | Number of vouchers to create                                                |    1    |
-| expire        | Minutes a voucher is valid after activation (default is 1 day)              |  1440   |
-| users         | Number of users for voucher, 0 for no limit                                 |    1    |
-| upLimit       | Upload speed limit in kbps, no limit if not set                             |         |
-| downLimit     | Download speed limit in kbps, no limit if not set                           |         |
-| dataQuota     | Data transfer quota in MB per user, no limit if not set                     |         |
+| Parameter |                          Description                           | Default |
+|-----------|----------------------------------------------------------------|---------|
+| count     | Number of vouchers to create                                   | 1       |
+| expire    | Minutes a voucher is valid after activation (default is 1 day) | 1440    |
+| users     | Number of users for voucher, 0 for no limit                    | 1       |
+| upLimit   | Upload speed limit in kbps, no limit if not set                |         |
+| downLimit | Download speed limit in kbps, no limit if not set              |         |
+| dataQuota | Data transfer quota in MB per user, no limit if not set        |         |
 
 The `revoke...` actions allow you to revoke previously created vouchers.
 The parameter is the voucher code or a list of voucher codes to be revoked.
@@ -372,3 +372,4 @@ val List<String> voucherList = newArrayList("38677-91284", "46415-36104")
 val uniFiActions = getActions("unifi","unifi:site:home:mysite")
 val success = uniFiActions.revokeVouchers(voucherList)
 ```
+

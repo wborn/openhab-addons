@@ -18,7 +18,7 @@ The **network** Thing configuration requires the hostname or ip address of the p
 
 All things support the following channels (non-exhaustive):
 
-| Channel Type ID                      | Item Type | Description                                                     |
+|           Channel Type ID            | Item Type |                           Description                           |
 |--------------------------------------|-----------|-----------------------------------------------------------------|
 | alarm                                | String    | Current alarm description, if any                               |
 | alert                                | String    | Current alert description, if any, to notify a shortage of salt |
@@ -94,16 +94,17 @@ Within the Oceanic binding two routes are provided:
 
 1. Connect to the Oceanic softener over a serial port that is outside the scope of the Java Virtual Machine, setup a TCP "proxy" on the host that is connected to the softener, and make openHAB connect to that proxy over a plain TCP connection. This can be achieved with `socat`:
 
-    ```shell
-    /usr/bin/socat -v TCP-LISTEN:9000 /dev/ttyUSB0,raw,echo=0           
-    ```
+   ```shell
+   /usr/bin/socat -v TCP-LISTEN:9000 /dev/ttyUSB0,raw,echo=0           
+   ```
 
-    In the above example, the name of the host running socat, and the TCP port number 9000, will be part of the **network** Thing configuration
-1. Connect to the Oceanic softener over a serial port on the openHAB host and use `socat` to pipe the data from that serial port to a pseudo tty, which has to be manipulated in a CommPortIdentifier.PORT_RAW manner.
+   In the above example, the name of the host running socat, and the TCP port number 9000, will be part of the **network** Thing configuration
 
-    ```shell
-    /usr/bin/socat -v /dev/ttyUSB0,raw,echo=0 pty,link=/dev/ttyS1,raw,echo=0            
-    ```
+2. Connect to the Oceanic softener over a serial port on the openHAB host and use `socat` to pipe the data from that serial port to a pseudo tty, which has to be manipulated in a CommPortIdentifier.PORT_RAW manner.
+
+   ```shell
+   /usr/bin/socat -v /dev/ttyUSB0,raw,echo=0 pty,link=/dev/ttyS1,raw,echo=0            
+   ```
 
 Both workarounds can be implemented using a systemd system manager script, for example:
 

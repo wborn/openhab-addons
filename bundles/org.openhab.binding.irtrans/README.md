@@ -29,7 +29,7 @@ The _blaster_ Thing requires a _led_ parameter to specify on which infrared comm
 
 The _ethernet_ Thing supports the following Channel Types:
 
-| Channel Type ID | Item Type | Description                                                                         |
+| Channel Type ID | Item Type |                                     Description                                     |
 |-----------------|-----------|-------------------------------------------------------------------------------------|
 | blaster         | String    | Send (filtered) infrared commands over the specified blaster LED of the transceiver |
 | receiver        | String    | Receive (filtered) infrared commands on the receiver LED of the transceiver         |
@@ -98,3 +98,4 @@ then
         ]
 end
 ```
+

@@ -7,10 +7,10 @@ In addition to getting the status of various items from the EV charger, it is al
 
 This binding supports the following things:
 
-| thing               | type    | description                  |
-|----------           |-------- |------------------------------ |
-| JuiceNet Account    | Bridge  | This represents the cloud account to interface with the JuiceNet API.  |
-| JuiceBox EV Charger | Device  | This interfaces to a specific JuiceBox EV charger associated with the JuiceNet account. |
+|        thing        |  type  |                                       description                                       |
+|---------------------|--------|-----------------------------------------------------------------------------------------|
+| JuiceNet Account    | Bridge | This represents the cloud account to interface with the JuiceNet API.                   |
+| JuiceBox EV Charger | Device | This interfaces to a specific JuiceBox EV charger associated with the JuiceNet account. |
 
 This binding should work with multiple JuiceBox EV chargers associated with the account, however it is currently only tested with a single EV charger.
 
@@ -27,37 +27,37 @@ A JuiceBox EV Charger requires a unitID which can also be found in the device se
 
 ## Channels
 
-| channel           | type                      | read-only | description                  |
-|----------         |--------                   |---------  | ------- |
-| name              | String                    | Y         | Name of device.|
-| chargingState     | String                    | N         | Current charging state (Start Charging, Smart Charging, Stop Charging). |
-| state             | String                    | Y         | This is the current device state (Available, Plugged-In, Charging, Error, Disconnected).  |
-| message           | String                    | Y         | This is a message detailing the state of the EV charger. |
-| override          | Switch                    | N         | Smart charging is overridden. Set to "OFF" to remove override. |
-| chargingTimeLeft  | Number:Time               | Y         | Charging time left (seconds). |
-| plugUnplugTime    | DateTime                  | Y         | Last time of either plug-in or plug-out. |
-| targetTime        | DateTime                  | N         | “Start charging” start time, or time to start when overriding smart charging. |
-| unitTime          | DateTime                  | Y         | Current time on the unit. |
-| temperature       | Number:Temperature        | Y         | Current temperature at the unit. |
-| currentLimit      | Number:ElectricCurrent    | N         | Max charging current allowed. |
-| current           | Number:ElectricCurrent    | Y         | Current charging current. |
-| voltage           | Number:ElectricPotential  | Y         | Current voltage. |
-| energy            | Number:Energy             | Y         | Current amount of energy poured to the vehicle. |
-| savings           | Number                    | Y         | Current session EV savings. |
-| power             | Number:Power              | Y         | Current charging power. |
-| secondsCharging   | Number:Time               | Y         | Charging time since plug-in time. |
-| energyAtPlugin    | Number:Energy             | Y         | Energy value at the plugging time. |
-| energyToAdd       | Number:Energy             | N         | Amount of energy to be added in current session. |
-| lifetimeEnergy    | Number:Energy             | Y         | Total energy delivered to vehicles during lifetime. |
-| lifetimeSavings   | Number                    | Y         | EV driving saving during lifetime. |
-| gasCost           | Number                    | Y         | Cost of gasoline used in savings calculations. |
-| fuelConsumption   | Number                    | Y         | Miles per gallon used in savings calculations. |
-| ecost             | Number                    | Y         | Cost of electricity from utility company. (currency/kWh) |
-| energyPerMile     | Number                    | Y         | Energy per mile. |
-| carDescription    | String                    | Y         | Car description of vehicle currently or last charged. |
-| carBatterySize    | Number:Energy             | Y         | Car battery pack size. |
-| carBatteryRange   | Number:Length             | Y         | Car range. |
-| carChargingRate   | Number:Power              | Y         | Car charging rate. |
+|     channel      |           type           | read-only |                                       description                                        |
+|------------------|--------------------------|-----------|------------------------------------------------------------------------------------------|
+| name             | String                   | Y         | Name of device.                                                                          |
+| chargingState    | String                   | N         | Current charging state (Start Charging, Smart Charging, Stop Charging).                  |
+| state            | String                   | Y         | This is the current device state (Available, Plugged-In, Charging, Error, Disconnected). |
+| message          | String                   | Y         | This is a message detailing the state of the EV charger.                                 |
+| override         | Switch                   | N         | Smart charging is overridden. Set to "OFF" to remove override.                           |
+| chargingTimeLeft | Number:Time              | Y         | Charging time left (seconds).                                                            |
+| plugUnplugTime   | DateTime                 | Y         | Last time of either plug-in or plug-out.                                                 |
+| targetTime       | DateTime                 | N         | “Start charging” start time, or time to start when overriding smart charging.            |
+| unitTime         | DateTime                 | Y         | Current time on the unit.                                                                |
+| temperature      | Number:Temperature       | Y         | Current temperature at the unit.                                                         |
+| currentLimit     | Number:ElectricCurrent   | N         | Max charging current allowed.                                                            |
+| current          | Number:ElectricCurrent   | Y         | Current charging current.                                                                |
+| voltage          | Number:ElectricPotential | Y         | Current voltage.                                                                         |
+| energy           | Number:Energy            | Y         | Current amount of energy poured to the vehicle.                                          |
+| savings          | Number                   | Y         | Current session EV savings.                                                              |
+| power            | Number:Power             | Y         | Current charging power.                                                                  |
+| secondsCharging  | Number:Time              | Y         | Charging time since plug-in time.                                                        |
+| energyAtPlugin   | Number:Energy            | Y         | Energy value at the plugging time.                                                       |
+| energyToAdd      | Number:Energy            | N         | Amount of energy to be added in current session.                                         |
+| lifetimeEnergy   | Number:Energy            | Y         | Total energy delivered to vehicles during lifetime.                                      |
+| lifetimeSavings  | Number                   | Y         | EV driving saving during lifetime.                                                       |
+| gasCost          | Number                   | Y         | Cost of gasoline used in savings calculations.                                           |
+| fuelConsumption  | Number                   | Y         | Miles per gallon used in savings calculations.                                           |
+| ecost            | Number                   | Y         | Cost of electricity from utility company. (currency/kWh)                                 |
+| energyPerMile    | Number                   | Y         | Energy per mile.                                                                         |
+| carDescription   | String                   | Y         | Car description of vehicle currently or last charged.                                    |
+| carBatterySize   | Number:Energy            | Y         | Car battery pack size.                                                                   |
+| carBatteryRange  | Number:Length            | Y         | Car range.                                                                               |
+| carChargingRate  | Number:Power             | Y         | Car charging rate.                                                                       |
 
 ## Full Example
 
@@ -266,3 +266,4 @@ slots:
             config:
               text: =items[props.prefix + "_CarDescription"].state
 ```
+

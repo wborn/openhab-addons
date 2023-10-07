@@ -55,7 +55,7 @@ The devices are identified by the device number that the OmniLink bridge assigns
 
 The devices support some of the following channels:
 
-| Channel Type ID             | Item Type            | Description                                                                                  | Thing types supporting this channel                 |
+|       Channel Type ID       |      Item Type       |                                         Description                                          |         Thing types supporting this channel         |
 |-----------------------------|----------------------|----------------------------------------------------------------------------------------------|-----------------------------------------------------|
 | `activate_keypad_emergency` | Number               | Activate a burglary, fire, or auxiliary keypad emergency alarm on Omni based models.         | `area`                                              |
 | `alarm_burglary`            | Switch               | Indicates if a burglary alarm is active.                                                     | `area`                                              |
@@ -130,19 +130,19 @@ The devices support some of the following channels:
 
 The devices support some of the following trigger channels:
 
-| Channel Type ID               | Description                                                                          | Thing types supporting this channel |
-|-------------------------------|--------------------------------------------------------------------------------------|-------------------------------------|
-| `all_on_off_event`            | Event sent when an all on/off event occurs.                                          | `area`, `lumina_area`               |
-| `phone_line_event`            | Event sent when the phone line changes state.                                        | `controller`                        |
-| `ac_power_event`              | Event sent when AC trouble conditions are detected.                                  | `controller`                        |
-| `battery_event`               | Event sent when battery trouble conditions are detected.                             | `controller`                        |
-| `dcm_event`                   | Event sent when digital communicator trouble conditions are detected.                | `controller`                        |
-| `energy_cost_event`           | Event sent when the cost of energy changes.                                          | `controller`                        |
-| `camera_trigger_event`        | Event sent when a camera trigger is detected.                                        | `controller`                        |
-| `upb_link_activated_event`    | Event sent when a UPB link is activated.                                             | `controller`                        |
-| `upb_link_deactivated_event`  | Event sent when a UPB link is deactivated.                                           | `controller`                        |
-| `activated_event`             | Event sent when a button is activated.                                               | `button`                            |
-| `switch_press_event`          | Event sent when an ALC, UPB, Radio RA, or Starlite switch is pressed.                | `dimmable`, `upb`                   |
+|       Channel Type ID        |                              Description                              | Thing types supporting this channel |
+|------------------------------|-----------------------------------------------------------------------|-------------------------------------|
+| `all_on_off_event`           | Event sent when an all on/off event occurs.                           | `area`, `lumina_area`               |
+| `phone_line_event`           | Event sent when the phone line changes state.                         | `controller`                        |
+| `ac_power_event`             | Event sent when AC trouble conditions are detected.                   | `controller`                        |
+| `battery_event`              | Event sent when battery trouble conditions are detected.              | `controller`                        |
+| `dcm_event`                  | Event sent when digital communicator trouble conditions are detected. | `controller`                        |
+| `energy_cost_event`          | Event sent when the cost of energy changes.                           | `controller`                        |
+| `camera_trigger_event`       | Event sent when a camera trigger is detected.                         | `controller`                        |
+| `upb_link_activated_event`   | Event sent when a UPB link is activated.                              | `controller`                        |
+| `upb_link_deactivated_event` | Event sent when a UPB link is deactivated.                            | `controller`                        |
+| `activated_event`            | Event sent when a button is activated.                                | `button`                            |
+| `switch_press_event`         | Event sent when an ALC, UPB, Radio RA, or Starlite switch is pressed. | `dimmable`, `upb`                   |
 
 ## Rule Actions
 
@@ -153,7 +153,7 @@ There is a separate instance for each contoller, which can be retrieved through:
 
 ::: tab JavaScript
 
-``` javascript
+```javascript
 var omnilinkActions = actions.get("omnilink", "omnilink:controller:home");
 ```
 
@@ -161,7 +161,7 @@ var omnilinkActions = actions.get("omnilink", "omnilink:controller:home");
 
 ::: tab DSL
 
-``` php
+```php
 val omnilinkActions = getActions("omnilink", "omnilink:controller:home")
 ```
 
@@ -176,7 +176,7 @@ Once this action instance is retrieved, you can invoke the `synchronizeControlle
 
 ::: tab JavaScript
 
-``` javascript
+```javascript
 omnilinkActions.synchronizeControllerTime("America/Denver");
 ```
 
@@ -184,7 +184,7 @@ omnilinkActions.synchronizeControllerTime("America/Denver");
 
 ::: tab DSL
 
-``` php
+```php
 omnilinkActions.synchronizeControllerTime("America/Denver")
 ```
 
@@ -353,3 +353,4 @@ DateTime   OmniProTime   "Last Time Update [%1$ta %1$tR]"   <time>   {channel="o
 14=Arming night delay
 =Unknown
 ```
+

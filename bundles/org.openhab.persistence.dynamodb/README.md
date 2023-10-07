@@ -16,6 +16,7 @@ This service is provided "AS IS", and the user takes full responsibility of any 
 ## Table of Contents
 
 {::options toc_levels="2..4"/}
+
 <!-- markdownlint-disable-next-line ul-style -->
 - TOC
 
@@ -33,13 +34,12 @@ Please also note possible [Free Tier](https://aws.amazon.com/free/) benefits.
 ### Setting Up an Amazon Account
 
 <!-- markdownlint-disable-next-line no-emphasis-as-heading -->
-**Login to AWS web console**
-
+**Login to AWS web consol-->
 * [Sign up](https://aws.amazon.com/) for Amazon AWS.
 * Select the AWS region in the [AWS console](https://console.aws.amazon.com/) using [these instructions](https://docs.aws.amazon.com/awsconsolehelpdocs/latest/gsg/getting-started.html#select-region). Note the region identifier in the URL (e.g. `https://eu-west-1.console.aws.amazon.com/console/home?region=eu-west-1` means that region id is `eu-west-1`).
 
 <!-- markdownlint-disable-next-line no-emphasis-as-heading -->
-**Create policy controlling permissions for AWS user**
+**Create policy controlling permissions for AWS use-->
 
 Here we create AWS IAM Policy to limit exposure to AWS resources.
 This way, openHAB DynamoDB addon has limited access to AWS, even if credentials would be compromised.
@@ -48,17 +48,16 @@ This way, openHAB DynamoDB addon has limited access to AWS, even if credentials 
 New table schema is the default for fresh openHAB installations and for users that are taking DynamoDB into use for the first time.
 For users with old table schema, one can use pre-existing policy `AmazonDynamoDBFullAccess` (although it gives wider-than-necessary permissions).
 
-  1. Open Services menu, and search for _IAM_.
-  2. From top right, press the small arrow on top right corner close to your name. Copy the _Account ID_ to clipboard by pressing the small "copy" icon
-  ![AWS Account ID](doc/aws_account_id.png)
-  3. In IAM dialog, select _Policies_ from the menu on the left
-  4. Click _Create policy_
-  5. Open _JSON_ tab and input the below policy code.
-  6. Make the below the changes to the policy JSON `Resource` section
+1. Open Services menu, and search for _IAM_.
+2. From top right, press the small arrow on top right corner close to your name. Copy the _Account ID_ to clipboard by pressing the small "copy" icon
+   ![AWS Account ID](doc/aws_account_id.png)
+3. In IAM dialog, select _Policies_ from the menu on the left
+4. Click _Create policy_
+5. Open _JSON_ tab and input the below policy code.
+6. Make the below the changes to the policy JSON `Resource` section
 
 * Modify the AWS account id from `055251986555` to to the one you have on clipboard (see step 2 above)
 * If you are on some other region than `eu-west-1`, change the entry accordingly
-
 
 ```json
 {
@@ -102,25 +101,26 @@ For users with old table schema, one can use pre-existing policy `AmazonDynamoDB
     ]
 }
 ```
-<!-- markdownlint-disable ol-prefix -->
-  4. Click _Next: Tags_
-  5. Click _Next: Review_
-  6. Enter `openhab-dynamodb-policy` as the _Name_
-  7. Click _Create policy_ to finish policy creation
-<!-- markdownlint-enable ol-prefix -->
 
+<!-- markdownlint-disable ol-prefix -->
+4. Click _Next: Tags_
+5. Click _Next: Review_
+6. Enter `openhab-dynamodb-policy` as the _Name_
+7. Click _Create policy_ to finish policy creation
+
+<!-- markdownlint-enable ol-prefix -->
 <!-- markdownlint-disable-next-line no-emphasis-as-heading -->
-**Create user for openHAB**
+**Create user for openHA-->
 
 Here we create AWS user with programmatic access to the DynamoDB.
 We associate the user with the policy created above.
 
-  1. Open _Services_ -> _IAM_ -> _Users_ -> _Add users_. Enter `openhab` as _User name_, and tick _Programmatic access_
-  2. Click _Next: Permissions_
-  3. Select _Attach existing policies directly_, and search policies with `openhab-dynamodb-policy`. Tick the `openhab-dynamodb-policy` and proceed with _Next: Tags_
-  4. Click _Next: review_
-  5. Click _Create user_
-  6. Record the _Access key ID_ and _Secret access key_
+1. Open _Services_ -> _IAM_ -> _Users_ -> _Add users_. Enter `openhab` as _User name_, and tick _Programmatic access_
+2. Click _Next: Permissions_
+3. Select _Attach existing policies directly_, and search policies with `openhab-dynamodb-policy`. Tick the `openhab-dynamodb-policy` and proceed with _Next: Tags_
+4. Click _Next: review_
+5. Click _Create user_
+6. Record the _Access key ID_ and _Secret access key_
 
 ## Configuration
 
@@ -147,8 +147,8 @@ Configure the addon to use new schema by setting `table` parameter (name of the 
 
 Only one table will be created for all data. The table will have the following fields
 
-| Attribute | Type   | Data type | Description                                   |
-| --------- | ------ | --------- | --------------------------------------------- |
+| Attribute |  Type  | Data type |                  Description                  |
+|-----------|--------|-----------|-----------------------------------------------|
 | `i`       | String | Yes       | Item name                                     |
 | `t`       | Number | Yes       | Timestamp in milliepoch                       |
 | `s`       | String | Yes       | State of the item, stored as DynamoDB string. |
@@ -162,6 +162,7 @@ Other notes
 - Only one of `s` or `n` attributes are specified, not both. Most items are converted to number type for most compact representation.
 - Compared to legacy format, data overhead is minimizing by using short attribute names, number timestamps and having only single table.
 - `exp` attribute is used with DynamoDB Time To Live (TTL) feature to automatically delete old data
+
 <!-- markdownlint-enable ul-style -->
 
 #### Legacy schema
@@ -173,12 +174,13 @@ Configure the addon to use legacy schema by setting `tablePrefix` parameter.
 - The service will create at most two tables for different item types.
 - The tables will be named `<tablePrefix><item-type>`, where the `<item-type>` is either `bigdecimal` (numeric items) or `string` (string and complex items).
 - Each table will have three columns: `itemname` (item name), `timeutc` (in ISO 8601 format with millisecond accuracy), and `itemstate` (either a number or string representing item state).
+
 <!-- markdownlint-enable ul-style -->
 
 ### Credentials Configuration Using Access Key and Secret Key
 
-| Property  | Default | Required | Description                                                                                                                                                      |
-| --------- | ------- | :------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Property  | Default | Required |                                                                           Description                                                                            |
+|-----------|---------|:--------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | accessKey |         |   Yes    | access key as shown in [Setting up Amazon account](#setting-up-an-amazon-account).                                                                               |
 | secretKey |         |   Yes    | secret key as shown in [Setting up Amazon account](#setting-up-an-amazon-account).                                                                               |
 | region    |         |   Yes    | AWS region ID as described in [Setting up Amazon account](#setting-up-an-amazon-account). The region needs to match the region that was used to create the user. |
@@ -187,11 +189,11 @@ Configure the addon to use legacy schema by setting `tablePrefix` parameter.
 
 Alternatively, instead of specifying `accessKey` and `secretKey`, one can configure a configuration profile file.
 
-| Property           | Default | Required | Description                                                                                                                                                                                                                                                                                                                                    |
-| ------------------ | ------- | :------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|      Property      | Default | Required |                                                                                                                                                                  Description                                                                                                                                                                   |
+|--------------------|---------|:--------:|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | profilesConfigFile |         |   Yes    | path to the credentials file.  For example, `/etc/openhab2/aws_creds`. Please note that the user that runs openHAB must have approriate read rights to the credential file. For more details on the Amazon credential file format, see [Amazon documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html). |
 | profile            |         |   Yes    | name of the profile to use                                                                                                                                                                                                                                                                                                                     |
-| region             |         |   Yes    | AWS region ID as described in Step 2 in [Setting up Amazon account](#setting-up-an-amazon-account). The region needs to match the region that was used to create the user.                                                                                                                                                                        |
+| region             |         |   Yes    | AWS region ID as described in Step 2 in [Setting up Amazon account](#setting-up-an-amazon-account). The region needs to match the region that was used to create the user.                                                                                                                                                                     |
 
 Example of service configuration file (`services/dynamodb.cfg`):
 
@@ -213,8 +215,8 @@ aws_secret_access_key=testSecretKey
 
 In addition to the configuration properties above, the following are also available:
 
-| Property           | Default | Required | Description                                                 |
-| ------------------ | ------- | :------: | ----------------------------------------------------------- |
+|      Property      | Default | Required |                         Description                         |
+|--------------------|---------|:--------:|-------------------------------------------------------------|
 | expireDays         | (null)  |    No    | Expire time for data in days (relative to stored timestamp) |
 | readCapacityUnits  | 1       |    No    | read capacity for the created tables                        |
 | writeCapacityUnits | 1       |    No    | write capacity for the created tables                       |
@@ -263,3 +265,4 @@ Eclipse instructions
 -DDYNAMODBTEST_ACCESS=ACCESS-KEY
 -DDYNAMODBTEST_SECRET=SECRET
 ```
+

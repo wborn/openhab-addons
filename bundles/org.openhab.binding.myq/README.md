@@ -28,7 +28,7 @@ Once an account has been added, garage doors and lamps will automatically be dis
 
 ## Channels
 
-| Channel       | Item Type     | Thing Type       | States                                                 |
+|    Channel    |   Item Type   |    Thing Type    |                         States                         |
 |---------------|---------------|------------------|--------------------------------------------------------|
 | status        | String        | garagedoor       | opening, closed, closing, stopped, transition, unknown |
 | rollershutter | Rollershutter | garagedoor       | UP, DOWN, 0%, 100%                                     |
@@ -70,3 +70,4 @@ sitemap MyQ label="MyQ Demo Sitemap" {
   }                
 }
 ```
+

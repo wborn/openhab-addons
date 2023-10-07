@@ -23,7 +23,7 @@ The binding has no configuration options, all configuration is done at Thing lev
 
 The thing has a few configuration parameters:
 
-| Parameter | Description                                                                                                |
+| Parameter |                                                Description                                                 |
 |-----------|------------------------------------------------------------------------------------------------------------|
 | hostName  | The host name or IP address of the Roku device. Mandatory.                                                 |
 | port      | The port on the Roku that listens for http connections. Default 8060                                       |
@@ -33,7 +33,7 @@ The thing has a few configuration parameters:
 
 The following channels are available:
 
-| Channel ID         | Item Type            | Description                                                                                                                                                     |
+|     Channel ID     |      Item Type       |                                                                           Description                                                                           |
 |--------------------|----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | activeApp          | String               | A dropdown containing a list of all apps installed on the Roku. The app currently running is automatically selected. The list updates every 10 minutes.         |
 | button             | String               | Sends a remote control command the Roku. See list of available commands below.                                                                                  |
@@ -68,8 +68,8 @@ Info
 Backspace  
 Search  
 Enter  
-FindRemote  
-  
+FindRemote
+
 **List of additional button commands for Roku TVs:**  
 ChannelUp  
 ChannelDown  
@@ -83,7 +83,7 @@ InputHDMI3
 InputHDMI4  
 InputAV1  
 PowerOff  
-PowerOn  
+PowerOn
 
 ## Full Example
 
@@ -147,3 +147,4 @@ sitemap roku label="Roku" {
     }
 }
 ```
+

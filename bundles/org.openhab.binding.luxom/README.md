@@ -40,7 +40,7 @@ You will have to look it up in your documentation or in the 'Luxom Plusconfig' s
 Sometimes a device does not send back a confirmation over the bus having set the correct state.
 Some dimmers do the dimming, but do not send back the set brightness level.
 To be able to use these devices, you can add the `doesNotReply=true` parameter so that the binding immediately sets the item's state and does not wait for confirmation.
-  
+
 #### Dimmers
 
 Dimmers support the optional advanced parameters `onLevel`, `onToLast` and `stepPercentage`:
@@ -72,10 +72,10 @@ Thing switch switchLiving1 [address="A,02"]
 
 The following is a summary of channels for all Luxom things:
 
-| Thing               | Channel        | Item Type     | Description                       |
-|---------------------|----------------|---------------|-----------------------------------|
-| dimmer              | brightness     | Dimmer        | Increase/decrease the light level |
-| switch              | switch         | Switch        | Switch the device on/off          |
+| Thing  |  Channel   | Item Type |            Description            |
+|--------|------------|-----------|-----------------------------------|
+| dimmer | brightness | Dimmer    | Increase/decrease the light level |
+| switch | switch     | Switch    | Switch the device on/off          |
 
 ### Full Example
 
@@ -96,3 +96,4 @@ Dimmer          FF_Bedroom_Lights             "Bedroom dimmer light"   <light>  
 Switch          FF_Bedroom_PowerOutlet1       "Bedroom Power Outlet 1"   <poweroutlet>    (FF_Living, gPower)      ["Switchable"] {channel="luxom:switch:myhouse:switchBedroom1:switch", ga="Outlet"}
 Dimmer          FF_Kitchen_Lights             "Kitchen dimmer light"   <light>            (FF_Kitchen, gLight)     ["Lighting"] {channel="luxom:dimmer:myhouse:dimmerKitchen1:brightness", ga="Light", homekit="Lighting, Lighting.Brightness"}
 ```
+

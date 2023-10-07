@@ -11,8 +11,8 @@ The binding requires you to register an Application with Spotify Web API at [htt
 Follow the instructions in the tutorial at [https://developer.spotify.com/web-api/tutorial/](https://developer.spotify.com/web-api/tutorial/).
 Follow instructions under:
 
- 1. Setting Up Your Account
- 1. Registering Your Application
+1. Setting Up Your Account
+2. Registering Your Application
 
 - Step 6: entering Website information can be skipped.
 - Step 7: setting Redirect URIs is **very important**
@@ -28,13 +28,13 @@ When you have authorized with Spotify, this Redirect URI is where authorization 
 ### Configure binding
 
 1. Install the binding and make sure the _Spotify Binding_ is listed on your server
-1. Complete the Spotify Application Registration if you have not already done so, see above.
-1. Make sure you have your Spotify Application _Client ID_ and _Client Secret_ identities available.
-1. Add a new **"Spotify Player Bridge"** thing. Choose new Id for the player, unless you like the generated one, put in the _Client ID_ and _Client Secret_ from the Spotify Application registration in their respective fields of the bridge configuration. You can leave the _refreshPeriod_ as is. Save the bridge.
-1. The bridge thing will stay in state _INITIALIZING_ and eventually go _OFFLINE_ - this is fine. You have to authorize this bridge with Spotify.
-1. Go to the authorization page of your server. `http://<your openHAB address>:8080/connectspotify`. Your newly added bridge should be listed there.
-1. Press the _"Authorize Player"_ button. This will take you either to the login page of Spotify or directly to the authorization screen. Login and/or authorize the application. If the Redirect URIs are correct you will be returned and the entry should show you are authorized with you Spotify user name/id. If not, go back to your Spotify Application and ensure you have the right Redirect URIs.
-1. The binding will be updated with a refresh token and go _ONLINE_. The refresh token is used to re-authorize the bridge with Spotify Connect Web API whenever required.
+2. Complete the Spotify Application Registration if you have not already done so, see above.
+3. Make sure you have your Spotify Application _Client ID_ and _Client Secret_ identities available.
+4. Add a new **"Spotify Player Bridge"** thing. Choose new Id for the player, unless you like the generated one, put in the _Client ID_ and _Client Secret_ from the Spotify Application registration in their respective fields of the bridge configuration. You can leave the _refreshPeriod_ as is. Save the bridge.
+5. The bridge thing will stay in state _INITIALIZING_ and eventually go _OFFLINE_ - this is fine. You have to authorize this bridge with Spotify.
+6. Go to the authorization page of your server. `http://<your openHAB address>:8080/connectspotify`. Your newly added bridge should be listed there.
+7. Press the _"Authorize Player"_ button. This will take you either to the login page of Spotify or directly to the authorization screen. Login and/or authorize the application. If the Redirect URIs are correct you will be returned and the entry should show you are authorized with you Spotify user name/id. If not, go back to your Spotify Application and ensure you have the right Redirect URIs.
+8. The binding will be updated with a refresh token and go _ONLINE_. The refresh token is used to re-authorize the bridge with Spotify Connect Web API whenever required.
 
 Now that you have got your bridge _ONLINE_ you can now start a scan with the binding to auto discover your devices.
 
@@ -47,16 +47,16 @@ You can force reinitialization by authorizing on the connect Spotify page, even 
 
 The following configuration options are available on the Spotify Bridge player:
 
-| Parameter     | Description                                                                                                                                                     |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   Parameter   |                                                                           Description                                                                           |
+|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | clientId      | This is the Client ID provided by Spotify when you add a new Application for openHAB to your Spotify Account. Go to <https://developer.spotify.com/> (Required) |
 | clientSecret  | This is the Client Secret provided by Spotify when you add a new Application for openHAB to your Spotify Account.   (Required)                                  |
 | refreshPeriod | This is the frequency of the polling requests to the Spotify Connect Web API in seconds.                                                                        |
 
 The following configuration option is available on the Spotify device:
 
-| Parameter  | Description                                             |
-| ---------- | ------------------------------------------------------- |
+| Parameter  |                       Description                       |
+|------------|---------------------------------------------------------|
 | deviceName | This is the device name provided by Spotify (Required). |
 
 ## Supported Things
@@ -89,8 +89,8 @@ The channels on the bridge are the ones used to both control the active device a
 
 **Common Channels:**
 
-| Channel Type ID | Item Type | Read/Write | Description                                                                                       |
-| --------------- | --------- | ---------- | ------------------------------------------------------------------------------------------------- |
+| Channel Type ID | Item Type | Read/Write |                                            Description                                            |
+|-----------------|-----------|------------|---------------------------------------------------------------------------------------------------|
 | deviceName      | String    | Read-write | Name of the currently active Connect Device,                                                      |
 | devices         | Selection | Read-write | List of currently active Connect Devices, Set the device ID to transfer play to that device.      |
 | deviceVolume    | Dimmer    | Read-write | Get or set the active Connect Device volume.                                                      |
@@ -112,15 +112,15 @@ The channels on the bridge are the ones used to both control the active device a
 
 The `playlists` channel has 2 parameters:
 
-| Parameter | Description                                                                |
-| --------- | -------------------------------------------------------------------------- |
+| Parameter |                                Description                                 |
+|-----------|----------------------------------------------------------------------------|
 | offset    | The index of the first playlist to return. Default `0`, max `100.000`      |
 | limit     | The maximum number of playlists to return. Default `20`, min `1`, max `50` |
 
 The `albumImage` and `albumImageUrl` channels has 1 parameter:
 
-| Parameter  | Description                                                                                |
-| ---------- | ------------------------------------------------------------------------------------------ |
+| Parameter  |                                        Description                                         |
+|------------|--------------------------------------------------------------------------------------------|
 | imageIndex | Index in list of to select size of the image to show. 0:large (default), 1:medium, 2:small |
 
 Note: The `deviceName` and `playlist` channels are Selection channels.
@@ -128,8 +128,8 @@ They are dynamically populated by the binding with the user specific devices and
 
 **Advanced Channels:**
 
-| Channel Type ID | Item Type | Read/Write | Description                                                 |
-| --------------- | --------- | ---------- | ----------------------------------------------------------- |
+| Channel Type ID | Item Type | Read/Write |                         Description                         |
+|-----------------|-----------|------------|-------------------------------------------------------------|
 | accessToken     | String    | Read-only  | The current accessToken used in communication with Web API. |
 | deviceId        | String    | Read-write | The Spotify Connect device Id.                              |
 | trackId         | String    | Read-only  | Track Id of the currently playing track.                    |
@@ -158,8 +158,8 @@ Assigning a playlist to the _trackPlay_ channel of the bridge will start playing
 
 **Common Channels:**
 
-| Channel Type ID | Item Type | Read/Write | Description                                                     |
-| --------------- | --------- | ---------- | --------------------------------------------------------------- |
+| Channel Type ID | Item Type | Read/Write |                           Description                           |
+|-----------------|-----------|------------|-----------------------------------------------------------------|
 | trackPlay       | String    | Write-only | Update to play a track, playlist, artist. Activates the device. |
 | deviceName      | String    | Read-only  | Name of the device.                                             |
 | deviceVolume    | Dimmer    | Read-write | Volume setting for the device.                                  |
@@ -168,8 +168,8 @@ Assigning a playlist to the _trackPlay_ channel of the bridge will start playing
 
 **Advanced Channels:**
 
-| Channel Type ID  | Item Type | Read/Write | Description                                                                                                |
-| ---------------- | --------- | ---------- | ---------------------------------------------------------------------------------------------------------- |
+| Channel Type ID  | Item Type | Read/Write |                                                Description                                                 |
+|------------------|-----------|------------|------------------------------------------------------------------------------------------------------------|
 | deviceId         | String    | Read-write | The Spotify Connect device Id.                                                                             |
 | deviceType       | String    | Read-only  | The type of device e.g. Speaker, Smartphone.                                                               |
 | deviceActive     | Switch    | Read-only  | Indicates if the device is active or not. Should be the same as Thing status ONLINE/OFFLINE.               |

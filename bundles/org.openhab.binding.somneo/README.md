@@ -13,8 +13,8 @@ This binding does only support one Thing:
 The Philips Somneo thing requires the `hostname` it can connect to.
 Its API only allows HTTPS access, but unfortunately the SSL certificate is not trusted and must be ignored by the parameter.
 
-| Parameter                    | Values                                                      | Default |
-| ---------------------------- | ----------------------------------------------------------- | ------- |
+|          Parameter           |                           Values                            | Default |
+|------------------------------|-------------------------------------------------------------|---------|
 | hostname                     | Hostname or IP address of the device                        | -       |
 | port                         | Port number                                                 | 443     |
 | refreshInterval              | Interval the device is polled in sec                        | 30      |
@@ -23,8 +23,8 @@ Its API only allows HTTPS access, but unfortunately the SSL certificate is not t
 
 ## Channels
 
-| Channel                   | Type                 | Read/Write | Description                                             |
-| ------------------------- | -------------------- | ---------- | ------------------------------------------------------- |
+|          Channel          |         Type         | Read/Write |                       Description                       |
+|---------------------------|----------------------|------------|---------------------------------------------------------|
 | _Sensor_                  |                      |            |                                                         |
 | sensor#illuminance        | Number:Illuminance   | R          | The current illuminance in lux                          |
 | sensor#temperature        | Number:Temperature   | R          | The current temperature                                 |
@@ -127,6 +127,7 @@ Dimmer          PhilipsSomneo_Alarm1Volume              "Volume"                
 ```
 
 transform/somneorepeatday.js
+
 ```javascript
 (function(i) {
     if (i == 254) {
@@ -293,3 +294,4 @@ Thanks to:
 - [homebridge-somneo](https://github.com/zackwag/homebridge-somneo) - For creating a similar plugin in another platform and exposing endpoints for control.
 - [somneo-client](https://github.com/DonkerNet/somneo-client) - For creating a similar plugin in another platform and exposing endpoints for control.
 - HTTP Binding and other OpenHAB addons - Which was used as examples.
+

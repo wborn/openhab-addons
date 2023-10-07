@@ -1,9 +1,8 @@
 # NibeGW Hardware and Compiling hints
 
-
 ## RS-485 Modules
 
-For settting up a NibeGW you need a RS485 module. 
+For settting up a NibeGW you need a RS485 module.
 While ProDiNo already have RS-485 support included, you need a separate module for Arduino Uno.
 Most cheap modules out there are compatible with 5V voltage and therefore compatible with Arduino based hardware.
 Mostly you will get one of two commonly used designs:
@@ -18,23 +17,22 @@ That is why you need an extra "direction pin" on the Arduino to switch the modul
 #### Wiring diagram for Max1348 based modules:
 
 ```
- TX  RX   5V  GND    Arduino
- |   |    |    |
- |   |    |    |
- |   |    |    |
- RX  TX  VCC  GND    Max1348 based module
+TX  RX   5V  GND    Arduino
+|   |    |    |
+|   |    |    |
+|   |    |    |
+RX  TX  VCC  GND    Max1348 based module
 ```
 
 #### Wiring diagram for Max485 (PIN2 is used as direction pin here):
 
 ```
- TX  RX  PIN2      5V  GND    Arduino
- |   |    |        |    |
- |   |    |        |    |
- |   |    |---|    |    |
- DI  RO   DE  RE  VCC  GND    Max485 bases module
+TX  RX  PIN2      5V  GND    Arduino
+|   |    |        |    |
+|   |    |        |    |
+|   |    |---|    |    |
+DI  RO   DE  RE  VCC  GND    Max485 bases module
 ```
-
 
 ## Ethernet Shield W5100
 
@@ -45,10 +43,9 @@ No special configuration is needed, NibeGW supports this shield out of the box.
 ProDiNo already have Ethernet included, so there's no need for a separate Ethernet Shield.
 Also the ProDiNo Ethernet is supported by NibeGW out of the box.
 
-
 ## Arduino Uno
 
-Arduino Uno has only one serial port which is shared with USB. 
+Arduino Uno has only one serial port which is shared with USB.
 So make sure to disconnect all hardware (ethernet shield, RS485 module, etc.) while uploading the compiled sketch to the Arduino.
 Furthermore do not use the USB port while Arduino is communicating with the Nibe heatpump.
 
@@ -83,15 +80,13 @@ Enable support for HARDWARE_SERIAL:
 #define HARDWARE_SERIAL
 ```
 
-##  ProDiNo ESP32 Ethernet v1 
+## ProDiNo ESP32 Ethernet v1
 
 Todo
-
 
 ## ProDiNo Ethernet V2
 
 Todo
-
 
 ## Debugging
 

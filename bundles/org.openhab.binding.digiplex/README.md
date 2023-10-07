@@ -44,17 +44,17 @@ Controls how often area status is refreshed from the alarm system.
 
 The table below summarizes all the channels available from the `PTR3 Module` thing.
 
-| Channel            | Description                                                             |
-|--------------------|-------------------------------------------------------------------------|
-| messages_sent      | Counts the number of messages sent to the module                        |
-| responses_received | Counts the number of responses received from the module                 |
-| events_received    | Counts the number of events received from the module                    |
+|      Channel       |                       Description                       |
+|--------------------|---------------------------------------------------------|
+| messages_sent      | Counts the number of messages sent to the module        |
+| responses_received | Counts the number of responses received from the module |
+| events_received    | Counts the number of events received from the module    |
 
 ### Zone Channels
 
 The table below summarizes all the channels available from the `zone` thing.
 
-| Channel          | Description                                                             |
+|     Channel      |                               Description                               |
 |------------------|-------------------------------------------------------------------------|
 | status           | Simple zone status (open/closed)                                        |
 | extended_status  | Extended zone status as a String (Open/Closed/Tampered/Fire Loop Alarm) |
@@ -67,24 +67,24 @@ The table below summarizes all the channels available from the `zone` thing.
 
 The table below summarizes all the channels available from the `area` thing.
 
-| Channel          | Description                                                                       |
-|------------------|-----------------------------------------------------------------------------------|
-| status           | Area status available as a String                                                 |
-| armed            | Simple (open/closed) information whether zone is armed                            |
-| zone_in_memory   | Information whether there are zones in the memory (after alarm has been triggered |
-| trouble          | Information whether some of the zones are in 'trouble' (malfunctioning)           |
-| ready            | Information whether area is ready (no open zones)                                 |
-| in_programming   | Checks for programming mode enabled                                               |
-| alarm            | Information whether area is in alarm                                              |
-| strobe           | Information whether area is in strobe alarm                                       |
-| control          | Channel for controlling area                                                      |
+|    Channel     |                                    Description                                    |
+|----------------|-----------------------------------------------------------------------------------|
+| status         | Area status available as a String                                                 |
+| armed          | Simple (open/closed) information whether zone is armed                            |
+| zone_in_memory | Information whether there are zones in the memory (after alarm has been triggered |
+| trouble        | Information whether some of the zones are in 'trouble' (malfunctioning)           |
+| ready          | Information whether area is ready (no open zones)                                 |
+| in_programming | Checks for programming mode enabled                                               |
+| alarm          | Information whether area is in alarm                                              |
+| strobe         | Information whether area is in strobe alarm                                       |
+| control        | Channel for controlling area                                                      |
 
 User is able to send commands through `control` channel to arm/quick arm/disarm the zone.
 Every sent message is followed by the channel state change to either `Ok` or `Failed` depending whether command has been accepted by the alarm system.
 Note that PRT3 module is capable of handling more kinds of messages, but those are not yet supported by this binding.
 Message format is as follows:
 
-| Command           | String sent to the `control` channel |
+|      Command      | String sent to the `control` channel |
 |-------------------|--------------------------------------|
 | Regular Arm       | AA`<pin>`                            |
 | Force Arm         | AF`<pin>`                            |
@@ -107,3 +107,4 @@ For example, the following sitemap item can be used to send commands to the area
 ```java
 Switch item=areaControl label="Actions[]" mappings=[QA="Regular Quick Arm",QS="Stay Quick Arm",D1111="Disarm"] labelcolor=[Ok="green",Fail="red"]
 ```
+

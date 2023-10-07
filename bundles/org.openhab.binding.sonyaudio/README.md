@@ -36,8 +36,8 @@ Thing sonyaudio:HT-ST5000:1 [ipAddress="192.168.123.123", port=10000, path="/son
 
 The devices support the following channels:
 
-| Channel Type ID            | Item Type | Access Mode | Description                                                                           | Thing types                                            |
-| -------------------------- | --------- | ----------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+|      Channel Type ID       | Item Type | Access Mode |                                      Description                                      |                      Thing types                       |
+|----------------------------|-----------|-------------|---------------------------------------------------------------------------------------|--------------------------------------------------------|
 | power                      | Switch    | RW          | Main power on/off                                                                     | HT-CT800, SRS-ZR5, HT-ST5000, HT-ZF9, HT-Z9F, HT-MT500 |
 | input                      | String    | RW          | Set or get the input source                                                           | HT-CT800, SRS-ZR5, HT-ST5000, HT-ZF9, HT-Z9F, HT-MT500 |
 | volume                     | Dimmer    | RW          | Set or get the master volume                                                          | HT-CT800, SRS-ZR5, HT-ST5000, HT-ZF9, HT-Z9F, HT-MT500 |
@@ -97,3 +97,4 @@ sitemap demo label="Main Menu" {
     }
 }
 ```
+

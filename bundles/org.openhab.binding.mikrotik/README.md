@@ -30,28 +30,28 @@ To do this, proceed to <kbd>System -> Users</kbd> configuration section and add 
 
 The RouterOS Bridge configuration parameters are:
 
-| Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| host | text | Yes | 192.168.88.1 | Hostname or IP address of the RouterOS device |
-| port | integer | No | 8728 | API Port number of the RouterOS device |
-| login | text | Yes | admin | The username to access the the RouterOS device |
-| password | text | Yes |  | The user password to access the RouterOS device |
-| refresh | integer | No | 10 | The refresh interval in seconds to poll the RouterOS device |
+|   Name   |  Type   | Required |   Default    |                         Description                         |
+|----------|---------|----------|--------------|-------------------------------------------------------------|
+| host     | text    | Yes      | 192.168.88.1 | Hostname or IP address of the RouterOS device               |
+| port     | integer | No       | 8728         | API Port number of the RouterOS device                      |
+| login    | text    | Yes      | admin        | The username to access the the RouterOS device              |
+| password | text    | Yes      |              | The user password to access the RouterOS device             |
+| refresh  | integer | No       | 10           | The refresh interval in seconds to poll the RouterOS device |
 
 **All things provided by this binding require a working bridge to be set up.**
 
 ### Bridge Channels
 
-| Channel | Type | Description | Comment |
-|---|---|---|---|
-| freeSpace | Number:DataAmount | Amount of free storage left on device in bytes |  |
-| totalSpace | Number:DataAmount | Amount of total storage available on device in bytes |  |
-| usedSpace | Number:Dimensionless | Percentage of used device storage space |  |
-| freeMemory | Number:DataAmount | Amount of free memory left on device in bytes |  |
-| totalMemory | Number:DataAmount | Amount of total memory available on device in bytes |  |
-| usedMemory | Number:Dimensionless | Percentage of used device memory |  |
-| cpuLoad | Number:Dimensionless | CPU load percentage |  |
-| upSince | DateTime | Time when thing got up |  |
+|   Channel   |         Type         |                     Description                      | Comment |
+|-------------|----------------------|------------------------------------------------------|---------|
+| freeSpace   | Number:DataAmount    | Amount of free storage left on device in bytes       |         |
+| totalSpace  | Number:DataAmount    | Amount of total storage available on device in bytes |         |
+| usedSpace   | Number:Dimensionless | Percentage of used device storage space              |         |
+| freeMemory  | Number:DataAmount    | Amount of free memory left on device in bytes        |         |
+| totalMemory | Number:DataAmount    | Amount of total memory available on device in bytes  |         |
+| usedMemory  | Number:Dimensionless | Percentage of used device memory                     |         |
+| cpuLoad     | Number:Dimensionless | CPU load percentage                                  |         |
+| upSince     | DateTime             | Time when thing got up                               |         |
 
 ## WiFi Client Thing Configuration
 
@@ -61,33 +61,33 @@ Represents a wireless client connected to a RouterOS wireless network (direct or
 
 The WiFi client thing configuration parameters are:
 
-| Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| mac | text | Yes |  | WiFi client MAC address |
-| ssid | text | No |  | Constraining SSID for the WiFi client (optional). If client will connect to another SSID, this thing will stay offline until client reconnects to specified SSID. |
-| considerContinuous | integer | No | 180 | The interval in seconds to treat the client as connected permanently |
+|        Name        |  Type   | Required | Default |                                                                            Description                                                                            |
+|--------------------|---------|----------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| mac                | text    | Yes      |         | WiFi client MAC address                                                                                                                                           |
+| ssid               | text    | No       |         | Constraining SSID for the WiFi client (optional). If client will connect to another SSID, this thing will stay offline until client reconnects to specified SSID. |
+| considerContinuous | integer | No       | 180     | The interval in seconds to treat the client as connected permanently                                                                                              |
 
 ### WiFi client Thing Channels
 
-| Channel | Type | Description | Comment |
-|---|---|---|---|
-| macAddress | String | MAC address of the client or interface |  |
-| comment | String | User-defined comment |  |
-| connected | Contact | Reflects connected or disconnected state |  |
-| continuous | Contact | Connection is considered long-running |  |
-| ssid | String | Wireless Network (SSID) the wireless client is connected to |  |
-| interface | String | Network interface name |  |
-| signal | system.signal-strength | Signal strength (RSSI) |  |
-| upSince | DateTime | Time when thing got up |  |
-| lastSeen | DateTime | Time of when the client was last seen connected |  |
-| txRate | Number:DataTransferRate | Rate of data transmission in megabits per second |  |
-| rxRate | Number:DataTransferRate | Rate of data receiving in megabits per second |  |
-| txPacketRate | Number | Rate of data transmission in packets per second |  |
-| rxPacketRate | Number | Rate of data receiving in packets per second |  |
-| txBytes | Number:DataAmount | Amount of bytes transmitted |  |
-| rxBytes | Number:DataAmount | Amount of bytes received |  |
-| txPackets | Number | Amount of packets transmitted |  |
-| rxPackets | Number | Amount of packets received |  |
+|   Channel    |          Type           |                         Description                         | Comment |
+|--------------|-------------------------|-------------------------------------------------------------|---------|
+| macAddress   | String                  | MAC address of the client or interface                      |         |
+| comment      | String                  | User-defined comment                                        |         |
+| connected    | Contact                 | Reflects connected or disconnected state                    |         |
+| continuous   | Contact                 | Connection is considered long-running                       |         |
+| ssid         | String                  | Wireless Network (SSID) the wireless client is connected to |         |
+| interface    | String                  | Network interface name                                      |         |
+| signal       | system.signal-strength  | Signal strength (RSSI)                                      |         |
+| upSince      | DateTime                | Time when thing got up                                      |         |
+| lastSeen     | DateTime                | Time of when the client was last seen connected             |         |
+| txRate       | Number:DataTransferRate | Rate of data transmission in megabits per second            |         |
+| rxRate       | Number:DataTransferRate | Rate of data receiving in megabits per second               |         |
+| txPacketRate | Number                  | Rate of data transmission in packets per second             |         |
+| rxPacketRate | Number                  | Rate of data receiving in packets per second                |         |
+| txBytes      | Number:DataAmount       | Amount of bytes transmitted                                 |         |
+| rxBytes      | Number:DataAmount       | Amount of bytes received                                    |         |
+| txPackets    | Number                  | Amount of packets transmitted                               |         |
+| rxPackets    | Number                  | Amount of packets received                                  |         |
 
 ## Network Interface Thing Configuration
 
@@ -110,9 +110,9 @@ The interface thing configuration parameters are:
 
 ### Interface Thing Configuration
 
-| Name | Type | Required | Default | Description |
-|---|---|---|---|---|
-| name | text | Yes |  | RouterOS Interface name (i.e. ether1) |
+| Name | Type | Required | Default |              Description              |
+|------|------|----------|---------|---------------------------------------|
+| name | text | Yes      |         | RouterOS Interface name (i.e. ether1) |
 
 ### Interface Thing Channels
 
@@ -122,35 +122,35 @@ be improved in future binding versions.
 
 Common for all kinds of interfaces:
 
-| Channel | Type | Description | Comment |
-|---|---|---|---|
-| type | String | Network interface type |  |
-| name | String | Network interface name |  |
-| comment | String | User-defined comment |  |
-| macAddress | String | MAC address of the client or interface |  |
-| enabled | Switch | Reflects enabled or disabled state |  |
-| connected | Contact | Reflects connected or disconnected state |  |
-| lastLinkDownTime | DateTime | Last time when link went down |  |
-| lastLinkUpTime | DateTime | Last time when link went up |  |
-| linkDowns | Number | Amount of link downs |  |
-| txRate | Number:DataTransferRate | Rate of data transmission in megabits per second |  |
-| rxRate | Number:DataTransferRate | Rate of data receiving in megabits per second |  |
-| txPacketRate | Number | Rate of data transmission in packets per second |  |
-| rxPacketRate | Number | Rate of data receiving in packets per second |  |
-| txBytes | Number:DataAmount | Amount of bytes transmitted |  |
-| rxBytes | Number:DataAmount | Amount of bytes received |  |
-| txPackets | Number | Amount of packets transmitted |  |
-| rxPackets | Number | Amount of packets received |  |
-| txDrops | Number | Amount of packets dropped during transmission |  |
-| rxDrops | Number | Amount of packets dropped during receiving |  |
-| txErrors | Number | Amount of errors during transmission |  |
-| rxErrors | Number | Amount of errors during receiving |  |
-| defaultName | String | Interface factory name | Populated only for `ether` interfaces |
-| rate | String | Ethernet link rate | Populated only for `ether` interfaces |
-| state | String | WiFi interface state |  |
-| registeredClients | Number | Amount of clients registered to WiFi interface | Populated only for `cap` interfaces |
-| authorizedClients | Number | Amount of clients authorized by WiFi interface | Populated only for `cap` interfaces |
-| upSince | DateTime | Time when thing got up | Populated only for `cap` interfaces |
+|      Channel      |          Type           |                   Description                    |                Comment                |
+|-------------------|-------------------------|--------------------------------------------------|---------------------------------------|
+| type              | String                  | Network interface type                           |                                       |
+| name              | String                  | Network interface name                           |                                       |
+| comment           | String                  | User-defined comment                             |                                       |
+| macAddress        | String                  | MAC address of the client or interface           |                                       |
+| enabled           | Switch                  | Reflects enabled or disabled state               |                                       |
+| connected         | Contact                 | Reflects connected or disconnected state         |                                       |
+| lastLinkDownTime  | DateTime                | Last time when link went down                    |                                       |
+| lastLinkUpTime    | DateTime                | Last time when link went up                      |                                       |
+| linkDowns         | Number                  | Amount of link downs                             |                                       |
+| txRate            | Number:DataTransferRate | Rate of data transmission in megabits per second |                                       |
+| rxRate            | Number:DataTransferRate | Rate of data receiving in megabits per second    |                                       |
+| txPacketRate      | Number                  | Rate of data transmission in packets per second  |                                       |
+| rxPacketRate      | Number                  | Rate of data receiving in packets per second     |                                       |
+| txBytes           | Number:DataAmount       | Amount of bytes transmitted                      |                                       |
+| rxBytes           | Number:DataAmount       | Amount of bytes received                         |                                       |
+| txPackets         | Number                  | Amount of packets transmitted                    |                                       |
+| rxPackets         | Number                  | Amount of packets received                       |                                       |
+| txDrops           | Number                  | Amount of packets dropped during transmission    |                                       |
+| rxDrops           | Number                  | Amount of packets dropped during receiving       |                                       |
+| txErrors          | Number                  | Amount of errors during transmission             |                                       |
+| rxErrors          | Number                  | Amount of errors during receiving                |                                       |
+| defaultName       | String                  | Interface factory name                           | Populated only for `ether` interfaces |
+| rate              | String                  | Ethernet link rate                               | Populated only for `ether` interfaces |
+| state             | String                  | WiFi interface state                             |                                       |
+| registeredClients | Number                  | Amount of clients registered to WiFi interface   | Populated only for `cap` interfaces   |
+| authorizedClients | Number                  | Amount of clients authorized by WiFi interface   | Populated only for `cap` interfaces   |
+| upSince           | DateTime                | Time when thing got up                           | Populated only for `cap` interfaces   |
 
 ## Text Configuration Example
 
@@ -368,3 +368,4 @@ sitemap mikrotik label="Mikrotik Binding Demo"
  }
 }
 ```
+

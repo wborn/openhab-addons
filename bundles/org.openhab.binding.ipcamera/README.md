@@ -13,7 +13,7 @@ To see what features each brand has implemented from their APIs, please see this
 - Check this readme for any setup steps for your brand.
 - Check if the camera is offline, if so there will be a reason listed.
 - Always look at the log files with TRACE enabled, as any FFmpeg and camera errors may not reach the INFO logs.
-To enable TRACE logging, enter this in the openHAB console `log:set TRACE org.openhab.binding.ipcamera`.
+  To enable TRACE logging, enter this in the openHAB console `log:set TRACE org.openhab.binding.ipcamera`.
 - Search the forum using any log messages to find how others have already solved it.
 - Only after doing the above ask for help in the forum and create a new thread.
 
@@ -73,8 +73,8 @@ As each Foscam model has a different resolution and two different URLs, this mak
 This setting is called `customMotionAlarmUrl` and the steps to using it are:
 
 1. Enable the motion alarm in the web interface of your camera and setup any areas you wish movement to be ignored in. E.g. tree branches moving in the wind.
-1. Use any web browser to fetch this URL `https://x.x.x.x/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig1&usr=xxxxx&pwd=xxxxx`
-1. Use the information returned by the above URL to create the override settings.
+2. Use any web browser to fetch this URL `https://x.x.x.x/cgi-bin/CGIProxy.fcgi?cmd=getMotionDetectConfig1&usr=xxxxx&pwd=xxxxx`
+3. Use the information returned by the above URL to create the override settings.
 
 An example for a Foscam C2 is...
 
@@ -92,7 +92,7 @@ Another example is:
 
 - For MJPEG to work, you need to set the first sub-stream to be in MJPEG format, otherwise you can override the default with the `mjpegUrl` config with a valid URL for MJPEG streams.
 - The CGI/API and also ONVIF features are disabled by default on these cameras, so enable and create user details for ONVIF that are the same user/pass as what you have given the binding.
-If your camera does not have PTZ (Pan Tilt Zoom) then you can leave ONVIF disabled and just enable the CGI/API.
+  If your camera does not have PTZ (Pan Tilt Zoom) then you can leave ONVIF disabled and just enable the CGI/API.
 - Each alarm you wish to use must have `Notify Surveillance Center` enabled under each alarms settings in the control panel of the camera itself.
 
 ### Hikvision NVRs
@@ -282,7 +282,7 @@ To move a camera with this binding you need an ONVIF camera that supports one of
 
 - Absolute movements
 - Relative movements
-- Continuous movements  
+- Continuous movements
 - Presets
 
 To test your cameras compatibility and also to create some preset locations, use a free program called `ONVIF Device Manager` (ODM for short).
@@ -352,11 +352,11 @@ To get this working:
 - Provide a URL to the bindings config `alarmInputUrl` or leave it blank to use the auto detected URL if your camera has ONVIF.
 - Install FFmpeg.
 - You have the resolution and FPS at realistic settings for your CPU. You need to reach 1.x speed otherwise the alarm will lag further behind realtime the longer you have this running.
-1080p and 10 fps maximum for an ARM processor is probably a good place to start testing or even lower if you can.
+  1080p and 10 fps maximum for an ARM processor is probably a good place to start testing or even lower if you can.
 - Set the `ffmpegMotionControl` channel to 16 with a slider control and if the alarm stays on increase the value until it works as desired.
-If it will not trigger, lower the control until it does.
+  If it will not trigger, lower the control until it does.
 - Set the `ffmpegMotionControl` to OFF or 0 and it stops using your CPU.
-You can link this same channel to BOTH a switch and a slider at the same time if you like to have both types of controls.
+  You can link this same channel to BOTH a switch and a slider at the same time if you like to have both types of controls.
 - The output of the alarm will go to a channel called `ffmpegMotionAlarm` and you can use the `lastMotionType` channel to determine which alarm was last tripped if your camera has multiple alarm types.
 
 ### audioAlarm
@@ -372,18 +372,18 @@ There are a number of ways to use snapshots with this binding.
 **Ways to use snapshots are:**
 
 - Use the cameras URL so it passes from the camera directly to your end device. ie a tablet.
-This is always the best option if it works.
+  This is always the best option if it works.
 - Request a snapshot with the URL `http://openhabIP:8080/ipcamera/{cameraUID}/ipcamera.jpg`.
-The IP is for your openHAB server not the camera.
-If you find the snapshot is old, you can set the `gifPreroll` to a number above 0 and this forces the camera to keep updating the stored JPG in RAM.
-The ipcamera.jpg can also be cast, as most cameras can not directly cast their snapshots.
+  The IP is for your openHAB server not the camera.
+  If you find the snapshot is old, you can set the `gifPreroll` to a number above 0 and this forces the camera to keep updating the stored JPG in RAM.
+  The ipcamera.jpg can also be cast, as most cameras can not directly cast their snapshots.
 - Use the `http://openHAB:8080/ipcamera/{cameraUID}/snapshots.mjpeg` to request a stream of snapshots to be delivered in MJPEG format.
 - Use the record GIF action and use a `gifPreroll` value > 0.
-This creates a number of snapshots in the FFmpeg output folder called snapshotXXX.jpg where XXX starts at 0 and increases each `pollTime`.
-This allows you to get a snapshot from an exact amount of time before, on, or after starting the record to GIF action.
-Handy for cameras which lag due to slow processors, or if you do not want a hand blocking the image when the door bell was pushed.
-These snapshots can be fetched either directly as they exist on disk, or via this URL format.
-`http://openHAB:8080/ipcamera/{cameraUID}/snapshot0.jpg`
+  This creates a number of snapshots in the FFmpeg output folder called snapshotXXX.jpg where XXX starts at 0 and increases each `pollTime`.
+  This allows you to get a snapshot from an exact amount of time before, on, or after starting the record to GIF action.
+  Handy for cameras which lag due to slow processors, or if you do not want a hand blocking the image when the door bell was pushed.
+  These snapshots can be fetched either directly as they exist on disk, or via this URL format.
+  `http://openHAB:8080/ipcamera/{cameraUID}/snapshot0.jpg`
 - Also worth a mention is that you can off load cameras to a software package running on a separate server such as, Motion, Shinobi and Zoneminder.
 
 See this forum thread for examples of how to use snapshots and streams in a sitemap.
@@ -411,19 +411,19 @@ If you prefer to use your own firewall instead, you can also choose to make the 
 There are multiple ways to get a moving picture, to use them just enter the URL into any browser using `http://openHAB:8080/ipcamera/{cameraUID}/name.format` replacing the name.format with one of the options that are listed below:
 
 - **ipcamera.m3u8** HLS (HTTP Live Streaming) which uses H.264 compression.
-This can be used to cast to Chromecast devices, or can display video in many browsers (some browsers require a plugin to be installed).
-Please understand that this format due to the way it works will give you lag behind real time, more on this below.
+  This can be used to cast to Chromecast devices, or can display video in many browsers (some browsers require a plugin to be installed).
+  Please understand that this format due to the way it works will give you lag behind real time, more on this below.
 - **ipcamera.mjpeg** whilst needing more bandwidth, it is far more compatible for displaying in a wider range of UIs and browsers.
-It is normally 1 second or less behind real-time.
-FFmpeg can be used to create this stream if your camera does not create one for you, but this uses more CPU.
-A lot of cameras limit the resolution in this format, so consider using HLS, autofps.mjpeg, or snapshots.mjpeg instead which will be in a higher resolution.
+  It is normally 1 second or less behind real-time.
+  FFmpeg can be used to create this stream if your camera does not create one for you, but this uses more CPU.
+  A lot of cameras limit the resolution in this format, so consider using HLS, autofps.mjpeg, or snapshots.mjpeg instead which will be in a higher resolution.
 - **snapshots.mjpeg** is a special MJPEG stream created from the cameras snapshots that are taken at the polling rate.
 - **autofps.mjpeg** This requires a camera that has a motion alarm to be turned on or it will only send a picture every 8 seconds.
-You can also use the `externalMotion` channel to change the framerate.
-This feature is designed to keep data traffic to your mobile devices as low as possible by automatically sending 1fps when motion is occurring, but only 1 picture every 8 seconds when the picture has no motion.
-The idea is to not send lots of pictures if the picture has not changed as doing so only eats up your data plan.
+  You can also use the `externalMotion` channel to change the framerate.
+  This feature is designed to keep data traffic to your mobile devices as low as possible by automatically sending 1fps when motion is occurring, but only 1 picture every 8 seconds when the picture has no motion.
+  The idea is to not send lots of pictures if the picture has not changed as doing so only eats up your data plan.
 - **ipcamera.gif** This is small in size and very compatible and handy to use in push notifications, Pushover, Telegram, or emails.
-You can cast it which can be handy to show a moving picture that keeps repeating on a Google/Nest home hub or your wall mounted tablet.
+  You can cast it which can be handy to show a moving picture that keeps repeating on a Google/Nest home hub or your wall mounted tablet.
 - MP4 recordings can be created by the binding and FFmpeg, more on this below.
 
 ## MJPEG Streams
@@ -592,7 +592,7 @@ Webview url="http://192.168.6.4:8080/static/html/file.html" height=5
 There are two ways to cast a camera.
 
 1. openHAB Cloud Connector and using metadata/tags.
-1. Chromecast Bindings `playuri` channel.
+2. Chromecast Bindings `playuri` channel.
 
 The first method once setup allows you to ask "OK Google show X camera", or "OK Google show X camera on Y display".
 By optionally naming the display that you wish to use, it can be cast directly to your Chromecast (connected to your TV) by speaking to a Google Nest Mini.
@@ -633,7 +633,7 @@ The steps to do this are:
 - Once the file is created, the channel `recordingMp4` or `recordingGif` will change itself back to `0`, which can be used to trigger a rule to send/use the file which will appear in the `ffmpegOutput` folder.
 - The channel `mp4History` or `gifHistory` keeps a string of the last 50 filenames (comma separated values CSV) until you reset the history. If you use `ipcamera` as the filename, this stops the history from growing.
 - The channel `mp4HistoryLength` and `gifHistoryLength` keeps track of how many recordings were made since it was last reset.
-You can send the `0` command to this channel to clear the `mp4History` at the same time as setting this channel back to 0.
+  You can send the `0` command to this channel to clear the `mp4History` at the same time as setting this channel back to 0.
 - You can use the `mp4OutOptions` or `gifOutOptions` config's to apply any FFmpeg filters that you wish.
 
 There is also a HABpanel Widget worth checking out that uses the history feature to display a list of recent recordings.
@@ -699,7 +699,7 @@ The display order can be allowed to change if one or more of the cameras detects
 Some additional checks to get it working are:
 
 - If using the groups HLS feature, the poll time of the group must be the same or less than the total time contained in each cameras m3u8 file.
-If you have 3 seconds worth of video segments in each cameras HLS stream, this is the max you can set the poll time of the group to.
+  If you have 3 seconds worth of video segments in each cameras HLS stream, this is the max you can set the poll time of the group to.
 - All cameras in a group should have the same HLS segment size setting, 1 and 2 second long segments have been tested to work.
 - Mixing cameras with different aspect ratios may cause issues when cast.
 - The HLS files need to remain on disk for the number of cameras X pollTime, use the `-hls_delete_threshold` ffmpeg option to control this.
@@ -732,3 +732,4 @@ If you use the `Create Equipment from Thing` feature to auto create your items, 
     }  
 
 ```
+

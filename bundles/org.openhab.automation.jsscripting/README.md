@@ -117,7 +117,7 @@ When you use "Item event" as trigger (i.e. "[item] received a command", "[item] 
 
 This table gives an overview over the `event` object for most common trigger types:
 
-| Property Name  | Type                                                                                                                 | Trigger Types                          | Description                                                                                                   | Rules DSL Equivalent   |
+| Property Name  |                                                         Type                                                         |             Trigger Types              |                                                  Description                                                  |  Rules DSL Equivalent  |
 |----------------|----------------------------------------------------------------------------------------------------------------------|----------------------------------------|---------------------------------------------------------------------------------------------------------------|------------------------|
 | `itemState`    | sub-class of [org.openhab.core.types.State](https://www.openhab.org/javadoc/latest/org/openhab/core/types/state)     | `[item] changed`, `[item] was updated` | State that triggered event                                                                                    | `triggeringItem.state` |
 | `oldItemState` | sub-class of [org.openhab.core.types.State](https://www.openhab.org/javadoc/latest/org/openhab/core/types/state)     | `[item] changed`                       | Previous state of Item or Group that triggered event                                                          | `previousState`        |
@@ -321,7 +321,6 @@ Use JavaScript Scripting as script transformation by:
      return "String has" + data.length + "characters";
    })(input);
    ```
-
 2. Using `JS(<scriptname>.js):%s` as Item state transformation.
 3. Passing parameters is also possible by using a URL like syntax: `JS(<scriptname>.js?arg=value)`.
    Parameters are injected into the script and can be referenced like variables.
@@ -648,7 +647,6 @@ actions.ScriptExecution.createTimer(string identifier, time.ZonedDateTime instan
 - `hasTerminated()`: Whether the scheduled execution has already terminated. ⇒ `boolean`
 - `reschedule(time.ZonedDateTime)`: Reschedules a timer to a new starting time. This can also be called after a timer has terminated, which will result in another execution of the same code. ⇒ `boolean`: true, if rescheduling was successful
 
-
 ```javascript
 var now = time.ZonedDateTime.now();
 
@@ -790,7 +788,7 @@ There will be times when this automatic conversion is not available (for example
 To ease having to deal with these cases a `time.toZDT()` function will accept almost any type that can be converted to a `time.ZonedDateTime`.
 The following rules are used during the conversion:
 
-| Argument Type                                                                | Rule                                                                                                            | Examples                                                                               |
+|                                Argument Type                                 |                                                      Rule                                                       |                                        Examples                                        |
 |------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------|
 | `null` or `undefined`                                                        | `time.ZonedDateTime.now()`                                                                                      | `time.toZDT();`                                                                        |
 | `time.ZonedDateTime`                                                         | passed through unmodified                                                                                       |                                                                                        |
@@ -1237,7 +1235,7 @@ The `event` object provides some information about that trigger.
 
 This table gives an overview over the `event` object:
 
-| Property Name     | Trigger Types                                        | Description                                                             | Rules DSL Equivalent   |
+|   Property Name   |                    Trigger Types                     |                               Description                               |  Rules DSL Equivalent  |
 |-------------------|------------------------------------------------------|-------------------------------------------------------------------------|------------------------|
 | `oldState`        | `ItemStateChangeTrigger`, `GroupStateChangeTrigger`  | Previous state of Item or Group that triggered event                    | `previousState`        |
 | `newState`        | `ItemStateChangeTrigger`, `GroupStateChangeTrigger`  | New state of Item or Group that triggered event                         | N/A                    |
@@ -1297,13 +1295,12 @@ Follow these steps to create your own library (it's called a CommonJS module):
    function someFunction () {
      console.log('Hello from your personal library!');
    }
-   
+
    module.exports = {
      someProperty,
      someFunction
    };
    ```
-
 4. Tar it up by running `npm pack` from your library's folder.
 5. Install it by running `npm install <name>-<version>.tgz` from the `automation/js` folder.
 6. After you've installed it with `npm`, you can continue development of the library inside `node_modules`.
@@ -1327,7 +1324,7 @@ var { ON, OFF, QuantityType } = require("@runtime");
 // var QuantityType = runtime.QuantityType;
 ```
 
-| Variable                | Description                                                                                                                                           |
+|        Variable         |                                                                      Description                                                                      |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `State`                 | [`org.openhab.core.types.State`](https://www.openhab.org/javadoc/latest/org/openhab/core/types/state)                                                 |
 | `Command`               | [`org.openhab.core.types.Command`](https://www.openhab.org/javadoc/latest/org/openhab/core/types/command)                                             |

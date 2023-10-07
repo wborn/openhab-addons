@@ -16,7 +16,7 @@ You can reach it via [https://pushover.net/apps/clone/openHAB](https://pushover.
 
 ## Thing Configuration
 
-| Configuration Parameter | Type    | Description                                                                                                                                                                                                                                                                                                   |
+| Configuration Parameter |  Type   |                                                                                                                                                  Description                                                                                                                                                  |
 |-------------------------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `apikey`                | text    | Your API token / key (APP_TOKEN) to access the Pushover Message API. **mandatory**                                                                                                                                                                                                                            |
 | `user`                  | text    | Your user key or group key (USER_KEY) to which you want to push notifications. **mandatory**                                                                                                                                                                                                                  |
@@ -102,3 +102,4 @@ if( receipt !== null ) {
     receipt = null
 }
 ```
+

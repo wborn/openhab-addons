@@ -1,7 +1,7 @@
 # WiFi LED Binding
 
 This binding is used to control LED strips connected by WiFi.
-These devices are sold with different names, i.e. Magic Home LED, UFO LED, LED NET controller, etc.  
+These devices are sold with different names, i.e. Magic Home LED, UFO LED, LED NET controller, etc.
 
 ## Supported Things
 
@@ -39,7 +39,7 @@ You can choose between two drivers with different functionality:
 | Driver  | Supports Color Fading | Supports Programs | Polls LED State |
 |---------|:---------------------:|:-----------------:|:---------------:|
 | CLASSIC |                       |         ✓         |        ✓        |
-| FADING  |            ✓          |                   |                 |
+| FADING  |           ✓           |                   |                 |
 
 While the CLASSIC driver lets you choose and run device internal programs (e.g. alternating blue),
 all normal operations (e.g. turn on or off, switch color, etc.) are performed immediately and
@@ -61,7 +61,7 @@ Make sure that the device protocol matches your device type.
 
 ## Channels
 
-| Channel Type ID | Item Type | Description                                                            | Access |
+| Channel Type ID | Item Type |                              Description                               | Access |
 |-----------------|-----------|------------------------------------------------------------------------|--------|
 | power           | Switch    | Power state of the LEDs (ON/OFF)                                       | R/W    |
 | color           | Color     | Color of the RGB LEDs                                                  | R/W    |
@@ -365,3 +365,4 @@ then
     LED_1_preset_23.sendCommand(OFF)
 end
 ```
+

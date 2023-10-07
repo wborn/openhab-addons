@@ -10,8 +10,8 @@ The binding support three types of things: `localfolder`, `ftpfolder` and `s3buc
 
 The `localfolder` thing has the following configuration options:
 
-| Parameter          | Name                        | Description                         | Required | Default value |
-| ------------------ | --------------------------- | ----------------------------------- | -------- | ------------- |
+|     Parameter      |            Name             |             Description             | Required | Default value |
+|--------------------|-----------------------------|-------------------------------------|----------|---------------|
 | localDir           | Local Directory             | Local directory to be watched       | yes      | n/a           |
 | listHiddenLocal    | List Hidden                 | Allow listing of hidden files       | yes      | No            |
 | pollIntervalLocal  | Polling interval in seconds | Interval for polling folder changes | yes      | 60            |
@@ -19,8 +19,8 @@ The `localfolder` thing has the following configuration options:
 
 The `ftpfolder` thing has the following configuration options:
 
-| Parameter         | Name                           | Description                         | Required | Default value |
-| ----------------- | ------------------------------ | ----------------------------------- | -------- | ------------- |
+|     Parameter     |              Name              |             Description             | Required | Default value |
+|-------------------|--------------------------------|-------------------------------------|----------|---------------|
 | ftpAddress        | FTP server                     | IP address of FTP server            | yes      | n/a           |
 | ftpPort           | FTP port                       | Port of FTP server                  | yes      | 21            |
 | secureMode        | FTP Security                   | FTP Security                        | yes      | None          |
@@ -35,7 +35,7 @@ The `ftpfolder` thing has the following configuration options:
 
 The `s3bucket` thing has the following configuration options:
 
-| Parameter      | Name                 | Description                                        | Required | Default value |
+|   Parameter    |         Name         |                    Description                     | Required | Default value |
 |----------------|----------------------|----------------------------------------------------|----------|---------------|
 | s3BucketName   | S3 Bucket Name       | Name of the S3 bucket to be watched                | yes      | n/a           |
 | s3Path         | S3 Path              | S3 path (folder) to be monitored                   | no       | n/a           |
@@ -44,11 +44,12 @@ The `s3bucket` thing has the following configuration options:
 | awsSecret      | AWS Secret           | AWS secret                                         | no       | n/a           |
 | awsRegion      | AWS Region           | AWS region of S3 bucket                            | yes      | ""            |
 | s3Anonymous    | Anonymous Connection | Connect anonymously (works for public buckets)     | yes      | true          |
+
 ## Events
 
 This binding supports the following event:
 
-| Channel Type ID | Item Type | Description                |
+| Channel Type ID | Item Type |        Description         |
 |-----------------|-----------|----------------------------|
 | newfile         | String    | A new file name discovered |
 
@@ -97,3 +98,4 @@ then
     logInfo("NewS3File", receivedEvent.toString())
 end
 ```
+

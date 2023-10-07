@@ -25,13 +25,13 @@ Then each `Bridge` can define as many `Query` things that you want to execute.
 
 Defines a connection to an Influx2 database and allows creating queries on it.
 
-| Parameter    | Required | Description                               |
-|--------------|----------|-----------------------------------------  |
-| url          | Yes      | database url                              |
-| user         | Yes      | name of the database user                 |
+|  Parameter   | Required |                                                                    Description                                                                    |
+|--------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| url          | Yes      | database url                                                                                                                                      |
+| user         | Yes      | name of the database user                                                                                                                         |
 | token        | Yes      | token to authenticate to the database  ([Intructions about how to create one](https://v2.docs.influxdata.com/v2.0/security/tokens/create-token/)) |
-| organization | Yes      | database organization name                |
-| bucket       | Yes      | database bucket name                      |
+| organization | Yes      | database organization name                                                                                                                        |
+| bucket       | Yes      | database bucket name                                                                                                                              |
 
 ### query
 
@@ -41,18 +41,18 @@ The `Query` thing defines a native query that provides several channels that you
 
 The query items support the following parameters:
 
-| Parameter    | Required | Default  | Description                                                           |
-|--------------|----------|----------|-----------------------------------------------------------------------|
-| query        | true     |          | Query string in native syntax                                         |
-| interval     | false    | 0        | Interval in seconds in which the query is automatically executed      |
-| hasParameters| false    | false    | True if the query has parameters, false otherwise                     |
-| timeout      | false    | 0        | Query execution timeout in seconds                                    |
-| scalarResult | false    | true     | If query always returns a single value or not                         |
-| scalarColumn | false    |          | In case of multiple columns, it indicates which to use for scalarResult|
+|   Parameter   | Required | Default |                               Description                               |
+|---------------|----------|---------|-------------------------------------------------------------------------|
+| query         | true     |         | Query string in native syntax                                           |
+| interval      | false    | 0       | Interval in seconds in which the query is automatically executed        |
+| hasParameters | false    | false   | True if the query has parameters, false otherwise                       |
+| timeout       | false    | 0       | Query execution timeout in seconds                                      |
+| scalarResult  | false    | true    | If query always returns a single value or not                           |
+| scalarColumn  | false    |         | In case of multiple columns, it indicates which to use for scalarResult |
 
 These are described further in the following subsections.
 
-##### query  
+##### query
 
 The query the items represents in the native language of your database:
 
@@ -62,8 +62,8 @@ The query the items represents in the native language of your database:
 
 If `hasParameters=true` you can use parameters in the query string that can be dynamically set with the `setQueryParameters` action.
 
- For InfluxDB use the `${paramName}` syntax for each parameter, and keep in mind that the values from that parameters must be from a trusted source as current
- parameter substitution is subject to query injection attacks.
+For InfluxDB use the `${paramName}` syntax for each parameter, and keep in mind that the values from that parameters must be from a trusted source as current
+parameter substitution is subject to query injection attacks.
 
 #### timeout
 
@@ -84,16 +84,16 @@ In case `scalarResult` is `true` and the select returns multiple columns you can
 
 Query items offer the following channels to be able to query / bind them to items:
 
-| Channel Type ID | Item Type | Description                                                                                                                        |
-|-----------------|-----------|------------------------------------------------------------------------------------------------------------------------------------|
-| execute         | Switch    | Send `ON` to execute the query manually. It also indicates if query is currently running (`ON`) or not running (`OFF`)          |
-| resultString    | String    | Result of last executed query as a String |
-| resultNumber    | Number    | Result of last executed query as a Number, query must have `scalarResult=true` |
-| resultDateTime  | DateTime  | Result of last executed query as a DateTime, query must have `scalarResult=true` |
-| resultContact   | Contact   | Result of last executed query as Contact, query must have `scalarResult=true` |
-| resultSwitch    | Switch    | Result of last executed query as Switch, query must have `scalarResult=true` |
-| parameters      | String    | Contains parameters of last executed query as JSON|
-| correct         | Switch    | `ON` if the last executed query completed successfully, `OFF` if the query failed.|
+| Channel Type ID | Item Type |                                                      Description                                                       |
+|-----------------|-----------|------------------------------------------------------------------------------------------------------------------------|
+| execute         | Switch    | Send `ON` to execute the query manually. It also indicates if query is currently running (`ON`) or not running (`OFF`) |
+| resultString    | String    | Result of last executed query as a String                                                                              |
+| resultNumber    | Number    | Result of last executed query as a Number, query must have `scalarResult=true`                                         |
+| resultDateTime  | DateTime  | Result of last executed query as a DateTime, query must have `scalarResult=true`                                       |
+| resultContact   | Contact   | Result of last executed query as Contact, query must have `scalarResult=true`                                          |
+| resultSwitch    | Switch    | Result of last executed query as Switch, query must have `scalarResult=true`                                           |
+| parameters      | String    | Contains parameters of last executed query as JSON                                                                     |
+| correct         | Switch    | `ON` if the last executed query completed successfully, `OFF` if the query failed.                                     |
 
 All the channels, except `execute`, are updated when the query execution finishes, and while there is a query in execution they have the values from
 last previous executed query.
@@ -120,7 +120,7 @@ The `resultString` channel is the only valid one if `scalarResult=false`, and in
 
 Triggers when there's a need to calculate parameters before query execution.
 When a query has `hasParameters=true` it fires the `calculateParameters` channel trigger and pauses the execution until `setQueryParameters` action is call in
- that query.
+that query.
 
 In the case a query has parameters, it's expected that there is a rule that catches the `calculateParameters` trigger, calculate the parameters with the corresponding logic and then calls the `setQueryParameters` action, after that the query will be executed.
 
@@ -141,7 +141,7 @@ To execute the action you need to pass the following parameters:
 And it returns an `ActionQueryResult` that has the following properties:
 
 - correct (boolean) : True if the query was executed correctly, false otherwise
-- data (List<Map<String,Object>>): A list where each element is a row that is stored in a map with (columnName,value) entries  
+- data (List<Map<String,Object>>): A list where each element is a row that is stored in a map with (columnName,value) entries
 - isScalarResult: It returns if the result is scalar one (only one row with one column)
 - resultAsScalar: It returns the result as a scalar if possible, if not returns null
 
@@ -217,3 +217,4 @@ map = {"time" : "-2h"}
 dbquery = actions.get("dbquery","dbquery:query:myquery")   
 dbquery.setQueryParameters(map)
 ```
+

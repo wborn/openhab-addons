@@ -6,9 +6,9 @@ This extension adds support for [Blukii](https://www.blukii.com/) Sensor Beacons
 
 Only a single thing type is added by this extension:
 
-| Thing Type ID | Description                                     |
-|---------------|-------------------------------------------------|
-| blukii_beacon | A Blukii Sensor Beacon                          |
+| Thing Type ID |      Description       |
+|---------------|------------------------|
+| blukii_beacon | A Blukii Sensor Beacon |
 
 ## Discovery
 
@@ -22,15 +22,15 @@ There is only a single configuration parameter `address`, which corresponds to t
 
 A Blukii Smart Beacon has the following channels:
 
-| Channel ID    | Item Type              | Description                        |
-|---------------|------------------------|------------------------------------|
-| temperature   | Number:Temperature     | The measured temperature           |
-| humidity      | Number:Dimensionless   | The measured humidity              |
-| pressure      | Number:Pressure        | The measured air pressure          |
-| luminance     | Number:Illuminance     | The measured brightness            |
-| tiltx         | Number:Angle           | The tilt (x-axis)                  |
-| titly         | Number:Angle           | The tilt (y-axis)                  |
-| tiltz         | Number:Angle           | The tilt (z-axis)                  |
+| Channel ID  |      Item Type       |        Description        |
+|-------------|----------------------|---------------------------|
+| temperature | Number:Temperature   | The measured temperature  |
+| humidity    | Number:Dimensionless | The measured humidity     |
+| pressure    | Number:Pressure      | The measured air pressure |
+| luminance   | Number:Illuminance   | The measured brightness   |
+| tiltx       | Number:Angle         | The tilt (x-axis)         |
+| titly       | Number:Angle         | The tilt (y-axis)         |
+| tiltz       | Number:Angle         | The tilt (z-axis)         |
 
 ## Example
 
@@ -51,3 +51,4 @@ Number:Angle            tiltX       "Tilt (X-Axis) [%.0f %unit%]"    { channel="
 Number:Angle            tiltY       "Tilt (Y-Axis) [%.0f %unit%]"    { channel="bluetooth:blukii:hci0:beacon:tilty" }
 Number:Angle            tiltZ       "Tilt (Z-Axis) [%.0f %unit%]"    { channel="bluetooth:blukii:hci0:beacon:tiltz" }
 ```
+

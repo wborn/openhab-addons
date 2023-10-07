@@ -23,7 +23,7 @@ The binding has no configuration options, all configuration is done at Thing lev
 
 The thing has the following configuration parameters:
 
-| Parameter      | Description                    |
+|   Parameter    |          Description           |
 |----------------|--------------------------------|
 | username       | Your Enedis platform username. |
 | password       | Your Enedis platform password. |
@@ -35,19 +35,19 @@ To avoid the captcha login, it is necessary to log before on a classical browser
 Instructions given for Firefox :
 
 1. Go to <https://mon-compte-client.enedis.fr/>.
-1. Select "Particulier" in the drop down list and click on the "Connexion" button.
-1. You'll be redirected to a page where you'll have to enter you Enedis account email address and check the "Je ne suis pas un robot" checkbox.
-1. Clic on "Suivant".
-1. In the login page, prefilled with your mail address, enter your Enedis account password and click on "Connexion à Espace Client Enedis".
-1. You will be directed to your Enedis account environment. Get back to previous page in you browser.
-1. Disconnect from your Enedis account
-1. Repeat steps 1, 2. You should arrive directly on step 5, then open the developer tool window (F12) and select "Stockage" tab. In the "Cookies" entry, select "https://mon-compte-enedis.fr". You'll find an entry named "internalAuthId", copy this value in your openHAB configuration.
+2. Select "Particulier" in the drop down list and click on the "Connexion" button.
+3. You'll be redirected to a page where you'll have to enter you Enedis account email address and check the "Je ne suis pas un robot" checkbox.
+4. Clic on "Suivant".
+5. In the login page, prefilled with your mail address, enter your Enedis account password and click on "Connexion à Espace Client Enedis".
+6. You will be directed to your Enedis account environment. Get back to previous page in you browser.
+7. Disconnect from your Enedis account
+8. Repeat steps 1, 2. You should arrive directly on step 5, then open the developer tool window (F12) and select "Stockage" tab. In the "Cookies" entry, select "https://mon-compte-enedis.fr". You'll find an entry named "internalAuthId", copy this value in your openHAB configuration.
 
 ## Channels
 
 The information that is retrieved is available as these channels:
 
-| Channel ID        | Item Type     | Description                  |
+|    Channel ID     |   Item Type   |         Description          |
 |-------------------|---------------|------------------------------|
 | daily#yesterday   | Number:Energy | Yesterday energy usage       |
 | daily#power       | Number:Power  | Yesterday's peak power usage |
@@ -97,3 +97,4 @@ Number:Energy ConsoMoisDernier "Conso mois dernier [%.0f %unit%]" <energy> { cha
 Number:Energy ConsoAnneeEnCours "Conso cette année [%.0f %unit%]" <energy> { channel="linky:linky:local:yearly#thisYear" }
 Number:Energy ConsoAnneeDerniere "Conso année dernière [%.0f %unit%]" <energy> { channel="linky:linky:local:yearly#lastYear" }
 ```
+

@@ -17,7 +17,7 @@ This binding does not support automatic discovery.
 The forecast thing needs to be configured with the latitude and longitude for the location of the forecast.
 You can also choose for which hours and which days you would like to get forecasts.
 
-| Parameter        | Description                     | Required |
+|    Parameter     |           Description           | Required |
 |------------------|---------------------------------|----------|
 | Latitude         | Latitude of the forecast        | Yes      |
 | Longitude        | Longitude of the forecast       | Yes      |
@@ -39,7 +39,7 @@ Examples:
 
 ### Basic channels
 
-| channel                 | type                 | channel id | description                                                               |
+|         channel         |         type         | channel id |                                description                                |
 |-------------------------|----------------------|------------|---------------------------------------------------------------------------|
 | Temperature             | Number:Temperature   | t          | Temperature in Celsius                                                    |
 | Max Temperature         | Number:Temperature   | tmax       | Highest temperature of the day (daily forecast only)                      |
@@ -60,7 +60,7 @@ Examples:
 
 ### Advanced channels
 
-| channel                  | type                 | channel id | description                                                                                |
+|         channel          |         type         | channel id |                                        description                                         |
 |--------------------------|----------------------|------------|--------------------------------------------------------------------------------------------|
 | Visibility               | Number:Length        | vis        | Horizontal visibility in km                                                                |
 | Thunder probability      | Number:Dimensionless | tstm       | Probability of thunder in percent                                                          |
@@ -73,7 +73,7 @@ Examples:
 
 \* The precipitation category can have a value from 0-6, representing different types of precipitation:
 
-| Value | Meaning          |
+| Value |     Meaning      |
 |-------|------------------|
 | 0     | No precipitation |
 | 1     | Snow             |
@@ -85,7 +85,7 @@ Examples:
 
 \** The weather condition channel can take values from 1-27, each corresponding to a different weather condition:
 
-| Value | Condition              |
+| Value |       Condition        |
 |-------|------------------------|
 | 1     | Clear sky              |
 | 2     | Nearly clear sky       |
@@ -154,3 +154,4 @@ sitemap demo label="Smhi" {
     }
 }
 ```
+

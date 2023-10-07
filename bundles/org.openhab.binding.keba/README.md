@@ -15,8 +15,8 @@ Optionally, a refresh interval (in seconds) can be defined as parameter `refresh
 
 All devices support the following channels:
 
-| Channel ID              | Item Type                | Read-only | Description                                                             |
-| ----------------------- | ------------------------ | --------- | ----------------------------------------------------------------------- |
+|       Channel ID        |        Item Type         | Read-only |                               Description                               |
+|-------------------------|--------------------------|-----------|-------------------------------------------------------------------------|
 | state                   | Number                   | yes       | current operational state of the wallbox                                |
 | enabled                 | Switch                   | no        | activation state of the wallbox                                         |
 | maxpresetcurrent        | Number:ElectricCurrent   | no        | maximum current the charging station should deliver to the EV in A      |
@@ -151,3 +151,4 @@ The right configuration can be validated as follows:
   - Firmware version: 2.5 or higher
 - KeContact P30 charging station (c- or x-series) or BMW wallbox
   - Firmware version 3.05 or higher
+

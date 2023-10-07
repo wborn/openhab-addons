@@ -35,16 +35,16 @@ The binding has no configuration options, all configuration is done at Thing lev
 
 The bridge configuration only holds the api key :
 
-| Parameter | Description                                            |
-| --------- | ------------------------------------------------------ |
+| Parameter |                      Description                       |
+|-----------|--------------------------------------------------------|
 | apiID     | API ID provided by the DIGITALSNCF service. Mandatory. |
 
 ## Thing Configuration
 
 The 'Station' thing has only one configuration parameter:
 
-| Parameter   | Description                                           |
-| ----------- | ----------------------------------------------------- |
+|  Parameter  |                      Description                      |
+|-------------|-------------------------------------------------------|
 | stopPointId | Identifier of the station in the DIGITALSNCF network. |
 
 The thing will auto-update depending on the timestamp of the earliest event detected to trigger (arrival or departure).
@@ -53,8 +53,8 @@ The thing will auto-update depending on the timestamp of the earliest event dete
 
 The Station thing holds two groups of channels (arrivals and departures) containing these channels:
 
-| Channel ID | Item Type | Description                                 |
-| ---------- | --------- | ------------------------------------------- |
+| Channel ID | Item Type |                 Description                 |
+|------------|-----------|---------------------------------------------|
 | direction  | String    | The direction of the route                  |
 | lineName   | String    | Commercial name of the line                 |
 | name       | String    | Name of the line                            |
@@ -81,3 +81,4 @@ String      Departure_Direction { channel="sncf:station:8901d44a68:87381475_Rapi
 String      Departure_Line      { channel="sncf:station:8901d44a68:87381475_RapidTransit:departures#lineName" }
 DateTime    Departure_Time      { channel="sncf:station:8901d44a68:87381475_RapidTransit:departures#timestamp" }
 ```
+

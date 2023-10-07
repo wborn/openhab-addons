@@ -18,7 +18,7 @@ Each calendar can have event filters which allow to get multiple events, maybe f
 
 Each `calendar` thing requires the following configuration parameters:
 
-| parameter name      | description                                                                                                                                                                               | optional                      |
+|   parameter name    |                                                                                        description                                                                                        |           optional            |
 |---------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
 | `url`               | The URL of an iCal Calendar to be used as a source of events.                                                                                                                             | mandatory                     |
 | `refreshTime`       | The frequency in minutes with which the calendar gets refreshed from the source.                                                                                                          | mandatory                     |
@@ -31,17 +31,17 @@ Each `calendar` thing requires the following configuration parameters:
 
 Each `eventfilter` thing requires a bridge of type `calendar` and has following configuration options:
 
-| parameter name   | description                                                                                                                                                                                    | optional                                   |
-|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
-| `maxEvents`      | The count of expected results.                                                                                                                                                                 | mandatory                                  |
-| `refreshTime`    | The frequency in minutes the channels get refreshed.                                                                                                                                           | mandatory (default available)              |
+|  parameter name  |                                                                                          description                                                                                           |                   optional                   |
+|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------|
+| `maxEvents`      | The count of expected results.                                                                                                                                                                 | mandatory                                    |
+| `refreshTime`    | The frequency in minutes the channels get refreshed.                                                                                                                                           | mandatory (default available)                |
 | `datetimeUnit`   | A unit for time settings in this filter. Valid values: `MINUTE`, `HOUR`, `DAY` and `WEEK`.                                                                                                     | optional (required for time-based filtering) |
-| `datetimeStart`  | The start of the time frame where to search for events relative to current time. Combined with `datetimeUnit`.                                                                                 | optional                                   |
-| `datetimeEnd`    | The end of the time frame where to search for events relative to current time. Combined with `datetimeUnit`. The value must be greater than `datetimeStart` to get results.                    | optional                                   |
-| `datetimeRound`  | Whether to round the datetimes of start and end down to the earlier time unit. Example if set: current time is 13:00, timeunit is set to `DAY`. Resulting search will start and end at 0:00.   | optional                                   |
-| `textEventField` | A field to filter the events text-based. Valid values: `SUMMARY`, `DESCRIPTION`, `COMMENT`, `CONTACT` and `LOCATION` (as described in RFC 5545).                                               | optional/required for text-based filtering |
-| `textEventValue` | The text to filter events with.                                                                                                                                                                | optional                                   |
-| `textValueType`  | The type of the text to filter with. Valid values: `TEXT` (field must contain value, case insensitive), `REGEX` (field must match value, completely, dot matches all, usually case sensitive). | optional/required for text-based filtering |
+| `datetimeStart`  | The start of the time frame where to search for events relative to current time. Combined with `datetimeUnit`.                                                                                 | optional                                     |
+| `datetimeEnd`    | The end of the time frame where to search for events relative to current time. Combined with `datetimeUnit`. The value must be greater than `datetimeStart` to get results.                    | optional                                     |
+| `datetimeRound`  | Whether to round the datetimes of start and end down to the earlier time unit. Example if set: current time is 13:00, timeunit is set to `DAY`. Resulting search will start and end at 0:00.   | optional                                     |
+| `textEventField` | A field to filter the events text-based. Valid values: `SUMMARY`, `DESCRIPTION`, `COMMENT`, `CONTACT` and `LOCATION` (as described in RFC 5545).                                               | optional/required for text-based filtering   |
+| `textEventValue` | The text to filter events with.                                                                                                                                                                | optional                                     |
+| `textValueType`  | The type of the text to filter with. Valid values: `TEXT` (field must contain value, case insensitive), `REGEX` (field must match value, completely, dot matches all, usually case sensitive). | optional/required for text-based filtering   |
 
 ## Channels
 
@@ -50,26 +50,26 @@ Each `eventfilter` thing requires a bridge of type `calendar` and has following 
 The channels of `calendar` describe the current and the next forthcoming event.
 They are all read-only.
 
-| Channel           | Type      | Description                                                                         |
-|-------------------|-----------|-------------------------------------------------------------------------------------|
-| current_presence  | Switch    | Current presence of an event, `ON` if there is currently an event, `OFF` otherwise  |
-| current_title     | String    | Title of a currently present event                                                  |
-| current_start     | DateTime  | Start of a currently present event                                                  |
-| current_end       | DateTime  | End of a currently present event                                                    |
-| next_title        | String    | Title of the next event                                                             |
-| next_start        | DateTime  | Start of the next event                                                             |
-| next_end          | DateTime  | End of the next event                                                               |
-| last_update       | DateTime  | The time and date of the last successful update of the calendar                     |
+|     Channel      |   Type   |                                    Description                                     |
+|------------------|----------|------------------------------------------------------------------------------------|
+| current_presence | Switch   | Current presence of an event, `ON` if there is currently an event, `OFF` otherwise |
+| current_title    | String   | Title of a currently present event                                                 |
+| current_start    | DateTime | Start of a currently present event                                                 |
+| current_end      | DateTime | End of a currently present event                                                   |
+| next_title       | String   | Title of the next event                                                            |
+| next_start       | DateTime | Start of the next event                                                            |
+| next_end         | DateTime | End of the next event                                                              |
+| last_update      | DateTime | The time and date of the last successful update of the calendar                    |
 
 ### Channels for `eventfilter`
 
 The channels of `eventfilter` are generated using following scheme, all are read-only.
 
-| Channel-scheme      | Type      | Description            |
-|---------------------|-----------|------------------------|
-| `result_<no>#begin` | DateTime  | The begin of an event  |
-| `result_<no>#end`   | DateTime  | The end of an event    |
-| `result_<no>#title` | String    | The title of an event  |
+|   Channel-scheme    |   Type   |      Description      |
+|---------------------|----------|-----------------------|
+| `result_<no>#begin` | DateTime | The begin of an event |
+| `result_<no>#end`   | DateTime | The end of an event   |
+| `result_<no>#title` | String   | The title of an event |
 
 The scheme replaces `<no>` by the results index, beginning at `0`. An `eventfilter` having `maxEvents` set to 3 will have following channels:
 

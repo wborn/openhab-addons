@@ -8,7 +8,7 @@ With this binding you can integrate your sensor, a sensor nearby or even any sen
 
 Three Things are supported
 
-| Name               | Thing Type ID | Description                                                                                            |
+|        Name        | Thing Type ID |                                              Description                                               |
 |--------------------|---------------|--------------------------------------------------------------------------------------------------------|
 | Particulate Sensor | particulate   | measure particulate matter PM2.5 and PM10                                                              |
 | Conditions Sensor  | condition     | measures environment conditions like temperature, humidity and some also provides atmospheric pressure |
@@ -22,10 +22,10 @@ There's no auto discovery. See Thing configuration how to setup a Sensor.
 
 Choose either a local IP address of your personal owned sensor _or_ a sensor id of an external one.
 
-| Parameter       | Description                                                          |
-|-----------------|----------------------------------------------------------------------|
-| ipAddress       | Local IP address of your personal owned sensor                       |
-| sensorid        | Sensor ID obtained from <https://deutschland.maps.sensor.community/>   |
+| Parameter |                             Description                              |
+|-----------|----------------------------------------------------------------------|
+| ipAddress | Local IP address of your personal owned sensor                       |
+| sensorid  | Sensor ID obtained from <https://deutschland.maps.sensor.community/> |
 
 ### Local Sensor
 
@@ -48,27 +48,27 @@ Perform the following steps to get the appropriate Sensor ID
 
 ### Particulate Sensor
 
-| Channel ID           | Item Type            | Description                              |
-|----------------------|----------------------|------------------------------------------|
-| pm25                 | Number:Density       | [Ultrafine particulates](https://en.wikipedia.org/wiki/Particulates#Size,_shape_and_solubility_matter) microgram per cubic meter |
-| pm100                | Number:Density       | [Coarse particulate matter](https://en.wikipedia.org/wiki/Particulates#Size,_shape_and_solubility_matter) microgram per cubic meter  |
+| Channel ID |   Item Type    |                                                             Description                                                             |
+|------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| pm25       | Number:Density | [Ultrafine particulates](https://en.wikipedia.org/wiki/Particulates#Size,_shape_and_solubility_matter) microgram per cubic meter    |
+| pm100      | Number:Density | [Coarse particulate matter](https://en.wikipedia.org/wiki/Particulates#Size,_shape_and_solubility_matter) microgram per cubic meter |
 
 ### Conditions Sensor
 
-| Channel ID           | Item Type            | Description                              |
-|----------------------|----------------------|------------------------------------------|
-| temperature          | Number:Temperature   | current temperature                      |
-| humidity             | Number:Dimensionless | current humidity percent                 |
-| pressure             | Number:Pressure      | Atmospheric Pressure (not supported by all sensors) |
-| pressure-sea         | Number:Pressure      | Atmospheric Pressure on sea level (not supported by all sensors)  |
+|  Channel ID  |      Item Type       |                           Description                            |
+|--------------|----------------------|------------------------------------------------------------------|
+| temperature  | Number:Temperature   | current temperature                                              |
+| humidity     | Number:Dimensionless | current humidity percent                                         |
+| pressure     | Number:Pressure      | Atmospheric Pressure (not supported by all sensors)              |
+| pressure-sea | Number:Pressure      | Atmospheric Pressure on sea level (not supported by all sensors) |
 
 ### Noise Sensor
 
-| Channel ID           | Item Type            | Description                                          |
-|----------------------|----------------------|------------------------------------------------------|
-| noise-eq             | Number:Dimensionless | Average noise in db                                  |
-| noise-min            | Number:Dimensionless | Minimum noise covered in the last 2.5 minutes in db  |
-| noise-main           | Number:Dimensionless | Maximum noise covered in the last 2.5 minutes in db  |
+| Channel ID |      Item Type       |                     Description                     |
+|------------|----------------------|-----------------------------------------------------|
+| noise-eq   | Number:Dimensionless | Average noise in db                                 |
+| noise-min  | Number:Dimensionless | Minimum noise covered in the last 2.5 minutes in db |
+| noise-main | Number:Dimensionless | Maximum noise covered in the last 2.5 minutes in db |
 
 ## Full Example
 
@@ -119,3 +119,4 @@ sitemap SensorCommunity label="SensorCommunity" {
         Text item=LDI_NoiseMax              label="Noise max [%.1f %unit%]"     
 }
 ```
+

@@ -18,7 +18,7 @@ Automatic discovery is not supported.
 
 The binding has the following configuration options:
 
-| Parameter    | Name          | Description                                                                                                                                                                                                                                                                                                               | Required | Default value |
+|  Parameter   |     Name      |                                                                                                                                                        Description                                                                                                                                                        | Required | Default value |
 |--------------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------------|
 | port         | TCP Port      | TCP port of the FTP server                                                                                                                                                                                                                                                                                                | no       | 2121          |
 | idleTimeout  | Idle timeout  | The number of seconds before an inactive client is disconnected. If this value is set to 0, the idle time is disabled.                                                                                                                                                                                                    | no       | 60            |
@@ -28,18 +28,18 @@ The binding has the following configuration options:
 
 The `ftpupload` Thing has the following configuration parameters:
 
-| Parameter                   | Description                                                                                                         | Required | Default value |
-|-----------------------------|---------------------------------------------------------------------------------------------------------------------|----------|---------------|
-| userName                    | User name to login to the FTP server. User name is used to identify the Thing, so it should be unique per Thing.    | yes      |               |
-| password                    | Password to login to the FTP server.                                                                                | yes      |               |
+| Parameter |                                                   Description                                                    | Required | Default value |
+|-----------|------------------------------------------------------------------------------------------------------------------|----------|---------------|
+| userName  | User name to login to the FTP server. User name is used to identify the Thing, so it should be unique per Thing. | yes      |               |
+| password  | Password to login to the FTP server.                                                                             | yes      |               |
 
 ## Channels
 
 This binding currently supports the following channels:
 
-| Channel         | Channel Type Id | Item Type    | Description                                                                            |
-|-----------------|-----------------|--------------|----------------------------------------------------------------------------------------|
-| image           | image-channel   | Image        | Image file received via FTP.                                                           |
+| Channel | Channel Type Id | Item Type |         Description          |
+|---------|-----------------|-----------|------------------------------|
+| image   | image-channel   | Image     | Image file received via FTP. |
 
 Additionally user can introduce custom image-channel's to Thing (see examples).
 When an image file is uploaded to FTP server, the binding tries to find the channel whose filename matches the uploaded image filename.
@@ -49,15 +49,15 @@ See more details in the Things example.
 
 Image channel supports following options:
 
-| Parameter   | Name         | Description                                                              | Required | Default value |
-|-------------|--------------|--------------------------------------------------------------------------|----------|---------------|
-| filename    | Filename     | Filename to match received files. Supports regular expression patterns.  | yes      | .*            |
+| Parameter |   Name   |                               Description                               | Required | Default value |
+|-----------|----------|-------------------------------------------------------------------------|----------|---------------|
+| filename  | Filename | Filename to match received files. Supports regular expression patterns. | yes      | .*            |
 
 ### Trigger Channels
 
-| Channel Type ID | Options                | Description                                         |
-|-----------------|------------------------|-----------------------------------------------------|
-| image-received  | IMAGE_RECEIVED         | Triggered when image file received from FTP client. |
+| Channel Type ID |    Options     |                     Description                     |
+|-----------------|----------------|-----------------------------------------------------|
+| image-received  | IMAGE_RECEIVED | Triggered when image file received from FTP client. |
 
 When an image file is uploaded to FTP server, the binding tries to find the trigger channel whose filename matches the upload image filename.
 If no match is found, no channel is updated.
@@ -66,9 +66,9 @@ See more details in the Things example.
 
 Trigger channels supports following options:
 
-| Parameter   | Name         | Description                                                              | Required | Default value |
-|-------------|--------------|--------------------------------------------------------------------------|----------|---------------|
-| filename    | Filename     | Filename to match received files. Supports regular expression patterns.  | yes      | .*            |
+| Parameter |   Name   |                               Description                               | Required | Default value |
+|-----------|----------|-------------------------------------------------------------------------|----------|---------------|
+| filename  | Filename | Filename to match received files. Supports regular expression patterns. | yes      | .*            |
 
 ## Full Example
 

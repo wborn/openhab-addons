@@ -29,30 +29,30 @@ The _smsmodembridge_ or _smsmodemremotebridge_ things requires at least two para
 
 For local _smsmodembridge_:
 
-| Parameter Name | type    | direct serial modem                           |
-| -------------- | ------- | --------------------------------------------- |
+| Parameter Name |  type   |              direct serial modem              |
+|----------------|---------|-----------------------------------------------|
 | serialPort     | text    | The serial port to access (eg. /dev/tty/USBx) |
 | baud           | integer | Baud rate                                     |
 
 For remote _smsmodemremotebridge_:
 
-| Parameter Name | type    | serial over network                                    |
-| -------------- | ------- | ------------------------------------------------------ |
+| Parameter Name |  type   |                  serial over network                   |
+|----------------|---------|--------------------------------------------------------|
 | ip             | text    | IP address of the computer hosting the ser2net service |
 | networkPort    | integer | The network port of the ser2net service                |
 
 The other parameters are optional :
 
-| Parameter Name   | type    | description                                                                                  |
-| ---------------- | ------- | -------------------------------------------------------------------------------------------- |
+|  Parameter Name  |  type   |                                         description                                          |
+|------------------|---------|----------------------------------------------------------------------------------------------|
 | simPin           | text    | If your sim card is protected, fill this field with the PIN code                             |
 | pollingInterval  | integer | Delay between two checks for new message (in seconds)                                        |
 | delayBetweenSend | integer | Delay to wait between two messages post (in milliseconds, could be necessary for slow modem) |
 
 The _smsconversation_ thing is just a shortcut to address/receive messages with a specific msisdn. It is not mandatory to use the binding, as you can use action and trigger channel to send/receive a message once the smsmodem bridge is configured.
 
-| Parameter Name | type    | description                                                                                                                                                                                  |
-| -------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter Name |  type   |                                                                                         description                                                                                          |
+|----------------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | recipient      | text    | The msisdn of the phone you want to discuss with.                                                                                                                                            |
 | deliveryReport | boolean | If enabled, ask the network for a delivery report (default false)                                                                                                                            |
 | encoding       | text    | The encoding to use when sending the message (either Enc7, Enc8, EncUcs2, EncCustom, default is Enc7). EncUcs2 is good for non latin character, but SMS character size limit is then reduced |
@@ -140,3 +140,4 @@ def smscommand(event):
     content = sender_and_message[1]
     actions.get("smsmodem", "smsmodem:smsmodembridge:dongleuid").send("336123456789", sender + " just send the following message: " + content)
 ```
+

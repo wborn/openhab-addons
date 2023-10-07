@@ -58,7 +58,7 @@ Each Station needs to be configured with a LocationID and the Webservice to whic
 
 The binding introduces the channel `holiday` for the Webservice and the channels `e10`, `e5`, `diesel` and `station_open` for the Stations:
 
-| Channel ID   | Channel Description                   | Supported item type | Advanced |
+|  Channel ID  |          Channel Description          | Supported item type | Advanced |
 |--------------|---------------------------------------|---------------------|----------|
 | holiday      | ON if today is a holiday              | Switch              | False    |
 | e10          | price of e10                          | Number              | False    |
@@ -120,11 +120,11 @@ Note: You must restart openHAB after a Java update.
 
 If you receive the error because you are running an old Linux installation which does not have the latest java-versions available in its package-repositories, you may be able to fix the issue using one of the three options below:
 
-   1. Update the Linux system and install the latest Java version
+1. Update the Linux system and install the latest Java version
 
-   1. Download the most recent JDK and install it directly on to your system without using a pre-composed package
+2. Download the most recent JDK and install it directly on to your system without using a pre-composed package
 
-   1. Update the cacerts store by importing the missing certificate
+3. Update the cacerts store by importing the missing certificate
 
 Check which CA has validated the certificate
 
@@ -168,3 +168,4 @@ This switch can be set either manually (only suggested for testing!) or by a rul
 - <https://creativecommons.tankerkoenig.de/>  (sorry, only available in German)
 
 - &lsqb;MTS-K&rsqb;: <https://www.bundeskartellamt.de/DE/Wirtschaftsbereiche/Mineral%C3%B6l/MTS-Kraftstoffe/Verbraucher/verbraucher_node.html>
+

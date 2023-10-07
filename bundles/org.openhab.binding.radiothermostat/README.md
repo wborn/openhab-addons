@@ -23,15 +23,15 @@ Otherwise the thing must be manually added.
 
 The thing has a few configuration parameters:
 
-|    Parameter    | Description                                                                                                                                                                                                                                                                                                                |
-|-----------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| hostName        | The host name or IP address of the thermostat. Mandatory.                                                                                                                                                                                                                                                                  |
-| refresh         | Overrides the refresh interval of the thermostat data. Optional, the default is 2 minutes.                                                                                                                                                                                                                                 |
-| logRefresh      | Overrides the refresh interval of the run-time logs & humidity data. Optional, the default is 10 minutes.                                                                                                                                                                                                                  |
-| isCT80          | Flag to enable additional features only available on the CT80 thermostat. Optional, the default is false.                                                                                                                                                                                                                  |
-| disableLogs     | Disable retrieval of run-time logs from the thermostat. Optional, the default is false.                                                                                                                                                                                                                                    |
-| setpointMode    | Controls temporary or absolute setpoint mode. In "temporary" mode the thermostat will temporarily maintain the given setpoint until the next scheduled setpoint time period. In "absolute" mode the thermostat will ignore its program and maintain the given setpoint indefinitely. Optional, the default is "temporary". |
-| clockSync       | Flag to enable the binding to sync the internal clock on the thermostat to match the openHAB host's system clock. Sync occurs at binding startup and every hour thereafter. Optional, the default is **true**.                                                                                                             |
+|  Parameter   |                                                                                                                                                        Description                                                                                                                                                         |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| hostName     | The host name or IP address of the thermostat. Mandatory.                                                                                                                                                                                                                                                                  |
+| refresh      | Overrides the refresh interval of the thermostat data. Optional, the default is 2 minutes.                                                                                                                                                                                                                                 |
+| logRefresh   | Overrides the refresh interval of the run-time logs & humidity data. Optional, the default is 10 minutes.                                                                                                                                                                                                                  |
+| isCT80       | Flag to enable additional features only available on the CT80 thermostat. Optional, the default is false.                                                                                                                                                                                                                  |
+| disableLogs  | Disable retrieval of run-time logs from the thermostat. Optional, the default is false.                                                                                                                                                                                                                                    |
+| setpointMode | Controls temporary or absolute setpoint mode. In "temporary" mode the thermostat will temporarily maintain the given setpoint until the next scheduled setpoint time period. In "absolute" mode the thermostat will ignore its program and maintain the given setpoint indefinitely. Optional, the default is "temporary". |
+| clockSync    | Flag to enable the binding to sync the internal clock on the thermostat to match the openHAB host's system clock. Sync occurs at binding startup and every hour thereafter. Optional, the default is **true**.                                                                                                             |
 
 ### Schedule Configuration
 
@@ -72,7 +72,7 @@ curl http://$THERMOSTAT_IP/cloud -d '{"authkey":""}' -X POST
 
 The thermostat information that is retrieved is available as these channels:
 
-| Channel ID             | Item Type            | Description                                                                                                                        |
+|       Channel ID       |      Item Type       |                                                            Description                                                             |
 |------------------------|----------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | temperature            | Number:Temperature   | The current temperature reading of the thermostat                                                                                  |
 | humidity               | Number:Dimensionless | The current humidity reading of the thermostat (CT80 only)                                                                         |
@@ -267,3 +267,4 @@ then
   Therm_Message.sendCommand(temp)
 end
 ```
+

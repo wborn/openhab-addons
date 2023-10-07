@@ -32,7 +32,7 @@ When configuring dependencies in `openhab-distro/launch/app/pom.xml`, add all de
 You can use test serial slaves without any hardware on Linux using these steps:
 
 1. Set-up virtual null modem emulator using [tty0tty](https://github.com/freemed/tty0tty)
-1. Download [diagslave](https://www.modbusdriver.com/diagslave.html) and start modbus serial slave up using this command:
+2. Download [diagslave](https://www.modbusdriver.com/diagslave.html) and start modbus serial slave up using this command:
 
 ```shell
 ./diagslave -m rtu -a 1 -b 38400 -d 8 -s 1 -p none -4 10 /dev/pts/7
@@ -40,7 +40,7 @@ You can use test serial slaves without any hardware on Linux using these steps:
 
 1. Configure openHAB's modbus slave to connect to `/dev/pts/8`.
 
-1. Modify `start.sh` or `start_debug.sh` to include the unconventional port name by adding the following argument to `java`:
+2. Modify `start.sh` or `start_debug.sh` to include the unconventional port name by adding the following argument to `java`:
 
 ```text
 -Dgnu.io.rxtx.SerialPorts=/dev/pts/8
@@ -52,11 +52,10 @@ Naturally this is not the same thing as the real thing but helps to identify sim
 
 1. Download [diagslave](https://www.modbusdriver.com/diagslave.html) and start modbus tcp server (slave) using this command:
 
-    ```shell
-    ./diagslave -m tcp -a 1 -p 55502
-    ```
-
-1. Configure openHAB's modbus slave to connect to `127.0.0.1:55502`.
+   ```shell
+   ./diagslave -m tcp -a 1 -p 55502
+   ```
+2. Configure openHAB's modbus slave to connect to `127.0.0.1:55502`.
 
 ## Writing Data
 

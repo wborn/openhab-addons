@@ -35,28 +35,28 @@ Bridges don't have channels on their own.
 
 The IP Gateway is the most commonly used way to connect to the KNX bus. At its base, the _ip_ bridge accepts the following configuration parameters:
 
-| Name                | Required     | Description                                                                                                  | Default value                                        |
-|---------------------|--------------|--------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
-| type                | Yes          | The IP connection type for connecting to the KNX bus (`TUNNEL`, `ROUTER`, `SECURETUNNEL` or `SECUREROUTER`)  | -                                                    |
-| ipAddress           | for `TUNNEL` | Network address of the KNX/IP gateway. If type `ROUTER` is set, the IPv4 Multicast Address can be set.       | for `TUNNEL`: \<nothing\>, for `ROUTER`: 224.0.23.12 |
-| portNumber          | for `TUNNEL` | Port number of the KNX/IP gateway                                                                            | 3671                                                 |
-| localIp             | No           | Network address of the local host to be used to set up the connection to the KNX/IP gateway                  | the system-wide configured primary interface address |
-| localSourceAddr     | No           | The (virtual) individual address for identification of this openHAB Thing within the KNX bus <br/><br/>Note: Use a free address, not the one of the interface. Or leave it at `0.0.0` and let openHAB decide which address to use. When using knxd, make sure _not to use_ one of the addresses reserved for tunneling clients.  | 0.0.0                                                |
-| useNAT              | No           | Whether there is network address translation between the server and the gateway                              | false                                                |
-| readingPause        | No           | Time in milliseconds of how long should be paused between two read requests to the bus during initialization | 50                                                   |
-| responseTimeout     | No           | Timeout in seconds to wait for a response from the KNX bus                                                   | 10                                                   |
-| readRetriesLimit    | No           | Limits the read retries while initialization from the KNX bus                                                | 3                                                    |
-| autoReconnectPeriod | No           | Seconds between connect retries when KNX link has been lost (0 means never).                                 | 0                                                    |
-| routerBackboneKey   | No           | KNX secure: Backbone key for secure router mode                                                              | -                                                    |
-| tunnelUserId        | No           | KNX secure: Tunnel user id for secure tunnel mode (if specified, it must be a number >0)                     | -                                                    |
-| tunnelUserPassword  | No           | KNX secure: Tunnel user key for secure tunnel mode                                                           | -                                                    |
-| tunnelDeviceAuthentication  | No   | KNX secure: Tunnel device authentication for secure tunnel mode                                              | -                                                    |
+|            Name            |   Required   |                                                                                                                                                           Description                                                                                                                                                           |                    Default value                     |
+|----------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------|
+| type                       | Yes          | The IP connection type for connecting to the KNX bus (`TUNNEL`, `ROUTER`, `SECURETUNNEL` or `SECUREROUTER`)                                                                                                                                                                                                                     | -                                                    |
+| ipAddress                  | for `TUNNEL` | Network address of the KNX/IP gateway. If type `ROUTER` is set, the IPv4 Multicast Address can be set.                                                                                                                                                                                                                          | for `TUNNEL`: \<nothing\>, for `ROUTER`: 224.0.23.12 |
+| portNumber                 | for `TUNNEL` | Port number of the KNX/IP gateway                                                                                                                                                                                                                                                                                               | 3671                                                 |
+| localIp                    | No           | Network address of the local host to be used to set up the connection to the KNX/IP gateway                                                                                                                                                                                                                                     | the system-wide configured primary interface address |
+| localSourceAddr            | No           | The (virtual) individual address for identification of this openHAB Thing within the KNX bus <br/><br/>Note: Use a free address, not the one of the interface. Or leave it at `0.0.0` and let openHAB decide which address to use. When using knxd, make sure _not to use_ one of the addresses reserved for tunneling clients. | 0.0.0                                                |
+| useNAT                     | No           | Whether there is network address translation between the server and the gateway                                                                                                                                                                                                                                                 | false                                                |
+| readingPause               | No           | Time in milliseconds of how long should be paused between two read requests to the bus during initialization                                                                                                                                                                                                                    | 50                                                   |
+| responseTimeout            | No           | Timeout in seconds to wait for a response from the KNX bus                                                                                                                                                                                                                                                                      | 10                                                   |
+| readRetriesLimit           | No           | Limits the read retries while initialization from the KNX bus                                                                                                                                                                                                                                                                   | 3                                                    |
+| autoReconnectPeriod        | No           | Seconds between connect retries when KNX link has been lost (0 means never).                                                                                                                                                                                                                                                    | 0                                                    |
+| routerBackboneKey          | No           | KNX secure: Backbone key for secure router mode                                                                                                                                                                                                                                                                                 | -                                                    |
+| tunnelUserId               | No           | KNX secure: Tunnel user id for secure tunnel mode (if specified, it must be a number >0)                                                                                                                                                                                                                                        | -                                                    |
+| tunnelUserPassword         | No           | KNX secure: Tunnel user key for secure tunnel mode                                                                                                                                                                                                                                                                              | -                                                    |
+| tunnelDeviceAuthentication | No           | KNX secure: Tunnel device authentication for secure tunnel mode                                                                                                                                                                                                                                                                 | -                                                    |
 
 ### Serial Gateway
 
 The _serial_ bridge accepts the following configuration parameters:
 
-| Name                | Required | Description                                                                                                  | Default value |
+|        Name         | Required |                                                 Description                                                  | Default value |
 |---------------------|----------|--------------------------------------------------------------------------------------------------------------|---------------|
 | serialPort          | Y        | The serial port to use for connecting to the KNX bus                                                         | -             |
 | readingPause        | N        | Time in milliseconds of how long should be paused between two read requests to the bus during initialization | 50            |
@@ -76,12 +76,12 @@ If line couplers are installed, physical device addressing might be filtered; in
 When _fetch_ is set to true, the binding will read-out the memory of the KNX actuator in order to detect configuration data and so forth.
 This is however an experimental feature, very prone to the actual on the KNX bus.
 
-| Name         | Required | Description                                                                                                              | Default value                                                               |
-|--------------|----------|--------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------|
-| address      | N        | The individual device address (in 0.0.0 notation)                                                                        | -  |
-| fetch        | N        | Read out the device parameters and address/communication object tables (requires the address)                            | false                                                                       |
-| pingInterval | N        | Interval (in seconds) to contact the device and set the thing status based on the result (requires the address)          | 600                                                                         |
-| readInterval | N        | Interval (in seconds) to actively request reading of values from the bus (0 if they should only be read once at startup) | 0                                                                           |
+|     Name     | Required |                                                       Description                                                        | Default value |
+|--------------|----------|--------------------------------------------------------------------------------------------------------------------------|---------------|
+| address      | N        | The individual device address (in 0.0.0 notation)                                                                        | -             |
+| fetch        | N        | Read out the device parameters and address/communication object tables (requires the address)                            | false         |
+| pingInterval | N        | Interval (in seconds) to contact the device and set the thing status based on the result (requires the address)          | 600           |
+| readInterval | N        | Interval (in seconds) to actively request reading of values from the bus (0 if they should only be read once at startup) | 0             |
 
 Different kinds of channels are defined and can be used to group together Group Addresses.
 All channels of a device share one configuration parameter defined on device level: _readInterval_, an optional parameter which indicates if 'readable' group addresses of that Channel should be read periodically at the given interval, in seconds.
@@ -100,12 +100,12 @@ When a `GroupValueRead` telegram is sent from the KNX bus to a *-control Channel
 
 ##### Channel Type `color`, `color-control`
 
-| Parameter        | Description                            | Default DPT |
-|------------------|----------------------------------------|-------------|
-| hsb              | Group address for the color            | 232.600     |
-| switch           | Group address for the binary switch    | 1.001       |
-| position         | Group address brightness               | 5.001       |
-| increaseDecrease | Group address for relative brightness  | 3.007       |
+|    Parameter     |              Description              | Default DPT |
+|------------------|---------------------------------------|-------------|
+| hsb              | Group address for the color           | 232.600     |
+| switch           | Group address for the binary switch   | 1.001       |
+| position         | Group address brightness              | 5.001       |
+| increaseDecrease | Group address for relative brightness | 3.007       |
 
 The `hsb` address supports DPT 242.600 and 251.600.
 
@@ -114,7 +114,7 @@ This is supported as "vendor-specific DPT" with a value of 232.60000.
 
 ##### Channel Type `contact`, `contact-control`
 
-| Parameter | Description   | Default DPT |
+| Parameter |  Description  | Default DPT |
 |-----------|---------------|-------------|
 | ga        | Group address | 1.009       |
 
@@ -123,21 +123,21 @@ A change would break all existing installations and is therefore not implemented
 
 ##### Channel Type `datetime`, `datetime-control`
 
-| Parameter | Description   | Default DPT |
+| Parameter |  Description  | Default DPT |
 |-----------|---------------|-------------|
 | ga        | Group address | 19.001      |
 
 ##### Channel Type `dimmer`, `dimmer-control`
 
-| Parameter        | Description                            | Default DPT |
+|    Parameter     |              Description               | Default DPT |
 |------------------|----------------------------------------|-------------|
 | switch           | Group address for the binary switch    | 1.001       |
 | position         | Group address of the absolute position | 5.001       |
 | increaseDecrease | Group address for relative movement    | 3.007       |
 
-##### Channel Type `number`, `number-control` 
+##### Channel Type `number`, `number-control`
 
-| Parameter | Description   | Default DPT |
+| Parameter |  Description  | Default DPT |
 |-----------|---------------|-------------|
 | ga        | Group address | 9.001       |
 
@@ -148,14 +148,14 @@ Automatic type conversion will be applied if required.
 
 Incoming values from the KNX bus are converted to values with units (e.g. `23 °C`).
 If the channel is linked to the correct item-type (`Number:Temperature` in this case) the display unit can be controlled by item metadata (e.g. `%.1f °F` for 1 digit of precision in Fahrenheit).
-The unit is stripped if the channel is linked to a plain number item (type `Number`). 
+The unit is stripped if the channel is linked to a plain number item (type `Number`).
 
 Outgoing values with unit are first converted to the unit associated with the DPT (e.g. a value of `10 °F` is converted to `-8.33 °C` if the channel has DPT 9.001).
 Values from plain number channels are sent as-is (without any conversion).
 
 ##### Channel Type `rollershutter`, `rollershutter-control`
 
-| Parameter | Description                             | Default DPT |
+| Parameter |               Description               | Default DPT |
 |-----------|-----------------------------------------|-------------|
 | upDown    | Group address for relative movement     | 1.008       |
 | stopMove  | Group address for stopping              | 1.010       |
@@ -163,13 +163,13 @@ Values from plain number channels are sent as-is (without any conversion).
 
 ##### Channel Type `string`, `string-control`
 
-| Parameter | Description   | Default DPT |
+| Parameter |  Description  | Default DPT |
 |-----------|---------------|-------------|
 | ga        | Group address | 16.001      |
 
 ##### Channel Type `switch`, `switch-control`
 
-| Parameter | Description                         | Default DPT |
+| Parameter |             Description             | Default DPT |
 |-----------|-------------------------------------|-------------|
 | ga        | Group address for the binary switch | 1.001       |
 
@@ -181,23 +181,22 @@ When a `GroupValueRead` telegram is sent from the KNX bus to a *-control Channel
 
 ##### Channel Type "switch-control"
 
-| Parameter | Description                         | Default DPT |
+| Parameter |             Description             | Default DPT |
 |-----------|-------------------------------------|-------------|
 | ga        | Group address for the binary switch | 1.001       |
 
 ##### Channel Type "dimmer-control"
 
-| Parameter        | Description                                                                                                                                   | Default DPT |
+|    Parameter     |                                                                  Description                                                                  | Default DPT |
 |------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | switch           | Group address for the binary switch                                                                                                           | 1.001       |
 | position         | Group address of the absolute position                                                                                                        | 5.001       |
 | increaseDecrease | Group address for relative movement                                                                                                           | 3.007       |
 | frequency        | Increase/Decrease frequency in milliseconds in case the binding should handle that (0 if the KNX device sends the commands repeatedly itself) | 0           |
 
-
 ##### Channel Type "rollershutter-control"
 
-| Parameter | Description                             | Default DPT |
+| Parameter |               Description               | Default DPT |
 |-----------|-----------------------------------------|-------------|
 | upDown    | Group address for relative movement     | 1.008       |
 | stopMove  | Group address for stopping              | 1.010       |
@@ -205,7 +204,7 @@ When a `GroupValueRead` telegram is sent from the KNX bus to a *-control Channel
 
 ##### Channel Type "contact-control"
 
-| Parameter | Description   | Default DPT |
+| Parameter |  Description  | Default DPT |
 |-----------|---------------|-------------|
 | ga        | Group address | 1.009       |
 
@@ -214,7 +213,7 @@ A change would break all existing installations and is therefore not implemented
 
 ##### Channel Type "number-control"
 
-| Parameter | Description   | Default DPT |
+| Parameter |  Description  | Default DPT |
 |-----------|---------------|-------------|
 | ga        | Group address | 9.001       |
 
@@ -222,13 +221,13 @@ For UoM support see the explanations of the `number` channel.
 
 ##### Channel Type "string-control"
 
-| Parameter | Description   | Default DPT |
+| Parameter |  Description  | Default DPT |
 |-----------|---------------|-------------|
 | ga        | Group address | 16.001      |
 
 ##### Channel Type "datetime-control"
 
-| Parameter | Description   | Default DPT |
+| Parameter |  Description  | Default DPT |
 |-----------|---------------|-------------|
 | ga        | Group address | 19.001      |
 

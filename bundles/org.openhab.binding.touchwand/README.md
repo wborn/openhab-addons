@@ -16,12 +16,12 @@ The binding also supports [AcWand™](https://www.touchwand.com/products/touchwa
 ## Control and Status
 
 1. **switch**  - control - ON/OFF
-1. **shutter** - control - UP/DOWN/STOP
-1. **dimmer**  - control - ON/OFF/BRIGHTNESS
-1. **wallcontroller** - control - LONG/SHORT
-1. **alarmsensor** - status channels depend on alarm sensor type
-1. **bsensor** - binary status channels depend on alarm sensor type (motion, door , smoke)
-1. **thermostat** - AcWand™ smart control for your air conditioner
+2. **shutter** - control - UP/DOWN/STOP
+3. **dimmer**  - control - ON/OFF/BRIGHTNESS
+4. **wallcontroller** - control - LONG/SHORT
+5. **alarmsensor** - status channels depend on alarm sensor type
+6. **bsensor** - binary status channels depend on alarm sensor type (motion, door , smoke)
+7. **thermostat** - AcWand™ smart control for your air conditioner
 
 ## Discovery
 
@@ -32,7 +32,7 @@ Auto discovery scans priodically and add to the Inbox new devices added to the T
 
 **Touchwand Wanderfull™** Hub Controller need to be added manually by IP address. The controller requires **username** and **password**
 
-| Parameter         | Description                                                           | Units   | required |
+|     Parameter     |                              Description                              |  Units  | required |
 |-------------------|-----------------------------------------------------------------------|---------|----------|
 | username          | Touchwand hub username                                                | string  | yes      |
 | password          | Touchwand hub password                                                | string  | yes      |
@@ -51,35 +51,35 @@ Alarm Sensor thing represents a generic sensor, relevant sensor channels will be
 
 ## Switch Shutters Channels
 
-| Channel Type ID   | Item Type          | Description
-|-------------------|--------------------|-----------------------------------------------------------------------|
-| switch            | Switch             | This channel supports switching the device on and off.                |
-| shutter           | Rollershutter      | This channel controls the shutter position                            |
-| brightness        | Dimmer             | This channel supports adjusting the brightness value.                 |
-| wallaction        | String             | This channel indicate SHORT or LONG wallcontroller button pressed     |
+| Channel Type ID |   Item Type   |                            Description                            |
+|-----------------|---------------|-------------------------------------------------------------------|
+| switch          | Switch        | This channel supports switching the device on and off.            |
+| shutter         | Rollershutter | This channel controls the shutter position                        |
+| brightness      | Dimmer        | This channel supports adjusting the brightness value.             |
+| wallaction      | String        | This channel indicate SHORT or LONG wallcontroller button pressed |
 
 ## Alarm Sensors Channels
 
-| Channel Type ID   | Item Type          | Description
-|-------------------|--------------------|-----------------------------------------------------------------------|
-| illumination      | Number:Illuminance | This channel shows the current illuminance measured by the sensor.    |
-| temperature       | Number:Temperature | This channel shows the current temperature measured by the sensor.    |
-| leak              | Switch             | This channel alert when water leak is detected by the sensor          |
-| motion            | Switch             | This channel alert when motion detected by the sensor.                |
-| smoke             | Switch             | This channel alert when smoke detected by the sensor.                |
-| isOpen            | Contact            | This channel shows the status of Door/Window sensor.                  |
-| battery_level     | Number             | This channel shows the battery level.                                 |
-| battery_low       | Switch             | This channel indicates whether the battery is low or not.             |
+| Channel Type ID |     Item Type      |                            Description                             |
+|-----------------|--------------------|--------------------------------------------------------------------|
+| illumination    | Number:Illuminance | This channel shows the current illuminance measured by the sensor. |
+| temperature     | Number:Temperature | This channel shows the current temperature measured by the sensor. |
+| leak            | Switch             | This channel alert when water leak is detected by the sensor       |
+| motion          | Switch             | This channel alert when motion detected by the sensor.             |
+| smoke           | Switch             | This channel alert when smoke detected by the sensor.              |
+| isOpen          | Contact            | This channel shows the status of Door/Window sensor.               |
+| battery_level   | Number             | This channel shows the battery level.                              |
+| battery_low     | Switch             | This channel indicates whether the battery is low or not.          |
 
 ## Thermostat Channels
 
-| Channel Type ID   | Item Type          | Description
-|-------------------|--------------------|-----------------------------------------------------------------------|
-| State             | Switch             | Set and read the device state ON or OFF.                              |
-| targetTemperature | Number:Temperature | Shows the current set point of the thrermostat.                       |
-| roomTemperature   | Number:Temperature | Shows the current termprature measured by the thermostat.             |
-| mode              | String             | Set/Read Thermostat mode - Cool, Heat, Fan, Dry, Auto                 |
-| fanLevel          | String             | Set/Read fan leval - Low, Medium, High, Auto                          |
+|  Channel Type ID  |     Item Type      |                        Description                        |
+|-------------------|--------------------|-----------------------------------------------------------|
+| State             | Switch             | Set and read the device state ON or OFF.                  |
+| targetTemperature | Number:Temperature | Shows the current set point of the thrermostat.           |
+| roomTemperature   | Number:Temperature | Shows the current termprature measured by the thermostat. |
+| mode              | String             | Set/Read Thermostat mode - Cool, Heat, Fan, Dry, Auto     |
+| fanLevel          | String             | Set/Read fan leval - Low, Medium, High, Auto              |
 
 ## Full Example
 
@@ -120,3 +120,4 @@ Switch  Switch_411      "South Garden light"            {channel="touchwand:swit
 Dimmer  Switch_415      "Living Room Ceiling dimmer"    {channel="touchwand:switch:1921681116:415:switch"}
 Switch  Switch_418      "South Garden light"            {channel="touchwand:switch:1921681116:418:switch"}
 ```
+

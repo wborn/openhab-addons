@@ -8,8 +8,8 @@ The Siemens RDS binding provides the infrastructure for connecting openHAB to th
 
 The binding supports two types of Thing as follows..
 
-| Thing Type           | Description                                                                                                              |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+|      Thing Type      |                                                       Description                                                        |
+|----------------------|--------------------------------------------------------------------------------------------------------------------------|
 | Climatix IC Account  | User account on the Siemens Climatix IC cloud server (bridge) to connect with respective Smart Thermostat Things below.. |
 | RDS Smart Thermostat | Siemens RDS model Smart Thermostat devices                                                                               |
 
@@ -29,8 +29,8 @@ The Climatix IC Account connects to the Siemens Climatix IC cloud server (bridge
 It signs on to the cloud server using the supplied user's credentials, and it polls the server at regular intervals to read and write the data for each Smart Thermostat that is configured in that account.
 Before it can connect to the server, the following Configuration Parameters must be entered.
 
-| Configuration Parameter | Description                                                                                                                                                                      |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Configuration Parameter |                                                                                   Description                                                                                    |
+|-------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | userEmail               | The e-mail address of the user account on the cloud server; as entered in the Siemens App when first registering a thermostat.                                                   |
 | userPassword            | The password of the user account on the cloud server; as entered in the Siemens App.                                                                                             |
 | pollingInterval         | Time interval in seconds between polling requests to the cloud server; the value must be between 8..60 seconds; the Default value (recommended) is 60 seconds.                   |
@@ -50,16 +50,16 @@ Note: You must create ONLY ONE Thing of the type Climatix IC Account; duplicate 
 Each RDS Smart Thermostat Thing is identified in the Climatix IC Account by means of a unique Plant Id code.
 The automatic discovery determines the Plant Id codes of all connected thermostats automatically.
 
-| Configuration Parameter | Description                                                                                                |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------- |
+| Configuration Parameter |                                                Description                                                 |
+|-------------------------|------------------------------------------------------------------------------------------------------------|
 | plantId                 | The unique code to identify a specific RDS Smart Thermostat Thing on the Siemens Climatix IC cloud server. |
 
 ## Channels for RDS Smart Thermostat
 
 The RDS Smart Thermostat supports several channels as shown below.
 
-| Channel               | Data Type            | Description                                                                |
-| --------------------- | -------------------- | -------------------------------------------------------------------------- |
+|        Channel        |      Data Type       |                                Description                                 |
+|-----------------------|----------------------|----------------------------------------------------------------------------|
 | roomTemperature       | Number:Temperature   | Actual Room Temperature                                                    |
 | targetTemperature     | Number:Temperature   | Target temperature setting for the room                                    |
 | thermostatOutputState | String               | The output state of the thermostat (Heating, Off, Cooling)                 |
@@ -140,3 +140,4 @@ Frame label="Hot Water" {
   }
 }
 ```
+

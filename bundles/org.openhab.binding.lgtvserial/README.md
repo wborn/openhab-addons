@@ -38,7 +38,7 @@ However, the item values for the thing with set id 0 will never display the righ
 
 The following channels are common to most TV through the serial or service port, taken from [4].
 
-| Channel type id | Command | Item type | Description                                      |
+| Channel type id | Command | Item type |                   Description                    |
 |-----------------|---------|-----------|--------------------------------------------------|
 | aspect-ratio    | k c     | String    | Adjust screen format, at least 4:3, 16:9 formats |
 | power           | k a     | Switch    | Turns the device on or off                       |
@@ -55,7 +55,7 @@ For instance, getting the volume status when the device is off makes no sense.
 
 Here's a list of all the LG TV commands added to the binding, in channel type id alphabetic order
 
-| Channel type id    | Command | Item type | Description                                         |
+|  Channel type id   | Command | Item type |                     Description                     |
 |--------------------|---------|-----------|-----------------------------------------------------|
 | 3d                 | x t     | String    | To change 3D mode for tv                            |
 | 2d-extended        | x v     | String    | To change 3D options for tv                         |
@@ -81,13 +81,13 @@ Here's a list of all the LG TV commands added to the binding, in channel type id
 | input2             | x b     | String    | To select input source for set                      |
 | ism-method         | j p     | String    | To avoid having a fixed image remain on screen      |
 | ir-key-code        | m c     | String    | To send IR remote key code                          |
-| lamp-fault-check   | d p     | Switch    | To check lamp fault                                 |
+| lamp-fault-check   | d p     | Switch    |  To check lamp fault                                |
 | power              | k a     | Switch    | To control Power On/Off of the set                  |
 | osd-select         | k l     | Switch    | To select OSD (On Screen Display) on/off            |
 | osd-language       | f i     | String    | Set the OSD language                                |
 | natural-mode       | d j     | Switch    | To assign the Tile Natural mode for Tiling function |
 | picture-mode       | d x     | String    | To adjust the picture mode                          |
-| power-indicator    | f o     | Switch    | To set the LED for Power Indicator                  |
+|  power-indicator   | f o     | Switch    | To set the LED for Power Indicator                  |
 | power-saving       | f l     | Switch    | To set the Power saving mode                        |
 | screen-mute        | k d     | String    | To select screen mute on/off                        |
 | serial-number      | f y     | String    | To read the serial numbers                          |
@@ -112,19 +112,19 @@ Here's a list of all the LG TV commands added to the binding, in channel type id
 
 ## Not added or linked command
 
-| Channel type id    | Command | Description
-|--------------------|---------|------------------------------------------------------------------------------------------------------------|
-| abnormal-state     | k z     | Used to Read the power off status when Stand-by mode                                                       |
-| auto-configuration | j u     | To adjust picture position and minimize image shaking automatically. it works only in RGB(PC) mode.        |
-| power-on-delay     | f h     | Set the schedule delay when the power is turned on (Unit: second)                                          |
-| remote-lock        | k m     | To control Remote Lock on/off to the set. Locks the remote control and the local keys.                     |
-| reset              | f k     | Execute the Picture, Screen and Factory Reset functions                                                    |
-| scheduled-input    | f u     | To select input source for TV depending on day                                                             |
-| time               | f a     | Set the current time                                                                                       |
-| on-timer-on-off    | f b     | Set days for On Timer                                                                                      |
-| off-timer-on-off   | f c     | Set days for Off Timer                                                                                     |
-| on-timer-time      | f d     | Set On Timer                                                                                               |
-| off-timer-time     | f e     | Set Off Timer                                                                                              |
+|  Channel type id   | Command |                                             Description                                             |
+|--------------------|---------|-----------------------------------------------------------------------------------------------------|
+| abnormal-state     | k z     | Used to Read the power off status when Stand-by mode                                                |
+| auto-configuration | j u     | To adjust picture position and minimize image shaking automatically. it works only in RGB(PC) mode. |
+| power-on-delay     | f h     | Set the schedule delay when the power is turned on (Unit: second)                                   |
+| remote-lock        | k m     | To control Remote Lock on/off to the set. Locks the remote control and the local keys.              |
+| reset              | f k     | Execute the Picture, Screen and Factory Reset functions                                             |
+| scheduled-input    | f u     | To select input source for TV depending on day                                                      |
+| time               | f a     | Set the current time                                                                                |
+| on-timer-on-off    | f b     | Set days for On Timer                                                                               |
+| off-timer-on-off   | f c     | Set days for Off Timer                                                                              |
+| on-timer-time      | f d     | Set On Timer                                                                                        |
+| off-timer-time     | f e     | Set Off Timer                                                                                       |
 
 ## LG protocol references
 

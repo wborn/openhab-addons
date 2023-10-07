@@ -13,8 +13,8 @@ Supports:
 
 ## Supported Things
 
-| Thing Type      | Description                                                                                                                                                                                                                           |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|   Thing Type    |                                                                                                              Description                                                                                                              |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `bridge`        | The Bridge                                                                                                                                                                                                                            |
 | `powerinverter` | Fronius Galvo, Symo and other Fronius inverters in combination with the Fronius Datamanager 1.0 / 2.0 or Fronius Datalogger. You can add multiple inverters that depend on the same datalogger with different device ids. (Default 1) |
 | `meter`         | Fronius Smart Meter. You can add multiple smart meters with different device ids. (The default id = 0)                                                                                                                                |
@@ -32,35 +32,35 @@ The binding has no configuration options, all configuration is done at `bridge`,
 
 ### Bridge Thing Configuration
 
-| Parameter         | Description                                           |
-| ----------------- | ----------------------------------------------------- |
+|     Parameter     |                      Description                      |
+|-------------------|-------------------------------------------------------|
 | `hostname`        | The hostname or IP address of your Fronius Datalogger |
 | `refreshInterval` | Refresh interval in seconds                           |
 
 ### Powerinverter Thing Configuration
 
-| Parameter  | Description                                |
-| ---------- | ------------------------------------------ |
+| Parameter  |                Description                 |
+|------------|--------------------------------------------|
 | `deviceId` | The identifier of your device (Default: 1) |
 
 ### Meter Thing Configuration
 
-| Parameter  | Description                                     |
-| ---------- | ----------------------------------------------- |
+| Parameter  |                   Description                   |
+|------------|-------------------------------------------------|
 | `deviceId` | The identifier of your smart meter (Default: 0) |
 
 ### Ohmpilot Thing Configuration
 
-| Parameter  | Description                                  |
-| ---------- | -------------------------------------------- |
+| Parameter  |                 Description                  |
+|------------|----------------------------------------------|
 | `deviceId` | The identifier of your ohmpilot (Default: 0) |
 
 ## Channels
 
 ### Channels for `powerinverter` Thing
 
-| Channel ID                           | Item Type                | Description                                                                                                       |
-| ------------------------------------ | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+|              Channel ID              |        Item Type         |                                                    Description                                                    |
+|--------------------------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------|
 | `inverterdatachannelpac`             | Number:Power             | AC Power generated                                                                                                |
 | `inverterdatachannelpdc`             | Number:Power             | DC Power calculated from DC voltage * DC current                                                                  |
 | `inverterdatachannelpdc2`            | Number:Power             | DC Power 2 calculated from DC voltage 2 * DC current 2                                                            |
@@ -90,8 +90,8 @@ The binding has no configuration options, all configuration is done at `bridge`,
 
 ### Channels for `meter` Thing
 
-| Channel ID              | Item Type                | Description                                                                                                                                                                                                              |
-| ----------------------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|       Channel ID        |        Item Type         |                                                                                                       Description                                                                                                        |
+|-------------------------|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `enable`                | Number                   | 1 = enabled, 0 = disabled                                                                                                                                                                                                |
 | `location`              | Number                   | 0 = grid interconnection point (primary meter)<br/> 1 = load (primary meter)   <br />3 = external generator (secondary meters)(multiple)<br />256-511 = subloads (secondary meters)(unique). Refer to Fronius Solar API. |
 | `currentacphase1`       | Number:ElectricCurrent   | AC Current on Phase 1                                                                                                                                                                                                    |
@@ -112,8 +112,8 @@ The binding has no configuration options, all configuration is done at `bridge`,
 
 ### Channels for `ohmpilot` Thing
 
-| Channel ID              | Item Type          | Description                                                                                                                                                              |
-| ----------------------- | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+|       Channel ID        |     Item Type      |                                                                               Description                                                                                |
+|-------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `energyrealsumconsumed` | Number:Energy      | Real Energy consumed                                                                                                                                                     |
 | `powerrealsum`          | Number:Power       | Real Power                                                                                                                                                               |
 | `temperaturechannel1`   | Number:Temperature | Temperature                                                                                                                                                              |
@@ -124,15 +124,15 @@ The binding has no configuration options, all configuration is done at `bridge`,
 
 ### The `meter` thing has the following properties:
 
-| Property       | Description                    |
-| -------------- | ------------------------------ |
+|    Property    |          Description           |
+|----------------|--------------------------------|
 | `modelId`      | The model name of the meter    |
 | `serialNumber` | The serial number of the meter |
 
 ### The `ohmpilot` thing has the following property:
 
-| Property       | Description                       |
-| -------------- | --------------------------------- |
+|    Property    |            Description            |
+|----------------|-----------------------------------|
 | `modelId`      | The model name of the ohmpilot    |
 | `serialNumber` | The serial number of the ohmpilot |
 

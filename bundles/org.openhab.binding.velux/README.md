@@ -1,4 +1,3 @@
-
 # Velux Binding
 
 This binding integrates the <B>Velux</B> devices with help of a gateway, the <B>Velux Bridge KLF200</B>, which is able to control 200 actuators.
@@ -31,18 +30,18 @@ So make sure this Wi-Fi AP is not permanently running (the default setting is th
 
 The binding supports the following types of Thing.
 
-| Thing Type    | Description                                                                       | Note |
+|  Thing Type   |                                    Description                                    | Note |
 |---------------|-----------------------------------------------------------------------------------|------|
 | bridge        | A Velux KLF200 which acts as a gateway to all Velux / IO-home controlled devices. |      |
-| window        | A Velux / IO-home control window.                                                 |  1.  |
-| rollershutter | A Velux / IO-home control roller shutter.                                         |  1.  |
-| actuator      | Generic Velux / IO-home device.                                                   |  1.  |
+| window        | A Velux / IO-home control window.                                                 | 1.   |
+| rollershutter | A Velux / IO-home control roller shutter.                                         | 1.   |
+| actuator      | Generic Velux / IO-home device.                                                   | 1.   |
 | scene         | A Velux Scene which commands Velux / IO-home devices to specific positions.       |      |
-| vshutter      | A Velux virtual shutter.                                                          |  2.  |
+| vshutter      | A Velux virtual shutter.                                                          | 2.   |
 | information   | A Thing that provides overall information about the binding itself.               |      |
 
 1. Only supported in hubs with firmware v0.2.x.x or above
-1. Only needed in hubs with firmware v0.1.x.x (due to note 1. above)
+2. Only needed in hubs with firmware v0.1.x.x (due to note 1. above)
 
 ## Discovery
 
@@ -65,18 +64,18 @@ The KLF-200 supports two Application Programming Interfaces "API" (a SLIP based 
 Before the binding can communicate with the hub, the Configuration Parameters `ipAddress` and `password` must be entered.
 In addition there are some optional Configuration Parameters.
 
-| Configuration Parameter | Default          | Required | Description                                                  |
-|-------------------------|------------------|:--------:|--------------------------------------------------------------|
-| ipAddress               |                  |   Yes    | Hostname or address for accessing the Velux Bridge.          |
-| password                | velux123         |   Yes    | Password for authentication against the Velux Bridge.(\*\*)  |
-| timeoutMsecs            | 3000             |    No    | Communication timeout in milliseconds.                       |
-| protocol                | slip             |    No    | Underlying communication protocol (http/https/slip).         |
-| tcpPort                 | 51200            |    No    | TCP port (80 or 51200) for accessing the Velux Bridge.       |
-| retries                 | 5                |    No    | Number of retries during I/O.                                |
-| refreshMsecs            | 10000            |    No    | Refresh interval in milliseconds.                            |
-| isBulkRetrievalEnabled  | yes              |    No    | Load all scenes and actuators in one step.                   |
-| isSequentialEnforced    | no               |    No    | Enforce Sequential Actuator Control even for long operations.|
-| isProtocolTraceEnabled  | no               |    No    | Show any protocol interaction (loglevel INFO).               |
+| Configuration Parameter | Default  | Required |                          Description                          |
+|-------------------------|----------|:--------:|---------------------------------------------------------------|
+| ipAddress               |          |   Yes    | Hostname or address for accessing the Velux Bridge.           |
+| password                | velux123 |   Yes    | Password for authentication against the Velux Bridge.(\*\*)   |
+| timeoutMsecs            | 3000     |    No    | Communication timeout in milliseconds.                        |
+| protocol                | slip     |    No    | Underlying communication protocol (http/https/slip).          |
+| tcpPort                 | 51200    |    No    | TCP port (80 or 51200) for accessing the Velux Bridge.        |
+| retries                 | 5        |    No    | Number of retries during I/O.                                 |
+| refreshMsecs            | 10000    |    No    | Refresh interval in milliseconds.                             |
+| isBulkRetrievalEnabled  | yes      |    No    | Load all scenes and actuators in one step.                    |
+| isSequentialEnforced    | no       |    No    | Enforce Sequential Actuator Control even for long operations. |
+| isProtocolTraceEnabled  | no       |    No    | Show any protocol interaction (loglevel INFO).                |
 
 (\*\*) Note: This password is the API password that is printed on the back of the unit.
 Normally it differs from the password of the web frontend.
@@ -84,7 +83,7 @@ Normally it differs from the password of the web frontend.
 Advice: if you see a significant number of messages per day as follows, you should increase the parameters `retries` or/and `timeoutMsecs`...
 
 ```text
- communicate(): socket I/O failed continuously (x times).
+communicate(): socket I/O failed continuously (x times).
 ```
 
 For your convenience you'll see a log entry for the recognized configuration within the log file i.e.
@@ -99,7 +98,7 @@ These types of Thing only supported in the Velux Bridge in API version two or hi
 These types of Thing are configured by means of their serial number in the hub.
 In addition there are some optional Configuration Parameters.
 
-| Configuration Parameter | Default | Type    | Required | Description                                                                            |
+| Configuration Parameter | Default |  Type   | Required |                                      Description                                       |
 |-------------------------|---------|---------|:--------:|----------------------------------------------------------------------------------------|
 | serial                  |         | custom  |   Yes    | Serial number of the device in the hub (custom format 00:00:00:00:00:00:00:00)         |
 | name                    |         | text    |    No    | Name of the device in the hub.                                                         |
@@ -109,11 +108,11 @@ Notes:
 
 1. To enable a complete inversion of all parameter values use the property `inverted` or add a trailing star to the eight-byte serial number.
 
-1. Somfy devices do not provide a valid serial number to the Velux KLF200 Bridge.
-  For such devices you have to enter the special all-zero serial number 00:00:00:00:00:00:00:00 in the `serial` parameter.
-  This special serial number complies with the serial number validation checks, but also makes the binding use the `name` parameter value instead of the `serial` parameter value when it communicates with the KLF Bridge.
-  The `name` parameter must therefore contain the name that you gave to the actuator when you first registered it in the KLF200 Bridge.
-  For an example, see the Thing definition for 'Living_Room_Awning' below.
+2. Somfy devices do not provide a valid serial number to the Velux KLF200 Bridge.
+   For such devices you have to enter the special all-zero serial number 00:00:00:00:00:00:00:00 in the `serial` parameter.
+   This special serial number complies with the serial number validation checks, but also makes the binding use the `name` parameter value instead of the `serial` parameter value when it communicates with the KLF Bridge.
+   The `name` parameter must therefore contain the name that you gave to the actuator when you first registered it in the KLF200 Bridge.
+   For an example, see the Thing definition for 'Living_Room_Awning' below.
 
 The impact of the `inverted` parameter on the open/close position of the device, when a command is sent, is shown in the table below..
 
@@ -128,7 +127,7 @@ The Velux Bridge in API version one (firmware version 0.1.1.*) allows activating
 So besides the bridge, only one real Thing type exists, namely "scene".
 This type of Thing is configured by means of its scene name in the hub.
 
-| Configuration Parameter | Default   | Type | Required | Description                                                                 |
+| Configuration Parameter |  Default  | Type | Required |                                 Description                                 |
 |-------------------------|-----------|------|:--------:|-----------------------------------------------------------------------------|
 | sceneName               |           | text |   Yes    | Name of the scene in the hub.                                               |
 | velocity                | 'default' | text |    No    | The speed at which the scene will be executed ('default', 'silent', 'fast') |
@@ -140,10 +139,10 @@ So besides the bridge, this binding provides a virtual rollershutter Thing consi
 Therefore the respective Item definition contains multiple pairs of rollershutter levels each followed by a scene name.
 The virtual shutter Thing must be configured with pairs of level (0..10%) combined with the appropriate scene names (text) as follows.
 
-| Configuration Parameter | Default | Type    | Required | Description                             |
-|-------------------------|---------|---------|:--------:|-----------------------------------------|
-| sceneLevels             |         | text    |   Yes    | {Level1},{Scene1},{Level2},{Scene2},..  |
-| currentLevel            | 0       | integer |    No    | Inverts any device values (0..100).     |
+| Configuration Parameter | Default |  Type   | Required |              Description               |
+|-------------------------|---------|---------|:--------:|----------------------------------------|
+| sceneLevels             |         | text    |   Yes    | {Level1},{Scene1},{Level2},{Scene2},.. |
+| currentLevel            | 0       | integer |    No    | Inverts any device values (0..100).    |
 
 ## Supported Channels for Thing Types
 
@@ -151,7 +150,7 @@ The virtual shutter Thing must be configured with pairs of level (0..10%) combin
 
 The supported Channels and their associated channel types are shown below.
 
-| Channel     | Data Type | Description                                                                     |
+|   Channel   | Data Type |                                   Description                                   |
 |-------------|-----------|---------------------------------------------------------------------------------|
 | status      | String    | Description of current Bridge State.                                            |
 | reload      | Switch    | Command to force reload of the bridge information.                              |
@@ -162,7 +161,7 @@ The supported Channels and their associated channel types are shown below.
 
 The supported Channels and their associated channel types are shown below.
 
-| Channel      | Data Type     | Description                                     |
+|   Channel    |   Data Type   |                   Description                   |
 |--------------|---------------|-------------------------------------------------|
 | position     | Rollershutter | Actual position of the window or device.        |
 | limitMinimum | Rollershutter | Minimum limit position of the window or device. |
@@ -181,7 +180,7 @@ The `position` Channel indicates the open/close state of the window (resp. rolle
 
 The supported Channels and their associated channel types are shown below.
 
-| Channel      | Data Type     | Description                                     |
+|   Channel    |   Data Type   |                   Description                   |
 |--------------|---------------|-------------------------------------------------|
 | position     | Rollershutter | Actual position of the window or device.        |
 | limitMinimum | Rollershutter | Minimum limit position of the window or device. |
@@ -197,7 +196,7 @@ The binding detects whether the device supports a vane position, and if so, it a
 
 The supported Channels and their associated channel types are shown below.
 
-| Channel      | Data Type     | Description                                     |
+|   Channel    |   Data Type   |                   Description                   |
 |--------------|---------------|-------------------------------------------------|
 | position     | Rollershutter | Actual position of the window or device.        |
 | state        | Switch        | Device control (ON, OFF).                       |
@@ -210,7 +209,7 @@ See the section above for "window" / "rollershutter" Things for further informat
 
 The supported Channels and their associated channel types are shown below.
 
-| Channel    | Data Type | Description                                                    |
+|  Channel   | Data Type |                          Description                           |
 |------------|-----------|----------------------------------------------------------------|
 | action     | Switch    | Activates the scene (moves devices to their preset positions). |
 | silentMode | Switch    | Enables silent mode.                                           |
@@ -219,9 +218,9 @@ The supported Channels and their associated channel types are shown below.
 
 The supported Channel and its associated channel type is shown below.
 
-| Channel      | Data Type     | Description                             |
-|--------------|---------------|-----------------------------------------|
-| position     | Rollershutter | Position of the virtual roller shutter. |
+| Channel  |   Data Type   |               Description               |
+|----------|---------------|-----------------------------------------|
+| position | Rollershutter | Position of the virtual roller shutter. |
 
 See the section above for "window" / "rollershutter" Things for further information concerning the `position` Channel.
 
@@ -229,7 +228,7 @@ See the section above for "window" / "rollershutter" Things for further informat
 
 The supported Channel and its associated channel type is shown below.
 
-| Channel     | Data Type | Description                    |
+|   Channel   | Data Type |          Description           |
 |-------------|-----------|--------------------------------|
 | information | String    | Information about the binding. |
 
@@ -241,26 +240,25 @@ The rain sensor, when triggered, overrides the window position so it cannot open
 (Normally 5% .. 10% depending on the window type, resp. 90% .. 95% inverted).
 So if 'limitMinimum' changes from its normal value (usually 100% resp. 0% inverted) to this ventilation position value, it is an indication that the rain sensor has probably been triggered.
 
-
 ## Properties of the "bridge" Thing
 
 The bridge Thing provides the following properties.
 
-| Property          | Description                                                     |
-|-------------------|-----------------------------------------------------------------|
-| address           | IP address of the Bridge                                        |
-| check             | Result of the check of current item configuration               |
-| connectionAttempt | Date-Time of last connection attampt                            |
-| connectionSuccess | Date-Time of last successful connection attampt                 |
-| defaultGW         | IP address of the Default Gateway of the Bridge                 |
-| DHCP              | Flag whether automatic IP configuration is enabled              |
-| firmware          | Software version of the Bridge                                  |
-| products          | List of all recognized products                                 |
-| scenes            | List of all defined scenes                                      |
-| subnetMask        | IP subnetmask of the Bridge                                     |
-| vendor            | Vendor name                                                     |
-| WLANSSID          | Name of the wireless network (not suported any more)            |
-| WLANPassword      | WLAN Authentication Password (not suported any more)            |
+|     Property      |                     Description                      |
+|-------------------|------------------------------------------------------|
+| address           | IP address of the Bridge                             |
+| check             | Result of the check of current item configuration    |
+| connectionAttempt | Date-Time of last connection attampt                 |
+| connectionSuccess | Date-Time of last successful connection attampt      |
+| defaultGW         | IP address of the Default Gateway of the Bridge      |
+| DHCP              | Flag whether automatic IP configuration is enabled   |
+| firmware          | Software version of the Bridge                       |
+| products          | List of all recognized products                      |
+| scenes            | List of all defined scenes                           |
+| subnetMask        | IP subnetmask of the Bridge                          |
+| vendor            | Vendor name                                          |
+| WLANSSID          | Name of the wireless network (not suported any more) |
+| WLANPassword      | WLAN Authentication Password (not suported any more) |
 
 ## Full Example
 
@@ -310,7 +308,7 @@ The method is called with the following syntax `moveMainAndVane(thingName, mainP
 The meaning of the arguments is described in the table below.
 The method returns a `Boolean` whose meaning is also described in the table below.
 
-| Argument    | Type    | Example                             | Description                                                                              |
+|  Argument   |  Type   |               Example               |                                       Description                                        |
 |-------------|---------|-------------------------------------|------------------------------------------------------------------------------------------|
 | thingName   | String  | "velux:rollershutter:hubid:thingid" | The thing name of the shutter. Must be a valid configured thing in the hub.              |
 | mainPercent | Integer | 75                                  | The target main position in percent. Integer between 0 and 100.                          |
@@ -454,9 +452,9 @@ This, of course, is possible on command line with the commands:
 On the other hand, if you prefer a textual configuration, you can append the logging definition with:
 
 ```text
-    <logger name="org.openhab.binding.velux" level="TRACE">
-        <appender-ref ref="FILE" />
-    </logger>
+<logger name="org.openhab.binding.velux" level="TRACE">
+    <appender-ref ref="FILE" />
+</logger>
 ```
 
 During startup of normal operations, there should be only some few messages within the logfile, like:
@@ -525,12 +523,12 @@ Therefore beside the bridge, only one main thing exists, the scene element.
 
 The next-generation firmware version two is not backward compatible, and does not provide a public web frontend, but version two does provide full access to any IO-Home compatible devices not limited to Velux and includes many different features.
 
-| Firmware revision | Release date | Description                                                             |
-|:-----------------:|:------------:|-------------------------------------------------------------------------|
-| 0.1.1.0.41.0      | 2016-06-01   | Default factory shipping revision.                                      |
-| 0.1.1.0.42.0      | 2017-07-01   | Public Web Frontend w/ JSON-API.                                        |
-| 0.1.1.0.44.0      | 2017-12-14   | Public Web Frontend w/ JSON-API.                                        |
-| 0.2.0.0.71.0      | 2018-09-27   | Public SLIP-API w/ private-only WLAN-based Web Frontend w/ JSON-API.    |
+| Firmware revision | Release date |                             Description                              |
+|:-----------------:|:------------:|----------------------------------------------------------------------|
+|   0.1.1.0.41.0    |  2016-06-01  | Default factory shipping revision.                                   |
+|   0.1.1.0.42.0    |  2017-07-01  | Public Web Frontend w/ JSON-API.                                     |
+|   0.1.1.0.44.0    |  2017-12-14  | Public Web Frontend w/ JSON-API.                                     |
+|   0.2.0.0.71.0    |  2018-09-27  | Public SLIP-API w/ private-only WLAN-based Web Frontend w/ JSON-API. |
 
 Notes:
 
@@ -570,3 +568,4 @@ Therefore, error messages like the one below should be reported to the maintaine
 ```text
 [ERROR] [g.velux.things.VeluxProductReference] - PLEASE REPORT THIS TO MAINTAINER: VeluxProductReference(3) has found an unregistered ProductTypeId.
 ```
+

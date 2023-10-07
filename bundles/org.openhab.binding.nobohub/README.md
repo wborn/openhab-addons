@@ -21,7 +21,7 @@ Not all thermostats are made equal.
 
 ## Supported Things
 
-| Thing     | Thing Type | Description                                                                                     |
+|   Thing   | Thing Type |                                           Description                                           |
 |-----------|------------|-------------------------------------------------------------------------------------------------|
 | hub       | Bridge     | The Nobø Hub provides a gateway between your components, with the ability to organise in zones. |
 | component | Thing      | A component is a device, i.e. panel heater or switch.                                           |
@@ -50,28 +50,28 @@ hostName=10.0.0.10
 
 ### Hub
 
-| channel             | type   | description                                         |
-|---------------------|--------|-----------------------------------------------------|
-| activeOverrideName  | String | The name of the active override                     |
+|      channel       |  type  |           description           |
+|--------------------|--------|---------------------------------|
+| activeOverrideName | String | The name of the active override |
 
 ### Zone
 
-| channel                      | type               | description                                |
-|------------------------------|--------------------|--------------------------------------------|
-| activeWeekProfileName        | String             | The name of the active week profile        |
-| activeWeekProfile            | Number             | The active week profile id                 |
-| comfortTemperature           | Number:Temperature | The configured comfort temperature         |
-| ecoTemperature               | Number:Temperature | The configured eco temparature             |
-| currentTemperature           | Number:Temperature | The current temperature in the zone        |
-| calculatedWeekProfileStatus  | String             | The current override based on week profile |
+|           channel           |        type        |                description                 |
+|-----------------------------|--------------------|--------------------------------------------|
+| activeWeekProfileName       | String             | The name of the active week profile        |
+| activeWeekProfile           | Number             | The active week profile id                 |
+| comfortTemperature          | Number:Temperature | The configured comfort temperature         |
+| ecoTemperature              | Number:Temperature | The configured eco temparature             |
+| currentTemperature          | Number:Temperature | The current temperature in the zone        |
+| calculatedWeekProfileStatus | String             | The current override based on week profile |
 
 CurrentTemperature only works if the zone has a device that reports it (e.g. a switch).
 
 ### Component
 
-| channel             | type               | description                              |
-|---------------------|--------------------|------------------------------------------|
-| currentTemperature  | Number:Temperature | The current temperature of the component |
+|      channel       |        type        |               description                |
+|--------------------|--------------------|------------------------------------------|
+| currentTemperature | Number:Temperature | The current temperature of the component |
 
 Not all devices report this.
 
@@ -138,16 +138,16 @@ If not, you can use either Comfort or Eco to set wanted level.
 Start by creating the following profiles in the Nobø Hub App:
 
 ```text
-  OFF                 Set to status off all day, every day.
-  ON                  Set to status [Comfort|Eco] all day, every day
-  Eco                 Set to status Eco all day, every day
-  Away                Set to status Away all way, every day
-  Weekday 06->16      Set to status [Comfort|Eco] between 06->16 every weekday, otherwise set to [Away|Off]
-  Weekday 06->23      Set to status [Comfort|Eco] between 06->23 every weekday, otherwise set to [Away|Off]
-  Weekend 06->16      Set to status [Comfort|Eco] between 06->16 in the weekend, otherwise set to [Away|Off]
-  Weekend 06->23      Set to status [Comfort|Eco] between 06->23 in the weekend, otherwise set to [Away|Off]
-  Every day 06->16    Set to status [Comfort|Eco] between 06->16 every day, otherwise set to [Away|Off]
-  Every day 06->23    Set to status [Comfort|Eco] between 06->23 every day, otherwise set to [Away|Off]
+OFF                 Set to status off all day, every day.
+ON                  Set to status [Comfort|Eco] all day, every day
+Eco                 Set to status Eco all day, every day
+Away                Set to status Away all way, every day
+Weekday 06->16      Set to status [Comfort|Eco] between 06->16 every weekday, otherwise set to [Away|Off]
+Weekday 06->23      Set to status [Comfort|Eco] between 06->23 every weekday, otherwise set to [Away|Off]
+Weekend 06->16      Set to status [Comfort|Eco] between 06->16 in the weekend, otherwise set to [Away|Off]
+Weekend 06->23      Set to status [Comfort|Eco] between 06->23 in the weekend, otherwise set to [Away|Off]
+Every day 06->16    Set to status [Comfort|Eco] between 06->16 every day, otherwise set to [Away|Off]
+Every day 06->23    Set to status [Comfort|Eco] between 06->23 every day, otherwise set to [Away|Off]
 ```
 
 Next set [Comfort|Eco] level for each zone to your requirements.
@@ -166,3 +166,4 @@ sitemap nobo label="Nobø " {
     }
 }
 ```
+

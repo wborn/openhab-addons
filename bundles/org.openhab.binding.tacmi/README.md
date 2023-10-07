@@ -99,13 +99,13 @@ The _TA C.M.I. Schema API Connection_ has to be manually configured.
 
 The thing has the following configuration parameters:
 
-| Parameter Label         | Parameter ID | Description                                                                                                   | Accepted values        |
-|-------------------------|--------------|---------------------------------------------------------------------------------------------------------------|------------------------|
-| C.M.I. IP Address       | host         | Host name or IP address of the C.M.I                                                                          | host name or ip        |
-| Username                | username     | Username for authentication on the C.M.I.                                                                     | string with username   |
-| Password                | password     | Password for authentication on the C.M.I.                                                                     | string with password   |
-| API Schema ID           | schemaId     | ID of the schema API page                                                                                     | 1-256                  |
-| Poll Interval           | pollInterval | Poll interval (in seconds) how often to poll the API Page                                                     | 1-300; default 10      |
+|  Parameter Label  | Parameter ID |                        Description                        |   Accepted values    |
+|-------------------|--------------|-----------------------------------------------------------|----------------------|
+| C.M.I. IP Address | host         | Host name or IP address of the C.M.I                      | host name or ip      |
+| Username          | username     | Username for authentication on the C.M.I.                 | string with username |
+| Password          | password     | Password for authentication on the C.M.I.                 | string with password |
+| API Schema ID     | schemaId     | ID of the schema API page                                 | 1-256                |
+| Poll Interval     | pollInterval | Poll interval (in seconds) how often to poll the API Page | 1-300; default 10    |
 
 This thing doesn't need a bridge. Multiple of these things for different C.M.I.'s could be defined within an openHAB instance.
 
@@ -115,10 +115,10 @@ The _TA C.M.I. CoE Connection_ has to be manually configured.
 
 This thing reflects a connection to a node behind a specific C.M.I.. This node could be every CAN-Capable device from TA which allows to define a CAN-Input.
 
-| Parameter Label         | Parameter ID    | Description                                                                                                   | Accepted values        |
-|-------------------------|-----------------|---------------------------------------------------------------------------------------------------------------|------------------------|
-| C.M.I. IP Address       | host            | Host name or IP address of the C.M.I                                                                          | host name or ip        |
-| Node                    | node            | The CoE / CAN Node number openHAB should represent                                                            | 1-64                   |
+|  Parameter Label  | Parameter ID |                    Description                     | Accepted values |
+|-------------------|--------------|----------------------------------------------------|-----------------|
+| C.M.I. IP Address | host         | Host name or IP address of the C.M.I               | host name or ip |
+| Node              | node         | The CoE / CAN Node number openHAB should represent | 1-64            |
 
 The thing has no channels by default - they have to be added manually matching the configured inputs / outputs for the related CAN Node. Digital and Analog channels are supported. Please read TA's documentation related to the CAN-protocol - multiple analog (4) and digital (16) channels are combined so please be aware of this design limitation.
 
@@ -132,9 +132,9 @@ Also when the API Page is updated, the channels are also updated during the next
 
 The channels have a parameter allowing to configure their update behavior:
 
-| Parameter Label         | Parameter ID | Description                                                                                                   | Accepted values        |
-|-------------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
-| Update Policy           | updatePolicy | Update policy for this channel. Default means "On-Change" for channels that can be modified and "On-Change" for read-only channels.  | 0 (Default), 1 (On-Fetch), 2 (On-Change)   |
+| Parameter Label | Parameter ID |                                                             Description                                                             |             Accepted values              |
+|-----------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
+| Update Policy   | updatePolicy | Update policy for this channel. Default means "On-Change" for channels that can be modified and "On-Change" for read-only channels. | 0 (Default), 1 (On-Fetch), 2 (On-Change) |
 
 The behavior in detail:
 
@@ -157,52 +157,52 @@ As this only restores the item states you have to write a rule issuing _postUpda
 
 Supported channels for the CoE connection are:
 
-| Channel         | Type        | Description                                                          |
-|-----------------|-------------|----------------------------------------------------------------------|
-| coe-digital-in  | Switch (RO) | Digital input channel for digital state data received from the node  |
-| coe-digital-out | Switch      | Digital output channel for digital state data sent to the node       |
-| coe-analog-in   | Number (RO) | Analog input channel for numeric values received from the node       |
-| coe-analog-out  | Number      | Analog output channel for numeric values sent to the node            |
+|     Channel     |    Type     |                             Description                             |
+|-----------------|-------------|---------------------------------------------------------------------|
+| coe-digital-in  | Switch (RO) | Digital input channel for digital state data received from the node |
+| coe-digital-out | Switch      | Digital output channel for digital state data sent to the node      |
+| coe-analog-in   | Number (RO) | Analog input channel for numeric values received from the node      |
+| coe-analog-out  | Number      | Analog output channel for numeric values sent to the node           |
 
 Each channel has it's own set of configuration parameters.
 Here a list of possible parameters:
 
 Channel's `coe-digital-in` and `coe-analog-in`:
 
-| Parameter Label         | Parameter ID | Description                                                                                                   | Accepted values        |
-|-------------------------|--------------|---------------------------------------------------------------------------------------------------------------|------------------------|
-| Output                  | output       | C.M.I. Network Output                                                                                         | 1-64                   |
+| Parameter Label | Parameter ID |      Description      | Accepted values |
+|-----------------|--------------|-----------------------|-----------------|
+| Output          | output       | C.M.I. Network Output | 1-64            |
 
 Channel `coe-digital-out`:
 
-| Parameter Label         | Parameter ID | Description                                                                                                   | Accepted values         |
-|-------------------------|--------------|---------------------------------------------------------------------------------------------------------------|-------------------------|
-| Output                  | output       | C.M.I. Network Output                                                                                         | 1-64                    |
-| Initial Value           | initialValue | Initial value to set after startup (optional, defaults to uninitialized)                                      | true (on) / false (off) |
+| Parameter Label | Parameter ID |                               Description                                |     Accepted values     |
+|-----------------|--------------|--------------------------------------------------------------------------|-------------------------|
+| Output          | output       | C.M.I. Network Output                                                    | 1-64                    |
+| Initial Value   | initialValue | Initial value to set after startup (optional, defaults to uninitialized) | true (on) / false (off) |
 
 Channel `coe-analog-out`:
 
-| Parameter Label         | Parameter ID | Description                                                                                                   | Accepted values         |
-|-------------------------|--------------|---------------------------------------------------------------------------------------------------------------|-------------------------|
-| Output                  | output       | C.M.I. Network Output                                                                                         | 1-64                    |
-| Measurement Type        | type         | Measurement type for this channel (see table below)                                                           | 0-21                    |
-| Initial Value           | initialValue | Initial value to set after startup (optional, defaults to uninitialized)                                      | floating point numeric  |
+| Parameter Label  | Parameter ID |                               Description                                |    Accepted values     |
+|------------------|--------------|--------------------------------------------------------------------------|------------------------|
+| Output           | output       | C.M.I. Network Output                                                    | 1-64                   |
+| Measurement Type | type         | Measurement type for this channel (see table below)                      | 0-21                   |
+| Initial Value    | initialValue | Initial value to set after startup (optional, defaults to uninitialized) | floating point numeric |
 
 The binding supports all 21 measure types that exist according to the TA documentation.
 Unfortunately, the documentation is not consistent here, so most of the types are supported only by generic names.
 The known measure types are:
 
-| id     | type          | description                                   |
-|--------|---------------|-----------------------------------------------|
-| 1      | Temperature   | Tempeature value. Value is multiplied by 0.1  |
-| 2      | Unknown2      |                                               |
-| 3      | Unknown3      |                                               |
-| 4      | Seconds       |                                               |
-| 5...9  | Unknown5..9   |                                               |
-| 10     | Kilowatt      |                                               |
-| 11     | Kilowatthours |                                               |
-| 12     | Megawatthours |                                               |
-| 13..21 | Unknown       |                                               |
+|   id   |     type      |                 description                  |
+|--------|---------------|----------------------------------------------|
+| 1      | Temperature   | Tempeature value. Value is multiplied by 0.1 |
+| 2      | Unknown2      |                                              |
+| 3      | Unknown3      |                                              |
+| 4      | Seconds       |                                              |
+| 5...9  | Unknown5..9   |                                              |
+| 10     | Kilowatt      |                                              |
+| 11     | Kilowatthours |                                              |
+| 12     | Megawatthours |                                              |
+| 13..21 | Unknown       |                                              |
 
 ## Full Example
 

@@ -15,7 +15,7 @@ This binding provides only the `router` Thing.
 
 ### `router` Thing Configuration
 
-| Name            | Type    | Description                                   | Default | Required | Advanced |
+|      Name       |  Type   |                  Description                  | Default | Required | Advanced |
 |-----------------|---------|-----------------------------------------------|---------|----------|----------|
 | hostname        | text    | Hostname or IP address of the device          | N/A     | yes      | no       |
 | port            | integer | Port for telnet connection                    | 23      | no       | no       |
@@ -25,7 +25,7 @@ This binding provides only the `router` Thing.
 
 ## Channels
 
-| Channel               | Type   | Read/Write | Description                              |
+|        Channel        |  Type  | Read/Write |               Description                |
 |-----------------------|--------|------------|------------------------------------------|
 | `wifi#status`         | Switch | RW         | State of the wifi                        |
 | `wifi#ssid`           | String | R          | SSID of the wifi network                 |
@@ -55,3 +55,4 @@ String SecMode "Wifi Security Mode" <QualityOfService> {channel="tplinkrouter:ro
 String Authentication "Wifi Authentication Mode" <QualityOfService> {channel="tplinkrouter:router:myRouter:wifi#authentication"}
 String Encryption "Wifi Encryption Mode" <QualityOfService> {channel="tplinkrouter:router:myRouter:wifi#encryption"}
 ```
+

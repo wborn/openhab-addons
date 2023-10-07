@@ -10,7 +10,7 @@ Alternatively, you can create scripts in the `automation/jsr223` configuration d
 If you create an empty file called `test.groovy`, you will see a log line with information similar to:
 
 ```text
-    ... [INFO ] [.a.m.s.r.i.l.ScriptFileWatcher:150  ] - Loading script 'test.groovy'
+... [INFO ] [.a.m.s.r.i.l.ScriptFileWatcher:150  ] - Loading script 'test.groovy'
 ```
 
 To enable debug logging, use the [console logging]({{base}}/administration/logging.html) commands to enable debug logging for the automation functionality:
@@ -39,5 +39,6 @@ Depending on the openHAB logging configuration, you may need to prefix logger na
 The script uses the [LoggerFactory](https://www.slf4j.org/apidocs/org/slf4j/Logger.html) to obtain a named logger and then logs a message like:
 
 ```text
-    ... [INFO ] [.openhab.core.automation.examples:-2   ] - Hello, World!
+... [INFO ] [.openhab.core.automation.examples:-2   ] - Hello, World!
 ```
+

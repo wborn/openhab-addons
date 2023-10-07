@@ -67,15 +67,15 @@ The following happens when pressing and releasing a key:
 #### Press
 
 1. State of global key channel updated to new key.
-1. State of per-key channel updated to `"CLOSED"`.
-1. Global key channel triggered with the current key name.
-1. Per-key channel triggered with `"PRESSED"`".
-1. State of global key channel updated to `""` (Empty string)
+2. State of per-key channel updated to `"CLOSED"`.
+3. Global key channel triggered with the current key name.
+4. Per-key channel triggered with `"PRESSED"`".
+5. State of global key channel updated to `""` (Empty string)
 
 #### Release
 
 1. State of per-key channel updated to `"OPEN"`
-1. Per-key channel triggered with `"RELEASED"`
+2. Per-key channel triggered with `"RELEASED"`
 
 #### Rationale
 

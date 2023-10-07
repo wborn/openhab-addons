@@ -40,7 +40,7 @@ PCA301 sockets are polled every 120 seconds by default. This results in sockets 
 
 ### JeeLink / LaCrosseGateway (connected to USB)
 
-| Parameter     | Item Type | Description                                                                                                                                  |
+|   Parameter   | Item Type |                                                                 Description                                                                  |
 |---------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------|
 | Serial Port   | String    | The serial port name for the USB receiver / LaCrosseGateway. Valid values are e.g. COM1 for Windows and /dev/ttyS0 or /dev/ttyUSB0 for Linux |
 | Baud Rate     | Number    | The baud rate of the USB Receiver. Valid values are 9600, 19200, 38400, 57600 (default), and 115200                                          |
@@ -50,15 +50,15 @@ The available init commands depend on the sketch that is running on the USB stic
 
 ### JeeLink / LaCrosseGateway (connected over TCP)
 
-| Parameter     | Item Type | Description                                                                                                                       |
-|---------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------|
-| IP Address    | String    | The IP address of the Server to which the USB Receiver is connected, or the IP address of the LaCrosseGateway                     |
-| TCP Port      | Number    | The TCP port over which the serial port is made available, or the LaCrosseGateway port (which usually is 81)                      |
-| Init Commands | String    | A semicolon separated list of init commands that will be send to the Jeelink / LaCrosseGateway, e.g. "0a" for disabling the LED   |
+|   Parameter   | Item Type |                                                           Description                                                           |
+|---------------|-----------|---------------------------------------------------------------------------------------------------------------------------------|
+| IP Address    | String    | The IP address of the Server to which the USB Receiver is connected, or the IP address of the LaCrosseGateway                   |
+| TCP Port      | Number    | The TCP port over which the serial port is made available, or the LaCrosseGateway port (which usually is 81)                    |
+| Init Commands | String    | A semicolon separated list of init commands that will be send to the Jeelink / LaCrosseGateway, e.g. "0a" for disabling the LED |
 
 ### LaCrosse temperature sensors
 
-| Parameter                  | Item Type | Description                                                                                                                                          |
+|         Parameter          | Item Type |                                                                     Description                                                                      |
 |----------------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Sensor ID                  | Number    | The ID of the connected sensor                                                                                                                       |
 | Sensor Timeout             | Number    | The amount of time in seconds that should result in OFFLINE status when no readings have been received from the sensor                               |
@@ -70,7 +70,7 @@ The available init commands depend on the sketch that is running on the USB stic
 
 ### EC3000 power monitors
 
-| Parameter       | Item Type | Description                                                                                                             |
+|    Parameter    | Item Type |                                                       Description                                                       |
 |-----------------|-----------|-------------------------------------------------------------------------------------------------------------------------|
 | Sensor ID       | Number    | The ID of the connected sensor                                                                                          |
 | Sensor Timeout  | Number    | The amount of time in seconds that should result in OFFLINE status when no readings have been received from the sensor  |
@@ -79,45 +79,45 @@ The available init commands depend on the sketch that is running on the USB stic
 
 ### PCA301 power monitoring wireless sockets
 
-| Parameter         | Item Type    | Description                                                                                                            |
-|-------------------|--------------|------------------------------------------------------------------------------------------------------------------------|
-| Sensor ID         | Number       | The ID of the connected sensor                                                                                         |
-| Sensor Timeout    | Number       | The amount of time in seconds that should result in OFFLINE status when no readings have been received from the sensor |
-| Retry Count       | Number       | The number of times a switch command will be resent to the socket until giving up                                      |
+|   Parameter    | Item Type |                                                      Description                                                       |
+|----------------|-----------|------------------------------------------------------------------------------------------------------------------------|
+| Sensor ID      | Number    | The ID of the connected sensor                                                                                         |
+| Sensor Timeout | Number    | The amount of time in seconds that should result in OFFLINE status when no readings have been received from the sensor |
+| Retry Count    | Number    | The number of times a switch command will be resent to the socket until giving up                                      |
 
 ### Revolt power monitors
 
-| Parameter         | Item Type    | Description                                                                                                            |
-|-------------------|--------------|------------------------------------------------------------------------------------------------------------------------|
-| Sensor ID         | Number       | The ID of the connected sensor                                                                                         |
-| Sensor Timeout    | Number       | The amount of time in seconds that should result in OFFLINE status when no readings have been received from the sensor |
+|   Parameter    | Item Type |                                                      Description                                                       |
+|----------------|-----------|------------------------------------------------------------------------------------------------------------------------|
+| Sensor ID      | Number    | The ID of the connected sensor                                                                                         |
+| Sensor Timeout | Number    | The amount of time in seconds that should result in OFFLINE status when no readings have been received from the sensor |
 
 ## Channels
 
 ### LaCrosse temperature sensors
 
-| Channel Type ID | Item Type             | Description                                       |
-|-----------------|-----------------------|---------------------------------------------------|
-| temperature     | Number:Temperature    | Temperature reading                               |
-| humidity        | Number:Dimensionless  | Humidity reading                                  |
-| batteryNew      | Contact               | Whether the battery is new (CLOSED) or not (OPEN) |
-| batteryLow      | Contact               | Whether the battery is low (CLOSED) or not (OPEN) |
+| Channel Type ID |      Item Type       |                    Description                    |
+|-----------------|----------------------|---------------------------------------------------|
+| temperature     | Number:Temperature   | Temperature reading                               |
+| humidity        | Number:Dimensionless | Humidity reading                                  |
+| batteryNew      | Contact              | Whether the battery is new (CLOSED) or not (OPEN) |
+| batteryLow      | Contact              | Whether the battery is low (CLOSED) or not (OPEN) |
 
 ### TX22 temperature and humidity sensors
 
-| Channel Type ID | Item Type             | Description                |
-|-----------------|-----------------------|----------------------------|
-| temperature     | Number:Temperature    | Temperature reading        |
-| humidity        | Number:Dimensionless  | Humidity reading           |
-| pressure        | Number:Pressure       | Current pressure reading   |
-| rain            | Number:Length         | Rainfall today             |
-| windStrength    | Number:Speed          | Current wind speed         |
-| windAngle       | Number:Angle          | Current wind direction     |
-| gustStrength    | Number:Speed          | Gust speed                 |
+| Channel Type ID |      Item Type       |       Description        |
+|-----------------|----------------------|--------------------------|
+| temperature     | Number:Temperature   | Temperature reading      |
+| humidity        | Number:Dimensionless | Humidity reading         |
+| pressure        | Number:Pressure      | Current pressure reading |
+| rain            | Number:Length        | Rainfall today           |
+| windStrength    | Number:Speed         | Current wind speed       |
+| windAngle       | Number:Angle         | Current wind direction   |
+| gustStrength    | Number:Speed         | Gust speed               |
 
 ### EC3000 power monitors
 
-| Channel Type ID  | Item Type     | Description                               |
+| Channel Type ID  |   Item Type   |                Description                |
 |------------------|---------------|-------------------------------------------|
 | currentPower     | Number:Power  | Current power draw                        |
 | maxPower         | Number:Power  | Maximum power draw                        |
@@ -128,30 +128,30 @@ The available init commands depend on the sketch that is running on the USB stic
 
 ### PCA301 power monitoring wireless sockets
 
-| Channel Type ID         | Item Type     | Description                                          |
-|-------------------------|---------------|------------------------------------------------------|
-| switchingState          | Switch        | Whether the sockets are currently switched on or off |
-| currentPower            | Number:Power  | Current power draw                                   |
-| consumptionTotal        | Number:Energy | Total energy consumption                             |
+| Channel Type ID  |   Item Type   |                     Description                      |
+|------------------|---------------|------------------------------------------------------|
+| switchingState   | Switch        | Whether the sockets are currently switched on or off |
+| currentPower     | Number:Power  | Current power draw                                   |
+| consumptionTotal | Number:Energy | Total energy consumption                             |
 
 ### Revolt power monitors
 
-| Channel Type ID   | Item Type                | Description                               |
-|-------------------|--------------------------|-------------------------------------------|
-| currentPower      | Number:Power             | Current power draw                        |
-| consumptionTotal  | Number:Energy            | Total energy consumption                  |
-| powerFactor       | Number                   | Ratio of real power to apparent power     |
-| electricCurrent   | Number:ElectricCurrent   | The measured Electric Current             |
-| electricPotential | Number:ElectricPotential | The measured Electric Potential           |
-| powerFrequency    | Number:Frequency         | The measured AC power frequency           |
+|  Channel Type ID  |        Item Type         |              Description              |
+|-------------------|--------------------------|---------------------------------------|
+| currentPower      | Number:Power             | Current power draw                    |
+| consumptionTotal  | Number:Energy            | Total energy consumption              |
+| powerFactor       | Number                   | Ratio of real power to apparent power |
+| electricCurrent   | Number:ElectricCurrent   | The measured Electric Current         |
+| electricPotential | Number:ElectricPotential | The measured Electric Potential       |
+| powerFrequency    | Number:Frequency         | The measured AC power frequency       |
 
 ## Commands
 
 ### PCA301 power monitoring wireless sockets
 
-| Channel Type ID         | Item Type    | Description                                       |
-|-------------------------|--------------|---------------------------------------------------|
-| switchingState          | Switch       | Supports ON and OFF commands to switch the socket |
+| Channel Type ID | Item Type |                    Description                    |
+|-----------------|-----------|---------------------------------------------------|
+| switchingState  | Switch    | Supports ON and OFF commands to switch the socket |
 
 ## Full Example
 
@@ -225,3 +225,4 @@ Number:ElectricCurrent Current {channel="jeelink:revolt:4F1B:electricCurrent"}
 Number:ElectricPotential Voltage {channel="jeelink:revolt:4F1B:electricPotential"}
 Number:Frequency PowerFrequency {channel="jeelink:revolt:4F1B:powerFrequency"}
 ```
+

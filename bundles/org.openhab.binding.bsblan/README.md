@@ -6,10 +6,10 @@ This binding uses the REST API of [BSB-LPB-PPS-LAN](https://github.com/fredlcore
 
 Currently the binding supports the following thing types:
 
-| Thing Type  | Description                                                    |
-|-------------|----------------------------------------------------------------|
-| bridge      | Represents the BSB-LAN device.                                 |
-| parameter   | Represents a single parameter available at the BSB-LAN device. |
+| Thing Type |                          Description                           |
+|------------|----------------------------------------------------------------|
+| bridge     | Represents the BSB-LAN device.                                 |
+| parameter  | Represents a single parameter available at the BSB-LAN device. |
 
 ## Discovery
 
@@ -23,22 +23,22 @@ The binding has no configuration options, all configuration is done at Thing lev
 
 ### Bridge Thing Configuration
 
-| Property         | Default | Required | Type    | Description                                                                                |
-|------------------|---------|----------|---------|--------------------------------------------------------------------------------------------|
-| host             | -       | Yes      | String  | The hostname or IP address of the BSB-LAN device.                                          |
-| port             | 80      | No       | Integer | The port where the BSB-LAN device is listening.                                            |
-| passkey          | -       | No       | String  | The passkey required to access the BSB-LAN device.                                         |
-| username         | -       | No       | String  | The username required to access the BSB-LAN device (when using HTTP Basic Authentication). |
-| password         | -       | No       | String  | The password required to access the BSB-LAN device (when using HTTP Basic Authentication). |
-| refreshInterval  | 60      | No       | Integer | Specifies the refresh (poll) interval in seconds. Minimum value: 5s                        |
+|    Property     | Default | Required |  Type   |                                        Description                                         |
+|-----------------|---------|----------|---------|--------------------------------------------------------------------------------------------|
+| host            | -       | Yes      | String  | The hostname or IP address of the BSB-LAN device.                                          |
+| port            | 80      | No       | Integer | The port where the BSB-LAN device is listening.                                            |
+| passkey         | -       | No       | String  | The passkey required to access the BSB-LAN device.                                         |
+| username        | -       | No       | String  | The username required to access the BSB-LAN device (when using HTTP Basic Authentication). |
+| password        | -       | No       | String  | The password required to access the BSB-LAN device (when using HTTP Basic Authentication). |
+| refreshInterval | 60      | No       | Integer | Specifies the refresh (poll) interval in seconds. Minimum value: 5s                        |
 
 ### Parameter Thing Configuration
 
-| Property  | Default | Required | Type    | Description                                                                              |
-|-----------|---------|----------|---------|------------------------------------------------------------------------------------------|
-| id        | -       | Yes      | Integer | Specific parameter identifier (numeric value)                                            |
-| setId     | value of `id` | No       | Integer | Parameter identifier used for set requests (numeric value).<br />If not specified it falls back to the value of the `id` property. |
-| setType   | `SET`   | No       | String  | Message type used for set requests. Possible values are: `INF` or `SET`.<br />If not specified or unknown it falls back to `SET`. |
+| Property |    Default    | Required |  Type   |                                                            Description                                                             |
+|----------|---------------|----------|---------|------------------------------------------------------------------------------------------------------------------------------------|
+| id       | -             | Yes      | Integer | Specific parameter identifier (numeric value)                                                                                      |
+| setId    | value of `id` | No       | Integer | Parameter identifier used for set requests (numeric value).<br />If not specified it falls back to the value of the `id` property. |
+| setType  | `SET`         | No       | String  | Message type used for set requests. Possible values are: `INF` or `SET`.<br />If not specified or unknown it falls back to `SET`.  |
 
 Note: If you would also like to use the binding to set parameter values, ensure you have flashed the BSB-LAN adapter in write mode (see your `BSB_lan_config.h`)
 
@@ -46,14 +46,14 @@ Note: If you would also like to use the binding to set parameter values, ensure 
 
 ### Parameter Thing Channels
 
-| Channel ID   | Item Type | Description                                                                        |
-|--------------|-----------|------------------------------------------------------------------------------------|
-| name         | String    | Name of the parameter as provided by the BSB-LAN device.                           |
-| number-value | Number    | Value of the parameter converted to a numerical value (if possible).<br />The value is published as `DecimalType(int)` for values of `datatype` `DT_ENUM` and `DecimalType(double)` otherwise. |
-| string-value | String    | Value of the parameter as provided by the BSB-LAN device.                          |
-| switch-value | Switch    | Value of the parameter.<br />`0` is interpreted as `OFF`, everything else as `ON`. |
-| unit         | String    | Unit as provided by the BSB-LAN device (HTML unescaping applied).                  |
-| description  | String    | Description as provided by the BSB-LAN device.                                     |
+|  Channel ID  | Item Type |                                                                                                                                                                                                                                                 Description                                                                                                                                                                                                                                                 |
+|--------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| name         | String    | Name of the parameter as provided by the BSB-LAN device.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| number-value | Number    | Value of the parameter converted to a numerical value (if possible).<br />The value is published as `DecimalType(int)` for values of `datatype` `DT_ENUM` and `DecimalType(double)` otherwise.                                                                                                                                                                                                                                                                                                              |
+| string-value | String    | Value of the parameter as provided by the BSB-LAN device.                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| switch-value | Switch    | Value of the parameter.<br />`0` is interpreted as `OFF`, everything else as `ON`.                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| unit         | String    | Unit as provided by the BSB-LAN device (HTML unescaping applied).                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| description  | String    | Description as provided by the BSB-LAN device.                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | datatype     | Number    | Datatype as provided by the BSB-LAN device. Possible values are currently<br />`0` for `DT_VALS`: plain value<br />`1` for `DT_ENUM`: value (8/16 Bit) followed by space followed by text<br />`2` for `DT_BITS`: bit value followed by bitmask followed by text<br />`3` for `DT_WDAY`: weekday<br />`4` for `DT_HHMM`: hour:minute<br />`5` for `DT_DTTM`: date and time<br />`6` for `DT_DDMM`: day and month<br />`7` for `DT_STRN`: String<br />`8` for `DT_DWHM`: PPS time (day of week, hour:minute) |
 
 ## Full Example
@@ -85,3 +85,4 @@ sitemap bsblan label="BSB-LAN" {
     Text item=BsbParameter8730Description label="Heating Circuit Pump [%s]"
 }
 ```
+

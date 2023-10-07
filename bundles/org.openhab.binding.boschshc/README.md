@@ -33,8 +33,8 @@ A simple light control.
 
 **Thing Type ID**: `in-wall-switch`
 
-| Channel Type ID    | Item Type     | Writable | Description                                      |
-| ------------------ | ------------- | :------: | ------------------------------------------------ |
+|  Channel Type ID   |   Item Type   | Writable |                   Description                    |
+|--------------------|---------------|:--------:|--------------------------------------------------|
 | power-switch       | Switch        | &#9745;  | Current state of the switch.                     |
 | power-consumption  | Number:Power  | &#9744;  | Current power consumption (W) of the device.     |
 | energy-consumption | Number:Energy | &#9744;  | Cumulated energy consumption (Wh) of the device. |
@@ -45,8 +45,8 @@ A compact smart plug with energy monitoring capabilities.
 
 **Thing Type ID**: `smart-plug-compact`
 
-| Channel Type ID    | Item Type     | Writable | Description                                      |
-| ------------------ | ------------- | :------: | ------------------------------------------------ |
+|  Channel Type ID   |   Item Type   | Writable |                   Description                    |
+|--------------------|---------------|:--------:|--------------------------------------------------|
 | power-switch       | Switch        | &#9745;  | Current state of the switch.                     |
 | power-consumption  | Number:Power  | &#9744;  | Current power consumption (W) of the device.     |
 | energy-consumption | Number:Energy | &#9744;  | Cumulated energy consumption (Wh) of the device. |
@@ -57,19 +57,19 @@ The Twinguard smoke detector warns you in case of fire and constantly monitors t
 
 **Thing Type ID**: `twinguard`
 
-| Channel Type ID    | Item Type            | Writable | Description                                                                                       |
-| ------------------ | -------------------- | :------: | ------------------------------------------------------------------------------------------------- |
-| temperature        | Number:Temperature   | &#9744;  | Current measured temperature.                                                                     |
-| temperature-rating | String               | &#9744;  | Rating of the currently measured temperature.                                                     |
-| humidity           | Number:Dimensionless | &#9744;  | Current measured humidity (0 to 100).                                                             |
-| humidity-rating    | String               | &#9744;  | Rating of current measured humidity.                                                              |
-| purity             | Number:Dimensionless | &#9744;  | Purity of the air (ppm). Range from 500 to 5500 ppm. A higher value indicates a higher pollution. |
-| purity-rating      | String               | &#9744;  | Rating of current measured purity.                                                                |
-| air-description    | String               | &#9744;  | Overall description of the air quality.                                                           |
-| combined-rating    | String               | &#9744;  | Combined rating of the air quality.                                                               |
+|  Channel Type ID   |      Item Type       | Writable |                                                                                                         Description                                                                                                         |
+|--------------------|----------------------|:--------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| temperature        | Number:Temperature   | &#9744;  | Current measured temperature.                                                                                                                                                                                               |
+| temperature-rating | String               | &#9744;  | Rating of the currently measured temperature.                                                                                                                                                                               |
+| humidity           | Number:Dimensionless | &#9744;  | Current measured humidity (0 to 100).                                                                                                                                                                                       |
+| humidity-rating    | String               | &#9744;  | Rating of current measured humidity.                                                                                                                                                                                        |
+| purity             | Number:Dimensionless | &#9744;  | Purity of the air (ppm). Range from 500 to 5500 ppm. A higher value indicates a higher pollution.                                                                                                                           |
+| purity-rating      | String               | &#9744;  | Rating of current measured purity.                                                                                                                                                                                          |
+| air-description    | String               | &#9744;  | Overall description of the air quality.                                                                                                                                                                                     |
+| combined-rating    | String               | &#9744;  | Combined rating of the air quality.                                                                                                                                                                                         |
 | battery-level      | Number               | &#9744;  | Current battery level percentage as integer number. Bosch-specific battery levels are mapped to numbers as follows: `OK`: 100, `LOW_BATTERY`: 10, `CRITICAL_LOW`: 1, `CRITICALLY_LOW_BATTERY`: 1, `NOT_AVAILABLE`: `UNDEF`. |
-| low-battery        | Switch               | &#9744;  | Indicates whether the battery is low (`ON`) or OK (`OFF`). |
-| smoke-check        | String               | &#9745;  | State of the smoke check. Also used to request a new smoke check.                                 |
+| low-battery        | Switch               | &#9744;  | Indicates whether the battery is low (`ON`) or OK (`OFF`).                                                                                                                                                                  |
+| smoke-check        | String               | &#9745;  | State of the smoke check. Also used to request a new smoke check.                                                                                                                                                           |
 
 ### Door/Window Contact
 
@@ -77,11 +77,11 @@ Detects open windows and doors.
 
 **Thing Type ID**: `window-contact`
 
-| Channel Type ID | Item Type | Writable | Description                  |
-| --------------- | --------- | :------: | ---------------------------- |
-| contact         | Contact   | &#9744;  | Contact state of the device. |
+| Channel Type ID | Item Type | Writable |                                                                                                         Description                                                                                                         |
+|-----------------|-----------|:--------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| contact         | Contact   | &#9744;  | Contact state of the device.                                                                                                                                                                                                |
 | battery-level   | Number    | &#9744;  | Current battery level percentage as integer number. Bosch-specific battery levels are mapped to numbers as follows: `OK`: 100, `LOW_BATTERY`: 10, `CRITICAL_LOW`: 1, `CRITICALLY_LOW_BATTERY`: 1, `NOT_AVAILABLE`: `UNDEF`. |
-| low-battery     | Switch    | &#9744;  | Indicates whether the battery is low (`ON`) or OK (`OFF`). |
+| low-battery     | Switch    | &#9744;  | Indicates whether the battery is low (`ON`) or OK (`OFF`).                                                                                                                                                                  |
 
 ### Motion Detector
 
@@ -89,11 +89,11 @@ Detects every movement through an intelligent combination of passive infra-red t
 
 **Thing Type ID**: `motion-detector`
 
-| Channel Type ID | Item Type | Writable | Description                    |
-| --------------- | --------- | :------: | ------------------------------ |
-| latest-motion   | DateTime  | &#9744;  | The date of the latest motion. |
+| Channel Type ID | Item Type | Writable |                                                                                                         Description                                                                                                         |
+|-----------------|-----------|:--------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| latest-motion   | DateTime  | &#9744;  | The date of the latest motion.                                                                                                                                                                                              |
 | battery-level   | Number    | &#9744;  | Current battery level percentage as integer number. Bosch-specific battery levels are mapped to numbers as follows: `OK`: 100, `LOW_BATTERY`: 10, `CRITICAL_LOW`: 1, `CRITICALLY_LOW_BATTERY`: 1, `NOT_AVAILABLE`: `UNDEF`. |
-| low-battery     | Switch    | &#9744;  | Indicates whether the battery is low (`ON`) or OK (`OFF`). |
+| low-battery     | Switch    | &#9744;  | Indicates whether the battery is low (`ON`) or OK (`OFF`).                                                                                                                                                                  |
 
 ### Shutter Control
 
@@ -101,8 +101,8 @@ Control of your shutter to take any position you desire.
 
 **Thing Type ID**: `shutter-control`
 
-| Channel Type ID | Item Type     | Writable | Description                              |
-| --------------- | ------------- | :------: | ---------------------------------------- |
+| Channel Type ID |   Item Type   | Writable |               Description                |
+|-----------------|---------------|:--------:|------------------------------------------|
 | level           | Rollershutter | &#9745;  | Current open ratio (0 to 100, Step 0.5). |
 
 ### Thermostat
@@ -111,14 +111,14 @@ Radiator thermostat
 
 **Thing Type ID**: `thermostat`
 
-| Channel Type ID       | Item Type            | Writable | Description                                    |
-| --------------------- | -------------------- | :------: | ---------------------------------------------- |
-| temperature           | Number:Temperature   | &#9744;  | Current measured temperature.                  |
-| valve-tappet-position | Number:Dimensionless | &#9744;  | Current open ratio of valve tappet (0 to 100). |
-| child-lock            | Switch               | &#9745;  | Indicates if child lock is active.             |
-| silent-mode           | Switch               | &#9745;  | Enables or disables silent mode on thermostats. When enabled, the battery usage is higher. |
+|    Channel Type ID    |      Item Type       | Writable |                                                                                                         Description                                                                                                         |
+|-----------------------|----------------------|:--------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| temperature           | Number:Temperature   | &#9744;  | Current measured temperature.                                                                                                                                                                                               |
+| valve-tappet-position | Number:Dimensionless | &#9744;  | Current open ratio of valve tappet (0 to 100).                                                                                                                                                                              |
+| child-lock            | Switch               | &#9745;  | Indicates if child lock is active.                                                                                                                                                                                          |
+| silent-mode           | Switch               | &#9745;  | Enables or disables silent mode on thermostats. When enabled, the battery usage is higher.                                                                                                                                  |
 | battery-level         | Number               | &#9744;  | Current battery level percentage as integer number. Bosch-specific battery levels are mapped to numbers as follows: `OK`: 100, `LOW_BATTERY`: 10, `CRITICAL_LOW`: 1, `CRITICALLY_LOW_BATTERY`: 1, `NOT_AVAILABLE`: `UNDEF`. |
-| low-battery           | Switch               | &#9744;  | Indicates whether the battery is low (`ON`) or OK (`OFF`). |
+| low-battery           | Switch               | &#9744;  | Indicates whether the battery is low (`ON`) or OK (`OFF`).                                                                                                                                                                  |
 
 ### Climate Control
 
@@ -126,8 +126,8 @@ A virtual device which controls up to six Bosch Smart Home radiator thermostats 
 
 **Thing Type ID**: `climate-control`
 
-| Channel Type ID      | Item Type          | Writable | Description                   |
-| -------------------- | ------------------ | :------: | ----------------------------- |
+|   Channel Type ID    |     Item Type      | Writable |          Description          |
+|----------------------|--------------------|:--------:|-------------------------------|
 | temperature          | Number:Temperature | &#9744;  | Current measured temperature. |
 | setpoint-temperature | Number:Temperature | &#9745;  | Desired temperature.          |
 
@@ -137,12 +137,12 @@ Display of the current room temperature as well as the relative humidity in the 
 
 **Thing Type ID**: `wall-thermostat`
 
-| Channel Type ID | Item Type            | Writable | Description                           |
-| --------------- | -------------------- | :------: | ------------------------------------- |
-| temperature     | Number:Temperature   | &#9744;  | Current measured temperature.         |
-| humidity        | Number:Dimensionless | &#9744;  | Current measured humidity (0 to 100). |
+| Channel Type ID |      Item Type       | Writable |                                                                                                         Description                                                                                                         |
+|-----------------|----------------------|:--------:|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| temperature     | Number:Temperature   | &#9744;  | Current measured temperature.                                                                                                                                                                                               |
+| humidity        | Number:Dimensionless | &#9744;  | Current measured humidity (0 to 100).                                                                                                                                                                                       |
 | battery-level   | Number               | &#9744;  | Current battery level percentage as integer number. Bosch-specific battery levels are mapped to numbers as follows: `OK`: 100, `LOW_BATTERY`: 10, `CRITICAL_LOW`: 1, `CRITICALLY_LOW_BATTERY`: 1, `NOT_AVAILABLE`: `UNDEF`. |
-| low-battery     | Switch               | &#9744;  | Indicates whether the battery is low (`ON`) or OK (`OFF`). |
+| low-battery     | Switch               | &#9744;  | Indicates whether the battery is low (`ON`) or OK (`OFF`).                                                                                                                                                                  |
 
 ### Security Camera 360
 
@@ -150,10 +150,10 @@ Indoor security camera with 360° view and motion detection.
 
 **Thing Type ID**: `security-camera-360`
 
-| Channel Type ID       | Item Type            | Writable | Description                                                        |
-| --------------------- | -------------------- | :------: | ------------------------------------------------------------------ |
-| privacy-mode          | Switch               | &#9745;  | If privacy mode is enabled, the camera is disabled and vice versa. |
-| camera-notification   | Switch               | &#9745;  | Enables or disables notifications for the camera.                  |
+|   Channel Type ID   | Item Type | Writable |                            Description                             |
+|---------------------|-----------|:--------:|--------------------------------------------------------------------|
+| privacy-mode        | Switch    | &#9745;  | If privacy mode is enabled, the camera is disabled and vice versa. |
+| camera-notification | Switch    | &#9745;  | Enables or disables notifications for the camera.                  |
 
 ### Security Camera Eyes
 
@@ -161,10 +161,10 @@ Outdoor security camera with motion detection and light.
 
 **Thing Type ID**: `security-camera-eyes`
 
-| Channel Type ID       | Item Type            | Writable | Description                                                        |
-| --------------------- | -------------------- | :------: | ------------------------------------------------------------------ |
-| privacy-mode          | Switch               | &#9745;  | If privacy mode is enabled, the camera is disabled and vice versa. |
-| camera-notification   | Switch               | &#9745;  | Enables or disables notifications for the camera.                  |
+|   Channel Type ID   | Item Type | Writable |                            Description                             |
+|---------------------|-----------|:--------:|--------------------------------------------------------------------|
+| privacy-mode        | Switch    | &#9745;  | If privacy mode is enabled, the camera is disabled and vice versa. |
+| camera-notification | Switch    | &#9745;  | Enables or disables notifications for the camera.                  |
 
 ### Intrusion Detection System
 
@@ -172,15 +172,15 @@ Allows to retrieve notifications in case of intrusions. The system can be armed 
 
 **Thing Type ID**: `intrusion-detection-system`
 
-| Channel Type ID              | Item Type            | Writable | Description                                                    |
-| ---------------------------- | -------------------- | :------: | -------------------------------------------------------------- |
-| system-availability          | Switch               | &#9744;  | Indicates whether the intrusion detection system is available. |
-| arming-state                 | String               | &#9744;  | Read-only channel to retrieve the current arming state. Possible values are `SYSTEM_ARMING`, `SYSTEM_ARMED` and `SYSTEM_DISARMED`. |
-| alarm-state                  | String               | &#9744;  | Read-only channel to retrieve the current alarm state. Possible values are `ALARM_OFF`, `PRE_ALARM`, `ALARM_ON`, `ALARM_MUTED` and `UNKNOWN`. |
-| active-configuration-profile | String               | &#9744;  | The name of the active configuration profile used for the intrusion detection system. |
-| arm-action                   | String               | &#9745;  | Arms the intrusion detection system using the given profile ID (default is "0"). |
-| disarm-action                | Switch               | &#9745;  | Disarms the intrusion detection system when an ON command is received. |
-| mute-action                  | Switch               | &#9745;  | Mutes the alarm when an ON command is received. |
+|       Channel Type ID        | Item Type | Writable |                                                                  Description                                                                  |
+|------------------------------|-----------|:--------:|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| system-availability          | Switch    | &#9744;  | Indicates whether the intrusion detection system is available.                                                                                |
+| arming-state                 | String    | &#9744;  | Read-only channel to retrieve the current arming state. Possible values are `SYSTEM_ARMING`, `SYSTEM_ARMED` and `SYSTEM_DISARMED`.            |
+| alarm-state                  | String    | &#9744;  | Read-only channel to retrieve the current alarm state. Possible values are `ALARM_OFF`, `PRE_ALARM`, `ALARM_ON`, `ALARM_MUTED` and `UNKNOWN`. |
+| active-configuration-profile | String    | &#9744;  | The name of the active configuration profile used for the intrusion detection system.                                                         |
+| arm-action                   | String    | &#9745;  | Arms the intrusion detection system using the given profile ID (default is "0").                                                              |
+| disarm-action                | Switch    | &#9745;  | Disarms the intrusion detection system when an ON command is received.                                                                        |
+| mute-action                  | Switch    | &#9745;  | Mutes the alarm when an ON command is received.                                                                                               |
 
 ### Smart Bulb
 
@@ -188,8 +188,8 @@ A smart bulb connected to the bridge via Zigbee such as a Ledvance Smart+ bulb.
 
 **Thing Type ID**: `smart-bulb`
 
-| Channel Type ID | Item Type | Writable | Description                                                    |
-| ----------------| --------- | :------: | -------------------------------------------------------------- |
+| Channel Type ID | Item Type | Writable |                          Description                           |
+|-----------------|-----------|:--------:|----------------------------------------------------------------|
 | power-switch    | Switch    | &#9745;  | Switches the light on or off.                                  |
 | brightness      | Dimmer    | &#9745;  | Regulates the brightness on a percentage scale from 0 to 100%. |
 | color           | Color     | &#9745;  | The color of the emitted light.                                |
@@ -200,15 +200,14 @@ The smoke detector warns you in case of fire.
 
 **Thing Type ID**: `smoke-detector`
 
-| Channel Type ID    | Item Type            | Writable | Description                                                                                       |
-| ------------------ | -------------------- | :------: | ------------------------------------------------------------------------------------------------- |
-| smoke-check        | String               | &#9745;  | State of the smoke check. Also used to request a new smoke check.                                 |
-
+| Channel Type ID | Item Type | Writable |                            Description                            |
+|-----------------|-----------|:--------:|-------------------------------------------------------------------|
+| smoke-check     | String    | &#9745;  | State of the smoke check. Also used to request a new smoke check. |
 
 ## Limitations
 
 No major limitation known.
-Check list of [openhab issues with "boshshc"](https://github.com/openhab/openhab-addons/issues?q=is%3Aissue+boschshc+) 
+Check list of [openhab issues with "boshshc"](https://github.com/openhab/openhab-addons/issues?q=is%3Aissue+boschshc+)
 
 ## Discovery
 

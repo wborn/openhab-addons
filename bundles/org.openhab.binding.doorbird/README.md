@@ -6,11 +6,11 @@ Binding for Doorbird D101 and D210x video doorbells.
 
 The following thing types are supported:
 
-| Device                           | Thing ID  |
-|----------------------------------|-----------|
-| Doorbird D101/D201/D205/D1101V  Doorbell | d101      |
-| Doorbird D210x Doorbell          | d210x     |
-| Doorbird A1081 Controller        | a1081     |
+|                  Device                  | Thing ID |
+|------------------------------------------|----------|
+| Doorbird D101/D201/D205/D1101V  Doorbell | d101     |
+| Doorbird D210x Doorbell                  | d210x    |
+| Doorbird A1081 Controller                | a1081    |
 
 ## Thing Configuration
 
@@ -18,27 +18,27 @@ The following thing types are supported:
 
 The following configuration parameters are available on the Doorbird D101/D201/D205/D1101V and D210x Doorbell things:
 
-| Parameter                | Parameter ID       | Required/Optional | Description |
-|--------------------------|--------------------|-------------------|-------------|
-| Hostname                 | doorbirdHost       | Required          | The hostname or IP address of the Doorbird device. |
+|        Parameter         |    Parameter ID    | Required/Optional |                                                                       Description                                                                       |
+|--------------------------|--------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Hostname                 | doorbirdHost       | Required          | The hostname or IP address of the Doorbird device.                                                                                                      |
 | User ID                  | userId             | Required          | User Id of a Doorbird user that has permissions to access the API. The User ID and Password must be created using the Doorbird smart phone application. |
-| Password                 | userPassword       | Required          | Password of a Doorbird user. |
-| Image Refresh Rate       | imageRefreshRate   | Optional          | Rate at which image channel should be automatically updated. Leave field blank (default) to disable refresh. |
-| Doorbell Off Delay       | doorbellOffDelay   | Optional          | Number of seconds to wait before setting doorbell channel OFF after a doorbell event. Leave field blank to disable. |
-| Motion Off Delay         | motionOffDelay     | Optional          | Number of seconds to wait before setting motion channel OFF after a motion event. Leave field blank to disable. |
-| Montage Number of Images | montageNumImages   | Required          | Number of images to include in the doorbell and motion montage images. Default is 0. |
-| Montage Scale Factor     | montageScaleFactor | Required          | Percent scaling factor for montage image. Default is 100. |
+| Password                 | userPassword       | Required          | Password of a Doorbird user.                                                                                                                            |
+| Image Refresh Rate       | imageRefreshRate   | Optional          | Rate at which image channel should be automatically updated. Leave field blank (default) to disable refresh.                                            |
+| Doorbell Off Delay       | doorbellOffDelay   | Optional          | Number of seconds to wait before setting doorbell channel OFF after a doorbell event. Leave field blank to disable.                                     |
+| Motion Off Delay         | motionOffDelay     | Optional          | Number of seconds to wait before setting motion channel OFF after a motion event. Leave field blank to disable.                                         |
+| Montage Number of Images | montageNumImages   | Required          | Number of images to include in the doorbell and motion montage images. Default is 0.                                                                    |
+| Montage Scale Factor     | montageScaleFactor | Required          | Percent scaling factor for montage image. Default is 100.                                                                                               |
 
 ### A1081 Controller
 
 The following configuration parameters are available on the Doorbird A1081 Controller thing:
 
-| Parameter                | Parameter ID | Required/Optional | Description |
-|--------------------------|--------------|-------------------|-------------|
-| Hostname                 | doorbirdHost | Required          | The hostname or IP address of the Doorbird device. |
-| User ID                  | userId       | Required          | User Id of a Doorbird user that has permissions to access the API. The User ID and Password must be created using the Doorbird smart phone application. |
-| Password                 | userPassword | Required          | Password of a Doorbird user. |
-| Controller Id            | controllerId | Optional          | Doorbird Id of the controller to reliable target the relays of this device. E.g. "gggaaa" |
+|   Parameter   | Parameter ID | Required/Optional |                                                                       Description                                                                       |
+|---------------|--------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Hostname      | doorbirdHost | Required          | The hostname or IP address of the Doorbird device.                                                                                                      |
+| User ID       | userId       | Required          | User Id of a Doorbird user that has permissions to access the API. The User ID and Password must be created using the Doorbird smart phone application. |
+| Password      | userPassword | Required          | Password of a Doorbird user.                                                                                                                            |
+| Controller Id | controllerId | Optional          | Doorbird Id of the controller to reliable target the relays of this device. E.g. "gggaaa"                                                               |
 
 ## Discovery
 
@@ -48,35 +48,35 @@ Auto-discovery is not supported at this time.
 
 The following channels are supported by the binding for the Doorbird D101/D201/D205 and D210x Doorbell thing types.
 
-| Channel ID               | Item Type | Description                                       |
-|--------------------------|-----------|---------------------------------------------------|
-| doorbell                 | Trigger   | Generates PRESSED event when doorbell is pressed  |
-| doorbellTimestamp        | DateTime  | Timestamp when doorbell was pressed               |
-| doorbellImage            | Image     | Image captured when the doorbell was pressed      |
-| doorbellHistoryIndex     | Number    | Index of historical image for doorbell press      |
-| doorbellHistoryTimestamp | DateTime  | Time when doorbell was pressed for history image  |
-| doorbellHistoryImage     | Image     | Historical image for doorbell press               |
-| doorbellMontage          | Image     | Concatenation of first n doorbell history images  |
-| motion                   | Switch    | Changes to ON when the device detects motion      |
-| motionTimestamp          | DateTime  | Timestamp when motion sensor was triggered        |
-| motionImage              | Image     | Image captured when motion was detected           |
-| motionHistoryIndex       | Number    | Index of Historical image for motion              |
-| motionHistoryTimestamp   | DateTime  | Time when motion was detected for history image   |
-| motionHistoryImage       | Image     | Historical image for motion sensor                |
-| motionMontage            | Image     | Concatenation of first n motion history images    |
-| light                    | Switch    | Activates the light relay                         |
-| openDoor1                | Switch    | Activates the door 1 relay                        |
-| openDoor2                | Switch    | Activates the door 2 relay (D210x only)           |
-| image                    | Image     | Image from the doorbird camera                    |
-| imageTimestamp           | DateTime  | Time when image was captured from device          |
+|        Channel ID        | Item Type |                   Description                    |
+|--------------------------|-----------|--------------------------------------------------|
+| doorbell                 | Trigger   | Generates PRESSED event when doorbell is pressed |
+| doorbellTimestamp        | DateTime  | Timestamp when doorbell was pressed              |
+| doorbellImage            | Image     | Image captured when the doorbell was pressed     |
+| doorbellHistoryIndex     | Number    | Index of historical image for doorbell press     |
+| doorbellHistoryTimestamp | DateTime  | Time when doorbell was pressed for history image |
+| doorbellHistoryImage     | Image     | Historical image for doorbell press              |
+| doorbellMontage          | Image     | Concatenation of first n doorbell history images |
+| motion                   | Switch    | Changes to ON when the device detects motion     |
+| motionTimestamp          | DateTime  | Timestamp when motion sensor was triggered       |
+| motionImage              | Image     | Image captured when motion was detected          |
+| motionHistoryIndex       | Number    | Index of Historical image for motion             |
+| motionHistoryTimestamp   | DateTime  | Time when motion was detected for history image  |
+| motionHistoryImage       | Image     | Historical image for motion sensor               |
+| motionMontage            | Image     | Concatenation of first n motion history images   |
+| light                    | Switch    | Activates the light relay                        |
+| openDoor1                | Switch    | Activates the door 1 relay                       |
+| openDoor2                | Switch    | Activates the door 2 relay (D210x only)          |
+| image                    | Image     | Image from the doorbird camera                   |
+| imageTimestamp           | DateTime  | Time when image was captured from device         |
 
 The following channels are supported by the binding for the Doorbird A1081 Controller thing type.
 
-| Channel ID               | Item Type | Description                                       |
-|--------------------------|-----------|---------------------------------------------------|
-| openDoor1                | Switch    | Activates the door 1 relay                        |
-| openDoor2                | Switch    | Activates the door 2 relay                        |
-| openDoor3                | Switch    | Activates the door 3 relay                        |
+| Channel ID | Item Type |        Description         |
+|------------|-----------|----------------------------|
+| openDoor1  | Switch    | Activates the door 1 relay |
+| openDoor2  | Switch    | Activates the door 2 relay |
+| openDoor3  | Switch    | Activates the door 3 relay |
 
 ## Audio sink
 
@@ -128,7 +128,7 @@ if(actions === null) {
  actions.sipHangup()
  
  var String ringTimeLimit = actions.getRingTimeLimit()
- ```
+```
 
 ## Known Issues
 
@@ -243,3 +243,4 @@ then
     // Do something when motion is detected
 end
 ```
+

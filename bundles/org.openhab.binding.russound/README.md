@@ -40,28 +40,28 @@ The following configurations occur for each of the bridges/things:
 
 ### Russound System
 
-| Name         | Type          | Description                                                              |
-|--------------|---------------|--------------------------------------------------------------------------|
-| ipAddress    | string        | IP Address or host name of the russound system (usually main controller) |
-| ping         | int           | Interval, in seconds, to ping the system to keep connection alive        |
-| retryPolling | int           | Interval, in seconds, to retry a failed connection attempt               |
-| scanDevice   | boolean       | Whether to scan device at startup and discover controllers/sources/zones |
+|     Name     |  Type   |                               Description                                |
+|--------------|---------|--------------------------------------------------------------------------|
+| ipAddress    | string  | IP Address or host name of the russound system (usually main controller) |
+| ping         | int     | Interval, in seconds, to ping the system to keep connection alive        |
+| retryPolling | int     | Interval, in seconds, to retry a failed connection attempt               |
+| scanDevice   | boolean | Whether to scan device at startup and discover controllers/sources/zones |
 
 ### Russound Source
 
-| Name   | Type | Description         |
+|  Name  | Type |     Description     |
 |--------|------|---------------------|
 | source | int  | The source # (1-12) |
 
 ### Russound Controller
 
-| Name       | Type | Description                    |
+|    Name    | Type |          Description           |
 |------------|------|--------------------------------|
 | controller | int  | The controller address # (1-6) |
 
 ### Russound Zone
 
-| Name | Type | Description      |
+| Name | Type |   Description    |
 |------|------|------------------|
 | zone | int  | The zone # (1-6) |
 
@@ -71,7 +71,7 @@ The following channels are supported for each bridge/thing
 
 ### Russound System
 
-| Channel Type ID | Read/Write | Item Type | Description                                                  |
+| Channel Type ID | Read/Write | Item Type |                         Description                          |
 |-----------------|------------|-----------|--------------------------------------------------------------|
 | lang            | RW         | String    | System language (english, chinese and russian are supported) |
 | allon           | RW         | Switch    | Turn on/off all zones                                        |
@@ -85,7 +85,7 @@ The following channels are supported for each bridge/thing
 
 ### Russound Source (please see source cross-reference below for what is supported by which sources)
 
-| Channel Type ID      | Read/Write | Item Type | Description                                                        |
+|   Channel Type ID    | Read/Write | Item Type |                            Description                             |
 |----------------------|------------|-----------|--------------------------------------------------------------------|
 | name                 | R          | String    | The name of the source                                             |
 | type                 | R          | String    | The type of source                                                 |
@@ -122,21 +122,21 @@ The following channels are supported for each bridge/thing
 #### Notes
 
 1. Banks are only supported tuner sources and the JSON array will have exactly 6 banks in it (with IDs from 1 to 6).
-    For non-tuner sources, an empty JSON array (`[]`) will be returned.
-    For tuner sources, the JSON will look like: `[{"id":1, "name":"XXX"},...]`.
-    A bank's name can be updated by sending the representation back to the channel.
-    Example: `[{"id":1,"name":"FM1"},{"id":3,"name":"FM3"}]` will set the name of bank #1 to "FM1 and bank#3 to "FM3" (leaving all other bank names the same).
-    After an update, the banks channel will be refreshed with the full JSON representation of all banks.
-    If the name has not been changed in the refreshed value, the russound rejected the name change for some reason (generally too long of a name or a duplicate name).
-1. All media management channels are ONLY valid on streaming sources (not tuners).
-    All channels will return a JSON representation like `{"id":xxx, "value":"yyy"}` where 'xxx' will be a sequential identifier of the message and 'yyy' will be the payload.
-    The payload will be a simple string in all cases.
-    However, the mmmenu string will be a raw JSON string representing the menu structure.
-    Please review the media management section in the RIO protocol document from russound for the specifications.
+   For non-tuner sources, an empty JSON array (`[]`) will be returned.
+   For tuner sources, the JSON will look like: `[{"id":1, "name":"XXX"},...]`.
+   A bank's name can be updated by sending the representation back to the channel.
+   Example: `[{"id":1,"name":"FM1"},{"id":3,"name":"FM3"}]` will set the name of bank #1 to "FM1 and bank#3 to "FM3" (leaving all other bank names the same).
+   After an update, the banks channel will be refreshed with the full JSON representation of all banks.
+   If the name has not been changed in the refreshed value, the russound rejected the name change for some reason (generally too long of a name or a duplicate name).
+2. All media management channels are ONLY valid on streaming sources (not tuners).
+   All channels will return a JSON representation like `{"id":xxx, "value":"yyy"}` where 'xxx' will be a sequential identifier of the message and 'yyy' will be the payload.
+   The payload will be a simple string in all cases.
+   However, the mmmenu string will be a raw JSON string representing the menu structure.
+   Please review the media management section in the RIO protocol document from russound for the specifications.
 
 ### Russound Controller
 
-| Channel Type ID | Read/Write | Item Type | Description                                            |
+| Channel Type ID | Read/Write | Item Type |                      Description                       |
 |-----------------|------------|-----------|--------------------------------------------------------|
 | zones           | R          | String    | The JSON representation of all zones in the controller |
 
@@ -146,7 +146,7 @@ The following channels are supported for each bridge/thing
 
 ### Russound Zone
 
-| Channel Type ID    | Read/Write | Item Type  | Description                                                                               |
+|  Channel Type ID   | Read/Write | Item Type  |                                        Description                                        |
 |--------------------|------------|------------|-------------------------------------------------------------------------------------------|
 | name               | R          | String     | The name of the zone (changed by SCS-C5 software)                                         |
 | source             | RW         | Number     | The (physical) number for the current source                                              |
@@ -182,16 +182,16 @@ The following channels are supported for each bridge/thing
 #### Notes:
 
 1. As of the time of this document, rating ON (like) produced an error in the firmware from the related command.
-    This has been reported to Russound.
-1. keypress/keyrelease/keyhold/keycode/event are advanced commands that will pass the related event string to Russound (i.e. `EVENT C[x].Z[y]!KeyPress [stringtype]`).
-    Please see the "RIO Protocol for 3rd Party Integrators.pdf" (found at the Russound Portal) for proper string forms.
-1. If you send an OnOffType to the volume will have the same affect as turning the zone on/off (ie sending OnOffType to "status")
-1. The volume PercentType will be scaled to Russound's volume of 0-50 (ie 50% = volume of 25, 100% = volume of 50)
-1. Initialize a media management session by sending ON to the channel.
-    The related source thing will then start sending out media management information in the MM channels.
-    To close the session - simply send OFF to the channel.
-    Sending OFF to the channel when a session has not been initialized does nothing.
-    Likewise if the related source is a tuner, this command does nothing.
+   This has been reported to Russound.
+2. keypress/keyrelease/keyhold/keycode/event are advanced commands that will pass the related event string to Russound (i.e. `EVENT C[x].Z[y]!KeyPress [stringtype]`).
+   Please see the "RIO Protocol for 3rd Party Integrators.pdf" (found at the Russound Portal) for proper string forms.
+3. If you send an OnOffType to the volume will have the same affect as turning the zone on/off (ie sending OnOffType to "status")
+4. The volume PercentType will be scaled to Russound's volume of 0-50 (ie 50% = volume of 25, 100% = volume of 50)
+5. Initialize a media management session by sending ON to the channel.
+   The related source thing will then start sending out media management information in the MM channels.
+   To close the session - simply send OFF to the channel.
+   Sending OFF to the channel when a session has not been initialized does nothing.
+   Likewise if the related source is a tuner, this command does nothing.
 
 ##### System Favorites
 
@@ -203,16 +203,16 @@ This channel appears on the zone because when you send a system favorite represe
 There are three different ways to use this channel:
 
 1. Save a system favorite.  Send a representation with "valid" set to true.
-    Example: to set system favorite 3 to what is playing in the zone: `[{"id":3,"valid":true,"name":"80s Rock"}]`.
-    If system favorite 3 was invalid, this would save what is currently playing and make it valid.
-    If system favorite 3 was already valid, this would overlay the favorite with what is currently playing and change its name.
-1. Update the name of a system favorite.
-    Send a representation of an existing ID with "valid" set to true and the new name.
-    Example: we could update system favorite 3 (after the above statement) by sending: `[{"id":3,"valid":true,"name":"80s Rock Even More"}]`.
-    Note this will ONLY change the name (this will NOT save what is currently playing to the system favorite).
-1. Delete a system favorite.
-    Send a representation with "valid" as false.
-    Example: deleting system favorite 3 (after the above statements) by sending: `[{"id":3","valid":false"}]`
+   Example: to set system favorite 3 to what is playing in the zone: `[{"id":3,"valid":true,"name":"80s Rock"}]`.
+   If system favorite 3 was invalid, this would save what is currently playing and make it valid.
+   If system favorite 3 was already valid, this would overlay the favorite with what is currently playing and change its name.
+2. Update the name of a system favorite.
+   Send a representation of an existing ID with "valid" set to true and the new name.
+   Example: we could update system favorite 3 (after the above statement) by sending: `[{"id":3,"valid":true,"name":"80s Rock Even More"}]`.
+   Note this will ONLY change the name (this will NOT save what is currently playing to the system favorite).
+3. Delete a system favorite.
+   Send a representation with "valid" as false.
+   Example: deleting system favorite 3 (after the above statements) by sending: `[{"id":3","valid":false"}]`
 
 The channel will be refreshed with the new representation after processing.
 If the refreshed representation doesn't include the changes, the russound system rejected them for some reason (generally length of the name).
@@ -225,11 +225,11 @@ You will have up to 2 zone favorites in the JSON array (the ID field will be bet
 There are two different ways to use this channel:
 
 1. Save a zone favorite.
-    Send a representation with "valid" set to true.
-    Example: to set zone favorite 2 to what is playing in the zone: `[{"id":2,"valid":true,"name":"80s Rock"}]`.
-1. Delete a zone favorite.
-    Send a representation with "valid" as false.
-    Example: deleting zone favorite 2 (after the above statement) by sending: `[{"id":2","valid":false"}]`
+   Send a representation with "valid" set to true.
+   Example: to set zone favorite 2 to what is playing in the zone: `[{"id":2,"valid":true,"name":"80s Rock"}]`.
+2. Delete a zone favorite.
+   Send a representation with "valid" as false.
+   Example: deleting zone favorite 2 (after the above statement) by sending: `[{"id":2","valid":false"}]`
 
 There is no ability to change JUST the name.
 Sending a new name will save the new name AND set the favorite to what is currently playing.
@@ -248,14 +248,14 @@ The "bank" and "bankPreset" are readonly (will be ignored if sent) and are infor
 There are two different ways to use this channel:
 
 1. Save a preset.
-    Send a representation to an ID that is invalid with "valid" set to true.
-    Example: to set a zone pret 2 to what is playing in the zone: `[{"id":2,"valid":true,"name":"103.7 FM"}]`.
-1. Save a preset with default name.
-    Send a representation to an ID that is invalid with "valid" set to true.
-    Example: to set a zone pret 2 to what is playing in the zone: `[{"id":2,"valid":true,"name":"103.7 FM"}]`.
-1. Delete a zone favorite.
-    Send a representation with "valid" as false.
-    Example: deleting zone favorite 2 (after the above statement) by sending: `[{"id":2","valid":false"}]`
+   Send a representation to an ID that is invalid with "valid" set to true.
+   Example: to set a zone pret 2 to what is playing in the zone: `[{"id":2,"valid":true,"name":"103.7 FM"}]`.
+2. Save a preset with default name.
+   Send a representation to an ID that is invalid with "valid" set to true.
+   Example: to set a zone pret 2 to what is playing in the zone: `[{"id":2,"valid":true,"name":"103.7 FM"}]`.
+3. Delete a zone favorite.
+   Send a representation with "valid" as false.
+   Example: deleting zone favorite 2 (after the above statement) by sending: `[{"id":2","valid":false"}]`
 
 There is no ability to change JUST the name.
 Sending a new name will save the new name AND set the favorite to what is currently playing.
@@ -265,7 +265,7 @@ If the refreshed representation doesn't include the changes, the russound system
 
 ### Source channel support cross reference
 
-| Channel Type ID    | Sirius | XM | SMS3 | DMS 3.1 Media | DMS 3.1 AM/FM | iBridge | Internal AM/FM | Arcam T32 | Others |
+|  Channel Type ID   | Sirius | XM | SMS3 | DMS 3.1 Media | DMS 3.1 AM/FM | iBridge | Internal AM/FM | Arcam T32 | Others |
 |--------------------|--------|----|------|---------------|---------------|---------|----------------|-----------|--------|
 | name               | X      | X  | X    | X             | X             | X       | X              | X         | X      |
 | type               | X      | X  | X    | X             | X             | X       | X              | X         | X      |
@@ -296,8 +296,8 @@ If the refreshed representation doesn't include the changes, the russound system
 The following is an example of
 
 1. Main controller (#1) at ipaddress 192.168.1.24
-1. One Sources connected to it (#1 is the internal AM/FM)
-1. Four zones on the controller (1-4 in various rooms)
+2. One Sources connected to it (#1 is the internal AM/FM)
+3. Four zones on the controller (1-4 in various rooms)
 
 .things
 
@@ -421,3 +421,4 @@ Frame label="Russound" {
  }
 }
 ```
+

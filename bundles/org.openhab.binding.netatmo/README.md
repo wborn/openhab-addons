@@ -22,9 +22,9 @@ The binding requires you to register an Application with Netatmo Connect at [htt
 
 Follow instructions under:
 
- 1. Setting Up Your Account
- 1. Registering Your Application
- 1. Setting Redirect URI and webhook URI can be skipped, these will be provided by the binding.
+1. Setting Up Your Account
+2. Registering Your Application
+3. Setting Redirect URI and webhook URI can be skipped, these will be provided by the binding.
 
 Variables needed for the setup of the binding are:
 
@@ -33,8 +33,8 @@ Variables needed for the setup of the binding are:
 
 The binding has the following configuration options:
 
-| Parameter   | Type    | Description                                                  |
-| ----------- | ------- | ------------------------------------------------------------ |
+|  Parameter  |  Type   |                         Description                          |
+|-------------|---------|--------------------------------------------------------------|
 | readFriends | Boolean | Enables or disables the discovery of guest weather stations. |
 
 ## Netatmo Account (Bridge) Configuration
@@ -43,29 +43,29 @@ You will have to create at first a bridge to handle communication with your Neta
 
 The Account bridge has the following configuration elements:
 
-| Parameter         | Type   | Required | Description                                                                                                            |
-| ----------------- | ------ | -------- | ---------------------------------------------------------------------------------------------------------------------- |
-| clientId          | String | Yes      | Client ID provided for the application you created on <http://dev.netatmo.com/createapp>                               |
-| clientSecret      | String | Yes      | Client Secret provided for the application you created                                                                 |
-| webHookUrl        | String | No       | Protocol, public IP and port to access openHAB server from Internet                                                    |
-| webHookPostfix    | String | No       | String appended to the generated webhook address (should start with "/")                                               |
-| reconnectInterval | Number | No       | The reconnection interval to Netatmo API (in s)                                                                        |
+|     Parameter     |  Type  | Required |                                       Description                                        |
+|-------------------|--------|----------|------------------------------------------------------------------------------------------|
+| clientId          | String | Yes      | Client ID provided for the application you created on <http://dev.netatmo.com/createapp> |
+| clientSecret      | String | Yes      | Client Secret provided for the application you created                                   |
+| webHookUrl        | String | No       | Protocol, public IP and port to access openHAB server from Internet                      |
+| webHookPostfix    | String | No       | String appended to the generated webhook address (should start with "/")                 |
+| reconnectInterval | Number | No       | The reconnection interval to Netatmo API (in s)                                          |
 
 **Supported channels for the Account bridge thing:**
 
-| Channel Group | Channel Id    | Item Type | Description                                                        |
-| ------------- | ------------- | --------- | ------------------------------------------------------------------ |
+| Channel Group |  Channel Id   | Item Type |                            Description                             |
+|---------------|---------------|-----------|--------------------------------------------------------------------|
 | monitoring    | request-count | Number    | Number of requests transmitted to Netatmo API during the last hour |
 
 ### Configure the Bridge
 
 1. Complete the Netatmo Application Registration if you have not already done so, see above.
-1. Make sure you have your _Client ID_ and _Client Secret_ identities available.
-1. Add a new **"Netatmo Account"** thing. Choose new Id for the account, unless you like the generated one, put in the _Client ID_ and _Client Secret_ from the Netatmo Connect Application registration in their respective fields of the bridge configuration. Save the bridge.
-1. The bridge thing will go _OFFLINE_ / _CONFIGURATION_ERROR_ - this is fine. You have to authorize this bridge with Netatmo Connect.
-1. Go to the authorization page of your server. `http://<your openHAB address>:8080/netatmo/connect/<_CLIENT_ID_>`. Your newly added bridge should be listed there (no need for you to expose your openHAB server outside your local network for this).
-1. Press the _"Authorize Thing"_ button. This will take you either to the login page of Netatmo Connect or directly to the authorization screen. Login and/or authorize the application. You will be returned and the entry should go green.
-1. The bridge will go _ONLINE_.
+2. Make sure you have your _Client ID_ and _Client Secret_ identities available.
+3. Add a new **"Netatmo Account"** thing. Choose new Id for the account, unless you like the generated one, put in the _Client ID_ and _Client Secret_ from the Netatmo Connect Application registration in their respective fields of the bridge configuration. Save the bridge.
+4. The bridge thing will go _OFFLINE_ / _CONFIGURATION_ERROR_ - this is fine. You have to authorize this bridge with Netatmo Connect.
+5. Go to the authorization page of your server. `http://<your openHAB address>:8080/netatmo/connect/<_CLIENT_ID_>`. Your newly added bridge should be listed there (no need for you to expose your openHAB server outside your local network for this).
+6. Press the _"Authorize Thing"_ button. This will take you either to the login page of Netatmo Connect or directly to the authorization screen. Login and/or authorize the application. You will be returned and the entry should go green.
+7. The bridge will go _ONLINE_.
 
 Now that you have got your bridge _ONLINE_ you can now start a scan with the binding to auto discover your things.
 
@@ -74,8 +74,8 @@ Once authentication process has been done, current refreshToken is stored in `/O
 
 ## List of supported things
 
-| Thing Type      | Type   | Netatmo Object | Description                                                                                           | Thing Parameters                                                          |
-| --------------- | ------ | -------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+|   Thing Type    |  Type  | Netatmo Object |                                              Description                                              |                             Thing Parameters                              |
+|-----------------|--------|----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|
 | account         | Bridge | N/A            | This bridge represents an account, gateway to Netatmo API.                                            | clientId, clientSecret, username, password, webHookUrl, reconnectInterval |
 | home            | Bridge | NAHome         | A home hosting Security or Energy devices and modules.                                                | id, refreshInterval                                                       |
 | person          | Thing  | NAPerson       | A person known by your Netatmo system.                                                                | id                                                                        |
@@ -166,8 +166,8 @@ Based on a standard update period of 10mn by Netatmo systems - it will auto adap
 
 **Supported channels for the main indoor module:**
 
-| Channel Group | Channel Id          | Item Type            | Description                                      |
-| ------------- | ------------------- | -------------------- | ------------------------------------------------ |
+| Channel Group |     Channel Id      |      Item Type       |                   Description                    |
+|---------------|---------------------|----------------------|--------------------------------------------------|
 | pressure      | value               | Number:Pressure      | Current pressure                                 |
 | pressure      | absolute            | Number:Pressure      | Pressure at sea level                            |
 | pressure      | trend               | String               | Pressure evolution trend over time               |
@@ -195,8 +195,8 @@ All these channels are read only.
 
 **Extensible channels for the main indoor module:**
 
-| Channel Type         | Item Type            | Description                       | Channel parameters                                                   |
-| -------------------- | -------------------- | --------------------------------- | -------------------------------------------------------------------- |
+|     Channel Type     |      Item Type       |            Description            |                          Channel parameters                          |
+|----------------------|----------------------|-----------------------------------|----------------------------------------------------------------------|
 | co2-measurement      | Number:Dimensionless | CO2 measurement                   | limit (MIN, MAX), period (30min, 1hour, 3hours, 1day, 1week, 1month) |
 | co2-timestamp        | DateTime             | CO2 measurement timestamp         | limit (DATE_MIN, DATE_MAX), period (1week, 1month)                   |
 | hum-measurement      | Number:Dimensionless | Humidity measurement              | limit (MIN, MAX), period (30min, 1hour, 3hours, 1day, 1week, 1month) |
@@ -212,8 +212,8 @@ All these channels are read only.
 
 **Supported channels for the outdoor module:**
 
-| Channel Group | Channel Id          | Item Type            | Description                                      |
-| ------------- | ------------------- | -------------------- | ------------------------------------------------ |
+| Channel Group |     Channel Id      |      Item Type       |                   Description                    |
+|---------------|---------------------|----------------------|--------------------------------------------------|
 | humidity      | value               | Number:Dimensionless | Current humidity                                 |
 | humidity      | humidex             | Number               | Computed Humidex index                           |
 | humidity      | humidex-scale       | Number               | Humidex index appreciation                       |
@@ -237,8 +237,8 @@ All these channels are read only.
 
 **Extensible channels for the outdoor module:**
 
-| Channel Type     | Item Type            | Description                       | Channel parameters                                                   |
-| ---------------- | -------------------- | --------------------------------- | -------------------------------------------------------------------- |
+|   Channel Type   |      Item Type       |            Description            |                          Channel parameters                          |
+|------------------|----------------------|-----------------------------------|----------------------------------------------------------------------|
 | hum-measurement  | Number:Dimensionless | Humidity measurement              | limit (MIN, MAX), period (30min, 1hour, 3hours, 1day, 1week, 1month) |
 | hum-timestamp    | DateTime             | Humidity measurement timestamp    | limit (DATE_MIN, DATE_MAX), period (1week, 1month)                   |
 | temp-measurement | Number:Temperature   | Temperature measurement           | limit (MIN, MAX), period (30min, 1hour, 3hours, 1day, 1week, 1month) |
@@ -248,8 +248,8 @@ All these channels are read only.
 
 **Supported channels for the additional indoor module:**
 
-| Channel Group | Channel Id          | Item Type            | Description                                      |
-| ------------- | ------------------- | -------------------- | ------------------------------------------------ |
+| Channel Group |     Channel Id      |      Item Type       |                   Description                    |
+|---------------|---------------------|----------------------|--------------------------------------------------|
 | humidity      | value               | Number:Dimensionless | Current humidity                                 |
 | humidity      | humidex             | Number               | Computed Humidex index                           |
 | humidity      | humidex-scale       | Number               | Humidex index appreciation                       |
@@ -274,8 +274,8 @@ All these channels are read only.
 
 **Extensible channels for the additional indoor module:**
 
-| Channel Type     | Item Type            | Description                       | Channel parameters                                                   |
-| ---------------- | -------------------- | --------------------------------- | -------------------------------------------------------------------- |
+|   Channel Type   |      Item Type       |            Description            |                          Channel parameters                          |
+|------------------|----------------------|-----------------------------------|----------------------------------------------------------------------|
 | co2-measurement  | Number:Dimensionless | CO2 measurement                   | limit (MIN, MAX), period (30min, 1hour, 3hours, 1day, 1week, 1month) |
 | co2-timestamp    | DateTime             | CO2 measurement timestamp         | limit (DATE_MIN, DATE_MAX), period (1week, 1month)                   |
 | hum-measurement  | Number:Dimensionless | Humidity measurement              | limit (MIN, MAX), period (30min, 1hour, 3hours, 1day, 1week, 1month) |
@@ -287,8 +287,8 @@ All these channels are read only.
 
 **Supported channels for the rain guage:**
 
-| Channel Group | Channel Id  | Item Type     | Description                                      |
-| ------------- | ----------- | ------------- | ------------------------------------------------ |
+| Channel Group | Channel Id  |   Item Type   |                   Description                    |
+|---------------|-------------|---------------|--------------------------------------------------|
 | rain          | value       | Number:Speed  | Current precipitation intensity                  |
 | rain          | sum-1       | Number:Length | Quantity of water over last hour                 |
 | rain          | sum-24      | Number:Length | Quantity of water during the current day         |
@@ -303,16 +303,16 @@ All these channels are read only.
 
 **Extensible channels for the rain guage:**
 
-| Channel Type         | Item Type     | Description              | Channel parameters                                 |
-| -------------------- | ------------- | ------------------------ | -------------------------------------------------- |
+|     Channel Type     |   Item Type   |       Description        |                 Channel parameters                 |
+|----------------------|---------------|--------------------------|----------------------------------------------------|
 | sum_rain-measurement | Number:Length | Summing rain measurement | period (30min, 1hour, 3hours, 1day, 1week, 1month) |
 
 ### Weather Station Wind module
 
 **Supported channels for the wind module:**
 
-| Channel Group | Channel Id        | Item Type    | Description                                      |
-| ------------- | ----------------- | ------------ | ------------------------------------------------ |
+| Channel Group |    Channel Id     |  Item Type   |                   Description                    |
+|---------------|-------------------|--------------|--------------------------------------------------|
 | wind          | angle             | Number:Angle | Current 5 minutes average wind direction         |
 | wind          | strength          | Number:Speed | Current 5 minutes average wind speed             |
 | wind          | max-strength      | Number:Speed | Maximum wind strength recorded                   |
@@ -332,8 +332,8 @@ All these channels are read only.
 
 **Supported channels for the healthy home coach device:**
 
-| Channel Group | Channel Id          | Item Type            | Description                                      |
-| ------------- | ------------------- | -------------------- | ------------------------------------------------ |
+| Channel Group |     Channel Id      |      Item Type       |                   Description                    |
+|---------------|---------------------|----------------------|--------------------------------------------------|
 | noise         | value               | Number:Dimensionless | Current noise level                              |
 | humidity      | value               | Number:Dimensionless | Current humidity                                 |
 | humidity      | humidex             | Number               | Computed Humidex index                           |
@@ -367,8 +367,8 @@ All these channels are read only.
 
 **Extensible channels for the healthy home coach device:**
 
-| Channel Type         | Item Type            | Description                       | Channel parameters                                                   |
-| -------------------- | -------------------- | --------------------------------- | -------------------------------------------------------------------- |
+|     Channel Type     |      Item Type       |            Description            |                          Channel parameters                          |
+|----------------------|----------------------|-----------------------------------|----------------------------------------------------------------------|
 | hum-measurement      | Number:Dimensionless | Humidity measurement              | limit (MIN, MAX), period (30min, 1hour, 3hours, 1day, 1week, 1month) |
 | hum-timestamp        | DateTime             | Humidity measurement timestamp    | limit (DATE_MIN, DATE_MAX), period (1week, 1month)                   |
 | noise-measurement    | Number:Dimensionless | Noise measurement                 | limit (MIN, MAX), period (30min, 1hour, 3hours, 1day, 1week, 1month) |
@@ -382,8 +382,8 @@ All these channels are read only.
 
 **Supported channels for the thermostat relay device:**
 
-| Channel Group | Channel Id | Item Type    | Description                                      |
-| ------------- | ---------- | ------------ | ------------------------------------------------ |
+| Channel Group | Channel Id |  Item Type   |                   Description                    |
+|---------------|------------|--------------|--------------------------------------------------|
 | signal        | strength   | Number       | Signal strength (0 for no signal, 1 for weak...) |
 | signal        | value      | Number:Power | Signal strength in dBm                           |
 
@@ -393,8 +393,8 @@ All these channels are read only.
 
 **Supported channels for the thermostat plug device:**
 
-| Channel Group | Channel Id | Item Type    | Description                                      |
-| ------------- | ---------- | ------------ | ------------------------------------------------ |
+| Channel Group | Channel Id |  Item Type   |                   Description                    |
+|---------------|------------|--------------|--------------------------------------------------|
 | signal        | strength   | Number       | Signal strength (0 for no signal, 1 for weak...) |
 | signal        | value      | Number:Power | Signal strength in dBm                           |
 
@@ -404,8 +404,8 @@ All these channels are read only.
 
 **Supported channels for the Room thing:**
 
-| Channel Group | Channel Id            | Item Type            | Description                                             |
-| ------------- | --------------------- | -------------------- | ------------------------------------------------------- |
+| Channel Group |      Channel Id       |      Item Type       |                       Description                       |
+|---------------|-----------------------|----------------------|---------------------------------------------------------|
 | temperature   | value                 | Number:Temperature   | Current temperature in the room                         |
 | properties    | window-open           | Contact              | Windows of the room are opened                          |
 | properties    | anticipating          | Switch               | Anticipates next scheduled setpoint                     |
@@ -421,8 +421,8 @@ All these channels except setpoint and setpoint-mode are read only.
 
 **Supported channels for the thermostat module:**
 
-| Channel Group | Channel Id  | Item Type    | Description                                      |
-| ------------- | ----------- | ------------ | ------------------------------------------------ |
+| Channel Group | Channel Id  |  Item Type   |                   Description                    |
+|---------------|-------------|--------------|--------------------------------------------------|
 | properties    | relay       | Contact      | Indicates if the boiler is currently heating     |
 | signal        | strength    | Number       | Signal strength (0 for no signal, 1 for weak...) |
 | signal        | value       | Number:Power | Signal strength in dBm                           |
@@ -436,8 +436,8 @@ All these channels except setpoint and setpoint-mode are read only.
 
 **Supported channels for the Valve module:**
 
-| Channel Group | Channel Id  | Item Type    | Description                                      |
-| ------------- | ----------- | ------------ | ------------------------------------------------ |
+| Channel Group | Channel Id  |  Item Type   |                   Description                    |
+|---------------|-------------|--------------|--------------------------------------------------|
 | signal        | strength    | Number       | Signal strength (0 for no signal, 1 for weak...) |
 | signal        | value       | Number:Power | Signal strength in dBm                           |
 | battery       | value       | Number       | Battery level                                    |
@@ -453,13 +453,13 @@ Depending on the way it is configured the behaviour will be adapted and availabl
 
 The Home thing has the following configuration elements:
 
-| Parameter  | Type   | Required | Description                                                                         |
-| ---------- | ------ | -------- | ----------------------------------------------------------------------------------- |
-| id (1)     | String | No       | If you have a single type of equipment, this id is to be used for the home          |
-| energyId   | String | No       | Id of a home holding energy control devices                                         |
-| securityId | String | No       | Id of a home holding security monitoring devices                                    |
+| Parameter  |  Type  | Required |                                Description                                 |
+|------------|--------|----------|----------------------------------------------------------------------------|
+| id (1)     | String | No       | If you have a single type of equipment, this id is to be used for the home |
+| energyId   | String | No       | Id of a home holding energy control devices                                |
+| securityId | String | No       | Id of a home holding security monitoring devices                           |
 
-At least one of these parameter must be filled - at most two : 
+At least one of these parameter must be filled - at most two :
 
 * id or securityId
 * id or energyId
@@ -471,8 +471,8 @@ All channels are read only.
 
 **Supported channels for the Security Home thing:**
 
-| Channel Group | Channel Id             | Item Type | Description                                      |
-| ------------- | ---------------------- | --------- | ------------------------------------------------ |
+| Channel Group |       Channel Id       | Item Type |                   Description                    |
+|---------------|------------------------|-----------|--------------------------------------------------|
 | security      | person-count           | Number    | Total number of persons that are at home         |
 | security      | unknown-person-count   | Number    | Total number of unknown persons that are at home |
 | security      | unknown-person-picture | Image     | Snapshot of unknown person that is at home       |
@@ -481,7 +481,7 @@ All channels are read only.
 
 **Supported trigger channels for the Security Home, Presence and Doorbell thing:**
 
-| Channel Type ID | Options            | Description                                                         |
+| Channel Type ID |      Options       |                             Description                             |
 |-----------------|--------------------|---------------------------------------------------------------------|
 | home-event      |                    | A welcome home event is triggered directly via a configured webhook |
 |                 | PERSON             | Triggered when a concrete person was detected                       |
@@ -518,8 +518,8 @@ Warnings:
 
 **Supported channels for the Welcome Camera thing:**
 
-| Channel Group  | Channel ID           | Item Type    | Read/Write | Description                                                                                                                                 |
-|----------------| -------------------- | ------------ | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| Channel Group  |      Channel ID      |  Item Type   | Read/Write |                                                                 Description                                                                 |
+|----------------|----------------------|--------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | security-event | home-event           |              | Read-only  | Trigger channel which is triggered when the camera sent an event                                                                            |
 | status         | monitoring           | Switch       | Read-write | State of the camera (video surveillance on/off)                                                                                             |
 | status         | sd-card              | String       | Read-only  | State of the SD card                                                                                                                        |
@@ -550,8 +550,8 @@ Warnings:
 
 - The floodlight auto-mode (auto-mode) isn't updated it is changed by another application. Therefore the binding handles its own state of the auto-mode. This has the advantage that the user can define its own floodlight switch off behaviour.
 
-| Channel Group  | Channel ID           | Item Type    | Read/Write | Description                                                                                                                                 |
-|----------------|----------------------| ------------ | ---------- |---------------------------------------------------------------------------------------------------------------------------------------------|
+| Channel Group  |      Channel ID      |  Item Type   | Read/Write |                                                                 Description                                                                 |
+|----------------|----------------------|--------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | security-event | home-event           |              | Read-only  | Trigger channel which is triggered when the camera sent an event                                                                            |
 | status         | monitoring           | Switch       | Read-write | State of the camera (video surveillance on/off)                                                                                             |
 | status         | sd-card              | String       | Read-only  | State of the SD card                                                                                                                        |
@@ -586,8 +586,8 @@ Warnings:
 
 **Supported channels for the Doorbell thing:**
 
-| Channel Group       | Channel ID        | Item Type    | Read/Write | Description                                                                                                                                 |
-|---------------------| ----------------- |--------------| ---------- |---------------------------------------------------------------------------------------------------------------------------------------------|
+|    Channel Group    |    Channel ID     |  Item Type   | Read/Write |                                                                 Description                                                                 |
+|---------------------|-------------------|--------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | security-event      | home-event        |              | Read-only  | Trigger channel which is triggered when the doorbell sent an event                                                                          |
 | status              | sd-card           | String       | Read-only  | State of the SD card                                                                                                                        |
 | status              | alim              | String       | Read-only  | State of the power connector                                                                                                                |
@@ -613,8 +613,8 @@ Note: live feeds either locally or via VPN are not available in Netatmo API.
 
 **Supported channels for the Siren thing:**
 
-| Channel Group | Channel ID  | Item Type    | Read/Write | Description                                         |
-| ------------- | ----------- | ------------ | ---------- | --------------------------------------------------- |
+| Channel Group | Channel ID  |  Item Type   | Read/Write |                     Description                     |
+|---------------|-------------|--------------|------------|-----------------------------------------------------|
 | siren         | status      | Switch       | Read-only  | Status of the siren, if silent or emitting an alarm |
 | siren         | monitoring  | Switch       | Read-only  | State of the siren device                           |
 | signal        | strength    | Number       | Read-only  | Signal strength (0 for no signal, 1 for weak...)    |
@@ -625,8 +625,8 @@ Note: live feeds either locally or via VPN are not available in Netatmo API.
 
 **Supported channels for the Door Tag thing:**
 
-| Channel Group | Channel ID  | Item Type    | Read/Write | Description                                      |
-| ------------- | ----------- | ------------ | ---------- | ------------------------------------------------ |
+| Channel Group | Channel ID  |  Item Type   | Read/Write |                   Description                    |
+|---------------|-------------|--------------|------------|--------------------------------------------------|
 | tag           | status      | Contact      | Read-only  | Status of tag (OPEN,CLOSED)                      |
 | signal        | strength    | Number       | Read-only  | Signal strength (0 for no signal, 1 for weak...) |
 | signal        | value       | Number:Power | Read-only  | Signal strength in dBm                           |
@@ -645,8 +645,8 @@ Person things are automatically created in discovery process for all known perso
 
 **Supported channels for the Person thing:**
 
-| Channel Group | Channel ID   | Item Type | Description                                            |
-| ------------- | ------------ | --------- | ------------------------------------------------------ |
+| Channel Group |  Channel ID  | Item Type |                      Description                       |
+|---------------|--------------|-----------|--------------------------------------------------------|
 | person        | avatar-url   | String    | URL for the avatar of this person                      |
 | person        | avatar       | Image     | Avatar of this person                                  |
 | person        | at-home      | Switch    | Indicates if this person is known to be at home or not |
@@ -666,8 +666,8 @@ All these channels are read only.
 
 **Supported channels for the Smoke Detector thing:**
 
-| Channel Group | Channel Id | Item Type    | Description                                      |
-| ------------- | ---------- | ------------ | ------------------------------------------------ |
+| Channel Group | Channel Id |  Item Type   |                   Description                    |
+|---------------|------------|--------------|--------------------------------------------------|
 | signal        | strength   | Number       | Signal strength (0 for no signal, 1 for weak...) |
 | signal        | value      | Number:Power | Signal strength in dBm                           |
 | timestamp     | last-seen  | DateTime     | Last time the module reported its presence       |
@@ -682,8 +682,8 @@ All these channels are read only.
 
 **Supported channels for the Carbon Monoxide Detector thing:**
 
-| Channel Group | Channel Id | Item Type    | Description                                      |
-| ------------- | ---------- | ------------ | ------------------------------------------------ |
+| Channel Group | Channel Id |  Item Type   |                   Description                    |
+|---------------|------------|--------------|--------------------------------------------------|
 | signal        | strength   | Number       | Signal strength (0 for no signal, 1 for weak...) |
 | signal        | value      | Number:Power | Signal strength in dBm                           |
 | timestamp     | last-seen  | DateTime     | Last time the module reported its presence       |
@@ -884,11 +884,11 @@ Multiple actions are supported by this binding. In classic rules these are acces
 Example
 
 ```java
- val actions = getActions("netatmo","netatmo:room:myaccount:myhome:livingroom")
- if(null === actions) {
-        logInfo("actions", "Actions not found, check thing ID")
-        return
- }
+val actions = getActions("netatmo","netatmo:room:myaccount:myhome:livingroom")
+if(null === actions) {
+       logInfo("actions", "Actions not found, check thing ID")
+       return
+}
 ```
 
 ### setThermRoomTempSetpoint(temp,endtime)
@@ -897,8 +897,8 @@ Sends a temperature setpoint (and switch to manual mode) to the thermostat for a
 
 Parameters:
 
-| Name    | Description                                                |
-| ------- | ---------------------------------------------------------- |
+|  Name   |                        Description                         |
+|---------|------------------------------------------------------------|
 | temp    | The temperature setpoint.                                  |
 | endtime | Time the setpoint should end (Local Unix time in seconds). |
 
@@ -914,8 +914,8 @@ Sends a mode to the thermostat for a room with an optional end time.
 
 Parameters:
 
-| Name    | Description                                                |
-| ------- | ---------------------------------------------------------- |
+|  Name   |                        Description                         |
+|---------|------------------------------------------------------------|
 | mode    | The mode to set: MANUAL, MAX or HOME.                      |
 | endtime | Time the setpoint should end (Local Unix time in seconds). |
 
@@ -963,3 +963,4 @@ The following icons are used by original Netatmo web app:
 - `https://my.netatmo.com/images/my/app/wifi_medium.png`
 - `https://my.netatmo.com/images/my/app/wifi_high.png`
 - `https://my.netatmo.com/images/my/app/wifi_full.png`
+

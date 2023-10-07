@@ -20,9 +20,9 @@ This should be the best choice for any Linux-based single board computers like e
 The base bluetooth binding only supports a single thing type.
 Additional thing types are available through bluetooth extensions.
 
-| Thing Type ID | Description                                                                                             |
-|---------------|---------------------------------------------------------------------------------------------------------|
-| beacon        | A Bluetooth device that is not connected, but only broadcasts announcements.                            |
+| Thing Type ID |                                 Description                                  |
+|---------------|------------------------------------------------------------------------------|
+| beacon        | A Bluetooth device that is not connected, but only broadcasts announcements. |
 
 ## Discovery
 
@@ -39,7 +39,7 @@ Other configuration parameters may be required depending on the bluetooth thing 
 
 Every Bluetooth thing has the following channel:
 
-| Channel ID | Item Type | Description                                                                                         |
+| Channel ID | Item Type |                                             Description                                             |
 |------------|-----------|-----------------------------------------------------------------------------------------------------|
 | rssi       | Number    | The "Received Signal Strength Indicator", the [RSSI](https://blog.bluetooth.com/proximity-and-rssi) |
 

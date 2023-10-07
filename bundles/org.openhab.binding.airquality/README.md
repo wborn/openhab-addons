@@ -26,15 +26,15 @@ You will created a Bridge with your apiKey.
 
 The bridge configuration only holds the api key :
 
-| Parameter | Description                                                             |
-|-----------|-------------------------------------------------------------------------|
-| apiKey    | Data-platform token to access the AQIcn.org service. Mandatory.         |
+| Parameter |                           Description                           |
+|-----------|-----------------------------------------------------------------|
+| apiKey    | Data-platform token to access the AQIcn.org service. Mandatory. |
 
 ## Thing Configuration
 
 The 'Station' thing has a few configuration parameters:
 
-| Parameter | Description                                                             |
+| Parameter |                               Description                               |
 |-----------|-------------------------------------------------------------------------|
 | location  | Geo coordinates to be considered by the service.                        |
 | stationId | Unique ID of the measuring station.                                     |
@@ -66,39 +66,39 @@ The AirQuality information that is retrieved for a given is available as these c
 
 ### AQI Channels Group - Global Results
 
-| Channel ID      | Item Type            | Description                                  |
-|-----------------|----------------------|----------------------------------------------|
-| alert-level     | Number               | Alert level (*) associated to AQI Index.     |
-| index           | Number               | Air Quality Index                            |
-| timestamp       | DateTime             | Observation date and time                    |
-| dominent        | String               | Dominent Pollutant                           |
-| icon            | Image                | Pictogram associated to alert-level          |
-| color           | Color                | Color associated to alert level.             |
+| Channel ID  | Item Type |               Description                |
+|-------------|-----------|------------------------------------------|
+| alert-level | Number    | Alert level (*) associated to AQI Index. |
+| index       | Number    | Air Quality Index                        |
+| timestamp   | DateTime  | Observation date and time                |
+| dominent    | String    | Dominent Pollutant                       |
+| icon        | Image     | Pictogram associated to alert-level      |
+| color       | Color     | Color associated to alert level.         |
 
 ### Weather Channels Group
 
-| Channel ID      | Item Type            | Description                                  |
-|-----------------|----------------------|----------------------------------------------|
-| temperature     | Number:Temperature   | Temperature in Celsius degrees               |
-| pressure        | Number:Pressure      | Pressure level                               |
-| humidity        | Number:Dimensionless | Humidity level                               |
-| dew-point       | Number:Temperature   | Dew point temperature                        |
-| wind-speed      | Number:Speed         | Wind speed                                   |
+| Channel ID  |      Item Type       |          Description           |
+|-------------|----------------------|--------------------------------|
+| temperature | Number:Temperature   | Temperature in Celsius degrees |
+| pressure    | Number:Pressure      | Pressure level                 |
+| humidity    | Number:Dimensionless | Humidity level                 |
+| dew-point   | Number:Temperature   | Dew point temperature          |
+| wind-speed  | Number:Speed         | Wind speed                     |
 
 ### Pollutants Channels Group
 
 For each pollutant (PM25, PM10, O3, NO2, CO, SO2) , depending upon availability of the station,
 you will be provided with the following informations
 
-| Channel ID      | Item Type            | Description                                  |
-|-----------------|----------------------|----------------------------------------------|
-| value           | Number:Density       | Measured density of the pollutant            |
-| index           | Number               | AQI Index of the single pollutant            |
-| alert-level     | Number               | Alert level associate to the index           |
+| Channel ID  |   Item Type    |            Description             |
+|-------------|----------------|------------------------------------|
+| value       | Number:Density | Measured density of the pollutant  |
+| index       | Number         | AQI Index of the single pollutant  |
+| alert-level | Number         | Alert level associate to the index |
 
 (*) The alert level is described by a color :
 
-| Code | Color  | Description                    |
+| Code | Color  |          Description           |
 |------|--------|--------------------------------|
 | 0    | Green  | Good                           |
 | 1    | Yellow | Moderate                       |
@@ -208,3 +208,4 @@ then
     Lamp_Color.sendCommand(hsb)
 end
 ```
+

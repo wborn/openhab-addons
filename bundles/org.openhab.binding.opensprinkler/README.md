@@ -41,7 +41,7 @@ The `station` thing must be used with a `http` bridge and has the following conf
 
 The following channels are supported by the `station` thing.
 
-| Channel Type ID    | Item Type   |    | Description                                              |
+|  Channel Type ID   |  Item Type  |    |                       Description                        |
 |--------------------|-------------|----|----------------------------------------------------------|
 | stationState       | Switch      | RW | This channel indicates whether the station is on or off. |
 | remainingWaterTime | Number:Time | R  | The time the station remains to be open.                 |
@@ -59,21 +59,21 @@ When using the `nextDuration` channel, it is advised to setup persistence (e.g. 
 The following channels are supported by the `device` thing.
 NOTE: Some channels will only show up if the hardware has the required sensor and is setup correctly.
 
-| Channel Type ID | Item Type              |    | Description                                                                        |
+| Channel Type ID |       Item Type        |    |                                    Description                                     |
 |-----------------|------------------------|----|------------------------------------------------------------------------------------|
 | rainsensor      | Switch                 | RO | This channel indicates whether rain is detected by the device or not.              |
 | sensor2         | Switch                 | RO | This channel is for the second sensor (if your hardware supports it).              |
 | currentDraw     | Number:ElectricCurrent | RO | Shows the current draw of the device.                                              |
 | waterlevel      | Number:Dimensionless   | RO | This channel shows the current water level in percent (0-250%). The water level is |
 |                 |                        |    | calculated based on the weather and influences the duration of the water programs. |
-| signalStrength  | Number                 | RO | Shows how strong the WiFi Signal is.     |
+| signalStrength  | Number                 | RO | Shows how strong the WiFi Signal is.                                               |
 | flowSensorCount | Number:Dimensionless   | RO | Shows the number of pulses the optional water flow sensor has reported.            |
 | programs        | String                 | RW | Displays a list of the programs that are setup in your OpenSprinkler and when      |
 |                 |                        |    | selected will start that program for you.                                          |
 | stations        | String                 | RW | Display a list of stations that can be run when selected to the length of time set |
-|                 |                        |    | in the `nextDuration` channel.                                                  |
+|                 |                        |    | in the `nextDuration` channel.                                                     |
 | nextDuration    | Number:Time            | RW | The time the station will open for when any stations are selected from the         |
-|                 |                        |    | `stations` channel. Defaults to 30 minutes if not set.                           |
+|                 |                        |    | `stations` channel. Defaults to 30 minutes if not set.                             |
 | resetStations   | Switch                 | RW | The ON command will stop all stations immediately, including those waiting to run. |
 | enablePrograms  | Switch                 | RW | Allow programs to auto run. When OFF, manually started stations will still work.   |
 | rainDelay       | Number:Time            | RW | Sets/Shows the amount of time (hours) that rain has caused programs to be delayed. |
@@ -122,3 +122,4 @@ sitemap demo label="Main Menu"
     }
 }
 ```
+

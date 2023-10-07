@@ -8,7 +8,7 @@ Whilst Ambient Weather has it own cloud based binding, the other brands will not
 This binding works fully offline and can work via one of two methods:
 
 1. Local scraping of the weather station's `livedata` webpage at 12 second resolution (non WiFi models only).
-1. Both WiFi and RJ45 models can be setup to push the data directly to the openHAB (default 8080) server directly and the binding can parse the data from the weather underground data.
+2. Both WiFi and RJ45 models can be setup to push the data directly to the openHAB (default 8080) server directly and the binding can parse the data from the weather underground data.
 
 The other binding worth mentioning is the weather underground binding that allows the data to be intercepted on its way to WU, however many of the weather stations do not allow the redirection of the WU data and require you to know how to do redirections with a custom DNS server on your network.
 This binding with method 1 and a RJ45 model is by far the easiest method and works for all the brands and will not stop the data still being sent to WU if you wish to do both at the same time.
@@ -38,28 +38,29 @@ If they are left blank, the binding will work in the scraping mode (RJ45 model o
 
 ## Channels
 
-| channel               | type                  | description                  |
-|-----------------------|-----------------------|------------------------------|
-| temperatureIndoor     | Number:Temperature    | The temperature indoors. |
-| temperatureOutdoor    | Number:Temperature    | The temperature outdoors. |
-| humidityIndoor        | Number:Dimensionless  | The humidity indoors. |
-| humidityOutdoor       | Number:Dimensionless  | The humidity outdoors. |
-| pressureAbsolute      | Number:Pressure       | The atmospheric pressure directly measured by the sensor. |
-| pressureRelative      | Number:Pressure       | The pressure adjusted to sea level to allow easier comparisons between different locations. |
-| windDirection         | Number:Angle          | The angle in degrees that the wind is coming from. |
-| windAverageSpeed      | Number:Speed          | The average wind speed. |
-| windSpeed             | Number:Speed          | The exact wind speed. Not all stations send this data. |
-| windGust              | Number:Speed          | The recent wind gust speed. |
-| windMaxGust           | Number:Speed          | The recent max wind gust speed. |
-| solarRadiation        | Number:Intensity      | Solar radiation. |
-| uv                    | Number                | UV measurement. |
-| uvIndex               | Number                | The UV index. |
-| rainHourlyRate        | Number:Length         | The amount of rain that will fall, if it continues to fall at the same rate for an hour. Measures how heavy the current rain is falling. |
-| rainToday             | Number:Length         | Amount of rain since 12:00am. |
-| rainForWeek           | Number:Length         | Amount of rain for the week. |
-| rainForMonth          | Number:Length         | Amount of rain for the month. |
-| rainForYear           | Number:Length         | Amount of rain for the year. |
-| batteryIndoor         | Switch                | Battery status, ON if battery is low. |
-| batteryOutdoor        | Switch                | Battery status, OFF if battery is normal. |
-| responseTime          | Number:Time           | How long it took the weather station to reply to a request for the live data. |
-| lastUpdatedTime       | DateTime              | The time scraped from the weather station when it last read the sensors. |
+|      channel       |         type         |                                                               description                                                                |
+|--------------------|----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| temperatureIndoor  | Number:Temperature   | The temperature indoors.                                                                                                                 |
+| temperatureOutdoor | Number:Temperature   | The temperature outdoors.                                                                                                                |
+| humidityIndoor     | Number:Dimensionless | The humidity indoors.                                                                                                                    |
+| humidityOutdoor    | Number:Dimensionless | The humidity outdoors.                                                                                                                   |
+| pressureAbsolute   | Number:Pressure      | The atmospheric pressure directly measured by the sensor.                                                                                |
+| pressureRelative   | Number:Pressure      | The pressure adjusted to sea level to allow easier comparisons between different locations.                                              |
+| windDirection      | Number:Angle         | The angle in degrees that the wind is coming from.                                                                                       |
+| windAverageSpeed   | Number:Speed         | The average wind speed.                                                                                                                  |
+| windSpeed          | Number:Speed         | The exact wind speed. Not all stations send this data.                                                                                   |
+| windGust           | Number:Speed         | The recent wind gust speed.                                                                                                              |
+| windMaxGust        | Number:Speed         | The recent max wind gust speed.                                                                                                          |
+| solarRadiation     | Number:Intensity     | Solar radiation.                                                                                                                         |
+| uv                 | Number               | UV measurement.                                                                                                                          |
+| uvIndex            | Number               | The UV index.                                                                                                                            |
+| rainHourlyRate     | Number:Length        | The amount of rain that will fall, if it continues to fall at the same rate for an hour. Measures how heavy the current rain is falling. |
+| rainToday          | Number:Length        | Amount of rain since 12:00am.                                                                                                            |
+| rainForWeek        | Number:Length        | Amount of rain for the week.                                                                                                             |
+| rainForMonth       | Number:Length        | Amount of rain for the month.                                                                                                            |
+| rainForYear        | Number:Length        | Amount of rain for the year.                                                                                                             |
+| batteryIndoor      | Switch               | Battery status, ON if battery is low.                                                                                                    |
+| batteryOutdoor     | Switch               | Battery status, OFF if battery is normal.                                                                                                |
+| responseTime       | Number:Time          | How long it took the weather station to reply to a request for the live data.                                                            |
+| lastUpdatedTime    | DateTime             | The time scraped from the weather station when it last read the sensors.                                                                 |
+

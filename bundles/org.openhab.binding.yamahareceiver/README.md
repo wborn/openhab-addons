@@ -8,7 +8,7 @@ If your Yamaha receiver is not on the list, it likely is a newer model that supp
 
 ## Supported Things
 
-| Thing    | Type   | Description              |
+|  Thing   |  Type  |       Description        |
 |----------|--------|--------------------------|
 | yamahaAV | Bridge | Yamaha Receiver hardware |
 | zone     | Thing  | Zones of your receiver   |
@@ -34,7 +34,7 @@ Bridge yamahareceiver:yamahaAV:ReceiverID "Yamaha Receiver Bridge Name" [host="a
 
 Configuration parameters for Bridge `yamahaAV`:
 
-| Parameter         | Required | Default            | Description                                                                                                                                          |
+|     Parameter     | Required |      Default       |                                                                     Description                                                                      |
 |-------------------|----------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `host`            | yes      | N/A                | The IP address of the AVR to control                                                                                                                 |
 | `port`            | no       | 80                 | The API port of the AVR to control                                                                                                                   |
@@ -44,7 +44,7 @@ Configuration parameters for Bridge `yamahaAV`:
 
 Configruation parameters for Thing `zone`:
 
-| Parameter                    | Required | Default | Description                                                                |
+|          Parameter           | Required | Default |                                Description                                 |
 |------------------------------|----------|---------|----------------------------------------------------------------------------|
 | `zone`                       | yes      | /       | The zone can be Main_Zone, Zone_2, Zone_3, Zone_4 depending on your device |
 | `volumeRelativeChangeFactor` | no       | 2       | Relative volume change in percent                                          |
@@ -55,7 +55,7 @@ Configruation parameters for Thing `zone`:
 
 The implemented channels for the `yamahaAV` bridge are:
 
-| Channel             | openHAB Type | Comment                                                                                                                                                                                                     |
+|       Channel       | openHAB Type |                                                                                                   Comment                                                                                                   |
 |---------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `power`             | `Switch`     | Switches the AVR ON or OFF. Your receiver has to be in network standby for this to work.                                                                                                                    |
 | `party_mode`        | `Switch`     | Switches the party mode. May not be supported on all models.                                                                                                                                                |
@@ -66,7 +66,7 @@ The implemented channels for a `zone` thing are grouped in three groups. These a
 
 Zone control channels are:
 
-| Channel                                       | openHAB Type | Comment                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+|                    Channel                    | openHAB Type |                                                                                                                                                                                                                 Comment                                                                                                                                                                                                                 |
 |-----------------------------------------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `zone_channels#power`                         | `Switch`     | Switches the zone ON or OFF. Your receiver has to be in network standby for this to work.                                                                                                                                                                                                                                                                                                                                               |
 | `zone_channels#mute`                          | `Switch`     | Mute or Unmute the receiver.                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -267,7 +267,7 @@ Use the UI to customize the setting for your particular AVR: `Things > Edit > Ya
 For example, if your AVR returns `HDMI_1` for command `HDMI1` you can create such mapping list:
 
 `HDMI_1=HDMI1,HDMI 1=HDMI1,HDMI_2=HDMI2,HDMI 2=HDMI2`
-  
+
 If you unsure what mapping to apply, enable trace logging (see section earlier) and you should see what is going on:
 
 ```text

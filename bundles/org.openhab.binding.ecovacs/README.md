@@ -41,7 +41,7 @@ Once that is done, the supported devices will be automatically discovered and ad
 
 For the cloud API thing, the following parameters must be configured:
 
-| Config    | Description                                                                                                                   |
+|  Config   |                                                          Description                                                          |
 |-----------|-------------------------------------------------------------------------------------------------------------------------------|
 | email     | The email address you used when registering the Ecovacs cloud account                                                         |
 | password  | The cloud account password                                                                                                    |
@@ -49,7 +49,7 @@ For the cloud API thing, the following parameters must be configured:
 
 For the vacuum things, there is no required configuration (when using discovery). The following parameters exist:
 
-| Config       | Description                                                                                                                   |
+|    Config    |                                                          Description                                                          |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------|
 | serialNumber | Required: The device's serial number as printed on the barcode below the dust bin. Filled automatically when using discovery. |
 | refresh      | Refresh interval for polled data (see below), in minutes. By default set to 5 minutes.                                        |
@@ -59,7 +59,7 @@ For the vacuum things, there is no required configuration (when using discovery)
 The list below lists all channels supported by the binding.
 In case a particular channel is not supported by a given device (see remarks), it is automatically removed from the given thing.
 
-| Channel                                 | Type                 | Description                                               | Read Only | Updated By | Remarks  |
+|                 Channel                 |         Type         |                        Description                        | Read Only | Updated By | Remarks  |
 |-----------------------------------------|----------------------|-----------------------------------------------------------|-----------|------------|----------|
 | actions#command                         | String               | Command to execute                                        | No        | Event      | [1]      |
 | status#state                            | String               | Current operational state                                 | Yes       | Event      | [2]      |
@@ -110,15 +110,15 @@ Remarks:
 
 The following actions are supported by the `command` channel:
 
-| Name         | Action                                    | Remarks                                              |
-|--------------|-------------------------------------------|------------------------------------------------------|
-| `clean`      | Start cleaning in automatic mode.         |                                                      |
-| `spotArea`   | Start cleaning specific rooms.            | <ul><li>Only if supported by device, which can be recognized by `spotArea` being present in the list of possible states of the `current-cleaning-mode` channel.</li><li>Format: `spotArea:<room IDs>`, where `room IDs` is a semicolon separated list of room letters as shown in Ecovacs' app, so a valid command could e.g. be `spotArea:A;D;E`.</li><li>If you want to run 2 clean passes, amend `:x2` to the command, e.g. `spotArea:A;C;B:x2`.</li></ul> |
+|     Name     |                  Action                   |                                                                                                                                                                                                                                                                         Remarks                                                                                                                                                                                                                                                                         |
+|--------------|-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `clean`      | Start cleaning in automatic mode.         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `spotArea`   | Start cleaning specific rooms.            | <ul><li>Only if supported by device, which can be recognized by `spotArea` being present in the list of possible states of the `current-cleaning-mode` channel.</li><li>Format: `spotArea:<room IDs>`, where `room IDs` is a semicolon separated list of room letters as shown in Ecovacs' app, so a valid command could e.g. be `spotArea:A;D;E`.</li><li>If you want to run 2 clean passes, amend `:x2` to the command, e.g. `spotArea:A;C;B:x2`.</li></ul>                                                                                           |
 | `customArea` | Start cleaning specific areas.            | <ul><li>Only if supported by device, which can be recognized by `customArea` being present in the list of possible states of the `current-cleaning-mode` channel.</li><li>Format: `customArea:<x1>;<y1>;<x2>;<y2>, where the parameters are coordinates (in mm) relative to the map.</li><li>The coordinates can be obtained from the `current-cleaning-spot-definition` channel when starting a custom area run from the app.</li><li>If you want to run 2 clean passes, amend `:x2` to the command, e.g. `customArea:100;100;1000;1000:x2`.</li></ul> |
-| `pause`      | Pause cleaning if it's currently active.  | If the device is idle, the command is ignored.       |
-| `resume`     | Resume cleaning if it's currently paused. | If the device is not paused, the command is ignored. |
-| `stop`       | Stop cleaning immediately.                |                                                      |
-| `charge`     | Send device to charging station.          |                                                      |
+| `pause`      | Pause cleaning if it's currently active.  | If the device is idle, the command is ignored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| `resume`     | Resume cleaning if it's currently paused. | If the device is not paused, the command is ignored.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| `stop`       | Stop cleaning immediately.                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `charge`     | Send device to charging station.          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
 ## Rule actions
 

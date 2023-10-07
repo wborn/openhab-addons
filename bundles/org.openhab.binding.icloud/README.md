@@ -54,14 +54,14 @@ The account Thing does not provide any channels.
 
 The following channels are available (if supported by the device):
 
-| Channel ID         | Type     | Description                                                                                                                                 |
+|     Channel ID     |   Type   |                                                                 Description                                                                 |
 |--------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | batteryStatus      | String   | Current battery status (Charging, NotCharging, Charged, Unknown)                                                                            |
-| batteryLevel       | Number   | Battery charge in percent                                                                                                                         |
+| batteryLevel       | Number   | Battery charge in percent                                                                                                                   |
 | findMyPhone        | Switch   | Triggers the ["Find My Phone"](https://support.apple.com/explore/find-my-iphone-ipad-mac-watch) functionality of the device (if available). |
 | location           | Location | GPS coordinates of the devices current/last known location                                                                                  |
-| locationAccuracy   | Number   | Accuracy of the last position report (Advanced Option on UI)                                                                                                        |
-| locationLastUpdate | DateTime | Timestamp of the last location update  (Advanced Option on UI)                                                                                                       |
+| locationAccuracy   | Number   | Accuracy of the last position report (Advanced Option on UI)                                                                                |
+| locationLastUpdate | DateTime | Timestamp of the last location update  (Advanced Option on UI)                                                                              |
 
 ## Full Example
 

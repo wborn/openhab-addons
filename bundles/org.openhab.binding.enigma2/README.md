@@ -22,7 +22,7 @@ If automatic discovery is not possible you may still manually configure a device
 
 Enigma2 has the following configuration parameters:
 
-| Name            | Description                                        | Mandatory |
+|      Name       |                    Description                     | Mandatory |
 |-----------------|----------------------------------------------------|-----------|
 | host            | Hostname or IP address of the Enigma2 device       | yes       |
 | refreshInterval | The refresh interval in seconds                    | yes       |
@@ -40,17 +40,17 @@ Thing enigma2:device:192_168_0_3 [host="192.168.1.3", refreshInterval="5", timeo
 
 ## Channels
 
-| Channel Type ID | Item Type | Description                                                                                                                                                                                                             | Read/Write |
-|-----------------|-----------|----------------------------------------------------------------------------------------------|------------|
-| power           | Switch    | Current power setting.                                                                       | RW         |
-| mute            | Switch    | Current mute setting.                                                                        | RW         |
-| volume          | Dimmer    | Current volume setting.                                                                      | RW         |
-| channel         | String    | Current channel. Use only the channel text as command to update the channel.                 | RW         |
-| title           | String    | Current program title of the current channel.                                                | R          |
-| description     | String    | Current program description of the current channel.                                          | R          |
-| mediaPlayer     | Player    | Media control player.                                                                        | RW         |
-| mediaStop       | Switch    | Media control stop.                                                                          | RW         |
-| answer          | String    | Receives an answer to a send question of the device.                                         | R          |
+| Channel Type ID | Item Type |                                 Description                                  | Read/Write |
+|-----------------|-----------|------------------------------------------------------------------------------|------------|
+| power           | Switch    | Current power setting.                                                       | RW         |
+| mute            | Switch    | Current mute setting.                                                        | RW         |
+| volume          | Dimmer    | Current volume setting.                                                      | RW         |
+| channel         | String    | Current channel. Use only the channel text as command to update the channel. | RW         |
+| title           | String    | Current program title of the current channel.                                | R          |
+| description     | String    | Current program description of the current channel.                          | R          |
+| mediaPlayer     | Player    | Media control player.                                                        | RW         |
+| mediaStop       | Switch    | Media control stop.                                                          | RW         |
+| answer          | String    | Receives an answer to a send question of the device.                         | R          |
 
 ## Example
 
@@ -199,11 +199,11 @@ Multiple actions are supported by this binding. In classic rules these are acces
 Example
 
 ```java
- val actions = getActions("enigma2","enigma2:device:192_168_0_3")
- if(null === actions) {
-        logInfo("actions", "Actions not found, check thing ID")
-        return
- }
+val actions = getActions("enigma2","enigma2:device:192_168_0_3")
+if(null === actions) {
+       logInfo("actions", "Actions not found, check thing ID")
+       return
+}
 ```
 
 ### sendInfo(text)
@@ -212,9 +212,9 @@ Sends an info message to the device with will be shown on the TV screen for 30 s
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| text    | The text to display                                                  |
+| Name |     Description     |
+|------|---------------------|
+| text | The text to display |
 
 Example:
 
@@ -228,10 +228,10 @@ Sends an info message to the device with will be shown on the TV screen.
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| text    | The text to display                                                  |
-| timeout | The timeout in seconds                                               |
+|  Name   |      Description       |
+|---------|------------------------|
+| text    | The text to display    |
+| timeout | The timeout in seconds |
 
 Example:
 
@@ -245,9 +245,9 @@ Sends a warning message to the device with will be shown on the TV screen for 30
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| text    | The text to display                                                  |
+| Name |     Description     |
+|------|---------------------|
+| text | The text to display |
 
 Example:
 
@@ -261,10 +261,10 @@ Sends a warning message to the device with will be shown on the TV screen.
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| text    | The text to display                                                  |
-| timeout | The timeout in seconds                                               |
+|  Name   |      Description       |
+|---------|------------------------|
+| text    | The text to display    |
+| timeout | The timeout in seconds |
 
 Example:
 
@@ -278,9 +278,9 @@ Sends an error message to the device with will be shown on the TV screen for 30 
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| text    | The text to display                                                  |
+| Name |     Description     |
+|------|---------------------|
+| text | The text to display |
 
 Example:
 
@@ -294,10 +294,10 @@ Sends an error message to the device with will be shown on the TV screen.
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| text    | The text to display                                                  |
-| timeout | The timeout in seconds                                               |
+|  Name   |      Description       |
+|---------|------------------------|
+| text    | The text to display    |
+| timeout | The timeout in seconds |
 
 Example:
 
@@ -312,9 +312,9 @@ The answer is provided to the "answer"-channel.
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| text    | The text to display                                                  |
+| Name |     Description     |
+|------|---------------------|
+| text | The text to display |
 
 Example:
 
@@ -329,10 +329,10 @@ The answer is provided to the "answer"-channel.
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| text    | The text to display                                                  |
-| timeout | The timeout in seconds                                               |
+|  Name   |      Description       |
+|---------|------------------------|
+| text    | The text to display    |
+| timeout | The timeout in seconds |
 
 Example:
 
@@ -346,13 +346,13 @@ Sends a button press event to the device.
 
 Parameters:
 
-| Name    | Description                                                            |
-|---------|------------------------------------------------------------------------|
-| button  | see the supported buttons in chapter 'Remote Control Buttons'          |
+|  Name  |                          Description                          |
+|--------|---------------------------------------------------------------|
+| button | see the supported buttons in chapter 'Remote Control Buttons' |
 
 The button parameter has only been tested on a Vu+Solo2 and this is a list of button codes that are known to work with this device.
 
-| Code String   |
+|  Code String  |
 |---------------|
 | POWER         |
 | KEY_0         |
@@ -404,3 +404,4 @@ Example:
 ```java
 actions.sendRcCommand("KEY_1")
 ```
+

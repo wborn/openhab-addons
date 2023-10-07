@@ -22,7 +22,7 @@ Optionally, a refresh interval (in seconds) can be defined.
 
 ## Channels
 
-| Channel     | Description            |
+|   Channel   |      Description       |
 |-------------|------------------------|
 | powerIn     | Purchased power        |
 | powerInL1   | Purchased power L3     |

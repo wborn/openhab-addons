@@ -37,11 +37,11 @@ The blink setting will disable the transmission LED on the Konnected Alarm Panel
 
 You will need to add channels for the zones that you have connected and configure them with the appropriate configuration parameters for each channel.
 
-| Channel Type | Item Type            | Config Parameters                                  | Description                                                                                                                                                                                                                                     |
-|--------------|----------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Switch-(wifi/pro)       | Switch               | Zone Number                                        | This is the channel type for sensors or other read only devices                                                                                                                                                                                 |
+|      Channel Type      |      Item Type       |                 Config Parameters                  |                                                                                                                   Description                                                                                                                   |
+|------------------------|----------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Switch-(wifi/pro)      | Switch               | Zone Number                                        | This is the channel type for sensors or other read only devices                                                                                                                                                                                 |
 | Actuator-(wifi/pro)    | Switch               | Zone Number, Momentary, Pause, Times               | This is the channel type for devices whose state can be turned on an off by the Konnected Alarm Panel                                                                                                                                           |
-| Temperature-(wifi/pro)  | Number:Temperature   | Zone Number, DHT22, Poll Interval, DS18b20 Address | This is the channel for sensors which measure temperature (DHT22 and DS18B20). The DHT22 setting should be set to true when the channel is monitoring a zone connected to a DHT22 sensor and false if the zone is connected to a DS1820B sensor |
+| Temperature-(wifi/pro) | Number:Temperature   | Zone Number, DHT22, Poll Interval, DS18b20 Address | This is the channel for sensors which measure temperature (DHT22 and DS18B20). The DHT22 setting should be set to true when the channel is monitoring a zone connected to a DHT22 sensor and false if the zone is connected to a DS1820B sensor |
 | Humidity-(wifi/pro)    | Number:Dimensionless | Zone Number                                        | This is the channel type for the humidity sensor on a connected DHT22 sensor                                                                                                                                                                    |
 
 You will need to configure each channel with the appropriate zone number corresponding to the zone on The Konnected Alarm Panel.
@@ -107,3 +107,4 @@ Thing konnected:pro-module:generic "Konnected Module" [baseUrl="http://192.168.3
    Type temperature-pro : outhum    "Outside Temperature (DS18B20)" [zone="4", dht22 = false, pollInterval = 1, ds18b20Address = "XX:XX:XX:XX:XX:XX:XX"]
 }
 ```
+

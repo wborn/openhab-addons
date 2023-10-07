@@ -22,7 +22,7 @@ Automatic background discovery only works for Hyperion.ng servers as they advert
 
 In order to use a Hyperion Server it must be properly configured.  You can do this either through a UI / REST or through static .thing files.
 
-| Parameter      | Data type | Required | Example        |
+|   Parameter    | Data type | Required |    Example     |
 |----------------|-----------|----------|----------------|
 | host           | String    | Y        | "192.168.0.10" |
 | port           | Integer   | Y        | 19444          |
@@ -41,7 +41,7 @@ Thing hyperion:serverV1:myServer [ host="192.168.0.10", port=19444, priority=50,
 
 In order to use a Hyperion.ng Server it must be properly configured.  You can do this either through a UI / REST or through static .thing files.
 
-| Parameter      | Data type | Required | Example        |
+|   Parameter    | Data type | Required |    Example     |
 |----------------|-----------|----------|----------------|
 | host           | String    | Y        | "192.168.0.10" |
 | port           | Integer   | Y        | 19444          |
@@ -61,7 +61,7 @@ Thing hyperion:serverNG:myServer [ host="192.168.0.10", port=19444, priority=50,
 
 ### Hyperion Server (V1):
 
-| Channel    | Item   | Description                                        | Example                               |
+|  Channel   |  Item  |                    Description                     |                Example                |
 |------------|--------|----------------------------------------------------|---------------------------------------|
 | brightness | Dimmer | Sets/stores the current brightness                 | hyperion:serverV1:myServer:brightness |
 | effect     | String | Sets/stores the current effect                     | hyperion:serverV1:myServer:effect     |
@@ -70,7 +70,7 @@ Thing hyperion:serverNG:myServer [ host="192.168.0.10", port=19444, priority=50,
 
 ### Hyperion.ng Server
 
-| Channel         | Item   | Description                                        | Example                                    |
+|     Channel     |  Item  |                    Description                     |                  Example                   |
 |-----------------|--------|----------------------------------------------------|--------------------------------------------|
 | brightness      | Dimmer | Sets/stores the current brightness                 | hyperion:serverNG:myServer:brightness      |
 | effect          | String | Sets/stores the current effect                     | hyperion:serverNG:myServer:effect          |
@@ -170,3 +170,4 @@ sitemap demo label="Main Menu" {
  }
 }
 ```
+

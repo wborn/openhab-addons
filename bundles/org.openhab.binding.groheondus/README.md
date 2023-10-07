@@ -7,11 +7,11 @@ The binding uses the REST API interface (the same as used by the Android App) to
 
 This binding should support all appliances from GROHE, however, only the GROHE Sense and Sense Guard is tested with it.
 
-| Thing type               | Name                     |
-|--------------------------|--------------------------|
-| account                  | GROHE ONDUS Account      |
-| senseguard               | GROHE SENSE Guard device |
-| sense                    | GROHE SENSE device       |
+| Thing type |           Name           |
+|------------|--------------------------|
+| account    | GROHE ONDUS Account      |
+| senseguard | GROHE SENSE Guard device |
+| sense      | GROHE SENSE device       |
 
 ## Discovery
 
@@ -39,19 +39,19 @@ The appliance needs to be configured with the unique appliance ID (with the `app
 Once the account bridge is configured, the appliances in your account will be discovered as Appliance things.
 `pollingInterval` has a minimum value of 900 seconds to avoid service rate limiting.
 
-| Configuration            | Default value            | Description                                           |
-|--------------------------|--------------------------|-------------------------------------------------------|
-| applianceId              | ''                       | Unique ID of the appliance in the GROHE ONDUS account |
-| roomId                   | ''                       | ID of the room the appliance is in                    |
-| locationId               | ''                       | ID of the location (building) the appliance is in     |
-| pollingInterval          | Retrieved from API,      | Interval in seconds to get new data from the API      |
-|                          | usually 900              | The `sense` thing uses 900 by default.                |
+|  Configuration  |    Default value    |                      Description                      |
+|-----------------|---------------------|-------------------------------------------------------|
+| applianceId     | ''                  | Unique ID of the appliance in the GROHE ONDUS account |
+| roomId          | ''                  | ID of the room the appliance is in                    |
+| locationId      | ''                  | ID of the location (building) the appliance is in     |
+| pollingInterval | Retrieved from API, | Interval in seconds to get new data from the API      |
+|                 | usually 900         | The `sense` thing uses 900 by default.                |
 
 #### Channels
 
 ##### senseguard
 
-| Channel                         | Type               | Description                                      |
+|             Channel             |        Type        |                   Description                    |
 |---------------------------------|--------------------|--------------------------------------------------|
 | name                            | String             | The name of the appliance                        |
 | pressure                        | Number:Pressure    | The pressure of your water supply                |
@@ -62,12 +62,12 @@ Once the account bridge is configured, the appliances in your account will be di
 
 ##### sense
 
-| Channel                  | Type                     | Description                                           |
-|--------------------------|--------------------------|-------------------------------------------------------|
-| name                     | String                   | The name of the appliance                             |
-| humidity                 | Number:Dimensionless     | The humidity measured by the appliance                |
-| temperature              | Number:Temperature       | The ambient temperature of the appliance              |
-| battery                  | Number                   | The battery level of the appliance                    |
+|   Channel   |         Type         |               Description                |
+|-------------|----------------------|------------------------------------------|
+| name        | String               | The name of the appliance                |
+| humidity    | Number:Dimensionless | The humidity measured by the appliance   |
+| temperature | Number:Temperature   | The ambient temperature of the appliance |
+| battery     | Number               | The battery level of the appliance       |
 
 Note: Be aware that the Sense reports data once a day (at most), and that the value posted in the channel - however the latest - may be up to 48 hours old.
 
@@ -99,3 +99,4 @@ String Name_Sense "Temperature [%.1f %unit%]" {channel="groheondus:sense:groheon
 Number:Temperature Temperature_Sense "Temperature [%.1f %unit%]" {channel="groheondus:sense:groheondus:appliance:444e8400-e29b-11d4-a716-446655440000:temperature"}
 Number Humidity_Sense "Humidity [%.1f %unit%]" {channel="groheondus:sense:groheondus:appliance:444e8400-e29b-11d4-a716-446655440000:humidity"}
 ```
+

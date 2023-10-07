@@ -42,7 +42,7 @@ Thing onewiregpio:sensor:livingroom "Living room" [gpio_bus_file="/sys/bus/w1/de
 
 sample onewiregpio.items file content (implements QuantityType for unit conversion):
 
-``` java
+```java
 Number:Temperature LivingRoomTemperature      "Temperature: [%.2f %unit%]" <temperature>  { channel="onewiregpio:sensor:livingroom:temperature" }
 ```
 
@@ -54,3 +54,4 @@ sitemap demo label="Main Menu"
     Text item=LivingRoomTemperature
 }
 ```
+

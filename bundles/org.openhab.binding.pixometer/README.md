@@ -6,8 +6,8 @@ This binding connects to the pixometer API, which can manage your meter readings
 
 This binding supports the following thing types according to the capabilities of pixometer:
 
-| Name        | Type   | Description                                                                 |
-| ----------- | ------ | --------------------------------------------------------------------------- |
+|    Name     |  Type  |                                 Description                                 |
+|-------------|--------|-----------------------------------------------------------------------------|
 | Account     | Bridge | Representation of a pixometer account, which connects to the pixometer API. |
 | Energymeter | Thing  | Provides access to the readings of configured energy meters.                |
 | Gasmeter    | Thing  | Provides access to the readings of configured gas meters.                   |
@@ -19,24 +19,24 @@ The different meter types are pretty similar in basic, but are implemented in pa
 
 ### Account (bridge)
 
-| Parameter | Description                                   | Required | Default Value | Comment |
-| --------- | --------------------------------------------- | -------- | ------------- | ------- |
+| Parameter |                  Description                  | Required | Default Value | Comment |
+|-----------|-----------------------------------------------|----------|---------------|---------|
 | user      |                                               | Yes      | -             |         |
 | password  |                                               | Yes      | -             |         |
 | refresh   | Sets the refresh time. Minimum is 60 Minutes. | Yes      | 240           |         |
 
 ### Meter Things
 
-| Parameter  | Description                                                                                                                                                                                         | Required |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
+| Parameter  |                                                                                             Description                                                                                             | Required |
+|------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | resourceId | The ID which represents the current meter. You can find it in the pixometer browser app while editing a specific meter. It should look like this: "https://pixometer.io/portal/#/meters/XXXXX/edit" | Yes      |
 
 ## Channels
 
 All meter things have the following channels:
 
-| Channel ID         | Channel Description                                    | Supported item type | Advanced |
-| ------------------ | ------------------------------------------------------ | ------------------- | -------- |
+|     Channel ID     |                  Channel Description                   | Supported item type | Advanced |
+|--------------------|--------------------------------------------------------|---------------------|----------|
 | last_reading_value | The last value that has been read for this meter.      | Number              | false    |
 | last_reading_date  | The time at which the last reading value was recorded. | DateTime            | false    |
 | last_refresh_date  | The last time that the current thing has been updated. | DateTime            | false    |
@@ -63,3 +63,4 @@ DateTime        Meter_Electricity_LastReadingDate   "[%1$td.%1$tm.%1$tY %1$tH:%1
 Number:Volume   Meter_Water_ReadingValue            "[%.3f %unit%]"                     []  {channel="pixometer:watermeter:accountname:metername3:last_reading_value"}
 DateTime        Meter_Water_LastReadingDate         "[%1$td.%1$tm.%1$tY %1$tH:%1$tM]"   []  {channel="pixometer:watermeter:accountname:metername3:last_reading_date"}
 ```
+

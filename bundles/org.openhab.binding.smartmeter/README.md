@@ -14,8 +14,8 @@ Discovery is not available, as the binding only reads from serial ports.
 
 The smartmeter thing requires the serial port where the meter device is connected and optionally a refresh interval.
 
-| Parameter             | Name                            | Description                                                                                                                                                                                   | Required | Default |
-| --------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
+|       Parameter       |              Name               |                                                                                          Description                                                                                          | Required | Default |
+|-----------------------|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------|
 | `port`                | The serial port to connect to   | URL to use for reading SML data, e.g. `/dev/ttyUSB0`, `rfc2217://xxx.xxx.xxx.xxx:3002`                                                                                                        | yes      |         |
 | `refresh`             | The refresh interval in seconds | Defines at which interval the values of the meter device shall be read                                                                                                                        | no       | 20      |
 | `mode`                | The protocol mode to use        | Can be `SML` (PUSH mode), `ABC` (PULL) or `D` (PUSH)                                                                                                                                          | no       | `SML`   |
@@ -32,8 +32,8 @@ Following conversion from OBIS codes to channel ID is done:
 
 e.g.
 
-| OBIS code   | Channel ID  |
-| ----------- | ----------- |
+|  OBIS code  | Channel ID  |
+|-------------|-------------|
 | `1-0:1.8.1` | `1-0_1-8-1` |
 | `1.8.0*00`  | `1-8-0_00`  |
 
@@ -92,7 +92,7 @@ Number:Power HouseActualUsage     "Current usage [%.2f %unit%]"               { 
 - Octet encoding for OBIS Codes
   - '129-129:199.130.5'
     - '1-0:0.0.9'
-        doesn't work properly.
+      doesn't work properly.
 
 Any help/contribution is appreciated!
 
@@ -115,3 +115,4 @@ The binding has been successfully tested with below hardware configuration:
 ### IEC 62056-21 Mode D
 
 - Hager EHZ 361Z5 and EHZ 161L5
+

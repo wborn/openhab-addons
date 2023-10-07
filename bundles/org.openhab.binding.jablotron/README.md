@@ -5,7 +5,7 @@ This is the binding for Jablotron alarms.
 
 ## Supported Things
 
-| thing   | note                                      |
+|  thing  |                   note                    |
 |---------|-------------------------------------------|
 | bridge  | the bridge to your Jablonet cloud account |
 | JA-80   | the OASIS alarm                           |
@@ -22,7 +22,7 @@ Binding itself doesn't require specific configuration.
 
 ## Thing Configuration
 
-| thing                | config parameter name | description                                                                        | type                  |
+|        thing         | config parameter name |                                    description                                     |         type          |
 |----------------------|-----------------------|------------------------------------------------------------------------------------|-----------------------|
 | bridge               | login                 | the login to your Jablonet account                                                 | mandatory             |
 | bridge               | password              | the password to your Jablonet account                                              | mandatory             |
@@ -34,7 +34,7 @@ Binding itself doesn't require specific configuration.
 
 ## Channels
 
-| thing                | channel name     | item type          | description                                               |
+|        thing         |   channel name   |     item type      |                        description                        |
 |----------------------|------------------|--------------------|-----------------------------------------------------------|
 | bridge               | N/A              | N/A                | the bridge does not expose any channels                   |
 | JA-80                | statusA          | Switch             | the status of the A section                               |
@@ -123,3 +123,4 @@ then
     logInfo("default.rules", "Jablotron triggered " + receivedEvent.getEvent())
 end
 ```
+

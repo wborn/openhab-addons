@@ -89,7 +89,7 @@ This binding support discovery of Fine Offset gateway devices by sending a broad
 
 ### `gateway` Thing Configuration
 
-| Name             | Type    | Description                                                                                  | Default | Required | Advanced |
+|       Name       |  Type   |                                         Description                                          | Default | Required | Advanced |
 |------------------|---------|----------------------------------------------------------------------------------------------|---------|----------|----------|
 | ip               | text    | The Hostname or IP address of the device                                                     | N/A     | yes      | no       |
 | port             | integer | The network port of the gateway                                                              | 45000   | yes      | no       |
@@ -99,9 +99,9 @@ This binding support discovery of Fine Offset gateway devices by sending a broad
 
 ### `sensor` Thing Configuration
 
-| Name             | Type    | Description                                                                                                                            | Default | Required | Advanced |
-|------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------|---------|----------|----------|
-| sensor           | text    | The name of sensor attached to the gateway (multiple sensors of the same type may have different names according to the bound channel) | N/A     | yes      | no       |
+|  Name  | Type |                                                              Description                                                               | Default | Required | Advanced |
+|--------|------|----------------------------------------------------------------------------------------------------------------------------------------|---------|----------|----------|
+| sensor | text | The name of sensor attached to the gateway (multiple sensors of the same type may have different names according to the bound channel) | N/A     | yes      | no       |
 
 Valid sensors:
 
@@ -160,7 +160,7 @@ Valid sensors:
 
 ### `gateway` Channels
 
-| Channel                               | Type                 | Read/Write | Description                                    |
+|                Channel                |         Type         | Read/Write |                  Description                   |
 |---------------------------------------|----------------------|------------|------------------------------------------------|
 | temperature-indoor                    | Number:Temperature   | R          | Indoor Temperature                             |
 | temperature-outdoor                   | Number:Temperature   | R          | Outdoor Temperature                            |
@@ -265,7 +265,7 @@ Valid sensors:
 | sensor-co2-pm25-24-hour-average       | Number:Density       | R          | PM2.5 Air Quality 24 Hour Average (CO2-Sensor) |
 | sensor-co2-co2                        | Number:Dimensionless | R          | CO2                                            |
 | sensor-co2-co2-24-hour-average        | Number:Dimensionless | R          | CO2 24 Hour Average                            |
-| leaf-wetness-channel-1                | Number:Dimensionless | R          | Leaf Moisture Channel 1                        |  
+| leaf-wetness-channel-1                | Number:Dimensionless | R          | Leaf Moisture Channel 1                        |
 | leaf-wetness-channel-2                | Number:Dimensionless | R          | Leaf Moisture Channel 2                        |
 | leaf-wetness-channel-3                | Number:Dimensionless | R          | Leaf Moisture Channel 3                        |
 | leaf-wetness-channel-4                | Number:Dimensionless | R          | Leaf Moisture Channel 4                        |
@@ -286,7 +286,7 @@ Especially the channels `temperature-dew-point` or `temperature-wind-chill` are 
 
 ### `sensor` Channels
 
-| Channel        | Type                     | Read/Write | Description                 |
+|    Channel     |           Type           | Read/Write |         Description         |
 |----------------|--------------------------|------------|-----------------------------|
 | signal         | Number                   | R          | The sensors signal strength |
 | batteryLevel   | Number                   | R          | The sensors battery level   |
@@ -344,3 +344,4 @@ Number:Length             weather_rain_month           "Rainfall this month"    
 Number:Length             weather_rain_year            "Rainfall this year "                 <Rain>        (gOutdoor) ["Measurement", "Rain"]         { channel="fineoffsetweatherstation:gateway:3906700515:rain-year" }
 Number:Length             weather_rain_event           "Amount of rainfall at the last rain" <Rain>        (gOutdoor) ["Measurement", "Rain"]         { channel="fineoffsetweatherstation:gateway:3906700515:rain-event" }
 ```
+

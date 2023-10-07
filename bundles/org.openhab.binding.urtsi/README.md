@@ -31,3 +31,4 @@ Discovery is not supported.
 ## Channels
 
 - Position: Change the position of a device. This is used in order to interact with the device (move it up, down or stop).
+

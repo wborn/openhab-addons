@@ -22,7 +22,7 @@ The binding has no configuration options itself, all configuration is done at 'T
 The bot thing is used to send messages to other recipients.
 It has the following parameters:
 
-| Config     |  Description                                                     | Required | Advanced |
+|   Config   |                           Description                            | Required | Advanced |
 |------------|------------------------------------------------------------------|----------|----------|
 | token      | Pushbullet [API token](#obtaining-an-api-key) to send to devices | Yes      | False    |
 | name       | Explicit Name, for later use when the bot can receive messages   | No       | True     |
@@ -35,11 +35,11 @@ Thing pushbullet:bot:r2d2 "R2D2" @ "Somewhere" [ token = "verysecretwonttellyou"
 
 ## Channels
 
-| Channel ID | Channel Description                             | Supported item type  | Advanced |
-|------------|-------------------------------------------------|----------------------|----------|
-| recipient  | for later use when the bot can receive messages | String               | False    |
-| title      | for later use when the bot can receive messages | String               | False    |
-| message    | for later use when the bot can receive messages | String               | False    |
+| Channel ID |               Channel Description               | Supported item type | Advanced |
+|------------|-------------------------------------------------|---------------------|----------|
+| recipient  | for later use when the bot can receive messages | String              | False    |
+| title      | for later use when the bot can receive messages | String              | False    |
+| message    | for later use when the bot can receive messages | String              | False    |
 
 ## Rule Action
 
@@ -159,3 +159,4 @@ Both of those libraries use various libraries themselves which makes integrating
 
 - <https://docs.pushbullet.com/>
 - <https://docs.pushbullet.com/#push-limit>
+

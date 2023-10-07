@@ -16,7 +16,7 @@ The binding has no configuration options, all configuration is done at Bridge an
 
 The bridge has only one configuration parameter :
 
-| Parameter | Description                                                  |
+| Parameter |                         Description                          |
 |-----------|--------------------------------------------------------------|
 | apikey    | Data-platform token to access the OpenUV service. Mandatory. |
 
@@ -26,10 +26,10 @@ Will accept a Refresh command in order to reinitiate connexion (eg in case of Qu
 
 The thing has a few configuration parameters :
 
-| Parameter | Description                                                  |
-|-----------|--------------------------------------------------------------|
-| location  | Geo coordinates to be considered by the service.             |
-| refresh   | Refresh interval in minutes. Optional.                       |
+| Parameter |                   Description                    |
+|-----------|--------------------------------------------------|
+| location  | Geo coordinates to be considered by the service. |
+| refresh   | Refresh interval in minutes. Optional.           |
 
 For the location parameter, the following syntax is allowed (comma separated latitude, longitude and optional altitude):
 
@@ -43,18 +43,18 @@ For the location parameter, the following syntax is allowed (comma separated lat
 
 The OpenUV Report thing that is retrieved has these channels:
 
-| Channel ID   | Item Type           | Description                                     |
-|--------------|---------------------|-------------------------------------------------|
-| UVIndex      | Number              | UV Index                                        |
-| Alert        | Number              | Alert level associated to given UV Index        |
-| UVColor      | Color               | Color associated to given alert level.          |
-| UVMax        | Number              | Max UV Index for the day (at solar noon)        |
-| UVMaxTime    | DateTime            | Max UV Index datetime (solar noon)              |
-| Ozone        | Number:ArealDensity | Ozone level in du (Dobson Units) from OMI data  |
-| OzoneTime    | DateTime            | Latest OMI ozone update datetime                |
-| UVTime       | DateTime            | UV Index datetime                               |
-| SafeExposure | Number:Time         | Safe exposure time for Fitzpatrick Skin Types.  |
-| elevation    | Number:Angle        | Current Sun elevation.                          |
+|  Channel ID  |      Item Type      |                  Description                   |
+|--------------|---------------------|------------------------------------------------|
+| UVIndex      | Number              | UV Index                                       |
+| Alert        | Number              | Alert level associated to given UV Index       |
+| UVColor      | Color               | Color associated to given alert level.         |
+| UVMax        | Number              | Max UV Index for the day (at solar noon)       |
+| UVMaxTime    | DateTime            | Max UV Index datetime (solar noon)             |
+| Ozone        | Number:ArealDensity | Ozone level in du (Dobson Units) from OMI data |
+| OzoneTime    | DateTime            | Latest OMI ozone update datetime               |
+| UVTime       | DateTime            | UV Index datetime                              |
+| SafeExposure | Number:Time         | Safe exposure time for Fitzpatrick Skin Types. |
+| elevation    | Number:Angle        | Current Sun elevation.                         |
 
 The elevation channel will be used as an input in order to limit API queries to OpenUV. If not used,
 the binding will not consider it. When value is provided queries will only be issued if the elevation is > 0°.
@@ -66,11 +66,11 @@ Thing can be extended with as many SafeExposure channels as needed for each skin
 
 This binding has its own IconProvider and makes available the following list of icons
 
-| Icon Name          | Dynamic | Illustration |
-|--------------------|---------|--------------|
-| oh:openuv:ozone    |   No    | ![](src/main/resources/icon/ozone.svg) |
-| oh:openuv:uv-alarm |   Yes   | ![](src/main/resources/icon/uv-alarm.svg) |
-| oh:openuv:uv-index |   Yes   | ![](src/main/resources/icon/uv-index.svg) |
+|     Icon Name      | Dynamic |               Illustration                |
+|--------------------|---------|-------------------------------------------|
+| oh:openuv:ozone    | No      | ![](src/main/resources/icon/ozone.svg)    |
+| oh:openuv:uv-alarm | Yes     | ![](src/main/resources/icon/uv-alarm.svg) |
+| oh:openuv:uv-index | Yes     | ![](src/main/resources/icon/uv-index.svg) |
 
 ## Examples
 
@@ -111,3 +111,4 @@ Number:Angle        Elevation "Elevation" {channel="astro:sun:home:position#elev
                                            channel="openuv:uvreport:local:city1:elevation" [profile="follow"] }
 
 ```
+

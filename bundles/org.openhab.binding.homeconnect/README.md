@@ -17,17 +17,17 @@ Supported devices: dishwasher, washer, washer / dryer combination, dryer, oven, 
 
 #### experimental support
 
-| Home appliance | Thing Type ID    |
-| --------------- | ------------ |
-| Dishwasher | dishwasher |
-| Washer | washer |
-| Washer / Dryer combination | washerdryer |
-| Dryer | dryer |
-| Oven | oven |
-| Hood | hood |
-| Cooktop | hob |
-| Refrigerator Freezer | fridgefreezer |
-| Coffee Machine | coffeemaker |
+|       Home appliance       | Thing Type ID |
+|----------------------------|---------------|
+| Dishwasher                 | dishwasher    |
+| Washer                     | washer        |
+| Washer / Dryer combination | washerdryer   |
+| Dryer                      | dryer         |
+| Oven                       | oven          |
+| Hood                       | hood          |
+| Cooktop                    | hob           |
+| Refrigerator Freezer       | fridgefreezer |
+| Coffee Machine             | coffeemaker   |
 
 > **INFO:** Currently the Home Connect API does not support all appliance programs. Please check if your desired program is available (e.g. <https://developer.home-connect.com/docs/washing-machine/supported_programs_and_options>).
 
@@ -37,54 +37,54 @@ After the bridge has been added and authorized, devices are discovered automatic
 
 ## Channels
 
-| Channel Type ID | Item Type | Read only | Description | Available on thing |
-| --------------- | --------- | --------- | ----------- | ------------------ |
-| power_state | Switch | false | This setting describes the current power state of the home appliance. | dishwasher, oven, coffeemaker, hood, hob  |
-| door_state | Contact | true | This status describes the door state of a home appliance. A status change is either triggered by the user operating the home appliance locally (i.e. opening/closing door) or automatically by the home appliance (i.e. locking the door). | dishwasher, washer, washerdryer, dryer, oven, fridgefreezer |
-| operation_state | String | true | This status describes the operation state of the home appliance. | dishwasher, washer, washerdryer, dryer, oven, hood, hob, coffeemaker |
-| remote_start_allowance_state | Switch | true  | This status indicates whether the remote program start is enabled. This can happen due to a programmatic change (only disabling), or manually by the user changing the flag locally on the home appliance, or automatically after a certain duration - usually in 24 hours. | dishwasher, washer, washerdryer, dryer, oven, hood, coffeemaker |
-| remote_control_active_state | Switch | true  | This status indicates whether the allowance for remote controlling is enabled. | dishwasher, washer, washerdryer, dryer, oven, hood, hob |
-| active_program_state | String | true  | This status describes the active program of the home appliance. | dishwasher, washer, washerdryer, dryer, oven, hood, hob, coffeemaker  |
-| selected_program_state | String | false | This state describes the selected program of the home appliance. | dishwasher, washer, washerdryer, dryer, oven, hob, coffeemaker |
-| remaining_program_time_state | Number:Time | true | This status indicates the remaining program time of the home appliance. | dishwasher, washer, washerdryer, dryer, oven |
-| elapsed_program_time | Number:Time | true | This status indicates the elapsed program time of the home appliance. | oven |
-| program_progress_state | Number:Dimensionless | true | This status describes the program progress of the home appliance in percent. | dishwasher, washer, washerdryer, dryer, oven, coffeemaker |
-| duration | Number:Time | true | This status describes the duration of the program of the home appliance. | oven |
-| oven_current_cavity_temperature | Number:Temperature | true | This status describes the current cavity temperature of the home appliance. | oven |
-| setpoint_temperature | Number:Temperature | false | This status describes the setpoint/target temperature of the home appliance. | oven |
-| laundry_care_washer_temperature | String | false | This status describes the temperature of the washing program of the home appliance. | washer, washerdryer |
-| laundry_care_washer_spin_speed | String | false | This status defines the spin speed of a washer program of the home appliance. | washer, washerdryer |
-| laundry_care_washer_idos1_level | String | false | This status defines the i-Dos 1 dosing level of a washer program of the home appliance (if appliance supports i-Dos). | washer |
-| laundry_care_washer_idos2_level | String | false | This status defines the i-Dos 2 dosing level of a washer program of the home appliance (if appliance supports i-Dos). | washer |
-| laundry_care_washer_idos1 | Switch | true | This status indicates whether i-Dos 1 is activated for a washer program of the home appliance. (If appliance supports i-Dos) | washer |
-| laundry_care_washer_idos2 | Switch | true | This status indicates whether i-Dos 2 is activated for a washer program of the home appliance. (If appliance supports i-Dos) | washer |
-| laundry_care_washer_vario_perfect | String | true | This status defines the vario perfect mode of a washer program of the home appliance. | washer, washerdryer |
-| laundry_care_washer_less_ironing | Switch | true | This status indicates whether less ironing is activated for a washer program of the home appliance. | washer, washerdryer |
-| laundry_care_washer_pre_wash | Switch | true | This status indicates whether the pre-wash is activated for a washer program of the home appliance. | washer, washerdryer |
-| laundry_care_washer_rinse_plus | String | true | This status defines the number of additional rinses of a washer program of the home appliance. | washer, washerdryer |
-| laundry_care_washer_rinse_hold | Switch | true | This status indicates whether the spin function is deactivated for a washer program of the home appliance (washing will remain in the water after the last rinse cycle). | washer, washerdryer |
-| laundry_care_washer_soak | Switch | true | This status indicates whether the soaking is activated for a washer program of the home appliance. | washer, washerdryer |
-| laundry_care_washer_load_recommendation | Number:Mass | true | This channel indicates the maximum laundry load recommended for a program of the home appliance. | washer, washerdryer |
-| program_energy | Number:Dimensionless | true | This channel provides the estimated energy required in percentage for a program of the home appliance. | washer, washerdryer |
-| program_water | Number:Dimensionless | true | This channel provides the estimated water required in percentage for a program of the home appliance. | washer, washerdryer |
-| dryer_drying_target | String | false | This status defines the desired dryness of a program of the home appliance. | dryer, washerdryer |
-| setpoint_temperature_refrigerator | Number:Temperature | false | Target temperature of the refrigerator compartment (range depends on appliance - common range 2 to 8°C). | fridgefreezer |
-| setpoint_temperature_freezer | Number:Temperature | false | Target temperature of the freezer compartment (range depends on appliance - common range -16 to -24°C). | fridgefreezer |
-| super_mode_refrigerator | Switch | false | The setting has no impact on setpoint temperatures but will make the fridge compartment cool to the lowest possible temperature until it is disabled manually by the customer or by the HA because of a timeout. | fridgefreezer |
-| super_mode_freezer | Switch | false | This setting has no impact on setpoint temperatures but will make the freezer compartment cool to the lowest possible temperature until it is disabled manually by the customer or by the home appliance because of a timeout. | fridgefreezer |
-| coffeemaker_drip_tray_full_state | Switch | true | Is coffee maker drip tray full? | coffeemaker |
-| coffeemaker_water_tank_empty_state | Switch | true | Is coffee maker water tank empty? | coffeemaker |
-| coffeemaker_bean_container_empty_state | Switch | true | Is coffee maker bean container empty? | coffeemaker |
-| hood_venting_level | String | true | This option defines the required fan setting of the hood. | hood |
-| hood_intensive_level | String | true | This option defines the intensive setting of the hood. | hood |
-| hood_program_state | String | false | Adds hood controller actions to the appliance. The following commands are supported: `stop`, `venting1`, `venting2`, `venting3`, `venting4`, `venting5`, `ventingIntensive1`, `ventingIntensive1`, `automatic` and `delayed`. Furthermore it is possible to send raw (Home Connect JSON payload) to the home appliance. | hood |
-| basic_actions_state | String | false | Adds basic controller actions to the appliance. The following basic commands are supported: `start` (start current selected program), `stop` (stop current program) and `selected` (show current program information). Furthermore it is possible to send raw (Home Connect JSON payload) to the home appliance. | dishwasher, oven, washer, washerdryer, dryer, coffeemaker |
-| functional_light_state | Switch | false | This setting describes the current functional light state of the home appliance. | hood |
-| functional_light_brightness_state | Dimmer | false | This setting describes the brightness state of the functional light. | hood |
-| ambient_light_state | Switch | false | This setting describes the current ambient light state of the home appliance. | dishwasher, hood |
-| ambient_light_brightness_state | Dimmer | false | This setting describes the brightness state of the ambient light. _INFO: Please note that the brightness can't be set if the ambient light color is set to `CustomColor`._ | dishwasher, hood |
-| ambient_light_color_state | String | false | This setting describes the current ambient light color state of the home appliance. | dishwasher, hood |
-| ambient_light_custom_color_state | Color | false | This setting describes the custom color state of the ambient light. HSB color commands are supported as well as hex color string e.g. `#11ff00`. _INFO: Please note that the brightness can't be set._ | dishwasher, hood |
+|             Channel Type ID             |      Item Type       | Read only |                                                                                                                                                       Description                                                                                                                                                       |                          Available on thing                          |
+|-----------------------------------------|----------------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------|
+| power_state                             | Switch               | false     | This setting describes the current power state of the home appliance.                                                                                                                                                                                                                                                   | dishwasher, oven, coffeemaker, hood, hob                             |
+| door_state                              | Contact              | true      | This status describes the door state of a home appliance. A status change is either triggered by the user operating the home appliance locally (i.e. opening/closing door) or automatically by the home appliance (i.e. locking the door).                                                                              | dishwasher, washer, washerdryer, dryer, oven, fridgefreezer          |
+| operation_state                         | String               | true      | This status describes the operation state of the home appliance.                                                                                                                                                                                                                                                        | dishwasher, washer, washerdryer, dryer, oven, hood, hob, coffeemaker |
+| remote_start_allowance_state            | Switch               | true      | This status indicates whether the remote program start is enabled. This can happen due to a programmatic change (only disabling), or manually by the user changing the flag locally on the home appliance, or automatically after a certain duration - usually in 24 hours.                                             | dishwasher, washer, washerdryer, dryer, oven, hood, coffeemaker      |
+| remote_control_active_state             | Switch               | true      | This status indicates whether the allowance for remote controlling is enabled.                                                                                                                                                                                                                                          | dishwasher, washer, washerdryer, dryer, oven, hood, hob              |
+| active_program_state                    | String               | true      | This status describes the active program of the home appliance.                                                                                                                                                                                                                                                         | dishwasher, washer, washerdryer, dryer, oven, hood, hob, coffeemaker |
+| selected_program_state                  | String               | false     | This state describes the selected program of the home appliance.                                                                                                                                                                                                                                                        | dishwasher, washer, washerdryer, dryer, oven, hob, coffeemaker       |
+| remaining_program_time_state            | Number:Time          | true      | This status indicates the remaining program time of the home appliance.                                                                                                                                                                                                                                                 | dishwasher, washer, washerdryer, dryer, oven                         |
+| elapsed_program_time                    | Number:Time          | true      | This status indicates the elapsed program time of the home appliance.                                                                                                                                                                                                                                                   | oven                                                                 |
+| program_progress_state                  | Number:Dimensionless | true      | This status describes the program progress of the home appliance in percent.                                                                                                                                                                                                                                            | dishwasher, washer, washerdryer, dryer, oven, coffeemaker            |
+| duration                                | Number:Time          | true      | This status describes the duration of the program of the home appliance.                                                                                                                                                                                                                                                | oven                                                                 |
+| oven_current_cavity_temperature         | Number:Temperature   | true      | This status describes the current cavity temperature of the home appliance.                                                                                                                                                                                                                                             | oven                                                                 |
+| setpoint_temperature                    | Number:Temperature   | false     | This status describes the setpoint/target temperature of the home appliance.                                                                                                                                                                                                                                            | oven                                                                 |
+| laundry_care_washer_temperature         | String               | false     | This status describes the temperature of the washing program of the home appliance.                                                                                                                                                                                                                                     | washer, washerdryer                                                  |
+| laundry_care_washer_spin_speed          | String               | false     | This status defines the spin speed of a washer program of the home appliance.                                                                                                                                                                                                                                           | washer, washerdryer                                                  |
+| laundry_care_washer_idos1_level         | String               | false     | This status defines the i-Dos 1 dosing level of a washer program of the home appliance (if appliance supports i-Dos).                                                                                                                                                                                                   | washer                                                               |
+| laundry_care_washer_idos2_level         | String               | false     | This status defines the i-Dos 2 dosing level of a washer program of the home appliance (if appliance supports i-Dos).                                                                                                                                                                                                   | washer                                                               |
+| laundry_care_washer_idos1               | Switch               | true      | This status indicates whether i-Dos 1 is activated for a washer program of the home appliance. (If appliance supports i-Dos)                                                                                                                                                                                            | washer                                                               |
+| laundry_care_washer_idos2               | Switch               | true      | This status indicates whether i-Dos 2 is activated for a washer program of the home appliance. (If appliance supports i-Dos)                                                                                                                                                                                            | washer                                                               |
+| laundry_care_washer_vario_perfect       | String               | true      | This status defines the vario perfect mode of a washer program of the home appliance.                                                                                                                                                                                                                                   | washer, washerdryer                                                  |
+| laundry_care_washer_less_ironing        | Switch               | true      | This status indicates whether less ironing is activated for a washer program of the home appliance.                                                                                                                                                                                                                     | washer, washerdryer                                                  |
+| laundry_care_washer_pre_wash            | Switch               | true      | This status indicates whether the pre-wash is activated for a washer program of the home appliance.                                                                                                                                                                                                                     | washer, washerdryer                                                  |
+| laundry_care_washer_rinse_plus          | String               | true      | This status defines the number of additional rinses of a washer program of the home appliance.                                                                                                                                                                                                                          | washer, washerdryer                                                  |
+| laundry_care_washer_rinse_hold          | Switch               | true      | This status indicates whether the spin function is deactivated for a washer program of the home appliance (washing will remain in the water after the last rinse cycle).                                                                                                                                                | washer, washerdryer                                                  |
+| laundry_care_washer_soak                | Switch               | true      | This status indicates whether the soaking is activated for a washer program of the home appliance.                                                                                                                                                                                                                      | washer, washerdryer                                                  |
+| laundry_care_washer_load_recommendation | Number:Mass          | true      | This channel indicates the maximum laundry load recommended for a program of the home appliance.                                                                                                                                                                                                                        | washer, washerdryer                                                  |
+| program_energy                          | Number:Dimensionless | true      | This channel provides the estimated energy required in percentage for a program of the home appliance.                                                                                                                                                                                                                  | washer, washerdryer                                                  |
+| program_water                           | Number:Dimensionless | true      | This channel provides the estimated water required in percentage for a program of the home appliance.                                                                                                                                                                                                                   | washer, washerdryer                                                  |
+| dryer_drying_target                     | String               | false     | This status defines the desired dryness of a program of the home appliance.                                                                                                                                                                                                                                             | dryer, washerdryer                                                   |
+| setpoint_temperature_refrigerator       | Number:Temperature   | false     | Target temperature of the refrigerator compartment (range depends on appliance - common range 2 to 8°C).                                                                                                                                                                                                                | fridgefreezer                                                        |
+| setpoint_temperature_freezer            | Number:Temperature   | false     | Target temperature of the freezer compartment (range depends on appliance - common range -16 to -24°C).                                                                                                                                                                                                                 | fridgefreezer                                                        |
+| super_mode_refrigerator                 | Switch               | false     | The setting has no impact on setpoint temperatures but will make the fridge compartment cool to the lowest possible temperature until it is disabled manually by the customer or by the HA because of a timeout.                                                                                                        | fridgefreezer                                                        |
+| super_mode_freezer                      | Switch               | false     | This setting has no impact on setpoint temperatures but will make the freezer compartment cool to the lowest possible temperature until it is disabled manually by the customer or by the home appliance because of a timeout.                                                                                          | fridgefreezer                                                        |
+| coffeemaker_drip_tray_full_state        | Switch               | true      | Is coffee maker drip tray full?                                                                                                                                                                                                                                                                                         | coffeemaker                                                          |
+| coffeemaker_water_tank_empty_state      | Switch               | true      | Is coffee maker water tank empty?                                                                                                                                                                                                                                                                                       | coffeemaker                                                          |
+| coffeemaker_bean_container_empty_state  | Switch               | true      | Is coffee maker bean container empty?                                                                                                                                                                                                                                                                                   | coffeemaker                                                          |
+| hood_venting_level                      | String               | true      | This option defines the required fan setting of the hood.                                                                                                                                                                                                                                                               | hood                                                                 |
+| hood_intensive_level                    | String               | true      | This option defines the intensive setting of the hood.                                                                                                                                                                                                                                                                  | hood                                                                 |
+| hood_program_state                      | String               | false     | Adds hood controller actions to the appliance. The following commands are supported: `stop`, `venting1`, `venting2`, `venting3`, `venting4`, `venting5`, `ventingIntensive1`, `ventingIntensive1`, `automatic` and `delayed`. Furthermore it is possible to send raw (Home Connect JSON payload) to the home appliance. | hood                                                                 |
+| basic_actions_state                     | String               | false     | Adds basic controller actions to the appliance. The following basic commands are supported: `start` (start current selected program), `stop` (stop current program) and `selected` (show current program information). Furthermore it is possible to send raw (Home Connect JSON payload) to the home appliance.        | dishwasher, oven, washer, washerdryer, dryer, coffeemaker            |
+| functional_light_state                  | Switch               | false     | This setting describes the current functional light state of the home appliance.                                                                                                                                                                                                                                        | hood                                                                 |
+| functional_light_brightness_state       | Dimmer               | false     | This setting describes the brightness state of the functional light.                                                                                                                                                                                                                                                    | hood                                                                 |
+| ambient_light_state                     | Switch               | false     | This setting describes the current ambient light state of the home appliance.                                                                                                                                                                                                                                           | dishwasher, hood                                                     |
+| ambient_light_brightness_state          | Dimmer               | false     | This setting describes the brightness state of the ambient light. _INFO: Please note that the brightness can't be set if the ambient light color is set to `CustomColor`._                                                                                                                                              | dishwasher, hood                                                     |
+| ambient_light_color_state               | String               | false     | This setting describes the current ambient light color state of the home appliance.                                                                                                                                                                                                                                     | dishwasher, hood                                                     |
+| ambient_light_custom_color_state        | Color                | false     | This setting describes the custom color state of the ambient light. HSB color commands are supported as well as hex color string e.g. `#11ff00`. _INFO: Please note that the brightness can't be set._                                                                                                                  | dishwasher, hood                                                     |
 
 ## Thing Configuration
 
@@ -93,25 +93,27 @@ After the bridge has been added and authorized, devices are discovered automatic
 #### 1. Preconditions
 
 1. Please create an account at [Home Connect](https://www.home-connect.com/) and add your physical appliance to your account.
-1. Test the connection to your physical appliance via mobile app ([Apple App Store (iOS)](https://itunes.apple.com/de/app/home-connect-app/id901397789?mt=8) or [Google Play Store (Android)](https://play.google.com/store/apps/details?id=com.bshg.homeconnect.android.release)).
+2. Test the connection to your physical appliance via mobile app ([Apple App Store (iOS)](https://itunes.apple.com/de/app/home-connect-app/id901397789?mt=8) or [Google Play Store (Android)](https://play.google.com/store/apps/details?id=com.bshg.homeconnect.android.release)).
 
 #### 2. Create Home Connect developer account
 
 1. Create an account at [https://developer.home-connect.com](https://developer.home-connect.com) and login.
-1. Please make sure you've added your associated Home Connect account email at <https://developer.home-connect.com/user/me/edit>. You should fill in your email address, which you use for the official Android or iOS app, at `Default Home Connect User Account for Testing`.  
-![Screenshot Home Connect profile page](doc/home_connect_profile.png "Screenshot Home Connect profile page")
-1. Register / Create an application at [https://developer.home-connect.com/applications](https://developer.home-connect.com/applications)
-    - _Application ID_: e.g. `openhab-binding`
-    - _OAuth Flow_: Authorization Code Grant Flow
-    - _Home Connect User Account for Testing_: the associated user account email from [Home Connect](https://www.home-connect.com/)  
-       > **WARNING**: Please don't use your developer account username  
+2. Please make sure you've added your associated Home Connect account email at <https://developer.home-connect.com/user/me/edit>. You should fill in your email address, which you use for the official Android or iOS app, at `Default Home Connect User Account for Testing`.  
+   ![Screenshot Home Connect profile page](doc/home_connect_profile.png "Screenshot Home Connect profile page")
+3. Register / Create an application at [https://developer.home-connect.com/applications](https://developer.home-connect.com/applications)
+   - _Application ID_: e.g. `openhab-binding`
+   - _OAuth Flow_: Authorization Code Grant Flow
+   - _Home Connect User Account for Testing_: the associated user account email from [Home Connect](https://www.home-connect.com/)
 
-     **_Please don't use your developer account username_**
-    - _Redirect URIs_: add your openHAB URL followed by `/homeconnect`  
-    for example: `http://192.168.178.34:8080/homeconnect` or `https://myhome.domain.com/homeconnect`
-    - _One Time Token Mode_: keep unchecked
-    - _Proof Key for Code Exchange_: keep unchecked
-1. After your application has been created, you should see the _Client ID_ and _Client Secret_ of the application. Please save these for later.  
+     > **WARNING**: Please don't use your developer account username
+
+   **_Please don't use your developer account username_**
+   - _Redirect URIs_: add your openHAB URL followed by `/homeconnect`  
+   for example: `http://192.168.178.34:8080/homeconnect` or `https://myhome.domain.com/homeconnect`
+   - _One Time Token Mode_: keep unchecked
+   - _Proof Key for Code Exchange_: keep unchecked
+
+4. After your application has been created, you should see the _Client ID_ and _Client Secret_ of the application. Please save these for later.
 
 ![Screenshot Home Connect application page](doc/home_connect_application.png "Screenshot Home Connect application page")
 
@@ -120,19 +122,19 @@ After the bridge has been added and authorized, devices are discovered automatic
 The Home Connect bridge can be configured in the openHAB UI as follows:
 
 1. Go to the Inbox and press the add button
-1. Choose `Home Connect Binding`
-1. Select `Home Connect API`
-1. Setup and save thing
-    - **client id:** your application client id
-    - **client secret:** your application client secret
-    - **simulator:** false
-1. Now navigate to the URL (`Redirct URI`) you've added to your Home Connect application in the previous step (2.3). For example `http://192.168.178.80:8080/homeconnect`.
-1. Please follow the steps shown to authenticate your binding. You can redo this step every time. For example if you have authentication problems, just start wizard again.  
-![Screenshot Home Connect wizard page 1](doc/homeconnect_setup_1.png "Screenshot Home Connect wizard page 1")  
-![Screenshot Home Connect wizard page 2](doc/homeconnect_setup_2.png "Screenshot Home Connect wizard page 2")  
-![Screenshot Home Connect wizard page 3](doc/homeconnect_setup_3.png "Screenshot Home Connect wizard page 3")  
-![Screenshot Home Connect wizard page 4](doc/homeconnect_setup_4.png "Screenshot Home Connect wizard page 4")  
-1. That's it! Now you can use autodiscovery to add devices. Your devices should show up if you start a device scan in the openHAB UI.
+2. Choose `Home Connect Binding`
+3. Select `Home Connect API`
+4. Setup and save thing
+   - **client id:** your application client id
+   - **client secret:** your application client secret
+   - **simulator:** false
+5. Now navigate to the URL (`Redirct URI`) you've added to your Home Connect application in the previous step (2.3). For example `http://192.168.178.80:8080/homeconnect`.
+6. Please follow the steps shown to authenticate your binding. You can redo this step every time. For example if you have authentication problems, just start wizard again.  
+   ![Screenshot Home Connect wizard page 1](doc/homeconnect_setup_1.png "Screenshot Home Connect wizard page 1")  
+   ![Screenshot Home Connect wizard page 2](doc/homeconnect_setup_2.png "Screenshot Home Connect wizard page 2")  
+   ![Screenshot Home Connect wizard page 3](doc/homeconnect_setup_3.png "Screenshot Home Connect wizard page 3")  
+   ![Screenshot Home Connect wizard page 4](doc/homeconnect_setup_4.png "Screenshot Home Connect wizard page 4")
+7. That's it! Now you can use autodiscovery to add devices. Your devices should show up if you start a device scan in the openHAB UI.
 
 ## Examples: File based configuration
 
@@ -233,9 +235,9 @@ a) You could have a look at the Home Connect developer documentation (<https://d
 b) You could have a look at the request logs and extract the payload from there.
 
 1. On the physical device, select your desired program with the appropriate options.
-1. Open the appliance section of the binding UI (http(s)://[YOUROPENHAB]:[YOURPORT]/appliances) and click the 'Selected Program' button.
-![Screenshot Home Connect wizard page 4](doc/selected_program_1.png "Get selected program")
-1. ![Screenshot Home Connect wizard page 4](doc/selected_program_2.png "Get selected program") Copy the JSON payload. In a further step, this payload will be used to start the program.
+2. Open the appliance section of the binding UI (http(s)://[YOUROPENHAB]:[YOURPORT]/appliances) and click the 'Selected Program' button.
+   ![Screenshot Home Connect wizard page 4](doc/selected_program_1.png "Get selected program")
+3. ![Screenshot Home Connect wizard page 4](doc/selected_program_2.png "Get selected program") Copy the JSON payload. In a further step, this payload will be used to start the program.
 
 #### 2. Start program
 
@@ -281,7 +283,7 @@ The channel of type `remote_start_allowance_state` is read only. You can only en
 ### In case of error...
 
 Please check log UI (http(s)://[YOUROPENHAB]:[YOURPORT]/homeconnect) and ask for help in the community forum or on github. Please provide request and event exports.  
- ![Screenshot Home Connect wizard page 4](doc/export_button.png "Export button")
+![Screenshot Home Connect wizard page 4](doc/export_button.png "Export button")
 
 ### Rate limit reached
 
@@ -314,4 +316,5 @@ Not all appliance programs and program options are supported by the Home Connect
 You have two options to find the right HaID of your device.
 
 1. You can use the openHAB UI and start a scan. ![Screenshot openHAB UI Scan for new devices](doc/ui-scan-for-haid.png "Scan")
-1. You can use Home Connect binding UI. Please have a look at the first API request. ![Screenshot Home Connect Binding UI](doc/binding-ui-haid.png "First request")
+2. You can use Home Connect binding UI. Please have a look at the first API request. ![Screenshot Home Connect Binding UI](doc/binding-ui-haid.png "First request")
+

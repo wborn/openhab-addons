@@ -69,3 +69,4 @@ The mappings are as follows:
 - 20 – 50: Heavy (#ef843c)
 - 50 – 80: Very heavy (#e24d42)
 - 80 – 100: Extremely heavy (#890f02)
+

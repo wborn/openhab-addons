@@ -46,3 +46,4 @@ There are several possibilities to get and process data from endpoints that entu
   }
 }
 ```
+

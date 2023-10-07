@@ -67,14 +67,14 @@ But the configuration and properties of things are changed at runtime and channe
 
 Besides the username and password all required Z-Way information are found during discovery.
 
-| Configuration Name       | Mandatory | Default   | Desciption                                                                                                                                                                                   |
-|--------------------------|-----------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| zwayServerIpAddress      |           | localhost | The IP address or hostname of the Z-Way server. If Z-Way and openHAB are running on the same machine, the default value can be used.                                                         |
-| zwayServerPort           |           | 8083      | The port of the Z-Way server (1 to 65535)                                                                                                                                                    |
-| zwayServerProtocol       |           | http      | Protocol to connect to the Z-Way server (http or https)                                                                                                                                      |
-| zwayServerUsername       |           | admin     | Username to access the Z-Way server.                                                                                                                                                         |
-| zwayServerPassword       | X         |           | Password to access the Z-Way server.                                                                                                                                                         |
-| pollingInterval          |           | 3600      | Refresh device states and registration from Z-Way server in seconds (at least 60).                                                                                                           |
+| Configuration Name  | Mandatory |  Default  |                                                              Desciption                                                              |
+|---------------------|-----------|-----------|--------------------------------------------------------------------------------------------------------------------------------------|
+| zwayServerIpAddress |           | localhost | The IP address or hostname of the Z-Way server. If Z-Way and openHAB are running on the same machine, the default value can be used. |
+| zwayServerPort      |           | 8083      | The port of the Z-Way server (1 to 65535)                                                                                            |
+| zwayServerProtocol  |           | http      | Protocol to connect to the Z-Way server (http or https)                                                                              |
+| zwayServerUsername  |           | admin     | Username to access the Z-Way server.                                                                                                 |
+| zwayServerPassword  | X         |           | Password to access the Z-Way server.                                                                                                 |
+| pollingInterval     |           | 3600      | Refresh device states and registration from Z-Way server in seconds (at least 60).                                                   |
 
 Only the Z-Way server can be configured textual:
 
@@ -86,14 +86,14 @@ Bridge zway:zwayServer:192_168_2_42 [ zwayServerIpAddress="localhost", zwayServe
 
 ### Z-Way Virtual Device
 
-| Configuration Name | Mandatory | Default | Description                 |
+| Configuration Name | Mandatory | Default |         Description         |
 |--------------------|-----------|---------|-----------------------------|
 | deviceId           | X         |         | Device ID of virtual device |
 | bridge reference   | X         |         |                             |
 
 ### Z-Wave Device
 
-| Configuration Name | Mandatory | Default | Description                  |
+| Configuration Name | Mandatory | Default |         Description          |
 |--------------------|-----------|---------|------------------------------|
 | nodeId             | X         |         | Node ID of the Z-Wave device |
 | bridge reference   | X         |         |                              |
@@ -104,7 +104,7 @@ Bridge zway:zwayServer:192_168_2_42 [ zwayServerIpAddress="localhost", zwayServe
 
 The following channels are currently supported.
 
-| Channel Type ID        | Item Type | Category      | Asssigned for Z-Way device type and probe type                                                                                              |
+|    Channel Type ID     | Item Type |   Category    |                                               Asssigned for Z-Way device type and probe type                                                |
 |------------------------|-----------|---------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | sensorTemperature      | Number    | Temperature   | SensorMultilevel - temperature                                                                                                              |
 | sensorLuminosity       | Number    | Light         | SensorMultilevel - luminosity                                                                                                               |
@@ -134,7 +134,7 @@ Currently unsupported Z-Way probe types:
 
 The following channels represent universial channels if no further device information are available, only depending on the Z-Way device types (for available device types see [Z-Way Documentation](https://zwayhomeautomation.docs.apiary.io/#reference/devices)).
 
-| Channel Type ID  | Item Type | Category    | Assigned for Z-Way device type            |
+| Channel Type ID  | Item Type |  Category   |      Assigned for Z-Way device type       |
 |------------------|-----------|-------------|-------------------------------------------|
 | battery          | Number    | Battery     | Battery                                   |
 | doorlock         | Switch    | Door        | Doorlock                                  |
@@ -151,7 +151,7 @@ Unsupported Z-Way device types: Camera, SensorMultiline, Text. The integration o
 
 ### Channels for the Z-Way Server (Bridge)
 
-| Channel Type ID | Item Type | Category | Description                                                                          |
+| Channel Type ID | Item Type | Category |                                     Description                                      |
 |-----------------|-----------|----------|--------------------------------------------------------------------------------------|
 | actions         | String    | -        | It is currently possible to update all devices.                                      |
 | secureInclusion | Switch    | Switch   | Change inclusion type for further inclusions.                                        |

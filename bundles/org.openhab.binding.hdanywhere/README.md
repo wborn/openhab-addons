@@ -39,7 +39,7 @@ Thing hdanywhere:multiroomplus:m2 [ipAddress="192.168.0.88", ports=4, interval=1
 
 The following channels are supported (actual number of channels is a function of the number of physical ports on the matrix):
 
-| Thing Type | Item Type | Description                                                         |
+| Thing Type | Item Type |                             Description                             |
 |------------|-----------|---------------------------------------------------------------------|
 | port1      | Number    | The number of the input port that is connected to the output port 1 |
 | port2      | Number    | The number of the input port that is connected to the output port 2 |
@@ -63,3 +63,4 @@ Number OutputPort2 "Output port 2 is currently connected to Source port [%d]" { 
 Number OutputPort3 "Output port 3 is currently connected to Source port [%d]" { channel="hdanywhere:mhub4k431:m1:port3" }
 Number OutputPort4 "Output port 4 is currently connected to Source port [%d]" { channel="hdanywhere:mhub4k431:m1:port4" }
 ```
+

@@ -7,15 +7,15 @@ This binding allows you to integrate, view and control Gardena smart system devi
 
 Devices connected to Gardena smart system, currently:
 
-| Thing type               | Name                                               |
-|--------------------------|----------------------------------------------------|
-| bridge                   | smart Gateway                                      |
-| mower                    | smart SILENO(+), SILENO city, SILENO life Mower    |
-| sensor                   | smart Sensor                                       |
-| pump                     | smart Pressure Pump                                |
-| power                    | smart Power Adapter                                |
-| water_control            | smart Water Control                                |
-| irrigation_control       | smart Irrigation Control                           |
+|     Thing type     |                      Name                       |
+|--------------------|-------------------------------------------------|
+| bridge             | smart Gateway                                   |
+| mower              | smart SILENO(+), SILENO city, SILENO life Mower |
+| sensor             | smart Sensor                                    |
+| pump               | smart Pressure Pump                             |
+| power              | smart Power Adapter                             |
+| water_control      | smart Water Control                             |
+| irrigation_control | smart Irrigation Control                        |
 
 ## Discovery
 
@@ -25,7 +25,7 @@ An account must be specified, all things for an account are discovered automatic
 
 There are several settings for an account:
 
-| Name                  | Required | Description                                                                                   |
+|         Name          | Required |                                          Description                                          |
 |-----------------------|----------|-----------------------------------------------------------------------------------------------|
 | **apiSecret**         | yes      | The Gardena smart system integration API secret                                               |
 | **apiKey**            | yes      | The Gardena smart system integration API key                                                  |
@@ -34,9 +34,9 @@ There are several settings for an account:
 ### Obtaining your API Key
 
 1. Goto <https://developer.husqvarnagroup.cloud/>, sign in using your GARDENA smart system account and accept the terms of use
-1. Create and save a new application via the 'Create application' button. The Redirect URLs do not matter, you can enter what you want (e.g. <http://localhost:8080>)
-1. Connect both _Authentication API_ and _GARDENA smart system API_ to your application via the 'Connect new API' button
-1. Copy the application key to use with this binding as _apiKey_
+2. Create and save a new application via the 'Create application' button. The Redirect URLs do not matter, you can enter what you want (e.g. <http://localhost:8080>)
+3. Connect both _Authentication API_ and _GARDENA smart system API_ to your application via the 'Connect new API' button
+4. Copy the application key to use with this binding as _apiKey_
 
 ## Examples
 

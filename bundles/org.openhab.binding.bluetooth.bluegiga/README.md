@@ -6,9 +6,9 @@ This extension supports Bluetooth access via a BlueGiga (BLED112) USB dongle.
 
 It defines the following bridge type:
 
-| Bridge Type ID | Description                                                               |
-|----------------|---------------------------------------------------------------------------|
-| bluegiga       | A BlueGiga USB dongle using a BLED112 chip                                |
+| Bridge Type ID |                Description                 |
+|----------------|--------------------------------------------|
+| bluegiga       | A BlueGiga USB dongle using a BLED112 chip |
 
 ## Discovery
 
@@ -26,3 +26,4 @@ This is how a BlueGiga adapter can be configured textually in a *.things file:
 ```java
 Bridge bluetooth:bluegiga:1 [ port="/dev/ttyS0", backgroundDiscovery=false ]
 ```
+

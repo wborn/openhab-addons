@@ -19,8 +19,8 @@ _If the address is not valid or rubbish collection service does not apply (for e
 
 ## Channels
 
-| channel          | type   | description                                                          |
-| ---------------- | ------ | -------------------------------------------------------------------- |
+|     channel      |  type  |                             description                              |
+|------------------|--------|----------------------------------------------------------------------|
 | day              | Number | The upcoming rubbish collection day of the week (1=Monday, 7=Sunday) |
 | general          | Date   | The next general household (red bin) collection day                  |
 | recycling        | Date   | The next recycling (yellow bin, glass bin) colleciton day            |
@@ -32,8 +32,8 @@ The collection event `collection-event` triggers on the day of rubbish collectio
 
 #### Events
 
-| event     | description                     |
-| --------- | ------------------------------- |
+|   event   |           description           |
+|-----------|---------------------------------|
 | GENERAL   | General household rubbish event |
 | RECYCLING | Recycling rubbish event         |
 

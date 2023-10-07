@@ -53,12 +53,12 @@ log:set TRACE org.openhab.binding.boschshc
 
 ## Pairing and  Certificates
 
-We need secured and paired connection from the openHAB binding instance to the Bosch Smart Home Controller (SHC).  
+We need secured and paired connection from the openHAB binding instance to the Bosch Smart Home Controller (SHC).
 
 Read more about the pairing process in [register a new client to the bosch smart home controller](https://github.com/BoschSmartHome/bosch-shc-api-docs/tree/master/postman#register-a-new-client-to-the-bosch-smart-home-controller)
 
 A precondition for the secured connection to the Bosch SHC is a self singed key + certificate.
-The key + certificate will be created and stored with the public Bosch SHC certificates in a Java Key store (jks).  
+The key + certificate will be created and stored with the public Bosch SHC certificates in a Java Key store (jks).
 
 The public certificates files are from <https://github.com/BoschSmartHome/bosch-shc-api-docs/tree/master/best_practice>.
 File copies stored in ``src/main/resource``.

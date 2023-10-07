@@ -66,7 +66,7 @@ Don't change the Thing Name. It is the reference to the name in the adapter.
 
 The follow channels are implemented:
 
-| Channel Type ID        | Item Type | Description                                           |
+|    Channel Type ID     | Item Type |                      Description                      |
 |------------------------|-----------|-------------------------------------------------------|
 | systemtime             | DateTime  | DateTime of the heating system                        |
 | outside_temp           | Number    | Outside temperature sensor                            |
@@ -98,7 +98,7 @@ The follow channels are implemented:
 | flowtemperature        | Number    | Temperature sensor of the ciruit flow                 |
 | pump                   | Switch    | Pump state                                            |
 | operationmode          | Number    | Operationmode                                         |
-| currentmode            | Number    | Current Mode
+| currentmode            | Number    | Current Mode                                          |
 | savemode               | Switch    | Savemode on/off                                       |
 | partymode              | Switch    | Partymode on/off                                      |
 | party_temp_setpoint    | Number    | Party mode temperature setpoint (target)              |
@@ -128,3 +128,4 @@ The follow channels are implemented:
 | producedheat           | Number    | Produced heat since starting solar system             |
 | temperature            | Number    | Generic temperature sensor                            |
 | valve                  | Number    | Value of a generic valve                              |
+

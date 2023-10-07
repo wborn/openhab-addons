@@ -12,7 +12,7 @@ All channels are available for thing type `service`.
 
 ### `service` Thing Configuration
 
-| Name           | Type    | Description                                       | Default       | Required |
+|      Name      |  Type   |                    Description                    |    Default    | Required |
 |----------------|---------|---------------------------------------------------|---------------|----------|
 | priceArea      | text    | Price area for spot prices (same as bidding zone) |               | yes      |
 | currencyCode   | text    | Currency code in which to obtain spot prices      | DKK           | no       |
@@ -39,7 +39,7 @@ To obtain the Global Location Number of your grid company:
 
 ### Channel Group `electricity`
 
-| Channel                 | Type   | Description                                                                           | Advanced |
+|         Channel         |  Type  |                                      Description                                      | Advanced |
 |-------------------------|--------|---------------------------------------------------------------------------------------|----------|
 | spot-price              | Number | Current spot price in DKK or EUR per kWh                                              | no       |
 | net-tariff              | Number | Current net tariff in DKK per kWh. Only available when `gridCompanyGLN` is configured | no       |
@@ -71,12 +71,12 @@ The tariffs are downloaded using pre-configured filters for the different [Grid 
 If your company is not in the list, or the filters are not working, they can be manually overridden.
 To override filters, the channel `net-tariff` has the following configuration parameters:
 
-| Name            | Type    | Description                                                                                                                      | Default | Required | Advanced |
-|-----------------|---------|----------------------------------------------------------------------------------------------------------------------------------|---------|----------|----------|
-| chargeTypeCodes | text    | Comma-separated list of charge type codes                                                                                        |         | no       | yes      |
-| notes           | text    | Comma-separated list of notes                                                                                                    |         | no       | yes      |
-| start           | text    | Query start date parameter expressed as either YYYY-MM-DD or dynamically as one of `StartOfDay`, `StartOfMonth` or `StartOfYear` |         | no       | yes      |
-| offset          | text    | Query start date offset expressed as an ISO 8601 duration                                                                        |         | no       | yes      |
+|      Name       | Type |                                                           Description                                                            | Default | Required | Advanced |
+|-----------------|------|----------------------------------------------------------------------------------------------------------------------------------|---------|----------|----------|
+| chargeTypeCodes | text | Comma-separated list of charge type codes                                                                                        |         | no       | yes      |
+| notes           | text | Comma-separated list of notes                                                                                                    |         | no       | yes      |
+| start           | text | Query start date parameter expressed as either YYYY-MM-DD or dynamically as one of `StartOfDay`, `StartOfMonth` or `StartOfYear` |         | no       | yes      |
+| offset          | text | Query start date offset expressed as an ISO 8601 duration                                                                        |         | no       | yes      |
 
 The parameters `chargeTypeCodes` and `notes` are logically combined with "AND", so if only one parameter is needed for the filter, only provide this parameter and leave the other one empty.
 Using any of these parameters will override the pre-configured filter entirely.
@@ -155,7 +155,7 @@ It comes in four variants with different input parameters.
 
 The result is a `Map` with the following keys:
 
-| Key                | Type         | Description                                           |
+|        Key         |     Type     |                      Description                      |
 |--------------------|--------------|-------------------------------------------------------|
 | CheapestStart      | `Instant`    | Start time of cheapest calculated period              |
 | LowestPrice        | `BigDecimal` | The total price when starting at cheapest start       |
@@ -164,11 +164,11 @@ The result is a `Map` with the following keys:
 
 #### `calculateCheapestPeriod` from Duration
 
-| Parameter          | Type                        | Description                                            |
-|--------------------|-----------------------------|--------------------------------------------------------|
-| earliestStart      | `Instant`                   | Earliest start time allowed                            |
-| latestEnd          | `Instant`                   | Latest end time allowed                                |
-| duration           | `Duration`                  | The duration to fit within the timeslot                |
+|   Parameter   |    Type    |               Description               |
+|---------------|------------|-----------------------------------------|
+| earliestStart | `Instant`  | Earliest start time allowed             |
+| latestEnd     | `Instant`  | Latest end time allowed                 |
+| duration      | `Duration` | The duration to fit within the timeslot |
 
 This is a convenience method that can be used when the power consumption is not known.
 The calculation will assume linear consumption and will find the best timeslot based on that.
@@ -182,12 +182,12 @@ var Map<String, Object> result = actions.calculateCheapestPeriod(now.toInstant()
 
 #### `calculateCheapestPeriod` from Duration and Power
 
-| Parameter          | Type                        | Description                                            |
-|--------------------|-----------------------------|--------------------------------------------------------|
-| earliestStart      | `Instant`                   | Earliest start time allowed                            |
-| latestEnd          | `Instant`                   | Latest end time allowed                                |
-| duration           | `Duration`                  | The duration to fit within the timeslot                |
-| power              | `QuantityType<Power>`       | Linear power consumption                               |
+|   Parameter   |         Type          |               Description               |
+|---------------|-----------------------|-----------------------------------------|
+| earliestStart | `Instant`             | Earliest start time allowed             |
+| latestEnd     | `Instant`             | Latest end time allowed                 |
+| duration      | `Duration`            | The duration to fit within the timeslot |
+| power         | `QuantityType<Power>` | Linear power consumption                |
 
 This action is identical to the variant above, but with a known linear power consumption.
 As a result the price is also included in the result.
@@ -200,12 +200,12 @@ var Map<String, Object> result = actions.calculateCheapestPeriod(now.toInstant()
 
 #### `calculateCheapestPeriod` from Power Phases
 
-| Parameter          | Type                        | Description                                            |
-|--------------------|-----------------------------|--------------------------------------------------------|
-| earliestStart      | `Instant`                   | Earliest start time allowed                            |
-| latestEnd          | `Instant`                   | Latest end time allowed                                |
-| durationPhases     | `List<Duration>`            | List of durations for the phases                       |
-| powerPhases        | `List<QuantityType<Power>>` | List of power consumption for each corresponding phase |
+|   Parameter    |            Type             |                      Description                       |
+|----------------|-----------------------------|--------------------------------------------------------|
+| earliestStart  | `Instant`                   | Earliest start time allowed                            |
+| latestEnd      | `Instant`                   | Latest end time allowed                                |
+| durationPhases | `List<Duration>`            | List of durations for the phases                       |
+| powerPhases    | `List<QuantityType<Power>>` | List of power consumption for each corresponding phase |
 
 This variant is similar to the one above, but is based on a supplied timetable.
 
@@ -245,13 +245,13 @@ This is to ensure that the full program will finish before the provided `latestE
 
 #### `calculateCheapestPeriod` from Energy per Phase
 
-| Parameter          | Type                        | Description                                            |
-|--------------------|-----------------------------|--------------------------------------------------------|
-| earliestStart      | `Instant`                   | Earliest start time allowed                            |
-| latestEnd          | `Instant`                   | Latest end time allowed                                |
-| totalDuration      | `Duration`                  | The total duration of all phases                       |
-| durationPhases     | `List<Duration>`            | List of durations for the phases                       |
-| energyUsedPerPhase | `QuantityType<Energy>`      | Fixed amount of energy used per phase                  |
+|     Parameter      |          Type          |              Description              |
+|--------------------|------------------------|---------------------------------------|
+| earliestStart      | `Instant`              | Earliest start time allowed           |
+| latestEnd          | `Instant`              | Latest end time allowed               |
+| totalDuration      | `Duration`             | The total duration of all phases      |
+| durationPhases     | `List<Duration>`       | List of durations for the phases      |
+| energyUsedPerPhase | `QuantityType<Energy>` | Fixed amount of energy used per phase |
 
 This variant will assign the provided amount of energy into each phase.
 The use case for this variant is a simplification of the previous variant.
@@ -277,11 +277,11 @@ var Map<String, Object> result = actions.calculateCheapestPeriod(now.toInstant()
 
 ### `calculatePrice`
 
-| Parameter          | Type                        | Description                                            |
-|--------------------|-----------------------------|--------------------------------------------------------|
-| start              | `Instant`                   | Start time                                             |
-| end                | `Instant`                   | End time                                               |
-| power              | `QuantityType<Power>`       | Linear power consumption                               |
+| Parameter |         Type          |       Description        |
+|-----------|-----------------------|--------------------------|
+| start     | `Instant`             | Start time               |
+| end       | `Instant`             | End time                 |
+| power     | `QuantityType<Power>` | Linear power consumption |
 
 **Result:** Price as `BigDecimal`.
 
@@ -295,16 +295,16 @@ var price = actions.calculatePrice(now.toInstant(), now.plusHours(4).toInstant, 
 
 ### `getPrices`
 
-| Parameter          | Type                        | Description                                            |
-|--------------------|-----------------------------|--------------------------------------------------------|
-| priceElements      | `String`                    | Comma-separated list of price elements to include      |
+|   Parameter   |   Type   |                    Description                    |
+|---------------|----------|---------------------------------------------------|
+| priceElements | `String` | Comma-separated list of price elements to include |
 
 **Result:** `Map<Instant, BigDecimal>`
 
 The parameter `priceElements` is a case-insensitive comma-separated list of price elements to include in the returned hourly prices.
 These elements can be requested:
 
-| Price element         | Description             |
+|     Price element     |       Description       |
 |-----------------------|-------------------------|
 | SpotPrice             | Spot price              |
 | NetTariff             | Net tariff              |

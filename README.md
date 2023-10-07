@@ -85,8 +85,8 @@ mvn clean install karaf:kar -pl :org.openhab.binding.astro
 
 To improve build times you can add the following options to the command:
 
-| Option                        | Description                                         |
-| ----------------------------- | --------------------------------------------------- |
+|            Option             |                     Description                     |
+|-------------------------------|-----------------------------------------------------|
 | `-DskipChecks`                | Skip the static analysis (Checkstyle, FindBugs)     |
 | `-DskipTests`                 | Skip the execution of tests                         |
 | `-Dmaven.test.skip=true`      | Skip the compilation and execution of tests         |
@@ -128,7 +128,6 @@ In that case use:
 mvn org.openhab.core.tools:i18n-maven-plugin:3.4.0:generate-default-translations
 ```
 
-
 #### Code Quality
 
 To check if your code is following the [code style](https://www.openhab.org/docs/developer/guidelines.html#b-code-formatting-rules-style) run:
@@ -137,7 +136,7 @@ To check if your code is following the [code style](https://www.openhab.org/docs
 mvn spotless:check
 ```
 
-To reformat your code so it conforms to the code style you can run: 
+To reformat your code so it conforms to the code style you can run:
 
 ```shell
 mvn spotless:apply
@@ -146,7 +145,7 @@ mvn spotless:apply
 ### Integration Tests
 
 When your add-on also has an integration test in the `itests` directory, you may need to update the runbundles in the `itest.bndrun` file when the Maven dependencies change.
-Maven can resolve the integration test dependencies automatically by executing: 
+Maven can resolve the integration test dependencies automatically by executing:
 
 ```shell
 mvn clean install -DwithResolver -DskipChecks

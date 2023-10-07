@@ -33,24 +33,24 @@ It is possible to connect to devices in a different network, but these must be a
 
 The thing has one configuration parameter:
 
-| Parameter | Description                                                              |
-|-----------|------------------------------------------------------------------------- |
-| ipAddress | IP Address of the device. Mandatory.                                     |
+| Parameter |             Description              |
+|-----------|--------------------------------------|
+| ipAddress | IP Address of the device. Mandatory. |
 
 ## Channels
 
 The following channels are available:
 
-| Channel Type ID   | Item Type | Description                                                                                |
-|-------------------|-----------|--------------------------------------------------------------------------------------------|
-| color             | Color     | This channel supports switching, brightness and adjusting the color of a light.            |
-| color_temperature | Dimmer    | This channel supports adjusting the color temperature from cold (0%) to warm (100%).       |
-| program           | String    | This channel supports setting the bulb to a static, jumping, gradient or flashing light.   |
-| program_speed     | Dimmer    | This channel supports adjusting speed of jump, gradient or flash programs                  |
+|  Channel Type ID  | Item Type |                                       Description                                        |
+|-------------------|-----------|------------------------------------------------------------------------------------------|
+| color             | Color     | This channel supports switching, brightness and adjusting the color of a light.          |
+| color_temperature | Dimmer    | This channel supports adjusting the color temperature from cold (0%) to warm (100%).     |
+| program           | String    | This channel supports setting the bulb to a static, jumping, gradient or flashing light. |
+| program_speed     | Dimmer    | This channel supports adjusting speed of jump, gradient or flash programs                |
 
 The program channel supports the following values:
 
-| Value | Description         |
+| Value |     Description     |
 |-------|---------------------|
 | 1     | Static red          |
 | 2     | Static blue         |
@@ -97,3 +97,4 @@ Switch   FC_1_Switch  "Switch"                    { channel="feican:bulb:home:co
 Color    FC_1_Color   "Color"            <slider> { channel="feican:bulb:home:color" }
 Dimmer   FC_1_Dimmer  "Brightness [%d]"  <slider> { channel="feican:bulb:home:color" }
 ```
+

@@ -9,13 +9,13 @@ The binding provides device discovery, sending keys for the remote and also rece
 
 ## Supported Things
 
-|Thing    |Type                                                                    |
-|---------|----------------------------------------------------------------------- |
-|receiver |A MagentaTV Receiver, the binding supports multiple models (see above). |
+|  Thing   |                                  Type                                   |
+|----------|-------------------------------------------------------------------------|
+| receiver | A MagentaTV Receiver, the binding supports multiple models (see above). |
 
 ### Supported Models
 
-| Model                                  | Status                                        |
+|                 Model                  |                    Status                     |
 |----------------------------------------|-----------------------------------------------|
 | Deutsche Telekom Media Receiver MR401B | fully supported                               |
 | Deutsche Telekom Media Receiver MR201  | fully supported                               |
@@ -44,11 +44,11 @@ If you are running openHAB in a Docker container you need to make sure that UPnP
 
 The Media receiver has 3 different standby modes, which can be selected in the receiver's settings menu.
 
-|Mode          |Description                                                                                 |
-|--------------|--------------------------------------------------------------------------------------------|
-|Standby       |Full standby - the receiver is active all the time, even while sleeping, so it can wake up instantly.|
-|Suspend/Resume|The receiver goes to sleep mode, but can be awakened by a Wake-on-LAN packet.               |
-|Shutdown      |Powering off shuts down the receiver, so that it can be awakened only with the power button.|
+|      Mode      |                                              Description                                              |
+|----------------|-------------------------------------------------------------------------------------------------------|
+| Standby        | Full standby - the receiver is active all the time, even while sleeping, so it can wake up instantly. |
+| Suspend/Resume | The receiver goes to sleep mode, but can be awakened by a Wake-on-LAN packet.                         |
+| Shutdown       | Powering off shuts down the receiver, so that it can be awakened only with the power button.          |
 
 `Standby` provides the best results, because the binding can wake up the receiver (Power On/Off).
 `Suspend/Resume` requires a Wake-on-LAN packet, which can take longer.
@@ -61,14 +61,14 @@ Check the current status before sending the POWER button, because POWER is a tog
 
 ## Thing Configuration
 
-|Parameter       |Description                                                                                                     |
-|----------------|----------------------------------------------------------------------------------------------------------------|
-|accountName     |Login Name (email), should be the registered e-mail address for the Telekom Kundencenter                        |
-|accountPassword |Account password (same as for the Kundencenter)                                                                 |
-|userId          |The technical userId required for the pairing process, see section "Retrieving userId"                      |
-|ipAddress       |IP address of the receiver, usually discovered by UPnP                                                          |
-|port            |Port to reach the remote service, usually 8081 for the MR401/MR201 or 49152 for MR400/200                       |
-|udn             |UPnP Unique Device Name - a hex ID, which includes the 12 digit MAC address at the end (parsed by the binding)  |
+|    Parameter    |                                                  Description                                                   |
+|-----------------|----------------------------------------------------------------------------------------------------------------|
+| accountName     | Login Name (email), should be the registered e-mail address for the Telekom Kundencenter                       |
+| accountPassword | Account password (same as for the Kundencenter)                                                                |
+| userId          | The technical userId required for the pairing process, see section "Retrieving userId"                         |
+| ipAddress       | IP address of the receiver, usually discovered by UPnP                                                         |
+| port            | Port to reach the remote service, usually 8081 for the MR401/MR201 or 49152 for MR400/200                      |
+| udn             | UPnP Unique Device Name - a hex ID, which includes the 12 digit MAC address at the end (parsed by the binding) |
 
 For textual configuration at least the `ipAddress`, `udn` and `userId` parameters are required.
 
@@ -111,46 +111,46 @@ For security reasons the credentials are automatically deleted from the thing co
 
 ## Channels
 
-|Group   |Channel        |Item-Type|Description                                                               |
-|--------|---------------|---------|--------------------------------------------------------------------------|
-|control |power          |Switch   |Toggle power state (same as sending "POWER" to the key channel), see note.|
-|        |channel        |Number   |Select program channel (outbound only, current channel is not available)  |
-|        |player         |Player   |Send commands to the receiver - see below                                 |
-|        |key            |String   |Send key code to the receiver (see code table below)                      |
-|        |mute           |Switch   |Mute volume (mute the speaker)                                            |
-|status  |playMode       |String   |Current play mode - this info is not reliable                             |
-|        |channelCode    |Number   |The channel code from the EPG.                                            |
-|program |title          |String   |Title of the running program or video being played                        |
-|        |text           |String   |Some description (as reported by the receiver, could be empty)            |
-|        |start          |DateTime |Time when the program started                                             |
-|        |position       |Number   |Position in minutes within a movie.                                       |
-|        |duration       |Number   |Remaining time in minutes, usually not updated for TV program             |
+|  Group  |   Channel   | Item-Type |                                Description                                 |
+|---------|-------------|-----------|----------------------------------------------------------------------------|
+| control | power       | Switch    | Toggle power state (same as sending "POWER" to the key channel), see note. |
+|         | channel     | Number    | Select program channel (outbound only, current channel is not available)   |
+|         | player      | Player    | Send commands to the receiver - see below                                  |
+|         | key         | String    | Send key code to the receiver (see code table below)                       |
+|         | mute        | Switch    | Mute volume (mute the speaker)                                             |
+| status  | playMode    | String    | Current play mode - this info is not reliable                              |
+|         | channelCode | Number    | The channel code from the EPG.                                             |
+| program | title       | String    | Title of the running program or video being played                         |
+|         | text        | String    | Some description (as reported by the receiver, could be empty)             |
+|         | start       | DateTime  | Time when the program started                                              |
+|         | position    | Number    | Position in minutes within a movie.                                        |
+|         | duration    | Number    | Remaining time in minutes, usually not updated for TV program              |
 
 Please note:
 
 - POWER is a toggle button, not an on/off switch.
-The binding tries to detect and maintain the correct state, but due to device limitations this is not always possible.
-Make sure the receiver's and binding's state are in sync when OH is restarted (binding assumes state is OFF).
+  The binding tries to detect and maintain the correct state, but due to device limitations this is not always possible.
+  Make sure the receiver's and binding's state are in sync when OH is restarted (binding assumes state is OFF).
 - Channels receiving event information get updated when changing the channel or playing a video.
 
 There is no way to read the current status, therefore they don't get initialized on startup nor being updated in real-time.
 
 The player channel supports the following actions:
 
-|Channel |Command        |Description                       |
-|--------|---------------|----------------------------------|
-|player  |PLAY           |Start playing media               |
-|        |PAUSE          |Pause player                      |
-|        |NEXT           |Move to the next chapter          |
-|        |PREVIOUS       |Move to the previous chapter      |
-|        |FASTFORWARD    |Switch to forward mode            |
-|        |REWIND         |Switch to rewind mode             |
-|        |ON or OFF      |Toggle power - see notes on power |
+| Channel |   Command   |            Description            |
+|---------|-------------|-----------------------------------|
+| player  | PLAY        | Start playing media               |
+|         | PAUSE       | Pause player                      |
+|         | NEXT        | Move to the next chapter          |
+|         | PREVIOUS    | Move to the previous chapter      |
+|         | FASTFORWARD | Switch to forward mode            |
+|         | REWIND      | Switch to rewind mode             |
+|         | ON or OFF   | Toggle power - see notes on power |
 
 ## Supported Key Code (channel key)
 
-| Key      | Description                                    |
-| ---------|------------------------------------------------|
+|   Key    |                  Description                   |
+|----------|------------------------------------------------|
 | POWER    | Power on/off the receiver (check standby mode) |
 | 0..9     | Key 0..9                                       |
 | SPACE    | Space key                                      |

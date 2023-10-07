@@ -19,12 +19,12 @@ No binding configuration is required.
 
 ## Thing Configuration
 
-| Channel Name             | Type       | Description                                                                                   |
-|--------------------------|------------|-----------------------------------------------------------------------------------------------|
-| ipAddress                | IP Address | IP address of the unit.                                                                       |
-| broadcastAddress         | IP Address | Broadcast address being used for discovery, usually derived from the IP interface address.    |
-| refresh                  | Integer    | Refresh interval in seconds for polling the device status.                                    |
-| currentTemperatureOffset | Decimal    | Offset in Celsius for the current temperature value received from the device.                 |
+|       Channel Name       |    Type    |                                        Description                                         |
+|--------------------------|------------|--------------------------------------------------------------------------------------------|
+| ipAddress                | IP Address | IP address of the unit.                                                                    |
+| broadcastAddress         | IP Address | Broadcast address being used for discovery, usually derived from the IP interface address. |
+| refresh                  | Integer    | Refresh interval in seconds for polling the device status.                                 |
+| currentTemperatureOffset | Decimal    | Offset in Celsius for the current temperature value received from the device.              |
 
 The Air Conditioner's IP address is mandatory, all other parameters are optional.
 If the broadcast is not set (default) it will be derived from openHAB's network setting (Check Network Settings in the openHAB UI).
@@ -34,28 +34,28 @@ Only change this if you have a good reason to.
 
 The following channels are supported for fans:
 
-| Channel Name       | Item Type | Description                                                                                       |
-|--------------------|-----------|---------------------------------------------------------------------------------------------------|
-| power              | Switch    | Power on/off the Air Conditioner                                                                  |
-| mode               | String    | Sets the operating mode of the Air Conditioner                                                    |
-|                    |           | Mode can be one of auto/cool/eco/dry/fan/heat or on/off                                           |
-|                    |           | Check the Air Conditioner's operating manual for supported modes.                                 |
-| temperature        | Number:Temperature | Sets the desired room temperature.                                                       |
-| currentTemperature | Number:Temperature | Displays the current room temperature (if supported by the unit, otherwise NaN).         |
-| air                | Switch    | Set on/off the Air Conditioner's Air function if applicable to the Air Conditioner model          |
-| dry                | Switch    | Set on/off the Air Conditioner's Dry function if applicable to the Air Conditioner model          |
-| health             | Switch    | Set on/off the Air Conditioner's Health function if applicable to the Air Conditioner model       |
-| turbo              | Switch    | Set on/off the Air Conditioner's Turbo Mode.                                                      |
-| quiet              | String    | Set Quiet Mode: off/auto/quiet                                                                    |
-| swingUpDown        | Number    | Sets the vertical (up..down) swing action on the Air Conditioner,                                 |
-|                    |           | OFF: 0, Full Swing: 1, Up: 2, MidUp: 3, Mid: 4, Mid Down: 5, Down : 6                             |
-| swingLeftRight     | Number    | Sets the horizontal (left..right) swing action on the Air Conditioner                             |
-|                    |           | OFF: 0, Full Swing: 1, Left: 2, Mid Left: 3, Mid: 4, Mid Right: 5, Right : 6                      |
-| windspeed          | Number    | Sets the fan speed on the Air conditioner Auto:0, Low:1, MidLow:2, Mid:3, MidHigh:4, High:5       |
-|                    |           | The number of speeds depends on the Air Conditioner model.                                        |
-| powersave          | Switch    | Set on/off the Air Conditioner's Power Saving function if applicable to the Air Conditioner model |
-| light              | Switch    | Enable/disable the front display on the Air Conditioner if applicable to the Air Conditioner model|
-|                    |           | Full Swing: 1, Up: 2, MidUp: 3, Mid: 4, Mid Down: 5, Down : 6                                     |
+|    Channel Name    |     Item Type      |                                            Description                                             |
+|--------------------|--------------------|----------------------------------------------------------------------------------------------------|
+| power              | Switch             | Power on/off the Air Conditioner                                                                   |
+| mode               | String             | Sets the operating mode of the Air Conditioner                                                     |
+|                    |                    | Mode can be one of auto/cool/eco/dry/fan/heat or on/off                                            |
+|                    |                    | Check the Air Conditioner's operating manual for supported modes.                                  |
+| temperature        | Number:Temperature | Sets the desired room temperature.                                                                 |
+| currentTemperature | Number:Temperature | Displays the current room temperature (if supported by the unit, otherwise NaN).                   |
+|  air               | Switch             | Set on/off the Air Conditioner's Air function if applicable to the Air Conditioner model           |
+| dry                | Switch             | Set on/off the Air Conditioner's Dry function if applicable to the Air Conditioner model           |
+|  health            | Switch             | Set on/off the Air Conditioner's Health function if applicable to the Air Conditioner model        |
+| turbo              | Switch             | Set on/off the Air Conditioner's Turbo Mode.                                                       |
+| quiet              | String             | Set Quiet Mode: off/auto/quiet                                                                     |
+| swingUpDown        | Number             | Sets the vertical (up..down) swing action on the Air Conditioner,                                  |
+|                    |                    | OFF: 0, Full Swing: 1, Up: 2, MidUp: 3, Mid: 4, Mid Down: 5, Down : 6                              |
+| swingLeftRight     | Number             | Sets the horizontal (left..right) swing action on the Air Conditioner                              |
+|                    |                    |  OFF: 0, Full Swing: 1, Left: 2, Mid Left: 3, Mid: 4, Mid Right: 5, Right : 6                      |
+|  windspeed         | Number             | Sets the fan speed on the Air conditioner Auto:0, Low:1, MidLow:2, Mid:3, MidHigh:4, High:5        |
+|                    |                    |  The number of speeds depends on the Air Conditioner model.                                        |
+|  powersave         | Switch             | Set on/off the Air Conditioner's Power Saving function if applicable to the Air Conditioner model  |
+| light              | Switch             | Enable/disable the front display on the Air Conditioner if applicable to the Air Conditioner model |
+|                    |                    | Full Swing: 1, Up: 2, MidUp: 3, Mid: 4, Mid Down: 5, Down : 6                                      |
 
 When changing mode, the air conditioner will be turned on unless "off" is selected.
 
@@ -145,3 +145,4 @@ then
         } 
 end
 ```
+

@@ -14,7 +14,7 @@ The 'Adam' (from hereon called the gateway) needs to be accessible from the open
 
 ## Supported Things
 
-| Device Type                                              | Description                                                                                                        | Thing Type           |
+|                       Device Type                        |                                                    Description                                                     |      Thing Type      |
 |----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------|
 | -                                                        | A Plugwise heating zone configured with at least 1 of the devices below                                            | zone                 |
 | [Adam](https://www.plugwise.com/en_US/products/adam-ha)  | The Plugwise Home Automation Bridge is needed to connect to the Adam boiler gateway                                | gateway              |
@@ -36,7 +36,7 @@ You must define a Plugwise Home Automation gateway (Bridge) before defining zone
 
 ### Plugwise Home Automation gateway (Bridge):
 
-| Parameter | Description                                                             | Config   | Default |
+| Parameter |                               Description                               |  Config  | Default |
 |-----------|-------------------------------------------------------------------------|----------|---------|
 | host      | The IP address or hostname of the Adam HA gateway                       | Required | 'adam'  |
 | username  | The username for the Adam HA gateway                                    | Optional | 'smile' |
@@ -45,39 +45,39 @@ You must define a Plugwise Home Automation gateway (Bridge) before defining zone
 
 ### Plugwise Home Automation zone (`zone`):
 
-| Parameter | Description               | Config   | Default |
-| --------- | ------------------------- | -------- | ------- |
+| Parameter |        Description        |  Config  | Default |
+|-----------|---------------------------|----------|---------|
 | id        | The unique ID of the zone | Required | -       |
 
 ### Plugwise Home Automation appliance (`appliance_valve`):
 
-| Parameter            | Description                                                                                                        | Config   | Default |
+|      Parameter       |                                                    Description                                                     |  Config  | Default |
 |----------------------|--------------------------------------------------------------------------------------------------------------------|----------|---------|
 | id                   | The unique ID of the radiator valve appliance                                                                      | Required | -       |
 | lowBatteryPercentage | Battery charge remaining at which to trigger battery low warning. (_Only applicable for battery operated devices_) | Optional | 15      |
 
 ### Plugwise Home Automation appliance (`appliance_thermostat`):
 
-| Parameter            | Description                                                                                                        | Config   | Default |
+|      Parameter       |                                                    Description                                                     |  Config  | Default |
 |----------------------|--------------------------------------------------------------------------------------------------------------------|----------|---------|
 | id                   | The unique ID of the room thermostat appliance                                                                     | Required | -       |
 | lowBatteryPercentage | Battery charge remaining at which to trigger battery low warning. (_Only applicable for battery operated devices_) | Optional | 15      |
 
 ### Plugwise Home Automation appliance (`appliance_pump`):
 
-| Parameter | Description                         | Config   | Default |
-| --------- | ----------------------------------- | -------- | ------- |
+| Parameter |             Description             |  Config  | Default |
+|-----------|-------------------------------------|----------|---------|
 | id        | The unique ID of the pump appliance | Required | -       |
 
 ### Plugwise Home Automation boiler (`appliance_boiler`):
 
-| Parameter | Description                 | Config   | Default |
+| Parameter |         Description         |  Config  | Default |
 |-----------|-----------------------------|----------|---------|
 | id        | The unique ID of the boiler | Required | -       |
 
 ## Channels
 
-| channel              | type               | Read-only? | description                                                                                                                                                                                          |
+|       channel        |        type        | Read-only? |                                                                                             description                                                                                              |
 |----------------------|--------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | temperature          | Number:Temperature | Yes        | The temperature of an appliance that supports the thermostat functionality                                                                                                                           |
 | setpointTemperature  | Number:Temperature | No         | The setpoint temperature (read/write) of an appliance that supports the thermostat functionality                                                                                                     |
@@ -216,3 +216,4 @@ sitemap plugwiseha label="PlugwiseHA Binding"
     }
 }
 ```
+

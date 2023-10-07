@@ -10,7 +10,7 @@ Additionally, there is provision to connect to the DSC IT-100 interface through 
 
 This binding supports the following Thing types
 
-| Thing      | Thing Type | Description                                                            |
+|   Thing    | Thing Type |                              Description                               |
 |------------|------------|------------------------------------------------------------------------|
 | envisalink | Bridge     | The EyezOn Envisalink 3/2DS interface.                                 |
 | it100      | Bridge     | The DSC IT-100 RS-232 interface.                                       |

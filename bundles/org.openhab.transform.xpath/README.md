@@ -6,7 +6,7 @@ Transforms an [XML](https://www.w3.org/XML/) input using an [XPath](https://www.
 
 ### Basic Example
 
-Given a retrieved XML 
+Given a retrieved XML
 
 **Input XML**
 
@@ -56,7 +56,7 @@ The XPath
 * `[name()='PTZStatus']/*[name()='AbsoluteHigh']/*[name()='azimuth']/`
 * `/*[local-name()='PTZStatus' and namespace-uri()='http://www.hikvision.com/ver20/XMLSchema']/*[local-name()='AbsoluteHigh' and namespace-uri()='http://www.hikvision.com/ver20/XMLSchema']/*[local-name()='azimuth' and namespace-uri()='http://www.hikvision.com/ver20/XMLSchema']`
 
-returns 
+returns
 
 ```
 <azimuth>450</azimuth>
@@ -119,3 +119,4 @@ Please note: This profile is a one-way transformation, i.e. only values from a d
 * An [introduction](https://www.w3schools.com/xml/xpath_intro.asp) to XPath at W3School
 * An informative explanation of [common mistakes](https://qxf2.com/blog/common-xpath-mistakes/).
 * Online validation tools like [this](https://www.freeformatter.com/xpath-tester.html) to check the syntax.
+

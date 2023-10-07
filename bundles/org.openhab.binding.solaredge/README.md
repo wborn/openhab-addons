@@ -27,31 +27,31 @@ Auto-Discovery is not supported, as access requires authentication.
 The following configuration parameters are available for this thing:
 
 - **tokenOrApiKey** (required)
-Either the [official API Key](https://www.youtube.com/watch?v=iR26nmL5bXg) for using the public API or when using the inofficial private API: a token which can be retrieved from browser's cookie store when logged into the SolarEdge website.
-It is called "SPRING_SECURITY_REMEMBER_ME_COOKIE".
-When using this token, see also `usePrivateApi` and `meterInstalled`.
-E.g. for Firefox, use the built-in [Storage Inspector](https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector) to retrieve the token.
+  Either the [official API Key](https://www.youtube.com/watch?v=iR26nmL5bXg) for using the public API or when using the inofficial private API: a token which can be retrieved from browser's cookie store when logged into the SolarEdge website.
+  It is called "SPRING_SECURITY_REMEMBER_ME_COOKIE".
+  When using this token, see also `usePrivateApi` and `meterInstalled`.
+  E.g. for Firefox, use the built-in [Storage Inspector](https://developer.mozilla.org/en-US/docs/Tools/Storage_Inspector) to retrieve the token.
 
 - **solarId** (required)  
-Id of your inverter at SolarEdge (can be found in the URL after successful login: <https://monitoring.solaredge.com/solaredge-web/p/site/> **&lt;solarId&gt;** /#/dashboard)
+  Id of your inverter at SolarEdge (can be found in the URL after successful login: <https://monitoring.solaredge.com/solaredge-web/p/site/> **&lt;solarId&gt;** /#/dashboard)
 
 - **usePrivateApi** (optional)  
-can be set to true to use the private API.
-Private API has no limit regarding query frequency but is less stable.
-Private API will only gather live data if a meter is available.
-The official public API has a limit of 300 queries per day but should be much more reliable/stable.
-Set this to true when using token retrieved from browser in `tokenOrApiKey`.
-See also `meterInstalled`. (default = false)
+  can be set to true to use the private API.
+  Private API has no limit regarding query frequency but is less stable.
+  Private API will only gather live data if a meter is available.
+  The official public API has a limit of 300 queries per day but should be much more reliable/stable.
+  Set this to true when using token retrieved from browser in `tokenOrApiKey`.
+  See also `meterInstalled`. (default = false)
 
 - **meterInstalled** (optional)  
-can be set to true for setups that contain a meter which is connected to the inverter.
-A meter allows more detailed data retrieval.
-This must be set to true when using token retrieved from browser in `tokenOrApiKey`.
-This can be set either to true or false when using the API key. (default = false)
+  can be set to true for setups that contain a meter which is connected to the inverter.
+  A meter allows more detailed data retrieval.
+  This must be set to true when using token retrieved from browser in `tokenOrApiKey`.
+  This can be set either to true or false when using the API key. (default = false)
 
 - **liveDataPollingInterval** (optional)  
-interval (minutes) in which live data values are retrieved from Solaredge.
-Setting less than 10 minutes is only allowed when using private API. (default = 10)
+  interval (minutes) in which live data values are retrieved from Solaredge.
+  Setting less than 10 minutes is only allowed when using private API. (default = 10)
 
 - **aggregateDataPollingInterval** (optional)  
   interval (minutes) in which aggregate data values are retrieved from Solaredge.
@@ -64,8 +64,8 @@ All numeric channels use the [UoM feature](https://openhab.org/blog/2018/02/22/u
 This means you can easily change the desired unit e.g. MWh instead of kWh just in your item definition.
 Following channels are currently available:
 
-| Channel Type ID                               | Item Type            | Description                                      | Remark                                           |
-| --------------------------------------------- | -------------------- | ------------------------------------------------ | ------------------------------------------------ |
+|                Channel Type ID                |      Item Type       |                   Description                    |                      Remark                      |
+|-----------------------------------------------|----------------------|--------------------------------------------------|--------------------------------------------------|
 | live#production                               | Number:Power         | Current PV production                            | general available                                |
 | live#pv_status                                | String               | Current PV status                                | requires meter attached and 'meterInstalled' set |
 | live#consumption                              | Number:Power         | Current power consumption                        | requires meter attached and 'meterInstalled' set |
@@ -144,3 +144,4 @@ Number:Power            SE2200_Live_Production   "PV Produktion [%.2f %unit%]"  
 Number:Dimensionless    SE2200_Live_Level        "Batterieladung"                 {channel="solaredge:generic:se2200:live#battery_level"}
 Number:Energy           SE2200_Day_Production    "PV Produktion [%.2f kWh]"       {channel="solaredge:generic:se2200:aggregate_day#production"}
 ```
+

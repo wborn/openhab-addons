@@ -6,7 +6,7 @@ A binding for D-Link Smart Home devices.
 
 ### DCH-S150 (WiFi motion sensor)
 
-The binding has been tested with hardware revisions A1 and A2 running firmware version 1.22. 
+The binding has been tested with hardware revisions A1 and A2 running firmware version 1.22.
 The mydlink Home service is now end of life and the device requires a daily reboot (performed by the binding) to keep it responsive.
 
 ## Discovery
@@ -33,7 +33,7 @@ To manually configure a DCH-S150 Thing you must specify its IP address and PIN c
 In the Thing file, this looks like e.g.
 
 ```java
-  Thing dlinksmarthome:DCH-S150:mysensor [ ipAddress="192.168.2.132" pin="1234" ]
+Thing dlinksmarthome:DCH-S150:mysensor [ ipAddress="192.168.2.132" pin="1234" ]
 ```
 
 ## Channels
@@ -47,10 +47,11 @@ In the Thing file, this looks like e.g.
 ### DCH-S150
 
 ```perl
-  rule "Landing motion"
-  when
-      Channel "dlinksmarthome:DCH-S150:90-8D-78-XX-XX-XX:motion" triggered
-  then
-      println("Motion has been detected")
-  end
+rule "Landing motion"
+when
+    Channel "dlinksmarthome:DCH-S150:90-8D-78-XX-XX-XX:motion" triggered
+then
+    println("Motion has been detected")
+end
 ```
+

@@ -18,8 +18,8 @@ The binding has no configuration options, all configuration is done at Thing lev
 
 The thing has a few configuration options:
 
-| Option          | Description                                                                                                                                                               |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     Option      |                                                                                Description                                                                                |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | hostname        | The NTP server hostname, e.g. nl.pool.ntp.org                                                                                                                             |
 | refreshInterval | Interval that new time updates are posted to the eventbus in seconds. Default is 60s.                                                                                     |
 | refreshNtp      | Number of updates between querying the NTP server (e.g. with refreshinterval = 60 (seconds) and refreshNtp = 30 the NTP server is queried each half hour). Default is 30. |
@@ -48,3 +48,4 @@ Items:
 ```java
 DateTime Date  "Date [%1$tA, %1$td.%1$tm.%1$tY %1$tH:%1$tM]"  { channel="ntp:ntp:demo:dateTime" }
 ```
+

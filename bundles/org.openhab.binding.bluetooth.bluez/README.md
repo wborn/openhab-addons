@@ -40,9 +40,9 @@ systemctl restart openhab2
 
 It defines the following bridge type:
 
-| Bridge Type ID | Description                                                               |
-|----------------|---------------------------------------------------------------------------|
-| bluez          | A Bluetooth adapter that is supported by BlueZ                            |
+| Bridge Type ID |                  Description                   |
+|----------------|------------------------------------------------|
+| bluez          | A Bluetooth adapter that is supported by BlueZ |
 
 ## Discovery
 
@@ -61,3 +61,4 @@ This is how a BlueZ adapter can be configured textually in a *.things file:
 ```java
 Bridge bluetooth:bluez:hci0 [ address="12:34:56:78:90:AB", backgroundDiscovery=false ]
 ```
+

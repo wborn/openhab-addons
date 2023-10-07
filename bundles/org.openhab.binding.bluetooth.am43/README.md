@@ -6,9 +6,9 @@ This extension adds support for [AM43 Blind Drive Motors](https://www.a-okmotors
 
 Following thing types are supported by this extension:
 
-| Thing Type ID | Description                   |
-|---------------|-------------------------------|
-| am43          | AM43 Blind Drive Motor        |
+| Thing Type ID |      Description       |
+|---------------|------------------------|
+| am43          | AM43 Blind Drive Motor |
 
 ## Discovery
 
@@ -18,30 +18,30 @@ As any other Bluetooth device, AM43 Blind Drive Motors are discovered automatica
 
 Supported configuration parameters `AM43 Blind Drive Motor` thing:
 
-| Property                        | Type    | Default | Required | Description                                                              |
-|---------------------------------|---------|---------|----------|--------------------------------------------------------------------------|
-| address                         | String  |         | Yes      | Bluetooth address of the device (in format "XX:XX:XX:XX:XX:XX")          |
-| refreshInterval                 | Integer | 60      | No       | How often a refresh shall occur in seconds                               |
-| invertPosition                  | Boolean | false   | No       | Inverts the blinds percentages such that 0 becomes 100 and 100 becomes 0 |
+|    Property     |  Type   | Default | Required |                               Description                                |
+|-----------------|---------|---------|----------|--------------------------------------------------------------------------|
+| address         | String  |         | Yes      | Bluetooth address of the device (in format "XX:XX:XX:XX:XX:XX")          |
+| refreshInterval | Integer | 60      | No       | How often a refresh shall occur in seconds                               |
+| invertPosition  | Boolean | false   | No       | Inverts the blinds percentages such that 0 becomes 100 and 100 becomes 0 |
 
 ## Channels
 
 Following channels are supported for `AM43 Blind Drive Motor` thing:
 
-| Channel ID     | Item Type            | Description                                                                               |
-|----------------|----------------------|-------------------------------------------------------------------------------------------|
-| direction      | String               | The direction of the motor for UP/DOWN controls. Is either 'Forward' or 'Reverse'         |
-| topLimitSet    | Switch               | Whether or not the top limit of the blinds has been set                                   |
-| bottomLimitSet | Switch               | Whether or not the bottom limit of the blinds has been set                                |
-| hasLightSensor | Switch               | Whether or not the solar sensor was detected                                              |
-| operationMode  | String               | Controls behavior of motor on manual button presses. Is either 'Inching' or 'Continuous'  |
-| position       | Rollershutter        | Main rollershutter controls                                                               |
-| speed          | Number:Dimensionless | The speed, in RPMs, that the motor will move the blinds                                   |
-| length         | Number:Length        | The length of the blinds in millimeters. (Mostly useless)                                 |
-| diameter       | Number:Length        | The diameter of the motor pulley. (Mostly useless)                                        |
-| type           | Number:Dimensionless | The type of blinds that the motor is connected to. (Mostly useless)                       |
-| lightLevel     | Number:Dimensionless | The light level detected by the solar sensor. Will range from 0-10                        |
-| electric       | Number:Dimensionless | The current percent charge of the motor's battery                                         |
+|   Channel ID   |      Item Type       |                                       Description                                        |
+|----------------|----------------------|------------------------------------------------------------------------------------------|
+| direction      | String               | The direction of the motor for UP/DOWN controls. Is either 'Forward' or 'Reverse'        |
+| topLimitSet    | Switch               | Whether or not the top limit of the blinds has been set                                  |
+| bottomLimitSet | Switch               | Whether or not the bottom limit of the blinds has been set                               |
+| hasLightSensor | Switch               | Whether or not the solar sensor was detected                                             |
+| operationMode  | String               | Controls behavior of motor on manual button presses. Is either 'Inching' or 'Continuous' |
+| position       | Rollershutter        | Main rollershutter controls                                                              |
+| speed          | Number:Dimensionless | The speed, in RPMs, that the motor will move the blinds                                  |
+| length         | Number:Length        | The length of the blinds in millimeters. (Mostly useless)                                |
+| diameter       | Number:Length        | The diameter of the motor pulley. (Mostly useless)                                       |
+| type           | Number:Dimensionless | The type of blinds that the motor is connected to. (Mostly useless)                      |
+| lightLevel     | Number:Dimensionless | The light level detected by the solar sensor. Will range from 0-10                       |
+| electric       | Number:Dimensionless | The current percent charge of the motor's battery                                        |
 
 ## Example
 
@@ -67,3 +67,4 @@ Number:Dimensionless    type            "Type [%.0f]"               { channel="b
 Number:Dimensionless    light_level     "Light Level [%.0f]"        { channel="bluetooth:am43:adapter1:motor1:lightLevel" }
 Number:Dimensionless    battery_level   "Battery Level [%.0f %%]"   { channel="bluetooth:am43:adapter1:motor1:electric" }
 ```
+

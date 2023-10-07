@@ -10,7 +10,7 @@ The Rego heat pump binding supports:
 The Rego 6xx controllers family is used in many heat pumps such as IVT/Bosch/Autotherm/Carrier and others.
 
 Rego 6xx unit contain an interface marked as service.
-Header of this interface is close to the control unit. This is 5V (TTL) serial interface and is connected by a 9 pin can/d-sub connector. Pinout:  
+Header of this interface is close to the control unit. This is 5V (TTL) serial interface and is connected by a 9 pin can/d-sub connector. Pinout:
 
 2 - RxD  
 3 - TxD  
@@ -50,9 +50,9 @@ Configuration of the TCP/IP thing:
 
 Example thing definition:
 
- ```java
- regoheatpump:ipRego6xx:ivtIP [ address="192.168.2.50", tcpPort="9265" ]
- ```
+```java
+regoheatpump:ipRego6xx:ivtIP [ address="192.168.2.50", tcpPort="9265" ]
+```
 
 #### Serial connection
 
@@ -73,7 +73,7 @@ regoheatpump:serialRego6xx:ivtSerial [ portName="COM3" ]
 
 Below is the list of supported channels:
 
-| Channel Type ID                       | Item Type   | Access |
+|            Channel Type ID            |  Item Type  | Access |
 |---------------------------------------|-------------|--------|
 | sensorValues#radiatorReturn           | Temperature | R      |
 | sensorValues#outdoor                  | Temperature | R      |
@@ -145,7 +145,7 @@ The [Husdata](https://www.husdata.se/) interface bridges the often complex commu
 
 Supported heat pump models
 
-| Heat pump models                  | Technical          |
+|         Heat pump models          |     Technical      |
 |-----------------------------------|--------------------|
 | IVT Greenline / Optima 900        | Rego 600 Serial    |
 | IVT 490                           | Rego 400 Serial    |
@@ -177,9 +177,9 @@ Configuration of the TCP/IP thing:
 
 Example thing definition:
 
- ```java
- regoheatpump:ipHusdata:ivtIP [ address="192.168.2.50", tcpPort="9265" ]
- ```
+```java
+regoheatpump:ipHusdata:ivtIP [ address="192.168.2.50", tcpPort="9265" ]
+```
 
 #### Serial connection
 
@@ -199,40 +199,41 @@ regoheatpump:serialHusdata:ivtSerial [ portName="COM3" ]
 
 Below is the list of supported channels, all values are read only:
 
-| H1 ID | Name                  | Channel Type ID                  | Item Type        |
-|-------|-----------------------|----------------------------------|------------------|
-| 001   | Radiator Return       | sensorValues#radiatorReturn      | Temperature      |
-| 002   | Radiator Forward      | sensorValues#radiatorForward     | Temperature      |
-| 003   | Heat carrier Return   | sensorValues#heatFluidIn         | Temperature      |
-| 004   | Heat carrier Forward  | sensorValues#heatFluidOut        | Temperature      |
-| 005   | Brine In / Evaporator | sensorValues#coldFluidIn         | Temperature      |
-| 006   | Brine Out / Condenser | sensorValues#coldFluidOut        | Temperature      |
-| 007   | Outdoor               | sensorValues#outdoor             | Temperature      |
-| 008   | Indoor                | sensorValues#indoor              | Temperature      |
-| 009   | Hot water 1 / Top     | sensorValues#hotWater            | Temperature      |
-| 00A   | Hot water 2 / Mid     | sensorValues#externalHotWater    | Temperature      |
-| 00B   | Hot gas / Compressor  | sensorValues#compressor          | Temperature      |
-| 00E   | Air intake            | sensorValues#airIntake           | Temperature      |
-| 011   | Pool                  | sensorValues#pool                | Temperature      |
-| 104   | Add heat status       | controlData#addHeatPowerPercent  | Number - %       |
-| 104   | Add heat status       | controlData#addHeatPowerEnergy   | Number - kW      |
-| 107   | Heating setpoint      | controlData#radiatorReturnTarget | Temperature      |
-| 108   | Compressor speed      | controlData#compressorSpeed      | Number - %       |
-| 203   | Room temp setpoint    | settings#indoorTempSetting       | Temperature      |
-| 204   | Room sensor influence | settings#curveInflByInTemp       | Number           |
-| 205   | Heat set 1, CurveL    | settings#heatCurve               | Number           |
-| 206   | Heat set 2, CurveR    | settings#heatCurve2              | Number           |
-| A01   | Compressor            | deviceValues#compressor          | Switch           |
-| A04   | Pump Cold circuit     | deviceValues#coldFluidPump       | Switch           |
-| A05   | Pump Heat circuit     | deviceValues#heatFluidPump       | Switch           |
-| A06   | Pump Radiator         | deviceValues#radiatorPump        | Switch           |
-| A07   | Switch valve 1        | deviceValues#switchValve         | Switch           |
-| A08   | Switch valve 2        | deviceValues#switchValve2        | Switch           |
-| A09   | Fan                   | deviceValues#fan                 | Switch           |
-| A0A   | High Pressostat       | deviceValues#highPressostat      | Switch           |
-| A0B   | Low Pressostat        | deviceValues#lowPressostat       | Switch           |
-| A0C   | Heating cable         | deviceValues#heatingCable        | Switch           |
-| A0D   | Crank case heater     | deviceValues#crankCaseHeater     | Switch           |
-| A20   | Alarm                 | deviceValues#alarm               | Switch           |
-| FF1   | EL-Meter 1            | deviceValues#elMeter1            | Number - pulses  |
-| FF2   | EL-Meter 2            | deviceValues#elMeter2            | Number - pulses  |
+| H1 ID |         Name          |         Channel Type ID          |    Item Type    |
+|-------|-----------------------|----------------------------------|-----------------|
+| 001   | Radiator Return       | sensorValues#radiatorReturn      | Temperature     |
+| 002   | Radiator Forward      | sensorValues#radiatorForward     | Temperature     |
+| 003   | Heat carrier Return   | sensorValues#heatFluidIn         | Temperature     |
+| 004   | Heat carrier Forward  | sensorValues#heatFluidOut        | Temperature     |
+| 005   | Brine In / Evaporator | sensorValues#coldFluidIn         | Temperature     |
+| 006   | Brine Out / Condenser | sensorValues#coldFluidOut        | Temperature     |
+| 007   | Outdoor               | sensorValues#outdoor             | Temperature     |
+| 008   | Indoor                | sensorValues#indoor              | Temperature     |
+| 009   | Hot water 1 / Top     | sensorValues#hotWater            | Temperature     |
+| 00A   | Hot water 2 / Mid     | sensorValues#externalHotWater    | Temperature     |
+| 00B   | Hot gas / Compressor  | sensorValues#compressor          | Temperature     |
+| 00E   | Air intake            | sensorValues#airIntake           | Temperature     |
+| 011   | Pool                  | sensorValues#pool                | Temperature     |
+| 104   | Add heat status       | controlData#addHeatPowerPercent  | Number - %      |
+| 104   | Add heat status       | controlData#addHeatPowerEnergy   | Number - kW     |
+| 107   | Heating setpoint      | controlData#radiatorReturnTarget | Temperature     |
+| 108   | Compressor speed      | controlData#compressorSpeed      | Number - %      |
+| 203   | Room temp setpoint    | settings#indoorTempSetting       | Temperature     |
+| 204   | Room sensor influence | settings#curveInflByInTemp       | Number          |
+| 205   | Heat set 1, CurveL    | settings#heatCurve               | Number          |
+| 206   | Heat set 2, CurveR    | settings#heatCurve2              | Number          |
+| A01   | Compressor            | deviceValues#compressor          | Switch          |
+| A04   | Pump Cold circuit     | deviceValues#coldFluidPump       | Switch          |
+| A05   | Pump Heat circuit     | deviceValues#heatFluidPump       | Switch          |
+| A06   | Pump Radiator         | deviceValues#radiatorPump        | Switch          |
+| A07   | Switch valve 1        | deviceValues#switchValve         | Switch          |
+| A08   | Switch valve 2        | deviceValues#switchValve2        | Switch          |
+| A09   | Fan                   | deviceValues#fan                 | Switch          |
+| A0A   | High Pressostat       | deviceValues#highPressostat      | Switch          |
+| A0B   | Low Pressostat        | deviceValues#lowPressostat       | Switch          |
+| A0C   | Heating cable         | deviceValues#heatingCable        | Switch          |
+| A0D   | Crank case heater     | deviceValues#crankCaseHeater     | Switch          |
+| A20   | Alarm                 | deviceValues#alarm               | Switch          |
+| FF1   | EL-Meter 1            | deviceValues#elMeter1            | Number - pulses |
+| FF2   | EL-Meter 2            | deviceValues#elMeter2            | Number - pulses |
+

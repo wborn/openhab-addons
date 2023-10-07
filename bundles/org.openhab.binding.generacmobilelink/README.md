@@ -12,19 +12,19 @@ ThingTypeUID: `account`
 
 ### Generator
 
-A Generator thing represents an individual generator linked to an account bridge. Multiple generators are supported.  
+A Generator thing represents an individual generator linked to an account bridge. Multiple generators are supported.
 
 ThingTypeUID: `generator`
 
 ## Discovery
 
-The MobileLink account bridge must be added manually. Once added, generator things will automatically be added to the inbox.  
+The MobileLink account bridge must be added manually. Once added, generator things will automatically be added to the inbox.
 
 ## Thing Configuration
 
 ### MobileLink Account
 
-| Parameter       | Description                                                                        |
+|    Parameter    |                                    Description                                     |
 |-----------------|------------------------------------------------------------------------------------|
 | username        | The user name, typically an email address, used to login to the MobileLink service |
 | password        | The password used to login to the MobileLink service                               |
@@ -36,25 +36,24 @@ The MobileLink account bridge must be added manually. Once added, generator thin
 
 All channels are read-only.
 
-| Channel ID           | Item Type                   | Description                       |
-|----------------------|-----------------------------|-----------------------------------|
-| heroImageUrl         | String                      | Hero Image URL                    |
-| statusLabel          | String                      | Status Label                      |
-| statusText           | String                      | Status Text                       |
-| activationDate       | DateTime                    | Activation Date                   |
-| deviceSsid           | String                      | Device SSID                       |
-| status               | Number                      | Status                            |
-| isConnected          | Switch                      | Is Connected                      |
-| isConnecting         | Switch                      | Is Connecting                     |
-| showWarning          | Switch                      | Show Warning                      |
-| hasMaintenanceAlert  | Switch                      | Has Maintenance Alert             |
-| lastSeen             | DateTime                    | Last Seen                         |
-| connectionTime       | DateTime                    | Connection Time                   |
-| runHours             | Number:Time                 | Number of Hours Run               |
-| batteryVoltage       | Number:ElectricPotential    | Battery Voltage                   |
-| hoursOfProtection    | Number:Time                 | Number of Hours of Protection     |
-| signalStrength       | Number:Dimensionless        | Signal Strength                   |
-
+|     Channel ID      |        Item Type         |          Description          |
+|---------------------|--------------------------|-------------------------------|
+| heroImageUrl        | String                   | Hero Image URL                |
+| statusLabel         | String                   | Status Label                  |
+| statusText          | String                   | Status Text                   |
+| activationDate      | DateTime                 | Activation Date               |
+| deviceSsid          | String                   | Device SSID                   |
+| status              | Number                   | Status                        |
+| isConnected         | Switch                   | Is Connected                  |
+| isConnecting        | Switch                   | Is Connecting                 |
+| showWarning         | Switch                   | Show Warning                  |
+| hasMaintenanceAlert | Switch                   | Has Maintenance Alert         |
+| lastSeen            | DateTime                 | Last Seen                     |
+| connectionTime      | DateTime                 | Connection Time               |
+| runHours            | Number:Time              | Number of Hours Run           |
+| batteryVoltage      | Number:ElectricPotential | Battery Voltage               |
+| hoursOfProtection   | Number:Time              | Number of Hours of Protection |
+| signalStrength      | Number:Dimensionless     | Signal Strength               |
 
 ## Full Example
 
@@ -107,3 +106,4 @@ sitemap generacmobilelink label="Generac MobileLink"
     }
 }
 ```
+

@@ -11,7 +11,7 @@ Each Thing provides one or more warnings for a city.
 
 ## Thing Configuration
 
-| Property     | Default | Required | Description                                                                                                                                |
+|   Property   | Default | Required |                                                                Description                                                                 |
 |--------------|---------|----------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | cellId       | -       | Yes      | ID of the area to retrieve weather warnings, only IDs starting with an 8 (exception for Berlin: 7) are supported. See [Cell ID](#cell-id). |
 | refresh      | 30      | No       | Time between API requests in minutes. Minimum 15 minutes.                                                                                  |
@@ -21,7 +21,7 @@ Each Thing provides one or more warnings for a city.
 
 <!-- See page 10-13 (in German) of https://www.dwd.de/DE/wetter/warnungen_aktuell/objekt_einbindung/einbindung_karten_geodienste.pdf?__blob=publicationFile&v=14 for Cell ID documentation. -->
 Use [this list](https://www.dwd.de/DE/leistungen/opendata/help/warnungen/cap_warncellids_csv.csv) of valid IDs, please notice that **only IDs starting with an eight (8) and nine digits are supported** by this binding.
-Exeception for Berlin, where the ID of the city's districts are used. Those start with a seven (7).
+Exeception for Berlin, where the ID of the city's districts are used. Those start with a seven (-->
 
 Using the percent sign (%) as a wildcard, it is possible to query multiple cells.
 For example, the value `8111%` retrieves all cell IDs that start with `8111`.
@@ -45,7 +45,7 @@ The warnings will be sorted first by `Severity` and then by the `Valid From` dat
 This ensures that the channels for the first warning will always be the highest Severity.
 If the API returns more warnings than the configured number in the Thing, the warnings with the lowest Severity will be dropped.
 
-| Channel      | Type            | Description                                                                       |
+|   Channel    |      Type       |                                    Description                                    |
 |--------------|-----------------|-----------------------------------------------------------------------------------|
 | warningN     | Switch          | ON if a warning is present                                                        |
 | UpdatedN     | Trigger Channel | Triggers NEW when a warning is sent the first time                                |

@@ -14,7 +14,7 @@ Alternatively, you can create scripts in the `automation/jsr223` configuration d
 If you create an empty file called `test.py`, you will see a log line with information similar to:
 
 ```text
-    ... [INFO ] [.a.m.s.r.i.l.ScriptFileWatcher:150  ] - Loading script 'test.py'
+... [INFO ] [.a.m.s.r.i.l.ScriptFileWatcher:150  ] - Loading script 'test.py'
 ```
 
 To enable debug logging, use the [console logging]({{base}}/administration/logging.html) commands to
@@ -52,5 +52,6 @@ The script uses the [LoggerFactory](https://www.slf4j.org/apidocs/org/slf4j/Logg
 to obtain a named logger and then logs a message like:
 
 ```text
-    ... [INFO ] [.openhab.core.automation.examples:-2   ] - Hello, World!
+... [INFO ] [.openhab.core.automation.examples:-2   ] - Hello, World!
 ```
+

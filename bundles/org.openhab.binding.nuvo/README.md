@@ -31,8 +31,8 @@ You have to add all things manually.
 
 The thing has the following configuration parameters:
 
-| Parameter Label          | Parameter ID   | Description                                                                                                                                     | Accepted values                                                                    |
-|--------------------------|--------------- |-------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
+|     Parameter Label      |  Parameter ID  |                                                                   Description                                                                   |                                  Accepted values                                   |
+|--------------------------|----------------|-------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------|
 | Serial Port              | serialPort     | Serial port to use for connecting to the Nuvo whole house amplifier device                                                                      | a comm port name                                                                   |
 | Address                  | host           | Host name or IP address of the machine connected to the Nuvo whole house amplifier serial port (serial over IP) or MPS4 server                  | host name or ip                                                                    |
 | Port                     | port           | Communication port (serial over IP)                                                                                                             | ip port number                                                                     |
@@ -53,7 +53,6 @@ Some notes:
 - If a zone has a maximum volume limit configured by the Nuvo configurator, the volume slider will automatically drop back to that level if set above the configured limit.
 - Source display_line1 thru 4 can only be updated on non NuvoNet sources when not using an MPS4 connection.
 - The track_position channel does not update continuously for NuvoNet sources. It only changes when the track changes or playback is paused/unpaused.
-
 - On Linux, you may get an error stating the serial port cannot be opened when the Nuvo binding tries to load.
 - You can get around this by adding the `openhab` user to the `dialout` group like this: `usermod -a -G dialout openhab`.
 - Also on Linux you may have issues with the USB if using two serial USB devices e.g. Nuvo and RFXcom. See the [general documentation about serial port configuration](/docs/administration/serial.html) for more on symlinking the USB ports.
@@ -80,36 +79,36 @@ connection: &conNuvo
 
 The following channels are available:
 
-| Channel ID                           | Item Type   | Description                                                                                                                    |
-|--------------------------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------|
-| system#alloff                        | Switch      | Turn all zones off simultaneously                                                                                              |
-| system#allmute                       | Switch      | Mute or unmute all zones simultaneously                                                                                        |
-| system#page                          | Switch      | Turn on or off the Page All Zones feature (while on the amplifier switches to source 6)                                        |
-| system#sendcmd                       | String      | Send a command to the amplifier                                                                                                |
-| system#buttonpress                   | String      | Indicates the zone number followed by a comma and the last button pressed or NuvoNet menu item selected on a keypad (ReadOnly) |
-| zoneN#power (where N= 1-20)          | Switch      | Turn the power for a zone on or off                                                                                            |
-| zoneN#source (where N= 1-20)         | Number      | Select the source input for a zone (1-6)                                                                                       |
-| zoneN#volume (where N= 1-20)         | Dimmer      | Control the volume for a zone (0-100%) [translates to 0-79]                                                                    |
-| zoneN#mute (where N= 1-20)           | Switch      | Mute or unmute a zone                                                                                                          |
-| zoneN#favorite (where N= 1-20)       | Number      | Select a preset Favorite for a zone (1-12). Also will display and can select any favorite specified in openHAB NuvoNet sources |
-| zoneN#control (where N= 1-20)        | Player      | Simulate pressing the transport control buttons on the keypad e.g. play/pause/next/previous                                    |
-| zoneN#treble (where N= 1-20)         | Number      | Adjust the treble control for a zone (-18 to 18 [in increments of 2]) -18=none, 0=flat, 18=full                                |
-| zoneN#bass (where N= 1-20)           | Number      | Adjust the bass control for a zone (-18 to 18 [in increments of 2]) -18=none, 0=flat, 18=full                                  |
-| zoneN#balance (where N= 1-20)        | Number      | Adjust the balance control for a zone (-18 to 18 [in increments of 2]) -18=left, 0=center, 18=right                            |
-| zoneN#loudness (where N= 1-20)       | Switch      | Turn on or off the loudness compensation setting for the zone                                                                  |
-| zoneN#dnd (where N= 1-20)            | Switch      | Turn on or off the Do Not Disturb for the zone (for when the amplifier's Page All Zones feature is activated)                  |
-| zoneN#lock (where N= 1-20)           | Contact     | Indicates if this zone is currently locked                                                                                     |
-| zoneN#party (where N= 1-20)          | Switch      | Turn on or off the party mode feature with this zone as the host                                                               |
-| sourceN#display_line1 (where N= 1-6) | String      | 1st line of text being displayed on the keypad. Can be updated for a non NuvoNet source                                        |
-| sourceN#display_line2 (where N= 1-6) | String      | 2nd line of text being displayed on the keypad. Can be updated for a non NuvoNet source                                        |
-| sourceN#display_line3 (where N= 1-6) | String      | 3rd line of text being displayed on the keypad. Can be updated for a non NuvoNet source                                        |
-| sourceN#display_line4 (where N= 1-6) | String      | 4th line of text being displayed on the keypad. Can be updated for a non NuvoNet source                                        |
-| sourceN#play_mode (where N= 1-6)     | String      | The current playback mode of the source, ie: Playing, Paused, etc. (ReadOnly) See rules example for updating                   |
-| sourceN#track_length (where N= 1-6)  | Number:Time | The total running time of the current playing track (ReadOnly) See rules example for updating                                  |
-| sourceN#track_position (where N= 1-6)| Number:Time | The running time elapsed of the current playing track (ReadOnly) See rules example for updating                                |
-| sourceN#button_press (where N= 1-6)  | String      | Indicates the last button pressed on the keypad for a non NuvoNet source or openHAB NuvoNet source (ReadOnly)                  |
-| sourceN#art_url (where N= 1-6)       | String      | MPS4 Only! The URL of the Album Art JPG for this source that is displayed on a CTP-36. See _very advanced_ rules (SendOnly)    |
-| sourceN#album_art (where N= 1-6)     | Image       | The Album Art loaded from the art_url channel for display in a UI widget (ReadOnly)                                            |
+|              Channel ID               |  Item Type  |                                                          Description                                                           |
+|---------------------------------------|-------------|--------------------------------------------------------------------------------------------------------------------------------|
+| system#alloff                         | Switch      | Turn all zones off simultaneously                                                                                              |
+| system#allmute                        | Switch      | Mute or unmute all zones simultaneously                                                                                        |
+| system#page                           | Switch      | Turn on or off the Page All Zones feature (while on the amplifier switches to source 6)                                        |
+| system#sendcmd                        | String      | Send a command to the amplifier                                                                                                |
+| system#buttonpress                    | String      | Indicates the zone number followed by a comma and the last button pressed or NuvoNet menu item selected on a keypad (ReadOnly) |
+| zoneN#power (where N= 1-20)           | Switch      | Turn the power for a zone on or off                                                                                            |
+| zoneN#source (where N= 1-20)          | Number      | Select the source input for a zone (1-6)                                                                                       |
+| zoneN#volume (where N= 1-20)          | Dimmer      | Control the volume for a zone (0-100%) [translates to 0-79]                                                                    |
+| zoneN#mute (where N= 1-20)            | Switch      | Mute or unmute a zone                                                                                                          |
+| zoneN#favorite (where N= 1-20)        | Number      | Select a preset Favorite for a zone (1-12). Also will display and can select any favorite specified in openHAB NuvoNet sources |
+| zoneN#control (where N= 1-20)         | Player      | Simulate pressing the transport control buttons on the keypad e.g. play/pause/next/previous                                    |
+| zoneN#treble (where N= 1-20)          | Number      | Adjust the treble control for a zone (-18 to 18 [in increments of 2]) -18=none, 0=flat, 18=full                                |
+| zoneN#bass (where N= 1-20)            | Number      | Adjust the bass control for a zone (-18 to 18 [in increments of 2]) -18=none, 0=flat, 18=full                                  |
+| zoneN#balance (where N= 1-20)         | Number      | Adjust the balance control for a zone (-18 to 18 [in increments of 2]) -18=left, 0=center, 18=right                            |
+| zoneN#loudness (where N= 1-20)        | Switch      | Turn on or off the loudness compensation setting for the zone                                                                  |
+| zoneN#dnd (where N= 1-20)             | Switch      | Turn on or off the Do Not Disturb for the zone (for when the amplifier's Page All Zones feature is activated)                  |
+| zoneN#lock (where N= 1-20)            | Contact     | Indicates if this zone is currently locked                                                                                     |
+| zoneN#party (where N= 1-20)           | Switch      | Turn on or off the party mode feature with this zone as the host                                                               |
+| sourceN#display_line1 (where N= 1-6)  | String      | 1st line of text being displayed on the keypad. Can be updated for a non NuvoNet source                                        |
+| sourceN#display_line2 (where N= 1-6)  | String      | 2nd line of text being displayed on the keypad. Can be updated for a non NuvoNet source                                        |
+| sourceN#display_line3 (where N= 1-6)  | String      | 3rd line of text being displayed on the keypad. Can be updated for a non NuvoNet source                                        |
+| sourceN#display_line4 (where N= 1-6)  | String      | 4th line of text being displayed on the keypad. Can be updated for a non NuvoNet source                                        |
+| sourceN#play_mode (where N= 1-6)      | String      | The current playback mode of the source, ie: Playing, Paused, etc. (ReadOnly) See rules example for updating                   |
+| sourceN#track_length (where N= 1-6)   | Number:Time | The total running time of the current playing track (ReadOnly) See rules example for updating                                  |
+| sourceN#track_position (where N= 1-6) | Number:Time | The running time elapsed of the current playing track (ReadOnly) See rules example for updating                                |
+| sourceN#button_press (where N= 1-6)   | String      | Indicates the last button pressed on the keypad for a non NuvoNet source or openHAB NuvoNet source (ReadOnly)                  |
+| sourceN#art_url (where N= 1-6)        | String      | MPS4 Only! The URL of the Album Art JPG for this source that is displayed on a CTP-36. See _very advanced_ rules (SendOnly)    |
+| sourceN#album_art (where N= 1-6)      | Image       | The Album Art loaded from the art_url channel for display in a UI widget (ReadOnly)                                            |
 
 ## Full Example
 
@@ -471,10 +470,10 @@ When the item `Top menu 2` is selected the text sent to the button channel will 
 ### Rule to trigger an action based on which keypad zone where a button was pressed or menu item selected
 
 By using the `system#buttonpress` channel it is possible to trigger an action based on which keypad zone was used to send the action.
-This channel appends the zone number and a comma before the button action or menu item selection.  
+This channel appends the zone number and a comma before the button action or menu item selection.
 
 For example if the Play/Pause button is pressed on Zone 7, the channel will display: `7,PLAYPAUSE`  
-Also if a menu item from a custom menu was selected, ie: `Top menu 1` on Zone 5, the channel will display: `5,Top menu 1`  
+Also if a menu item from a custom menu was selected, ie: `Top menu 1` on Zone 5, the channel will display: `5,Top menu 1`
 
 The functionality can be used to create very powerful rules as demontrated below. The following rule triggered from a menu item turns off all zones except for the zone that triggered the rule.
 
@@ -704,3 +703,4 @@ then
 end
 
 ```
+

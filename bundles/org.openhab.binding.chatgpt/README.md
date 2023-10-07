@@ -2,7 +2,7 @@
 
 The openHAB ChatGPT Binding allows openHAB to communicate with the ChatGPT language model provided by OpenAI.
 
-ChatGPT is a powerful natural language processing (NLP) tool that can be used to understand and respond to a wide range of text-based commands and questions. 
+ChatGPT is a powerful natural language processing (NLP) tool that can be used to understand and respond to a wide range of text-based commands and questions.
 With this binding, you can use ChatGPT to formulate proper sentences for any kind of information that you would like to output.
 
 ## Supported Things
@@ -14,28 +14,27 @@ The binding supports a single thing type `account`, which corresponds to the Ope
 The `account` thing requires a single configuration parameter, which is the API key that allows accessing the account.
 API keys can be created and managed under <https://platform.openai.com/account/api-keys>.
 
-| Name            | Type    | Description                             | Default | Required | Advanced |
-|-----------------|---------|-----------------------------------------|---------|----------|----------|
-| apiKey          | text    | The API key to be used for the requests | N/A     | yes      | no       |
+|  Name  | Type |               Description               | Default | Required | Advanced |
+|--------|------|-----------------------------------------|---------|----------|----------|
+| apiKey | text | The API key to be used for the requests | N/A     | yes      | no       |
 
 ## Channels
 
 The `account` thing comes with a single channel `chat` of type `chat`.
 It is possible to extend the thing with further channels of type `chat`, so that different configurations can be used concurrently.
 
-| Channel | Type   | Read/Write | Description                                                                        |
+| Channel |  Type  | Read/Write |                                    Description                                     |
 |---------|--------|------------|------------------------------------------------------------------------------------|
 | chat    | String | RW         | This channel takes prompts as commands and delivers the response as a state update |
 
 Each channel of type `chat` takes the following configuration parameters:
 
-| Name            | Type    | Description                                                                                                                                                | Default       | Required | Advanced |
-|-----------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|----------|----------|
-| model           | text    | The model to be used for the responses.                                                                                                                    | gpt-3.5-turbo | no       | no       |
-| temperature     | decimal | A value between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. | 0.5           | no       | no       |
-| systemMessage   | text    | The system message helps set the behavior of the assistant.                                                                                                | N/A           | no       | no       |
-| maxTokens       | decimal | The maximum number of tokens to generate in the completion.                                                                                                | 500           | no       | yes      |
-
+|     Name      |  Type   |                                                                        Description                                                                         |    Default    | Required | Advanced |
+|---------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|----------|----------|
+| model         | text    | The model to be used for the responses.                                                                                                                    | gpt-3.5-turbo | no       | no       |
+| temperature   | decimal | A value between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. | 0.5           | no       | no       |
+| systemMessage | text    | The system message helps set the behavior of the assistant.                                                                                                | N/A           | no       | no       |
+| maxTokens     | decimal | The maximum number of tokens to generate in the completion.                                                                                                | 500           | no       | yes      |
 
 ## Full Example
 

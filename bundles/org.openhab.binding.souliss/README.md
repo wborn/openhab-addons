@@ -2,7 +2,7 @@
 
 [Souliss](http://www.souliss.net/) is a networking framework for Arduino and compatibles boards, and is designed to let you easily build a smart home that is distributed over multiple boards via Ethernet, WiFi, wireless point-to-point and RS485 bus.
 
-Souliss is an open-source and community driven project, you can use the [wiki](https://github.com/souliss/souliss/wiki) and [Community](https://github.com/souliss/souliss/wiki/Community) to get help and share your results.  
+Souliss is an open-source and community driven project, you can use the [wiki](https://github.com/souliss/souliss/wiki) and [Community](https://github.com/souliss/souliss/wiki/Community) to get help and share your results.
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ They are defined [here](https://github.com/souliss/souliss/wiki/Typicals).
 
 Typicals match directly with openHAB Thing type.
 
-| Device type                                               | Typical Code   | Thing type |
+|                        Device type                        |  Typical Code  | Thing type |
 |-----------------------------------------------------------|----------------|------------|
 | ON/OFF Digital Output with Timer Option                   | T11            | t11        |
 | ON/OFF Digital Output with AUTO mode                      | T12            | t12        |
@@ -123,7 +123,7 @@ fan = AUTO, HIGH, MEDIUM, LOW, FANOFF
 
 ### Parameters
 
-| Thing type | Parameters Name and Default Value | Description                                                                                           |
+| Thing type | Parameters Name and Default Value |                                              Description                                              |
 |------------|-----------------------------------|-------------------------------------------------------------------------------------------------------|
 | Gateway    | gatewayLanAddress=""              | Mandatory - lan address of Gateway                                                                    |
 | "          | gatewayWanAddress=""              | (advanced) When gateway is outside local network can insert domain/ip in this field                   |

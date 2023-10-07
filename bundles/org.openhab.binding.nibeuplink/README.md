@@ -32,30 +32,30 @@ nibeuplink:<THING TYPE>:<NAME>
 
 Following models (indoor / main units) are currently supported:
 
-| Nibe Model(s)     | Thing Type | Description                                         |
-|-------------------|------------|-----------------------------------------------------|
-| VVM310 / 500      | vvm310     | reduced set of channels based on NibeUplink website |
-| VVM320 / 325      | vvm320     | reduced set of channels based on NibeUplink website |
-| F730              | f730       | reduced set of channels based on NibeUplink website |
-| F750              | f750       | reduced set of channels based on NibeUplink website |
-| F1145 / 1245      | f1145      | reduced set of channels based on NibeUplink website |
-| F1155 / 1255      | f1155      | reduced set of channels based on NibeUplink website |
+| Nibe Model(s) | Thing Type |                     Description                     |
+|---------------|------------|-----------------------------------------------------|
+| VVM310 / 500  | vvm310     | reduced set of channels based on NibeUplink website |
+| VVM320 / 325  | vvm320     | reduced set of channels based on NibeUplink website |
+| F730          | f730       | reduced set of channels based on NibeUplink website |
+| F750          | f750       | reduced set of channels based on NibeUplink website |
+| F1145 / 1245  | f1145      | reduced set of channels based on NibeUplink website |
+| F1155 / 1255  | f1155      | reduced set of channels based on NibeUplink website |
 
 The following configuration parameters are available for this thing:
 
 - **user** (required)  
-username used to login on NibeUplink
+  username used to login on NibeUplink
 
 - **password** (required)  
-password used to login on NibeUplink
+  password used to login on NibeUplink
 
 - **nibeId** (required)  
-Id of your heatpump in NibeUplink (can be found in the URL after successful login: `https://www.nibeuplink.com/System/**<nibeId>>**/Status/Overview`)
+  Id of your heatpump in NibeUplink (can be found in the URL after successful login: `https://www.nibeuplink.com/System/**<nibeId>>**/Status/Overview`)
 
 - **pollingInterval**  
-interval (seconds) in which values are retrieved from NibeUplink.
-Setting less than 60 seconds does not make any sense as the heat pump only provides periodic updates to NibeUplink.
-(default = 60)
+  interval (seconds) in which values are retrieved from NibeUplink.
+  Setting less than 60 seconds does not make any sense as the heat pump only provides periodic updates to NibeUplink.
+  (default = 60)
 
 - **houseKeepingInterval**  
   interval (seconds) in which list of "dead channels" (channels that do not return any data or invalid data) should be purged (default = 3600).
@@ -89,7 +89,7 @@ Following models/channels are currently available:
 
 ### All Models
 
-| Channel Type ID | Item Type              | Min    | Max        | Writable | Description                                | Allowed Values (write access)                 |
+| Channel Type ID |       Item Type        |  Min   |    Max     | Writable |                Description                 |         Allowed Values (write access)         |
 |-----------------|------------------------|--------|------------|----------|--------------------------------------------|-----------------------------------------------|
 | base#40004      | Number:Temperature     | -32767 | 32767      | No       | BT1 Outdoor Temperature                    |                                               |
 | base#40067      | Number:Temperature     | -32767 | 32767      | No       | BT1 Average                                |                                               |
@@ -131,7 +131,7 @@ Following models/channels are currently available:
 
 ### F730
 
-| Channel Type ID  | Item Type            | Min    | Max     | Writable | Description                       | Allowed Values (write access) |
+| Channel Type ID  |      Item Type       |  Min   |   Max   | Writable |            Description            | Allowed Values (write access) |
 |------------------|----------------------|--------|---------|----------|-----------------------------------|-------------------------------|
 | compressor#43181 | Number:Dimensionless | 0      | 100     | No       | Chargepump speed                  |                               |
 | compressor#43424 | Number:Time          | 0      | 9999999 | No       | Tot. HW op.time compr. EB100-EP14 |                               |
@@ -157,7 +157,7 @@ Following models/channels are currently available:
 
 ### F750
 
-| Channel Type ID  | Item Type            | Min    | Max     | Writable | Description                       | Allowed Values (write access)                        |
+| Channel Type ID  |      Item Type       |  Min   |   Max   | Writable |            Description            |            Allowed Values (write access)             |
 |------------------|----------------------|--------|---------|----------|-----------------------------------|------------------------------------------------------|
 | compressor#43181 | Number:Dimensionless | 0      | 100     | No       | Chargepump speed                  |                                                      |
 | compressor#43424 | Number:Time          | 0      | 9999999 | No       | Tot. HW op.time compr. EB100-EP14 |                                                      |
@@ -179,7 +179,7 @@ Following models/channels are currently available:
 
 ### F1145 / 1245
 
-| Channel Type ID  | Item Type            | Min    | Max     | Writable | Description                              | Allowed Values (write access) |
+| Channel Type ID  |      Item Type       |  Min   |   Max   | Writable |               Description                | Allowed Values (write access) |
 |------------------|----------------------|--------|---------|----------|------------------------------------------|-------------------------------|
 | general#44302    | Number:Energy        | 0      | 9999999 | No       | Heat Meter - Cooling Cpr EP14            |                               |
 | general#44270    | Number:Temperature   | -32767 | 32767   | No       | Calculated Cooling Supply Temperature S1 |                               |
@@ -199,7 +199,7 @@ Following models/channels are currently available:
 
 ### F1155 / 1255
 
-| Channel Type ID  | Item Type            | Min    | Max     | Writable | Description                           | Allowed Values (write access) |
+| Channel Type ID  |      Item Type       |  Min   |   Max   | Writable |              Description              | Allowed Values (write access) |
 |------------------|----------------------|--------|---------|----------|---------------------------------------|-------------------------------|
 | general#44302    | Number:Energy        | 0      | 9999999 | No       | Heat Meter - Cooling Cpr EP14         |                               |
 | compressor#43424 | Number:Time          | 0      | 9999999 | No       | Tot. HW op.time compr. EB100-EP14     |                               |
@@ -220,7 +220,7 @@ Following models/channels are currently available:
 
 ### VVM310 / VVM 500
 
-| Channel Type ID  | Item Type            | Min    | Max     | Writable | Description                                        | Allowed Values (write access)                        |
+| Channel Type ID  |      Item Type       |  Min   |   Max   | Writable |                    Description                     |            Allowed Values (write access)             |
 |------------------|----------------------|--------|---------|----------|----------------------------------------------------|------------------------------------------------------|
 | general#44270    | Number:Temperature   | -32767 | 32767   | No       | Calc. Cooling Supply S1                            |                                                      |
 | general#40121    | Number:Temperature   | -32767 | 32767   | No       | BT63 Add Supply Temp                               |                                                      |
@@ -259,7 +259,7 @@ Following models/channels are currently available:
 
 ### VVM320 / VVM325
 
-| Channel Type ID  | Item Type            | Min    | Max     | Writable | Description                                        | Allowed Values (write access)                        |
+| Channel Type ID  |      Item Type       |  Min   |   Max   | Writable |                    Description                     |            Allowed Values (write access)             |
 |------------------|----------------------|--------|---------|----------|----------------------------------------------------|------------------------------------------------------|
 | general#44270    | Number:Temperature   | -32767 | 32767   | No       | Calc. Cooling Supply S1                            |                                                      |
 | general#40121    | Number:Temperature   | -32767 | 32767   | No       | BT63 Add Supply Temp                               |                                                      |
@@ -360,3 +360,4 @@ If you prefer switch items a mapping must be applied like this:
 ```java
 Switch item=NIBE_HW_MODE mappings=[0="Eco", 1="Norm"]
 ```
+

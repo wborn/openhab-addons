@@ -26,41 +26,41 @@ Automatic device discovery is not yet implemented.
 
 ### Bridge `daliserver`
 
-| Parameter   | Parameter ID | Required/Optional |  description                           |
-|-------------|--------------|-------------------|----------------------------------------|
-| Hostname    | host         | Required          | IP address or host name of daliserver  |
-| Port Number | port         | Required          | Port of the daliserver TCP interface   |
+|  Parameter  | Parameter ID | Required/Optional |              description              |
+|-------------|--------------|-------------------|---------------------------------------|
+| Hostname    | host         | Required          | IP address or host name of daliserver |
+| Port Number | port         | Required          | Port of the daliserver TCP interface  |
 
 ### device
 
-| Parameter   | Parameter ID | Required/Optional |  description                           |
-|-------------|--------------|-------------------|----------------------------------------|
-| Device ID   | targetId     | Required          | Address of device in the DALI bus      |
+| Parameter | Parameter ID | Required/Optional |            description            |
+|-----------|--------------|-------------------|-----------------------------------|
+| Device ID | targetId     | Required          | Address of device in the DALI bus |
 
 ### group
 
-| Parameter      | Parameter ID       | Required/Optional | description                                                                                  |
+|   Parameter    |    Parameter ID    | Required/Optional |                                         description                                          |
 |----------------|--------------------|-------------------|----------------------------------------------------------------------------------------------|
 | Group  ID      | targetId           | Required          | Address of group in the DALI bus                                                             |
 | Read Device ID | readDeviceTargetId | Optional          | If reading values from this group fails, you can choose to read from a single device instead |
 
 ### rgb
 
-| Parameter   | Parameter ID | Required/Optional |  description                           |
-|-------------|--------------|-------------------|----------------------------------------|
-| R Device ID | targetIdR    | Required          | Address of device in the DALI bus      |
-| G Device ID | targetIdG    | Required          | Address of device in the DALI bus      |
-| B Device ID | targetIdB    | Required          | Address of device in the DALI bus      |
+|  Parameter  | Parameter ID | Required/Optional |            description            |
+|-------------|--------------|-------------------|-----------------------------------|
+| R Device ID | targetIdR    | Required          | Address of device in the DALI bus |
+| G Device ID | targetIdG    | Required          | Address of device in the DALI bus |
+| B Device ID | targetIdB    | Required          | Address of device in the DALI bus |
 
 ### device-dt8
 
-| Parameter   | Parameter ID | Required/Optional |  description                           |
-|-------------|--------------|-------------------|----------------------------------------|
-| Device ID   | targetId     | Required          | Address of device in the DALI bus      |
+| Parameter | Parameter ID | Required/Optional |            description            |
+|-----------|--------------|-------------------|-----------------------------------|
+| Device ID | targetId     | Required          | Address of device in the DALI bus |
 
 ### group-dt8
 
-| Parameter      | Parameter ID       | Required/Optional | description                                                                                  |
+|   Parameter    |    Parameter ID    | Required/Optional |                                         description                                          |
 |----------------|--------------------|-------------------|----------------------------------------------------------------------------------------------|
 | Group  ID      | targetId           | Required          | Address of group in the DALI bus                                                             |
 | Read Device ID | readDeviceTargetId | Optional          | If reading values from this group fails, you can choose to read from a single device instead |
@@ -85,3 +85,4 @@ Color ColorLivingRoom "Light Color Living Room"  {channel="dali:device:237dbae7:
 Number:Temperature ColorTemperatureLivingRoom "Light Color Temperature Living Room [%d K]"  {channel="dali:device:237dbae7:87bf0403-a45d-4037-b874-28f4ece30004:color-temperature-abs"}
 Switch LightsLivingRoom "Lights Living Room On/Off"  {channel="dali:device:237dbae7:31da8dac-8e09-455a-bc7a-6ed70f740001:dimImmediately"}
 ```
+

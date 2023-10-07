@@ -23,9 +23,9 @@ No binding configuration required.
 
 ## Thing Configuration
 
-| Parameter | Description   | Required  |
-|----------|--------|-------------|
-| webThingURI | the URI of the WebThing | true  |
+|  Parameter  |       Description       | Required |
+|-------------|-------------------------|----------|
+| webThingURI | the URI of the WebThing | true     |
 
 Due to the discovery support, **no manual Thing configuration is required** in general. However, under certain circumstances textual
 Thing configuration may be preferred. In this case, the webThingURI has to be configured as shown in the webthing.things file below:
@@ -38,8 +38,8 @@ Thing webthing:generic:motionsensor [ webThingURI="http://192.168.1.27:9496/" ]
 
 The supported channels depend on the WebThing device that is connected. Each mappable **WebThing property will be mapped to a dedicated channel, automatically**. For instance, to support the _motion property_ of a Motion-Sensor WebThing, a dedicated _motion channel_ will be created, automatically.
 
-| Thing | channel  | type   | description                  |
-|--------|----------|--------|------------------------------|
+|  Thing   |  channel  |   type    |                                      description                                       |
+|----------|-----------|-----------|----------------------------------------------------------------------------------------|
 | WebThing | Automatic | Automatic | All channels will be generated automatically based on the detected WebThing properties |
 
 ## Full Example
@@ -47,7 +47,7 @@ The supported channels depend on the WebThing device that is connected. Each map
 In the example below WebThings provided by the [Internet Monitor Service](https://pypi.org/project/internet-monitor-webthing/) will be connected.
 This service does not require specific hardware or devices. To connect the WebThings, the service has to be installed inside your local network.
 
-### Thing  
+### Thing
 
 After installing the WebThing binding you should find the WebThings of your network in the things section of your openHAB administration interface as shown below.
 
@@ -58,7 +58,7 @@ _Internet Speed Monitor_ WebThing have been discovered. To add a WebThing as an 
 
 ![discovery picture](doc/speedmonitor.png)
 
-Alternatively, you may add the WebThing as an openHAB Thing by using a webthing.thing file that has to be located inside the things folder.  
+Alternatively, you may add the WebThing as an openHAB Thing by using a webthing.thing file that has to be located inside the things folder.
 
 ```java
 Thing  webthing:generic:speedmonitor [ webThingURI="http://192.168.1.27:9496/0" ]
@@ -83,11 +83,11 @@ WebThing property name _uploadspeed_.
 
 These channels may be linked via the channels tab of the graphical user interface or manually via a webthing.items file as shown below
 
- ```java
+```java
 Number uploadSpeed  "uploadspeed speed [%.0f]" {channel="webthing:generic:speedmonitor:uploadspeed"}
 Number downloadSpeed  "download speed [%.0f]" {channel="webthing:generic:speedmonitor:downloadspeed"}
 
- ```
+```
 
 ### Sitemap
 

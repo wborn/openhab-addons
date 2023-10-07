@@ -32,11 +32,11 @@ Bridge smartthings:smartthings:Home    [ smartthingsIp="192.168.1.12", smartthin
 where:
 
 - **smartthings:smartthings:Home** identifies this is a smartthings hub named Home.
-    The first two segments must be smartthings:smartthings.
-    You can choose any unique name for the the last segment.
-    The last segment is used when you identify items connected to this hubthingTypeId.
+  The first two segments must be smartthings:smartthings.
+  You can choose any unique name for the the last segment.
+  The last segment is used when you identify items connected to this hubthingTypeId.
 - **smartthingsIp** is the IP address of the Smartthings Hub.
-    Your router should be configured such that the Smartthings Hub is always assigned to this IP address.
+  Your router should be configured such that the Smartthings Hub is always assigned to this IP address.
 - **smartthingsPort** is the port the Smartthings hub listens on. 39500 is the port assigned by Smartthings so it should be used unless you have a good reason for using another port.
 
 **Warning** This binding only supports one Bridge.
@@ -84,10 +84,10 @@ The most important thing is getting the **channel** specification correct. The g
 The parts (separated by :) are defined as:
 
 1. **smartthings** to specify this is a smartthings device
-1. **thingTypeId** specifies the type of the thing  you are connecting to. This is the same as described in the last section.
-1. **hubName** identifies the name of the hub specified above. This corresponds to the third segment in the **Bridge** definition.
-1. **thingName** identifes the thing this is attached to and is the "name" you specified in the **Thing** definition.
-1. **channelId** corresponds the the attribute in the [Smartthings Capabilities list](https://docs.smartthings.com/en/latest/capabilities-reference.html). For switch it would be "switch".
+2. **thingTypeId** specifies the type of the thing  you are connecting to. This is the same as described in the last section.
+3. **hubName** identifies the name of the hub specified above. This corresponds to the third segment in the **Bridge** definition.
+4. **thingName** identifes the thing this is attached to and is the "name" you specified in the **Thing** definition.
+5. **channelId** corresponds the the attribute in the [Smartthings Capabilities list](https://docs.smartthings.com/en/latest/capabilities-reference.html). For switch it would be "switch".
 
 ### Example
 
@@ -145,6 +145,7 @@ Frame label="Sengled RGBW Bulb" {
 ## References
 
 1. [openHAB configuration documentation](https://openhab.org/docs/configuration/index.html)
-1. [Smartthings Capabilities Reference](https://docs.smartthings.com/en/latest/capabilities-reference.html)
-1. [Smartthings Developers Documentation](https://docs.smartthings.com/en/latest/index.html)
-1. [Smartthings Development Environment](https://graph.api.smartthings.com/)
+2. [Smartthings Capabilities Reference](https://docs.smartthings.com/en/latest/capabilities-reference.html)
+3. [Smartthings Developers Documentation](https://docs.smartthings.com/en/latest/index.html)
+4. [Smartthings Development Environment](https://graph.api.smartthings.com/)
+

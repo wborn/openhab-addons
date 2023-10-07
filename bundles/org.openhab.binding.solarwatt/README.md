@@ -11,14 +11,13 @@ All supported values and devices were discovered while playing with my own energ
 ## Not supported by this binding
 
 * Solarwatt Manager/Manager Flex; ie. the black square device that is wall mounted.
- 
+
 The Solarwatt Manager already contains an OpenHAB installation which can be connected to
 other installations via [Remote openHAB Binding](https://www.openhab.org/addons/bindings/remoteopenhab/).
 
-
 ## Supported Things
 
-| Thing Type ID    | Devices                                                |
+|  Thing Type ID   |                        Devices                         |
 |------------------|--------------------------------------------------------|
 | energymanager    | EnergyManager itself.                                  |
 | location         | Location part of the EnergyManager.                    |
@@ -39,24 +38,24 @@ The attached devices and supported channels are discovered automatically.
 
 ### EnergyManager
 
-| Property | Default | Required | Description                                                             |
-| -------- | ------- | -------- | ----------------------------------------------------------------------- |
+| Property | Default | Required |                               Description                               |
+|----------|---------|----------|-------------------------------------------------------------------------|
 | hostname | None    | Yes      | hostname or ip-address of the energy manager.                           |
 | refresh  | 30      | No       | Refresh interval in seconds for the current values of the channels.     |
 | rescan   | 5       | No       | Rescan interval in minutes for the redetection of channgels and things. |
 
 ### Child Things
 
-| Property | Default | Required | Description                                                |
-| -------- | ------- | -------- | ---------------------------------------------------------- |
+| Property | Default | Required |                        Description                         |
+|----------|---------|----------|------------------------------------------------------------|
 | guid     | None    | Yes      | Guid of the device as used by the solarwatt energymanager. |
 
 ## Channels
 
 ### EnergyManager
 
-| Channel Type ID                          | Item Type            | Description                                                                                                      |
-| ---------------------------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------------- |
+|             Channel Type ID              |      Item Type       |                                                   Description                                                    |
+|------------------------------------------|----------------------|------------------------------------------------------------------------------------------------------------------|
 | timestamp                                | Number               | Milliseconds since the epoch set to the last NTP time sync                                                       |
 | datetime                                 | DateTime             | Date and time of the last NTP time sync in the timezone of the energy manager                                    |
 | idTimezone                               | String               | Timezone the energy manager is running in. All  timestamps are milliseconds since the epoch within this timezone |
@@ -69,15 +68,15 @@ The attached devices and supported channels are discovered automatically.
 
 ### PVPlant
 
-| Channel Type ID | Item Type     | Description                             |
-| --------------- | ------------- | --------------------------------------- |
+| Channel Type ID |   Item Type   |               Description               |
+|-----------------|---------------|-----------------------------------------|
 | powerACOut      | Number:Power  | Energy produced by the PV in watts      |
 | workACOut       | Number:Energy | Energy produced by the PV in watt hours |
 
 ### Location
 
-| Channel Type ID          | Item Type     | Description                                                                    |
-| ------------------------ | ------------- | ------------------------------------------------------------------------------ |
+|     Channel Type ID      |   Item Type   |                                  Description                                   |
+|--------------------------|---------------|--------------------------------------------------------------------------------|
 | powerBuffered            | Number:Power  | Power flow into the storage system                                             |
 | powerSelfConsumed        | Number:Power  | Power consumed direct from PV plus energy stored                               |
 | powerSelfSupplied        | Number:Power  | Power consumed direct from PV plus energy consumed from storage                |
@@ -103,8 +102,8 @@ The attached devices and supported channels are discovered automatically.
 
 ### PowerMeter, S0Counter, MyReservePowerMeter
 
-| Channel Type ID          | Item Type     | Description                                                                                 |
-| ------------------------ | ------------- | ------------------------------------------------------------------------------------------- |
+|     Channel Type ID      |   Item Type   |                                         Description                                         |
+|--------------------------|---------------|---------------------------------------------------------------------------------------------|
 | channelDirectionMetering | String        | Representing which energy flow directions are metered. One off _IN_, _OUT_, _BIDIRECTIONAL_ |
 | powerIn                  | Number:Power  | Power metered flowing into the consumer                                                     |
 | powerOut                 | Number:Power  | Power metered flowing out of the producer                                                   |
@@ -114,8 +113,8 @@ The attached devices and supported channels are discovered automatically.
 
 ### Inverter, MyReserveInverter, SunSpecInverter
 
-| Channel Type ID     | Item Type     | Description                      |
-| ------------------- | ------------- | -------------------------------- |
+|   Channel Type ID   |   Item Type   |           Description            |
+|---------------------|---------------|----------------------------------|
 | powerACOutMax       | Number:Power  | Maximum power production         |
 | powerACOutLimit     | Number:Power  | Limit of power production        |
 | powerACOut          | Number:Power  | Power delivered by the inverter  |
@@ -126,8 +125,8 @@ The attached devices and supported channels are discovered automatically.
 
 All of _Inverter_ plus
 
-| Channel Type ID        | Item Type          | Description                              |
-| ---------------------- | ------------------ | ---------------------------------------- |
+|    Channel Type ID     |     Item Type      |               Description                |
+|------------------------|--------------------|------------------------------------------|
 | powerACIn              | Number:Power       | Power fed into battery                   |
 | workACIn               | Number:Energy      | Energy fed into battery                  |
 | stateOfCharge          | Number             | Charging state of battery in percent     |
@@ -140,8 +139,8 @@ All of _Inverter_ plus
 
 ### EVStation, KebaEv
 
-| Channel Type ID    | Item Type     | Description                                                             |
-| ------------------ | ------------- | ----------------------------------------------------------------------- |
+|  Channel Type ID   |   Item Type   |                               Description                               |
+|--------------------|---------------|-------------------------------------------------------------------------|
 | powerACIn          | Number:Power  | Power consumed by the charger                                           |
 | workACIn           | Number:Energy | Energy consumed by the charger                                          |
 | workACInSession    | Number:Energy | Work consumed during current/last charging session                      |
@@ -150,13 +149,13 @@ All of _Inverter_ plus
 
 ### GridFlow
 
-| Channel Type ID | Item Type            | Description                         |
-| --------------- | -------------------- | ----------------------------------- |
+| Channel Type ID |      Item Type       |             Description             |
+|-----------------|----------------------|-------------------------------------|
 | feedInLimit     | Number:Dimensionless | Current derating setting in percent |
 
 ### SmartHeater
 
-| Channel Type ID   | Item Type          | Description                            |
+|  Channel Type ID  |     Item Type      |              Description               |
 |-------------------|--------------------|----------------------------------------|
 | workACIn          | Number:Energy      | Energy fed into smart heater           |
 | powerACIn         | Number:Power       | Power fed into smart heater            |
@@ -284,3 +283,4 @@ Number:Temperature Solarwatt_Smartheater_UrnEgoSmartheater62018833_TemperatureSe
 Number:Temperature Solarwatt_Smartheater_UrnEgoSmartheater62018833_TemperatureSetMax "SmartHeater temperatureSetMax [%.1f °C]" <temperature> { channel="solarwatt:smartheater:urn-ego-smartheater-62018833:temperatureSetMax" }
 Number:Temperature Solarwatt_Smartheater_UrnEgoSmartheater62018833_TemperatureSetMin "SmartHeater temperatureSetMin [%.1f °C]" <temperature> { channel="solarwatt:smartheater:urn-ego-smartheater-62018833:temperatureSetMin" }
 ```
+

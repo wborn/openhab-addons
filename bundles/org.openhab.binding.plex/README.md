@@ -30,7 +30,7 @@ Next step is to *PLAY* something on the desired player. Only when media is playe
 
 The PLEX Server needs to be configured first. The hostname of the PLEX server is mandatory and the either the PLEX token (recommended) or the username/password of the PLEX server (not recommended).
 
-Then find the PLEX token please follow the instructions from the PLEX support forum: 
+Then find the PLEX token please follow the instructions from the PLEX support forum:
 
 1. Sign in to your Plex account in Plex Web App
 2. Browse to a library item and view the XML for it
@@ -38,14 +38,14 @@ Then find the PLEX token please follow the instructions from the PLEX support fo
 
 ### `PLEX Server` Thing Configuration
 
-| Name        | Type    | Description                                                                                                                                                                                               | Default | Required | Advanced |
-|-------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|----------|---------|
-| host        | text    | PLEX host name or IP address                                                                                                                                                                              | N/A     | yes      | no      |
-| portNumber  | integer | Port Number (leave blank if PLEX installed on default port)                                                                                                                                               | 32400   | no       | no      |
-| refreshRate | integer | Interval in seconds at which PLEX server status is polled                                                                                                                                                 | 5       | no       | no      |
-| username    | text    | If you're using Plex Home you need to supply the username and password of your Plex account here. If you don't want to enter your credentials you can also directly set your account token below instead. | N/A     | no       | no      |
-| password    | text    | If you're using Plex Home you need to supply the username and password of your Plex account here. If you don't want to enter your credentials you can also directly set your account token below instead. | N/A     | no       | no      |
-| token       | text    | The authentication token when username/password is left blank                                                                                                                                             | N/A     | no       | no      |
+|    Name     |  Type   |                                                                                                Description                                                                                                | Default | Required | Advanced |
+|-------------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|----------|----------|
+| host        | text    | PLEX host name or IP address                                                                                                                                                                              | N/A     | yes      | no       |
+| portNumber  | integer | Port Number (leave blank if PLEX installed on default port)                                                                                                                                               | 32400   | no       | no       |
+| refreshRate | integer | Interval in seconds at which PLEX server status is polled                                                                                                                                                 | 5       | no       | no       |
+| username    | text    | If you're using Plex Home you need to supply the username and password of your Plex account here. If you don't want to enter your credentials you can also directly set your account token below instead. | N/A     | no       | no       |
+| password    | text    | If you're using Plex Home you need to supply the username and password of your Plex account here. If you don't want to enter your credentials you can also directly set your account token below instead. | N/A     | no       | no       |
+| token       | text    | The authentication token when username/password is left blank                                                                                                                                             | N/A     | no       | no       |
 
 ### `PLEX Player` Thing Configuration
 
@@ -54,7 +54,7 @@ You can add multiple PLEX players. You can choose to find the player by autodisc
 #### Autodiscovery
 
 Turn on the player you want to add and *play* some media on it. Navigate to `/settings/things/add/plex` and start the auto discover.
-The player will be found and you can add it. 
+The player will be found and you can add it.
 
 #### Manual adding a player Thing
 
@@ -89,15 +89,15 @@ It will display the following XML file.
 
 Find the `Device` block of the player you want to add and fill in the `clientIdentifier` as `playerID`
 
-| Name        | Type    | Description                                                                                | Default | Required | Advanced |
-|-------------|---------|--------------------------------------------------------------------------------------------|---------|----------|---------|
-| playerID    | text    | The unique identifier of the player. `clientIdentifier` from [https://plex.tv/devices.xml] | N/A     | yes      | no      |
+|   Name   | Type |                                        Description                                         | Default | Required | Advanced |
+|----------|------|--------------------------------------------------------------------------------------------|---------|----------|----------|
+| playerID | text | The unique identifier of the player. `clientIdentifier` from [https://plex.tv/devices.xml] | N/A     | yes      | no       |
 
 ## Channels
 
 The PLEX Player supports the following channels:
 
-| Channel              | Type     | Read/Write | Description                                                           |
+|       Channel        |   Type   | Read/Write |                              Description                              |
 |----------------------|----------|------------|-----------------------------------------------------------------------|
 | currentPlayers       | Number   | RO         | The number of players currently configured to watch on PLEX           |
 | currentPlayersActive | Number   | RO         | The number of players currently being used on PLEX                    |
@@ -165,3 +165,4 @@ then
     telegramActionPlexBot.sendTelegram("Bedroom Roku is watching %s", PlexTVTitle02.state.toString)
 end
 ```
+

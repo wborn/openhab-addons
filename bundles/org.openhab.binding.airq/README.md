@@ -19,21 +19,21 @@ Auto-discovery is not supported.
 
 The air-Q Thing must be configured with (both mandatory):
 
-| Parameter | Description                        |
+| Parameter |            Description             |
 |-----------|------------------------------------|
 | ipAddress | Network address, e.g. 192.168.0.68 |
 | password  | Password of the air-Q device       |
 
 The Thing provides the following properties:
 
-| Parameter              | Description                   |
-|------------------------|-------------------------------|
-| id                     | Device ID                     |
-| hardwareVersion        | Hardware version              |
-| softwareVersion        | Firmware version              |
-| sensorList             | Available sensors             |
-| sensorInfo             | Information about the sensors |
-| industry               | Industry version              |
+|    Parameter    |          Description          |
+|-----------------|-------------------------------|
+| id              | Device ID                     |
+| hardwareVersion | Hardware version              |
+| softwareVersion | Firmware version              |
+| sensorList      | Available sensors             |
+| sensorInfo      | Information about the sensors |
+| industry        | Industry version              |
 
 ## Channels
 
@@ -43,78 +43,78 @@ For the Maximum Error channels just add `_maxerr` to the channel names.
 
 The rw column is empty if the channel is only readable, w if the channel can be written and rw if it allows both to be read and written.
 
-| channel                   | type                 | rw | description                                                         |
-|---------------------------|----------------------|----|---------------------------------------------------------------------|
-| status                    | String               |    | Status of the sensors (usually "OK")                                |
-| avgFineDustSize           | Number:Length        |    | Average size of Fine Dust [experimental]                            |
-| fineDustCnt00_3           | Number:Dimensionless |    | Fine Dust >0,3 µm                                                   |
-| fineDustCnt00_5           | Number:Dimensionless |    | Fine Dust >0,5 µm                                                   |
-| fineDustCnt01             | Number:Dimensionless |    | Fine Dust >1 µm                                                     |
-| fineDustCnt02_5           | Number:Dimensionless |    | Fine Dust >2,5 µm                                                   |
-| fineDustCnt05             | Number:Dimensionless |    | Fine Dust >5 µm                                                     |
-| fineDustCnt10             | Number:Dimensionless |    | Fine Dust >10 µm                                                    |
-| co                        | Number               |    | CO concentration                                                    |
-| co2                       | Number:Dimensionless |    | CO₂ concentration                                                   |
-| dCO2dt                    | Number               |    | Change of CO₂ concentration                                         |
-| dHdt                      | Number               |    | Change of Humidity                                                  |
-| dewpt                     | Number:Temperature   |    | Dew Point                                                           |
-| doorEvent                 | Number               |    | Door Event (experimental, might not work reliably)                  |
-| health                    | Number:Dimensionless |    | Health Index (0 to 1000, -200 for gas alarm, -800 for fire alarm)   |
-| humidityRelative          | Number:Dimensionless |    | Humidity in percent                                                 |
-| humidityAbsolute          | Number               |    | Absolute Humidity                                                   |
-| measureTime               | Number:Time          |    | Milliseconds needed for measurement                                 |
-| no2                       | Number               |    | NO₂ concentration                                                   |
-| o3                        | Number               |    | Ozone (O₃) concentration                                            |
-| o2                        | Number:Dimensionless |    | Oxygen (O₂) concentration                                           |
-| performance               | Number:Dimensionless |    | Performance Index (0 to 1000)                                       |
-| fineDustConc01            | Number               |    | Fine Dust concentration >1 µm                                       |
-| fineDustConc02_5          | Number               |    | Fine Dust concentration >2.5 µm                                     |
-| fineDustConc10            | Number               |    | Fine Dust concentration >10 µm             fni                      |
-| pressure                  | Number:Pressure      |    | Pressure                                                            |
-| so2                       | Number               |    | SO₂ concentration                                                   |
-| sound                     | Number:Dimensionless |    | Noise                                                               |
-| temperature               | Number:Temperature   |    | Temperature                                                         |
-| timestamp                 | DateTime             |    | Timestamp of measurement                                            |
-| tvoc                      | Number:Dimensionless |    | VOC concentration                                                   |
-| uptime                    | Number:Time          |    | uptime in seconds                                                   |
-| wifi                      | Switch               |    | WLAN on or off                                                      |
-| ssid                      | String               |    | WLAN SSID                                                           |
-| password                  | String               | w  | Device Password                                                     |
-| wifiInfo                  | Switch               | rw | Show WLAN status with LED                                           |
-| timeServer                | String               | rw | Name of Timeserver address                                          |
-| location                  | Location             | rw | Location of air-Q device                                            |
-| nightmodeStartDay         | String               | rw | Time to start day operation                                         |
-| nightmodeStartNight       | String               | rw | End of day operation                                                |
-| nightmodeBrightnessDay    | Number:Dimensionless | rw | Brightness of LED during the day                                    |
-| nightmodeBrightnessNight  | Number:Dimensionless | rw | Brightness of LED at night                                          |
-| nightmodeFanNightOff      | Switch               | rw | Switch off fan at night                                             |
-| nightmodeWifiNightOff     | Switch               | rw | Switch off WLAN at night                                            |
-| deviceName                | String               |    | Device Name                                                         |
-| roomType                  | String               | rw | Type of room                                                        |
-| logLevel                  | String               | w  | Logging level                                                       |
-| deleteKey                 | String               | w  | Settings to be deleted                                              |
-| fireAlarm                 | Switch               | rw | Send Fire Alarm if certain levels are met                           |
-| wlanConfigGateway         | String               | rw | Network Gateway                                                     |
-| wlanConfigMac             | String               | rw | MAC Address                                                         |
-| wlanConfigSsid            | String               | rw | WLAN SSID                                                           |
-| wlanConfigIPAddress       | String               | rw | Assigned IP address                                                 |
-| wlanConfigNetMask         | String               | rw | Network mask                                                        |
-| wlanConfigBssid           | String               | rw | Network BSSID                                                       |
-| cloudUpload               | Switch               | rw | Upload to air-Q cloud                                               |
-| averagingRhythm           | Number               | rw | Rhythm of measurement for historic average                          |
-| powerFreqSuppression      | String               | rw | Power Frequency                                                     |
-| autoDriftCompensation     | Switch               | rw | Compensate automatic drift                                          |
-| autoUpdate                | Switch               | rw | Install Firmware updates automatically                              |
-| advancedDataProcessing    | Switch               | rw | Use advanced algorithms eg. for open window or presence of a person |
-| ppm_and_ppb               | Switch               | rw | Output CO as ppm and NO₂, O₃ and SO₂ as ppb value instead of mg/m3  |
-| gasAlarm                  | Switch               | rw | Send Gas Alarm if certain levels are met                            |
-| soundPressure             | Switch               | rw | Sound Pressure Level                                                |
-| alarmForwarding           | Switch               | rw | Forward gas or fire alarm to other air-Q devices in the household   |
-| userCalib                 | String               |    | Last sensor calibration                                             |
-| initialCalFinished        | Switch               |    | Initial calibration has finished                                    |
-| averaging                 | Switch               | rw | Do an average                                                       |
-| errorBars                 | Switch               | rw | Calculate Maximum Errors                                            |
-| warmupPhase               | Switch               | rw | Output data as Warmup Phase                                         |
+|         channel          |         type         | rw |                             description                             |
+|--------------------------|----------------------|----|---------------------------------------------------------------------|
+| status                   | String               |    | Status of the sensors (usually "OK")                                |
+| avgFineDustSize          | Number:Length        |    | Average size of Fine Dust [experimental]                            |
+| fineDustCnt00_3          | Number:Dimensionless |    | Fine Dust >0,3 µm                                                   |
+| fineDustCnt00_5          | Number:Dimensionless |    | Fine Dust >0,5 µm                                                   |
+| fineDustCnt01            | Number:Dimensionless |    | Fine Dust >1 µm                                                     |
+| fineDustCnt02_5          | Number:Dimensionless |    | Fine Dust >2,5 µm                                                   |
+| fineDustCnt05            | Number:Dimensionless |    | Fine Dust >5 µm                                                     |
+| fineDustCnt10            | Number:Dimensionless |    | Fine Dust >10 µm                                                    |
+| co                       | Number               |    | CO concentration                                                    |
+| co2                      | Number:Dimensionless |    | CO₂ concentration                                                   |
+| dCO2dt                   | Number               |    | Change of CO₂ concentration                                         |
+| dHdt                     | Number               |    | Change of Humidity                                                  |
+| dewpt                    | Number:Temperature   |    | Dew Point                                                           |
+| doorEvent                | Number               |    | Door Event (experimental, might not work reliably)                  |
+| health                   | Number:Dimensionless |    | Health Index (0 to 1000, -200 for gas alarm, -800 for fire alarm)   |
+| humidityRelative         | Number:Dimensionless |    | Humidity in percent                                                 |
+| humidityAbsolute         | Number               |    | Absolute Humidity                                                   |
+| measureTime              | Number:Time          |    | Milliseconds needed for measurement                                 |
+| no2                      | Number               |    | NO₂ concentration                                                   |
+| o3                       | Number               |    | Ozone (O₃) concentration                                            |
+| o2                       | Number:Dimensionless |    | Oxygen (O₂) concentration                                           |
+| performance              | Number:Dimensionless |    | Performance Index (0 to 1000)                                       |
+| fineDustConc01           | Number               |    | Fine Dust concentration >1 µm                                       |
+| fineDustConc02_5         | Number               |    | Fine Dust concentration >2.5 µm                                     |
+| fineDustConc10           | Number               |    | Fine Dust concentration >10 µm             fni                      |
+| pressure                 | Number:Pressure      |    | Pressure                                                            |
+| so2                      | Number               |    | SO₂ concentration                                                   |
+| sound                    | Number:Dimensionless |    | Noise                                                               |
+| temperature              | Number:Temperature   |    | Temperature                                                         |
+| timestamp                | DateTime             |    | Timestamp of measurement                                            |
+| tvoc                     | Number:Dimensionless |    | VOC concentration                                                   |
+| uptime                   | Number:Time          |    | uptime in seconds                                                   |
+| wifi                     | Switch               |    | WLAN on or off                                                      |
+| ssid                     | String               |    | WLAN SSID                                                           |
+| password                 | String               | w  | Device Password                                                     |
+| wifiInfo                 | Switch               | rw | Show WLAN status with LED                                           |
+| timeServer               | String               | rw | Name of Timeserver address                                          |
+| location                 | Location             | rw | Location of air-Q device                                            |
+| nightmodeStartDay        | String               | rw | Time to start day operation                                         |
+| nightmodeStartNight      | String               | rw | End of day operation                                                |
+| nightmodeBrightnessDay   | Number:Dimensionless | rw | Brightness of LED during the day                                    |
+| nightmodeBrightnessNight | Number:Dimensionless | rw | Brightness of LED at night                                          |
+| nightmodeFanNightOff     | Switch               | rw | Switch off fan at night                                             |
+| nightmodeWifiNightOff    | Switch               | rw | Switch off WLAN at night                                            |
+| deviceName               | String               |    | Device Name                                                         |
+| roomType                 | String               | rw | Type of room                                                        |
+| logLevel                 | String               | w  | Logging level                                                       |
+| deleteKey                | String               | w  | Settings to be deleted                                              |
+| fireAlarm                | Switch               | rw | Send Fire Alarm if certain levels are met                           |
+| wlanConfigGateway        | String               | rw | Network Gateway                                                     |
+| wlanConfigMac            | String               | rw | MAC Address                                                         |
+| wlanConfigSsid           | String               | rw | WLAN SSID                                                           |
+| wlanConfigIPAddress      | String               | rw | Assigned IP address                                                 |
+| wlanConfigNetMask        | String               | rw | Network mask                                                        |
+| wlanConfigBssid          | String               | rw | Network BSSID                                                       |
+| cloudUpload              | Switch               | rw | Upload to air-Q cloud                                               |
+| averagingRhythm          | Number               | rw | Rhythm of measurement for historic average                          |
+| powerFreqSuppression     | String               | rw | Power Frequency                                                     |
+| autoDriftCompensation    | Switch               | rw | Compensate automatic drift                                          |
+| autoUpdate               | Switch               | rw | Install Firmware updates automatically                              |
+| advancedDataProcessing   | Switch               | rw | Use advanced algorithms eg. for open window or presence of a person |
+| ppm_and_ppb              | Switch               | rw | Output CO as ppm and NO₂, O₃ and SO₂ as ppb value instead of mg/m3  |
+| gasAlarm                 | Switch               | rw | Send Gas Alarm if certain levels are met                            |
+| soundPressure            | Switch               | rw | Sound Pressure Level                                                |
+| alarmForwarding          | Switch               | rw | Forward gas or fire alarm to other air-Q devices in the household   |
+| userCalib                | String               |    | Last sensor calibration                                             |
+| initialCalFinished       | Switch               |    | Initial calibration has finished                                    |
+| averaging                | Switch               | rw | Do an average                                                       |
+| errorBars                | Switch               | rw | Calculate Maximum Errors                                            |
+| warmupPhase              | Switch               | rw | Output data as Warmup Phase                                         |
 
 ## Example
 
@@ -221,3 +221,4 @@ Switch airQ_averaging               "Do an average"                             
 Switch airQ_errorBars               "Calculate Maximum Errors"                       {channel="airq:airq:1:errorBars"}
 Switch airQ_warmupPhase             "Output Data as Warmup Phase"                    {channel="airq:airq:1:warmupPhase"}
 ```
+

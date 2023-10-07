@@ -6,7 +6,7 @@ The easiest way is to open the Bond Home app on your mobile device, tap on your 
 
 ## Supported Things
 
-| Thing Type       | Description                                                       |
+|    Thing Type    |                            Description                            |
 |------------------|-------------------------------------------------------------------|
 | bondBridge       | The RF/IR/WiFi Bridge                                             |
 | bondFan          | An RF or IR remote controlled ceiling fan with or without a light |
@@ -23,11 +23,11 @@ Once the bridge has been added, individual devices will be auto-discovered and a
 
 ### bondBridge
 
-| Parameter          | Description                                                           | Required |
-|--------------------|-----------------------------------------------------------------------|----------|
-| bondId             | The Bond ID of the bridge from the Bond Home app.                     | Yes      |
-| localToken         | The authentication token for the local API.                           | Yes      |
-| bondIpAddress      | The exact IP address to connect to the Bond Hub on the local network  | No       |
+|   Parameter   |                             Description                              | Required |
+|---------------|----------------------------------------------------------------------|----------|
+| bondId        | The Bond ID of the bridge from the Bond Home app.                    | Yes      |
+| localToken    | The authentication token for the local API.                          | Yes      |
+| bondIpAddress | The exact IP address to connect to the Bond Hub on the local network | No       |
 
 ## Channels
 
@@ -36,10 +36,10 @@ They are dependent on how the device is configured in the Bond Home app.
 
 ### `common` Group
 
-| Channel    | Type     | Description                                                     |
-|------------|----------|-----------------------------------------------------------------|
-| power      | Switch   | Device Power                                                    |
-| command    | String   | Send a command to the device                                    |
+| Channel |  Type  |         Description          |
+|---------|--------|------------------------------|
+| power   | Switch | Device Power                 |
+| command | String | Send a command to the device |
 
 Available commands:
 | Command                   | Description                                       |
@@ -58,32 +58,32 @@ Available commands:
 
 ### `fan` Group
 
-| Channel           | Type     | Description                                       |
-|-------------------|----------|---------------------------------------------------|
-| power             | Switch   | Fan power (only applicable to fireplace fans)     |
-| speed             | Dimmer   | Sets the fan speed. The 0-100% value will be scaled to however many speeds the fan actually has. Note that you cannot set the fan to speed 0 - you must turn `OFF` the power channel instead. |
-| breezeState       | Switch   | Enables or disables breeze mode                   |
-| breezeMean        | Dimmer   | Sets the average speed in breeze mode             |
-| breezeVariability | Dimmer   | Sets the variability of the speed in breeze mode. |
-| direction         | String   | Sets the fan direction - "Summer" or "Winter"     |
-| timer             | Number   | Sets an automatic off timer for s seconds (turning on the fan if necessary) |
+|      Channel      |  Type  |                                                                                          Description                                                                                          |
+|-------------------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| power             | Switch | Fan power (only applicable to fireplace fans)                                                                                                                                                 |
+| speed             | Dimmer | Sets the fan speed. The 0-100% value will be scaled to however many speeds the fan actually has. Note that you cannot set the fan to speed 0 - you must turn `OFF` the power channel instead. |
+| breezeState       | Switch | Enables or disables breeze mode                                                                                                                                                               |
+| breezeMean        | Dimmer | Sets the average speed in breeze mode                                                                                                                                                         |
+| breezeVariability | Dimmer | Sets the variability of the speed in breeze mode.                                                                                                                                             |
+| direction         | String | Sets the fan direction - "Summer" or "Winter"                                                                                                                                                 |
+| timer             | Number | Sets an automatic off timer for s seconds (turning on the fan if necessary)                                                                                                                   |
 
 ### `light`, `upLight`, `downLight` Groups
 
-| Channel         | Type   | Description                                            |
-|-----------------|--------|--------------------------------------------------------|
-| power           | Switch | Turns the light on or off                              |
-| brightness      | Dimmer | Adjusts the brightness of the light                    |
+|  Channel   |  Type  |             Description             |
+|------------|--------|-------------------------------------|
+| power      | Switch | Turns the light on or off           |
+| brightness | Dimmer | Adjusts the brightness of the light |
 
 ### `fireplace` Group
 
-| Channel  | Type   | Description                            |
-|----------|--------|----------------------------------------|
-| flame    | Dimmer | Adjust the flame level                 |
+| Channel |  Type  |      Description       |
+|---------|--------|------------------------|
+| flame   | Dimmer | Adjust the flame level |
 
 ### `shade` Group
 
-| Channel       | Type          | Description                                      |
+|    Channel    |     Type      |                   Description                    |
 |---------------|---------------|--------------------------------------------------|
 | rollershutter | Rollershutter | Only UP, DOWN, STOP, 0%, and 100% are supported. |
 
@@ -105,3 +105,4 @@ String GreatFan_Rotation "Great Room Fan Rotation" { channel="bondhome:bondFan:B
 Switch GreatFanLight_Switch "Great Room Fan Light" { channel="bondhome:bondFan:BD123456:0d11f00:light#power" }
 Switch RF_Outlet_Lamp "Remote Control Outlet" { channel="bondhome:bondLight:BD123456:ce1fe38:light#power" }
 ```
+

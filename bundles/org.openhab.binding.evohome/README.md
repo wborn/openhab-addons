@@ -37,7 +37,7 @@ Thing configuration is optional, it is easier to use discovery which will automa
 
 ### Account
 
-| Name            | Required | Description                                            |
+|      Name       | Required |                      Description                       |
 |-----------------|----------|--------------------------------------------------------|
 | username        | yes      | The username of your TCC account                       |
 | password        | yes      | The password of your TCC account                       |
@@ -45,7 +45,7 @@ Thing configuration is optional, it is easier to use discovery which will automa
 
 ### Display &amp; Zone
 
-| Name | Required | Description                                                                            |
+| Name | Required |                                      Description                                       |
 |------|----------|----------------------------------------------------------------------------------------|
 | id   | yes      | The id which can be found by auto-discovery or the response data (using TRACE logging) |
 | name | no       | A friendly name for use in the UI                                                      |
@@ -58,18 +58,18 @@ None
 
 ### Display
 
-| Channel Type ID | Item Type | Description                                                                                                        |
-|-----------------|-----------|--------------------------------------------------------------------------------------------------------------------|
+| Channel Type ID | Item Type |                                                   Description                                                    |
+|-----------------|-----------|------------------------------------------------------------------------------------------------------------------|
 | Mode            | String    | Allows to view or set the system mode. Supported values are: Auto, AutoWithEco, Away, DayOff, HeatingOff, Custom |
 
 ### Zone
 
-| Channel Type ID | Item Type          | Description                                                                                                                            |
+| Channel Type ID |     Item Type      |                                                              Description                                                               |
 |-----------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | Temperature     | Number:Temperature | Allows for viewing the current actual temperature of the zone.                                                                         |
 | SetPointStatus  | String             | Allows for viewing the current set point mode of the zone.                                                                             |
 | SetPoint        | Number:Temperature | Allows for viewing and permanently overriding the temperature set point of the zone. Sending 0 cancels any active set point overrides. |
-                                                                                                                                 |
+|                 |
 
 ## Full Example
 
@@ -83,7 +83,7 @@ Bridge evohome:account:your_account_alias [ username="your_user_name", password=
 }
 ```
 
-### demo.items  
+### demo.items
 
 ```java
 // evohome Display
@@ -118,3 +118,4 @@ sitemap evohome label="evohome Menu"
     }
 }
 ```
+

@@ -16,7 +16,7 @@ There are some examples at the end that you can review if you want a general ide
 
 I will briefly explain some terms that will be used:
 
-* Tokenize: first step of the recognition is to split the text, each of these parts is called token. 
+* Tokenize: first step of the recognition is to split the text, each of these parts is called token.
 * Named Entity Recognition (NER): is the process of finding a subset of tokens on the input.
 * Part Of Speech (POS) tagging: categorizing tokens in a text, depending on the definition of the token and its context.
 * Lemmatize: is the process of getting a generic representation of the tokens, each of it is called lemma. (Example of one token to lemma conversion: 'is' -> 'be').
@@ -82,11 +82,11 @@ This configuration allow you to define symbols to use on your templates.
 You can define the sets of tokens to match using ner, and a transformation using pos.
 Those are its fields:
 
- * label: label for the placeholder, is prefixed with '$' and spaces are replaced by '_' to create the symbol you can use on the template (Required).
- * nerValues: list of strings containing parts of the text to look for. Takes precedence over the ner field.
- * ner: name for a file under the ner folder (<OPENHAB_USERDATA>/actiontemplatehli/ner), first it will look for a <ner>.bin model and then for a <ner>.xml dictionary for applying ner (prevalence over 'nerValues').
- * posValues: apply a pos transformation with static values. Takes precedence over the pos field.
- * pos: name for a file under the pos folder (<OPENHAB_USERDATA>/actiontemplatehli/pos), first it will look for a <pos>.bin model and then for a <pos>.xml dictionary (prevalence over 'posValues').
+* label: label for the placeholder, is prefixed with '$' and spaces are replaced by '_' to create the symbol you can use on the template (Required).
+* nerValues: list of strings containing parts of the text to look for. Takes precedence over the ner field.
+* ner: name for a file under the ner folder (<OPENHAB_USERDATA>/actiontemplatehli/ner), first it will look for a <ner>.bin model and then for a <ner>.xml dictionary for applying ner (prevalence over 'nerValues').
+* posValues: apply a pos transformation with static values. Takes precedence over the pos field.
+* pos: name for a file under the pos folder (<OPENHAB_USERDATA>/actiontemplatehli/pos), first it will look for a <pos>.bin model and then for a <pos>.xml dictionary (prevalence over 'posValues').
 
 The placeholder symbol replaces the text tokens matched using NER (before scoring the actions) and the captured value could be transformed using POS and will be accessible to the value under its symbol.
 As a summary, using the placeholders you can configure how parts of the speech are converted into valid item values and backward.
@@ -173,8 +173,8 @@ Tokenizing the text is enough to use the action type 'tokens' as tokens are the 
 
 ### POSTagger (language tags)
 
-You need to provide a model for POS tagging at '<OPENHAB_USERDATA>/actiontemplatehli/pos.bin' for your language. 
-This will produce a language tag for each token, that can be used in 'optionalLanguageTags' to make some optional for scoring. 
+You need to provide a model for POS tagging at '<OPENHAB_USERDATA>/actiontemplatehli/pos.bin' for your language.
+This will produce a language tag for each token, that can be used in 'optionalLanguageTags' to make some optional for scoring.
 Please note that these labels may be different depending on the model, please refer to your model's documentation.
 As an example:
 
@@ -190,23 +190,23 @@ You need the correct language tags for the lemmatizer to work.
 
 ### Lemmatizer
 
-You need to provide a model for the lemmatizer at '<OPENHAB_USERDATA>/actiontemplatehli/lemma.bin' for your language. 
+You need to provide a model for the lemmatizer at '<OPENHAB_USERDATA>/actiontemplatehli/lemma.bin' for your language.
 This will produce a lemma for each token, then you can use the action type 'lemmas'.
 
 Note that you need the POS language tags for your language, the ones covered on the previous section, for the lemmatizer to work.
 
 ## Interpreter Configuration
 
-| Config                  |  Group   |  Type   |   Default            | Description                                                                                                   |
-|-------------------------|----------|---------|----------------------|---------------------------------------------------------------------------------------------------------------|
-| lowerText               | nlp      | boolean | false                | Convert the input text to lowercase before processing                                                         |
-| caseSensitive           | nlp      | boolean | false                | Enable case sensitivity, do not apply to dictionaries and models, do not apply to the 'itemLabel' placeholder |
-| useSimpleTokenizer      | nlp      | boolean | false                | Prefer simple tokenizer over white space tokenizer                                                            |
-| detokenizeOptimization  | nlp      | boolean | true                 | Enables build-in detokenization based on original text, otherwise string join by space is used                |
-| optionalLanguageTags    | nlp      | text    |                      | Comma separated POS language tags that will be optional when comparing                                        |
-| commandSentMessage      | messages | text    | Done                 | Message for successful command                                                                                |
-| unhandledMessage        | messages | text    | I can not do that    | Message for unsuccessful action                                                                               |
-| failureMessage          | messages | text    | There was an error   | Message for error during processing                                                                           |
+|         Config         |  Group   |  Type   |      Default       |                                                  Description                                                  |
+|------------------------|----------|---------|--------------------|---------------------------------------------------------------------------------------------------------------|
+| lowerText              | nlp      | boolean | false              | Convert the input text to lowercase before processing                                                         |
+| caseSensitive          | nlp      | boolean | false              | Enable case sensitivity, do not apply to dictionaries and models, do not apply to the 'itemLabel' placeholder |
+| useSimpleTokenizer     | nlp      | boolean | false              | Prefer simple tokenizer over white space tokenizer                                                            |
+| detokenizeOptimization | nlp      | boolean | true               | Enables build-in detokenization based on original text, otherwise string join by space is used                |
+| optionalLanguageTags   | nlp      | text    |                    | Comma separated POS language tags that will be optional when comparing                                        |
+| commandSentMessage     | messages | text    | Done               | Message for successful command                                                                                |
+| unhandledMessage       | messages | text    | I can not do that  | Message for unsuccessful action                                                                               |
+| failureMessage         | messages | text    | There was an error | Message for error during processing                                                                           |
 
 ## Examples:
 
@@ -295,21 +295,21 @@ These are the files needed:
 #### File '<OPENHAB_USERDATA>/actiontemplatehli/pos/application_to_package.xml'
 
 ```xml
-  <?xml version="1.0" encoding="UTF-8"?>
-  <dictionary>
-    <entry tags="com.google.android.youtube">
-      <token>youtube</token>
-    </entry>
-    <entry tags="com.netflix.ninja">
-      <token>netflix</token>
-    </entry>
-    <entry tags="org.jellyfin.androidtv">
-      <token>jellyfin</token>
-    </entry>
-    <entry tags="com.amazon.amazonvideo.livingroom">
-      <token>amazon__video</token> // note the __
-    </entry>
-  </dictionary>
+<?xml version="1.0" encoding="UTF-8"?>
+<dictionary>
+  <entry tags="com.google.android.youtube">
+    <token>youtube</token>
+  </entry>
+  <entry tags="com.netflix.ninja">
+    <token>netflix</token>
+  </entry>
+  <entry tags="org.jellyfin.androidtv">
+    <token>jellyfin</token>
+  </entry>
+  <entry tags="com.amazon.amazonvideo.livingroom">
+    <token>amazon__video</token> // note the __
+  </entry>
+</dictionary>
 ```
 
 ### Switch type action configs example:
@@ -388,3 +388,4 @@ config:
   type: tokens
   value: $contact:$*
 ```
+

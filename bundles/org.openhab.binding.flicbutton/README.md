@@ -13,10 +13,10 @@ After buttons are initially added to flicd, an internet connection is not requir
 
 ## Supported Things
 
-| Thing Type ID   | Description               |
-| --------------- | ------------------------- |
-| flicd-bridge | The bridge representing a running instance of [fliclib-linux-hci (flicd)](https://github.com/50ButtonsEach/fliclib-linux-hci) on the server. |
-| button | The Flic button (supports Flic 1 buttons as well as Flic 2 buttons) |
+| Thing Type ID |                                                                 Description                                                                  |
+|---------------|----------------------------------------------------------------------------------------------------------------------------------------------|
+| flicd-bridge  | The bridge representing a running instance of [fliclib-linux-hci (flicd)](https://github.com/50ButtonsEach/fliclib-linux-hci) on the server. |
+| button        | The Flic button (supports Flic 1 buttons as well as Flic 2 buttons)                                                                          |
 
 ## Discovery
 
@@ -65,11 +65,11 @@ You're free to choose any label you like for your button.
 
 ## Channels
 
-| Channel ID                | Channel Type             | Item Type                | Description                    |
-| ------------------------- | ------------------------ | --------------------------| ------------------------------ |
-| rawbutton                | [System Trigger Channel](https://www.openhab.org/docs/developer/bindings/thing-xml.html#system-trigger-channel-types) `system.rawbutton`  | Depends on the  [Trigger Profile](https://www.openhab.org/docs/configuration/items.html#profiles) used | Raw Button channel that triggers `PRESSED` and `RELEASED` events, allows to use openHAB profiles or own implementations via rules to detect e.g. double clicks, long presses etc.  |
-| button                   | [System Trigger Channel](https://www.openhab.org/docs/developer/bindings/thing-xml.html#system-trigger-channel-types) `system.button`    | Depends on the [Trigger Profile](https://www.openhab.org/docs/configuration/items.html#profiles) used | Button channel that is using Flic's implementation for detecting long, short or double clicks. Triggers `SHORT_PRESSED`,`DOUBLE_PRESSED` and `LONG_PRESSED` events.   |
-| battery-level            | [System State Channel](https://www.openhab.org/docs/developer/bindings/thing-xml.html#system-state-channel-types) `system.battery-level`     | Number | Represents the battery level as a percentage (0-100%).
+|  Channel ID   |                                                               Channel Type                                                               |                                               Item Type                                                |                                                                                    Description                                                                                    |
+|---------------|------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| rawbutton     | [System Trigger Channel](https://www.openhab.org/docs/developer/bindings/thing-xml.html#system-trigger-channel-types) `system.rawbutton` | Depends on the  [Trigger Profile](https://www.openhab.org/docs/configuration/items.html#profiles) used | Raw Button channel that triggers `PRESSED` and `RELEASED` events, allows to use openHAB profiles or own implementations via rules to detect e.g. double clicks, long presses etc. |
+| button        | [System Trigger Channel](https://www.openhab.org/docs/developer/bindings/thing-xml.html#system-trigger-channel-types) `system.button`    | Depends on the [Trigger Profile](https://www.openhab.org/docs/configuration/items.html#profiles) used  | Button channel that is using Flic's implementation for detecting long, short or double clicks. Triggers `SHORT_PRESSED`,`DOUBLE_PRESSED` and `LONG_PRESSED` events.               |
+| battery-level | [System State Channel](https://www.openhab.org/docs/developer/bindings/thing-xml.html#system-state-channel-types) `system.battery-level` | Number                                                                                                 | Represents the battery level as a percentage (0-100%).                                                                                                                            |
 
 ## Example
 
@@ -78,13 +78,13 @@ You're free to choose any label you like for your button.
 1. Setup and run flicd as described in [fliclib-linux-hci](https://github.com/50ButtonsEach/fliclib-linux-hci).
    Please consider that you need a separate Bluetooth adapter. Shared usage with other Bluetooth services (e.g. Bluez)
    is not possible.
-1. Connect your buttons to flicd using the simpleclient as described in
+2. Connect your buttons to flicd using the simpleclient as described in
    [fliclib-linux-hci](https://github.com/50ButtonsEach/fliclib-linux-hci). Flicd has to run in background the whole
    time, simpleclient can be killed after you successfully test the button connects.
-1. Add a flicd-bridge via the UI or textual configuration. Please consider that flicd only accepts connections from
+3. Add a flicd-bridge via the UI or textual configuration. Please consider that flicd only accepts connections from
    localhost by default, to enable remote connections from openHAB you have to use the `--server-addr` parameter as
    described in [fliclib-linux-hci](https://github.com/50ButtonsEach/fliclib-linux-hci).
-1. When the bridge is online, buttons newly added via simpleclient will automatically get discovered via background
+4. When the bridge is online, buttons newly added via simpleclient will automatically get discovered via background
    discovery. To discover buttons that were set up before the binding was setup, please run an active scan.
 
 ### Configuration Example using Profiles
@@ -129,3 +129,4 @@ then
     logInfo("Flic", "Flic pressed: " + receivedEvent.event)
 end
 ```
+

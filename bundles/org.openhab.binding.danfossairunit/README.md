@@ -20,7 +20,7 @@ These are the available configuration parameters:
 
 ## Channels
 
-| channel              | channel group | type                 | readable only (RO) or writable (RW) | description                                                                                                                                                                              |
+|       channel        | channel group |         type         | readable only (RO) or writable (RW) |                                                                                       description                                                                                        |
 |----------------------|---------------|----------------------|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | current_time         | main          | DateTime             | RO                                  | Current time reported by the air unit.                                                                                                                                                   |
 | mode                 | main          | String               | RW                                  | Value to control the operation mode of the air unit. One of DEMAND, PROGRAM, MANUAL and OFF                                                                                              |
@@ -51,7 +51,7 @@ Suppose your autodiscovered air unit is identified by the id "danfossairunit:air
 The channel will then be identified by `<air unit id>:<channel group>#<channel>`
 
 You can also manually configure your air unit in case you don't want to use autodiscovery
- (e. g. if you want to have a portable configuration):
+(e. g. if you want to have a portable configuration):
 Create a new file, e. g. `danfoss.things`, in your _things_ configuration folder:
 
 ```java
@@ -107,3 +107,4 @@ sitemap danfoss label="Danfoss" {
     }
 }
 ```
+

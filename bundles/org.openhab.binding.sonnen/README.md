@@ -7,8 +7,8 @@ More information about the V2 API can be found at `http://LOCAL-SONNENBATTERY-SY
 
 ## Supported Things
 
-| Thing Type    | Description                    |
-| ------------- | ------------------------------ |
+|  Thing Type   |          Description           |
+|---------------|--------------------------------|
 | sonnenbattery | Monitoring of a sonnen battery |
 
 ## Thing Configuration
@@ -20,8 +20,8 @@ If you want to use the V2 API, which supports more channels, you need to provide
 
 The following channels are yet supported:
 
-| Channel                        | Type          | Access | Description                                                                             |
-| ------------------------------ | ------------- | ------ | --------------------------------------------------------------------------------------- |
+|            Channel             |     Type      | Access |                                       Description                                       |
+|--------------------------------|---------------|--------|-----------------------------------------------------------------------------------------|
 | batteryChargingState           | Switch        | read   | Indicates if the Battery is charging at that moment                                     |
 | batteryCharging                | Number:Energy | read   | Indicates the actual current charging the Battery. Otherwise 0.                         |
 | batteryDischargingState        | Switch        | read   | Indicates if the Battery is discharging at that moment                                  |
@@ -65,3 +65,4 @@ Switch FlowConsumptionBattery { channel="sonnen:sonnenbattery:myBattery:flowCons
 The binding was successfully tested with the following sonnen battery:
 
 - sonnnen eco 8.0 SW Version: 1.6.10.1221979
+

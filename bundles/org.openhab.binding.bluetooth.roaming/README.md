@@ -6,7 +6,7 @@ This extension adds support for accessing Bluetooth devices from any other confi
 
 It defines the following bridge type:
 
-| Bridge Type ID | Description                                                                                                |
+| Bridge Type ID |                                                Description                                                 |
 |----------------|------------------------------------------------------------------------------------------------------------|
 | roaming        | A virtual Bluetooth adapter that interacts with Bluetooth devices through their nearest Bluetooth adapter. |
 
@@ -14,9 +14,9 @@ It defines the following bridge type:
 
 Devices which use a `roaming` adapter as their bridge also gain the following channels:
 
-| Channel ID       | Item Type | Description                                                                          |
-|------------------|-----------|--------------------------------------------------------------------------------------|
-| adapter-uid      | String    | The thingUID of the adapter that is nearest to this device                           |
+|    Channel ID    | Item Type |                                      Description                                      |
+|------------------|-----------|---------------------------------------------------------------------------------------|
+| adapter-uid      | String    | The thingUID of the adapter that is nearest to this device                            |
 | adapter-location | String    | The nearest adapter's `Location` value as specified in the adapter's thing properties |
 
 ## Discovery
@@ -41,3 +41,4 @@ This is how a Roaming adapter can be configured textually in a *.things file:
 Bridge bluetooth:roaming:ctrl "BLE Roaming Adapter" [ backgroundDiscovery=true]
 Bridge bluetooth:roaming:other "BLE Roaming Adapter" [ backgroundDiscovery=true, groupUIDs="bluetooth:bluez:hci0,bluetooth:bluez:hci1"]
 ```
+

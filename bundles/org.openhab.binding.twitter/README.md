@@ -12,19 +12,19 @@ account - Twitter Account.
 
 The Twitter Account Thing requires you to create a Twitter App in the Twitter Developer Page.
 
-|   Property        | Default | Required | Description                       |
+|     Property      | Default | Required |            Description            |
 |-------------------|---------|:--------:|-----------------------------------|
 | consumerKey       |         |   Yes    | Consumer API Key                  |
 | consumerSecret    |         |   Yes    | Consumer API Secret               |
 | accessToken       |         |   Yes    | Access Token                      |
 | accessTokenSecret |         |   Yes    | Access Token Secret               |
-| refresh           | 30      |   No     | Tweet refresh interval in minutes |
+| refresh           | 30      |    No    | Tweet refresh interval in minutes |
 
 ## Channels
 
-| channel    | type   | description                                    |
-|------------|--------|------------------------------------------------|
-| lasttweet  | String | This channel provides the Latest Tweet message |
+|  channel  |  type  |                  description                   |
+|-----------|--------|------------------------------------------------|
+| lasttweet | String | This channel provides the Latest Tweet message |
 
 ## Full Example
 
@@ -61,3 +61,4 @@ val success4 = tweetActions.sendTweetWithAttachment("HTTP Picture", "http://www.
 val success5 = tweetActions.sendDirectMessage("1234567", "Wake Up" )
 
 ```
+

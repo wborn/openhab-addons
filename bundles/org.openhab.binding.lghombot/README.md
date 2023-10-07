@@ -26,31 +26,31 @@ You can also configure the polling interval in seconds by setting "pollingPeriod
 
 ## Channels
 
-| Channel Type ID | Item Type | Description                                                              | Read/Write |
-|-----------------|-----------|--------------------------------------------------------------------------|------------|
-| state           | String    | Current state of the HomBot.                                             | R          |
-| battery         | Number    | Current battery charge.                                                  | R          |
-| cpuLoad         | Number    | Current CPU load.                                                        | R          |
-| srvMem          | Number    | Current server memory load.                                              | R          |
-| clean           | Switch    | Start cleaning / return home.                                            | RW         |
-| start           | Switch    | Start cleaning.                                                          | RW         |
-| home            | Switch    | Send HomBot home.                                                        | RW         |
-| pause           | Switch    | Pause current activity.                                                  | RW         |
-| turbo           | Switch    | Turn turbo on/off.                                                       | RW         |
-| repeat          | Switch    | Turn repeat cleaning on/off.                                             | RW         |
-| mode            | String    | Current cleaning mode.                                                   | RW         |
-| nickname        | String    | Nickname of the HomBot.                                                  | R          |
-| move            | String    | Manually control the HomBot.                                             | RW         |
-| camera          | Image     | Image from the top camera.                                               | R          |
-| lastClean       | DateTime  | Date of last clean.                                                      | R          |
-| map             | Image     | Image of clean area.                                                     | R          |
-| monday          | DateTime  | Time when cleaning is on Mondays.                                        | R          |
-| tuesday         | DateTime  | Time when cleaning is on Tuesdays.                                       | R          |
-| wednsday        | DateTime  | Time when cleaning is on Wednsdays.                                      | R          |
-| thursday        | DateTime  | Time when cleaning is on Thursdays.                                      | R          |
-| friday          | DateTime  | Time when cleaning is on Fridays.                                        | R          |
-| saturday        | DateTime  | Time when cleaning is on Saturdays.                                      | R          |
-| sunday          | DateTime  | Time when cleaning is on Sundays.                                        | R          |
+| Channel Type ID | Item Type |             Description             | Read/Write |
+|-----------------|-----------|-------------------------------------|------------|
+| state           | String    | Current state of the HomBot.        | R          |
+| battery         | Number    | Current battery charge.             | R          |
+| cpuLoad         | Number    | Current CPU load.                   | R          |
+| srvMem          | Number    | Current server memory load.         | R          |
+| clean           | Switch    | Start cleaning / return home.       | RW         |
+| start           | Switch    | Start cleaning.                     | RW         |
+| home            | Switch    | Send HomBot home.                   | RW         |
+| pause           | Switch    | Pause current activity.             | RW         |
+| turbo           | Switch    | Turn turbo on/off.                  | RW         |
+| repeat          | Switch    | Turn repeat cleaning on/off.        | RW         |
+| mode            | String    | Current cleaning mode.              | RW         |
+| nickname        | String    | Nickname of the HomBot.             | R          |
+| move            | String    | Manually control the HomBot.        | RW         |
+| camera          | Image     | Image from the top camera.          | R          |
+| lastClean       | DateTime  | Date of last clean.                 | R          |
+| map             | Image     | Image of clean area.                | R          |
+| monday          | DateTime  | Time when cleaning is on Mondays.   | R          |
+| tuesday         | DateTime  | Time when cleaning is on Tuesdays.  | R          |
+| wednsday        | DateTime  | Time when cleaning is on Wednsdays. | R          |
+| thursday        | DateTime  | Time when cleaning is on Thursdays. | R          |
+| friday          | DateTime  | Time when cleaning is on Fridays.   | R          |
+| saturday        | DateTime  | Time when cleaning is on Saturdays. | R          |
+| sunday          | DateTime  | Time when cleaning is on Sundays.   | R          |
 
 ## Full Example
 
@@ -108,3 +108,4 @@ sitemap demo label="Main Menu"
     }
 }
 ```
+

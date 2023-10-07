@@ -17,7 +17,7 @@ As soon as the AmpliPi is online, its zones and groups are automatically retriev
 
 The `controller` Bridge has two configuration parameters:
 
-| Parameter       | Required | Description                                                                                        |
+|    Parameter    | Required |                                            Description                                             |
 |-----------------|----------|----------------------------------------------------------------------------------------------------|
 | hostname        | yes      | The hostname or IP address of the AmpliPi on the network                                           |
 | refreshInterval | no       | The time to wait between two polling requests for receiving state updates. Defaults to 10 seconds. |
@@ -28,21 +28,21 @@ Both the `zone` and `group` Things only require a single configuration parameter
 
 These are the channels of the `controller` Bridge:
 
-| Channel  | Type   | Description                                                                                          |
-|----------|--------|------------------------------------------------------------------------------------------------------|
-| preset   | Number | Allows setting a pre-configured preset. The available options are dynamically read from the AmpliPi. |
-| input1   | String | The selected input of source 1                                                                       |
-| input2   | String | The selected input of source 2                                                                       |
-| input3   | String | The selected input of source 3                                                                       |
-| input4   | String | The selected input of source 4                                                                       |
+| Channel |  Type  |                                             Description                                              |
+|---------|--------|------------------------------------------------------------------------------------------------------|
+| preset  | Number | Allows setting a pre-configured preset. The available options are dynamically read from the AmpliPi. |
+| input1  | String | The selected input of source 1                                                                       |
+| input2  | String | The selected input of source 2                                                                       |
+| input3  | String | The selected input of source 3                                                                       |
+| input4  | String | The selected input of source 4                                                                       |
 
 The `zone` and `group` Things have the following channels:
 
-| Channel  | Type   | Description                                        |
-|----------|--------|----------------------------------------------------|
-| volume   | Dimmer | The volume of the zone/group                       |
-| mute     | Switch | Mutes the zone/group                               |
-| source   | Number | The source (1-4) that this zone/group is playing   |
+| Channel |  Type  |                   Description                    |
+|---------|--------|--------------------------------------------------|
+| volume  | Dimmer | The volume of the zone/group                     |
+| mute    | Switch | Mutes the zone/group                             |
+| source  | Number | The source (1-4) that this zone/group is playing |
 
 ## Audio Sink
 
@@ -94,3 +94,4 @@ sitemap amplipi label="Main Menu"
     }
 }
 ```
+

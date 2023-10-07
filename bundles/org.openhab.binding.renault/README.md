@@ -19,20 +19,20 @@ No discovery
 
 You require your MyRenault credential, locale and VIN for your MyRenault registered car.
 
-| Parameter         | Description                                                                | Default                          |
-|-------------------|----------------------------------------------------------------------------|----------------------------------|
-| accountType       | Account Type. (MYDACIA,MYRENAULT)                                          | MYRENAULT                        |
-| myRenaultUsername | MyRenault Username.                                                        |                                  |
-| myRenaultPassword | MyRenault Password.                                                        |                                  |
-| locale            | MyRenault Location (language_country).                                     |                                  |
-| vin               | Vehicle Identification Number.                                             |                                  |
-| refreshInterval   | Interval the car is polled in minutes.                                     |                               10 |
-| updateDelay       | How long to wait for commands to reach car and update to server in seconds.|                               30 |
-| kamereonApiKey    | Kamereon API Key.                                                          | VAX7XYKGfa92yMvXculCkEFyfZbuM7Ss |
+|     Parameter     |                                 Description                                 |             Default              |
+|-------------------|-----------------------------------------------------------------------------|----------------------------------|
+| accountType       | Account Type. (MYDACIA,MYRENAULT)                                           | MYRENAULT                        |
+| myRenaultUsername | MyRenault Username.                                                         |                                  |
+| myRenaultPassword | MyRenault Password.                                                         |                                  |
+| locale            | MyRenault Location (language_country).                                      |                                  |
+| vin               | Vehicle Identification Number.                                              |                                  |
+| refreshInterval   | Interval the car is polled in minutes.                                      | 10                               |
+| updateDelay       | How long to wait for commands to reach car and update to server in seconds. | 30                               |
+| kamereonApiKey    | Kamereon API Key.                                                           | VAX7XYKGfa92yMvXculCkEFyfZbuM7Ss |
 
 ## Channels
 
-| Channel ID             | Type               | Description                                     | Read Only |
+|       Channel ID       |        Type        |                   Description                   | Read Only |
 |------------------------|--------------------|-------------------------------------------------|-----------|
 | batteryavailableEnergy | Number:Energy      | Battery Energy Available                        | Yes       |
 | batterylevel           | Number             | State of the battery in %                       | Yes       |
@@ -61,7 +61,7 @@ The "externaltemperature" only works on a few cars.
 The "hvactargettemperature" is used by the hvacstatus ON command for pre-conditioning the car.
 This seams to only allow values 19, 20 and 21 or else the pre-conditioning command will not work.
 
-The 'pause' and 'chargingmode' may not work on some cars. 
+The 'pause' and 'chargingmode' may not work on some cars.
 As an example, 'chargingmode' does not work on Dacia Spring cars.
 
 The Kamereon API Key changes periodically, which causes a communication error.
@@ -148,3 +148,4 @@ actions:
     type: script.ScriptAction
 
 ```
+

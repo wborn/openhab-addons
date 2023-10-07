@@ -25,7 +25,7 @@ mcp23017 - which is a mcp23017 chip connected to an I2C bus on specified HEX add
 
 - Required configuration for mcp23017 thing:
 
-| Parameter  | Description                                                                                                                       | Default value |
+| Parameter  |                                                            Description                                                            | Default value |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------|---------------|
 | address    | MCP23017 I2C bus address. On Raspberry Pi it can be checked as a result of command: "i2cdetect -y 1". Value should be set in HEX. | "20"          |
 | bus_number | a bus number to which mcp23017 is connected. On RPI2 and RPI3 it will be "1", on RPI1 it will be "0".                             | "1"           |
@@ -34,7 +34,7 @@ mcp23017 - which is a mcp23017 chip connected to an I2C bus on specified HEX add
 
 mcp23017 supports 16 channels in 2 groups:
 
-| Group  | Channels                                                       | Additional parameters                     |
+| Group  |                            Channels                            |           Additional parameters           |
 |--------|----------------------------------------------------------------|-------------------------------------------|
 | input  | A0, A1, A2, A3, A4, A5, A6, A7, B0, B1, B2, B3, B4, B5, B6, B7 | pull_mode (OFF, PULL_UP), default is OFF  |
 | output | A0, A1, A2, A3, A4, A5, A6, A7, B0, B1, B2, B3, B4, B5, B6, B7 | default_state (LOW, HIGH), default is LOW |
@@ -52,7 +52,7 @@ When PIN should work as DIGITAL_OUTPUT, channel from group "output" should be us
 Let's imagine a setup with:
 
 1. a wall switch connected to pin B1 on the MCP23017 chip which should turn on/off your LED light when pressed (released).
-1. a relay which is connected to pin A0 on the MCP23017 chip. This relay takes care of turning on/off your light.
+2. a relay which is connected to pin A0 on the MCP23017 chip. This relay takes care of turning on/off your light.
 
 Pressing (and releasing) a wall switch should notify openHAB, and then openHAB should change state of relay to on/off the light.
 Your pin B1 should work as DIGITAL_INPUT, because it READS state of a PIN (state of wall switch). Your pin A0 should work as DIGITAL_OUTPUT
@@ -97,3 +97,4 @@ then
     living_room_led_switch.sendCommand(if(living_room_led_switch.state != ON) ON else OFF)
 end
 ```
+

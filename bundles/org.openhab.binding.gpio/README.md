@@ -54,7 +54,7 @@ Note: If you are running Pigpio on same host as openHAB, then set host to **::1*
 
 ### Pigpio Remote
 
-| channel               | type   | description                     |
+|        channel        |  type  |           description           |
 |-----------------------|--------|---------------------------------|
 | pigpio-digital-input  | Switch | Read-only value of the gpio pin |
 | pigpio-digital-output | Switch | Controls the gpio pin           |
@@ -107,3 +107,4 @@ sitemap demo label="Main Menu"
     Switch item=SampleOutput1
 }
 ```
+

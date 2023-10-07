@@ -15,63 +15,63 @@ This binding uses mDNS for discovering HP Printers on the local network.
 
 The configuration parameters are:
 
-| Parameter                         | Name            | Type    | Required | Default |
-| --------------------------------- | --------------- | ------- | -------- | ------- |
-| IP Address                        | ipAddress       | String  | yes      |         |
-| Usage Refresh Interval (seconds)  | usageInterval   | Integer |          | 30      |
-| Status Refresh Interval (seconds) | statusInterval  | Integer |          | 4       |
+|             Parameter             |      Name      |  Type   | Required | Default |
+|-----------------------------------|----------------|---------|----------|---------|
+| IP Address                        | ipAddress      | String  | yes      |         |
+| Usage Refresh Interval (seconds)  | usageInterval  | Integer |          | 30      |
+| Status Refresh Interval (seconds) | statusInterval | Integer |          | 4       |
 
 ## Channels
 
-| Channel                                    | Group       | Name                  | Data Type            |
-| ------------------------------------------ | ----------- | --------------------- | -------------------- |
-| Printer Status                             | status      | status                | String               |
-| Tray Empty/Open                            | status      | trayEmptyOrOpen       | Switch               |
-| Scanner Status                             | status      | scannerStatus         | String               |
-| ADF Loaded                                 | status      | scannerAdfLoaded      | Switch               |
-| Black Colour Level                         | usage       | blackLevel            | Number:Dimensionless |
-| Colour Level                               | usage       | colorLevel            | Number:Dimensionless |
-| Cyan Colour Level                          | usage       | cyanLevel             | Number:Dimensionless |
-| Magenta Colour Level                       | usage       | magentaLevel          | Number:Dimensionless |
-| Yellow Colour Level                        | usage       | yellowLevel           | Number:Dimensionless |
-| Black Marking Used                         | usage       | blackMarker           | Number:Volume        |
-| Colour Marking Used                        | usage       | colorMarker           | Number:Volume        |
-| Cyan Marking Used                          | usage       | cyanMarker            | Number:Volume        |
-| Magenta Marking Used                       | usage       | magentaMarker         | Number:Volume        |
-| Yellow Marking Used                        | usage       | yellowMarker          | Number:Volume        |
-| Black Pages Remaining                      | usage       | blackPagesRemaining   | Number               |
-| Colour Pages Remaining                     | usage       | colorPagesRemaining   | Number               |
-| Cyan Pages Remaining                       | usage       | cyanPagesRemaining    | Number               |
-| Magenta Pages Remaining                    | usage       | magentaPagesRemaining | Number               |
-| Yellow Pages Remaining                     | usage       | yellowPagesRemaining  | Number               |
-| Total Number of Pages Printed Lifetime     | usage       | totalCount            | Number               |
-| Total Number of Colour Pages Printed       | usage       | totalColorCount       | Number               |
-| Total Number of Monochrome Pages Printed   | usage       | totalMonochromeCount  | Number               |
-| Paper Jams                                 | usage       | jamEvents             | Number               |
-| Missed Pick Events                         | usage       | mispickEvents         | Number               |
-| Front Panel Cancel Count                   | usage       | fpCancelCount         | Number               |
-| Subscription Count                         | usage       | subscriptionCount     | Number               |
-| Scanner Document Feeder Count              | scanner     | totalAdf              | Number               |
-| Scanner Flatbed Count                      | scanner     | totalFlatbed          | Number               |
-| Scanner Paper Jams                         | scanner     | jamEvents             | Number               |
-| Scanner Missed Picks                       | scanner     | mispickEvents         | Number               |
-| Scan Document Feeder Count                 | scan        | totalAdf              | Number               |
-| Scan Flatbed Count                         | scan        | totalFlatbed          | Number               |
-| Scan to Email Count                        | scan        | totalToEmail          | Number               |
-| Scan to Folder Count                       | scan        | totalToFolder         | Number               |
-| Scan to Host Count                         | scan        | totalToHost           | Number               |
-| Copy Document Feeder Count                 | copy        | totalAdf              | Number               |
-| Copy Flatbed Count                         | copy        | totalFlatbed          | Number               |
-| Copy Total Pages Count                     | copy        | totalCount            | Number               |
-| Copy Total Colour Pages Count              | copy        | totalColorCount       | Number               |
-| Copy Total Monochrome Pages Count          | copy        | totalMonochromeCount  | Number               |
-| Windows Page Count                         | app         | totalWin              | Number               |
-| Android Page Count                         | app         | totalAndroid          | Number               |
-| iOS Page Count                             | app         | totalIos              | Number               |
-| OSX Page Count                             | app         | totalOsx              | Number               |
-| Samsung Page Count                         | app         | totalSamsung          | Number               |
-| Chrome Page Count                          | app         | totalChrome           | Number               |
-| Google Cloud Print Count                   | other       | cloudPrint            | Number               |
+|                 Channel                  |  Group  |         Name          |      Data Type       |
+|------------------------------------------|---------|-----------------------|----------------------|
+| Printer Status                           | status  | status                | String               |
+| Tray Empty/Open                          | status  | trayEmptyOrOpen       | Switch               |
+| Scanner Status                           | status  | scannerStatus         | String               |
+| ADF Loaded                               | status  | scannerAdfLoaded      | Switch               |
+| Black Colour Level                       | usage   | blackLevel            | Number:Dimensionless |
+| Colour Level                             | usage   | colorLevel            | Number:Dimensionless |
+| Cyan Colour Level                        | usage   | cyanLevel             | Number:Dimensionless |
+| Magenta Colour Level                     | usage   | magentaLevel          | Number:Dimensionless |
+| Yellow Colour Level                      | usage   | yellowLevel           | Number:Dimensionless |
+| Black Marking Used                       | usage   | blackMarker           | Number:Volume        |
+| Colour Marking Used                      | usage   | colorMarker           | Number:Volume        |
+| Cyan Marking Used                        | usage   | cyanMarker            | Number:Volume        |
+| Magenta Marking Used                     | usage   | magentaMarker         | Number:Volume        |
+| Yellow Marking Used                      | usage   | yellowMarker          | Number:Volume        |
+| Black Pages Remaining                    | usage   | blackPagesRemaining   | Number               |
+| Colour Pages Remaining                   | usage   | colorPagesRemaining   | Number               |
+| Cyan Pages Remaining                     | usage   | cyanPagesRemaining    | Number               |
+| Magenta Pages Remaining                  | usage   | magentaPagesRemaining | Number               |
+| Yellow Pages Remaining                   | usage   | yellowPagesRemaining  | Number               |
+| Total Number of Pages Printed Lifetime   | usage   | totalCount            | Number               |
+| Total Number of Colour Pages Printed     | usage   | totalColorCount       | Number               |
+| Total Number of Monochrome Pages Printed | usage   | totalMonochromeCount  | Number               |
+| Paper Jams                               | usage   | jamEvents             | Number               |
+| Missed Pick Events                       | usage   | mispickEvents         | Number               |
+| Front Panel Cancel Count                 | usage   | fpCancelCount         | Number               |
+| Subscription Count                       | usage   | subscriptionCount     | Number               |
+| Scanner Document Feeder Count            | scanner | totalAdf              | Number               |
+| Scanner Flatbed Count                    | scanner | totalFlatbed          | Number               |
+| Scanner Paper Jams                       | scanner | jamEvents             | Number               |
+| Scanner Missed Picks                     | scanner | mispickEvents         | Number               |
+| Scan Document Feeder Count               | scan    | totalAdf              | Number               |
+| Scan Flatbed Count                       | scan    | totalFlatbed          | Number               |
+| Scan to Email Count                      | scan    | totalToEmail          | Number               |
+| Scan to Folder Count                     | scan    | totalToFolder         | Number               |
+| Scan to Host Count                       | scan    | totalToHost           | Number               |
+| Copy Document Feeder Count               | copy    | totalAdf              | Number               |
+| Copy Flatbed Count                       | copy    | totalFlatbed          | Number               |
+| Copy Total Pages Count                   | copy    | totalCount            | Number               |
+| Copy Total Colour Pages Count            | copy    | totalColorCount       | Number               |
+| Copy Total Monochrome Pages Count        | copy    | totalMonochromeCount  | Number               |
+| Windows Page Count                       | app     | totalWin              | Number               |
+| Android Page Count                       | app     | totalAndroid          | Number               |
+| iOS Page Count                           | app     | totalIos              | Number               |
+| OSX Page Count                           | app     | totalOsx              | Number               |
+| Samsung Page Count                       | app     | totalSamsung          | Number               |
+| Chrome Page Count                        | app     | totalChrome           | Number               |
+| Google Cloud Print Count                 | other   | cloudPrint            | Number               |
 
 Notes:
 
@@ -136,3 +136,4 @@ Scanner Document Feeder loaded with text status display - `ON` or `OFF`
 ```perl
 Text item=hpprinter_printer_djprinter_status_scannerAdfLoaded label="ADF Loaded [%s]"
 ```
+

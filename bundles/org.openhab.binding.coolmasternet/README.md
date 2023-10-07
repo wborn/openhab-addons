@@ -22,7 +22,7 @@ Bridge coolmasternet:controller:main [ host="192.168.0.100" ] {
 
 ## Channels
 
-| Channel      | Item Type | Description                                                                                                                                                                            |
+|   Channel    | Item Type |                                                                                      Description                                                                                       |
 |--------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | on           | Switch    | Turn HVAC unit on and off.                                                                                                                                                             |
 | mode         | String    | HVAC mode (cool, heat, auto, dry, fan). Unit may not support all modes.                                                                                                                |
@@ -41,3 +41,4 @@ Number ACSet "Lounge AC Set" { channel="coolmasternet:hvac:main:a:set_temp" }
 String ACFan "Lounge AC Fan" { channel="coolmasternet:hvac:main:a:fan_speed" }
 String ACLouvre "Lounge AC Louvre" { channel="coolmasternet:hvac:main:a:louvre_angle" }
 ```
+

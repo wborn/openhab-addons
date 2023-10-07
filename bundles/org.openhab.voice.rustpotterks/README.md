@@ -55,7 +55,7 @@ org.openhab.voice.rustpotterks:gainRef=0.004
 
 ## Magic Word Configuration
 
-The magic word to spot is gathered from your 'Voice' configuration. 
+The magic word to spot is gathered from your 'Voice' configuration.
 
 You can generate your own wakeword files using the [command line utility](https://github.com/GiviMAD/rustpotter-cli).
 
@@ -65,7 +65,6 @@ To use a wake word wakeword, you should place the file under '\<openHAB userdata
 As an example, the file generated for the keyword "ok openhab" will be named 'ok_openhab.rpw'.
 
 The service will only work if it's able to find the correct rpw for your magic word configuration.
-
 
 ## Default Keyword Spotter and Magic Word Configuration
 
@@ -84,3 +83,4 @@ org.openhab.voice:defaultKS=rustpotterks
 org.openhab.voice:keyword=hey openhab
 org.openhab.voice:listeningItem=myItemForDialog
 ```
+

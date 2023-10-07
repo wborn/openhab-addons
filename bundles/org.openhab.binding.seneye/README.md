@@ -23,8 +23,8 @@ Discovery is not supported, the seneye monitor must be configured manually.
 
 The following settings must be configured in order to make your seneye binding work:
 
-| Setting       |                                                                                |
-| ------------- | ------------------------------------------------------------------------------ |
+|    Setting    |                                                                                |
+|---------------|--------------------------------------------------------------------------------|
 | aquarium_name | The name of the aquarium, as specified in [seneye.me](https://www.seneye.me/). |
 |               | Useful to distinguish multiple seneye installations.                           |
 | username      | Your login name for [seneye.me](https://www.seneye.me/)                        |
@@ -35,8 +35,8 @@ The following settings must be configured in order to make your seneye binding w
 
 The following channels are supported:
 
-| Channel Type ID | Item Type | Description                                                     |
-| --------------- | --------- | --------------------------------------------------------------- |
+| Channel Type ID | Item Type |                           Description                           |
+|-----------------|-----------|-----------------------------------------------------------------|
 | temperature     | String    | The water temperature                                           |
 | ph              | String    | The PH level of the water                                       |
 | nh3             | String    | The level of Ammonia (NH3) in the water                         |
@@ -79,3 +79,4 @@ sitemap home label="My home" {
     }
 }
 ```
+

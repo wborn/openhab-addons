@@ -6,7 +6,7 @@ This binding supports the Bose SoundTouch multiroom system.
 
 The following Bose devices are supported:
 
-| Name                                  | Thing Type                  |
+|                 Name                  |         Thing Type          |
 |---------------------------------------|-----------------------------|
 | Bose SoundTouch 10                    | 10                          |
 | Bose SoundTouch 20                    | 20                          |
@@ -29,11 +29,11 @@ The binding has no configuration options, all configuration is done at Thing lev
 
 All thing types have the same configuration parameters:
 
-| Parameter Name      | Type   | Required | Description                                                  |
-|---------------------|--------|----------|--------------------------------------------------------------|
-| host                | String | Yes      | The host name or IP address of the device                    |
-| macAddress          | String | Yes      | The MAC address of the used interface (format "123456789ABC")|
-| appKey              | String |  No      | An authorization key used to identify the client application |
+| Parameter Name |  Type  | Required |                          Description                          |
+|----------------|--------|----------|---------------------------------------------------------------|
+| host           | String | Yes      | The host name or IP address of the device                     |
+| macAddress     | String | Yes      | The MAC address of the used interface (format "123456789ABC") |
+| appKey         | String | No       | An authorization key used to identify the client application  |
 
 The required properties are set when using discovery. For manual configuration, these values can be found in the Bose smartphone app (Settings -> About -> Device Name).
 Note that the device might have two MAC addresses, one for ethernet and one for Wifi.
@@ -44,7 +44,7 @@ The authorization key is used to identify the client application when using the 
 
 All devices share the same set of channels, while some of them might not be available on all devices.
 
-| Channel ID                | Item Type | Description                                                  |
+|        Channel ID         | Item Type |                         Description                          |
 |---------------------------|-----------|--------------------------------------------------------------|
 | keyCode                   | String    | Simulates pushing a remote control button                    |
 | mute                      | Switch    | Mutes the sound                                              |
@@ -139,3 +139,4 @@ sitemap demo label="Bose Test Items"
  }
 }
 ```
+

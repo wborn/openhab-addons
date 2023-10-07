@@ -17,9 +17,9 @@ This binding does not support discovery.
 
 The following configuration parameter applys to `ald1Unidirectional` and `ald1Bidirectional`.
 
-| Name          | Description                              | Type    | Required |
-|---------------|------------------------------------------|---------|----------|
-| pollInterval  | Time between polling the data in ms      | Integer | yes      |
+|     Name     |             Description             |  Type   | Required |
+|--------------|-------------------------------------|---------|----------|
+| pollInterval | Time between polling the data in ms | Integer | yes      |
 
 The Thing needs a Modbus serial slave Bridge to operate.
 
@@ -33,7 +33,7 @@ One of the following serial settings need to be configured in the Bridge:
 
 The following Channels apply to `ald1Unidirectional` and `ald1Bidirectional` if not stated otherwise.
 
-| Name                | Type                     | Description                                                   |
+|        Name         |           Type           |                          Description                          |
 |---------------------|--------------------------|---------------------------------------------------------------|
 | total_energy        | Number:Energy            | Energy Total                                                  |
 | partial_energy      | Number:Energy            | Energy Counter Resettable (only unidirectional meter)         |
@@ -72,3 +72,4 @@ sitemap ald1 label="ALD1 Energy Meter"
     Default item=ALD1_Power_Factor label="Power Factor"
 }
 ```
+

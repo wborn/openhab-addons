@@ -15,23 +15,23 @@ This binding supports route arrival and departure times for all stops provided f
 
 The following configuration options are available for the API binding:
 
-| Parameter   | Name       | Description                                                                         | Required |
+|  Parameter  |    Name    |                                     Description                                     | Required |
 |-------------|------------|-------------------------------------------------------------------------------------|----------|
 | `apiKey`    | API Key    | The API key given to you by a transit provider for their deployment.                | yes      |
 | `apiServer` | API Server | The domain name of the deployment to talk to, e.g. `api.pugetsound.onebusaway.org`. | yes      |
 
 The following configuration options are available for the Stop binding (which requires an API binding):
 
-| Parameter | Name | Description | Required |
-|-----------|------|-------------|----------|
-| `stopId` | Stop ID | The OneBusAway ID of the stop to obtain data for, e.g. `1_26860`. | yes |
-| `interval` | Update Interval | The number of seconds between updates. | no |
+| Parameter  |      Name       |                            Description                            | Required |
+|------------|-----------------|-------------------------------------------------------------------|----------|
+| `stopId`   | Stop ID         | The OneBusAway ID of the stop to obtain data for, e.g. `1_26860`. | yes      |
+| `interval` | Update Interval | The number of seconds between updates.                            | no       |
 
 ## Thing Configuration
 
 The following configuration options are available for a Route (which requires a Stop binding):
 
-| Parameter | Name     | Description                                                         | Required |
+| Parameter |   Name   |                             Description                             | Required |
 |-----------|----------|---------------------------------------------------------------------|----------|
 | `routeId` | Route ID | The OneBusAway ID of the route to obtain data for, e.g. `1_102574`. | yes      |
 
@@ -39,7 +39,7 @@ The following configuration options are available for a Route (which requires a 
 
 The Route Thing supports the following state channels:
 
-| Channel Type ID  | Channel Kind | Item Type | Description                                                                                              |
+| Channel Type ID  | Channel Kind | Item Type |                                               Description                                                |
 |------------------|--------------|-----------|----------------------------------------------------------------------------------------------------------|
 | arrival          | state        | DateTime  | The arrival time of a Route at a Stop.                                                                   |
 | departure        | state        | DateTime  | The departure time of a Route at a Stop.                                                                 |
@@ -81,3 +81,4 @@ DateTime Fremont_40_Departure "40 - Ballard" { channel="onebusaway:route:1_10257
 DateTime Fremont_62_Arrival "62 - Sand Point East Green Lake" { channel="onebusaway:route:1_100252:arrival" }
 DateTime Fremont_62_Departure "62 - Sand Point East Green Lake" { channel="onebusaway:route:1_100252:departure" }
 ```
+

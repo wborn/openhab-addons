@@ -15,7 +15,7 @@ Both bridges are fully supported by this binding.
 
 Almost all available Hue devices are supported by this binding.
 This includes not only the "Friends of Hue", but also products like the LivingWhites adapter.
-Additionally, it is possible to use OSRAM Lightify devices as well as other Zigbee Light Link compatible products, including the IKEA TRÅDFRI lights (when updated). 
+Additionally, it is possible to use OSRAM Lightify devices as well as other Zigbee Light Link compatible products, including the IKEA TRÅDFRI lights (when updated).
 Beside bulbs and luminaires the Hue binding also supports some Zigbee sensors.
 Currently only Hue specific sensors are tested successfully (Hue Motion Sensor and Hue Dimmer Switch).
 Please note that the devices need to be registered with the Hue Bridge before it is possible for this binding to use them.
@@ -74,8 +74,8 @@ You need to manually edit your bridge and thing definitions as shown below:
 Notes:
 
 1. In API v1 different things have different types (`0100`, `0220`, `0830`, etc.) but in API v2 all things have the same type `device`.
-1. In API v1 different things are configured by different parameters (`sensorId`, `lightId`, etc.) but in API v2 all things are configured via the same `resourceId` parameter.
-1. In API v1 some channel names contain underscore characters (`_`) but in API v2 they have changed to dashes (`-`) e.g `color_temperature` -> `color-temperature`.
+2. In API v1 different things are configured by different parameters (`sensorId`, `lightId`, etc.) but in API v2 all things are configured via the same `resourceId` parameter.
+3. In API v1 some channel names contain underscore characters (`_`) but in API v2 they have changed to dashes (`-`) e.g `color_temperature` -> `color-temperature`.
 
 Examples:
 
@@ -98,3 +98,4 @@ Bridge hue:bridge-api2:g24 "Philips Hue Hub (api2)" @ "Home" [ipAddress="192.168
     ..
 }
 ```
+

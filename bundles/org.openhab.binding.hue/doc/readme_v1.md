@@ -13,7 +13,7 @@ Please note that the devices need to be registered with the Hue Bridge before it
 The Hue binding supports all seven types of lighting devices defined for Zigbee Light Link ([see page 24, table 2](https://www.nxp.com/docs/en/user-guide/JN-UG-3091.pdf).
 These are:
 
-| Device type              | Zigbee Device ID | Thing type |
+|       Device type        | Zigbee Device ID | Thing type |
 |--------------------------|------------------|------------|
 | On/Off Light             | 0x0000           | 0000       |
 | On/Off Plug-in Unit      | 0x0010           | 0010       |
@@ -27,15 +27,15 @@ All different models of Hue, OSRAM, or other bulbs nicely fit into one of these 
 This type also determines the capability of a device and with that the possible ways of interacting with it.
 The following matrix lists the capabilities (channels) for each type:
 
-| Thing type  | On/Off | Brightness | Color | Color Temperature |
-|-------------|:------:|:----------:|:-----:|:-----------------:|
-|  0000       |    X   |            |       |                   |
-|  0010       |    X   |            |       |                   |
-|  0100       |    X   |     X      |       |                   |
-|  0110       |    X   |     X      |       |                   |
-|  0200       |    X   |            |   X   |                   |
-|  0210       |    X   |            |   X   |          X        |
-|  0220       |    X   |     X      |       |          X        |
+| Thing type | On/Off | Brightness | Color | Color Temperature |
+|------------|:------:|:----------:|:-----:|:-----------------:|
+| 0000       |   X    |            |       |                   |
+| 0010       |   X    |            |       |                   |
+| 0100       |   X    |     X      |       |                   |
+| 0110       |   X    |     X      |       |                   |
+| 0200       |   X    |            |   X   |                   |
+| 0210       |   X    |            |   X   |         X         |
+| 0220       |   X    |     X      |       |         X         |
 
 Beside bulbs and luminaires the Hue binding supports some Zigbee sensors.
 Currently only Hue specific sensors are tested successfully (e.g. Hue Motion Sensor, Hue Dimmer Switch, Hue Tap, CLIP Sensor).
@@ -43,7 +43,7 @@ The Hue Motion Sensor registers a `ZLLLightLevel` sensor (0106), a `ZLLPresence`
 The Hue CLIP Sensor saves scene states with status or flag for HUE rules.
 They are presented by the following Zigbee Device ID and _Thing type_:
 
-| Device type                 | Zigbee Device ID | Thing type     |
+|         Device type         | Zigbee Device ID |   Thing type   |
 |-----------------------------|------------------|----------------|
 | Light Sensor                | 0x0106           | 0106           |
 | Occupancy Sensor            | 0x0107           | 0107           |
@@ -80,7 +80,7 @@ The user name can be set using the `userName` configuration value, e.g.:
 Bridge hue:bridge:1 [ ipAddress="192.168.0.64", userName="qwertzuiopasdfghjklyxcvbnm1234" ]
 ```
 
-| Parameter                | Description                                                                                                                                                                                                                                                                                                                   |
+|        Parameter         |                                                                                                                                                          Description                                                                                                                                                          |
 |--------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ipAddress                | Network address of the Hue Bridge. **Mandatory**.                                                                                                                                                                                                                                                                             |
 | port                     | Port of the Hue Bridge. Optional, default value is 80 or 443, derived from protocol, otherwise user-defined.                                                                                                                                                                                                                  |
@@ -115,11 +115,10 @@ The following device types also have an optional configuration value to specify 
 - Extended Colour Light
 - Colour Temperature Light
 
-| Parameter | Description                                                                   |
+| Parameter |                                  Description                                  |
 |-----------|-------------------------------------------------------------------------------|
 | lightId   | Number of the device provided by the Hue Bridge. **Mandatory**                |
 | fadetime  | Fade time in Milliseconds to a new state (min="0", step="100", default="400") |
-
 
 ### Groups
 
@@ -134,24 +133,23 @@ You can freely choose the thing identifier (such as kitchen-bulbs), its name (su
 
 The group type also have an optional configuration value to specify the fade time in milliseconds for the transition to a new state.
 
-| Parameter | Description                                                                   |
+| Parameter |                                  Description                                  |
 |-----------|-------------------------------------------------------------------------------|
 | groupId   | Number of the group provided by the Hue Bridge. **Mandatory**                 |
 | fadetime  | Fade time in Milliseconds to a new state (min="0", step="100", default="400") |
-
 
 ## Channels
 
 The devices support some of the following channels:
 
-| Channel Type ID       | Item Type          | Description                                                                                                                             | Thing types supporting this channel      |
+|    Channel Type ID    |     Item Type      |                                                               Description                                                               |   Thing types supporting this channel    |
 |-----------------------|--------------------|-----------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------|
 | switch                | Switch             | This channel supports switching the device on and off.                                                                                  | 0000, 0010, group                        |
 | color                 | Color              | This channel supports full color control with hue, saturation and brightness values.                                                    | 0200, 0210, group                        |
 | brightness            | Dimmer             | This channel supports adjusting the brightness value. Note that this is not available, if the color channel is supported.               | 0100, 0110, 0220, group                  |
 | color_temperature     | Dimmer             | This channel supports adjusting the color temperature from cold (0%) to warm (100%).                                                    | 0210, 0220, group                        |
-| color_temperature_abs | Number:Temperature | This channel supports adjusting the color temperature in Kelvin. 
-**Advanced**                                                           | 0210, 0220, group                        |
+| color_temperature_abs | Number:Temperature | This channel supports adjusting the color temperature in Kelvin.                                                                        |
+| **Advanced**          | 0210, 0220, group  |
 | alert                 | String             | This channel supports displaying alerts by flashing the bulb either once or multiple times. Valid values are: NONE, SELECT and LSELECT. | 0000, 0100, 0200, 0210, 0220, group      |
 | effect                | Switch             | This channel supports color looping.                                                                                                    | 0200, 0210, 0220                         |
 | dimmer_switch         | Number             | This channel shows which button was last pressed on the dimmer switch.                                                                  | 0820                                     |
@@ -176,14 +174,14 @@ You can list all the scene IDs with the following console commands: `hue <bridge
 
 The dimmer switch additionally supports a trigger channel.
 
-| Channel ID          | Description                      | Thing types supporting this channel |
+|     Channel ID      |           Description            | Thing types supporting this channel |
 |---------------------|----------------------------------|-------------------------------------|
 | dimmer_switch_event | Event for dimmer switch pressed. | 0820                                |
 | tap_switch_event    | Event for tap switch pressed.    | 0830                                |
 
 The `dimmer_switch_event` can trigger one of the following events:
 
-| Button              | State           | Event |
+|       Button        |      State      | Event |
 |---------------------|-----------------|-------|
 | Button 1 (ON)       | INITIAL_PRESSED | 1000  |
 |                     | HOLD            | 1001  |
@@ -204,13 +202,12 @@ The `dimmer_switch_event` can trigger one of the following events:
 
 The `tap_switch_event` can trigger one of the following events:
 
-| Button   | State    | Event |
+|  Button  |  State   | Event |
 |----------|----------|-------|
 | Button 1 | Button 1 | 34    |
 | Button 2 | Button 2 | 16    |
 | Button 3 | Button 3 | 17    |
 | Button 4 | Button 4 | 18    |
-
 
 ## Rule Actions
 
@@ -228,11 +225,11 @@ Once this action instance is retrieved, you can invoke the `fadingLightCommand(S
 hueActions.fadingLightCommand("color", new PercentType(100), new DecimalType(1000))
 ```
 
-| Parameter | Description                                                                                      |
-|-----------|--------------------------------------------------------------------------------------------------|
-| channel   | The following channels have fade time support: **brightness, color, color_temperature, switch**  |
-| command   | All commands supported by the channel can be used                                                |
-| fadeTime  | Fade time in milliseconds to a new light value (min="0", step="100")                             |
+| Parameter |                                           Description                                           |
+|-----------|-------------------------------------------------------------------------------------------------|
+| channel   | The following channels have fade time support: **brightness, color, color_temperature, switch** |
+| command   | All commands supported by the channel can be used                                               |
+| fadeTime  | Fade time in milliseconds to a new light value (min="0", step="100")                            |
 
 ## Full Example
 
@@ -335,12 +332,12 @@ sitemap demo label="Main Menu"
 
 ### Events
 
- ```php
+```php
 rule "example trigger rule"
 when
-    Channel "hue:0820:1:dimmer-switch:dimmer_switch_event" triggered <EVENT>
+   Channel "hue:0820:1:dimmer-switch:dimmer_switch_event" triggered <EVENT>
 then
-    ...
+   ...
 end
 ```
 

@@ -1,7 +1,7 @@
 # BenQ Projector Binding
 
 This binding is compatible with BenQ projectors that support the control protocol via the built-in Ethernet port, serial port or USB to serial adapter.
-If your projector does not have built-in networking, you can connect to your projector's serial port via a TCP connection using a serial over IP device or by using`ser2net`.  
+If your projector does not have built-in networking, you can connect to your projector's serial port via a TCP connection using a serial over IP device or by using`ser2net`.
 
 The manufacturer's guide for connecting to the projector and the control protocol can be found in this document: [LX9215_RS232 Control Guide_0_Windows7_Windows8_WinXP.pdf](https://esupportdownload.benq.com/esupport/Projector/Control%20Protocols/LX9215/LX9215_RS232%20Control%20Guide_0_Windows7_Windows8_WinXP.pdf)
 
@@ -23,14 +23,14 @@ All settings are through thing configuration parameters.
 
 The `projector-serial` thing has the following configuration parameters:
 
-| Parameter       | Name             | Description                                                                                                                                               | Required |
+|    Parameter    |       Name       |                                                                        Description                                                                        | Required |
 |-----------------|------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | serialPort      | Serial Port      | Serial port device name that is connected to the BenQ projector to control, e.g. COM1 on Windows, /dev/ttyS0 on Linux or /dev/tty.PL2303-0000103D on Mac. | yes      |
 | pollingInterval | Polling Interval | Polling interval in seconds to update channel states, range 5-60 seconds; default 10 seconds.                                                             | no       |
 
 The `projector-tcp` thing has the following configuration parameters:
 
-| Parameter       | Name             | Description                                                                                                 | Required |
+|    Parameter    |       Name       |                                                 Description                                                 | Required |
 |-----------------|------------------|-------------------------------------------------------------------------------------------------------------|----------|
 | host            | Host Name        | Host Name or IP address for the projector or serial over IP device.                                         | yes      |
 | port            | Port             | Port for the projector or serial over IP device, Default 8000 for BenQ projectors with built in networking. | yes      |
@@ -43,7 +43,6 @@ Some notes:
 - Not all pre-defined dropdown options will be usable if your particular projector does support a given option.
 - If your projector has an option that is not in the dropdown, the string code to access that option will be displayed by the channel when that option is selected by the remote control.
 - By using the sitemap mapping or a rule to send that code back to the channel, any options that are missing in the binding can be accessed.
-
 - On Linux, you may get an error stating the serial port cannot be opened when the benqprojector binding tries to load.
 - You can get around this by adding the `openhab` user to the `dialout` group like this: `usermod -a -G dialout openhab`.
 - Also on Linux you may have issues with the USB if using two serial USB devices e.g. benqprojector and RFXcom. See the [general documentation about serial port configuration](/docs/administration/serial.html) for more on symlinking the USB ports.
@@ -55,16 +54,16 @@ Some notes:
 
 ## Channels
 
-| Channel            | Item Type | Purpose                                             | Values    |
-| ------------------ | --------- | --------------------------------------------------- | --------- |
-| power              | Switch    | Powers the projector on or off.                     |           |
-| source             | String    | Retrieve or set the input source.                   | See above |
-| picturemode        | String    | Retrieve or set the picture mode.                   | See above |
-| aspectratio        | String    | Retrieve or set the aspect ratio.                   | See above |
-| freeze             | Switch    | Turn the freeze image mode on or off.               |           |
-| blank              | Switch    | Turn the screen blank mode on or off.               |           |
-| directcmd          | String    | Send a command directly to the projector.           | Send only |
-| lamptime           | Number    | Retrieves the lamp hours.                           | Read only |
+|   Channel   | Item Type |                  Purpose                  |  Values   |
+|-------------|-----------|-------------------------------------------|-----------|
+| power       | Switch    | Powers the projector on or off.           |           |
+| source      | String    | Retrieve or set the input source.         | See above |
+| picturemode | String    | Retrieve or set the picture mode.         | See above |
+| aspectratio | String    | Retrieve or set the aspect ratio.         | See above |
+| freeze      | Switch    | Turn the freeze image mode on or off.     |           |
+| blank       | Switch    | Turn the screen blank mode on or off.     |           |
+| directcmd   | String    | Send a command directly to the projector. | Send only |
+| lamptime    | Number    | Retrieves the lamp hours.                 | Read only |
 
 ## Full Example
 
@@ -114,3 +113,4 @@ sitemap benq label="BenQ Projector" {
     }
 }
 ```
+

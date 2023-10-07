@@ -37,7 +37,6 @@ rule "Convert JSON to Item Type Number"
 
 Now the resulting Number can also be used in the label to [change the color](https://docs.openhab.org/configuration/sitemaps.html#label-and-value-colors) or in a rule as a value to compare.
 
-
 ## Differences to standard JsonPath
 
 Compared to standard JsonPath, the transformation returns single values instead of arrays.
@@ -65,4 +64,5 @@ This profile is a one-way transformation; only values from a device toward the i
 ## Further Reading
 
 * An extended [introduction](https://www.w3schools.com/js/js_json_intro.asp) can be found at W3School.
-* As JsonPath transformation is based on [Jayway](https://github.com/json-path/JsonPath), using an [online validator](https://jsonpath.herokuapp.com/) which also uses Jayway will give the most similar results. 
+* As JsonPath transformation is based on [Jayway](https://github.com/json-path/JsonPath), using an [online validator](https://jsonpath.herokuapp.com/) which also uses Jayway will give the most similar results.
+

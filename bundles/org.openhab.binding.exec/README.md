@@ -59,7 +59,7 @@ note - if you trigger execution using interval or the run channel, the `%2` subs
 
 All Things support the following channels:
 
-| Channel Type ID | Item Type | Description                                                                          |
+| Channel Type ID | Item Type |                                     Description                                      |
 |-----------------|-----------|--------------------------------------------------------------------------------------|
 | input           | String    | Input parameter to provide to the command                                            |
 | output          | String    | Output of the last execution of the command                                          |

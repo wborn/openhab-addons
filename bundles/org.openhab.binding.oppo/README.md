@@ -36,13 +36,13 @@ All settings are through thing configuration parameters.
 
 The thing has the following configuration parameters:
 
-| Parameter Label  | Parameter ID | Description                                                                                                                      | Accepted values           |
-|------------------|--------------|----------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| Player Model     | model        | Specifies what model of player is to be controlled by the binding (required).                                                    | 83, 103, 105, 203, or 205 |
-| Address          | host         | Host name or IP address of the Oppo player or serial over IP device.                                                             | host name or ip           |
-| Port             | port         | Communication port for using serial over IP. Leave blank if using direct IP connection to the player.                            | ip port number            |
-| Serial Port      | serialPort   | Serial port to use for directly connecting to the Oppo player                                                                    | a comm port name          |
-| Verbose Mode     | verboseMode  | (Optional) If true, the player will send time updates every second. If set false, the binding polls the player every 10 seconds. | Boolean; default false    |
+| Parameter Label | Parameter ID |                                                           Description                                                            |      Accepted values      |
+|-----------------|--------------|----------------------------------------------------------------------------------------------------------------------------------|---------------------------|
+| Player Model    | model        | Specifies what model of player is to be controlled by the binding (required).                                                    | 83, 103, 105, 203, or 205 |
+| Address         | host         | Host name or IP address of the Oppo player or serial over IP device.                                                             | host name or ip           |
+| Port            | port         | Communication port for using serial over IP. Leave blank if using direct IP connection to the player.                            | ip port number            |
+| Serial Port     | serialPort   | Serial port to use for directly connecting to the Oppo player                                                                    | a comm port name          |
+| Verbose Mode    | verboseMode  | (Optional) If true, the player will send time updates every second. If set false, the binding polls the player every 10 seconds. | Boolean; default false    |
 
 Some notes:
 
@@ -61,7 +61,6 @@ Some notes:
 - Available HDMI modes for BDP-83 & BDP-9x: AUTO, SRC, 1080P, 1080I, 720P, SDP, SDI
 - Available HDMI modes for BDP-10x: AUTO, SRC, 4K2K, 1080P, 1080I, 720P, SDP, SDI
 - Available HDMI modes for UDP-20x: AUTO, SRC, UHD_AUTO, UHD24, UHD50, UHD60, 1080P_AUTO, 1080P24, 1080P50, 1080P60, 1080I50, 1080I60, 720P50, 720P60, 567P, 567I, 480P, 480I
-
 - On Linux, you may get an error stating the serial port cannot be opened when the Oppo binding tries to load.
 - You can get around this by adding the `openhab` user to the `dialout` group like this: `usermod -a -G dialout openhab`.
 - Also on Linux you may have issues with the USB if using two serial USB devices e.g. Oppo and RFXcom.
@@ -89,7 +88,7 @@ connection: &conOppo
 
 The following channels are available:
 
-| Channel ID        | Item Type   | Description                                                                                                                           |
+|    Channel ID     |  Item Type  |                                                              Description                                                              |
 |-------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------|
 | power             | Switch      | Turn the power for the player on or off                                                                                               |
 | volume            | Dimmer      | Control the volume for the player (0-100%)                                                                                            |
@@ -292,7 +291,7 @@ VDU Stop current playback and start the VUDU application
 OPT Show/hide the Option menu  
 M3D 3D Show/hide the 2D-to-3D Conversion or 3D adjustment menu  
 SEH Display the Picture Adjustment menu  
-DRB Display the Darbee Adjustment menu  
+DRB Display the Darbee Adjustment menu
 
 #### Extra buttons on UDP models:
 
@@ -300,4 +299,4 @@ HDR Display the HDR selection menu
 INH Show on-screen detailed information  
 RLH Set resolution to Auto  
 AVS Display the A/V Sync adjustment menu  
-GPA Gapless Play. This functions the same as selecting Gapless Play in the Option Menu.  
+GPA Gapless Play. This functions the same as selecting Gapless Play in the Option Menu.

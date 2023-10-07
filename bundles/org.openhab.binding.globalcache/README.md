@@ -17,7 +17,7 @@ Each thing has channels that correspond to the physical connectors on the device
 
 Currently supported devices include:
 
-| Device                            | Thing ID  |
+|              Device               | Thing ID  |
 |-----------------------------------|-----------|
 | iTach WF2IR and IP2IR             | itachIR   |
 | iTach WF2SL and IP2SL             | itachSL   |
@@ -38,9 +38,9 @@ In the event that the device's IP address is changed, the thing configuration mu
 
 The iTach IR (Infrared) and ZMOTE devices have the following configuration parameters.
 
-| Parameter    | Parameter ID | Required/Optional | Description |
-|--------------|--------------|-------------------|-------------|
-| IP Address   | ipAddress    | Required          | The device's IP address. |
+|  Parameter   | Parameter ID | Required/Optional |                           Description                            |
+|--------------|--------------|-------------------|------------------------------------------------------------------|
+| IP Address   | ipAddress    | Required          | The device's IP address.                                         |
 | MAP Filename | mapFilename  | Required          | The MAP file that contains mappings of commands to the IR codes. |
 
 ### iTach SL
@@ -49,20 +49,20 @@ The iTach SL (Serial) device has the following configuration parameters.
 Note that you must use the iTach SL's web application to set the serial port
 parameters for **baud rate**, **flow control**, and **parity** to match the configuration of the end device to which the iTach is connected.
 
-| Parameter      | Parameter ID  | Required/Optional | Description |
-|----------------|---------------|-------------------|-------------|
-| IP Address     | ipAddress     | Required          | The device's IP address. |
-| MAP Filename   | mapFilename   | Required          | The MAP file that contains mappings of commands to the serial codes. |
-| Enable Two Way | enableTwoWay1 | Optional          | Enable two-way communication with the device. By default, the binding only sends commands to the device. |
+|   Parameter    | Parameter ID  | Required/Optional |                                                  Description                                                  |
+|----------------|---------------|-------------------|---------------------------------------------------------------------------------------------------------------|
+| IP Address     | ipAddress     | Required          | The device's IP address.                                                                                      |
+| MAP Filename   | mapFilename   | Required          | The MAP file that contains mappings of commands to the serial codes.                                          |
+| Enable Two Way | enableTwoWay1 | Optional          | Enable two-way communication with the device. By default, the binding only sends commands to the device.      |
 | EOM Delimiter  | eomDelimiter1 | Optional          | The End-of-Message delimiter used to identify the end of a message that the binding received from the device. |
 
 ### iTach CC
 
 The iTach CC (Contact Closure) device has the following configuration parameters.
 
-| Parameter    | Parameter ID | Required/Optional | Description |
-|--------------|--------------|-------------------|-------------|
-| IP Address   | ipAddress    | Required          | The device's IP address. |
+| Parameter  | Parameter ID | Required/Optional |       Description        |
+|------------|--------------|-------------------|--------------------------|
+| IP Address | ipAddress    | Required          | The device's IP address. |
 
 ### iTach Flex
 
@@ -74,12 +74,12 @@ The default is Infrared.
 When the iTach Fles is configured for serial operation, you must use the iTach Flex's web application to set the serial port
 parameters for **baud rate**, **flow control**, and **parity** to match the configuration of the end device to which the iTach Flex is connected.
 
-| Parameter      | Parameter ID  | Required/Optional | Description |
-|----------------|---------------|-------------------|-------------|
-| IP Address     | ipAddress     | Required          | The device's IP address. |
-| MAP Filename   | mapFilename   | Required          | The MAP file that contains mappings of commands to the IR and/or serial codes. |
-| Active Cable   | activeCable   | Required          | Available options are Infrared (FLEX_INFRARED), Serial (FLEX_SERIAL) or Relay/Sensor (FLEX_RELAY). |
-| Enable Two Way | enableTwoWay1 | Optional          | Enable two-way communication with the device. By default, the binding only sends commands to the device. |
+|   Parameter    | Parameter ID  | Required/Optional |                                                  Description                                                  |
+|----------------|---------------|-------------------|---------------------------------------------------------------------------------------------------------------|
+| IP Address     | ipAddress     | Required          | The device's IP address.                                                                                      |
+| MAP Filename   | mapFilename   | Required          | The MAP file that contains mappings of commands to the IR and/or serial codes.                                |
+| Active Cable   | activeCable   | Required          | Available options are Infrared (FLEX_INFRARED), Serial (FLEX_SERIAL) or Relay/Sensor (FLEX_RELAY).            |
+| Enable Two Way | enableTwoWay1 | Optional          | Enable two-way communication with the device. By default, the binding only sends commands to the device.      |
 | EOM Delimiter  | eomDelimiter1 | Optional          | The End-of-Message delimiter used to identify the end of a message that the binding received from the device. |
 
 ### GC-100-6
@@ -88,11 +88,11 @@ The GC-100-6 device has the following configuration parameters.
 Note that you must use the GC-100-6's web application to set the serial port
 parameters for **baud rate**, **flow control**, and **parity** to match the configuration of the end device to which the GC-100-6 is connected.
 
-| Parameter      | Parameter ID  | Required/Optional | Description |
-|----------------|---------------|-------------------|-------------|
-| IP Address     | ipAddress     | Required          | The device's IP address. |
-| MAP Filename   | mapFilename   | Required          | The MAP file that contains mappings of commands to the IR and serial codes. |
-| Enable Two Way | enableTwoWay1 | Optional          | Enable two-way communication with the device. By default, the binding only sends commands to the device. |
+|   Parameter    | Parameter ID  | Required/Optional |                                                  Description                                                  |
+|----------------|---------------|-------------------|---------------------------------------------------------------------------------------------------------------|
+| IP Address     | ipAddress     | Required          | The device's IP address.                                                                                      |
+| MAP Filename   | mapFilename   | Required          | The MAP file that contains mappings of commands to the IR and serial codes.                                   |
+| Enable Two Way | enableTwoWay1 | Optional          | Enable two-way communication with the device. By default, the binding only sends commands to the device.      |
 | EOM Delimiter  | eomDelimiter1 | Optional          | The End-of-Message delimiter used to identify the end of a message that the binding received from the device. |
 
 ### GC-100-12
@@ -101,14 +101,14 @@ The GC-100-12 device has the following configuration parameters.
 Note that you must use the GC-100-12's web application to set the serial port
 parameters for **baud rate**, **flow control**, and **parity** to match the configuration of the end device to which the GC-100-12 is connected.
 
-| Parameter        | Parameter ID  | Required/Optional | Description |
-|------------------|---------------|-------------------|-------------|
-| IP Address       | ipAddress     | Required          | The device's IP address. |
-| MAP Filename     | mapFilename   | Required          | The MAP file that contains mappings of commands to the IR and/or serial codes. |
+|    Parameter     | Parameter ID  | Required/Optional |                                                                  Description                                                                  |
+|------------------|---------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| IP Address       | ipAddress     | Required          | The device's IP address.                                                                                                                      |
+| MAP Filename     | mapFilename   | Required          | The MAP file that contains mappings of commands to the IR and/or serial codes.                                                                |
 | Enable Two Way 1 | enableTwoWay1 | Optional          | Enable two-way communication between the binding and the device on serial port #1. By default, the binding only sends commands to the device. |
-| EOM Delimiter 1  | eomDelimiter1 | Optional          | The End-of-Message delimiter used to identify the end of a message that the binding received from the device on serial port #1. |
+| EOM Delimiter 1  | eomDelimiter1 | Optional          | The End-of-Message delimiter used to identify the end of a message that the binding received from the device on serial port #1.               |
 | Enable Two Way 2 | enableTwoWay2 | Optional          | Enable two-way communication between the binding and the device on serial port #2. By default, the binding only sends commands to the device. |
-| EOM Delimiter 2  | eomDelimiter2 | Optional          | The End-of-Message delimiter used to identify the end of a message that the binding received from the device on serial port #2. |
+| EOM Delimiter 2  | eomDelimiter2 | Optional          | The End-of-Message delimiter used to identify the end of a message that the binding received from the device on serial port #2.               |
 
 ### Manual Thing Creation
 
@@ -415,3 +415,4 @@ globalcache:gc100_06:000C1065AE17 [ ipAddress="192.168.12.68", mapFilename="ir-s
 globalcache:gc100_12:000C162D7902 [ ipAddress="192.168.12.69", mapFilename="ir-serial-codes.map" ]
 globalcache:zmote:CI00073306 [ ipAddress="192.168.12.142", mapFilename="ir-serial-codes.map" ]
 ```
+

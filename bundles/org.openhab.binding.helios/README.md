@@ -24,7 +24,7 @@ Thing helios:ipvario213:gate [ipAddress="192.168.0.14", username="admin", passwo
 
 All devices support the following channels:
 
-| Channel Type ID | Item Type | Description                                                                   |
+| Channel Type ID | Item Type |                                  Description                                  |
 |-----------------|-----------|-------------------------------------------------------------------------------|
 | keypressed      | Trigger   | Code of a key pressed on the videophone keyboard                              |
 | keyreleased     | Trigger   | Code of a key released on the videophone keyboard                             |
@@ -38,12 +38,12 @@ All devices support the following channels:
 
 In addition, devices running the v2.13 firmware support the following channels as well:
 
-| Channel Type ID | Item Type | Description                                                                   |
-|-----------------|-----------|-------------------------------------------------------------------------------|
-| audiolooptest   | Switch    | Initiate an audio loop test                                                   |
-| motion          | Switch    | Indicates if motion was detected by the videophone                            |
-| noise           | Switch    | Indicates if noise was detected by the videophone                             |
-| switchstate     | Switch    | Indicates the state of an internal switch in the videophone                   |
+| Channel Type ID | Item Type |                         Description                         |
+|-----------------|-----------|-------------------------------------------------------------|
+| audiolooptest   | Switch    | Initiate an audio loop test                                 |
+| motion          | Switch    | Indicates if motion was detected by the videophone          |
+| noise           | Switch    | Indicates if noise was detected by the videophone           |
+| switchstate     | Switch    | Indicates the state of an internal switch in the videophone |
 
 For most of the channels a "stamp" channel (of Type DateTime) (e.g. "keypressedstamp") is available and will be updated with the time stamp the relevant event happened on the device.
 For switchstate, there are as well the switchstateswitch and switchstateoriginator channels indicating the number of the switch that changed state (1 to 4, depending on the hardware configuration) and the source of the switch state change (keypad, DTMF signal,...)
@@ -79,3 +79,4 @@ then
     logInfo("org.openhab","Rule trigger " + actionName)
 end
 ```
+

@@ -21,10 +21,10 @@ The free HouseLinc software from Insteon can also be used for configuration, but
 
 ## Supported Things
 
-| Thing  | Type   | Description                  |
-|----------|--------|------------------------------|
-| network  | Bridge | An insteon PLM or hub that is used to communicate with the Insteon devices |
-|device| Thing | Insteon devices such as dimmers, keypads, sensors, etc. |
+|  Thing  |  Type  |                                Description                                 |
+|---------|--------|----------------------------------------------------------------------------|
+| network | Bridge | An insteon PLM or hub that is used to communicate with the Insteon devices |
+| device  | Thing  | Insteon devices such as dimmers, keypads, sensors, etc.                    |
 
 ## Discovery
 
@@ -40,155 +40,155 @@ X10 devices are not auto discovered.
 
 The Insteon PLM or hub is configured with the following parameters:
 
-| Parameter | Default | Required | Description |
-|----------|---------:|--------:|-------------|
-| port   |         |   Yes    | **Examples:**<br>- PLM on  Linux: `/dev/ttyS0` or `/dev/ttyUSB0`<br>- Smartenit ZBPLM on Linux: `/dev/ttyUSB0,baudRate=115200`<br>- PLM on Windows: `COM1`<br>- Current  hub (2245-222) at 192.168.1.100 on port 25105, with a poll interval of 1000 ms (1 second): `/hub2/my_user_name:my_password@192.168.1.100:25105,poll_time=1000`<br>- Legacy hub (2242-222) at 192.168.1.100 on port 9761:`/hub/192.168.1.100:9761`<br>- Networked PLM using ser2net at 192.168.1.100 on port 9761:`/tcp/192.168.1.100:9761` |
-| devicePollIntervalSeconds | 300 |  No  | Poll interval of devices in seconds. Poll too often and you will overload the insteon network, leading to sluggish or no response when trying to send messages to devices. The default poll interval of 300 seconds has been tested and found to be a good compromise in a configuration of about 110 switches/dimmers. |
-| additionalDevices | |       No     | File with additional device types. The syntax of the file is identical to the `device_types.xml` file in the source tree. Please remember to post successfully added device types to the openhab group so the developers can include them into the `device_types.xml` file! |
-| additionalFeatures | |      No     | File with additional feature templates, like in the `device_features.xml` file in the source tree. |
+|         Parameter         | Default | Required |                                                                                                                                                                                                                                                     Description                                                                                                                                                                                                                                                     |
+|---------------------------|--------:|---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| port                      |         |      Yes | **Examples:**<br>- PLM on  Linux: `/dev/ttyS0` or `/dev/ttyUSB0`<br>- Smartenit ZBPLM on Linux: `/dev/ttyUSB0,baudRate=115200`<br>- PLM on Windows: `COM1`<br>- Current  hub (2245-222) at 192.168.1.100 on port 25105, with a poll interval of 1000 ms (1 second): `/hub2/my_user_name:my_password@192.168.1.100:25105,poll_time=1000`<br>- Legacy hub (2242-222) at 192.168.1.100 on port 9761:`/hub/192.168.1.100:9761`<br>- Networked PLM using ser2net at 192.168.1.100 on port 9761:`/tcp/192.168.1.100:9761` |
+| devicePollIntervalSeconds |     300 |       No | Poll interval of devices in seconds. Poll too often and you will overload the insteon network, leading to sluggish or no response when trying to send messages to devices. The default poll interval of 300 seconds has been tested and found to be a good compromise in a configuration of about 110 switches/dimmers.                                                                                                                                                                                             |
+| additionalDevices         |         |       No | File with additional device types. The syntax of the file is identical to the `device_types.xml` file in the source tree. Please remember to post successfully added device types to the openhab group so the developers can include them into the `device_types.xml` file!                                                                                                                                                                                                                                         |
+| additionalFeatures        |         |       No | File with additional feature templates, like in the `device_features.xml` file in the source tree.                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
->NOTE: For users upgrading from InsteonPLM, The parameter port_1 is now port.
+> NOTE: For users upgrading from InsteonPLM, The parameter port_1 is now port.
 
 ### Device Configuration
 
 The Insteon device is configured with the following required parameters:
 
-| Parameter | Description |
-|----------|-------------|
-|address|Insteon or X10 address of the device. Insteon device addresses are in the format 'xx.xx.xx', and can be found on the device. X10 device address are in the format 'x.y' and are typically configured on the device.|
-|productKey|Insteon binding product key that is used to identy the device. Every Insteon device type is uniquely identified by its Insteon product key, typically a six digit hex number. For some of the older device types (in particular the SwitchLinc switches and dimmers), Insteon does not give a product key, so an arbitrary fake one of the format Fxx.xx.xx (or Xxx.xx.xx for X10 devices) is assigned by the binding.|
-|deviceConfig|Optional JSON object with device specific configuration. The JSON object will contain one or more key/value pairs. The key is a parameter for the device and the type of the value will vary.|
+|  Parameter   |                                                                                                                                                                                                      Description                                                                                                                                                                                                       |
+|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| address      | Insteon or X10 address of the device. Insteon device addresses are in the format 'xx.xx.xx', and can be found on the device. X10 device address are in the format 'x.y' and are typically configured on the device.                                                                                                                                                                                                    |
+| productKey   | Insteon binding product key that is used to identy the device. Every Insteon device type is uniquely identified by its Insteon product key, typically a six digit hex number. For some of the older device types (in particular the SwitchLinc switches and dimmers), Insteon does not give a product key, so an arbitrary fake one of the format Fxx.xx.xx (or Xxx.xx.xx for X10 devices) is assigned by the binding. |
+| deviceConfig | Optional JSON object with device specific configuration. The JSON object will contain one or more key/value pairs. The key is a parameter for the device and the type of the value will vary.                                                                                                                                                                                                                          |
 
 The following is a list of the product keys and associated devices.
 These have been tested and should work out of the box:
 
-| Model | Description | Product Key | tested by |
-|-------|-------------|-------------|-----------|
-| 2477D | SwitchLinc Dimmer | F00.00.01 | Bernd Pfrommer |
-| 2477S | SwitchLinc Switch | F00.00.02 | Bernd Pfrommer |
-| 2845-222 | Hidden Door Sensor | F00.00.03 | Josenivaldo Benito |
-| 2876S | ICON Switch | F00.00.04 | Patrick Giasson |
-| 2456D3 | LampLinc V2 | F00.00.05 | Patrick Giasson |
-| 2442-222 | Micro Dimmer | F00.00.06 | Josenivaldo Benito |
-| 2453-222 | DIN Rail On/Off | F00.00.07 | Josenivaldo Benito |
-| 2452-222 | DIN Rail Dimmer | F00.00.08 | Josenivaldo Benito |
-| 2458-A1 | MorningLinc RF Lock Controller | F00.00.09 | cdeadlock |
-| 2852-222 | Leak Sensor | F00.00.0A | Kirk McCann |
-| 2672-422 | LED Dimmer | F00.00.0B | ??? |
-| 2476D | SwitchLinc Dimmer | F00.00.0C | LiberatorUSA |
-| 2634-222 | On/Off Dual-Band Outdoor Module | F00.00.0D | LiberatorUSA |
-| 2342-2 | Mini Remote | F00.00.10 | Bernd Pfrommer |
-| 2663-222 | On/Off Outlet | 0x000039 | SwissKid |
-| 2466D | ToggleLinc Dimmer | F00.00.11 | Rob Nielsen |
-| 2466S | ToggleLinc Switch | F00.00.12 | Rob Nielsen |
-| 2672-222 | LED Bulb | F00.00.13 | Rob Nielsen |
-| 2487S | KeypadLinc On/Off 6-Button | F00.00.14 | Bernd Pfrommer |
-| 2334-232 | KeypadLink Dimmer 6-Button | F00.00.15 | Rob Nielsen |
-| 2334-232 | KeypadLink Dimmer 8-Button | F00.00.16 | Rob Nielsen |
-| 2423A1 | iMeter Solo Power Meter | F00.00.17 | Rob Nielsen |
-| 2423A1 | Thermostat 2441TH | F00.00.18 | Daniel Campbell, Bernd Pfrommer |
-| 2457D2 | LampLinc Dimmer | F00.00.19 | Jonathan Huizingh |
-| 2475SDB | In-LineLinc Relay | F00.00.1A | Jim Howard |
-| 2635-222 | On/Off Module | F00.00.1B | Jonathan Huizingh |
-| 2475F | FanLinc Module | F00.00.1C | Brian Tillman |
-| 2456S3 | ApplianceLinc | F00.00.1D | ??? |
-| 2674-222 | LED Bulb (recessed) | F00.00.1E | Steve Bate |
-| 2477SA1 | 220V 30-amp Load Controller N/O | F00.00.1F | Shawn R. |
-| 2342-222 | Mini Remote (8 Button) | F00.00.20 | Bernd Pfrommer |
-| 2441V | Insteon Thermostat Adaptor for Venstar | F00.00.21 | Bernd Pfrommer |
-| 2982-222 | Insteon Smoke Bridge | F00.00.22 | Bernd Pfrommer |
-| 2487S | KeypadLinc On/Off 8-Button | F00.00.23 | Tom Weichmann |
-| 2450 | IO Link | 0x00001A | Bernd Pfrommer |
-| 2486D | KeypadLinc Dimmer | 0x000037 | Patrick Giasson, Joe Barnum |
-| 2484DWH8 | KeypadLinc Countdown Timer | 0x000041 | Rob Nielsen |
-| Various | PLM or hub | 0x000045 | Bernd Pfrommer |
-| 2843-222 | Wireless Open/Close Sensor | 0x000049 | Josenivaldo Benito |
-| 2842-222 | Motion Sensor | 0x00004A | Bernd Pfrommer |
-| 2844-222 | Motion Sensor II | F00.00.24 | Rob Nielsen |
-| 2486DWH8 | KeypadLinc Dimmer | 0x000051 | Chris Graham |
-| 2472D | OutletLincDimmer | 0x000068 | Chris Graham |
-| X10 switch | generic X10 switch | X00.00.01 | Bernd Pfrommer |
-| X10 dimmer | generic X10 dimmer | X00.00.02 | Bernd Pfrommer |
-| X10 motion | generic X10 motion sensor | X00.00.03 | Bernd Pfrommer |
+|   Model    |              Description               | Product Key |            tested by            |
+|------------|----------------------------------------|-------------|---------------------------------|
+| 2477D      | SwitchLinc Dimmer                      | F00.00.01   | Bernd Pfrommer                  |
+| 2477S      | SwitchLinc Switch                      | F00.00.02   | Bernd Pfrommer                  |
+| 2845-222   | Hidden Door Sensor                     | F00.00.03   | Josenivaldo Benito              |
+| 2876S      | ICON Switch                            | F00.00.04   | Patrick Giasson                 |
+| 2456D3     | LampLinc V2                            | F00.00.05   | Patrick Giasson                 |
+| 2442-222   | Micro Dimmer                           | F00.00.06   | Josenivaldo Benito              |
+| 2453-222   | DIN Rail On/Off                        | F00.00.07   | Josenivaldo Benito              |
+| 2452-222   | DIN Rail Dimmer                        | F00.00.08   | Josenivaldo Benito              |
+| 2458-A1    | MorningLinc RF Lock Controller         | F00.00.09   | cdeadlock                       |
+| 2852-222   | Leak Sensor                            | F00.00.0A   | Kirk McCann                     |
+| 2672-422   | LED Dimmer                             | F00.00.0B   | ???                             |
+| 2476D      | SwitchLinc Dimmer                      | F00.00.0C   | LiberatorUSA                    |
+| 2634-222   | On/Off Dual-Band Outdoor Module        | F00.00.0D   | LiberatorUSA                    |
+| 2342-2     | Mini Remote                            | F00.00.10   | Bernd Pfrommer                  |
+| 2663-222   | On/Off Outlet                          | 0x000039    | SwissKid                        |
+| 2466D      | ToggleLinc Dimmer                      | F00.00.11   | Rob Nielsen                     |
+| 2466S      | ToggleLinc Switch                      | F00.00.12   | Rob Nielsen                     |
+| 2672-222   | LED Bulb                               | F00.00.13   | Rob Nielsen                     |
+| 2487S      | KeypadLinc On/Off 6-Button             | F00.00.14   | Bernd Pfrommer                  |
+| 2334-232   | KeypadLink Dimmer 6-Button             | F00.00.15   | Rob Nielsen                     |
+| 2334-232   | KeypadLink Dimmer 8-Button             | F00.00.16   | Rob Nielsen                     |
+| 2423A1     | iMeter Solo Power Meter                | F00.00.17   | Rob Nielsen                     |
+| 2423A1     | Thermostat 2441TH                      | F00.00.18   | Daniel Campbell, Bernd Pfrommer |
+| 2457D2     | LampLinc Dimmer                        | F00.00.19   | Jonathan Huizingh               |
+| 2475SDB    | In-LineLinc Relay                      | F00.00.1A   | Jim Howard                      |
+| 2635-222   | On/Off Module                          | F00.00.1B   | Jonathan Huizingh               |
+| 2475F      | FanLinc Module                         | F00.00.1C   | Brian Tillman                   |
+| 2456S3     | ApplianceLinc                          | F00.00.1D   | ???                             |
+| 2674-222   | LED Bulb (recessed)                    | F00.00.1E   | Steve Bate                      |
+| 2477SA1    | 220V 30-amp Load Controller N/O        | F00.00.1F   | Shawn R.                        |
+| 2342-222   | Mini Remote (8 Button)                 | F00.00.20   | Bernd Pfrommer                  |
+| 2441V      | Insteon Thermostat Adaptor for Venstar | F00.00.21   | Bernd Pfrommer                  |
+| 2982-222   | Insteon Smoke Bridge                   | F00.00.22   | Bernd Pfrommer                  |
+| 2487S      | KeypadLinc On/Off 8-Button             | F00.00.23   | Tom Weichmann                   |
+| 2450       | IO Link                                | 0x00001A    | Bernd Pfrommer                  |
+| 2486D      | KeypadLinc Dimmer                      | 0x000037    | Patrick Giasson, Joe Barnum     |
+| 2484DWH8   | KeypadLinc Countdown Timer             | 0x000041    | Rob Nielsen                     |
+| Various    | PLM or hub                             | 0x000045    | Bernd Pfrommer                  |
+| 2843-222   | Wireless Open/Close Sensor             | 0x000049    | Josenivaldo Benito              |
+| 2842-222   | Motion Sensor                          | 0x00004A    | Bernd Pfrommer                  |
+| 2844-222   | Motion Sensor II                       | F00.00.24   | Rob Nielsen                     |
+| 2486DWH8   | KeypadLinc Dimmer                      | 0x000051    | Chris Graham                    |
+| 2472D      | OutletLincDimmer                       | 0x000068    | Chris Graham                    |
+| X10 switch | generic X10 switch                     | X00.00.01   | Bernd Pfrommer                  |
+| X10 dimmer | generic X10 dimmer                     | X00.00.02   | Bernd Pfrommer                  |
+| X10 motion | generic X10 motion sensor              | X00.00.03   | Bernd Pfrommer                  |
 
 ## Channels
 
 Below is the list of possible channels for the Insteon devices.
 In order to determine which channels a device supports, you can look at the device in the UI, or with the command `display_devices` in the console.
 
-| channel  | type   | description                  |
-|----------|--------|------------------------------|
-| acDelay | Number | AC Delay |
-| backlightDuration | Number | Back Light Duration |
-| batteryLevel | Number | Battery Level |
-| batteryPercent | Number:Dimensionless | Battery Percent |
-| batteryWatermarkLevel | Number | Battery Watermark Level |
-| beep | Switch | Beep |
-| bottomOutlet | Switch | Bottom Outlet |
-| buttonA | Switch | Button A |
-| buttonB | Switch | Button B |
-| buttonC | Switch | Button C |
-| buttonD | Switch | Button D |
-| buttonE | Switch | Button E |
-| buttonF | Switch | Button F |
-| buttonG | Switch | Button G |
-| buttonH | Switch | Button H |
-| broadcastOnOff | Switch | Broadcast On/Off |
-| contact | Contact | Contact |
-| coolSetPoint | Number | Cool Set Point |
-| dimmer | Dimmer | Dimmer |
-| fan | Number | Fan |
-| fanMode | Number | Fan Mode |
-| fastOnOff | Switch | Fast On/Off |
-| fastOnOffButtonA | Switch | Fast On/Off Button A |
-| fastOnOffButtonB | Switch | Fast On/Off Button B |
-| fastOnOffButtonC | Switch | Fast On/Off Button C |
-| fastOnOffButtonD | Switch | Fast On/Off Button D |
-| heatSetPoint | Number | Heat Set Point |
-| humidity | Number | Humidity |
-| humidityHigh | Number | Humidity High |
-| humidityLow | Number | Humidity Low |
-| isCooling | Number | Is Cooling |
-| isHeating | Number | Is Heating |
-| keypadButtonA | Switch | Keypad Button A |
-| keypadButtonB | Switch | Keypad Button B |
-| keypadButtonC | Switch | Keypad Button C |
-| keypadButtonD | Switch | Keypad Button D |
-| keypadButtonE | Switch | Keypad Button E |
-| keypadButtonF | Switch | Keypad Button F |
-| keypadButtonG | Switch | Keypad Button G |
-| keypadButtonH | Switch | Keypad Button H |
-| kWh | Number:Energy | Kilowatt Hour |
-| lastHeardFrom | DateTime | Last Heard From |
-| ledBrightness | Number | LED brightness |
-| ledOnOff | Switch | LED On/Off |
-| lightDimmer | Dimmer | light Dimmer |
-| lightLevel | Number | Light Level |
-| lightLevelAboveThreshold | Contact | Light Level Above/Below Threshold |
-| loadDimmer | Dimmer | Load Dimmer |
-| loadSwitch | Switch | Load Switch |
-| loadSwitchFastOnOff | Switch | Load Switch Fast On/Off |
-| loadSwitchManualChange | Number | Load Switch Manual Change |
-| lowBattery | Contact | Low Battery |
-| manualChange | Number | Manual Change |
-| manualChangeButtonA | Number | Manual Change Button A |
-| manualChangeButtonB | Number | Manual Change Button B |
-| manualChangeButtonC | Number | Manual Change Button C |
-| manualChangeButtonD | Number | Manual Change Button D |
-| notification | Number | Notification |
-| onLevel | Number | On Level |
-| rampDimmer | Dimmer | Ramp Dimmer |
-| rampRate | Number | Ramp Rate |
-| reset | Switch | Reset |
-| stage1Duration | Number | Stage 1 Duration |
-| switch | Switch | Switch |
-| systemMode | Number | System Mode |
-| tamperSwitch | Contact | Tamper Switch |
-| temperature | Number:Temperature | Temperature |
-| temperatureLevel | Number | Temperature Level |
-| topOutlet | Switch | Top Outlet |
-| update | Switch | Update |
-| watts | Number:Power | Watts |
+|         channel          |         type         |            description            |
+|--------------------------|----------------------|-----------------------------------|
+| acDelay                  | Number               | AC Delay                          |
+| backlightDuration        | Number               | Back Light Duration               |
+| batteryLevel             | Number               | Battery Level                     |
+| batteryPercent           | Number:Dimensionless | Battery Percent                   |
+| batteryWatermarkLevel    | Number               | Battery Watermark Level           |
+| beep                     | Switch               | Beep                              |
+| bottomOutlet             | Switch               | Bottom Outlet                     |
+| buttonA                  | Switch               | Button A                          |
+| buttonB                  | Switch               | Button B                          |
+| buttonC                  | Switch               | Button C                          |
+| buttonD                  | Switch               | Button D                          |
+| buttonE                  | Switch               | Button E                          |
+| buttonF                  | Switch               | Button F                          |
+| buttonG                  | Switch               | Button G                          |
+| buttonH                  | Switch               | Button H                          |
+| broadcastOnOff           | Switch               | Broadcast On/Off                  |
+| contact                  | Contact              | Contact                           |
+| coolSetPoint             | Number               | Cool Set Point                    |
+| dimmer                   | Dimmer               | Dimmer                            |
+| fan                      | Number               | Fan                               |
+| fanMode                  | Number               | Fan Mode                          |
+| fastOnOff                | Switch               | Fast On/Off                       |
+| fastOnOffButtonA         | Switch               | Fast On/Off Button A              |
+| fastOnOffButtonB         | Switch               | Fast On/Off Button B              |
+| fastOnOffButtonC         | Switch               | Fast On/Off Button C              |
+| fastOnOffButtonD         | Switch               | Fast On/Off Button D              |
+| heatSetPoint             | Number               | Heat Set Point                    |
+| humidity                 | Number               | Humidity                          |
+| humidityHigh             | Number               | Humidity High                     |
+| humidityLow              | Number               | Humidity Low                      |
+| isCooling                | Number               | Is Cooling                        |
+| isHeating                | Number               | Is Heating                        |
+| keypadButtonA            | Switch               | Keypad Button A                   |
+| keypadButtonB            | Switch               | Keypad Button B                   |
+| keypadButtonC            | Switch               | Keypad Button C                   |
+| keypadButtonD            | Switch               | Keypad Button D                   |
+| keypadButtonE            | Switch               | Keypad Button E                   |
+| keypadButtonF            | Switch               | Keypad Button F                   |
+| keypadButtonG            | Switch               | Keypad Button G                   |
+| keypadButtonH            | Switch               | Keypad Button H                   |
+| kWh                      | Number:Energy        | Kilowatt Hour                     |
+| lastHeardFrom            | DateTime             | Last Heard From                   |
+| ledBrightness            | Number               | LED brightness                    |
+| ledOnOff                 | Switch               | LED On/Off                        |
+| lightDimmer              | Dimmer               | light Dimmer                      |
+| lightLevel               | Number               | Light Level                       |
+| lightLevelAboveThreshold | Contact              | Light Level Above/Below Threshold |
+| loadDimmer               | Dimmer               | Load Dimmer                       |
+| loadSwitch               | Switch               | Load Switch                       |
+| loadSwitchFastOnOff      | Switch               | Load Switch Fast On/Off           |
+| loadSwitchManualChange   | Number               | Load Switch Manual Change         |
+| lowBattery               | Contact              | Low Battery                       |
+| manualChange             | Number               | Manual Change                     |
+| manualChangeButtonA      | Number               | Manual Change Button A            |
+| manualChangeButtonB      | Number               | Manual Change Button B            |
+| manualChangeButtonC      | Number               | Manual Change Button C            |
+| manualChangeButtonD      | Number               | Manual Change Button D            |
+| notification             | Number               | Notification                      |
+| onLevel                  | Number               | On Level                          |
+| rampDimmer               | Dimmer               | Ramp Dimmer                       |
+| rampRate                 | Number               | Ramp Rate                         |
+| reset                    | Switch               | Reset                             |
+| stage1Duration           | Number               | Stage 1 Duration                  |
+| switch                   | Switch               | Switch                            |
+| systemMode               | Number               | System Mode                       |
+| tamperSwitch             | Contact              | Tamper Switch                     |
+| temperature              | Number:Temperature   | Temperature                       |
+| temperatureLevel         | Number               | Temperature Level                 |
+| topOutlet                | Switch               | Top Outlet                        |
+| update                   | Switch               | Update                            |
+| watts                    | Number:Power         | Watts                             |
 
 ## Full Example
 
@@ -520,9 +520,9 @@ Text item=garageDoorContact
 For safety reasons, only close the garage door if you have visual contact to make sure there is no obstruction! The use of automated rules for closing garage doors is dangerous.
 
 > NOTE: If the I/O Linc contact status appears delayed, or returns the wrong value when the sensor changes states, the contact was likely ON (status LED lit) when the modem was linked as a responder.
-Examples of this behavior would include: The status remaining CLOSED for up to 3 minutes after the door is opened, or the status remains OPEN for up to three minutes after the garage is opened and immediately closed again.
-To resolve this behavior the I/O Linc will need to be unlinked and then re-linked to the modem with the contact OFF (stats LED off). 
-That would be with the door open when using the Insteon garage kit.
+> Examples of this behavior would include: The status remaining CLOSED for up to 3 minutes after the door is opened, or the status remains OPEN for up to three minutes after the garage is opened and immediately closed again.
+> To resolve this behavior the I/O Linc will need to be unlinked and then re-linked to the modem with the contact OFF (stats LED off).
+> That would be with the door open when using the Insteon garage kit.
 
 ### Keypads
 
@@ -538,11 +538,11 @@ Here is an example correspondence table:
 
 | Group | Button Number | 2487S Label |
 |-------|---------------|-------------|
-|  0x01 |        1      |   (Load)    |
-|  0x03 |        3      |     A       |
-|  0x04 |        4      |     B       |
-|  0x05 |        5      |     C       |
-|  0x06 |        6      |     D       |
+| 0x01  | 1             | (Load)      |
+| 0x03  | 3             | A           |
+| 0x04  | 4             | B           |
+| 0x05  | 5             | C           |
+| 0x06  | 6             | D           |
 
 When e.g. the "A" button is pressed (that's button #3 internally) a broadcast message will be sent out to all responders configured to listen to Insteon group #3.
 This means you must configure the modem as a responder to group #3 (and #4, #5, #6) messages coming from your keypad.
@@ -843,14 +843,14 @@ additionalDevices="/usr/local/openhab/rt/my_own_devices.xml"
 Where the `my_own_devices.xml` file defines a new device like this:
 
 ```xml
-    <xml>
-     <device productKey="F00.00.XX">
-      <model>2456-D3</model>
-      <description>LampLinc V2</description>
-      <feature name="dimmer">GenericDimmer</feature>
-      <feature name="lastheardfrom">GenericLastTime</feature>
-     </device>
-    </xml>
+<xml>
+ <device productKey="F00.00.XX">
+  <model>2456-D3</model>
+  <description>LampLinc V2</description>
+  <feature name="dimmer">GenericDimmer</feature>
+  <feature name="lastheardfrom">GenericLastTime</feature>
+ </device>
+</xml>
 ```
 
 Finding the Insteon product key can be tricky since Insteon has not updated the product key table (<https://www.insteon.com/pdf/insteon_devcats_and_product_keys_20081008.pdf>) since 2008.
@@ -869,28 +869,29 @@ In this file you can define your own features (or even overwrite an existing fea
 In the example below a new feature "MyFeature" is defined, which can then be referenced from the `device_types.xml` file (or from `my_own_devices.xml`):
 
 ```xml
-    <xml>
-     <feature name="MyFeature">
-     <message-dispatcher>DefaultDispatcher</message-dispatcher>
-     <message-handler cmd="0x03">NoOpMsgHandler</message-handler>
-     <message-handler cmd="0x06">NoOpMsgHandler</message-handler>
-     <message-handler cmd="0x11">NoOpMsgHandler</message-handler>
-     <message-handler cmd="0x13">NoOpMsgHandler</message-handler>
-     <message-handler cmd="0x19">LightStateSwitchHandler</message-handler>
-     <command-handler command="OnOffType">IOLincOnOffCommandHandler</command-handler>
-     <poll-handler>DefaultPollHandler</poll-handler>
-     </feature>
-    </xml>
+<xml>
+ <feature name="MyFeature">
+ <message-dispatcher>DefaultDispatcher</message-dispatcher>
+ <message-handler cmd="0x03">NoOpMsgHandler</message-handler>
+ <message-handler cmd="0x06">NoOpMsgHandler</message-handler>
+ <message-handler cmd="0x11">NoOpMsgHandler</message-handler>
+ <message-handler cmd="0x13">NoOpMsgHandler</message-handler>
+ <message-handler cmd="0x19">LightStateSwitchHandler</message-handler>
+ <command-handler command="OnOffType">IOLincOnOffCommandHandler</command-handler>
+ <poll-handler>DefaultPollHandler</poll-handler>
+ </feature>
+</xml>
 ```
 
 ## Known Limitations and Issues
 
 - Devices cannot be linked to the modem while the binding is running.
-If new devices are linked, the binding must be restarted.
+  If new devices are linked, the binding must be restarted.
 - Setting up Insteon groups and linking devices cannot be done from within openHAB.
-Use the [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) for that.
-If using Insteon Terminal (especially as root), ensure any stale lock files (For example, /var/lock/LCK..ttyUSB0) are removed before starting openHAB runtime.
-Failure to do so may result in "found no ports".
+  Use the [Insteon Terminal](https://github.com/pfrommerd/insteon-terminal) for that.
+  If using Insteon Terminal (especially as root), ensure any stale lock files (For example, /var/lock/LCK..ttyUSB0) are removed before starting openHAB runtime.
+  Failure to do so may result in "found no ports".
 - The Insteon PLM or hub is know to break in about 2-3 years due to poorly sized capacitors.
-You can repair it yourself using basic soldering skills, search for "Insteon PLM repair" or "Insteon hub repair".
+  You can repair it yourself using basic soldering skills, search for "Insteon PLM repair" or "Insteon hub repair".
 - Using the Insteon Hub 2014 in conjunction with other applications (such as the InsteonApp) is not supported. Concretely, openHAB will not learn when a switch is flipped via the Insteon App until the next poll, which could take minutes.
+

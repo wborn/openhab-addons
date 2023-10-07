@@ -18,7 +18,7 @@ When the TV is discovered, a pairing process to obtain an authentication token f
 
 The thing has a few configuration parameters:
 
-| Parameter   | Description                                                                                                                          |
+|  Parameter  |                                                             Description                                                              |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------|
 | hostName    | The host name or IP address of the Vizio TV. Mandatory.                                                                              |
 | port        | The port on the Vizio TV that listens for https connections. Default 7345; Use 9000 for older model TVs.                             |
@@ -37,7 +37,7 @@ openhab:vizio <thingUID> start_pairing <deviceName>
 ```
 
 Substitute `<thingUID>` with thing's id, ie: `vizio_tv:00bc3e711660`  
-Substitute `<deviceName>` the desired device name that will appear in the TV's settings, under Mobile Devices, ie: `Vizio-openHAB`  
+Substitute `<deviceName>` the desired device name that will appear in the TV's settings, under Mobile Devices, ie: `Vizio-openHAB`
 
 Submit Pairing Code:
 
@@ -46,11 +46,11 @@ openhab:vizio <thingUID> submit_code <pairingCode>
 ```
 
 Substitute `<thingUID>` with the same thing id used above  
-Substitute `<pairingCode>` with the 4-digit pairing code displayed on the TV, ie: `1234`  
+Substitute `<pairingCode>` with the 4-digit pairing code displayed on the TV, ie: `1234`
 
 The console should then indicate that pairing was successful (token will be displayed) and that the token was saved to the thing configuration.
 If using file-based provisioning of the thing, the authorization token must be added to the thing configuration manually.
-With an authorization token in place, the binding can now control the TV.  
+With an authorization token in place, the binding can now control the TV.
 
 The authorization token text can be re-used in the event that it becomes necessary to setup the binding again.
 By simply adding the token that is already recognized by the TV to the thing configuration, the pairing process can be bypassed.
@@ -59,15 +59,15 @@ By simply adding the token that is already recognized by the TV to the thing con
 
 The following channels are available:
 
-| Channel ID  | Item Type | Description                                                                                                                                                                                 |
-|-------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| power       | Switch    | Turn the power on the TV on or off. Note: TV may not turn on if power is switched off and the TV is configured for Eco mode.                                                                |
-| volume      | Dimmer    | Control the volume on the TV (0-100%).                                                                                                                                                      |
-| mute        | Switch    | Mute or unmute the volume on the TV.                                                                                                                                                        |
-| source      | String    | Select the source input on the TV. The dropdown list is automatically populated from the TV.                                                                                                |
-| activeApp   | String    | A dropdown containing a list of streaming apps defined by the `appListJson` config option that can be launched by the binding. An app started via remote control is automatically selected. |
-| control     | Player    | Control Playback e.g. Play/Pause/Next/Previous/FForward/Rewind                                                                                                                              |
-| button      | String    | Sends a remote control command the TV. See list of available commands below.                                                                                                                |
+| Channel ID | Item Type |                                                                                         Description                                                                                         |
+|------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| power      | Switch    | Turn the power on the TV on or off. Note: TV may not turn on if power is switched off and the TV is configured for Eco mode.                                                                |
+| volume     | Dimmer    | Control the volume on the TV (0-100%).                                                                                                                                                      |
+| mute       | Switch    | Mute or unmute the volume on the TV.                                                                                                                                                        |
+| source     | String    | Select the source input on the TV. The dropdown list is automatically populated from the TV.                                                                                                |
+| activeApp  | String    | A dropdown containing a list of streaming apps defined by the `appListJson` config option that can be launched by the binding. An app started via remote control is automatically selected. |
+| control    | Player    | Control Playback e.g. Play/Pause/Next/Previous/FForward/Rewind                                                                                                                              |
+| button     | String    | Sends a remote control command the TV. See list of available commands below.                                                                                                                |
 
 ### List of available button commands for Vizio TVs:
 
@@ -106,7 +106,7 @@ WideToggle
 ### App List Configuration:
 
 The Vizio API to launch and identify currently running apps on the TV is very complex.
-To handle this, the binding maintains a JSON database of applications and their associated metadata in order to populate the `activeApp` dropdown with available apps.  
+To handle this, the binding maintains a JSON database of applications and their associated metadata in order to populate the `activeApp` dropdown with available apps.
 
 When the thing is started for the first time, this JSON database is saved into the `appListJson` configuration parameter.
 This list of apps can be edited via the script editor on the thing configuration.
@@ -179,3 +179,4 @@ sitemap vizio label="Vizio" {
 }
 
 ```
+

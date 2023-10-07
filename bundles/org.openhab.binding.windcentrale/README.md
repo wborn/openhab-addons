@@ -6,7 +6,7 @@ This Binding is used to display the details of Windcentrale windmills.
 
 The binding supports the following Windcentrale Things:
 
-| Thing Type | Description                               |
+| Thing Type |                Description                |
 |------------|-------------------------------------------|
 | account    | An account for using the Windcentrale API |
 | windmill   | Windcentrale Windmill                     |
@@ -30,7 +30,7 @@ No binding configuration required.
 
 ### Windmill
 
-| Configuration Parameter | Required | Default          | Description                                         |
+| Configuration Parameter | Required |     Default      |                     Description                     |
 |-------------------------|----------|------------------|-----------------------------------------------------|
 | name                    | X        | De Blauwe Reiger | Identifies the windmill (see names list below)      |
 | shares                  |          | 1                | Number of wind shares ("Winddelen")                 |
@@ -52,7 +52,7 @@ The following windmill names are supported:
 
 ## Channels
 
-| Channel ID     | Item Type            | Description                         |
+|   Channel ID   |      Item Type       |             Description             |
 |----------------|----------------------|-------------------------------------|
 | energy-total   | Number:Energy        | Total energy this year              |
 | power-relative | Number:Dimensionless | Relative power                      |
@@ -90,3 +90,4 @@ Number:Dimensionless  ReigerRunPercentage    "Run percentage [%.1f %unit%]"     
 Number:Time           ReigerRunTime          "Run time [%.0f %unit%]"               (gReiger) { channel="windcentrale:windmill:demo-account:de-blauwe-reiger:run-time" }
 DateTime              ReigerTimestamp        "Update timestamp [%1$ta %1$tR]"       (gReiger) { channel="windcentrale:windmill:demo-account:de-blauwe-reiger:timestamp" }
 ```
+

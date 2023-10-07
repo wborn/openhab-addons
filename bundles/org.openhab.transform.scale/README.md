@@ -11,7 +11,7 @@ Range expressions always contain two parts.
 The range to scale on, which is located left from the equality sign and the corresponding output string on the right of it.
 A range consists of two bounds. Both are optional, the range is then open. Both bounds can be inclusive or exclusive.
 
-| Scale Expression | Returns XYZ when the given value is                        |
+| Scale Expression |            Returns XYZ when the given value is             |
 |------------------|------------------------------------------------------------|
 | `[12..23]=XYZ`   | `between (or equal to) 12 and 23`                          |
 | `]12..23[=XYZ`   | `between 12 and 23 (12 and 23 are excluded in this case.)` |
@@ -33,7 +33,7 @@ This entry will match all numeric values not met by a previous range. Obviously,
 
 ### Not A Number
 
-Scale transform is designed to work with numeric or quantity states. When the value presented to scale transform does not match this (most of the time with NULL or UNDEF states) it will not be handled and a warning is raised in the openhab.log . This case can be smoothly avoided with a 
+Scale transform is designed to work with numeric or quantity states. When the value presented to scale transform does not match this (most of the time with NULL or UNDEF states) it will not be handled and a warning is raised in the openhab.log . This case can be smoothly avoided with a
 
 `NaN=Non Numeric State presented`
 
@@ -43,9 +43,9 @@ At last, Scale transform can take care of formatting an output with this entry :
 
 `format=%label% (%value%) !`
 
-Where : 
+Where :
 
-- `%label%` will be replaced by transformed value and 
+- `%label%` will be replaced by transformed value and
 - `%value%` is the numeric value presen
 
 ## Example

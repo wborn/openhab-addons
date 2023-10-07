@@ -9,7 +9,7 @@ It is possible to receive and send parameters like string or float values.
 
 This binding supports 11 different things types
 
-| Thing            | UI Only | Description                                               |
+|      Thing       | UI Only |                        Description                        |
 |------------------|:-------:|-----------------------------------------------------------|
 | `appliance`      |         | The appliance (The heater inside of this heating system). |
 | `dhwCircuit`     |         | A hot water circuit.                                      |
@@ -37,13 +37,13 @@ This binding discovers KM devices through mDNS in the local network.
 
 The _kmdevice_ bridge requires the following configuration parameters:
 
-| Parameter Label           | Parameter ID    | Description                                                                       | Required | Default              | Example                                                          |
-|---------------------------|-----------------|-----------------------------------------------------------------------------------|----------|----------------------|------------------------------------------------------------------|
-| IP address                | ip4_address     | The IP address of the KMXXX device                                                | true     |                      | 192.168.1.10                                                     |
-| Refresh Interval          | refreshInterval | The refresh interval in seconds which is used to poll the device.                 | true     |    30                | 30                                                               |
-| Private Key               | privKey         | Take a look to the internet. Maybe you will find a way for generation.            | true     |                      | 0000FFFFEEEEDDDDCCCCBBBBAAAA999988887777666655554444333322221111 |
-| Read Delay                | readDelay       | Delay between two read attempts in ms.                                            | true     |    100               | 100                                                              |
-| Maximum Number Of Repeats | maxNbrRepeats   | Maximum number of repeats in case of a communication error (like HTTP 500 error). | true     |    10                | 10                                                               |
+|      Parameter Label      |  Parameter ID   |                                    Description                                    | Required | Default |                             Example                              |
+|---------------------------|-----------------|-----------------------------------------------------------------------------------|----------|---------|------------------------------------------------------------------|
+| IP address                | ip4_address     | The IP address of the KMXXX device                                                | true     |         | 192.168.1.10                                                     |
+| Refresh Interval          | refreshInterval | The refresh interval in seconds which is used to poll the device.                 | true     | 30      | 30                                                               |
+| Private Key               | privKey         | Take a look to the internet. Maybe you will find a way for generation.            | true     |         | 0000FFFFEEEEDDDDCCCCBBBBAAAA999988887777666655554444333322221111 |
+| Read Delay                | readDelay       | Delay between two read attempts in ms.                                            | true     | 100     | 100                                                              |
+| Maximum Number Of Repeats | maxNbrRepeats   | Maximum number of repeats in case of a communication error (like HTTP 500 error). | true     | 10      | 10                                                               |
 
 ### Channels
 
@@ -71,3 +71,4 @@ Bridge km200:kmdevice:0815 "testKMDevice" @ "Room" [ privateKey= "1234567890abcd
 Number  budWater  "Water temperature  [%.1f °C]"    {channel="km200:dhwCircuit:0815:1:actualTemp"}
 Number  budOutdoor  "Outdoor temperature  [%.1f °C]"    {channel="km200:sensor:0815:1:outdoor_t1"}
 ```
+

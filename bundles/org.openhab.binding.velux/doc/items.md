@@ -41,3 +41,4 @@ Rollershutter	V_DG_M_S    	"DG Bad  [%d]"			{ channel="velux:klf200:home:V_DG_M_
 Rollershutter	V_DG_W_S    	"DG West [%d]"			{ channel="velux:klf200:home:V_DG_W_S" }
 Rollershutter	V_DG_O_S    	"DG Ost  [%d]"			{ channel="velux:klf200:home:V_DG_O_S" }
 ```
+

@@ -13,7 +13,7 @@ Supported thing types
 - neatoaccount (bridge)
 - vacuumcleaner
 
-A bridge is required to connect to your Neato Cloud account.  
+A bridge is required to connect to your Neato Cloud account.
 
 All "Connected" type vacuum cleaners should be supported by this binding since they are supported by the Neato API.  As of todays date, it is only verified with Neato Connected and Neato D7 vacuum cleaners.
 
@@ -22,9 +22,9 @@ All "Connected" type vacuum cleaners should be supported by this binding since t
 Discovery is used _after_ a bridge has been created and configured with your login information.
 
 1. Add the binding
-1. Add a new thing of type NeatoAccount and configure with username and password
-1. Go to Inbox and start discovery of Vacuums using Neato Binding
-1. Vacuums should appear in your inbox!
+2. Add a new thing of type NeatoAccount and configure with username and password
+3. Go to Inbox and start discovery of Vacuums using Neato Binding
+4. Vacuums should appear in your inbox!
 
 ## Thing Configuration
 
@@ -34,23 +34,23 @@ The easiest way of getting this information is to use the third party python lib
 
 Neato Account Config
 
-| Config   | Description                         |
-| -------- | ----------------------------------- |
+|  Config  |             Description             |
+|----------|-------------------------------------|
 | email    | Email address tied to Neato Account |
 | password | Password tied to Neato Account      |
 
 Vacuum Cleaner Config
 
-| Config  | Description                                                                                  |
-| ------- | -------------------------------------------------------------------------------------------- |
+| Config  |                                         Description                                          |
+|---------|----------------------------------------------------------------------------------------------|
 | serial  | Serial Number of your Neato Robot                                                            |
 | secret  | Secret for accessing Neato web services (see note above)                                     |
 | refresh | Refresh time interval in seconds for updates from the Neato Web Service.  Defaults to 60 sec |
 
 ## Channels
 
-| Channel             | Type   | Label                      | Description                                                                               | Read Only |
-| ------------------- | ------ | -------------------------- | ----------------------------------------------------------------------------------------- | --------- |
+|       Channel       |  Type  |           Label            |                                        Description                                        | Read Only |
+|---------------------|--------|----------------------------|-------------------------------------------------------------------------------------------|-----------|
 | battery-level       | Number | Battery Level              | Battery Level of the vacuum cleaner.                                                      | True      |
 | state               | String | Current State              | Current state of the vacuum cleaner.                                                      | True      |
 | available-services  | String | Current available services | List of services that are currently available for the vacuum cleaner                      | True      |
@@ -111,3 +111,4 @@ Frame label="Neato BotVac Connected" {
 ```java
 neato:vacuumcleaner:fanndamm [ serial="vacuumcleaner-serial", secret="secret-string"]
 ```
+

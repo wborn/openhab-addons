@@ -24,19 +24,19 @@ The lightpanel (singular) thing controls one of the individual panels/canvas tha
 Each individual panel has therefore its own id assigned to it.
 You can set the **color** for each panel and in the case of a Nanoleaf Canvas or Shapes you can even detect single / double **touch events** related to an individual panel or **swipe events** on the whole device which opens a whole new world of controlling any other device within your openHAB environment.
 
-| Nanoleaf Name          | Type | Description                                                | supported | touch support |
-| ---------------------- | ---- | ---------------------------------------------------------- | --------- | ------------- |
-| Light Panels           | NL22 | Triangles 1st Generation                                   |     X     |       -       |  
-| Shapes Hexagon         | NL42 | Hexagons                                                   |     X     |       X       |
-| Shapes Triangles       | NL47 | Triangles                                                  |     X     |       X       |
-| Shapes Mini Triangles  | NL48 | Mini Triangles                                             |     X     |       X       |
-| Elements Hexagon       | NL52 | Elements Hexagons                                          |     X     |       X       |
-| Smart Bulb             | NL45 | Smart Bulb                                                 |     -     |               |
-| Lightstrip             | NL55 | Lightstrip                                                 |     -     |       -       |
-| Lines                  | NL59 | Lines                                                      |     X     |               |
-| Canvas                 | NL29 | Squares                                                    |     X     |       X       |
+|     Nanoleaf Name     | Type |       Description        | supported | touch support |
+|-----------------------|------|--------------------------|-----------|---------------|
+| Light Panels          | NL22 | Triangles 1st Generation | X         | -             |
+| Shapes Hexagon        | NL42 | Hexagons                 | X         | X             |
+| Shapes Triangles      | NL47 | Triangles                | X         | X             |
+| Shapes Mini Triangles | NL48 | Mini Triangles           | X         | X             |
+| Elements Hexagon      | NL52 | Elements Hexagons        | X         | X             |
+| Smart Bulb            | NL45 | Smart Bulb               | -         |               |
+| Lightstrip            | NL55 | Lightstrip               | -         | -             |
+| Lines                 | NL59 | Lines                    | X         |               |
+| Canvas                | NL29 | Squares                  | X         | X             |
 
- x  = Supported  (-) = unknown (no device available to test)
+x  = Supported  (-) = unknown (no device available to test)
 
 ## Discovery
 
@@ -52,7 +52,7 @@ Without the token the light panels remain in status OFFLINE.
 The binding supports pairing of the device with your openHAB instance as follows:
 
 1. Make sure that the authentication token field in your Nanoleaf controller thing configuration is left empty.
-1. Hold down the on-off button of the controller for 5-7 seconds until the LED starts flashing/cycling in a pattern, which turns the device in pairing mode, and openHAB will try to request an authentication token for it.
+2. Hold down the on-off button of the controller for 5-7 seconds until the LED starts flashing/cycling in a pattern, which turns the device in pairing mode, and openHAB will try to request an authentication token for it.
 
 Once your openHAB instance successfully requested and stored the authentication token in the controller's thing configuration, the controller status changes to ONLINE, and you can start linking the channels to your items.
 
@@ -109,7 +109,7 @@ Compare the following output with the right picture at the beginning of the arti
 The state channel shows an image of the panels on the wall.
 You have to configure things for each panel to get the correct color.
 Since the colors of the panels can make it difficult to see the panel ids, please use the layout channel where the background color is always white to identify them.
-For state to work, you need to set static colors to your panel. 
+For state to work, you need to set static colors to your panel.
 This is because Nanoleaf does not return updates on colors for dynamic effects and animations.
 
 ![Image](doc/NanoCanvas_rendered.png)
@@ -118,8 +118,8 @@ This is because Nanoleaf does not return updates on colors for dynamic effects a
 
 The controller thing has the following parameters:
 
-| Config          | Description                                                                           |
-| --------------- | ------------------------------------------------------------------------------------- |
+|     Config      |                                      Description                                      |
+|-----------------|---------------------------------------------------------------------------------------|
 | address         | IP address or hostname of the light panels controller (e.g. 192.168.1.100)            |
 | port            | Port number of the light panels contoller. Default is 16021                           |
 | authToken       | The authentication token received from the controller after successful pairing.       |
@@ -149,9 +149,9 @@ Reboot your server after the change.
 
 The lightpanel thing has the following parameters:
 
-| Config          | Description                                                                           |
-| --------------- | ------------------------------------------------------------------------------------- |
-| id              | ID assigned by the controller to the individual panel (e.g. 158)                      |
+| Config |                           Description                            |
+|--------|------------------------------------------------------------------|
+| id     | ID assigned by the controller to the individual panel (e.g. 158) |
 
 The IDs of the individual panels can be determined by starting another scan once the controller is configured and online.
 This discovers all connected panels with their IDs.
@@ -160,26 +160,26 @@ This discovers all connected panels with their IDs.
 
 The controller bridge has the following channels:
 
-| Channel             | Item Type          | Description                                                                                               | Read Only |
-|---------------------|--------------------|-----------------------------------------------------------------------------------------------------------|-----------|
-| color               | Color              | Color, power and brightness of all light panels                                                           | No        |
-| colorTemperature    | Dimmer             | Color temperature (in percent) of all light panels                                                        | No        |
-| colorTemperatureAbs | Number:Temperature | Color temperature (in Kelvin, 1200 to 6500) of all light panels                                           | No        |
-| colorMode           | String             | Color mode of the light panels                                                                            | Yes       |
-| effect              | String             | Selected effect of the light panels                                                                       | No        |
-| layout              | Image              | Shows the layout of your panels with IDs.                                                                 | Yes       |
-| rhythmState         | Switch             | Connection state of the rhythm module                                                                     | Yes       |
-| rhythmActive        | Switch             | Activity state of the rhythm module                                                                       | Yes       |
-| rhythmMode          | Number             | Sound source for the rhythm module. 0=Microphone, 1=Aux cable                                             | No        |
-| state               | Image              | Shows the current state of your panels with colors.                                                       | Yes       |
-| swipe               | Trigger            | [Canvas / Shapes Only] Detects Swipes over the panel.LEFT, RIGHT, UP, DOWN events are supported.          | Yes       |
+|       Channel       |     Item Type      |                                           Description                                            | Read Only |
+|---------------------|--------------------|--------------------------------------------------------------------------------------------------|-----------|
+| color               | Color              | Color, power and brightness of all light panels                                                  | No        |
+| colorTemperature    | Dimmer             | Color temperature (in percent) of all light panels                                               | No        |
+| colorTemperatureAbs | Number:Temperature | Color temperature (in Kelvin, 1200 to 6500) of all light panels                                  | No        |
+| colorMode           | String             | Color mode of the light panels                                                                   | Yes       |
+| effect              | String             | Selected effect of the light panels                                                              | No        |
+| layout              | Image              | Shows the layout of your panels with IDs.                                                        | Yes       |
+| rhythmState         | Switch             | Connection state of the rhythm module                                                            | Yes       |
+| rhythmActive        | Switch             | Activity state of the rhythm module                                                              | Yes       |
+| rhythmMode          | Number             | Sound source for the rhythm module. 0=Microphone, 1=Aux cable                                    | No        |
+| state               | Image              | Shows the current state of your panels with colors.                                              | Yes       |
+| swipe               | Trigger            | [Canvas / Shapes Only] Detects Swipes over the panel.LEFT, RIGHT, UP, DOWN events are supported. | Yes       |
 
 A lightpanel thing has the following channels:
 
-| Channel             | Type      | Description                                                                                                           | Read Only |
-|---------------------|-----------|-----------------------------------------------------------------------------------------------------------------------|-----------|
-| color               | Color     | Color of the individual light panel                                                                                   | No        |
-| tap                 | Trigger   | [Canvas / Shapes Only] Sends events of gestures. SHORT_PRESSED, LONG_PRESSED and DOUBLE_PRESSED events are supported. | Yes       |
+| Channel |  Type   |                                                      Description                                                      | Read Only |
+|---------|---------|-----------------------------------------------------------------------------------------------------------------------|-----------|
+| color   | Color   | Color of the individual light panel                                                                                   | No        |
+| tap     | Trigger | [Canvas / Shapes Only] Sends events of gestures. SHORT_PRESSED, LONG_PRESSED and DOUBLE_PRESSED events are supported. | Yes       |
 
 The color channels support full color control with hue, saturation and brightness values.
 For example, brightness of _all_ panels at once can be controlled by defining a dimmer item for the color channel of the _controller thing_.
@@ -208,7 +208,6 @@ To circumvent that
 
 - Within the nanoleaf app go to the dashboard and choose your device. Enter the settings for that device by clicking the cog icon in the upper right corner.
 - Enable "Touch Gesture" (the first radio button) and make sure that none of the gestures you use with openHAB is active. In general, it is recommended not to enable "touch sensitive gestures" (the second radio button). This prevents unexpected interference between openhHAB rules and Nanoleaf settings.
-
 - To still have the possibility to switch on the whole canvas device with all its panels by double tapping a specific panel, you can easily write a rule that triggers on the tap channel of that panel and then sends an ON to the color channel of the controller. See the example below on Panel 1.
 
 More details can be found in the full example below.
@@ -228,7 +227,7 @@ Bridge nanoleaf:controller:MyLightPanels @ "mylocation" [ address="192.168.1.100
 
 If you define your device statically in the thing file, auto-discovery of the same thing is suppressed by using
 
-- the [address="..." ]  of the controller
+- the [address="..."]  of the controller
 - and the [id=123] of the lightpanel
 
 in the bracket to identify the uniqueness of the discovered device. Therefore it is recommended to the give the controller a fixed ip address.
@@ -444,3 +443,4 @@ effects = Effect
 hs = Hue/Saturation
 ct = Color Temperature
 ```
+

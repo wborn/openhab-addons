@@ -17,40 +17,40 @@ Due to nature of serial bus being used, no automatic discovery is possible.
 
 ### Serial Bus Bridge (id "serial_bus")
 
-| Parameter | Meaning                                                 |
-|-----------|---------------------------------------------------------|
-| port      | Serial port name to use                                 |
+| Parameter |         Meaning         |
+|-----------|-------------------------|
+| port      | Serial port name to use |
 
 Herzborg devices appear to use fixed 9600 8n1 communication parameters, so no other parameters are needed
 
 ### Curtain Motor Thing (id "curtain")
 
-| Parameter     | Meaning                                                 |
-|---------------|---------------------------------------------------------|
-| address       | Address of the motor on the serial bus.                 |
-| poll_interval | Polling interval in seconds                             |
+|   Parameter   |                 Meaning                 |
+|---------------|-----------------------------------------|
+| address       | Address of the motor on the serial bus. |
+| poll_interval | Polling interval in seconds             |
 
 ## Channels
 
-| channel    | type          | description                                   | Read-only |
-|------------|---------------|-----------------------------------------------|-----------|
-| position   | RollerShutter | Controls position of the curtain. Position reported back is in percents; 0 - fully closed; 100 - fully open | N |
-| mode       | String        | Reports current motor mode:                   | Y |
-|            |               | 0 - Stop                                      |   |
-|            |               | 1 - Open                                      |   |
-|            |               | 2 - Close                                     |   |
-|            |               | 3 - Setting                                   |   |
-| reverse    | Switch        | Reverses direction when switched on           | N |
-| handStart  | Switch        | Enable / disable hand start function          | N |
-| extSwitch  | String        | External (low-voltage) switch mode:           | N |
-|            |               | 1 - dual channel biased switch                |   |
-|            |               | 2 - dual channel rocker switch                |   |
-|            |               | 3 - DC246 electronic switch                   |   |
-|            |               | 4 - single button cyclic switch               |   |
-| hvSwitch   | String        | Main (high-voltage) switch mode:              | N |
-|            |               | 0 - dual channel biased switch                |   |
-|            |               | 1 - hotel mode（power on while card in）        |   |
-|            |               | 2 - dual channel rocker switch                |   |
+|  channel  |     type      |                                                 description                                                 | Read-only |
+|-----------|---------------|-------------------------------------------------------------------------------------------------------------|-----------|
+| position  | RollerShutter | Controls position of the curtain. Position reported back is in percents; 0 - fully closed; 100 - fully open | N         |
+| mode      | String        | Reports current motor mode:                                                                                 | Y         |
+|           |               | 0 - Stop                                                                                                    |           |
+|           |               | 1 - Open                                                                                                    |           |
+|           |               | 2 - Close                                                                                                   |           |
+|           |               | 3 - Setting                                                                                                 |           |
+| reverse   | Switch        | Reverses direction when switched on                                                                         | N         |
+| handStart | Switch        | Enable / disable hand start function                                                                        | N         |
+| extSwitch | String        | External (low-voltage) switch mode:                                                                         | N         |
+|           |               | 1 - dual channel biased switch                                                                              |           |
+|           |               | 2 - dual channel rocker switch                                                                              |           |
+|           |               | 3 - DC246 electronic switch                                                                                 |           |
+|           |               | 4 - single button cyclic switch                                                                             |           |
+| hvSwitch  | String        | Main (high-voltage) switch mode:                                                                            | N         |
+|           |               | 0 - dual channel biased switch                                                                              |           |
+|           |               | 1 - hotel mode（power on while card in）                                                                      |           |
+|           |               | 2 - dual channel rocker switch                                                                              |           |
 
 All the channels are read-write
 
@@ -81,3 +81,4 @@ Frame label="Living room curtain"
 }
 
 ```
+

@@ -31,15 +31,15 @@ Every Siemens LOGO! PLC is configured as bridge:
 Bridge plclogo:device:<DeviceId> [ address="<ip>", family="<0BA7/0BA8>", localTSAP="0x<number>", remoteTSAP="0x<number>", refresh=<number> ]
 ```
 
-| Parameter  | Type    | Required   | Default   | Description                                                      |
-| ---------- | :-----: | :--------: | :-------: | ---------------------------------------------------------------- |
-| address    | String  | Yes        |           | IP address of the LOGO! PLC.                                     |
-| family     | String  | Yes        |           | LOGO! family to communicate with. Can be `0BA7` or `0BA8` now.   |
-| localTSAP  | String  | Yes        |           | TSAP (as hex) is used by the local instance. Check configuration |
-|            |         |            |           | in LOGO!Soft Comfort. Common used value is `0x3000`.             |
-| remoteTSAP | String  | Yes        |           | TSAP (as hex) of the remote LOGO! PLC, as configured by          |
-|            |         |            |           | LOGO!Soft Comfort. Common used value is `0x2000`.                |
-| refresh    | Integer | No         | 100ms     | Polling interval, in milliseconds. Is used for query the LOGO!.  |
+| Parameter  |  Type   | Required | Default |                           Description                            |
+|------------|:-------:|:--------:|:-------:|------------------------------------------------------------------|
+| address    | String  |   Yes    |         | IP address of the LOGO! PLC.                                     |
+| family     | String  |   Yes    |         | LOGO! family to communicate with. Can be `0BA7` or `0BA8` now.   |
+| localTSAP  | String  |   Yes    |         | TSAP (as hex) is used by the local instance. Check configuration |
+|            |         |          |         | in LOGO!Soft Comfort. Common used value is `0x3000`.             |
+| remoteTSAP | String  |   Yes    |         | TSAP (as hex) of the remote LOGO! PLC, as configured by          |
+|            |         |          |         | LOGO!Soft Comfort. Common used value is `0x2000`.                |
+| refresh    | Integer |    No    |  100ms  | Polling interval, in milliseconds. Is used for query the LOGO!.  |
 
 Be sure not to use the same values for localTSAP and remoteTSAP, if configure more than one LOGO!
 
@@ -55,18 +55,18 @@ The configuration pattern for digital things is:
 Thing digital <ThingId> "Label" @ "Location" [ kind="<kind>", force=<true/false> ]
 ```
 
-| Parameter | Type    | Required   | Default   | Description                                                  |
-| --------- | :-----: | :--------: | :-------: | ------------------------------------------------------------ |
-| kind      | String  | Yes        |           | Blocks kind                                                  |
-| force     | Boolean | No         | false     | Send current value to openHAB, independent if changed or not |
+| Parameter |  Type   | Required | Default |                         Description                          |
+|-----------|:-------:|:--------:|:-------:|--------------------------------------------------------------|
+| kind      | String  |   Yes    |         | Blocks kind                                                  |
+| force     | Boolean |    No    |  false  | Send current value to openHAB, independent if changed or not |
 
 Follow block kinds are allowed for digital things:
 
-| Type           | `0BA7` | `0BA8` |
-| -------------- | :----: | ------ |
-| Input          | `I`    | `I`    |
-| Output         | `Q`    | `Q`    |
-| Marker         | `M`    | `M`    |
+|      Type      | `0BA7` | `0BA8` |
+|----------------|:------:|--------|
+| Input          |  `I`   | `I`    |
+| Output         |  `Q`   | `Q`    |
+| Marker         |  `M`   | `M`    |
 | Network input  |        | `NI`   |
 | Network output |        | `NQ`   |
 
@@ -78,19 +78,19 @@ The configuration pattern for analog things is:
 Thing analog <ThingId>  "Label" @ "Location" [ kind="<kind>", threshold=<number>, force=<true/false> ]
 ```
 
-| Parameter | Type    | Required   | Default   | Description                                                   |
-| --------- | :-----: | :--------: | :-------: | ------------------------------------------------------------- |
-| kind      | String  | Yes        |           | Blocks kind                                                   |
-| threshold | Integer | No         | 0         | Send current value to openHAB, if changed more than threshold |
-| force     | Boolean | No         | false     | Send current value to openHAB, independent if changed or not  |
+| Parameter |  Type   | Required | Default |                          Description                          |
+|-----------|:-------:|:--------:|:-------:|---------------------------------------------------------------|
+| kind      | String  |   Yes    |         | Blocks kind                                                   |
+| threshold | Integer |    No    |    0    | Send current value to openHAB, if changed more than threshold |
+| force     | Boolean |    No    |  false  | Send current value to openHAB, independent if changed or not  |
 
 Follow block kinds are allowed for analog things:
 
-| Type           | `0BA7` | `0BA8` |
-| -------------- | :----: | ------ |
-| Input          | `AI`   | `AI`   |
-| Output         | `AQ`   | `AQ`   |
-| Marker         | `AM`   | `AM`   |
+|      Type      | `0BA7` | `0BA8` |
+|----------------|:------:|--------|
+| Input          |  `AI`  | `AI`   |
+| Output         |  `AQ`  | `AQ`   |
+| Marker         |  `AM`  | `AM`   |
 | Network input  |        | `NAI`  |
 | Network output |        | `NAQ`  |
 
@@ -104,12 +104,12 @@ Thing memory <ThingId>  "Label" @ "Location" [ block="<name>", threshold=<number
 
 Follow block names are allowed for memory things:
 
-| Type  | `0BA7`            | `0BA8`            |
-| ----- | :---------------: | ----------------- |
+| Type  |      `0BA7`       |      `0BA8`       |
+|-------|:-----------------:|-------------------|
 | Bit   | `VB[0-850].[0-7]` | `VB[0-850].[0-7]` |
-| Byte  | `VB[0-850]`       | `VB[0-850]`       |
-| Word  | `VW[0-849]`       | `VW[0-849]`       |
-| DWord | `VD[0-847]`       | `VD[0-847]`       |
+| Byte  |    `VB[0-850]`    | `VB[0-850]`       |
+| Word  |    `VW[0-849]`    | `VW[0-849]`       |
+| DWord |    `VD[0-847]`    | `VD[0-847]`       |
 
 Parameter `threshold` will be taken into account for Byte, Word and DWord, i.e Number items, only.
 
@@ -123,9 +123,9 @@ Thing datetime <ThingId>  "Label" @ "Location" [ block="<name>", type=<type>, fo
 
 Follow block names are allowed for datetime things:
 
-| Type  | `0BA7`      | `0BA8`      |
-| ----- | :---------: | ----------- |
-| Word  | `VW[0-849]` | `VW[0-849]` |
+| Type |   `0BA7`    |   `0BA8`    |
+|------|:-----------:|-------------|
+| Word | `VW[0-849]` | `VW[0-849]` |
 
 If parameter `type` is `"date"`, then the binding will try to interpret incoming data as calendar date.
 The time this case will be taken from openHAB host.
@@ -142,20 +142,20 @@ Thing pulse <ThingId>  "Label" @ "Location" [ block="<name>", observe="<name>", 
 
 Follow block names are allowed for pulse things:
 
-| Type  | `0BA7`            | `0BA8`            |
-| ----- | :---------------: | ----------------- |
-| Bit   | `VB[0-850].[0-7]` | `VB[0-850].[0-7]` |
+| Type |      `0BA7`       |      `0BA8`       |
+|------|:-----------------:|-------------------|
+| Bit  | `VB[0-850].[0-7]` | `VB[0-850].[0-7]` |
 
 Follow observed block names are allowed for pulse things:
 
-| Type  | `0BA7`            | `0BA8`            |
-| ----- | :---------------: | ----------------- |
-| Bit   | `VB[0-850].[0-7]` | `VB[0-850].[0-7]` |
-| Bit   | `I[1-24]`         | `I[1-24]`         |
-| Bit   | `Q[1-16]`         | `Q[1-20]`         |
-| Bit   | `M[1-27]`         | `M[1-64]`         |
-| Bit   |                   | `NI[1-64]`        |
-| Bit   |                   | `NQ[1-64]`        |
+| Type |      `0BA7`       |      `0BA8`       |
+|------|:-----------------:|-------------------|
+| Bit  | `VB[0-850].[0-7]` | `VB[0-850].[0-7]` |
+| Bit  |     `I[1-24]`     | `I[1-24]`         |
+| Bit  |     `Q[1-16]`     | `Q[1-20]`         |
+| Bit  |     `M[1-27]`     | `M[1-64]`         |
+| Bit  |                   | `NI[1-64]`        |
+| Bit  |                   | `NQ[1-64]`        |
 
 If `observe` is not set or set equal `block`, simply pulse with length `pulse` milliseconds is send to `block`.
 If `observe` is set and differ from `block`, binding will wait for value change on `observe` and send then a pulse with length `pulse` milliseconds to block.
@@ -191,8 +191,8 @@ channel="plclogo:digital:<DeviceId>:<ThingId>:<Channel>"
 
 Dependent on configured LOGO! PLC and thing kind, follow channels are available:
 
-| Kind | `0BA7`    | `0BA8`     | Item      |
-| ---- | :-------: | :--------: | --------- |
+| Kind |  `0BA7`   |   `0BA8`   |   Item    |
+|------|:---------:|:----------:|-----------|
 | `I`  | `I[1-24]` | `I[1-24]`  | `Contact` |
 | `Q`  | `Q[1-16]` | `Q[1-20]`  | `Switch`  |
 | `M`  | `M[1-27]` | `M[1-64]`  | `Switch`  |
@@ -209,10 +209,10 @@ channel="plclogo:analog:<DeviceId>:<ThingId>:<Channel>"
 
 Dependent on configured LOGO! PLC and thing kind, follow channels are available:
 
-| Kind  | `0BA7`     | `0BA8`      | Item     |
-| ----- | :--------: | :---------: | -------- |
-| `AI`  | `AI[1-8]`  | `AI[1-8]`   | `Number` |
-| `AQ`  | `AQ[1-2]`  | `AQ[1-8]`   | `Number` |
+| Kind  |   `0BA7`   |   `0BA8`    |   Item   |
+|-------|:----------:|:-----------:|----------|
+| `AI`  | `AI[1-8]`  |  `AI[1-8]`  | `Number` |
+| `AQ`  | `AQ[1-2]`  |  `AQ[1-8]`  | `Number` |
 | `AM`  | `AM[1-16]` | `AM[1-64]`  | `Number` |
 | `NAI` |            | `NAI[1-32]` | `Number` |
 | `NAQ` |            | `NAQ[1-16]` | `Number` |
@@ -227,8 +227,8 @@ channel="plclogo:memory:<DeviceId>:<ThingId>:<state/value>"
 
 Dependent on configured LOGO! PLC and thing kind, follow channels are available:
 
-| Kind              | `0BA7`  | `0BA8`  | Item     |
-| ----------------- | :-----: | :-----: | -------- |
+|       Kind        | `0BA7`  | `0BA8`  |   Item   |
+|-------------------|:-------:|:-------:|----------|
 | `VB[0-850].[0-7]` | `state` | `state` | `Switch` |
 | `VB[0-850]`       | `value` | `value` | `Number` |
 | `VW[0-849]`       | `value` | `value` | `Number` |
@@ -244,8 +244,8 @@ channel="plclogo:datetime:<DeviceId>:<ThingId>:<date/time>"
 
 Dependent on configured LOGO! PLC and thing kind, follow channels are available:
 
-| Kind        | `0BA7`  | `0BA8`  | Item       |
-| ----------- | :-----: | :-----: | ---------- |
+|    Kind     | `0BA7`  | `0BA8`  |    Item    |
+|-------------|:-------:|:-------:|------------|
 | `VW[0-849]` | `date`  | `date`  | `DateTime` |
 | `VW[0-849]` | `time`  | `time`  | `DateTime` |
 | `VW[0-849]` | `value` | `value` | `Number`   |
@@ -274,9 +274,9 @@ channel="plclogo:pulse:<DeviceId>:<ThingId>:observed"
 
 Dependent on configured LOGO! PLC and thing kind, follow channels are available:
 
-| Kind              | `0BA7`     | `0BA8`     | Item      |
-| ----------------- | :--------: | :--------: | --------- |
-| `VB[0-850].[0-7]` | `state`    | `state`    | `Switch`  |
+|       Kind        |   `0BA7`   |   `0BA8`   |   Item    |
+|-------------------|:----------:|:----------:|-----------|
+| `VB[0-850].[0-7]` |  `state`   |  `state`   | `Switch`  |
 | `VB[0-850].[0-7]` | `observed` | `observed` | `Switch`  |
 | `I[1-24]`         | `observed` | `observed` | `Contact` |
 | `Q[1-16/20]`      | `observed` | `observed` | `Switch`  |

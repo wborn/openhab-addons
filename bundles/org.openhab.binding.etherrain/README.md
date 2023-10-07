@@ -57,3 +57,4 @@ Switch SprinklerRainSensor        (gMain) { channel="etherrain:etherrain:sprinkl
 Switch SprinklerExecute            (gMain) { channel="etherrain:etherrain:sprinkler0:execute" }
 Switch SprinklerClear              (gMain) { channel="etherrain:etherrain:sprinkler0:clear" }
 ```
+

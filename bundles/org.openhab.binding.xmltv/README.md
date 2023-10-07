@@ -23,15 +23,15 @@ Once the XmlTV bridge to a file is created, you can add all known channels by se
 
 ## Binding Configuration
 
-| Configuration Parameter | Required | Description                                         | Default |
-|-------------------------|----------|-----------------------------------------------------|---------|
-| filePath                | X        | Full path (including filename) to an Xml TV file    |         |
-| refresh                 | X        | XMLTV file reload interval in hours                 | 24h     |
-| encoding                | X        | XMLTV file encoding                                 | UTF8    |
+| Configuration Parameter | Required |                   Description                    | Default |
+|-------------------------|----------|--------------------------------------------------|---------|
+| filePath                | X        | Full path (including filename) to an Xml TV file |         |
+| refresh                 | X        | XMLTV file reload interval in hours              | 24h     |
+| encoding                | X        | XMLTV file encoding                              | UTF8    |
 
 ## Thing Configuration
 
-| Configuration Parameter | Required | Description                                                    | Default |
+| Configuration Parameter | Required |                          Description                           | Default |
 |-------------------------|----------|----------------------------------------------------------------|---------|
 | channelId               | X        | Id of the channel as presented in the XmlTV file               |         |
 | offset                  | X        | Offset applied to program times (forward or backward (minutes) | 0       |
@@ -39,14 +39,14 @@ Once the XmlTV bridge to a file is created, you can add all known channels by se
 
 ## Channels
 
-| Channel Type ID | Item Type            | Description                         |
-|-----------------|----------------------|-------------------------------------|
-| iconUrl         | String               | Channel Icon URL                    |
-| icon            | Image                | Icon of the channel                 |
+| Channel Type ID | Item Type |     Description     |
+|-----------------|-----------|---------------------|
+| iconUrl         | String    | Channel Icon URL    |
+| icon            | Image     | Icon of the channel |
 
 ### Current program (currentprog) Channels Group
 
-| Channel Type ID | Item Type            | Description                                 |
+| Channel Type ID |      Item Type       |                 Description                 |
 |-----------------|----------------------|---------------------------------------------|
 | progStart       | DateTime             | Program Start Time                          |
 | progEnd         | DateTime             | Program End Time                            |
@@ -60,15 +60,15 @@ Once the XmlTV bridge to a file is created, you can add all known channels by se
 
 ### Next program (nextprog) Channels Group
 
-| Channel Type ID | Item Type            | Description                                 |
-|-----------------|----------------------|---------------------------------------------|
-| progStart       | DateTime             | Program Start Time                          |
-| timeLeft        | Number:Time          | Time left before program start              |
-| progEnd         | DateTime             | Program End Time                            |
-| progTitle       | String               | Program Title                               |
-| progCategory    | String               | Program Category                            |
-| progIconUrl     | String               | URL to an image of the program              |
-| icon            | Image                | Icon of the program                         |
+| Channel Type ID |  Item Type  |          Description           |
+|-----------------|-------------|--------------------------------|
+| progStart       | DateTime    | Program Start Time             |
+| timeLeft        | Number:Time | Time left before program start |
+| progEnd         | DateTime    | Program End Time               |
+| progTitle       | String      | Program Title                  |
+| progCategory    | String      | Program Category               |
+| progIconUrl     | String      | URL to an image of the program |
+| icon            | Image       | Icon of the program            |
 
 ## Full Example
 
@@ -86,3 +86,4 @@ Bridge xmltv:xmltvfile:france "XmlTV" @ "TV" [filePath="/etc/openhab/scripts/tvg
 ```java
 String france2_title "Titre" {channel="xmltv:channel:france:france2:currentprog#progTitle"}
 ```
+

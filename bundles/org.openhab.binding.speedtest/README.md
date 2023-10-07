@@ -54,11 +54,11 @@ To install Ookla's version of Speedtest, head to https://www.speedtest.net/apps/
 
 ## Thing Configuration
 
-| Parameter         |  Description                                                                                                                 | Default |
-|-------------------|------------------------------------------------------------------------------------------------------------------------------|---------|
-| `refreshInterval` | How often to test network speed, in minutes                                                                                  | `60`    |
-| `execPath`        | The path of the Ookla Speedtest executable.<br/>Linux machines may leave this blank and it defaults to `/usr/bin/speedtest`. |         |
-| `serverID`        | Optional: A specific server that shall be used for testing. You can pick the server ID from the "Thing Properties".<br/>If this is left blank the best option will be selected by Ookla.          |         |
+|     Parameter     |                                                                                       Description                                                                                        | Default |
+|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| `refreshInterval` | How often to test network speed, in minutes                                                                                                                                              | `60`    |
+| `execPath`        | The path of the Ookla Speedtest executable.<br/>Linux machines may leave this blank and it defaults to `/usr/bin/speedtest`.                                                             |         |
+| `serverID`        | Optional: A specific server that shall be used for testing. You can pick the server ID from the "Thing Properties".<br/>If this is left blank the best option will be selected by Ookla. |         |
 
 The `refreshInterval` parameter can also be set to `0` which means "Do not test automatically".
 This can be used if you want to use the "Trigger Test" channel in order to test via rules, or an item instead.
@@ -67,13 +67,13 @@ Ensure that the user that openHAB is running with, has the permissions to access
 
 ## Properties
 
-| Property            | Description                                                                                                |
-|---------------------|------------------------------------------------------------------------------------------------------------|
-| Server List 1...10  | A List of Ookla Speedtest servers that can be used in order to specify a specific server for the Speedtest.<br/>Configure the Server ID via the `serverID` Thing Configuration Parameter. |
+|      Property      |                                                                                        Description                                                                                        |
+|--------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Server List 1...10 | A List of Ookla Speedtest servers that can be used in order to specify a specific server for the Speedtest.<br/>Configure the Server ID via the `serverID` Thing Configuration Parameter. |
 
 ## Channels
 
-| Channel               | Type                      | Description                                                       |
+|        Channel        |           Type            |                            Description                            |
 |-----------------------|---------------------------|-------------------------------------------------------------------|
 | `server`              | `String`                  | The remote server that the Speedtest was run against              |
 | `pingJitter`          | `Number:Time`             | Ping Jitter - the variation in the response time                  |
@@ -116,3 +116,4 @@ String                    Speedtest_Interface_ExternalIP  "External IP Address" 
 String                    Speedtest_ResultURL             "Result URL"            { channel="speedtest:speedtest:myspeedtest:resultUrl" }
 Switch                    Speedtest_TriggerTest           "Trigger Test"          { channel="speedtest:speedtest:myspeedtest:triggerTest" }
 ```
+

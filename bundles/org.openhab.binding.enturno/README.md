@@ -24,29 +24,29 @@ Since thing needs to be explicitly configured for stop id and line, no auto disc
 
 ### Entur Timetable
 
-| Parameter                 | Description                                                                                                                                                                                                                                                                  |
-|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| stopPlaceId (Stop code)   | Unique id of stop place that can be get from [en-tur.no](https://en-tur.no) after selecting bus stop. Information will be displayed in link. Example: <https://en-tur.no/nearby-stop-place-detail?id=NSR:StopPlace:30848> stopPlaceId is **NSR:StopPlace:30848** in this case|
-| lineCode (Line code)      | Code (name or numeber) of line used by public transport provider. Examples: 3, 3E, 4, 21                                                                                                                                                                                     |
+|        Parameter        |                                                                                                                                  Description                                                                                                                                  |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| stopPlaceId (Stop code) | Unique id of stop place that can be get from [en-tur.no](https://en-tur.no) after selecting bus stop. Information will be displayed in link. Example: <https://en-tur.no/nearby-stop-place-detail?id=NSR:StopPlace:30848> stopPlaceId is **NSR:StopPlace:30848** in this case |
+| lineCode (Line code)    | Code (name or numeber) of line used by public transport provider. Examples: 3, 3E, 4, 21                                                                                                                                                                                      |
 
 ## Channels
 
 ### Stop Place
 
-| Channel Group ID | Channel ID      | Item Type | Description                                                 |
-|------------------|-----------------|-----------|-------------------------------------------------------------|
-| stopPlace        | id              | String    | Id of the stop place.                                       |
-| stopPlace        | name            | String    | Name of the stop place.                                     |
-| stopPlace        | transportMode   | String    | Type of transport served from bus stop bus/train/plane etc. |
+| Channel Group ID |  Channel ID   | Item Type |                         Description                         |
+|------------------|---------------|-----------|-------------------------------------------------------------|
+| stopPlace        | id            | String    | Id of the stop place.                                       |
+| stopPlace        | name          | String    | Name of the stop place.                                     |
+| stopPlace        | transportMode | String    | Type of transport served from bus stop bus/train/plane etc. |
 
 ### Line Direction
 
-| Channel Group ID  | Channel ID                                                                            | Item Type | Description                                                                                                                                                           |
-|-------------------|---------------------------------------------------------------------------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| direction         | lineCode                                                                              | String    | Code (usually number) of the public transport line.                                                                                                                   |
-| direction         | frontDisplayText                                                                      | String    | Text of front display of the public transport line (usually direction)                                                                                                |
-| direction         | departure01, departure02, departure03, departure04, departure05                       | DateTime  | Times of next five departures.                                                                                                                                        |
-| direction         | estimatedFlag01, estimatedFlag02, estimatedFlag03, estimatedFlag04, estimatedFlag05   | String    | Values (true/false) saying that corresponding departure is real-time (estimated - true) or departure from timetable. Values (true/false) can be parsed to boolean.    |
+| Channel Group ID |                                     Channel ID                                      | Item Type |                                                                            Description                                                                             |
+|------------------|-------------------------------------------------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| direction        | lineCode                                                                            | String    | Code (usually number) of the public transport line.                                                                                                                |
+| direction        | frontDisplayText                                                                    | String    | Text of front display of the public transport line (usually direction)                                                                                             |
+| direction        | departure01, departure02, departure03, departure04, departure05                     | DateTime  | Times of next five departures.                                                                                                                                     |
+| direction        | estimatedFlag01, estimatedFlag02, estimatedFlag03, estimatedFlag04, estimatedFlag05 | String    | Values (true/false) saying that corresponding departure is real-time (estimated - true) or departure from timetable. Values (true/false) can be parsed to boolean. |
 
 ## Full Example
 
@@ -95,3 +95,4 @@ String      RealTime_Direction02_IsReal3    "Departure03 is real-time"          
 String      RealTime_Direction02_IsReal4    "Departure04 is real-time"          {channel="enturno:linestop:7e693fff:Direction02#estimatedFlag04"}
 String      RealTime_Direction02_IsReal5    "Departure05 is real-time"          {channel="enturno:linestop:7e693fff:Direction02#estimatedFlag05"}
 ```
+

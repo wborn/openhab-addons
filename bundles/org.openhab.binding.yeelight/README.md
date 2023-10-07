@@ -4,7 +4,7 @@ This binding integrates the [Yeelight Lighting Product](https://www.yeelight.com
 
 ## Supported Things
 
-| Device                                                                        | Thing type ID | Device model                      |
+|                                    Device                                     | Thing type ID |           Device model            |
 |-------------------------------------------------------------------------------|---------------|-----------------------------------|
 | [Yeelight LED Ceiling Light](https://us.yeelight.com/category/ceiling-light/) | `ceiling`     | `ceiling`, `ceiling3`             |
 | [Yeelight LED Ceiling Light](https://us.yeelight.com/category/ceiling-light/) | `ceiling1`    | `ceiling1`, `ceiling11`, `ceil26` |
@@ -30,23 +30,23 @@ Yeelight smart LED devices announce themselves on the network through UPnP, so t
 
 All Yeelight things require the `deviceId` from the device as a configuration parameter. This table shows all available parameters:
 
-| Parameter           | Values                                         | Mandatory |
-|---------------------|------------------------------------------------|-----------|
-| deviceId            | ID of the Yeelight device                      | Yes       |
-| duration            | Duration for changing between different states | No        |
+| Parameter |                     Values                     | Mandatory |
+|-----------|------------------------------------------------|-----------|
+| deviceId  | ID of the Yeelight device                      | Yes       |
+| duration  | Duration for changing between different states | No        |
 
 ## Channels
 
 All devices support some of the following channels:
 
-| Channel | Item Type | Description |
-|--------|------|------|
-|`brightness` | `Dimmer` | This channel supports adjusting the brightness value, it is available on `dolphin` and `ceiling`.|
-|`color` | `Color` | This channel supports color control, it is available on `wonder` and `stripe`.|
-|`colorTemperature` | `Dimmer` | This channel supports adjusting the color temperature, it is available on `wonder` and `stripe` and `ceiling`.|
-|`command` | `String` | This channel sends a command directly to the device, it is available on all Yeelight Things.|
-|`backgroundColor` | `Color` or `Dimmer`  | This channel supports color control for the ambient light, it is available on `ceiling4`.|
-|`nightlight` | `Switch` | This supports switching to nightlight mode, it is available on `ceiling1` or `ceiling4`.|
+|      Channel       |      Item Type      |                                                  Description                                                   |
+|--------------------|---------------------|----------------------------------------------------------------------------------------------------------------|
+| `brightness`       | `Dimmer`            | This channel supports adjusting the brightness value, it is available on `dolphin` and `ceiling`.              |
+| `color`            | `Color`             | This channel supports color control, it is available on `wonder` and `stripe`.                                 |
+| `colorTemperature` | `Dimmer`            | This channel supports adjusting the color temperature, it is available on `wonder` and `stripe` and `ceiling`. |
+| `command`          | `String`            | This channel sends a command directly to the device, it is available on all Yeelight Things.                   |
+| `backgroundColor`  | `Color` or `Dimmer` | This channel supports color control for the ambient light, it is available on `ceiling4`.                      |
+| `nightlight`       | `Switch`            | This supports switching to nightlight mode, it is available on `ceiling1` or `ceiling4`.                       |
 
 ## Full Example
 

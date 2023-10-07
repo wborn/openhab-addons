@@ -22,8 +22,8 @@ The binding itself does not require any configuration.
 
 ### SagerCaster
 
-| Name               | Type     | Description                                                          |
-| ------------------ | -------- | -------------------------------------------------------------------- |
+|        Name        |   Type   |                             Description                              |
+|--------------------|----------|----------------------------------------------------------------------|
 | location (*)       | Location | Latitude and longitude of the desired weather forecast.              |
 | observation-period | int      | Minimum delay (in hours) before producing forecasts. Defaulted to 6. |
 
@@ -33,8 +33,8 @@ The binding itself does not require any configuration.
 
 The binding will use some input channels, that can be configured directly with profiles (sample below).
 
-| Name                | Group  | Type                 | Description                                                     |
-| ------------------- | ------ | -------------------- | --------------------------------------------------------------- |
+|        Name         | Group  |         Type         |                           Description                           |
+|---------------------|--------|----------------------|-----------------------------------------------------------------|
 | is-raining (*)      | input  | Switch               | On if it is raining, else Off.                                  |
 | rain-qtty  (*)      | input  | Number               | Any value that give indication of a current rain volume         |
 | or                  | input  | Number:Speed         | Any value that give indication of a current rain volume eg mm/h |
@@ -90,3 +90,4 @@ String  SWC_windfrom            "Wind from"                             (gSager)
  
 DateTime SWC_ObservationTime    "Timestamp [%1$tH:%1$tM]"       <time>  (gSager, gTrackAge)     {channel="sagercaster:sagercaster:triel:output#timestamp" }
 ```
+

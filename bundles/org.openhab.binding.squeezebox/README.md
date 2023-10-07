@@ -36,8 +36,8 @@ Bridge squeezebox:squeezeboxserver:myServer [ ipAddress="192.168.1.10", webport=
 
 The binding has the following configuration options, which can be set for "binding:squeezebox":
 
-| Parameter   | Name         | Description                                                                | Required |
-| ----------- | ------------ | -------------------------------------------------------------------------- | -------- |
+|  Parameter  |     Name     |                                Description                                 | Required |
+|-------------|--------------|----------------------------------------------------------------------------|----------|
 | callbackUrl | Callback URL | URL to use for playing notification sounds, e.g. `http://192.168.0.2:8080` | no       |
 
 When a SqueezeBox is used as an audio sink, the SqueezeBox player connects to openHAB to get the audio stream.
@@ -86,16 +86,16 @@ Bridge squeezebox:squeezeboxserver:myServer [ ipAddress="192.168.1.10", webport=
 
 The Squeezebox server supports the following channel:
 
-| Channel Type ID | Item Type | Description                                                                           |
-| --------------- | --------- | ------------------------------------------------------------------------------------- |
+| Channel Type ID | Item Type |                                      Description                                      |
+|-----------------|-----------|---------------------------------------------------------------------------------------|
 | favoritesList   | String    | Comma-separated list of favorite IDs & names, updated whenever list changes on server |
 
 ## Player Channels
 
 All devices support some of the following channels:
 
-| Channel Type ID        | Item Type | Description                                                                                  |
-| ---------------------- | --------- | -------------------------------------------------------------------------------------------- |
+|    Channel Type ID     | Item Type |                                         Description                                          |
+|------------------------|-----------|----------------------------------------------------------------------------------------------|
 | power                  | Switch    | Power on/off your device                                                                     |
 | mute                   | Switch    | Mute/unmute your device                                                                      |
 | volume                 | Dimmer    | Volume of your device                                                                        |
@@ -148,7 +148,7 @@ Currently, only favorites from the root level of the LMS favorites list are expo
 ### How to Set Up Favorites
 
 - Add some favorites to your favorites list in LMS (local music playlists, Pandora, Slacker, Internet radio, etc.).
-    Keep all favorites at the root level (i.e. favorites in sub-folders will be ignored).
+  Keep all favorites at the root level (i.e. favorites in sub-folders will be ignored).
 - If you're on an older openHAB build, you may need to delete and re-add your squeezebox server and player things to pick up the new channels.
 - Create a new item on each player
 
@@ -223,13 +223,14 @@ If the streaming service doesn't support rating, sending commands to the `rate` 
 ### Known Issues
 
 - There are some versions of squeezelite that will not correctly play very short duration mp3 files.
-    Versions of squeezelite after v1.7 and before v1.8.6 will not play very short duration mp3 files reliably.
-    For example, if you're using piCorePlayer (which uses squeezelite), please check your version of squeezelite if you're having trouble playing notifications.
-    This bug has been fixed in squeezelite version 1.8.6-985, which is included in piCorePlayer version 3.20.
+  Versions of squeezelite after v1.7 and before v1.8.6 will not play very short duration mp3 files reliably.
+  For example, if you're using piCorePlayer (which uses squeezelite), please check your version of squeezelite if you're having trouble playing notifications.
+  This bug has been fixed in squeezelite version 1.8.6-985, which is included in piCorePlayer version 3.20.
 - When streaming from a remote service (such as Pandora or Spotify), after the notification plays, the Squeezebox Server starts playing a new track, instead of picking up from where it left off on the currently playing track.
 - There have been reports that notifications do not play reliably, or do not play at all, when using Logitech Media Server (LMS) version 7.7.5.
-    Therefore, it is recommended that the LMS be on a more current version than 7.7.5.
+  Therefore, it is recommended that the LMS be on a more current version than 7.7.5.
 - There have been reports that the LMS does not play some WAV files reliably. If you're using a TTS service that produces WAV files, and the notifications are not playing, try using an MP3-formatted TTS notification.
-    This issue reportedly was [fixed in the LMS](https://github.com/Logitech/slimserver/issues/307) by accepting additional MIME types for WAV files.
+  This issue reportedly was [fixed in the LMS](https://github.com/Logitech/slimserver/issues/307) by accepting additional MIME types for WAV files.
 - The LMS treats player MAC addresses as case-sensitive.
-    Therefore, the case of MAC addresses in the Squeeze Player thing configuration must match the case displayed on the _Information_ tab in the LMS Settings.
+  Therefore, the case of MAC addresses in the Squeeze Player thing configuration must match the case displayed on the _Information_ tab in the LMS Settings.
+

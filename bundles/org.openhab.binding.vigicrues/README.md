@@ -12,11 +12,11 @@ To get your station id :
 
 1. open <https://www.vigicrues.gouv.fr/>
 
-1. Select your region on the France map
+2. Select your region on the France map
 
-1. Select the station nearest to your location
+3. Select the station nearest to your location
 
-1. In the 'Info Station' tab you'll get the id just near the station name (e.g. X9999999299)
+4. In the 'Info Station' tab you'll get the id just near the station name (e.g. X9999999299)
 
 Of course, you can add multiple Things, e.g. for getting measures for different locations.
 
@@ -35,7 +35,7 @@ The binding has no configuration options, all configuration is done at Thing lev
 
 The thing has a few configuration parameters:
 
-| Parameter | Description                                                             |
+| Parameter |                               Description                               |
 |-----------|-------------------------------------------------------------------------|
 | id        | Id of the station.                                                      |
 | refresh   | Refresh interval in minutes. Optional, the default value is 30 minutes. |
@@ -47,7 +47,7 @@ Channels will be presented depending upon actual available data.
 
 The VigiCrues information that retrieved are made available with these channels:
 
-| Channel ID       | Item Type                 | Description                                                |
+|    Channel ID    |         Item Type         |                        Description                         |
 |------------------|---------------------------|------------------------------------------------------------|
 | observation-time | DateTime                  | Date and time of measurement                               |
 | flow             | Number:VolumetricFlowRate | Volume of water per time unit                              |
@@ -61,7 +61,7 @@ The VigiCrues information that retrieved are made available with these channels:
 
 (*) Each alert level is described by a color:
 
-| Code | Color  | Description                               |
+| Code | Color  |                Description                |
 |------|--------|-------------------------------------------|
 | 0    | Green  | No particular vigilance                   |
 | 1    | Yellow | Be attentive to the flooding situation    |
@@ -97,3 +97,4 @@ sitemap vigicrues label="VigiCrues" {
     }
 }
 ```
+

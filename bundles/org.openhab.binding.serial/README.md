@@ -44,8 +44,8 @@ When using a Serial Device the expectation is that the received data for each de
 
 The configuration for the `serialBridge` consists of the following parameters:
 
-| Parameter  | Description                                                                             |
-| ---------- | --------------------------------------------------------------------------------------- |
+| Parameter  |                                       Description                                       |
+|------------|-----------------------------------------------------------------------------------------|
 | serialPort | The serial port to use (e.g. Linux: /dev/ttyUSB0, Windows: COM1) (mandatory)            |
 | baudRate   | Set the baud rate. Valid values: 4800, 9600, 19200, 38400, 57600, 115200 (default 9600) |
 | dataBits   | Set the data bits. Valid values: 5, 6, 7, 8 (default 8)                                 |
@@ -55,24 +55,24 @@ The configuration for the `serialBridge` consists of the following parameters:
 
 The configuration for the `serialDevice` consists of the following parameters:
 
-| Parameter    | Description                                                                                           |
-| ------------ | ----------------------------------------------------------------------------------------------------- |
+|  Parameter   |                                              Description                                              |
+|--------------|-------------------------------------------------------------------------------------------------------|
 | patternMatch | Regular expression used to identify device from received data (must match the whole line) (mandatory) |
 
 ## Channels
 
 The channels supported by the `serialBridge` are:
 
-| Channel  | Type             | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| -------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Channel  |       Type       |                                                                                                                                                                                                                Description                                                                                                                                                                                                                |
+|----------|------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `string` | String           | Channel for sending/receiving data as a string to/from the serial port. The channel will update its state to a StringType that is the data received from the serial port. A command sent to this channel will be sent out as data through the serial port.                                                                                                                                                                                |
 | `binary` | String           | Channel for sending/receiving data in Base64 format to/from the serial port. The channel will update its state to a StringType which is the string representation of a RawType that contains the data received from the serial port. A command sent to this channel must be encoded as the string representation of a RawType, e.g. `"data:application/octet-stream;base64,MjA7MDU7Q3Jlc3RhO0lEPTI4MDE7VEVNUD0yNTtIVU09NTU7QkFUPU9LOwo="` |
 | `data`   | system.rawbutton | Trigger which emits `PRESSED` events (no `RELEASED` events) whenever data is available on the serial port                                                                                                                                                                                                                                                                                                                                 |
 
 The channels supported by the `serialDevice` are:
 
-| Channel Type    | Type          | Description                                                                                                                                                                                                                                                     |
-| --------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  Channel Type   |     Type      |                                                                                                                           Description                                                                                                                           |
+|-----------------|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `string`        | String        | Channel for receiving string based commands. The channel can be configured to apply a transform on the received data to convert to the channel state. Commands received by the channel can be formatted and transformed before sending to the device.           |
 | `number`        | Number        | Channel for receiving number based commands. The channel can be configured to apply a transform on the received data to convert to the channel state. Commands received by the channel can be formatted and transformed before sending to the device.           |
 | `dimmer`        | Dimmer        | Channel for receiving commands from a Dimmer. The channel can be configured to apply a transform on the received data to convert to the channel state. The channel can be configured to apply a simple mapping for the ON, OFF, INCREASE and DECREASE commands. |
@@ -81,8 +81,8 @@ The channels supported by the `serialDevice` are:
 
 The configuration for the `serialBridge` channels consists of the following parameters:
 
-| Parameter               | Description                                                                                                                     | Supported Channels                            |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------- |
+|        Parameter        |                                                           Description                                                           |              Supported Channels               |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
 | `stateTransformation`   | One or more transformation (concatenated with `∩`) used to convert device data to channel state, e.g. `REGEX:.*?STATE=(.*?);.*` | string, number, dimmer, switch, rollershutter |
 | `commandTransformation` | One or more transformation (concatenated with `∩`) used to convert command to device data, e.g. `JS:device.js`                  | string, number, dimmer, switch, rollershutter |
 | `commandFormat`         | Format string applied to the command before transform, e.g. `ID=671;COMMAND=%s`                                                 | string, number, dimmer, rollershutter         |
@@ -136,3 +136,4 @@ Rollershutter serialRollo "Entrance Rollo" (Entrance) {channel="serial:serialDev
 Rollershutter roloAt100 "Rolo at 100" (Entrance) {channel="serial:serialDevice:sensors:rollershutter:roloAt100"}
 String deviceControl {channel="serial:serialDevice:sensors:myDevice:control"}
 ```
+

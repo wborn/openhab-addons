@@ -25,8 +25,8 @@ Supported vendors are either Silvercrest (Lidl) or EasyHome (Aldi).
 
 Wifi Socket thing parameters:
 
-| Parameter ID   | Parameter Type | Mandatory | Description                                                                   | Default          |
-| -------------- | -------------- | --------- | ----------------------------------------------------------------------------- | ---------------- |
+|  Parameter ID  | Parameter Type | Mandatory |                                  Description                                  |     Default      |
+|----------------|----------------|-----------|-------------------------------------------------------------------------------|------------------|
 | macAddress     | text           | true      | The socket MAC address                                                        |                  |
 | hostAddress    | text           | false     | The socket Host address. The binding is capable to discover the host address. |                  |
 | updateInterval | integer        | false     | Update time interval in seconds to request the status of the socket.          | 60               |
@@ -42,6 +42,7 @@ Thing silvercrestwifisocket:wifiSocket:lamp [ macAddress="ACCF23343C50", vendor=
 
 The Silvercrest Wifi Socket support the following channel:
 
-| Channel Type ID | Item Type | Description         |
-| --------------- | --------- | ------------------- |
+| Channel Type ID | Item Type |     Description     |
+|-----------------|-----------|---------------------|
 | switch          | Switch    | Wifi Socket Switch. |
+

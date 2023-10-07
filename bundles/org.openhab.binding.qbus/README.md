@@ -46,7 +46,7 @@ Bridge qbus:bridge:CTD001122 [ addr="localhost", sn="001122", port=8447, serverC
 }
 ```
 
-| Property      | Default   | Required | Description                                                                                                                          |
+|   Property    |  Default  | Required |                                                             Description                                                              |
 |---------------|-----------|----------|--------------------------------------------------------------------------------------------------------------------------------------|
 | `addr`        | localhost | YES      | The ip address of the machine where the Qbus Server runs                                                                             |
 | `sn`          |           | YES      | The serial number of your controller                                                                                                 |
@@ -55,8 +55,8 @@ Bridge qbus:bridge:CTD001122 [ addr="localhost", sn="001122", port=8447, serverC
 
 ## Things configuration
 
-| Thing Type ID         | Channel Name  | Read only | description                                            |
-| --------------------- | ------------- | --------- | ------------------------------------------------------ |
+|     Thing Type ID     | Channel Name  | Read only |                      description                       |
+|-----------------------|---------------|-----------|--------------------------------------------------------|
 | `onOff`               | switch        | No        | This is the channel for Bistable, Timers and Intervals |
 | `dimmer`              | brightness    | No        | This is the channel for Dimmers 1&2 buttons and CLC    |
 | `scene`               | Switch        | No        | This is the channel for scenes                         |

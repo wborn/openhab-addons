@@ -28,7 +28,7 @@ At the moment only the following models are supported:
 - TX-NR555
 - TX-NR575
 - TX-NR575E
-    TX-NR609
+  TX-NR609
 - TX-NR616
 - TX-NR626
 - TX-NR636
@@ -65,8 +65,8 @@ Moreover, if the openHAB auto-discovery is disabled, the Onkyo AVR auto-discover
 
 The binding has the following configuration options, which can be set for "binding:onkyo":
 
-| Parameter   | Name         | Description                                                              | Required |
-|-------------|--------------|--------------------------------------------------------------------------|----------|
+|  Parameter  |     Name     |                                Description                                 | Required |
+|-------------|--------------|----------------------------------------------------------------------------|----------|
 | callbackUrl | Callback URL | URL to use for playing notification sounds, e.g. <http://192.168.0.2:8080> | no       |
 
 When an Onkyo receiver is used as an audio sink, the receiver connects to openHAB to get the audio stream.
@@ -114,12 +114,12 @@ This can be necessary if your receiver uses a different scaling system than 0-10
 You can specify a decimal number that acts as the coefficient for scaling.
 See below for a few examples:
 
-| Value  | Description                                          | Value for 100%   |
-|--------|------------------------------------------------------|------------------|
-| 1      | Default, don't scale                                 |              100 |
-| 2      | For receivers that support 0.5 increments in volume  |              200 |
-| 0.8    | For receivers that go from 0-80                      |               80 |
-| 0.5    | For receivers that go from 0-50                      |               50 |
+| Value |                     Description                     | Value for 100% |
+|-------|-----------------------------------------------------|----------------|
+| 1     | Default, don't scale                                | 100            |
+| 2     | For receivers that support 0.5 increments in volume | 200            |
+| 0.8   | For receivers that go from 0-80                     | 80             |
+| 0.5   | For receivers that go from 0-50                     | 50             |
 
 Note that this is applied after the volume limiting took place.
 
@@ -133,7 +133,7 @@ The binding will send value 200 for maximum volume to the receiver.
 
 The Onkyo AVR supports the following channels (some channels are model specific):
 
-| Channel Type ID           | Item Type | Description                                                                                                     |
+|      Channel Type ID      | Item Type |                                                   Description                                                   |
 |---------------------------|-----------|-----------------------------------------------------------------------------------------------------------------|
 | zone1#power               | Switch    | Power on/off your device                                                                                        |
 | zone1#mute                | Switch    | Mute/unmute zone 1                                                                                              |

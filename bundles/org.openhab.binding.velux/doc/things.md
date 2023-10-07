@@ -26,3 +26,4 @@ Bridge velux:klf200:home    [ ipAddress="192.168.45.9", tcpPort=51200, password=
     Thing   vshutter		V_WINDOW    [ sceneLevels="0,V_DG_Window_Mitte_000#5,V_DG_Window_Mitte_005#100,V_DG_Window_Mitte_100" ]
 }
 ```
+

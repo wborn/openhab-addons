@@ -86,8 +86,8 @@ Here is a list of potential candidates:
 
 This binding supports the following thing types:
 
-| Thing Type             | Description                                             |
-| ---------------------- | ------------------------------------------------------- |
+|       Thing Type       |                       Description                       |
+|------------------------|---------------------------------------------------------|
 | ethernetconnection     | Ethernet connection to the Sony projector using PJ Talk |
 | serialconnection       | Serial connection to the Sony projector                 |
 | serialoveripconnection | Serial over IP connection to the Sony projector         |
@@ -108,8 +108,8 @@ All settings are through thing configuration parameters.
 
 The Ethernet connection thing requires the following configuration parameters:
 
-| Parameter Label | Parameter ID | Description                                                              | Required | Default | Accepted values                                                                                                                                                                                                                                                                                                                                                                                           |
-| --------------- | ------------ | ------------------------------------------------------------------------ | -------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter Label | Parameter ID |                               Description                                | Required | Default |                                                                                                                                                                                              Accepted values                                                                                                                                                                                              |
+|-----------------|--------------|--------------------------------------------------------------------------|----------|---------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Address         | host         | Host name or IP address of the projector                                 | true     |         |                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Port            | port         | Communication port. Default is 53484                                     | false    | 53484   |                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Model           | model        | Projector model to be controlled. Default is AUTO                        | false    | AUTO    | AUTO, VPL-HW60, VPL-HW65, VPL-HW68, VPL-VW100, VPL-VW200, VPL-VW260ES, VPL-VW270ES, VPL-VW285ES, VPL-VW295ES, VPL-VW300ES, VPL-VW315, VPL-VW320, VPL-VW328, VPL-VW350ES, VPL-VW365, VPL-VW385ES, VPL-VW500ES, VPL-VW515, VPL-VW520, VPL-VW528, VPL-VW550ES, VPL-VW570ES, VPL-VW600ES, VPL-VW665, VPL-VW675ES, VPL-VW695ES, VPL-VW760ES, VPL-VW870ES, VPL-VW885ES, VPL-VW995ES, VPL-VW1000ES, VPL-VW1100ES |
@@ -123,8 +123,8 @@ Some notes:
 
 The serial connection thing requires the following configuration parameters:
 
-| Parameter Label | Parameter ID | Description                                        | Required | Default   | Accepted values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --------------- | ------------ | -------------------------------------------------- | -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter Label | Parameter ID |                    Description                     | Required |  Default  |                                                                                                                                                                                                                                                                                              Accepted values                                                                                                                                                                                                                                                                                              |
+|-----------------|--------------|----------------------------------------------------|----------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Serial Port     | port         | Serial port to use for connecting to the projector | true     |           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Model           | model        | Projector model to be controlled                   | true     | VPL-VW528 | VPL-HW10, VPL-HW15, VPL-HW20, VPL-HW30ES, VPL-HW35ES, VPL-HW40ES, VPL-HW45ES, VPL-HW50ES, VPL-HW55ES, VPL-HW58ES, VPL-HW60, VPL-HW65, VPL-HW68, VPL-VW40, VPL-VW50, VPL-VW60, VPL-VW70, VPL-VW80, VPL-VW85, VPL-VW90ES, VPL-VW95ES, VPL-VW100, VPL-VW200, VPL-VW260ES, VPL-VW270ES, VPL-VW285ES, VPL-VW295ES, VPL-VW300ES, VPL-VW315, VPL-VW320, VPL-VW328, VPL-VW350ES, VPL-VW365, VPL-VW385ES, VPL-VW500ES, VPL-VW515, VPL-VW520, VPL-VW528, VPL-VW550ES, VPL-VW570ES, VPL-VW600ES, VPL-VW665, VPL-VW675ES, VPL-VW695ES, VPL-VW760ES, VPL-VW870ES, VPL-VW885ES, VPL-VW995ES, VPL-VW1000ES, VPL-VW1100ES |
 
@@ -137,8 +137,8 @@ Some notes:
 
 The serial over IP connection thing requires the following configuration parameters:
 
-| Parameter Label | Parameter ID | Description                                                       | Required | Default   | Accepted values                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| --------------- | ------------ | ----------------------------------------------------------------- | -------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter Label | Parameter ID |                            Description                            | Required |  Default  |                                                                                                                                                                                                                                                                                              Accepted values                                                                                                                                                                                                                                                                                              |
+|-----------------|--------------|-------------------------------------------------------------------|----------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Address         | host         | Host name or IP address of the machine connected to the projector | true     |           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Port            | port         | Communication port                                                | true     |           |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | Model           | model        | Projector model to be controlled                                  | true     | VPL-VW528 | VPL-HW10, VPL-HW15, VPL-HW20, VPL-HW30ES, VPL-HW35ES, VPL-HW40ES, VPL-HW45ES, VPL-HW50ES, VPL-HW55ES, VPL-HW58ES, VPL-HW60, VPL-HW65, VPL-HW68, VPL-VW40, VPL-VW50, VPL-VW60, VPL-VW70, VPL-VW80, VPL-VW85, VPL-VW90ES, VPL-VW95ES, VPL-VW100, VPL-VW200, VPL-VW260ES, VPL-VW270ES, VPL-VW285ES, VPL-VW295ES, VPL-VW300ES, VPL-VW315, VPL-VW320, VPL-VW328, VPL-VW350ES, VPL-VW365, VPL-VW385ES, VPL-VW500ES, VPL-VW515, VPL-VW520, VPL-VW528, VPL-VW550ES, VPL-VW570ES, VPL-VW600ES, VPL-VW665, VPL-VW675ES, VPL-VW695ES, VPL-VW760ES, VPL-VW870ES, VPL-VW885ES, VPL-VW995ES, VPL-VW1000ES, VPL-VW1100ES |
@@ -155,8 +155,8 @@ Some notes:
 
 The following channels are available:
 
-| Channel ID        | Label                    | Item Type | Access Mode | Description                                                             | Possible values (depends on model)                                                                                                                 |
-| ----------------- | ------------------------ | --------- | ----------- | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    Channel ID     |          Label           | Item Type | Access Mode |                               Description                               |                                                         Possible values (depends on model)                                                         |
+|-------------------|--------------------------|-----------|-------------|-------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
 | power             | Power                    | Switch    | RW          | Power ON/OFF the projector                                              | ON, OFF                                                                                                                                            |
 | powerstate        | Power State              | String    | R           | Current detailed power state of the projector                           |                                                                                                                                                    |
 | input             | Video Input              | String    | RW          | Select the equipment from which to display images                       | Video, SVideo, InputA, Component, HDMI, HDMI1, HDMI2, DVI                                                                                          |
@@ -299,100 +299,101 @@ Number proj4_lampusetime "Lamp Use Time [%d]" { channel = "sonyprojector:serialo
 example.sitemap:
 
 ```perl
-    Frame label="Projector" {
-        Switch item=proj_power
-        Text item=proj_powerstate
-        Switch item=proj_input
-        Selection item=proj_calibrationpreset
-        Slider item=proj_contrast
-        Slider item=proj_brightness
-        Slider item=proj_color
-        Slider item=proj_hue
-        Slider item=proj_sharpness
-        Selection item=proj_colortemperature
-        Selection item=proj_irismode
-        Slider item=proj_irismanual
-        Switch item=proj_irissensitivity
-        Switch item=proj_lampcontrol
-        Switch item=proj_filmprojection
-        Switch item=proj_motionenhancer
-        Switch item=proj_contrastenhancer
-        Switch item=proj_filmmode
-        Selection item=proj_gammacorrection
-        Selection item=proj_colorspace
-        Switch item=proj_nr
-        Switch item=proj_blocknr
-        Switch item=proj_mosquitonr
-        Switch item=proj_mpegnr
-        Switch item=proj_xvcolor
-        Switch item=proj_picturemuting
-        Selection item=proj_aspect
-        Switch item=proj_overscan
-        Selection item=proj_pictureposition
-        Text item=proj_lampusetime
-    }
-    Frame label="Projector" {
-        Switch item=proj3_power
-        Text item=proj3_powerstate
-        Switch item=proj3_input
-        Selection item=proj3_calibrationpreset
-        Slider item=proj3_contrast
-        Slider item=proj3_brightness
-        Slider item=proj3_color
-        Slider item=proj3_hue
-        Slider item=proj3_sharpness
-        Selection item=proj3_colortemperature
-        Selection item=proj3_irismode
-        Slider item=proj3_irismanual
-        Switch item=proj3_irissensitivity
-        Switch item=proj3_lampcontrol
-        Switch item=proj3_filmprojection
-        Switch item=proj3_motionenhancer
-        Switch item=proj3_contrastenhancer
-        Switch item=proj3_filmmode
-        Selection item=proj3_gammacorrection
-        Selection item=proj3_colorspace
-        Switch item=proj3_nr
-        Switch item=proj3_blocknr
-        Switch item=proj3_mosquitonr
-        Switch item=proj3_mpegnr
-        Switch item=proj3_xvcolor
-        Switch item=proj3_picturemuting
-        Selection item=proj3_aspect
-        Switch item=proj3_overscan
-        Selection item=proj3_pictureposition
-        Text item=proj3_lampusetime
-    }
-    Frame label="Projector" {
-        Switch item=proj4_power
-        Text item=proj4_powerstate
-        Switch item=proj4_input
-        Selection item=proj4_calibrationpreset
-        Slider item=proj4_contrast
-        Slider item=proj4_brightness
-        Slider item=proj4_color
-        Slider item=proj4_hue
-        Slider item=proj4_sharpness
-        Selection item=proj4_colortemperature
-        Selection item=proj4_irismode
-        Slider item=proj4_irismanual
-        Switch item=proj4_irissensitivity
-        Switch item=proj4_lampcontrol
-        Switch item=proj4_filmprojection
-        Switch item=proj4_motionenhancer
-        Switch item=proj4_contrastenhancer
-        Switch item=proj4_filmmode
-        Selection item=proj4_gammacorrection
-        Selection item=proj4_colorspace
-        Switch item=proj4_nr
-        Switch item=proj4_blocknr
-        Switch item=proj4_mosquitonr
-        Switch item=proj4_mpegnr
-        Switch item=proj4_xvcolor
-        Switch item=proj4_picturemuting
-        Selection item=proj4_aspect
-        Switch item=proj4_overscan
-        Selection item=proj4_pictureposition
-        Text item=proj4_lampusetime
-    }
+Frame label="Projector" {
+    Switch item=proj_power
+    Text item=proj_powerstate
+    Switch item=proj_input
+    Selection item=proj_calibrationpreset
+    Slider item=proj_contrast
+    Slider item=proj_brightness
+    Slider item=proj_color
+    Slider item=proj_hue
+    Slider item=proj_sharpness
+    Selection item=proj_colortemperature
+    Selection item=proj_irismode
+    Slider item=proj_irismanual
+    Switch item=proj_irissensitivity
+    Switch item=proj_lampcontrol
+    Switch item=proj_filmprojection
+    Switch item=proj_motionenhancer
+    Switch item=proj_contrastenhancer
+    Switch item=proj_filmmode
+    Selection item=proj_gammacorrection
+    Selection item=proj_colorspace
+    Switch item=proj_nr
+    Switch item=proj_blocknr
+    Switch item=proj_mosquitonr
+    Switch item=proj_mpegnr
+    Switch item=proj_xvcolor
+    Switch item=proj_picturemuting
+    Selection item=proj_aspect
+    Switch item=proj_overscan
+    Selection item=proj_pictureposition
+    Text item=proj_lampusetime
+}
+Frame label="Projector" {
+    Switch item=proj3_power
+    Text item=proj3_powerstate
+    Switch item=proj3_input
+    Selection item=proj3_calibrationpreset
+    Slider item=proj3_contrast
+    Slider item=proj3_brightness
+    Slider item=proj3_color
+    Slider item=proj3_hue
+    Slider item=proj3_sharpness
+    Selection item=proj3_colortemperature
+    Selection item=proj3_irismode
+    Slider item=proj3_irismanual
+    Switch item=proj3_irissensitivity
+    Switch item=proj3_lampcontrol
+    Switch item=proj3_filmprojection
+    Switch item=proj3_motionenhancer
+    Switch item=proj3_contrastenhancer
+    Switch item=proj3_filmmode
+    Selection item=proj3_gammacorrection
+    Selection item=proj3_colorspace
+    Switch item=proj3_nr
+    Switch item=proj3_blocknr
+    Switch item=proj3_mosquitonr
+    Switch item=proj3_mpegnr
+    Switch item=proj3_xvcolor
+    Switch item=proj3_picturemuting
+    Selection item=proj3_aspect
+    Switch item=proj3_overscan
+    Selection item=proj3_pictureposition
+    Text item=proj3_lampusetime
+}
+Frame label="Projector" {
+    Switch item=proj4_power
+    Text item=proj4_powerstate
+    Switch item=proj4_input
+    Selection item=proj4_calibrationpreset
+    Slider item=proj4_contrast
+    Slider item=proj4_brightness
+    Slider item=proj4_color
+    Slider item=proj4_hue
+    Slider item=proj4_sharpness
+    Selection item=proj4_colortemperature
+    Selection item=proj4_irismode
+    Slider item=proj4_irismanual
+    Switch item=proj4_irissensitivity
+    Switch item=proj4_lampcontrol
+    Switch item=proj4_filmprojection
+    Switch item=proj4_motionenhancer
+    Switch item=proj4_contrastenhancer
+    Switch item=proj4_filmmode
+    Selection item=proj4_gammacorrection
+    Selection item=proj4_colorspace
+    Switch item=proj4_nr
+    Switch item=proj4_blocknr
+    Switch item=proj4_mosquitonr
+    Switch item=proj4_mpegnr
+    Switch item=proj4_xvcolor
+    Switch item=proj4_picturemuting
+    Selection item=proj4_aspect
+    Switch item=proj4_overscan
+    Selection item=proj4_pictureposition
+    Text item=proj4_lampusetime
+}
 ```
+

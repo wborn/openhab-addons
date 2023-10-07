@@ -9,7 +9,7 @@ These URL defaults can be overridden with the Callback URL configuration paramet
 
 This can be configured on the binding level:
 
-| Configuration Parameter | Type | Description                                                                                        |
+| Configuration Parameter | Type |                                            Description                                             |
 |-------------------------|------|----------------------------------------------------------------------------------------------------|
 | callbackUrl             | text | optional Callback URL - url to use for playing notification sounds, e.g. <http://192.168.0.2:8080> |
 
@@ -20,7 +20,7 @@ Configure a Callback URL when the Chromecast cannot connect using the Primary Ad
 
 ## Supported Things
 
-| Things           | Description                                                                  | Thing Type |
+|      Things      |                                 Description                                  | Thing Type |
 |------------------|------------------------------------------------------------------------------|------------|
 | Chromecast       | Classic HDMI video Chromecasts and Google Homes                              | chromecast |
 | Chromecast Audio | The Chromecast which only does audio streaming and offers a headphone jack   | audio      |
@@ -44,7 +44,7 @@ In case of manually adding a device the configuration parameter `ipAddress` has 
 For an audio group also the port is necessary, that is available under advanced configuration.
 With manual thing configuration the parameter `port` for audio group must be determined manually.
 
-| Property    | Default | Required | Advanced | Type    | Description                                          |
+|  Property   | Default | Required | Advanced |  Type   |                     Description                      |
 |-------------|---------|----------|----------|---------|------------------------------------------------------|
 | ipAddress   | -       | Yes      | No       | String  | The hostname or IP address of the Chromecast device. |
 | port        | 8009    | No       | Yes      | Integer | The port where the Chromecast is listening           |
@@ -52,7 +52,7 @@ With manual thing configuration the parameter `port` for audio group must be det
 
 ## Channels
 
-| Channel Type ID | Item Type   | R/W | Description                                                                                                                                                                           |
+| Channel Type ID |  Item Type  | R/W |                                                                                      Description                                                                                      |
 |-----------------|-------------|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | control         | Player      | R/W | Player control; currently only supports play/pause/next and does not correctly update, if the state changes on the device itself                                                      |
 | stop            | Switch      | R/W | Send `ON` to this channel: Stops the Chromecast. If this channel is `ON`, the Chromecast is stopped, otherwise it is in another state (see control channel)                           |
@@ -173,3 +173,4 @@ then
 end
 
 ```
+

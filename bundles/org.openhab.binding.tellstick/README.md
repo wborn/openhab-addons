@@ -68,14 +68,14 @@ The binding implements three different APIs:
 
 Depending on your Tellstick model, different bridge-types are available:
 
-| Model                   | Telldus Core | Telldus Live | Local REST API | Verified working with openHAB |
+|          Model          | Telldus Core | Telldus Live | Local REST API | Verified working with openHAB |
 |-------------------------|:------------:|:------------:|:--------------:|:-----------------------------:|
-| Tellstick Basic         |       X      |       X      |                |               X               |
-| Tellstick Duo           |       X      |       X      |                |               X               |
-| Tellstick Net v.1       |              |       X      |                |               X               |
-| Tellstick Net v.2       |              |       X      |        X       |                               |
-| Tellstick ZNet Lite v.1 |              |       X      |        X       |               X               |
-| Tellstick ZNet Lite v.2 |              |       X      |        X       |                               |
+| Tellstick Basic         |      X       |      X       |                |               X               |
+| Tellstick Duo           |      X       |      X       |                |               X               |
+| Tellstick Net v.1       |              |      X       |                |               X               |
+| Tellstick Net v.2       |              |      X       |       X        |                               |
+| Tellstick ZNet Lite v.1 |              |      X       |       X        |               X               |
+| Tellstick ZNet Lite v.2 |              |      X       |       X        |                               |
 
 #### Telldus Core Bridge
 
@@ -147,7 +147,7 @@ Optional:
 
 Actuators (dimmer/switch) support the following channels:
 
-| Channel Type ID | Item Type | Description                                                   |
+| Channel Type ID | Item Type |                          Description                          |
 |-----------------|-----------|---------------------------------------------------------------|
 | dimmer          | Number    | This channel indicates the current dim level                  |
 | state           | Switch    | This channel indicates whether a device is turned on or off.  |
@@ -155,15 +155,15 @@ Actuators (dimmer/switch) support the following channels:
 
 Sensors (sensor) support the following channels:
 
-| Channel Type ID | Item Type           | Description                                                 |
-|-----------------|---------------------|-------------------------------------------------------------|
-| humidity        | Number:Dimensionless| This channel reports the current humidity in percentage.    |
-| temperature     | Number:Temperature  | This channel reports the current temperature.               |
-| timestamp       | DateTime            | This channel reports the last time this sensor was updates. |
+| Channel Type ID |      Item Type       |                         Description                         |
+|-----------------|----------------------|-------------------------------------------------------------|
+| humidity        | Number:Dimensionless | This channel reports the current humidity in percentage.    |
+| temperature     | Number:Temperature   | This channel reports the current temperature.               |
+| timestamp       | DateTime             | This channel reports the last time this sensor was updates. |
 
 PowerSensors ([powersensor]) support the following channels:
 
-| Channel Type ID | Item Type              | Description                                                 |
+| Channel Type ID |       Item Type        |                         Description                         |
 |-----------------|------------------------|-------------------------------------------------------------|
 | watt            | Number:Power           | This channel reports the current watt.                      |
 | ampere          | Number:ElectricCurrent | This channel reports the current ampere.                    |
@@ -171,15 +171,15 @@ PowerSensors ([powersensor]) support the following channels:
 
 WindSensors ([windsensor]) support the following channels:
 
-| Channel Type ID | Item Type    | Description                  |
-|-----------------|--------------|------------------------------|
-| windgust        | Number:Speed | The current peak wind gust.  |
-| winddirection   | Number:Angle | The current wind direction.  |
-| windaverage     | Number:Speed | The current wind average.    |
+| Channel Type ID |  Item Type   |         Description         |
+|-----------------|--------------|-----------------------------|
+| windgust        | Number:Speed | The current peak wind gust. |
+| winddirection   | Number:Angle | The current wind direction. |
+| windaverage     | Number:Speed | The current wind average.   |
 
 RainSensors ([rainsensor]) support the following channels:
 
-| Channel Type ID | Item Type     | Description                |
+| Channel Type ID |   Item Type   |        Description         |
 |-----------------|---------------|----------------------------|
 | rainrate        | Number:Length | This current rate of rain. |
 | raintotal       | Number:Length | The total rain.            |
@@ -241,3 +241,4 @@ Number OutsideSensor1_Humidity <humidity> { channel="tellstick:sensor:tellstickg
 Switch LivingTV_Power <screen> { channel="tellstick:switch:tellstickgateway:LivingTV:switch"}
 Dimmer BedroomCeilingLamp1_Brightness <lightbulb> { channel="tellstick:dimmer:tellstickgateway:BedroomCeilingLamp1:dimmer"}
 ```
+

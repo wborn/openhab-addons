@@ -24,7 +24,7 @@ Synop message are typically updated every hour.
 
 The weather information that is retrieved is available as these channels:
 
-| Channel Type ID       | Item Type          | Description                                |
+|    Channel Type ID    |     Item Type      |                Description                 |
 |-----------------------|--------------------|--------------------------------------------|
 | temperature           | Number:Temperature | Current outdoor temperature                |
 | pressure              | Number:Pressure    | Current pressure                           |
@@ -61,3 +61,4 @@ Number Synop_Wind_Speed "Wind Speed [%.2f m/s]" <wind> { channel = "synopanalyze
 Number Synop_Octa "Octa [%d]/8" { channel = "synopanalyzer:synopanalyzer:trappes:octa"}
 DateTime Synop_time  "Observation Time [%1$ta %1$tR]"        <clock>   { channel = "synopanalyzer:synopanalyzer:trappes:time-utc"}
 ```
+

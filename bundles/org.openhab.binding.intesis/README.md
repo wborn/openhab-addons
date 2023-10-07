@@ -6,7 +6,7 @@ This binding connects to WiFi [IntesisHome](https://www.intesis.com/products/clo
 
 This binding only supports one thing type:
 
-| Thing       | Thing Type | Description                                 |
+|    Thing    | Thing Type |                 Description                 |
 |-------------|------------|---------------------------------------------|
 | intesisHome | Thing      | Represents a single IntesisHome WiFi device |
 | intesisBox  | Thing      | Represents a single IntesisBox WiFi device  |
@@ -19,28 +19,28 @@ Intesis devices do not support auto discovery.
 
 The binding uses the following configuration parameters.
 
-| Parameter        | Valid for ThingType | Description                                                    |
-|------------------|---------------------|----------------------------------------------------------------|
-| ipAddress        | Both                | IP-Address of the device                                       |
-| password         | IntesisHome         | Password to login to the local webserver of IntesisHome device |
-| port             | IntesisBox          | TCP port to connect to IntesisBox device, defaults to 3310     |
-| pollingInterval  | Both                | Interval to retrieve updates from the connected devices        |
+|    Parameter    | Valid for ThingType |                          Description                           |
+|-----------------|---------------------|----------------------------------------------------------------|
+| ipAddress       | Both                | IP-Address of the device                                       |
+| password        | IntesisHome         | Password to login to the local webserver of IntesisHome device |
+| port            | IntesisBox          | TCP port to connect to IntesisBox device, defaults to 3310     |
+| pollingInterval | Both                | Interval to retrieve updates from the connected devices        |
 
 ## Channels
 
-| Channel ID         | Item Type          | Description                                            | Possible Values                                         |
-|--------------------|--------------------|--------------------------------------------------------|---------------------------------------------------------|
-| power              | Switch             | Turns power on/off for your climate system.            | ON,OFF                                                  |
-| mode               | String             | The heating/cooling mode.                              | AUTO,HEAT,DRY,FAN,COOL                                  |
-| fanSpeed           | String             | Fan speed (if applicable)                              | AUTO,1-10                                               |
-| vanesUpDown        | String             | Control of up/down vanes (if applicable)               | AUTO,1-9,SWING,SWIRL,WIDE                               |
-| vanesLeftRight     | String             | Control of left/right vanes (if applicable)            | AUTO,1-9,SWING,SWIRL,WIDE                               |
-| targetTemperature  | Number:Temperature | The currently set target temperature (if applicable)   | range between 18°C and 30°C                             |
-| ambientTemperature | Number:Temperature | (Readonly) The ambient air temperature (if applicable) |                                                         |
-| outdoorTemperature | Number:Temperature | (Readonly) The outdoor air temperature (if applicable) |                                                         |
-| errorStatus        | String             | (Readonly) The error status of the device              | OK,ERR                                                  |
-| errorCode          | String             | (Readonly) The error code if an error encountered      | not documented                                          |
-| wifiSignal         | Number             | (Readonly) WiFi signal strength                        | 4=excellent, 3=very good, 2=good, 1=acceptable, 0=low   |
+|     Channel ID     |     Item Type      |                      Description                       |                    Possible Values                    |
+|--------------------|--------------------|--------------------------------------------------------|-------------------------------------------------------|
+| power              | Switch             | Turns power on/off for your climate system.            | ON,OFF                                                |
+| mode               | String             | The heating/cooling mode.                              | AUTO,HEAT,DRY,FAN,COOL                                |
+| fanSpeed           | String             | Fan speed (if applicable)                              | AUTO,1-10                                             |
+| vanesUpDown        | String             | Control of up/down vanes (if applicable)               | AUTO,1-9,SWING,SWIRL,WIDE                             |
+| vanesLeftRight     | String             | Control of left/right vanes (if applicable)            | AUTO,1-9,SWING,SWIRL,WIDE                             |
+| targetTemperature  | Number:Temperature | The currently set target temperature (if applicable)   | range between 18°C and 30°C                           |
+| ambientTemperature | Number:Temperature | (Readonly) The ambient air temperature (if applicable) |                                                       |
+| outdoorTemperature | Number:Temperature | (Readonly) The outdoor air temperature (if applicable) |                                                       |
+| errorStatus        | String             | (Readonly) The error status of the device              | OK,ERR                                                |
+| errorCode          | String             | (Readonly) The error code if an error encountered      | not documented                                        |
+| wifiSignal         | Number             | (Readonly) WiFi signal strength                        | 4=excellent, 3=very good, 2=good, 1=acceptable, 0=low |
 
 Note that individual A/C units may not support all channels, or all possible values for those channels.
 
@@ -100,3 +100,4 @@ sitemap intesishome label="My AC control" {
     }
 }
 ```
+

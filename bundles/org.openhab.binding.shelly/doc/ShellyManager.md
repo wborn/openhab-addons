@@ -16,13 +16,13 @@ Shelly Manager makes you various device insights available to get an overview of
 
 ## Overview
 
-Once the Shelly Manager is opened an overview of all Shelly devices added as a Thing are displayed. 
+Once the Shelly Manager is opened an overview of all Shelly devices added as a Thing are displayed.
 Things which are not discovered or still site in the Inbox will not be displayed.
 
 ![](images/manager/overview.png)
 
 You'll see a bunch of technical details, which are not available as channels or in the Thing properties.
-This includes information on the device communication stability. 
+This includes information on the device communication stability.
 The statistic gives you a good overview if device communication is stable or a relevant number of timeouts need to be recovered.
 In this case you should verify the WiFi coverage or other options to improve stability.
 
@@ -62,14 +62,15 @@ The column S and Name display more information when hovering with the mouse over
 ![](images/manager/overview_devsettings.png)
 
 ### Device Filters
-|Filter              |Description                                                                      |
-|--------------------|---------------------------------------------------------------------------------| 
-|All                 |Clear filter / display all devices                                               |
-|Online only         |Filter on devices with Thing Status = ONLINE                                     |
-|Inactive only       |Filter on devices, which are not initialized for in Thing Status = OFFLINE       |
-|Needs Attention     |Filter on devices, which need attention (setup/connectivity issues), see below   |
-|Update available    |Filter on devices having a new firmware version available                        |
-|Unprotected         |Filter on devices, which are currently not password protected                    |
+
+|      Filter      |                                  Description                                   |
+|------------------|--------------------------------------------------------------------------------|
+| All              | Clear filter / display all devices                                             |
+| Online only      | Filter on devices with Thing Status = ONLINE                                   |
+| Inactive only    | Filter on devices, which are not initialized for in Thing Status = OFFLINE     |
+| Needs Attention  | Filter on devices, which need attention (setup/connectivity issues), see below |
+| Update available | Filter on devices having a new firmware version available                      |
+| Unprotected      | Filter on devices, which are currently not password protected                  |
 
 Beside the Device Filter box you see a refresh button.
 At the bottom right you see number of displayed devices vs. number of total devices.
@@ -80,7 +81,7 @@ This is a dynamic filter, which helps to identify devices having some kind of se
 The binding checks the following conditions
 - Thing status != ONLINE: Use the 'Inactive Only' filter to find those devices, check openhab.log
 - WIFISIGNAL: WiFi signal strength < 2 - this usually leads into connectivity problems, check positioning of portable devices or antenna direction.
-- LOWBATTERY: The remaining battery is < 20% (configuration in Thing Configuration), consider to replace the battery 
+- LOWBATTERY: The remaining battery is < 20% (configuration in Thing Configuration), consider to replace the battery
 Watch out for bigger number of timeout errors.
 - Device RESTARTED: Indicates a firmware problem / crash if this happens without a device reboot or firmware update (timestamp is included)
 - OVERTEMP / OVERLOAD / LOADERROR: There are problems with the physical installation of the device, check specifications, wiring, housing!
@@ -97,56 +98,56 @@ When hovering with the mouse over the status icon or the device name you'll get 
 
 ### Device Status
 
-|Status              |Description                                                                      |
-|--------------------|---------------------------------------------------------------------------------| 
-|Status              |Thing status, sub-status and description as you know it from openHAB             |
-|CoIoT Status        |CoIoT status: enabled or disabled                                                |
-|CoIoT Destination   |CoIoT Peer address (ip address:port) or Multicast                                |
-|Cloud Status        |Status of the Shelly Cloud connection: disabled, enabled, connected              |
-|MQTT Status         |MQTT Status: disabled, enabled, connected                                        |
-|Actions skipped     |Number of actions skipped by the device, usually 0                               |
-|Max Internal Temp   |Maximum internal temperature, check device specification for valid range         |
+|      Status       |                               Description                                |
+|-------------------|--------------------------------------------------------------------------|
+| Status            | Thing status, sub-status and description as you know it from openHAB     |
+| CoIoT Status      | CoIoT status: enabled or disabled                                        |
+| CoIoT Destination | CoIoT Peer address (ip address:port) or Multicast                        |
+| Cloud Status      | Status of the Shelly Cloud connection: disabled, enabled, connected      |
+| MQTT Status       | MQTT Status: disabled, enabled, connected                                |
+| Actions skipped   | Number of actions skipped by the device, usually 0                       |
+| Max Internal Temp | Maximum internal temperature, check device specification for valid range |
 
 ### Device Settings
 
-|Setting             |Description                                                                      |
-|--------------------|---------------------------------------------------------------------------------| 
-|Shelly Device Name  |Device name according to device settings                                         |
-|Device Hardware Rev |Hardware revision of the device                                                  |
-|Device Type         |Device Type ID                                                                   |
-|Device Mode         |Selected mode for dual mode devices (relay/roller or white/color)                |
-|Firmware Version    |Current firmware version                                                         |
-|Network Name        |Network name of the device used for mDNS                                         |
-|MAC Address         |Unique hardware/network address of the device                                    |
-|Discoverable        |true: the device can be discovered using mDNS, false: device is hidden           |
-|WiFi Auto Recovery  |enabled: the device will automatically reboot when WiFi connect fails            |
-|Timezone            |Configured device zone (see device settings)                                     |
-|Time server         |Configured time server (use device UI to change)                                 |
+|       Setting       |                              Description                               |
+|---------------------|------------------------------------------------------------------------|
+| Shelly Device Name  | Device name according to device settings                               |
+| Device Hardware Rev | Hardware revision of the device                                        |
+| Device Type         | Device Type ID                                                         |
+| Device Mode         | Selected mode for dual mode devices (relay/roller or white/color)      |
+| Firmware Version    | Current firmware version                                               |
+| Network Name        | Network name of the device used for mDNS                               |
+| MAC Address         | Unique hardware/network address of the device                          |
+| Discoverable        | true: the device can be discovered using mDNS, false: device is hidden |
+| WiFi Auto Recovery  | enabled: the device will automatically reboot when WiFi connect fails  |
+| Timezone            | Configured device zone (see device settings)                           |
+| Time server         | Configured time server (use device UI to change)                       |
 
 ### Actions
 
-The Shelly Manager provides the following actions when the Thing is ONLINE. 
+The Shelly Manager provides the following actions when the Thing is ONLINE.
 They are available in the dropdown list in column Actions.
 
-|Action               |Description                                                                      |
-|---------------------|---------------------------------------------------------------------------------| 
-|Reset Statistics     |Resets device statistic and clear the last alarm                                 |
-|Restart              |Restart the device and reconnect to WiFi                                         |
-|Protect              |Use binding's default credentials to protect device access with user and password|
-|Set CoIoT Peer       |Disable CoIoT Multicast and set openHAB system as receiver for CoIoT updates     |
-|Set CoIoT Multicast  |Disable CoIoT Multicast and set openHAB system as receiver for CoIoT updates     |
-|Enable Cloud         |Enable the Shelly Cloud connectivity                                             |
-|Disable Cloud        |Disable the Shelly Cloud connectivity (takes about 15sec to become active)       |
-|Reconnect WiFi       |Sensor devices only: Clears the STA/AP list and reconnects to strongest AP       |
-|Enable WiFi Roaming  |The device will connect to the strongest AP when roadming is enabled             |
-|Disable WiFi Roaming |Disable Access Point Roaming, device will periodically search for better APs     |
-|Enable WiFi Recovery |Enables auto-restart if device detects persistent WiFi connectivity issues       |
-|Disable WiFi Recovery|Disables device auto-restart ion persistent WiFi connectivity issues             |
-|Factory Reset        |Performs a **factory reset**; Attention: The device will lose its configuration  |
-|Enable Device Debug  |Enables on-device debug log - activate only when requested by Allterco support   |
-|Get Debug Log        |Retrieve and display device debug output                                         |
-|Get Debug Log1       |Retrieve and display 2nd device debug output                                     |
-|Factory Reset        |Performs **firmware reset**; Attention: The device will lose its configuration   |
+|        Action         |                                    Description                                    |
+|-----------------------|-----------------------------------------------------------------------------------|
+| Reset Statistics      | Resets device statistic and clear the last alarm                                  |
+| Restart               | Restart the device and reconnect to WiFi                                          |
+| Protect               | Use binding's default credentials to protect device access with user and password |
+| Set CoIoT Peer        | Disable CoIoT Multicast and set openHAB system as receiver for CoIoT updates      |
+| Set CoIoT Multicast   | Disable CoIoT Multicast and set openHAB system as receiver for CoIoT updates      |
+| Enable Cloud          | Enable the Shelly Cloud connectivity                                              |
+| Disable Cloud         | Disable the Shelly Cloud connectivity (takes about 15sec to become active)        |
+| Reconnect WiFi        | Sensor devices only: Clears the STA/AP list and reconnects to strongest AP        |
+| Enable WiFi Roaming   | The device will connect to the strongest AP when roadming is enabled              |
+| Disable WiFi Roaming  | Disable Access Point Roaming, device will periodically search for better APs      |
+| Enable WiFi Recovery  | Enables auto-restart if device detects persistent WiFi connectivity issues        |
+| Disable WiFi Recovery | Disables device auto-restart ion persistent WiFi connectivity issues              |
+| Factory Reset         | Performs a **factory reset**; Attention: The device will lose its configuration   |
+| Enable Device Debug   | Enables on-device debug log - activate only when requested by Allterco support    |
+| Get Debug Log         | Retrieve and display device debug output                                          |
+| Get Debug Log1        | Retrieve and display 2nd device debug output                                      |
+| Factory Reset         | Performs **firmware reset**; Attention: The device will lose its configuration    |
 
 Note: Various actions available only for certain devices or when using a minimum firmware version.
 
@@ -181,6 +182,6 @@ You could choose between 3 different update types
 * Use openHAB as a proxy: In this case the binding directs the device to request the firmware from the openHAB system.
 The binding will then download the firmware from the selected sources and passes this transparently to the device.
 This provides a security benefit: The device doesn't require Internet access, only the openHAB host, which could be filtered centrally.
-* Custom URL: In this case you could specify 
+* Custom URL: In this case you could specify
 
 The binding manages the download request with the proper download URL.

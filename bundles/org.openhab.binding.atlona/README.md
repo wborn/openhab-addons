@@ -6,14 +6,14 @@ This binding integrates [Atlona](https://www.atlona.com) AT-UHD-PRO3 or AT-PRO3H
 
 This binding supports the following thing types:
 
-| Thing         | Thing Type | Description                                                                                 |
-|---------------|------------|---------------------------------------------------------------------------------------------|
-| pro3-44m      | Thing      | The [AT-UHD-PRO3-44M 4x4 HDBaseT matrix](https://atlona.com/product/at-uhd-pro3-44m/)       |
-| pro3-66m      | Thing      | The [AT-UHD-PRO3-66M 6x6 HDBaseT matrix](https://atlona.com/product/at-uhd-pro3-66m/)       |
-| pro3-88m      | Thing      | The [AT-UHD-PRO3-88M 8x8 HDBaseT matrix](https://atlona.com/product/at-uhd-pro3-88m/)       |
-| pro3-1616m    | Thing      | The [AT-UHD-PRO3-1616M 16x16 HDBaseT matrix](https://atlona.com/product/at-uhd-pro3-1616m/) |
-| pro3-hd44m    | Thing      | The [AT-PRO3HD44M 4x4 HDBaseT matrix](https://atlona.com/product/at-pro3hd44m/)             |
-| pro3-hd66m    | Thing      | The [AT-PRO3HD66M 6x6 HDBaseT matrix](https://atlona.com/product/at-pro3hd66m/)             |
+|   Thing    | Thing Type |                                         Description                                         |
+|------------|------------|---------------------------------------------------------------------------------------------|
+| pro3-44m   | Thing      | The [AT-UHD-PRO3-44M 4x4 HDBaseT matrix](https://atlona.com/product/at-uhd-pro3-44m/)       |
+| pro3-66m   | Thing      | The [AT-UHD-PRO3-66M 6x6 HDBaseT matrix](https://atlona.com/product/at-uhd-pro3-66m/)       |
+| pro3-88m   | Thing      | The [AT-UHD-PRO3-88M 8x8 HDBaseT matrix](https://atlona.com/product/at-uhd-pro3-88m/)       |
+| pro3-1616m | Thing      | The [AT-UHD-PRO3-1616M 16x16 HDBaseT matrix](https://atlona.com/product/at-uhd-pro3-1616m/) |
+| pro3-hd44m | Thing      | The [AT-PRO3HD44M 4x4 HDBaseT matrix](https://atlona.com/product/at-pro3hd44m/)             |
+| pro3-hd66m | Thing      | The [AT-PRO3HD66M 6x6 HDBaseT matrix](https://atlona.com/product/at-pro3hd66m/)             |
 
 ## Discovery
 
@@ -25,14 +25,14 @@ If "Telnet Login" is enabled ("Network" tab from the switch configuration UI), y
 
 The thing has the following configuration parameters:
 
-| Name            | Type    | Description                                                             | Default | Required | Advanced |
-|-----------------|---------|-------------------------------------------------------------------------|---------|----------|----------|
-| ipAddress       | text    | Hostname or IP address of the matrix switch                             | N/A     | yes      | no       |
-| userName        | text    | The username to login with (only if Telnet Login is enabled)            | N/A     | no       | yes      |
-| password        | text    | The password to login with (only if Telnet Login is enabled)            | N/A     | no       | yes      |
-| polling         | Integer | The interval to poll for the current state of the switch in sec.        | 600     | no       | yes      |
-| ping            | Integer | The interval to ping the switch to keep the connection alive in sec.    | 30      | no       | yes      |
-| retryPolling    | Integer | The interval to retry a connection if the connection has failed in sec. | 10      | no       | yes      |
+|     Name     |  Type   |                               Description                               | Default | Required | Advanced |
+|--------------|---------|-------------------------------------------------------------------------|---------|----------|----------|
+| ipAddress    | text    | Hostname or IP address of the matrix switch                             | N/A     | yes      | no       |
+| userName     | text    | The username to login with (only if Telnet Login is enabled)            | N/A     | no       | yes      |
+| password     | text    | The password to login with (only if Telnet Login is enabled)            | N/A     | no       | yes      |
+| polling      | Integer | The interval to poll for the current state of the switch in sec.        | 600     | no       | yes      |
+| ping         | Integer | The interval to ping the switch to keep the connection alive in sec.    | 30      | no       | yes      |
+| retryPolling | Integer | The interval to retry a connection if the connection has failed in sec. | 10      | no       | yes      |
 
 ### username/password
 
@@ -54,7 +54,7 @@ If it is higher than the "IP Timeout" value, the switch will timeout our connect
 
 The following channels are available:
 
-| Thing      | Channel ID                                                      | Item Type | Access | Description                                                                               |
+|   Thing    |                           Channel ID                            | Item Type | Access |                                        Description                                        |
 |------------|-----------------------------------------------------------------|-----------|--------|-------------------------------------------------------------------------------------------|
 | pro3-44m   | primary#power                                                   | Switch    | RW     | Matrix Power Switch                                                                       |
 | pro3-44m   | primary#panellock                                               | Switch    | RW     | Sets the front panel locked or unlocked                                                   |
@@ -176,7 +176,7 @@ The following channels are available:
 
 The presetcmd channel will take the following commands:
 
-| Command | Description                                |
+| Command |                Description                 |
 |---------|--------------------------------------------|
 | saveX   | Saves the current input/output to preset X |
 | recallX | Sets the input/output to preset X          |
@@ -189,7 +189,7 @@ The # of presets allowed depends on the firmware you are using (5 presets up to 
 
 The matrixcmd channel will take the following commands:
 
-| Command     | Description                                                                                                                         |
+|   Command   |                                                             Description                                                             |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | resetmatrix | Resets the matrix back to its default values (USE WITH CARE!). Note: some firmware upgrades require a resetmatrix after installing. |
 | resetports  | Resets the ports back to their default values (outputX=inputX)                                                                      |
@@ -210,7 +210,7 @@ As of firmware 1.6.03 (rev 13), there were three issues with the Atlona firmware
 - There is no way to query for the current status of `panellock` and `irenable`.  The thing will default `panellock` to OFF and `irenable` to ON at startup.
 
 - If you make a change in the switches UI that requires a reboot (mainly changing any of the settings on the "Network" tab in the switch configuration UI), this add-on's connection will be inconsistently closed at different times.
-The thing will go OFFLINE and then back ONLINE when the reconnect attempt is made - and then it starts all over again.  Please make sure you reboot as soon as possible when the switch UI notifies you.
+  The thing will go OFFLINE and then back ONLINE when the reconnect attempt is made - and then it starts all over again.  Please make sure you reboot as soon as possible when the switch UI notifies you.
 
 - A bug in the firmware will sometimes cause memory presets to disappear after a reboot.
 
@@ -378,3 +378,4 @@ NULL=-
 -=-
 NULL=-
 ```
+

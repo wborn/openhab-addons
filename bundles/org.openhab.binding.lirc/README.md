@@ -78,7 +78,8 @@ end
 
 This binding currently supports following channels:
 
-| Channel Type ID | Item Type    | Description                           |
-|-----------------|--------------|---------------------------------------|
-| event           | Trigger      | Triggers when a button is pressed.    |
-| transmit        | String       | Used to transmit IR commands to LIRC. |
+| Channel Type ID | Item Type |              Description              |
+|-----------------|-----------|---------------------------------------|
+| event           | Trigger   | Triggers when a button is pressed.    |
+| transmit        | String    | Used to transmit IR commands to LIRC. |
+

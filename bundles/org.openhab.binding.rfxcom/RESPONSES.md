@@ -56,3 +56,4 @@ enableX10Packets              0D 00 00 14 03 53 00 00 00 01 00 00 00 00
 enableHomeConfortPackets      0D 00 00 14 03 53 00 00 00 00 02 00 00 00
 enableKEELOQPackets           0D 00 00 14 03 53 00 00 00 00 01 00 00 00
 ```
+

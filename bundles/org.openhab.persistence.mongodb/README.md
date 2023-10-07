@@ -7,8 +7,8 @@ It supports writing information to a MongoDB document store, as well as querying
 
 This service can be configured in the file `services/mongodb.cfg`.
 
-| Property   | Default | Required | Description                                                                  |
-| ---------- | ------- | :------: | ---------------------------------------------------------------------------- |
+|  Property  | Default | Required |                                 Description                                  |
+|------------|---------|:--------:|------------------------------------------------------------------------------|
 | url        |         |   Yes    | connection URL to address MongoDB.  For example, `mongodb://localhost:27017` |
 | database   |         |   Yes    | database name                                                                |
 | collection |         |   Yes    | set collection to "" if it shall generate a collection per item              |

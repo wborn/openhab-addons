@@ -36,7 +36,7 @@ WebOS TV has three configuration parameters.
 
 Parameters:
 
-| Name       | Description                                                                                                                                                                    |
+|    Name    |                                                                                  Description                                                                                   |
 |------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | host       | Hostname or IP address of TV                                                                                                                                                   |
 | key        | Key exchanged with TV after pairing (enter it after you paired the device)                                                                                                     |
@@ -53,9 +53,9 @@ Thing lgwebos:WebOSTV:tv1 [host="192.168.2.119", key="6ef1dff6c7c936c8dc5056fc85
 
 ## Channels
 
-| Channel Type ID | Item Type | Description                                                                                                                                                                                                             | Read/Write |
+| Channel Type ID | Item Type |                                                                                                       Description                                                                                                       | Read/Write |
 |-----------------|-----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------|
-| power           | Switch    | Current power setting. TV can only be powered off, not on, via the TV's API. Turning on is implemented via Wake On Lan, for which the MAC address must be set in the thing configuration. | RW         |
+| power           | Switch    | Current power setting. TV can only be powered off, not on, via the TV's API. Turning on is implemented via Wake On Lan, for which the MAC address must be set in the thing configuration.                               | RW         |
 | mute            | Switch    | Current mute setting.                                                                                                                                                                                                   | RW         |
 | volume          | Dimmer    | Current volume setting. Setting and reporting absolute percent values only works when using internal speakers. When connected to an external amp, the volume should be controlled using increase and decrease commands. | RW         |
 | channel         | String    | Current channel. Use the channel number or channel id as command to update the channel.                                                                                                                                 | RW         |
@@ -74,24 +74,24 @@ Here are examples of values that could be available for your TV: airplay, amazon
 This is a list of button codes that are known to work with several LG WebOS TV models.
 This list has been compiled mostly through trial and error, but the codes applicable to your model may vary.
 
-| Code String | Description                                              |
-|-------------|----------------------------------------------------------|
-| LEFT        | Left button in cursor control group                      |
-| RIGHT       | Right button in cursor control group                     |
-| UP          | Up button in cursor control group                        |
-| DOWN        | Down button in cursor control group                      |
-| ENTER       | "OK" button in the center of the cursor control group    |
-| BACK        | "BACK" button                                            |
-| EXIT        | "EXIT" button                                            |
-| 0-9         | Number buttons                                           |
-| HOME        | "HOME" button                                            |
-| RED         | "RED"  button                                            |
-| GREEN       | "GREEN" button                                           |
-| YELLOW      | "YELLOW" button                                          |
-| BLUE        | "BLUE" button                                            |
-| PLAY        | "PLAY" button                                            |
-| PAUSE       | "PAUSE" button                                           |
-| STOP        | "STOP" button                                            |
+| Code String |                      Description                      |
+|-------------|-------------------------------------------------------|
+| LEFT        | Left button in cursor control group                   |
+| RIGHT       | Right button in cursor control group                  |
+| UP          | Up button in cursor control group                     |
+| DOWN        | Down button in cursor control group                   |
+| ENTER       | "OK" button in the center of the cursor control group |
+| BACK        | "BACK" button                                         |
+| EXIT        | "EXIT" button                                         |
+| 0-9         | Number buttons                                        |
+| HOME        | "HOME" button                                         |
+| RED         | "RED"  button                                         |
+| GREEN       | "GREEN" button                                        |
+| YELLOW      | "YELLOW" button                                       |
+| BLUE        | "BLUE" button                                         |
+| PLAY        | "PLAY" button                                         |
+| PAUSE       | "PAUSE" button                                        |
+| STOP        | "STOP" button                                         |
 
 A sample HABPanel remote control widget can be found [in this GitHub repository.](https://github.com/bbrodt/openhab2-misc)
 
@@ -195,11 +195,11 @@ Multiple actions are supported by this binding. In classic rules these are acces
 Example
 
 ```java
- val actions = getActions("lgwebos","lgwebos:WebOSTV:3aab9eea-953b-4272-bdbd-f0cd0ecf4a46")
- if(null === actions) {
-        logInfo("actions", "Actions not found, check thing ID")
-        return
- }
+val actions = getActions("lgwebos","lgwebos:WebOSTV:3aab9eea-953b-4272-bdbd-f0cd0ecf4a46")
+if(null === actions) {
+       logInfo("actions", "Actions not found, check thing ID")
+       return
+}
 ```
 
 ### showToast(text)
@@ -208,9 +208,9 @@ Sends a toast message to a WebOS device with openHAB icon.
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| text    | The text to display                                                  |
+| Name |     Description     |
+|------|---------------------|
+| text | The text to display |
 
 Example:
 
@@ -224,10 +224,10 @@ Sends a toast message to a WebOS device with custom icon.
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| icon    | The URL to the icon to display                                       |
-| text    | The text to display                                                  |
+| Name |          Description           |
+|------|--------------------------------|
+| icon | The URL to the icon to display |
+| text | The text to display            |
 
 Example:
 
@@ -241,9 +241,9 @@ Opens the given URL in the TV's browser application.
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| url     | The URL to open                                                      |
+| Name |   Description   |
+|------|-----------------|
+| url  | The URL to open |
 
 Example:
 
@@ -257,9 +257,9 @@ Opens the application with given Application ID.
 
 Parameters:
 
-| Name    | Description                                                                    |
-|---------|--------------------------------------------------------------------------------|
-| appId   | The Application ID. getApplications provides available apps and their appIds.  |
+| Name  |                                  Description                                  |
+|-------|-------------------------------------------------------------------------------|
+| appId | The Application ID. getApplications provides available apps and their appIds. |
 
 Examples:
 
@@ -277,10 +277,10 @@ Opens the application with given Application ID and passes an additional paramet
 
 Parameters:
 
-| Name    | Description                                                                   |
-|---------|-------------------------------------------------------------------------------|
-| appId   | The Application ID. Console command lgwebos <thingUID> applications provides available apps and their appIds. |
-| params  | The parameters to hand over to the application in JSON format                 |
+|  Name  |                                                  Description                                                  |
+|--------|---------------------------------------------------------------------------------------------------------------|
+| appId  | The Application ID. Console command lgwebos <thingUID> applications provides available apps and their appIds. |
+| params | The parameters to hand over to the application in JSON format                                                 |
 
 Examples:
 
@@ -296,9 +296,9 @@ Sends a text input to a WebOS device.
 
 Parameters:
 
-| Name    | Description                                                          |
-|---------|----------------------------------------------------------------------|
-| text    | The text to input                                                    |
+| Name |    Description    |
+|------|-------------------|
+| text | The text to input |
 
 Example:
 
@@ -312,9 +312,9 @@ Sends a button press event to a WebOS device.
 
 Parameters:
 
-| Name    | Description                                                                                    |
-|---------|------------------------------------------------------------------------------------------------|
-| button  | Can be one of UP, DOWN, LEFT, RIGHT, BACK, EXIT, ENTER, HOME, OK or any other supported value. |
+|  Name  |                                          Description                                           |
+|--------|------------------------------------------------------------------------------------------------|
+| button | Can be one of UP, DOWN, LEFT, RIGHT, BACK, EXIT, ENTER, HOME, OK or any other supported value. |
 
 Example:
 
@@ -328,9 +328,9 @@ Sends a keyboard input to the WebOS on-screen keyboard.
 
 Parameters:
 
-| Name    | Description                    |
-|---------|--------------------------------|
-| key     | Can be either DELETE or ENTER. |
+| Name |          Description           |
+|------|--------------------------------|
+| key  | Can be either DELETE or ENTER. |
 
 DELETE will delete the last character when on-screen keyboard is displayed with focus in the text field.
 ENTER will remove the keyboard when on-screen keyboard is displayed with focus in the text field.
@@ -368,3 +368,4 @@ In case of issues you may find it helpful to enable debug level logging and chec
 ```shell
 log:set debug org.openhab.binding.lgwebos
 ```
+

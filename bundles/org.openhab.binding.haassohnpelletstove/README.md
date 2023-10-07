@@ -5,9 +5,9 @@ WIFI module. More information about the WIFI module can be found here: <https://
 
 ## Supported Things
 
-| Things | Description  | Thing Type |
-|--------|--------------|------------|
-| haassohnpelletstove | Control of a Haas & Sohn Pellet Stove| oven|
+|       Things        |              Description              | Thing Type |
+|---------------------|---------------------------------------|------------|
+| haassohnpelletstove | Control of a Haas & Sohn Pellet Stove | oven       |
 
 ## Thing Configuration
 
@@ -22,18 +22,18 @@ Thing haassohnpelletstove:oven:myOven "Pelletstove"  [ hostIP="192.168.0.23", ho
 
 The following channels are yet supported:
 
-| Channel | Type  | Access| Description|
-|---------|-------|-------|------------|
-| power| Switch | read/write|Turn the stove on/off|
-|channelIsTemp|Number:Temperature|read|Receives the actual temperature of the stove|
-|channelSpTemp|Number:Temperature|read/write|Receives and sets the target temperature of the stove|
-|channelMode|String|read|Receives the actual mode the stove is in like heating, cooling, error, ....|
-|channelEcoMode|Switch|read/write|Turn the eco mode of the stove on/off|
-|channelIngitions|Number|read|Amount of ignitions of the stove|
-|channelMaintenanceIn|Number:Mass|read|States the next maintenance in kg|
-|channelCleaningIn|String|read|States the next cleaning window in hours:minutes as string|
-|channelConsumption|Number:Mass|read|Total consumption of the stove|
-|channelOnTime|Number|read|Operation hours of the stove|
+|       Channel        |        Type        |   Access   |                                 Description                                 |
+|----------------------|--------------------|------------|-----------------------------------------------------------------------------|
+| power                | Switch             | read/write | Turn the stove on/off                                                       |
+| channelIsTemp        | Number:Temperature | read       | Receives the actual temperature of the stove                                |
+| channelSpTemp        | Number:Temperature | read/write | Receives and sets the target temperature of the stove                       |
+| channelMode          | String             | read       | Receives the actual mode the stove is in like heating, cooling, error, .... |
+| channelEcoMode       | Switch             | read/write | Turn the eco mode of the stove on/off                                       |
+| channelIngitions     | Number             | read       | Amount of ignitions of the stove                                            |
+| channelMaintenanceIn | Number:Mass        | read       | States the next maintenance in kg                                           |
+| channelCleaningIn    | String             | read       | States the next cleaning window in hours:minutes as string                  |
+| channelConsumption   | Number:Mass        | read       | Total consumption of the stove                                              |
+| channelOnTime        | Number             | read       | Operation hours of the stove                                                |
 
 ## Full Example
 
@@ -65,3 +65,4 @@ The binding was successfully tested with the following ovens:
 
 - HSP 7 DIANA
 - HSP6 434.08
+

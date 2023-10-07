@@ -19,9 +19,9 @@ Specific devices that are supported:
 
 The following binding configuration parameters are supported:
 
-| Parameter                | Description                                    | Config   | Default |
-| ------------------------ | ---------------------------------------------- |--------- | ------- |
-| networkId                | Default UPB network ID (0-255)                 | Optional | -       |
+| Parameter |          Description           |  Config  | Default |
+|-----------|--------------------------------|----------|---------|
+| networkId | Default UPB network ID (0-255) | Optional | -       |
 
 ## Thing Configuration
 
@@ -33,19 +33,19 @@ There are a few different PIM interfaces but this binding only supports serial P
 
 The `serial-pim` takes the following configuration parameters:
 
-| Parameter                | Description                                    | Config   | Default |
-| ------------------------ | ---------------------------------------------- |--------- | ------- |
-| port                     | Serial port where the PIM is connected         | Required | -       |
+| Parameter |              Description               |  Config  | Default |
+|-----------|----------------------------------------|----------|---------|
+| port      | Serial port where the PIM is connected | Required | -       |
 
 ### Generic device
 
 The `generic` thing type supports most UPB devices such as dimmers, light switches,
 and appliance modules. It has the following configuration parameters:
 
-| Parameter                | Description                                    | Config   | Default        |
-| ------------------------ | ---------------------------------------------- |--------- | -------------- |
-| networkId                | ID of the UPB network (0-255)                  | Optional | binding config |
-| unitId                   | Unit ID (unique address) of the device (1-250) | Required | -              |
+| Parameter |                  Description                   |  Config  |    Default     |
+|-----------|------------------------------------------------|----------|----------------|
+| networkId | ID of the UPB network (0-255)                  | Optional | binding config |
+| unitId    | Unit ID (unique address) of the device (1-250) | Required | -              |
 
 ### Virtual device
 
@@ -62,16 +62,16 @@ corresponding link command on the UPB network.
 
 These channels are available for generic devices:
 
-| Channel Type    | Item type | Description                                     |
-| --------------- | --------- | ----------------------------------------------- |
-| dimmer          | Dimmer    | Level/brightness, or on/off for switches        |
-| scene-selection | -         | Trigger channel for scene selection             |
+|  Channel Type   | Item type |               Description                |
+|-----------------|-----------|------------------------------------------|
+| dimmer          | Dimmer    | Level/brightness, or on/off for switches |
+| scene-selection | -         | Trigger channel for scene selection      |
 
 The virtual device supports the `link` channel type:
 
-| Channel Type | Item type | Description                            |
-| ------------ | --------- | -------------------------------------- |
-| link         | Number    | A scene to activate or deactivate      |
+| Channel Type | Item type |            Description            |
+|--------------|-----------|-----------------------------------|
+| link         | Number    | A scene to activate or deactivate |
 
 ## Full Example
 
@@ -105,3 +105,4 @@ Dimmer LivingRoomLight "UPB Light Switch" {channel="upb:generic:pim:light-switch
 // A scene selector (does not correspond to a physical device)
 Number UPB_Active_Scene "Active UPB Scene" {channel="upb:virtual:pim:upb-scene:linkActivated"}
 ```
+

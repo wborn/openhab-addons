@@ -6,10 +6,10 @@ Supports the ZoneMinder video surveillance system.
 
 The following thing types are supported:
 
-| Thing    | ID       | Discovery | Description |
-|----------|----------|-----------|-------------|
-| Server   | server   | Manual    | Server bridge manages all communication with ZoneMinder server |
-| Monitor  | monitor  | Automatic | Monitor represents a ZoneMinder camera monitor |
+|  Thing  |   ID    | Discovery |                          Description                           |
+|---------|---------|-----------|----------------------------------------------------------------|
+| Server  | server  | Manual    | Server bridge manages all communication with ZoneMinder server |
+| Monitor | monitor | Automatic | Monitor represents a ZoneMinder camera monitor                 |
 
 ## Installation
 
@@ -43,71 +43,71 @@ all monitors associated with the ZoneMinder server will be discovered.
 
 The following configuration parameters are available on the Server thing:
 
-| Parameter | Parameter ID | Required/Optional | Description |
-|-----------|--------------|-------------------|-------------|
-| Host                           | host                        | Required  | Host name or IP address of the ZoneMinder server. |
-| Use secure connection          | useSSL                      | Required  | Use http or https for connection to ZoneMinder. Default is http. |
-| Port Number                    | portNumber                  | Optional  | Port number if not on ZoneMinder default port 80. |
-| Url Path                       | urlPath                     | Required  | Path where Zoneminder is installed. Default is /zm. Enter / if Zoneminder is installed under root directory. |
-| Refresh Interval               | refreshInterval             | Required  | Frequency in seconds at which monitor status will be updated. |
-| Default Alarm Duration         | defaultAlarmDuration        | Required  | Can be used to set the default alarm duration on discovered monitors. |
-| Default Image Refresh Interval | defaultImageRefreshInterval | Optional  | Can be used to set the image refresh interval in seconds on discovered monitors. Leave empty to not set an image refresh interval. |
-| Monitor Discovery Enabled      | discoveryEnabled            | Required  | Enable/disable the automatic discovery of monitors. Default is enabled. |
-| Monitor Discovery Interval     | discoveryInterval           | Required  | Frequency in seconds at which the binding will try to discover monitors. Default is 300 seconds. |
-| User ID                        | user                        | Optional  | User ID of ZoneMinder user when using authentication. |
-| Password                       | pass                        | Optional  | Password of ZoneMinder user when using authentication. |
+|           Parameter            |        Parameter ID         | Required/Optional |                                                            Description                                                             |
+|--------------------------------|-----------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
+| Host                           | host                        | Required          | Host name or IP address of the ZoneMinder server.                                                                                  |
+| Use secure connection          | useSSL                      | Required          | Use http or https for connection to ZoneMinder. Default is http.                                                                   |
+| Port Number                    | portNumber                  | Optional          | Port number if not on ZoneMinder default port 80.                                                                                  |
+| Url Path                       | urlPath                     | Required          | Path where Zoneminder is installed. Default is /zm. Enter / if Zoneminder is installed under root directory.                       |
+| Refresh Interval               | refreshInterval             | Required          | Frequency in seconds at which monitor status will be updated.                                                                      |
+| Default Alarm Duration         | defaultAlarmDuration        | Required          | Can be used to set the default alarm duration on discovered monitors.                                                              |
+| Default Image Refresh Interval | defaultImageRefreshInterval | Optional          | Can be used to set the image refresh interval in seconds on discovered monitors. Leave empty to not set an image refresh interval. |
+| Monitor Discovery Enabled      | discoveryEnabled            | Required          | Enable/disable the automatic discovery of monitors. Default is enabled.                                                            |
+| Monitor Discovery Interval     | discoveryInterval           | Required          | Frequency in seconds at which the binding will try to discover monitors. Default is 300 seconds.                                   |
+| User ID                        | user                        | Optional          | User ID of ZoneMinder user when using authentication.                                                                              |
+| Password                       | pass                        | Optional          | Password of ZoneMinder user when using authentication.                                                                             |
 
 ### Monitor Thing
 
 The following configuration parameters are available on the Monitor thing:
 
-| Parameter | Parameter ID | Required/Optional | Description |
-|-----------|--------------|-------------------|-------------|
-| Monitor ID             | monitorId            | Required          | Id of monitor defined in ZoneMinder. |
-| Image Refresh Interval | imageRefreshInterval | Optional          | Interval in seconds in which snapshot image channel will be updated. |
+|       Parameter        |     Parameter ID     | Required/Optional |                               Description                               |
+|------------------------|----------------------|-------------------|-------------------------------------------------------------------------|
+| Monitor ID             | monitorId            | Required          | Id of monitor defined in ZoneMinder.                                    |
+| Image Refresh Interval | imageRefreshInterval | Optional          | Interval in seconds in which snapshot image channel will be updated.    |
 | Alarm Duration         | alarmDuration        | Required          | How long the alarm will run once triggered by the triggerAlarm channel. |
 
 ## Channels
 
 ### Server Thing
 
-| Channel  | Type   | Description  |
-|----------|--------|--------------|
-| imageMonitorId | String      | Monitor ID to use for selecting an image URL. Also, sending an OFF command to this channel will reset the monitor id and url to UNDEF.  |
-| imageUrl       | String      | Image URL for monitor id specified by imageMonitorId. Channel is UNDEF if the monitor id is not set, or if an OFF command is sent to the imageMonitorId channel. |
-| videoMonitorId | String      | Monitor ID to use for selecting a video URL. Also, sending an OFF command to this channel will reset the monitor id and url to UNDEF.  |
-| videoUrl       | String      | Video URL for monitor id specified by videoMonitorId. Channel is UNDEF if the monitor id is not set, or if an OFF command is sent to the videoMonitorId channel. |
-| runState       | String      | Set the run state for the ZoneMinder server |
+|    Channel     |  Type  |                                                                           Description                                                                            |
+|----------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| imageMonitorId | String | Monitor ID to use for selecting an image URL. Also, sending an OFF command to this channel will reset the monitor id and url to UNDEF.                           |
+| imageUrl       | String | Image URL for monitor id specified by imageMonitorId. Channel is UNDEF if the monitor id is not set, or if an OFF command is sent to the imageMonitorId channel. |
+| videoMonitorId | String | Monitor ID to use for selecting a video URL. Also, sending an OFF command to this channel will reset the monitor id and url to UNDEF.                            |
+| videoUrl       | String | Video URL for monitor id specified by videoMonitorId. Channel is UNDEF if the monitor id is not set, or if an OFF command is sent to the videoMonitorId channel. |
+| runState       | String | Set the run state for the ZoneMinder server                                                                                                                      |
 
 ### Monitor Thing
 
-| Channel  | Type   | Description  |
-|----------|--------|--------------|
-| id                | String      | Monitor ID  |
-| name              | String      | Monitor name  |
-| image             | Image       | Snapshot image  |
-| enable            | Switch      | Enable/disable monitor  |
-| function          | String      | Monitor function (e.g. Nodect, Mocord)  |
-| alarm             | Switch      | Monitor is alarming  |
-| state             | String      | Monitor state (e.g. IDLE, ALARM, TAPE)  |
-| triggerAlarm      | Switch      | Turn alarm on/off  |
-| hourEvents        | Number      | Number of events in last hour |
-| dayEvents         | Number      | Number of events in last day  |
-| weekEvents        | Number      | Number of events in last week  |
-| monthEvents       | Number      | Number of events in last month  |
-| yearEvents        | Number      | Number of events in last year  |
-| totalEvents       | Number      | Total number of events  |
-| imageUrl          | String      | URL for image snapshot  |
-| videoUrl          | String      | URL for JPEG video stream  |
-| eventId           | String      | ID of most recently completed event  |
-| eventName         | String      | Name of most recently completed event |
-| eventCause        | String      | Cause of most recently completed event |
-| eventNotes        | String      | Notes of most recently completed event |
-| eventStart        | DateTime    | Start date/time of most recently completed event |
-| eventEnd          | DateTime    | End date/time of most recently completed event |
-| eventFrames       | Number      | Number of frames of most recently completed event |
-| eventAlarmFrames  | Number      | Number of alarm frames of most recently completed event |
-| eventLength       | Number:Time | Length in seconds of most recently completed event |
+|     Channel      |    Type     |                       Description                       |
+|------------------|-------------|---------------------------------------------------------|
+| id               | String      | Monitor ID                                              |
+| name             | String      | Monitor name                                            |
+| image            | Image       | Snapshot image                                          |
+| enable           | Switch      | Enable/disable monitor                                  |
+| function         | String      | Monitor function (e.g. Nodect, Mocord)                  |
+| alarm            | Switch      | Monitor is alarming                                     |
+| state            | String      | Monitor state (e.g. IDLE, ALARM, TAPE)                  |
+| triggerAlarm     | Switch      | Turn alarm on/off                                       |
+| hourEvents       | Number      | Number of events in last hour                           |
+| dayEvents        | Number      | Number of events in last day                            |
+| weekEvents       | Number      | Number of events in last week                           |
+| monthEvents      | Number      | Number of events in last month                          |
+| yearEvents       | Number      | Number of events in last year                           |
+| totalEvents      | Number      | Total number of events                                  |
+| imageUrl         | String      | URL for image snapshot                                  |
+| videoUrl         | String      | URL for JPEG video stream                               |
+| eventId          | String      | ID of most recently completed event                     |
+| eventName        | String      | Name of most recently completed event                   |
+| eventCause       | String      | Cause of most recently completed event                  |
+| eventNotes       | String      | Notes of most recently completed event                  |
+| eventStart       | DateTime    | Start date/time of most recently completed event        |
+| eventEnd         | DateTime    | End date/time of most recently completed event          |
+| eventFrames      | Number      | Number of frames of most recently completed event       |
+| eventAlarmFrames | Number      | Number of alarm frames of most recently completed event |
+| eventLength      | Number:Time | Length in seconds of most recently completed event      |
 
 ## Thing Actions
 
@@ -271,3 +271,4 @@ then
     }
 end
 ```
+

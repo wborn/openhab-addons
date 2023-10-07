@@ -19,7 +19,7 @@ After this a Bridge is creaed for each network configured on the CBus Network. T
 
 This binding support 6 different things types
 
-| Thing       | Type   | Description                                         |
+|    Thing    |  Type  |                     Description                     |
 |-------------|--------|-----------------------------------------------------|
 | cgate       | Bridge | This connects to a C-Bus CGate instance to          |
 | network     | Bridge | This connects to a C-Bus Network via a CGate bridge |
@@ -111,3 +111,4 @@ sitemap cbusdemo label="CBus Binding Demo"
     }
 }
 ```
+

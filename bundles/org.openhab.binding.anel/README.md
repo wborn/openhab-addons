@@ -9,9 +9,9 @@ Some NET-PwrCtrl devices also have 8 I/O ports which can either be used to direc
 
 There are three kinds of devices ([overview on manufacturer's homepage](https://en.anel.eu/?src=/produkte/produkte.htm)):
 
-| [Anel NET-PwrCtrl HUT](https://en.anel.eu/?src=/produkte/hut_2/hut_2.htm) <br/> <sub>( _advanced-firmware_ )</sub>  | [Anel NET-PwrCtrl IO](https://en.anel.eu/?src=/produkte/io/io.htm) <br/> <sub>( _advanced-firmware_ )</sub> | [Anel NET-PwrCtrl HOME](https://de.anel.eu/?src=produkte/home/home.htm) <br/> <sub>( _home_ )</sub> <br/> (only German version) |
-| --- | --- | --- |
-| [![Anel NET-PwrCtrl HUT 2](https://de.anel.eu/image/leisten/HUT2LV-P_500.jpg)](https://de.anel.eu/?src=produkte/hut_2/hut_2.htm) | [![Anel NET-PwrCtrl IO](https://de.anel.eu/image/leisten/IO-Stecker.png)](https://de.anel.eu/?src=produkte/io/io.htm) | [![Anel NET-PwrCtrl HOME](https://de.anel.eu/image/leisten/HOME-DE-500.gif)](https://de.anel.eu/?src=produkte/home/home.htm) |
+|        [Anel NET-PwrCtrl HUT](https://en.anel.eu/?src=/produkte/hut_2/hut_2.htm) <br/> <sub>( _advanced-firmware_ )</sub>        |      [Anel NET-PwrCtrl IO](https://en.anel.eu/?src=/produkte/io/io.htm) <br/> <sub>( _advanced-firmware_ )</sub>      | [Anel NET-PwrCtrl HOME](https://de.anel.eu/?src=produkte/home/home.htm) <br/> <sub>( _home_ )</sub> <br/> (only German version) |
+|----------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| [![Anel NET-PwrCtrl HUT 2](https://de.anel.eu/image/leisten/HUT2LV-P_500.jpg)](https://de.anel.eu/?src=produkte/hut_2/hut_2.htm) | [![Anel NET-PwrCtrl IO](https://de.anel.eu/image/leisten/IO-Stecker.png)](https://de.anel.eu/?src=produkte/io/io.htm) | [![Anel NET-PwrCtrl HOME](https://de.anel.eu/image/leisten/HOME-DE-500.gif)](https://de.anel.eu/?src=produkte/home/home.htm)    |
 
 Thing type IDs:
 
@@ -40,13 +40,13 @@ It should work reliably though on local wired networks.
 
 Each Thing requires the following configuration parameters.
 
-| Parameter             | Type    | Default     | Required | Description |
-|-----------------------|---------|-------------|----------|-------------|
-| Hostname / IP address | String  | net-control | yes      | Hostname or IP address of the device |
-| Send Port             | Integer | 75          | yes      | UDP port to send data to the device (in the anel web UI, it's the receive port!) |
+|       Parameter       |  Type   |   Default   | Required |                                    Description                                     |
+|-----------------------|---------|-------------|----------|------------------------------------------------------------------------------------|
+| Hostname / IP address | String  | net-control | yes      | Hostname or IP address of the device                                               |
+| Send Port             | Integer | 75          | yes      | UDP port to send data to the device (in the anel web UI, it's the receive port!)   |
 | Receive Port          | Integer | 77          | yes      | UDP port to receive data from the device (in the anel web UI, it's the send port!) |
-| User                  | String  | user7       | yes      | User to access the device (make sure it has rights to change relay / IO states!) |
-| Password              | String  | anel        | yes      | Password of the given user |
+| User                  | String  | user7       | yes      | User to access the device (make sure it has rights to change relay / IO states!)   |
+| Password              | String  | anel        | yes      | Password of the given user                                                         |
 
 For multiple devices, please use exclusive UDP ports for each device.
 Ports above 1024 are recommended because they are outside the range of system ports.
@@ -64,53 +64,53 @@ anel:advanced-firmware:mydevice4 [hostname="192.168.0.104", udpSendPort=7503, ud
 
 Depending on the thing type, the following channels are available.
 
-| Channel ID         | Item Type          | Supported Things  | Read Only | Description |
-|--------------------|--------------------|-------------------|-----------|-------------|
-| prop#name          | String             | all               | yes       | Name of the device |
-| prop#temperature   | Number:Temperature | simple / advanced | yes       | Temperature of the integrated sensor |
-| sensor#temperature | Number:Temperature | advanced          | yes       | Temperature of the optional external sensor |
-| sensor#humidity    | Number             | advanced          | yes       | Humidity of the optional external sensor |
-| sensor#brightness  | Number             | advanced          | yes       | Brightness of the optional external sensor |
-| r1#name            | String             | all               | yes       | Name of relay / socket 1 |
-| r2#name            | String             | all               | yes       | Name of relay / socket 2 |
-| r3#name            | String             | all               | yes       | Name of relay / socket 3 |
-| r4#name            | String             | simple / advanced | yes       | Name of relay / socket 4 |
-| r5#name            | String             | simple / advanced | yes       | Name of relay / socket 5 |
-| r6#name            | String             | simple / advanced | yes       | Name of relay / socket 6 |
-| r7#name            | String             | simple / advanced | yes       | Name of relay / socket 7 |
-| r8#name            | String             | simple / advanced | yes       | Name of relay / socket 8 |
-| r1#state           | Switch             | all               | no *      | State of relay / socket 1 |
-| r2#state           | Switch             | all               | no *      | State of relay / socket 2 |
-| r3#state           | Switch             | all               | no *      | State of relay / socket 3 |
-| r4#state           | Switch             | simple / advanced | no *      | State of relay / socket 4 |
-| r5#state           | Switch             | simple / advanced | no *      | State of relay / socket 5 |
-| r6#state           | Switch             | simple / advanced | no *      | State of relay / socket 6 |
-| r7#state           | Switch             | simple / advanced | no *      | State of relay / socket 7 |
-| r8#state           | Switch             | simple / advanced | no *      | State of relay / socket 8 |
-| r1#locked          | Switch             | all               | yes       | Whether or not relay / socket 1 is locked |
-| r2#locked          | Switch             | all               | yes       | Whether or not relay / socket 2 is locked |
-| r3#locked          | Switch             | all               | yes       | Whether or not relay / socket 3 is locked |
-| r4#locked          | Switch             | simple / advanced | yes       | Whether or not relay / socket 4 is locked |
-| r5#locked          | Switch             | simple / advanced | yes       | Whether or not relay / socket 5 is locked |
-| r6#locked          | Switch             | simple / advanced | yes       | Whether or not relay / socket 6 is locked |
-| r7#locked          | Switch             | simple / advanced | yes       | Whether or not relay / socket 7 is locked |
-| r8#locked          | Switch             | simple / advanced | yes       | Whether or not relay / socket 8 is locked |
-| io1#name           | String             | advanced          | yes       | Name of IO port 1 |
-| io2#name           | String             | advanced          | yes       | Name of IO port 2 |
-| io3#name           | String             | advanced          | yes       | Name of IO port 3 |
-| io4#name           | String             | advanced          | yes       | Name of IO port 4 |
-| io5#name           | String             | advanced          | yes       | Name of IO port 5 |
-| io6#name           | String             | advanced          | yes       | Name of IO port 6 |
-| io7#name           | String             | advanced          | yes       | Name of IO port 7 |
-| io8#name           | String             | advanced          | yes       | Name of IO port 8 |
-| io1#state          | Switch             | advanced          | no **     | State of IO port 1 |
-| io2#state          | Switch             | advanced          | no **     | State of IO port 2 |
-| io3#state          | Switch             | advanced          | no **     | State of IO port 3 |
-| io4#state          | Switch             | advanced          | no **     | State of IO port 4 |
-| io5#state          | Switch             | advanced          | no **     | State of IO port 5 |
-| io6#state          | Switch             | advanced          | no **     | State of IO port 6 |
-| io7#state          | Switch             | advanced          | no **     | State of IO port 7 |
-| io8#state          | Switch             | advanced          | no **     | State of IO port 8 |
+|     Channel ID     |     Item Type      | Supported Things  | Read Only |                 Description                  |
+|--------------------|--------------------|-------------------|-----------|----------------------------------------------|
+| prop#name          | String             | all               | yes       | Name of the device                           |
+| prop#temperature   | Number:Temperature | simple / advanced | yes       | Temperature of the integrated sensor         |
+| sensor#temperature | Number:Temperature | advanced          | yes       | Temperature of the optional external sensor  |
+| sensor#humidity    | Number             | advanced          | yes       | Humidity of the optional external sensor     |
+| sensor#brightness  | Number             | advanced          | yes       | Brightness of the optional external sensor   |
+| r1#name            | String             | all               | yes       | Name of relay / socket 1                     |
+| r2#name            | String             | all               | yes       | Name of relay / socket 2                     |
+| r3#name            | String             | all               | yes       | Name of relay / socket 3                     |
+| r4#name            | String             | simple / advanced | yes       | Name of relay / socket 4                     |
+| r5#name            | String             | simple / advanced | yes       | Name of relay / socket 5                     |
+| r6#name            | String             | simple / advanced | yes       | Name of relay / socket 6                     |
+| r7#name            | String             | simple / advanced | yes       | Name of relay / socket 7                     |
+| r8#name            | String             | simple / advanced | yes       | Name of relay / socket 8                     |
+| r1#state           | Switch             | all               | no *      | State of relay / socket 1                    |
+| r2#state           | Switch             | all               | no *      | State of relay / socket 2                    |
+| r3#state           | Switch             | all               | no *      | State of relay / socket 3                    |
+| r4#state           | Switch             | simple / advanced | no *      | State of relay / socket 4                    |
+| r5#state           | Switch             | simple / advanced | no *      | State of relay / socket 5                    |
+| r6#state           | Switch             | simple / advanced | no *      | State of relay / socket 6                    |
+| r7#state           | Switch             | simple / advanced | no *      | State of relay / socket 7                    |
+| r8#state           | Switch             | simple / advanced | no *      | State of relay / socket 8                    |
+| r1#locked          | Switch             | all               | yes       | Whether or not relay / socket 1 is locked    |
+| r2#locked          | Switch             | all               | yes       | Whether or not relay / socket 2 is locked    |
+| r3#locked          | Switch             | all               | yes       | Whether or not relay / socket 3 is locked    |
+| r4#locked          | Switch             | simple / advanced | yes       | Whether or not relay / socket 4 is locked    |
+| r5#locked          | Switch             | simple / advanced | yes       | Whether or not relay / socket 5 is locked    |
+| r6#locked          | Switch             | simple / advanced | yes       | Whether or not relay / socket 6 is locked    |
+| r7#locked          | Switch             | simple / advanced | yes       | Whether or not relay / socket 7 is locked    |
+| r8#locked          | Switch             | simple / advanced | yes       | Whether or not relay / socket 8 is locked    |
+| io1#name           | String             | advanced          | yes       | Name of IO port 1                            |
+| io2#name           | String             | advanced          | yes       | Name of IO port 2                            |
+| io3#name           | String             | advanced          | yes       | Name of IO port 3                            |
+| io4#name           | String             | advanced          | yes       | Name of IO port 4                            |
+| io5#name           | String             | advanced          | yes       | Name of IO port 5                            |
+| io6#name           | String             | advanced          | yes       | Name of IO port 6                            |
+| io7#name           | String             | advanced          | yes       | Name of IO port 7                            |
+| io8#name           | String             | advanced          | yes       | Name of IO port 8                            |
+| io1#state          | Switch             | advanced          | no **     | State of IO port 1                           |
+| io2#state          | Switch             | advanced          | no **     | State of IO port 2                           |
+| io3#state          | Switch             | advanced          | no **     | State of IO port 3                           |
+| io4#state          | Switch             | advanced          | no **     | State of IO port 4                           |
+| io5#state          | Switch             | advanced          | no **     | State of IO port 5                           |
+| io6#state          | Switch             | advanced          | no **     | State of IO port 6                           |
+| io7#state          | Switch             | advanced          | no **     | State of IO port 7                           |
+| io8#state          | Switch             | advanced          | no **     | State of IO port 8                           |
 | io1#mode           | Switch             | advanced          | yes       | Mode of port 1: _ON_ = input, _OFF_ = output |
 | io2#mode           | Switch             | advanced          | yes       | Mode of port 2: _ON_ = input, _OFF_ = output |
 | io3#mode           | Switch             | advanced          | yes       | Mode of port 3: _ON_ = input, _OFF_ = output |

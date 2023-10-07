@@ -34,7 +34,7 @@ Getting API Key  - PRESS WEB Button
 Your api Key is: 0x12 0x57 0x55 0xD5 0xCD 0x4A 0xD5 0x33
 ```
 
- On other operating systems, using only a JVM, you can invoke directly the java command from the latest release of the [sinope-core library](<https://github.com/chaton78/sinope-core/releases>):
+On other operating systems, using only a JVM, you can invoke directly the java command from the latest release of the [sinope-core library](<https://github.com/chaton78/sinope-core/releases>):
 
 ```shell
 java -jar core-0.0.3-shaded.jar -addr [YOUR_GATEWAY_IP_OR_HOSTNAME]   -gateway [YOUR_GATEWAY_ID] -login
@@ -93,8 +93,8 @@ thermostat room [ deviceId = "0x00 0x00 0x35 0x86" ]
 
 Thermostat devices support some of the following channels:
 
-| Channel Type ID     | Item Type   | Description               |
-| ------------------- | ----------- | ------------------------- |
+|   Channel Type ID   |  Item Type  |        Description        |
+|---------------------|-------------|---------------------------|
 | insideTemperature   | Number (R)  | Inside Temperature        |
 | outsideTemperature  | Number (R)  | Outside Temperature       |
 | setpointTemperature | Number (RW) | Set Point Temperature     |

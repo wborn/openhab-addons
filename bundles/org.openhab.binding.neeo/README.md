@@ -8,8 +8,8 @@ More information can be found at [NEEO](neeo.com) or in the forums at [NEEO Plan
 Discovery occurs in three steps:
 
 1. Discover your NEEO Brain.
-1. Once you have added a NEEO Brain, each Room will be discovered (which will include all Recipes and Scenarios).
-1. Once you have added a NEEO Room, each Device in the Room will be discovered (which will include all Macros for the Device).
+2. Once you have added a NEEO Brain, each Room will be discovered (which will include all Recipes and Scenarios).
+3. Once you have added a NEEO Room, each Device in the Room will be discovered (which will include all Macros for the Device).
 
 The Recipes/Scenarios can then be started or stopped from openHAB or from the remote.
 If a Recipe/Scenario is started on the Brain, the status of the Recipe/Scenario will change in openHAB as well.
@@ -49,10 +49,10 @@ Actions can be triggered by sending ON to the channel
 ## Supported Things
 
 - Bridge: NEEO Brain.
-This bridge represents a physical NEEO Brain and will contain one to many Rooms within it.
+  This bridge represents a physical NEEO Brain and will contain one to many Rooms within it.
 
 - Bridge: NEEO Room.
-Represents a Room on the NEEO Brain.  Only rooms that have atleast one device or one recipe (custom if no devices) will be shown unless the brain configuration option "discoverEmptyRooms" is set to true.
+  Represents a Room on the NEEO Brain.  Only rooms that have atleast one device or one recipe (custom if no devices) will be shown unless the brain configuration option "discoverEmptyRooms" is set to true.
 
 - Thing: NEEO Device.
 
@@ -63,8 +63,8 @@ Represents a Device within the NEEO Room.
 NEEO Brains will be automatically discovered if mDNS/bonjour/zeroconf is installed on the local machine:
 
 1. On Windows - installing iTunes will install bonjour.
-1. On Linux - please install zeroconf (see vendor documentation on how to do that).
-1. On Mac - should already be installed.
+2. On Linux - please install zeroconf (see vendor documentation on how to do that).
+3. On Mac - should already be installed.
 
 When you add the NEEO Brain, the Rooms on the Brain will then be auto discovered and placed in the inbox.
 When you add a Room, all Devices should be auto discovered and placed in the inbox.
@@ -76,25 +76,25 @@ If you discovered the wired first but want to use the wireless (or in the revers
 If the Brain is not discovered, here is list of the most common issues:
 
 1. You can generally trigger discovery by starting up the NEEO APP on your mobile device, press MENU->NEEO Brain->Change Brain.
-This will generally send out the necessary mDNS broadcast messages to discovery the Brain.
-1. You did not wait long enough.
-I have noticed that it will take up to 5 minutes for the discovery to find the Brain.
-1. Local firewall is blocking the mDNS broadcast messages.
-Modify the firewall to allow mDNS packets - typically port 5353 and/or IP address 224.0.0.251
-1. The Brain is on a different subnet.
-Unless you have special routing rules, having the Brain on a different subnet than the openHAB instance will prevent discovery.
-Either add routing rules or move one of them to the same subnet.
-1. Bug in the mDNS library.
-Occasionally a broadcast will be missed and a simple openHAB restart will fix the issue.
-1. Brain isn't reachable.
+   This will generally send out the necessary mDNS broadcast messages to discovery the Brain.
+2. You did not wait long enough.
+   I have noticed that it will take up to 5 minutes for the discovery to find the Brain.
+3. Local firewall is blocking the mDNS broadcast messages.
+   Modify the firewall to allow mDNS packets - typically port 5353 and/or IP address 224.0.0.251
+4. The Brain is on a different subnet.
+   Unless you have special routing rules, having the Brain on a different subnet than the openHAB instance will prevent discovery.
+   Either add routing rules or move one of them to the same subnet.
+5. Bug in the mDNS library.
+   Occasionally a broadcast will be missed and a simple openHAB restart will fix the issue.
+6. Brain isn't reachable.
 
 Ping the Brain's address from the openHAB machine and see if it responds.
 
 If none of the above work, there are a few more things you can try:
 
 1. Use your local dns-sd command to see if you find the instance ("dns-sd -B _neeo._tcp").
-1. Manually configure the Brain and specify its IP address.
-1. Look in the issues forum on the NEEO SDK GitHub - specifically the [Brain Discovery not working](https://github.com/NEEOInc/neeo-sdk/issues/36).
+2. Manually configure the Brain and specify its IP address.
+3. Look in the issues forum on the NEEO SDK GitHub - specifically the [Brain Discovery not working](https://github.com/NEEOInc/neeo-sdk/issues/36).
 
 ## Forward Actions
 
@@ -139,7 +139,7 @@ end
 Since the NEEO Brain ONLY allows a single forward actions URL, the NEEO Brain Bridge can be configured to:
 
 1. Whether to register for forward actions or not.
-1. If forward actions has been registered, forward the action on to other URLs for processing.
+2. If forward actions has been registered, forward the action on to other URLs for processing.
 
 This will allow you to use other devices that want to consume the forward actions (in addition to openHAB).
 
@@ -149,27 +149,27 @@ The following are the configurations available to each of the bridges/things:
 
 ### NEEO Brain
 
-| Name                 | Type    | Required | Default | Description                                                                                                    |
-|----------------------|---------|----------|---------|----------------------------------------------------------------------------------------------------------------|
-| ipAddress            | string  | Yes      | (None)  | IP Address or host name of the NEEO Brain                                                                      |
-| enableForwardActions | boolean | No       | true    | Whether to enable registration of forward actions or not                                                       |
-| forwardChain         | string  | No       | blank   | Comma delimited list of other IP addresses to forward actions to                                               |
-| discoverEmptyRooms   | boolean | No       | false   | Whether to discover Rooms with no Devices in them                                                              |
-| checkStatusInterval  | number  | No       | 10      | The interval (in seconds) to check the status of the Brain. Specify <=0 to disable                             |
+|         Name         |  Type   | Required | Default |                                    Description                                     |
+|----------------------|---------|----------|---------|------------------------------------------------------------------------------------|
+| ipAddress            | string  | Yes      | (None)  | IP Address or host name of the NEEO Brain                                          |
+| enableForwardActions | boolean | No       | true    | Whether to enable registration of forward actions or not                           |
+| forwardChain         | string  | No       | blank   | Comma delimited list of other IP addresses to forward actions to                   |
+| discoverEmptyRooms   | boolean | No       | false   | Whether to discover Rooms with no Devices in them                                  |
+| checkStatusInterval  | number  | No       | 10      | The interval (in seconds) to check the status of the Brain. Specify <=0 to disable |
 
 ### NEEO Room
 
-| Name                 | Type    | Required | Default | Description                                                                                                    |
-|----------------------|---------|----------|---------|----------------------------------------------------------------------------------------------------------------|
-| roomKey              | string  | Yes      | (None)  | The unique key identifying the Room on the NEEO Brain                                                          |
-| refreshPolling       | number  | No       | 120     | The interval (in seconds) to refresh active Scenarios.  Specify <=0 to disable                                 |
-| excludeThings        | boolean | No       | true    | Exclude devices that are openHAB things (exposed by the NEEO Transport)                                        |
+|      Name      |  Type   | Required | Default |                                  Description                                   |
+|----------------|---------|----------|---------|--------------------------------------------------------------------------------|
+| roomKey        | string  | Yes      | (None)  | The unique key identifying the Room on the NEEO Brain                          |
+| refreshPolling | number  | No       | 120     | The interval (in seconds) to refresh active Scenarios.  Specify <=0 to disable |
+| excludeThings  | boolean | No       | true    | Exclude devices that are openHAB things (exposed by the NEEO Transport)        |
 
 ### NEEO Device
 
-| Name                 | Type    | Required | Default | Description                                                                                                    |
-|----------------------|---------|----------|---------|----------------------------------------------------------------------------------------------------------------|
-| deviceKey            | string  | Yes      | (None)  | The unique key identifying the Device on the NEEO Brain                                                        |
+|   Name    |  Type  | Required | Default |                       Description                       |
+|-----------|--------|----------|---------|---------------------------------------------------------|
+| deviceKey | string | Yes      | (None)  | The unique key identifying the Device on the NEEO Brain |
 
 ## Channels
 
@@ -177,21 +177,21 @@ The following are the configurations available to each of the bridges/things:
 
 The NEEO Brain has the following channels:
 
-| Channel Type ID    | Read/Write | Item Type    | Description                                                                                |
-|--------------------|------------|--------------|--------------------------------------------------------------------------------------------|
-| forwardActions     | R          | Trigger      | The forward actions channel                                                                |
+| Channel Type ID | Read/Write | Item Type |         Description         |
+|-----------------|------------|-----------|-----------------------------|
+| forwardActions  | R          | Trigger   | The forward actions channel |
 
 The following properties are available at the time of this writing:
 
-| Name          | Description                                                                                                         |
-|---------------|---------------------------------------------------------------------------------------------------------------------|
-| AirKey        | Unknown (hints at a future airplay feature)                                                                         |
-| Version       | The software (not firmware) version of the NEEO Brain                                                               |
-| Is Configured | Whether the Brain has gone through its initial setup (true) or not (false)                                          |
-| Label         | Internal label assigned to the Brain                                                                                |
-| Last Change   | The time (in milliseconds) that the Brain was last updated (Recipe/Devices/etc change - again not firmware)         |
-| Key           | The unique identifier of the Brain                                                                                  |
-| Name          | Internal name of the Brain                                                                                          |
+|     Name      |                                                 Description                                                 |
+|---------------|-------------------------------------------------------------------------------------------------------------|
+| AirKey        | Unknown (hints at a future airplay feature)                                                                 |
+| Version       | The software (not firmware) version of the NEEO Brain                                                       |
+| Is Configured | Whether the Brain has gone through its initial setup (true) or not (false)                                  |
+| Label         | Internal label assigned to the Brain                                                                        |
+| Last Change   | The time (in milliseconds) that the Brain was last updated (Recipe/Devices/etc change - again not firmware) |
+| Key           | The unique identifier of the Brain                                                                          |
+| Name          | Internal name of the Brain                                                                                  |
 
 ### NEEO Room
 
@@ -199,16 +199,16 @@ The NEEO Room is dynamically generated from the Brain.
 Each Room will dynamically generate the following channel groups:
 
 1. Each Room will have exactly one "room-state" representing the current state of the Room.
-1. Each Room will have zero or more "room-recipe-xxx" (where xxx is the Recipe key) groups representing each Recipe in the Room.
-1. Each Room will have zero or more "room-scenario-xxx" (where xxx is the Scenario key) groups representing each Scenario in the Room.
+2. Each Room will have zero or more "room-recipe-xxx" (where xxx is the Recipe key) groups representing each Recipe in the Room.
+3. Each Room will have zero or more "room-scenario-xxx" (where xxx is the Scenario key) groups representing each Scenario in the Room.
 
 #### Room State Group
 
 The following channels will be in the Room state group:
 
-| Channel Type ID    | Read/Write | Item Type    | Description                                                                                |
-|--------------------|------------|--------------|--------------------------------------------------------------------------------------------|
-| currentStep*       | R          | trigger      | Displays the current step being executed                                                   |
+| Channel Type ID | Read/Write | Item Type |               Description                |
+|-----------------|------------|-----------|------------------------------------------|
+| currentStep*    | R          | trigger   | Displays the current step being executed |
 
 Current Step will ONLY be triggered if openHAB started the corresponding recipe (or scenario).  
 If the NEEO Remote or NEEO App starts the recipe or scenario, the currentStep will never be triggered.
@@ -221,12 +221,12 @@ Likewise if openHAB starts the Recipe/scenario, the remote will not be notified 
 
 Each Room Recipe group will have the following channels:
 
-| Channel Type ID    | Read/Write | Item Type    | Description                                                                           |
-|--------------------|------------|--------------|---------------------------------------------------------------------------------------|
-| name               | R          | String       | The name of the Recipe                                                                |
-| type*              | R          | String       | The type of Recipe                                                                    |
-| enabled            | R          | Switch       | Whether the Recipe is enabled or not                                                  |
-| status             | RW         | Switch       | Whether the Recipe is currently running (you can start/stop Recipes with this switch) |
+| Channel Type ID | Read/Write | Item Type |                                      Description                                      |
+|-----------------|------------|-----------|---------------------------------------------------------------------------------------|
+| name            | R          | String    | The name of the Recipe                                                                |
+| type*           | R          | String    | The type of Recipe                                                                    |
+| enabled         | R          | Switch    | Whether the Recipe is enabled or not                                                  |
+| status          | RW         | Switch    | Whether the Recipe is currently running (you can start/stop Recipes with this switch) |
 
 The list of types is unknown at this time and the only ones I know of are "launch" and "poweroff".
 
@@ -236,20 +236,20 @@ Simply view the Recipe channel prior to using the type in a rule.
 
 Each Scenario group will have the following channels:
 
-| Channel Type ID    | Read/Write | Item Type    | Description                                                                              |
-|--------------------|------------|--------------|----------------------------------------------------------------------------------------- |
-| name               | R          | String       | The name of the Scenario                                                                 |
-| configured         | R          | Switch       | Whether the Scenario is configured (or waiting additional input)                         |
-| status             | RW         | Switch       | Whether the Scenario is currently running (you can start/stop Scenarios with this switch |
+| Channel Type ID | Read/Write | Item Type |                                       Description                                        |
+|-----------------|------------|-----------|------------------------------------------------------------------------------------------|
+| name            | R          | String    | The name of the Scenario                                                                 |
+| configured      | R          | Switch    | Whether the Scenario is configured (or waiting additional input)                         |
+| status          | RW         | Switch    | Whether the Scenario is currently running (you can start/stop Scenarios with this switch |
 
 ### NEEO Device
 
 The NEEO Device is dynamically generated from the Brain.
 Each Device will have a single group (Macros) and that group will contain one or more channels defined by the Macro key (as defined by the NEEO Brain):
 
-| Channel Type ID    | Read/Write | Item Type    | Description                                                                              |
-|--------------------|------------|--------------|----------------------------------------------------------------------------------------- |
-| (macro key)        | RW         | Switch       | Send ON to trigger Macro, resets to false afterwards                                     |
+| Channel Type ID | Read/Write | Item Type |                     Description                      |
+|-----------------|------------|-----------|------------------------------------------------------|
+| (macro key)     | RW         | Switch    | Send ON to trigger Macro, resets to false afterwards |
 
 ## Full Example
 
@@ -283,3 +283,4 @@ sitemap demo label="NEEO" {
     }
 }
 ```
+

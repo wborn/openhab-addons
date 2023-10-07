@@ -23,12 +23,12 @@ The Client ID and Client Secret should not need to be updated.
 
 ### parameters
 
-| Property        | Default | Required | Description                                                                                                                                             |
-| --------------- | ------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| vendor          | None    | Yes      | The brand of the car (PEUGEOT, CITROEN, DS, OPEL or VAUXHALL).                                                                                          |
-| userName        | None    | Yes      | The user name for the mypeugot/mycitroen/myds/myopel/myvauxhall website or app.                                                                         |
-| password        | None    | Yes      | The password for the given user.                                                                                                                        |
-| pollingInterval | 60      | No       | The Polling Interval (in minutes) determines how often the available vehicles are queried.                                                              |
+|    Property     | Default | Required |                                                                        Description                                                                        |
+|-----------------|---------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| vendor          | None    | Yes      | The brand of the car (PEUGEOT, CITROEN, DS, OPEL or VAUXHALL).                                                                                            |
+| userName        | None    | Yes      | The user name for the mypeugot/mycitroen/myds/myopel/myvauxhall website or app.                                                                           |
+| password        | None    | Yes      | The password for the given user.                                                                                                                          |
+| pollingInterval | 60      | No       | The Polling Interval (in minutes) determines how often the available vehicles are queried.                                                                |
 | clientId        |         | Yes      | The Client ID for API access: can normally left at the default value. (see: <https://developer.groupe-psa.io/webapi/b2c/quickstart/connect/#article>)     |
 | clientSecret    |         | Yes      | The Client Secret for API access: can normally left at the default value. (see: <https://developer.groupe-psa.io/webapi/b2c/quickstart/connect/#article>) |
 
@@ -39,7 +39,7 @@ The Polling Interval and Online Timeout can be adjusted.
 
 ### parameters
 
-| Property        | Default | Required | Description                                                                                       |                                                                                            |
+|    Property     | Default | Required |                                            Description                                            |                                                                                            |
 |-----------------|---------|----------|---------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
 | id              | None    | Yes      | Vehicle API ID.                                                                                   | The ID is the vehicle API ID (not equal to the VIN), which is autodiscoverd by the bridge. |
 | pollingInterval | 5       | No       | The Polling Interval (in minutes) determines how often the car is polled for updated information. |                                                                                            |
@@ -47,8 +47,8 @@ The Polling Interval and Online Timeout can be adjusted.
 
 ## Channels
 
-| Channel Type ID         | Item Type                 | Description                                      |
-| ----------------------- | ------------------------- | ------------------------------------------------ |
+|     Channel Type ID     |         Item Type         |                   Description                    |
+|-------------------------|---------------------------|--------------------------------------------------|
 | current                 | Number:ElectricCurrent    | Electrical current                               |
 | voltage                 | Number:ElectricPotential  | Voltage                                          |
 | temperature             | Number:Temperature        | Temperature                                      |
@@ -153,3 +153,4 @@ Number:Speed Auto_Charging_Rate "Charging Rate [%.1f %unit%]" (Auto) ["Measureme
 Number:Time Auto_Charging_Time_Remaining "Charging Time Remaining [%.1f %unit%]" (Auto) ["Measurement", "Duration"] {channel="groupepsa:vehicle:opel:zafira:electric#chargingRemainingTime"}
 Number:Time Auto_Charging_Time_Till_Next "Charging Time Till Next Charging [%.1f %unit%]" (Auto) ["Measurement", "Duration"] {channel="groupepsa:vehicle:opel:zafira:electric#chargingNextDelayedTime"}
 ```
+

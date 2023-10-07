@@ -75,10 +75,8 @@ CCU Autodiscovery:
   - **HMIP**: XML-RPC
   - **CUxD**: BIN-RPC (CUxD version >= 1.6 required)
   - **Groups**: XML-RPC
-
 - **Homegear**
   - BIN-RPC
-
 - **Other**
   - XML-RPC
 
@@ -122,58 +120,58 @@ However, the install mode is not automatically enabled in this situation because
 There are several settings for a bridge:
 
 - **gatewayAddress** (required)
-Network address of the Homematic gateway
+  Network address of the Homematic gateway
 
 - **gatewayType**
-Hint for the binding to identify the gateway type (auto|ccu|noccu) (default = "auto").
+  Hint for the binding to identify the gateway type (auto|ccu|noccu) (default = "auto").
 
 - **callbackHost**
-Callback network address of the system runtime, default is auto-discovery
+  Callback network address of the system runtime, default is auto-discovery
 
 - **xmlCallbackPort**
-Callback port of the binding's XML-RPC server, default is 9125 and counts up for each additional bridge
+  Callback port of the binding's XML-RPC server, default is 9125 and counts up for each additional bridge
 
 - **binCallbackPort**
-Callback port of the binding's BIN-RPC server, default is 9126 and counts up for each additional bridge
+  Callback port of the binding's BIN-RPC server, default is 9126 and counts up for each additional bridge
 
 - **timeout**
-The timeout in seconds for connections to a Homematic gateway (default = 15)
+  The timeout in seconds for connections to a Homematic gateway (default = 15)
 
 - **discoveryTimeToLive**
-The time to live in seconds for discovery results of a Homematic gateway (default = -1, which means infinite)
+  The time to live in seconds for discovery results of a Homematic gateway (default = -1, which means infinite)
 
 - **socketMaxAlive**
-The maximum lifetime of a socket connection to and from a Homematic gateway in seconds (default = 900)
+  The maximum lifetime of a socket connection to and from a Homematic gateway in seconds (default = 900)
 
 - **rfPort**
-The port number of the RF daemon (default = 2001)
+  The port number of the RF daemon (default = 2001)
 
 - **wiredPort**
-The port number of the HS485 daemon (default = 2000)
+  The port number of the HS485 daemon (default = 2000)
 
 - **hmIpPort**
-The port number of the HMIP server (default = 2010)
+  The port number of the HMIP server (default = 2010)
 
 - **cuxdPort**
-The port number of the CUxD daemon (default = 8701)
+  The port number of the CUxD daemon (default = 8701)
 
 - **groupPort**
-The port number of the Group daemon (default = 9292)
+  The port number of the Group daemon (default = 9292)
 
 - **callbackRegTimeout**
-Maximum time in seconds for callback registration in the Homematic gateway (default = 120s).
-For a CCU2, the value may need to be increased to 180s.
+  Maximum time in seconds for callback registration in the Homematic gateway (default = 120s).
+  For a CCU2, the value may need to be increased to 180s.
 
 - **installModeDuration**
-Time in seconds that the controller will be in install mode when a device discovery is initiated (default = 60)
+  Time in seconds that the controller will be in install mode when a device discovery is initiated (default = 60)
 
 - **unpairOnDeletion**
-If set to true, devices are automatically unpaired from the gateway when their corresponding things are deleted.  
-**Warning:** The option "factoryResetOnDeletion" also unpairs a device, so in order to avoid unpairing on deletion completely, both options need to be set to false! (default = false)
+  If set to true, devices are automatically unpaired from the gateway when their corresponding things are deleted.  
+  **Warning:** The option "factoryResetOnDeletion" also unpairs a device, so in order to avoid unpairing on deletion completely, both options need to be set to false! (default = false)
 
 - **factoryResetOnDeletion**
-If set to true, devices are automatically factory reset when their corresponding things are removed.
-Due to the factory reset, the device will also be unpaired from the gateway, even if "unpairOnDeletion" is set to false! (default = false)
+  If set to true, devices are automatically factory reset when their corresponding things are removed.
+  Due to the factory reset, the device will also be unpaired from the gateway, even if "unpairOnDeletion" is set to false! (default = false)
 
 - **bufferSize**
   If a large number of devices are connected to the gateway, the default buffersize of 2048 kB may be too small for communication with the gateway.
@@ -230,7 +228,7 @@ The `HG-` prefix is only needed for Things, not for Items or channel configs.
 This is necessary, because the Homegear devices supports more datapoints than Homematic devices.
 
 ```java
-  Thing HG-HM-LC-Dim1T-Pl-2     JEQ0999999  "Name"  @  "Location"
+Thing HG-HM-LC-Dim1T-Pl-2     JEQ0999999  "Name"  @  "Location"
 ```
 
 All channels have two configs:
@@ -244,13 +242,13 @@ If you set the `receiveDelay` to some seconds, these events are filtered out and
 The disadvantage is of course, that all events for this channel are delayed.
 
 ```java
-  Thing HM-LC-Dim1T-Pl-2    JEQ0999999 "Name"  @  "Location" {
-      Channels:
-          Type HM-LC-Dim1T-Pl-2_1_LEVEL : 1#LEVEL [
-              delay = 0,
-              receiveDelay = 4
-          ]
-  }
+Thing HM-LC-Dim1T-Pl-2    JEQ0999999 "Name"  @  "Location" {
+    Channels:
+        Type HM-LC-Dim1T-Pl-2_1_LEVEL : 1#LEVEL [
+            delay = 0,
+            receiveDelay = 4
+        ]
+}
 ```
 
 The `Type` is the device type, channel number and UPPERCASE channel name separated with an underscore.
@@ -261,10 +259,10 @@ The channel configs are optional.
 Example without channel configs
 
 ```java
-  Thing HM-LC-Dim1T-Pl-2    JEQ0999999 "Name"  @  "Location" {
-      Channels:
-          Type HM-LC-Dim1T-Pl-2_1_LEVEL : 1#LEVEL
-  }
+Thing HM-LC-Dim1T-Pl-2    JEQ0999999 "Name"  @  "Location" {
+    Channels:
+        Type HM-LC-Dim1T-Pl-2_1_LEVEL : 1#LEVEL
+}
 ```
 
 ### Items
@@ -674,7 +672,7 @@ In scripts:
 
 ::: tab JavaScript
 
-``` javascript
+```javascript
 import org.openhab.core.types.RefreshType
 ...
 Var_1.sendCommand(RefreshType.REFRESH)
@@ -684,7 +682,7 @@ Var_1.sendCommand(RefreshType.REFRESH)
 
 ::: tab DSL
 
-``` php
+```php
 Var_1.sendCommand(REFRESH)
 ```
 

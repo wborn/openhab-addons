@@ -25,7 +25,7 @@ Once done, you can also create your things via *.things file.
 
 ### `it4wifi` Bridge Configuration
 
-| Name       | Type | Description                                                            | Default | Required | Advanced |
+|    Name    | Type |                              Description                               | Default | Required | Advanced |
 |------------|------|------------------------------------------------------------------------|---------|----------|----------|
 | hostname   | text | Hostname or IP address of the device                                   | N/A     | yes      | no       |
 | password   | text | Password to access the device                                          | N/A     | yes      | no       |
@@ -34,9 +34,9 @@ Once done, you can also create your things via *.things file.
 
 ### Gates Thing Configuration
 
-| Name       | Type | Description                                                            | Default | Required | Advanced |
-|------------|------|------------------------------------------------------------------------|---------|----------|----------|
-| id         | text | ID of the gate on the TP4 bus connected to the bridge                  | N/A     | yes      | no       |
+| Name | Type |                      Description                      | Default | Required | Advanced |
+|------|------|-------------------------------------------------------|---------|----------|----------|
+| id   | text | ID of the gate on the TP4 bus connected to the bridge | N/A     | yes      | no       |
 
 ## Channels
 
@@ -44,7 +44,7 @@ There is no channel associated with the bridge.
 
 Channels available for the gates are :
 
-| Channel   | Type   | Read/Write | Description                                              |
+|  Channel  |  Type  | Read/Write |                       Description                        |
 |-----------|--------|------------|----------------------------------------------------------|
 | status    | String | R/W (1)    | Description of the current status of the door (2)        |
 | obstruct  | Switch | R          | Flags an obstruction, blocking the door                  |
@@ -56,7 +56,7 @@ Channels available for the gates are :
 (1) : Accepted commands are : STOP, MOVE
 (2) : Valid status are : OPEN, CLOSED, OPENING, CLOSING, STOPPED
 (3) : Accepted commands are : "stop","open","close"
-(4) : There is no way to retrieve the current status of the courtesy light. It is supposed to be ON when the gate is moving and turned OFF once done. 
+(4) : There is no way to retrieve the current status of the courtesy light. It is supposed to be ON when the gate is moving and turned OFF once done.
 The delay between the moving end and light being turned off is a configuration parameter of the `courtesy` channel.
 
 ### T4 Commands
@@ -67,7 +67,7 @@ This information is stored in the `allowedT4` property held by the gate Thing it
 
 Complete list of T4 Commands :
 
-| Command | Action                     |
+| Command |           Action           |
 |---------|----------------------------|
 | MDAx    | Step by Step               |
 | MDAy    | Stop (as remote control)   |
@@ -117,3 +117,4 @@ String   NiceIT4WIFI_Command       "Command"     <none>   (gMyniceSwing)        
 Switch   NiceIT4WIFI_Command       "Courtesy Light" <light> (gMyniceSwing)                        {channel="mynice:swing:83eef09166:1:courtesy"}
 
 ```
+

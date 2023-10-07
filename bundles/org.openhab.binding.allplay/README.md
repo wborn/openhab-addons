@@ -29,7 +29,7 @@ The AllPlay devices are discovered through the AllJoyn discovery mechanism and a
 
 The binding has the following configuration options, which can be set for "binding:allplay":
 
-| Parameter                | Name                       | Description                                                          | Required |
+|        Parameter         |            Name            |                             Description                              | Required |
 |--------------------------|----------------------------|----------------------------------------------------------------------|----------|
 | rewindSkipTimeInSec      | Rewind skip time (s)       | Seconds to jump backwards if the rewind command is executed          | yes      |
 | fastForwardSkipTimeInSec | Fast forward skip time (s) | Seconds to jump forward if the fastforward command is executed       | yes      |
@@ -39,7 +39,7 @@ The binding has the following configuration options, which can be set for "bindi
 
 AllPlay Players are identified by their device ID (e.g. 9fbe37ca-d015-47a2-b76e-8fce7bc25687). Available configuration parameters are:
 
-| Parameter Label       | Parameter ID        | Description                                                                         | Required | Default |
+|    Parameter Label    |    Parameter ID     |                                     Description                                     | Required | Default |
 |-----------------------|---------------------|-------------------------------------------------------------------------------------|----------|---------|
 | Device ID             | deviceId            | The device identifier identifies one certain speaker                                | true     |         |
 | Device Name           | deviceName          | The device name of the speaker                                                      | false    |         |
@@ -50,7 +50,7 @@ AllPlay Players are identified by their device ID (e.g. 9fbe37ca-d015-47a2-b76e-
 
 The devices support the following channels:
 
-| Channel Type ID | Item Type | Description                                                                                    |
+| Channel Type ID | Item Type |                                          Description                                           |
 |-----------------|-----------|------------------------------------------------------------------------------------------------|
 | clearzone       | Switch    | Remove the current speaker from the zone                                                       |
 | control         | Player    | Control the speaker, play/pause/next/previous/ffward/rewind                                    |
@@ -125,3 +125,4 @@ when
 then
     All2Stream.sendCommand("http://chromaradio.com:8008/listen.pls")
 ```
+

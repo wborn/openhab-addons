@@ -150,13 +150,13 @@ Mute,VolumeDown,VolumeUp,DirectionDown,DirectionLeft,DirectionRight,DirectionUp,
 A complete list of names for device buttons values can be determined via the REST API for channel-types. The easiest way to do this is through the API explorer:
 
 1. Go to the main UI page for your installation
-    - This is usually at <http://your-openhab-ip:8080> or, in the case of openhabian, <http://openhabian:8080>
-1. Login if you are not already logged in
-1. Using the left panel (or three bars on the upper left corner) go to Developer Tools -> API Explorer -> channel-types
-1. Click `GET` next to `/channel-types`
-1. Click `Try it out`
-1. Click `Execute`
-1. Search the `Response Body` "harmonyhub:device" and find your device in the JSON output
+   - This is usually at <http://your-openhab-ip:8080> or, in the case of openhabian, <http://openhabian:8080>
+2. Login if you are not already logged in
+3. Using the left panel (or three bars on the upper left corner) go to Developer Tools -> API Explorer -> channel-types
+4. Click `GET` next to `/channel-types`
+5. Click `Try it out`
+6. Click `Execute`
+7. Search the `Response Body` "harmonyhub:device" and find your device in the JSON output
 
 The valid commands (read: values) will be listed with the device. For example, the response body might show that for `harmonyhub:device:HarmonyHub:lasko_fan` the valid commands are `PowerToggle, Speed, Timer`
 
@@ -190,3 +190,4 @@ The valid commands (read: values) will be listed with the device. For example, t
   "advanced": false
 }
 ```
+

@@ -93,13 +93,13 @@ Additional [example rules are available](https://openhab.github.io/openhab-jruby
 ### Prerequisites
 
 1. openHAB 3.4+
-1. The JRuby Scripting Language Addon
+2. The JRuby Scripting Language Addon
 
 ### From the User Interface
 
 1. Go to `Settings -> Add-ons -> Automation` and install the jrubyscripting automation addon following the [openHAB instructions](https://www.openhab.org/docs/configuration/addons.html).
    In openHAB 4.0+ the defaults are set so the next step can be skipped.
-1. Go to `Settings -> Other Services -> JRuby Scripting`:
+2. Go to `Settings -> Other Services -> JRuby Scripting`:
    - **Ruby Gems**: `openhab-scripting=~>5.0`
    - **Require Scripts**: `openhab/dsl` (not required, but recommended)
 
@@ -107,7 +107,7 @@ Additional [example rules are available](https://openhab.github.io/openhab-jruby
 
 1. Edit `<OPENHAB_CONF>/services/addons.cfg` and ensure that `jrubyscripting` is included in an uncommented `automation=` list of automations to install.
    In openHAB 4.0+ the defaults are set so the next step can be skipped.
-1. Configure JRuby openHAB services
+2. Configure JRuby openHAB services
 
    Create a file called `jruby.cfg` in `<OPENHAB_CONF>/services/` with the following content:
 
@@ -126,8 +126,8 @@ This allows the use of [items](https://openhab.github.io/openhab-jruby/main/Open
 This functionality can be disabled for users who prefer to manage their own gems and `require`s via the add-on configuration options.
 Simply change the `gems` and `require` configuration settings.
 
-| Parameter             | Description                                                                                              |
-| --------------------- | -------------------------------------------------------------------------------------------------------- |
+|       Parameter       |                                               Description                                                |
+|-----------------------|----------------------------------------------------------------------------------------------------------|
 | `gem_home`            | The path to store Ruby Gems. <br/><br/>Default: `$OPENHAB_CONF/automation/ruby/.gem/RUBY_ENGINE_VERSION` |
 | `gems`                | A list of gems to install. <br/><br/>Default: `openhab-scripting=~>5.0`                                  |
 | `check_update`        | Check for updated version of `gems` on start up or settings change. <br/><br/>Default: `true`            |
@@ -162,8 +162,8 @@ Multiple version specifiers can be added by separating them with a semicolon.
 
 Examples:
 
-| gem setting                                      | Description                                                                                              |
-| ------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
+|                   gem setting                    |                                               Description                                                |
+|--------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | `openhab-scripting`                              | install the latest version of `openhab-scripting` gem                                                    |
 | `openhab-scripting=~>5.0.0`                      | install the latest version 5.0.x but not 5.1.x                                                           |
 | `openhab-scripting=~>5.0`                        | install the latest version 5.x but not 6.x                                                               |
@@ -262,8 +262,8 @@ When you use "Item event" as trigger (i.e. "[item] received a command", "[item] 
 This tables gives an overview of the `event` object for most common trigger types.
 For full details, explore [OpenHAB::Core::Events](https://openhab.github.io/openhab-jruby/main/OpenHAB/Core/Events.html).
 
-| Property Name | Type                                                                                         | Trigger Types                          | Description                                          | Rules DSL Equivalent   |
-| ------------- | -------------------------------------------------------------------------------------------- | -------------------------------------- | ---------------------------------------------------- | ---------------------- |
+| Property Name |                                             Type                                             |             Trigger Types              |                     Description                      |  Rules DSL Equivalent  |
+|---------------|----------------------------------------------------------------------------------------------|----------------------------------------|------------------------------------------------------|------------------------|
 | `state`       | [State](https://openhab.github.io/openhab-jruby/main/OpenHAB/Core/Types/State.html) or `nil` | `[item] changed`, `[item] was updated` | State that triggered event                           | `triggeringItem.state` |
 | `was`         | [State](https://openhab.github.io/openhab-jruby/main/OpenHAB/Core/Types/State.html) or `nil` | `[item] changed`                       | Previous state of Item or Group that triggered event | `previousState`        |
 | `command`     | [Command](https://openhab.github.io/openhab-jruby/main/OpenHAB/Core/Types/Command.html)      | `[item] received a command`            | Command that triggered event                         | `receivedCommand`      |

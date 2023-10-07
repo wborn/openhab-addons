@@ -60,7 +60,7 @@ your documentation changes for clarity, concision, and correctness, as
 well as a clean documentation build.
 
 Write clean code. Universally formatted code promotes ease of writing, reading,
-and maintenance. 
+and maintenance.
 
 Pull requests descriptions should be as clear as possible and include a
 reference to all the issues that they address.
@@ -129,7 +129,7 @@ By making a contribution to this project, I certify that:
 
 then you just add a line to every git commit message:
 
-    Signed-off-by: Joe Smith <joe.smith@email.com>
+        Signed-off-by: Joe Smith <joe.smith@email.com>
 
 using your real name (sorry, no pseudonyms or anonymous contributions.) and an
 e-mail address under which you can be reached (sorry, no github noreply e-mail

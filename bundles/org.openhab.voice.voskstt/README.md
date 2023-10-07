@@ -71,3 +71,4 @@ In case you would like to setup these settings via a text file, you can edit the
 ```
 org.openhab.voice:defaultSTT=voskstt
 ```
+

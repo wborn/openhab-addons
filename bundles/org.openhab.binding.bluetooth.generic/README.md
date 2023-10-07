@@ -6,9 +6,9 @@ This binding adds support for devices that expose [Bluetooth Generic Attributes 
 
 Only a single thing type is added by this binding:
 
-| Thing Type ID | Description                                     |
-|---------------|-------------------------------------------------|
-| generic       | A generic connectable bluetooth device          |
+| Thing Type ID |              Description               |
+|---------------|----------------------------------------|
+| generic       | A generic connectable bluetooth device |
 
 ## Discovery
 
@@ -17,7 +17,7 @@ Generic bluetooth devices will be discovered for any connectable bluetooth devic
 
 ## Thing Configuration
 
-| Parameter       | Required | Default | Description                                                         |
+|    Parameter    | Required | Default |                             Description                             |
 |-----------------|----------|---------|---------------------------------------------------------------------|
 | address         | yes      |         | The address of the bluetooth device (in format "XX:XX:XX:XX:XX:XX") |
 | pollingInterval | no       | 30      | The frequency at which readable characteristics will refresh        |

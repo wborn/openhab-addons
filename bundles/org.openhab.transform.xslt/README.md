@@ -4,13 +4,13 @@ Transform input using the XML Stylesheet Language for Transformations (XSLT).
 
 XSLT is a standard method to transform an XML structure from one document into a new document with a different structure.
 
-The transformation expects the rule to be read from a file which is stored under the `transform` folder. 
+The transformation expects the rule to be read from a file which is stored under the `transform` folder.
 To organize the various transformations one should use subfolders.
 
 General transformation rule summary:
 
 * The directive `xsl:output` defines how the output document should be structured.
-* The directive `xsl:template` specifies matching attributes for the XML node to find. 
+* The directive `xsl:template` specifies matching attributes for the XML node to find.
 * The `xsl:template` tag contains the rule which specifies what should be done.
 
 The Rule uses XPath to gather the XML node information.
@@ -72,7 +72,7 @@ This example has a namespace defined, as you would find in real world applicatio
 
 **transform/azimut.xsl**
 
-In the rule, the tag `<xsl:stylesheet>` has to have an attribute `xmlns:xsl="http://www.w3.org/1999/XSL/Transform"` and a second attribute `xmlns:`. 
+In the rule, the tag `<xsl:stylesheet>` has to have an attribute `xmlns:xsl="http://www.w3.org/1999/XSL/Transform"` and a second attribute `xmlns:`.
 This attribute has to be the same as the namespace for the input document.
 In the rule each step traversed along the path to the next tag has to be prepended with the `xmlns` namespace, here defined as `h`.
 
@@ -124,3 +124,4 @@ Please note: This profile is a one-way transformation, i.e. only values from a d
 * A good [introduction](https://www.w3schools.com/xml/xsl_intro.asp) and [tutorial](https://www.w3schools.com/xml/xsl_transformation.asp) at W3School.
 * An informative [tutorial](https://www.ibm.com/developerworks/library/x-xsltmistakes/) of common mistakes.
 * Online XSL transformer tools like [this](https://www.freeformatter.com/xsl-transformer.html) to check the syntax.
+

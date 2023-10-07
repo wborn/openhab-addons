@@ -30,7 +30,7 @@ They all react on UDP packets.
 
 ## Channels
 
-| channel            | type                   | description                               |
+|      channel       |          type          |                description                |
 |--------------------|------------------------|-------------------------------------------|
 | overallPlug#switch | Switch                 | Switches all plugs                        |
 | plug1#switch       | Switch                 | Switch plug 1                             |
@@ -76,3 +76,4 @@ Number Plug_1_Amp "Steckdose 1 Strom" <chart> (plug1) {channel="revogi:smartstri
 
 ...
 ```
+

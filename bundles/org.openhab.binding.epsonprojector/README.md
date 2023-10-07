@@ -21,7 +21,7 @@ All settings are through thing configuration parameters.
 
 The `projector-serial` thing has the following configuration parameters:
 
-| Parameter       | Name             | Description                                                                                                                                                | Required |
+|    Parameter    |       Name       |                                                                        Description                                                                         | Required |
 |-----------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | serialPort      | Serial Port      | Serial port device name that is connected to the Epson projector to control, e.g. COM1 on Windows, /dev/ttyS0 on Linux or /dev/tty.PL2303-0000103D on Mac. | yes      |
 | pollingInterval | Polling Interval | Polling interval in seconds to update channel states, range 5-60 seconds; default 10 seconds.                                                              | no       |
@@ -29,7 +29,7 @@ The `projector-serial` thing has the following configuration parameters:
 
 The `projector-tcp` thing has the following configuration parameters:
 
-| Parameter       | Name             | Description                                                                                                                                    | Required |
+|    Parameter    |       Name       |                                                                  Description                                                                   | Required |
 |-----------------|------------------|------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 | host            | Host Name        | Host Name or IP address for the projector or serial over IP device.                                                                            | yes      |
 | port            | Port             | Port for the projector or serial over IP device; default 3629 for projectors with built-in Ethernet connector or Wi-Fi.                        | yes      |
@@ -47,7 +47,6 @@ Some notes:
 - The volume channel is a dimmer (0-100%) that is scaled to the range on the projector, either 0-20 or 0-40 per the maxVolume configuration setting. If your projector uses a different range, then the volume channel will not work.
 - If the projector power is switched to off in the middle of a polling operation, some of the channel values may become undefined until the projector is switched on again.
 - If the binding fails to connect to the projector using the direct IP connection, ensure that no password is configured on the projctor.
-
 - On Linux, you may get an error stating the serial port cannot be opened when the epsonprojector binding tries to load.
 - You can get around this by adding the `openhab` user to the `dialout` group like this: `usermod -a -G dialout openhab`.
 - Also on Linux you may have issues with the USB if using two serial USB devices e.g. epsonprojector and RFXcom. See the [general documentation about serial port configuration](/docs/administration/serial.html) for more on symlinking the USB ports.
@@ -72,8 +71,8 @@ connection: &conEpson
 
 ## Channels
 
-| Channel            | Item Type | Purpose                                                                                    | Values    |
-| ------------------ | --------- | ------------------------------------------------------------------------------------------ | --------- |
+|      Channel       | Item Type |                                          Purpose                                           |  Values   |
+|--------------------|-----------|--------------------------------------------------------------------------------------------|-----------|
 | power              | Switch    | Powers the projector on or off.                                                            |           |
 | powerstate         | String    | Retrieves the textual power state of the projector.                                        | Read only |
 | source             | String    | Retrieve or set the input source.                                                          | See above |
@@ -196,3 +195,4 @@ sitemap epson label="Epson Projector"
     }
 }
 ```
+

@@ -12,71 +12,71 @@ In case the parsed information that comes with the binding out of the box differ
 
 ## Supported Things
 
-| Thing                  | Thing Type | Description                                                                         |
-|------------------------|------------|-------------------------------------------------------------------------------------|
-| local-connect-inverter | Thing      | This is model representation of inverter with all the data available as a channels  |
+|         Thing          | Thing Type |                                    Description                                     |
+|------------------------|------------|------------------------------------------------------------------------------------|
+| local-connect-inverter | Thing      | This is model representation of inverter with all the data available as a channels |
 
 ## Thing Configuration
 
 ### Local Connect Inverter Configuration
 
-| Parameter         | Description                                                                                                                                        |
-|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|
-| refreshInterval   | Defines the refresh interval when the binding polls from the inverter's Wi-Fi module (in seconds). Optional parameter. Default 10 seconds.         |
-| password          | Password for accessing the Wi-Fi module (the serial number of the wifi). Mandatory parameter.                                                      |
-| hostname          | IP address or hostname of your Wi-Fi module. If hostname is used must be resolvable by OpenHAB. Mandatory parameter.                               |
+|    Parameter    |                                                                Description                                                                 |
+|-----------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| refreshInterval | Defines the refresh interval when the binding polls from the inverter's Wi-Fi module (in seconds). Optional parameter. Default 10 seconds. |
+| password        | Password for accessing the Wi-Fi module (the serial number of the wifi). Mandatory parameter.                                              |
+| hostname        | IP address or hostname of your Wi-Fi module. If hostname is used must be resolvable by OpenHAB. Mandatory parameter.                       |
 
 ### Inverter Output Channels
 
-| Channel                  | Type                       | Description                                      |
-|--------------------------|----------------------------|--------------------------------------------------|
-| inverter-output-power    | Number:Power               | The output power of the inverter [W]             |
-| inverter-current         | Number:ElectricCurrent     | The output current of the inverter [A]           |
-| inverter-voltage         | Number:ElectricPotential   | The output voltage of the inverter [V]           |
-| inverter-frequency       | Number:Frequency           | The frequency of the output voltage [Hz]         |
+|        Channel        |           Type           |               Description                |
+|-----------------------|--------------------------|------------------------------------------|
+| inverter-output-power | Number:Power             | The output power of the inverter [W]     |
+| inverter-current      | Number:ElectricCurrent   | The output current of the inverter [A]   |
+| inverter-voltage      | Number:ElectricPotential | The output voltage of the inverter [V]   |
+| inverter-frequency    | Number:Frequency         | The frequency of the output voltage [Hz] |
 
 ### Photovoltaic Panels Production Channels
 
-| Channel                  | Type                       | Description                                     |
-|--------------------------|----------------------------|-------------------------------------------------|
-| pv1-voltage              | Number:ElectricPotential   | The voltage of PV1 string [V]                   |
-| pv2-voltage              | Number:ElectricPotential   | The voltage of PV2 string [V]                   |
-| pv1-current              | Number:ElectricCurrent     | The current of PV1 string [A]                   |
-| pv2-current              | Number:ElectricCurrent     | The current of PV2 string [A]                   |
-| pv1-power                | Number:Power               | The output power PV1 string [W]                 |
-| pv2-power                | Number:Power               | The output power PV2 string [W]                 |
-| pv-total-power           | Number:Power               | The total output power of both PV strings [W]   |
-| pv-total-current         | Number:ElectricCurrent     | The total current of both PV strings [A]        |
+|     Channel      |           Type           |                  Description                  |
+|------------------|--------------------------|-----------------------------------------------|
+| pv1-voltage      | Number:ElectricPotential | The voltage of PV1 string [V]                 |
+| pv2-voltage      | Number:ElectricPotential | The voltage of PV2 string [V]                 |
+| pv1-current      | Number:ElectricCurrent   | The current of PV1 string [A]                 |
+| pv2-current      | Number:ElectricCurrent   | The current of PV2 string [A]                 |
+| pv1-power        | Number:Power             | The output power PV1 string [W]               |
+| pv2-power        | Number:Power             | The output power PV2 string [W]               |
+| pv-total-power   | Number:Power             | The total output power of both PV strings [W] |
+| pv-total-current | Number:ElectricCurrent   | The total current of both PV strings [A]      |
 
 ### Battery channels
 
-| Channel                   | Type                       | Description                                                                                    |
-|---------------------------|----------------------------|------------------------------------------------------------------------------------------------|
-| battery-power             | Number:Power               | The power to / from battery (negative means power is pulled from battery and vice-versa) [W]   |
-| battery-current           | Number:ElectricCurrent     | The current to / from battery (negative means power is pulled from battery and vice-versa) [A] |
-| battery-voltage           | Number:ElectricPotential   | The voltage of the battery [V]                                                                 |
-| battery-temperature       | Number:Temperature         | The temperature of the battery [C/F]                                                           |
-| battery-state-of-charge   | Number                     | The state of charge of the battery [%]                                                         |
+|         Channel         |           Type           |                                          Description                                           |
+|-------------------------|--------------------------|------------------------------------------------------------------------------------------------|
+| battery-power           | Number:Power             | The power to / from battery (negative means power is pulled from battery and vice-versa) [W]   |
+| battery-current         | Number:ElectricCurrent   | The current to / from battery (negative means power is pulled from battery and vice-versa) [A] |
+| battery-voltage         | Number:ElectricPotential | The voltage of the battery [V]                                                                 |
+| battery-temperature     | Number:Temperature       | The temperature of the battery [C/F]                                                           |
+| battery-state-of-charge | Number                   | The state of charge of the battery [%]                                                         |
 
 ### Grid related channels
 
-| Channel                  | Type                       | Description                                                                                    |
-|--------------------------|----------------------------|------------------------------------------------------------------------------------------------|
-| feed-in-power            | Number:Power               | The power to / from grid (negative means power is pulled from the grid and vice-versa) [W]     |
+|    Channel    |     Type     |                                        Description                                         |
+|---------------|--------------|--------------------------------------------------------------------------------------------|
+| feed-in-power | Number:Power | The power to / from grid (negative means power is pulled from the grid and vice-versa) [W] |
 
 ### General channels
 
-| Channel                  | Type                       | Description                                                                                                                                 |
-|--------------------------|----------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| last-update-time         | DateTime                   | Last time when a call has been made to the inverter                                                                                         |
-| raw-data                 | String                     | The raw data retrieved from inverter in JSON format. (Usable for channels not implemented. Can be consumed with the JSONpath transformation |
+|     Channel      |   Type   |                                                                 Description                                                                 |
+|------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| last-update-time | DateTime | Last time when a call has been made to the inverter                                                                                         |
+| raw-data         | String   | The raw data retrieved from inverter in JSON format. (Usable for channels not implemented. Can be consumed with the JSONpath transformation |
 
 ### Properties
 
-| Property          | Description                               |
-|-------------------|-------------------------------------------|
-| serialNumber      | The serial number of the Wi-Fi module     |
-| inverterType      | Inverter Type (for example X1_HYBRID_G4)  |
+|   Property   |               Description                |
+|--------------|------------------------------------------|
+| serialNumber | The serial number of the Wi-Fi module    |
+| inverterType | Inverter Type (for example X1_HYBRID_G4) |
 
 ## Full Example
 
@@ -185,5 +185,4 @@ Frame label="Battery" {
     }
 }
 ```
-
 

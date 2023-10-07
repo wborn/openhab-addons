@@ -79,12 +79,12 @@ Basic channels provided by the tracker things:
 Tracker thing can be extended with **Distance** channels (channel type is `regionDistance`) if a distance calculation is needed for a region.
 These dynamic channels require the following parameters:
 
-| Parameter     | Type     | Description                                                                                                                                                                       |
-|---------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Region Name   | String   | Region name. If the region is configured in the tracker app as well use the same name. Distance channels can also be defined as binding only regions (not configured in trackers) |
-| Region center | Location | Region center location                                                                                                                                                            |
-| Region Radius | Integer  | Geofence radius                                                                                                                                                                 |
-| Accuracy Threshold | Integer  | Location accuracy threshold (0 to disable)                                                                                                                                                                 |
+|     Parameter      |   Type   |                                                                                    Description                                                                                    |
+|--------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Region Name        | String   | Region name. If the region is configured in the tracker app as well use the same name. Distance channels can also be defined as binding only regions (not configured in trackers) |
+| Region center      | Location | Region center location                                                                                                                                                            |
+| Region Radius      | Integer  | Geofence radius                                                                                                                                                                   |
+| Accuracy Threshold | Integer  | Location accuracy threshold (0 to disable)                                                                                                                                        |
 
 Distance values will be updated each time a GPS location log record is received from the tracker if the accuracy is below the threshold or if the threshold is disabled.
 
@@ -110,7 +110,7 @@ There is a special profile (gpstracker:trigger-geofence) that transforms trigger
 
 To link a switch item to regionTrigger channel the following parameters are required by the item link:
 
-| Parameter    | Type      | Description                                                                                              |
+|  Parameter   |   Type    |                                               Description                                                |
 |--------------|-----------|----------------------------------------------------------------------------------------------------------|
 | Profile Name | Selection | Select the Geofence(gpstracker:trigger-geofence) from dropdown                                           |
 | Region Name  | String    | Region name which should be the same as used in the tracker application or defined for distance channels |
@@ -277,3 +277,4 @@ Assumptions:
 
 - If the binding was restarted only the second transition update will trigger event as the binding has to know the previous state.
 - The distance is not calculated for Work as the binding doesn't know the Work region center.
+

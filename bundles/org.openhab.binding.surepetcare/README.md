@@ -5,8 +5,8 @@ This binding offers integration to the Sure Petcare API, supporting cloud-connec
 ## Features
 
 1. Read access to all attributes for households, devices (hubs, flaps) and pets through individual things/channels.
-1. Manual setting of pet location.
-1. Setting of LED Mode (hub), Locking Mode (flaps) and Curfews.
+2. Manual setting of pet location.
+3. Setting of LED Mode (hub), Locking Mode (flaps) and Curfews.
 
 ### Restrictions / TODO
 
@@ -25,14 +25,14 @@ The binding code is based on a lot of work done by other developers:
 
 This binding supports the following thing types
 
-| Thing           | Thing Type | Discovery | Description                                                              |
-|-----------------|------------|-----------|--------------------------------------------------------------------------|
-| Bridge          | Bridge     | Manual    |  A single connection to the Sure Petcare API                             |
-| Household       | Thing      | Automatic |  The Sure Petcare Household                                              |
-| Hub Device      | Thing      | Automatic |  The hub device which connects the cat flaps and feeders to the internet |
-| Flap Device     | Thing      | Automatic |  A cat or pet flap                                                       |
-| Feeder Device   | Thing      | Automatic |  A pet feeder                                                            |
-| Pet             | Thing      | Automatic |  A pet (dog or cat)                                                      |
+|     Thing     | Thing Type | Discovery |                               Description                               |
+|---------------|------------|-----------|-------------------------------------------------------------------------|
+| Bridge        | Bridge     | Manual    | A single connection to the Sure Petcare API                             |
+| Household     | Thing      | Automatic | The Sure Petcare Household                                              |
+| Hub Device    | Thing      | Automatic | The hub device which connects the cat flaps and feeders to the internet |
+| Flap Device   | Thing      | Automatic | A cat or pet flap                                                       |
+| Feeder Device | Thing      | Automatic | A pet feeder                                                            |
+| Pet           | Thing      | Automatic | A pet (dog or cat)                                                      |
 
 ## Getting started /  Discovery
 
@@ -50,59 +50,59 @@ Channel names in **bold** are read/write, everything else is read-only
 
 ### Bridge Thing
 
-| Channel     | Type   | Description                                                                       |
-|-------------|--------|-----------------------------------------------------------------------------------|
-| refresh     | Switch | Trigger switch to force a full cache update                                       |
+| Channel |  Type  |                 Description                 |
+|---------|--------|---------------------------------------------|
+| refresh | Switch | Trigger switch to force a full cache update |
 
 ### Household Thing
 
-| Channel    | Type     | Description                                  |
-|------------|----------|----------------------------------------------|
-| id         | Number   | A unique id assigned by the Sure Petcare API |
-| name       | Text     | The name of the household                    |
-| timezoneId | Number   | The id of the household's timezone           |
+|  Channel   |  Type  |                 Description                  |
+|------------|--------|----------------------------------------------|
+| id         | Number | A unique id assigned by the Sure Petcare API |
+| name       | Text   | The name of the household                    |
+| timezoneId | Number | The id of the household's timezone           |
 
 ### Hub Device Thing
 
-| Channel         | Type     | Description                                                           |
-|-----------------|----------|-----------------------------------------------------------------------|
-| id              | Number   | A unique id assigned by the Sure Petcare API                          |
-| name            | Text     | The name of the hub                                                   |
-| product         | Text     | The type of product (1=hub)                                           |
-| ledMode         | Text     | The mode of the hub's LED ears                                        |
-| pairingMode     | Text     | The state of pairing                                                  |
-| online          | Switch   | Indicator if the hub is connected to the internet                     |
+|   Channel   |  Type  |                    Description                    |
+|-------------|--------|---------------------------------------------------|
+| id          | Number | A unique id assigned by the Sure Petcare API      |
+| name        | Text   | The name of the hub                               |
+| product     | Text   | The type of product (1=hub)                       |
+| ledMode     | Text   | The mode of the hub's LED ears                    |
+| pairingMode | Text   | The state of pairing                              |
+| online      | Switch | Indicator if the hub is connected to the internet |
 
 ### Flap Device Thing (Cat or Pet Flap)
 
-| Channel               | Type     | Description                                                           |
-|-----------------------|----------|-----------------------------------------------------------------------|
-| id                    | Number   | A unique id assigned by the Sure Petcare API                          |
-| name                  | Text     | The name of the flap                                                  |
-| product               | Text     | The type of product (3=pet flap, 6=cat flap)                          |
-| curfewEnabled1        | Switch   | Indicator if curfew #1 configuration is enabled                       |
-| curfewLockTime1       | Text     | The curfew #1 locking time (HH:MM)                                    |
-| curfewUnlockTime1     | Text     | The curfew #1 unlocking time (HH:MM)                                  |
-| curfewEnabled2        | Switch   | Indicator if curfew #2 configuration is enabled                       |
-| curfewLockTime2       | Text     | The curfew #2 locking time (HH:MM)                                    |
-| curfewUnlockTime2     | Text     | The curfew #2 unlocking time (HH:MM)                                  |
-| curfewEnabled3        | Switch   | Indicator if curfew #3 configuration is enabled                       |
-| curfewLockTime3       | Text     | The curfew #3 locking time (HH:MM)                                    |
-| curfewUnlockTime3     | Text     | The curfew #3 unlocking time (HH:MM)                                  |
-| curfewEnabled4        | Switch   | Indicator if curfew #4 configuration is enabled                       |
-| curfewLockTime4       | Text     | The curfew #4 locking time (HH:MM)                                    |
-| curfewUnlockTime4     | Text     | The curfew #4 unlocking time (HH:MM)                                  |
-| lockingMode           | Text     | The locking mode (e.g. in/out, in-only, out-only etc.)                |
-| online                | Switch   | Indicator if the flap is connected to the hub                         |
-| lowBattery            | Switch   | Indicator if the battery voltage is low                               |
-| batteryLevel          | Number   | The battery voltage percentage                                        |
-| batteryVoltage        | Number   | The absolute battery voltage measurement                              |
-| deviceRSSI            | Number   | The received device signal strength in dB                             |
-| hubRSSI               | Number   | The received hub signal strength in dB                                |
+|      Channel      |  Type  |                      Description                       |
+|-------------------|--------|--------------------------------------------------------|
+| id                | Number | A unique id assigned by the Sure Petcare API           |
+| name              | Text   | The name of the flap                                   |
+| product           | Text   | The type of product (3=pet flap, 6=cat flap)           |
+| curfewEnabled1    | Switch | Indicator if curfew #1 configuration is enabled        |
+| curfewLockTime1   | Text   | The curfew #1 locking time (HH:MM)                     |
+| curfewUnlockTime1 | Text   | The curfew #1 unlocking time (HH:MM)                   |
+| curfewEnabled2    | Switch | Indicator if curfew #2 configuration is enabled        |
+| curfewLockTime2   | Text   | The curfew #2 locking time (HH:MM)                     |
+| curfewUnlockTime2 | Text   | The curfew #2 unlocking time (HH:MM)                   |
+| curfewEnabled3    | Switch | Indicator if curfew #3 configuration is enabled        |
+| curfewLockTime3   | Text   | The curfew #3 locking time (HH:MM)                     |
+| curfewUnlockTime3 | Text   | The curfew #3 unlocking time (HH:MM)                   |
+| curfewEnabled4    | Switch | Indicator if curfew #4 configuration is enabled        |
+| curfewLockTime4   | Text   | The curfew #4 locking time (HH:MM)                     |
+| curfewUnlockTime4 | Text   | The curfew #4 unlocking time (HH:MM)                   |
+| lockingMode       | Text   | The locking mode (e.g. in/out, in-only, out-only etc.) |
+| online            | Switch | Indicator if the flap is connected to the hub          |
+| lowBattery        | Switch | Indicator if the battery voltage is low                |
+| batteryLevel      | Number | The battery voltage percentage                         |
+| batteryVoltage    | Number | The absolute battery voltage measurement               |
+| deviceRSSI        | Number | The received device signal strength in dB              |
+| hubRSSI           | Number | The received hub signal strength in dB                 |
 
 ### Feeder Device Thing
 
-| Channel           | Type        | Description                                                                                     |
+|      Channel      |    Type     |                                           Description                                           |
 |-------------------|-------------|-------------------------------------------------------------------------------------------------|
 | id                | Number      | A unique id assigned by the Sure Petcare API                                                    |
 | name              | Text        | The name of the feeder                                                                          |
@@ -125,7 +125,7 @@ Channel names in **bold** are read/write, everything else is read-only
 
 ### Pet Thing
 
-| Channel                | Type        | Description                                                                         |
+|        Channel         |    Type     |                                     Description                                     |
 |------------------------|-------------|-------------------------------------------------------------------------------------|
 | id                     | Number      | A unique id assigned by the Sure Petcare API                                        |
 | name                   | Text        | The name of the pet                                                                 |
@@ -378,6 +378,7 @@ Frame label="Group Pet/Cats items" {
 
 ## Troubleshooting
 
-| Problem                                     | Solution                                                                            |
-|---------------------------------------------|-------------------------------------------------------------------------------------|
-| Bridge cannot connect to Sure Petcare API    | Check if you can logon to the Sure Petcare app with the given username/password.    |
+|                  Problem                  |                                     Solution                                     |
+|-------------------------------------------|----------------------------------------------------------------------------------|
+| Bridge cannot connect to Sure Petcare API | Check if you can logon to the Sure Petcare app with the given username/password. |
+

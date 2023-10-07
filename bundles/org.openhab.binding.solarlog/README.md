@@ -25,8 +25,8 @@ The following table is taken from the official manual and contains all available
 
 `Number solarlog_meter_pv_yieldday "Yield Day [% W]" (gSolarLog, gUtilityRoom) { channel="solarlog:meter:pv:yieldday" }`
 
-| Data point         | Unit                                           | Index Description                                                          |
-| ------------------ | ---------------------------------------------- | -------------------------------------------------------------------------- |
+|     Data point     |                      Unit                      |                             Index Description                              |
+|--------------------|------------------------------------------------|----------------------------------------------------------------------------|
 | lastupdate         | Time in the format dd.mm.yy; hh.minmin, secsec | 100 Time                                                                   |
 | pac                | W                                              | 101 Total output PAC from all of the inverters and meters in inverter mode |
 | pdc                | W                                              | 102 Total output PAC from all of the inverters                             |

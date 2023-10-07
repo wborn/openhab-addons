@@ -29,7 +29,7 @@ To authorize, please follow these steps:
 
 ### `indego` Thing Configuration
 
-| Parameter          | Description                                                       | Default | Required |
+|     Parameter      |                            Description                            | Default | Required |
 |--------------------|-------------------------------------------------------------------|---------|----------|
 | serialNumber       | The serial number of the connected Indego mower                   |         | yes      |
 | refresh            | The number of seconds between refreshing device state when idle   | 180     | no       |
@@ -38,7 +38,7 @@ To authorize, please follow these steps:
 
 ## Channels
 
-| Channel            | Item Type                | Description                                                                                                                         | Writeable |
+|      Channel       |        Item Type         |                                                             Description                                                             | Writeable |
 |--------------------|--------------------------|-------------------------------------------------------------------------------------------------------------------------------------|-----------|
 | state              | Number                   | You can send commands to this channel to control the mower and read the simplified state from it (1=mow, 2=return to dock, 3=pause) | Yes       |
 | errorcode          | Number                   | Error code of the mower (0=no error)                                                                                                |           |
@@ -61,7 +61,7 @@ To authorize, please follow these steps:
 
 ### State Codes
 
-| Code  | Description                                 |
+| Code  |                 Description                 |
 |-------|---------------------------------------------|
 | 0     | Reading status                              |
 | 257   | Charging                                    |
@@ -131,3 +131,4 @@ Image                    Indego_GardenMap          { channel="boschindego:indego
 ```perl
 Switch item=Indego_State mappings=[1="Mow", 2="Return",3="Pause"]
 ```
+

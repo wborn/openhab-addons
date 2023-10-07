@@ -19,9 +19,9 @@ Anyway beware - every check consumes one free push message you can send in an ho
 
 The broker thing has only one channel keeping the number of free push messages, which can be sent.
 
-| channel    | type   | description                                            |
-|------------|--------|--------------------------------------------------------|
-| remaining  | Number | This channel provides the number of free push messages |
+|  channel  |  type  |                      description                       |
+|-----------|--------|--------------------------------------------------------|
+| remaining | Number | This channel provides the number of free push messages |
 
 ## Example
 
@@ -43,3 +43,4 @@ val prowl = getActions("prowl","prowl:broker:mybroker")
 prowl.pushNotification("Event", "This is the description of the event")
 prowl.pushNotification("Emergency Event", "This is the description of the event", 2)
 ```
+

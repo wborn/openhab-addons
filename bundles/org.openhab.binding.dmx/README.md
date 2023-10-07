@@ -190,19 +190,19 @@ The next `ON` command uses these values instead of the default (or configuration
 
 ## Channels
 
-| Type-ID         | Thing               | Item                 | Description                                        |
-|-----------------|---------------------|----------------------|----------------------------------------------------|
-|brightness       |dimmer, tunablewhite |Switch, Dimmer        | controls the brightness                            |
-|color            |color                |Switch, Dimmer, Color | allows to set the color and brightness             |
-|color_temperature|tunablewhite         |Number                | allows to set the color temperature                |
-|brightness_r     |color                |Switch, Dimmer        | controls the brightness of the red channel         |
-|brightness_g     |color                |Switch, Dimmer        | controls the brightness of the green channel       |
-|brightness_b     |color                |Switch, Dimmer        | controls the brightness of the blue channel        |
-|brightness_cw    |tunablewhite         |Switch, Dimmer        | controls the brightness of the cool white channel  |
-|brightness_ww    |tunablewhite         |Switch, Dimmer        | controls the brightness of the warm white channel  |
-|control          |chaser               |String                | allows to change the chaser steps                  |
-|switch           |chaser               |Switch                | turns the chaser ON or OFF                         |
-|mute             |(all bridges)        |Switch                | mutes the DMX output of the bridge                 |
+|      Type-ID      |        Thing         |         Item          |                    Description                    |
+|-------------------|----------------------|-----------------------|---------------------------------------------------|
+| brightness        | dimmer, tunablewhite | Switch, Dimmer        | controls the brightness                           |
+| color             | color                | Switch, Dimmer, Color | allows to set the color and brightness            |
+| color_temperature | tunablewhite         | Number                | allows to set the color temperature               |
+| brightness_r      | color                | Switch, Dimmer        | controls the brightness of the red channel        |
+| brightness_g      | color                | Switch, Dimmer        | controls the brightness of the green channel      |
+| brightness_b      | color                | Switch, Dimmer        | controls the brightness of the blue channel       |
+| brightness_cw     | tunablewhite         | Switch, Dimmer        | controls the brightness of the cool white channel |
+| brightness_ww     | tunablewhite         | Switch, Dimmer        | controls the brightness of the warm white channel |
+| control           | chaser               | String                | allows to change the chaser steps                 |
+| switch            | chaser               | Switch                | turns the chaser ON or OFF                        |
+| mute              | (all bridges)        | Switch                | mutes the DMX output of the bridge                |
 
 _Note:_ the string send to the control channel of chaser things has to be formatted like the `steps` configuration of the chaser thing.
 If the new string is invalid, the old configuration will be used.
@@ -287,3 +287,4 @@ sitemap demo label="Main Menu"
     }
 }
 ```
+

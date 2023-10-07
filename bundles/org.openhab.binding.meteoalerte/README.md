@@ -17,16 +17,16 @@ The binding has no configuration options, all configuration is done at Thing lev
 
 The thing has a few configuration parameters:
 
-| Parameter     | Description                                                                            |
-|---------------|----------------------------------------------------------------------------------------|
-| `department` | Name of the department.                                                               |
-| refresh       | Refresh interval in minutes. Optional, the default value is 1440 minutes (once a day). |
+|  Parameter   |                                      Description                                       |
+|--------------|----------------------------------------------------------------------------------------|
+| `department` | Name of the department.                                                                |
+| refresh      | Refresh interval in minutes. Optional, the default value is 1440 minutes (once a day). |
 
 ## Channels
 
 The Météo Alerte information that are retrieved is available as these channels:
 
-| Channel ID            | Item Type | Description                                   |
+|      Channel ID       | Item Type |                  Description                  |
 |-----------------------|-----------|-----------------------------------------------|
 | observation-time      | DateTime  | Date and time of report validity start        |
 | end-time              | DateTime  | Date and time of report validity end          |
@@ -52,7 +52,7 @@ The Météo Alerte information that are retrieved is available as these channels
 
 (*) Each alert level is described by a color :
 
-| Code | Color  | Description                               |
+| Code | Color  |                Description                |
 |------|--------|-------------------------------------------|
 | 0    | Green  | No particular vigilance                   |
 | 1    | Yellow | Be attentive to the weather situation     |
@@ -63,19 +63,18 @@ The Météo Alerte information that are retrieved is available as these channels
 
 This binding has its own IconProvider and makes available the following list of icons
 
-| Icon Name                       | Dynamic | Illustration |
-|---------------------------------|---------|--------------|
-| oh:meteoalerte:vent             |   Yes   | ![](src/main/resources/icon/vent.svg) |
-| oh:meteoalerte:pluie-inondation |   Yes   | ![](src/main/resources/icon/pluie-inondation.svg) |
-| oh:meteoalerte:orage            |   Yes   | ![](src/main/resources/icon/orage.svg) |
-| oh:meteoalerte:inondation       |   Yes   | ![](src/main/resources/icon/inondation.svg) |
-| oh:meteoalerte:neige            |   Yes   | ![](src/main/resources/icon/neige.svg) |
-| oh:meteoalerte:canicule         |   Yes   | ![](src/main/resources/icon/canicule.svg) |
-| oh:meteoalerte:grand-froid      |   Yes   | ![](src/main/resources/icon/grand-froid.svg) |
-| oh:meteoalerte:avalanches       |   Yes   | ![](src/main/resources/icon/avalanches.svg) |
-| oh:meteoalerte:vague-submersion |   Yes   | ![](src/main/resources/icon/vague-submersion.svg) |
-| oh:meteoalerte:meteo_france     |   No    | ![](src/main/resources/icon/meteo_france.svg) |
-
+|            Icon Name            | Dynamic |                   Illustration                    |
+|---------------------------------|---------|---------------------------------------------------|
+| oh:meteoalerte:vent             | Yes     | ![](src/main/resources/icon/vent.svg)             |
+| oh:meteoalerte:pluie-inondation | Yes     | ![](src/main/resources/icon/pluie-inondation.svg) |
+| oh:meteoalerte:orage            | Yes     | ![](src/main/resources/icon/orage.svg)            |
+| oh:meteoalerte:inondation       | Yes     | ![](src/main/resources/icon/inondation.svg)       |
+| oh:meteoalerte:neige            | Yes     | ![](src/main/resources/icon/neige.svg)            |
+| oh:meteoalerte:canicule         | Yes     | ![](src/main/resources/icon/canicule.svg)         |
+| oh:meteoalerte:grand-froid      | Yes     | ![](src/main/resources/icon/grand-froid.svg)      |
+| oh:meteoalerte:avalanches       | Yes     | ![](src/main/resources/icon/avalanches.svg)       |
+| oh:meteoalerte:vague-submersion | Yes     | ![](src/main/resources/icon/vague-submersion.svg) |
+| oh:meteoalerte:meteo_france     | No      | ![](src/main/resources/icon/meteo_france.svg)     |
 
 ## Full Example
 
@@ -111,3 +110,4 @@ Image      MA_icon_avalanche          "Avalanche"                 <oh:meteoalert
 DateTime   MA_ObservationTS           "Timestamp [%1$tH:%1$tM]"   <time>                              (gMeteoAlert)   {channel="meteoalerte:department:yvelines:observation-time"}
 
 ```
+

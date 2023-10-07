@@ -12,7 +12,7 @@ This binding's implementation of the REST API is motivated by the great work of 
 
 ## Supported Things
 
-| Thing Type | Description                                                                                                                                                           |
+| Thing Type |                                                                              Description                                                                              |
 |------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | hub        | The Adorne [Hub LC7001](https://www.legrand.us/adorne/products/wireless-whole-house-lighting-controls/lc7001.aspx) serves as the bridge to control all Adorne devices |
 | switch     | All Adorne switches and outlets                                                                                                                                       |
@@ -48,7 +48,7 @@ So the first device will have zone ID 0, the next 1 and so on.
 
 ## Channels
 
-| Channel Type ID | Item Type | Commands | Description             | Thing Types Supporting This Channel |
+| Channel Type ID | Item Type | Commands |       Description       | Thing Types Supporting This Channel |
 |-----------------|-----------|----------|-------------------------|-------------------------------------|
 | power           | Switch    | ON, OFF  | Turn device on and off  | switch, dimmer                      |
 | brightness      | Dimmer    | 1-100    | Set device's brightness | dimmer                              |
@@ -111,3 +111,4 @@ sitemap demo label="Adorne Binding Demo"
  }
 }
 ```
+

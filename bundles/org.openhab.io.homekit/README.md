@@ -54,6 +54,7 @@ HomeKit integration supports following accessory types:
   ![settings_qrcode.png](doc/settings_qrcode.png)
 
 - open Home app on your iPhone or iPad
+
 - create new home
 
   ![ios_add_new_home.png](doc/ios_add_new_home.png)
@@ -75,7 +76,6 @@ HomeKit integration supports following accessory types:
   ![ios_add_accessory_wizard.png](doc/ios_add_accessory_wizard.png)
 
 Add metadata to more items or fine-tune your configuration using further settings
-
 
 ## Global Configuration
 
@@ -103,17 +103,17 @@ Some settings are only visible in UI if the checkbox "Show advanced" is activate
 
 ### Overview of all settings
 
-| Setting                  | Description                                                                                                                                                                                                                                                                                                                                                                          | Default value        |
-|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:---------------------|
-| networkInterface         | IP address or domain name under which the HomeKit bridge can be reached. If no value is configured, the add-on uses the primary IP address configured for openHAB. If unsure, keep it empty                                                                                                                                                                                          | (none)               |
-| port                     | Port under which the HomeKit bridge can be reached.                                                                                                                                                                                                                                                                                                                                  | 9123                 |
-| useOHmDNS                | mDNS service is used to advertise openHAB as HomeKit bridge in the network so that HomeKit clients can find it. openHAB has already mDNS service running. This option defines whether the mDNS service of openHAB or a separate service should be used.                                                                                                                              | false                |
-| blockUserDeletion        | Blocks HomeKit user deletion in openHAB and as result unpairing of devices. If you experience an issue with accessories becoming non-responsive after some time, try to enable this setting. You can also enable this setting if your HomeKit setup is done and you will not re-pair ios devices.                                                                                    | false                |
-| pin                      | Pin code used for pairing with iOS devices. Apparently, pin codes are provided by Apple and represent specific device types, so they cannot be chosen freely. The pin code 031-45-154 is used in sample applications and known to work.                                                                                                                                              | 031-45-154           |
-| useFahrenheitTemperature | Set to true to use Fahrenheit degrees, or false to use Celsius degrees. Note if an item has a QuantityType as its state, this configuration is ignored and it's always converted properly.                                                                                                                                                                                           | false                |
-| name                     | Name under which this HomeKit bridge is announced on the network. This is also the name displayed on the iOS device when searching for available bridges.                                                                                                                                                                                                                            | openHAB              |
-| instances                | Defines how many bridges to expose. Necessary if you have more than 149 accessories. Accessories must be assigned to additional instances via metadata. Additional bridges will use incrementing port numbers.                                                                                                                                                                       | 1                    |
-| useDummyAccessories      | When an accessory is missing, substitute a dummy in its place instead of removing it. See [Dummy Accessories](#dummy-accessories).                                                                                                                                                                                                                                                   | false                |
+| Setting                  | Description                                                                                                                                                                                                                                                                                       | Default value |
+|:-------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------|
+| networkInterface         | IP address or domain name under which the HomeKit bridge can be reached. If no value is configured, the add-on uses the primary IP address configured for openHAB. If unsure, keep it empty                                                                                                       | (none)        |
+| port                     | Port under which the HomeKit bridge can be reached.                                                                                                                                                                                                                                               | 9123          |
+| useOHmDNS                | mDNS service is used to advertise openHAB as HomeKit bridge in the network so that HomeKit clients can find it. openHAB has already mDNS service running. This option defines whether the mDNS service of openHAB or a separate service should be used.                                           | false         |
+| blockUserDeletion        | Blocks HomeKit user deletion in openHAB and as result unpairing of devices. If you experience an issue with accessories becoming non-responsive after some time, try to enable this setting. You can also enable this setting if your HomeKit setup is done and you will not re-pair ios devices. | false         |
+| pin                      | Pin code used for pairing with iOS devices. Apparently, pin codes are provided by Apple and represent specific device types, so they cannot be chosen freely. The pin code 031-45-154 is used in sample applications and known to work.                                                           | 031-45-154    |
+| useFahrenheitTemperature | Set to true to use Fahrenheit degrees, or false to use Celsius degrees. Note if an item has a QuantityType as its state, this configuration is ignored and it's always converted properly.                                                                                                        | false         |
+| name                     | Name under which this HomeKit bridge is announced on the network. This is also the name displayed on the iOS device when searching for available bridges.                                                                                                                                         | openHAB       |
+| instances                | Defines how many bridges to expose. Necessary if you have more than 149 accessories. Accessories must be assigned to additional instances via metadata. Additional bridges will use incrementing port numbers.                                                                                    | 1             |
+| useDummyAccessories      | When an accessory is missing, substitute a dummy in its place instead of removing it. See [Dummy Accessories](#dummy-accessories).                                                                                                                                                                | false         |
 
 ## Item Configuration
 
@@ -152,7 +152,6 @@ In order to add metadata to an item:
   ![select_homekit_accessory_type.png](doc/select_homekit_accessory_type.png)
 
 - click on "Save"
-
 
 ### Textual configuration
 
@@ -329,11 +328,11 @@ Following modes are supported:
 
 Examples:
 
- ```xtend
- Dimmer dimmer_light_1   "Dimmer Light 1"     {homekit="Lighting, Lighting.Brightness" [dimmerMode="filterOn"]}
- Dimmer dimmer_light_2   "Dimmer Light 2"     {homekit="Lighting, Lighting.Brightness" [dimmerMode="filterBrightness100"]}
- Dimmer dimmer_light_3   "Dimmer Light 3"     {homekit="Lighting, Lighting.Brightness" [dimmerMode="filterOnExceptBrightness100"]}
- ```
+```xtend
+Dimmer dimmer_light_1   "Dimmer Light 1"     {homekit="Lighting, Lighting.Brightness" [dimmerMode="filterOn"]}
+Dimmer dimmer_light_2   "Dimmer Light 2"     {homekit="Lighting, Lighting.Brightness" [dimmerMode="filterBrightness100"]}
+Dimmer dimmer_light_3   "Dimmer Light 3"     {homekit="Lighting, Lighting.Brightness" [dimmerMode="filterOnExceptBrightness100"]}
+```
 
 ### Color Temperature
 
@@ -432,7 +431,7 @@ Rollershutter    window                "Window"                    {homekit = "W
 Rollershutter    door                  "Door"                      {homekit = "Door"}
 Rollershutter   window_covering        "Window Rollershutter"      {homekit = "WindowCovering"}
 Rollershutter    window_covering_long  "Window Rollershutter long" {homekit = "WindowCovering, WindowCovering.CurrentPosition, WindowCovering.TargetPosition, WindowCovering.PositionState"}
- ```
+```
 
 openHAB Rollershutter is defined by default as:
 
@@ -451,20 +450,20 @@ In case you need to disable this logic you can do it with configuration paramete
 Rollershutter window_covering "Window Rollershutter" {homekit = "WindowCovering"  [inverted=false]}
 Rollershutter window          "Window"               {homekit = "Window" [inverted=false]}
 Rollershutter door            "Door"                 {homekit = "Door" [inverted=false]}
- ```
+```
 
-HomeKit home app never sends "STOP" but only the target position. 
+HomeKit home app never sends "STOP" but only the target position.
 If you add configuration parameter "stop=true", openHAB will emulate stop and send "STOP" command to rollershutter item if you click on the blind icon in the iOS home app while the blind is moving.
 
 ```xtend
 Rollershutter window_covering "Window Rollershutter" {homekit = "WindowCovering"  [stop=true]}
- ```
+```
 
 Some blinds devices do support "STOP" command but would stop if they receive UP/DOWN while moving om the same direction. In order to support such devices add "stopSameDirection" parameter.
 
 ```xtend
 Rollershutter window_covering "Window Rollershutter" {homekit = "WindowCovering"  [stop=true, stopSameDirection=true]}
- ```
+```
 
 Window covering can have a number of optional characteristics like horizontal & vertical tilt, obstruction status and hold position trigger.
 If your blind supports tilt, and you want to control tilt via HomeKit you need to define blind as a group.
@@ -475,7 +474,7 @@ Group           gBlind                  "Blind with tilt"                       
 Rollershutter   window_covering         "Blind"                         (gBlind)        {homekit = "CurrentPosition, TargetPosition, PositionState"}
 Dimmer          window_covering_htilt   "Blind horizontal tilt"         (gBlind)        {homekit = "CurrentHorizontalTiltAngle, TargetHorizontalTiltAngle"}
 Dimmer          window_covering_vtilt   "Blind vertical tilt"           (gBlind)        {homekit = "CurrentVerticalTiltAngle, TargetVerticalTiltAngle"}
- ```
+```
 
 Current and Target Position characteristics can be linked to Rollershutter but also to Number or Dimmer item types.
 e.g.
@@ -631,13 +630,13 @@ Number valve2RemainingDuration (gValve2) { homekit="RemainingDuration" }
 Sensors have typically one mandatory characteristic, e.g. temperature or lead trigger, and several optional characteristics which are typically used for battery powered sensors and/or wireless sensors.
 Following table summarizes the optional characteristics supported by sensors.
 
-|  Characteristics             | Supported openHAB items  | Description                                                                                                                                                                                                              |
-|:-----------------------------|:-------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Name                         | String                   | Name of the sensor. This characteristic is interesting only for very specific cases in which the name of accessory is dynamic. if you not sure then you don't need it.                                                   |
-| ActiveStatus                 | Switch, Contact          | Accessory current working status. "ON"/"OPEN" indicates that the accessory is active and is functioning without any errors.                                                                                              |
-| FaultStatus                  | Switch, Contact          | Accessory fault status. "ON"/"OPEN" value indicates that the accessory has experienced a fault that may be interfering with its intended functionality. A value of "OFF"/"CLOSED" indicates that there is no fault.      |
-| TamperedStatus               | Switch, Contact          | Accessory tampered status. "ON"/"OPEN" indicates that the accessory has been tampered. Value should return to "OFF"/"CLOSED" when the accessory has been reset to a non-tampered state.                                  |
-| BatteryLowStatus             | Switch, Contact, Number  | Accessory battery status. "ON"/"OPEN" indicates that the battery level of the accessory is low. Value should return to "OFF"/"CLOSED" when the battery charges to a level that's above the low threshold. Alternatively, you can give a Number item that's the battery level, and if it's lower than the lowThreshold configuration, it will report low. |
+| Characteristics  | Supported openHAB items | Description                                                                                                                                                                                                                                                                                                                                              |
+|:-----------------|:------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name             | String                  | Name of the sensor. This characteristic is interesting only for very specific cases in which the name of accessory is dynamic. if you not sure then you don't need it.                                                                                                                                                                                   |
+| ActiveStatus     | Switch, Contact         | Accessory current working status. "ON"/"OPEN" indicates that the accessory is active and is functioning without any errors.                                                                                                                                                                                                                              |
+| FaultStatus      | Switch, Contact         | Accessory fault status. "ON"/"OPEN" value indicates that the accessory has experienced a fault that may be interfering with its intended functionality. A value of "OFF"/"CLOSED" indicates that there is no fault.                                                                                                                                      |
+| TamperedStatus   | Switch, Contact         | Accessory tampered status. "ON"/"OPEN" indicates that the accessory has been tampered. Value should return to "OFF"/"CLOSED" when the accessory has been reset to a non-tampered state.                                                                                                                                                                  |
+| BatteryLowStatus | Switch, Contact, Number | Accessory battery status. "ON"/"OPEN" indicates that the battery level of the accessory is low. Value should return to "OFF"/"CLOSED" when the battery charges to a level that's above the low threshold. Alternatively, you can give a Number item that's the battery level, and if it's lower than the lowThreshold configuration, it will report low. |
 
 Switch and Contact items support inversion of the state mapping, e.g. by default the openHAB switch state "ON" is mapped to HomeKit contact sensor state "Open", and "OFF" to "Closed".
 The configuration "inverted=true" inverts this mapping, so that "ON" will be mapped to "Closed" and "OFF" to "Open".
@@ -678,7 +677,7 @@ Switch          motionsensor_tampered      "Motion Sensor Tampered"             
 or using UI
 
 ![sensor_ui_config.png](doc/sensor_ui_config.png)
- 
+
 ## Supported accessory types
 
 For configuration options, the default values are in parentheses.
@@ -688,7 +687,7 @@ All enum values can be customized via item metadata. I.e. `HEAT="heating", COOL=
 They are appropriately marked.
 Enums that are linked to Switches or Contacts have an `inverted` param that will reverse the sense of `ON`/`OFF` or `OPEN`/`CLOSED`.
 
-| Accessory Tag        | Mandatory Characteristics   | Optional Characteristics    | Supported openHAB item types            | Description                                                                                                                                                                                                                                                                                                                                                   | Configuration Options                                                 | Valid Enum Values                                                                                           |
+|    Accessory Tag     |  Mandatory Characteristics  |  Optional Characteristics   |      Supported openHAB item types       |                                                                                                                                                                          Description                                                                                                                                                                          |                         Configuration Options                         |                                              Valid Enum Values                                              |
 |----------------------|-----------------------------|-----------------------------|-----------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|
 | AirQualitySensor     |                             |                             |                                         | Air Quality Sensor which can measure different parameters                                                                                                                                                                                                                                                                                                     |                                                                       |                                                                                                             |
 |                      | AirQuality                  |                             | Number, String, Switch                  | Air quality state                                                                                                                                                                                                                                                                                                                                             |                                                                       | UNKNOWN (0, OFF), EXCELLENT (1, ON), GOOD (2), FAIR (3), INFERIOR (4), POOR (5)                             |
@@ -1117,10 +1116,10 @@ There are various reasons this may happen.
 Try the following:
 
 * In [openhab-cli](https://www.openhab.org/docs/administration/console.html), run `openhab:homekit clearPairings`.
-Try again.
+  Try again.
 * In the HomeKit settings, change the port, setupId, and pin.
-Save the settings, then re-open the settings so as to refresh the QR code.
-Re-add the device.
+  Save the settings, then re-open the settings so as to refresh the QR code.
+  Re-add the device.
 * Remove HomeKit state in `${OPENHAB_USERDATA}/jsondb/homekit.json`, and HomeKit config in `${OPENHAB_USERDATA}/config/org/openhab/homekit.config`.
   Restart openHAB.
   Reboot iPhone.

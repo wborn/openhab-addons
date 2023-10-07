@@ -31,7 +31,7 @@ A specific Bluetooth thing handler provides the functionality required to intera
 The new thing bundle needs to implement three main classes – a `BluetoothDiscoveryParticipant`, a `ThingHandler` and a `ThingFactory`, which is required to instantiate the handler.
 
 Two fundamental communications methods can be employed in Bluetooth: beacons and connected mode. A Bluetooth thing handler can implement one or both of these communications
- In practice, a connected mode Thing implementation would normally handle the beacons in order to provide as a minimum the RSSI data.
+In practice, a connected mode Thing implementation would normally handle the beacons in order to provide as a minimum the RSSI data.
 
 ### Thing Naming
 

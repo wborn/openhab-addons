@@ -26,7 +26,7 @@ Select the Item you like to control in the "Item Action" and leave the command e
 
 ### Trigger
 
-| Name                 | Type    | Description                                                                                  | Required |
+|         Name         |  Type   |                                         Description                                          | Required |
 |----------------------|---------|----------------------------------------------------------------------------------------------|----------|
 | `dutycycleItem`      | Item    | The Item (PercentType) to read the duty cycle from                                           | Yes      |
 | `interval`           | Decimal | The constant interval in which the output is switch ON and OFF again in sec.                 | Yes      |
@@ -57,8 +57,9 @@ This module is designed to respond fast to duty cycle changes, but at the same t
 For that reason, the module might seem to act peculiarly in some cases:
 
 - When the output is ON and the duty cycle is decreased, the output might switch off immediately, if applicable.
-Example: The interval is 10 sec and the current duty cycle is 80%.
-When the duty cycle is decreased to 20%, the output would switch off immediately, if it has been already ON for more than 2 sec.
+  Example: The interval is 10 sec and the current duty cycle is 80%.
+  When the duty cycle is decreased to 20%, the output would switch off immediately, if it has been already ON for more than 2 sec.
 - When the duty cycle is 0% for a short interval and then increased again, the output will only switch on when the new interval starts.
 - When the duty cycle is 0% or 100% for more than a whole interval, a new interval will start as soon as the duty cycle is updated to a value other than 0%, respective 100%.
 - The module starts to work only if the duty cycle Item has been updated at least once.
+

@@ -14,43 +14,43 @@ We only can access some static data like the present status or battery level.
 The thing type ids are defined according to the lighting devices defined for Zigbee Light Link ([see page 24, table 2](https://www.nxp.com/docs/en/user-guide/JN-UG-3091.pdf)).
 These are:
 
-| Device type                     | Zigbee Device ID | Thing type |
-|---------------------------------|------------------|------------|
-| Dimmable Light                  | 0x0100           | 0100       |
-| Colour Temperature Light        | 0x0220           | 0220       |
-| Extended Colour Light           | 0x0210           | 0210       |
-| Occupancy Sensor                | 0x0107           | 0107       |
-| Non-Colour Controller           | 0x0820           | 0820       |
-| Non-Colour Scene Controller     | 0x0830           | 0830       |
-| Control Outlet                  | 0x0010           | 0010       |
+|         Device type         | Zigbee Device ID | Thing type |
+|-----------------------------|------------------|------------|
+| Dimmable Light              | 0x0100           | 0100       |
+| Colour Temperature Light    | 0x0220           | 0220       |
+| Extended Colour Light       | 0x0210           | 0210       |
+| Occupancy Sensor            | 0x0107           | 0107       |
+| Non-Colour Controller       | 0x0820           | 0820       |
+| Non-Colour Scene Controller | 0x0830           | 0830       |
+| Control Outlet              | 0x0010           | 0010       |
 
 The following matrix lists the capabilities (channels) for each of the supported lighting device types:
 
-| Thing type  | Brightness | Color | Color Temperature | Battery Level | Battery Low | Power |
-|-------------|:----------:|:-----:|:-----------------:|:-------------:|:-----------:|:-----:|
-|  0010       |            |       |                   |               |             |   X   |
-|  0100       |     X      |       |                   |               |             |       |
-|  0220       |     X      |       |         X         |               |             |       |
-|  0210       |            |   X   |         X         |               |             |       |
-|  0107       |            |       |                   |       X       |      X      |       |
-|  0820       |            |       |                   |       X       |      X      |       |
-|  0830       |            |       |                   |       X       |      X      |       |
+| Thing type | Brightness | Color | Color Temperature | Battery Level | Battery Low | Power |
+|------------|:----------:|:-----:|:-----------------:|:-------------:|:-----------:|:-----:|
+| 0010       |            |       |                   |               |             |   X   |
+| 0100       |     X      |       |                   |               |             |       |
+| 0220       |     X      |       |         X         |               |             |       |
+| 0210       |            |   X   |         X         |               |             |       |
+| 0107       |            |       |                   |       X       |      X      |       |
+| 0820       |            |       |                   |       X       |      X      |       |
+| 0830       |            |       |                   |       X       |      X      |       |
 
 The following things are also supported even thought they are not standardized in Zigbee Light Link:
 
-| Device type                     | Zigbee Device ID | Thing type |
-|---------------------------------|------------------|------------|
-| Window Covering Device          | 0x0202           | 0202       |
-| Window Covering Controller      | 0x0203           | 0203       |
-| Air Purifier                    | 0x0007           | 0007       |
+|        Device type         | Zigbee Device ID | Thing type |
+|----------------------------|------------------|------------|
+| Window Covering Device     | 0x0202           | 0202       |
+| Window Covering Controller | 0x0203           | 0203       |
+| Air Purifier               | 0x0007           | 0007       |
 
 The following matrix lists the capabilities (channels) for each of the supported non-lighting device types:
 
-| Thing type  | Battery Level | Battery Low | Position | Fan Mode | Lock Button | Disabled LED | Air Quality | Fan Speed | Filter Check | Filter Uptime |
-|-------------|:-------------:|:-----------:|:--------:|:--------:|:-----------:|:------------:|:-----------:|:---------:|:------------:|:-------------:|
-|  0202       |       X       |      X      |     X    |          |             |              |             |           |              |               |
-|  0203       |       X       |      X      |          |          |             |              |             |           |              |               |
-|  0007       |               |             |          |    X     |      X      |      X       |      X      |     X     |       X      |       X       |
+| Thing type | Battery Level | Battery Low | Position | Fan Mode | Lock Button | Disabled LED | Air Quality | Fan Speed | Filter Check | Filter Uptime |
+|------------|:-------------:|:-----------:|:--------:|:--------:|:-----------:|:------------:|:-----------:|:---------:|:------------:|:-------------:|
+| 0202       |       X       |      X      |    X     |          |             |              |             |           |              |               |
+| 0203       |       X       |      X      |          |          |             |              |             |           |              |               |
+| 0007       |               |             |          |    X     |      X      |      X       |      X      |     X     |      X       |       X       |
 
 ## Thing Configuration
 
@@ -87,24 +87,24 @@ An air purifier supports:
 
 Refer to the matrixes above.
 
-| Channel Type ID     | Item Type            | Description                                                                                  |
-|---------------------|----------------------|----------------------------------------------------------------------------------------------|
-| brightness          | Dimmer               | The brightness of the bulb in percent                                                        |
-| color_temperature   | Dimmer               | Color temperature from 0% = cold to 100% = warm                                              |
-| color               | Color                | Full color                                                                                   |
-| battery_level       | Number               | Battery level (in %)                                                                         |
-| battery_low         | Switch               | Battery low warning (<=10% = ON, >10% = OFF)                                                 |
-| power               | Switch               | Power switch                                                                                 |
-| position            | Rollershutter        | Position of the blinds from 0% = open to 100% = closed                                       |
-| fan_mode            | Number               | Fan mode, target speed of the fan (0 = off, 1 = auto, 10..50 = Level 1 to 5)                 |
-| fan_speed           | Number               | Current Fan Speed between 0 (off) and 50 (maximum speed)                                     |
-| disable_led         | Switch               | Disables the LED's on the device                                                             |
-| lock_button         | Switch               | Disables the physical button on the device (applications can still make changes)             |
-| air_quality_pm25    | Number:Dimensionless | Density of Particulate Matter of 2.5μm, measured in ppm                                      |
-| air_quality_rating  | Number               | Gives a rating about air quality (1 = Good, 2 = OK, 3 = Bad) similar to Tradfri app          |
-| filter_check_next   | Number:Time          | Time in minutes before the next filter check if > 0, if < 0 you are late checking the filter |
-| filter_check_alarm  | Switch               | When ON, you must perform a filter check (i.e. `filter_check_next` is < 0)                   |
-| filter_uptime       | Number:Time          | Time elapsed since the last filter change, in minutes                                        |
+|  Channel Type ID   |      Item Type       |                                         Description                                          |
+|--------------------|----------------------|----------------------------------------------------------------------------------------------|
+| brightness         | Dimmer               | The brightness of the bulb in percent                                                        |
+| color_temperature  | Dimmer               | Color temperature from 0% = cold to 100% = warm                                              |
+| color              | Color                | Full color                                                                                   |
+| battery_level      | Number               | Battery level (in %)                                                                         |
+| battery_low        | Switch               | Battery low warning (<=10% = ON, >10% = OFF)                                                 |
+| power              | Switch               | Power switch                                                                                 |
+| position           | Rollershutter        | Position of the blinds from 0% = open to 100% = closed                                       |
+| fan_mode           | Number               | Fan mode, target speed of the fan (0 = off, 1 = auto, 10..50 = Level 1 to 5)                 |
+| fan_speed          | Number               | Current Fan Speed between 0 (off) and 50 (maximum speed)                                     |
+| disable_led        | Switch               | Disables the LED's on the device                                                             |
+| lock_button        | Switch               | Disables the physical button on the device (applications can still make changes)             |
+| air_quality_pm25   | Number:Dimensionless | Density of Particulate Matter of 2.5μm, measured in ppm                                      |
+| air_quality_rating | Number               | Gives a rating about air quality (1 = Good, 2 = OK, 3 = Bad) similar to Tradfri app          |
+| filter_check_next  | Number:Time          | Time in minutes before the next filter check if > 0, if < 0 you are late checking the filter |
+| filter_check_alarm | Switch               | When ON, you must perform a filter check (i.e. `filter_check_next` is < 0)                   |
+| filter_uptime      | Number:Time          | Time elapsed since the last filter change, in minutes                                        |
 
 ## Full Example
 
@@ -170,3 +170,4 @@ sitemap demo label="Main Menu"
     }
 }
 ```
+

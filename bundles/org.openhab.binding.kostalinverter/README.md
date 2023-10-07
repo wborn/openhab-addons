@@ -67,149 +67,149 @@ None
 
 ### Second generation devices (PIKO 10-20, PIKO NEW GENERATION)
 
-| Channel Type ID                          | Item Type                | Description                                                                      | Read Write |
-|------------------------------------------|--------------------------|----------------------------------------------------------------------------------|:----------:|
-| device-local-grid-output-power           | Number:Power             | Current output power to the grid                                                 |     R      |
-| statistic-yield-day-second-gen           | Number:Energy            | Total produced power today                                                       |     R      |
-| statistic-yield-total-second-gen         | Number:Energy            | Total produced power                                                             |     R      |
-| device-local-operating-status            | Number:Dimensionless     | Current operating status, 0 = Standby, 3 = WO-IDLE                               |     R      |
-| device-local-grid-voltage-l1             | Number:ElectricPotential | Current output voltage to the grid, L1                                           |     R      |
-| device-local-grid-current-l1             | Number:ElectricCurrent   | Current output current to the grid, L1                                           |     R      |
-| device-local-grid-power-l1               | Number:Power             | Current output power to the grid, L1                                             |     R      |
-| device-local-grid-voltage-l2             | Number:ElectricPotential | Current output voltage to the grid, L2                                           |     R      |
-| device-local-grid-current-l2             | Number:ElectricCurrent   | Current output current to the grid, L2                                           |     R      |
-| device-local-grid-power-l2               | Number:Power             | Current output power to the grid, L2                                             |     R      |
-| device-local-grid-voltage-l3             | Number:ElectricPotential | Current output voltage to the grid, L3                                           |     R      |
-| device-local-grid-current-l3             | Number:ElectricCurrent   | Current output current to the grid, L3                                           |     R      |
-| device-local-grid-power-l3               | Number:Power             | Current output power to the grid, L3                                             |     R      |
-| device-local-dc-power-pv                 | Number:Power             | Current power from all solar panels                                              |     R      |
-| device-local-dc1-voltage                 | Number:ElectricPotential | Current voltage from solar panels, Dc1                                           |     R      |
-| device-local-dc1-current                 | Number:ElectricCurrent   | Current current from solar panels, Dc1                                           |     R      |
-| device-local-dc1-power                   | Number:Power             | Current power from solar panels, Dc1                                             |     R      |
-| device-local-dc2-voltage                 | Number:ElectricPotential | Current voltage from solar panels, Dc2                                           |     R      |
-| device-local-dc2-current                 | Number:ElectricCurrent   | Current current from solar panels, Dc2                                           |     R      |
-| device-local-dc2-power                   | Number:Power             | Current power from solar panels, Dc2                                             |     R      |
-| device-local-dc3-voltage                 | Number:ElectricPotential | Current voltage from solar panels, Dc3                                           |     R      |
-| device-local-dc3-current                 | Number:ElectricCurrent   | Current current from solar panels, Dc3                                           |     R      |
-| device-local-dc3-power                   | Number:Power             | Current power from solar panels, Dc3                                             |     R      |
-| device-local-akt-home-consumption-solar  | Number:Power             | Current consumption from solar panels                                            |     R      |
-| device-local-akt-home-consumption-bat    | Number:Power             | Current consumption from battery                                                 |     R      |
-| device-local-akt-home-consumption-grid   | Number:Power             | Current consumption from grid                                                    |     R      |
-| device-local-phase-sel-home-consump-l1   | Number:Power             | Current home consumption, L1                                                     |     R      |
-| device-local-phase-sel-home-consump-l2   | Number:Power             | Current home consumption, L2                                                     |     R      |
-| device-local-phase-sel-home-consump-l3   | Number:Power             | Current home consumption, L3                                                     |     R      |
-| device-local-grid-freq                   | Number:Frequency         | Current frequency on grid                                                        |     R      |
-| device-local-grid-cos-phi                | Number:Angle             | Current power factor on grid                                                     |     R      |
-| statistic-home-consumption-day           | Number:Energy            | Total home consumption today                                                     |     R      |
-| statistic-own-consumption-day            | Number:Energy            | Total own consumption today                                                      |     R      |
-| statistic-own-cons-rate-day              | Number:Dimensionless     | Total own consumption rate today                                                 |     R      |
-| statistic-autonomy-degree-day            | Number:Dimensionless     | Total autonomy degree today                                                      |     R      |
-| statistic-home-consumption-total         | Number:Energy            | Total home consumption                                                           |     R      |
-| statistic-own-consumption-total          | Number:Energy            | Total own consumption                                                            |     R      |
-| statistic-operating-time-total           | Number:Time              | Total operating time                                                             |     R      |
-| device-local-current                     | Number:ElectricCurrent   | Current                                                                          |     R      |
-| device-local-current-dir                 | Number:Dimensionless     | Current direction of loading/unloading the battery                               |     R      |
-| device-local-charge-cycles               | Number:Dimensionless     | Total number of charge cycles                                                    |     R      |
-| device-local-battery-temperature         | Number:Temperature       | Battery current temperature                                                      |     R      |
-| device-local-loginterval                 | Number:Time              | Value for loginterval                                                            |     R      |
-| device-local-s0-inpulse-cnt              | Number:Dimensionless     | S0-pulse counter                                                                 |     R      |
-| statistic-own-cons-rate-total            | Number:Dimensionless     | Total own comsumption rate                                                       |     R      |
-| statistic-autonomy-degree-total          | Number:Dimensionless     | Total autonomy degree                                                            |     R      |
-| device-local-battery-voltage             | Number:ElectricPotential | Battery current voltage                                                          |     R      |
-| device-local-bat-state-of-charge         | Number:Dimensionless     | Battery current charge state                                                     |     R      |
-| device-local-self-consumption            | Number:Power             | Current self consumption                                                         |     R      |
-| device-local-battery-usage-consumption   | Number:Power             | Battery usage consumption                                                        |     R      |
-| device-local-smart-battery-control       | Switch                   | Smart battery control                                                            |     R      |
-| device-local-shadow-management           | Number:Dimensionless     | Shadow management                                                                |     R      |
-| device-local-external-module-control     | Number:Dimensionless     | External module control                                                          |     R      |
+|             Channel Type ID             |        Item Type         |                    Description                     | Read Write |
+|-----------------------------------------|--------------------------|----------------------------------------------------|:----------:|
+| device-local-grid-output-power          | Number:Power             | Current output power to the grid                   |     R      |
+| statistic-yield-day-second-gen          | Number:Energy            | Total produced power today                         |     R      |
+| statistic-yield-total-second-gen        | Number:Energy            | Total produced power                               |     R      |
+| device-local-operating-status           | Number:Dimensionless     | Current operating status, 0 = Standby, 3 = WO-IDLE |     R      |
+| device-local-grid-voltage-l1            | Number:ElectricPotential | Current output voltage to the grid, L1             |     R      |
+| device-local-grid-current-l1            | Number:ElectricCurrent   | Current output current to the grid, L1             |     R      |
+| device-local-grid-power-l1              | Number:Power             | Current output power to the grid, L1               |     R      |
+| device-local-grid-voltage-l2            | Number:ElectricPotential | Current output voltage to the grid, L2             |     R      |
+| device-local-grid-current-l2            | Number:ElectricCurrent   | Current output current to the grid, L2             |     R      |
+| device-local-grid-power-l2              | Number:Power             | Current output power to the grid, L2               |     R      |
+| device-local-grid-voltage-l3            | Number:ElectricPotential | Current output voltage to the grid, L3             |     R      |
+| device-local-grid-current-l3            | Number:ElectricCurrent   | Current output current to the grid, L3             |     R      |
+| device-local-grid-power-l3              | Number:Power             | Current output power to the grid, L3               |     R      |
+| device-local-dc-power-pv                | Number:Power             | Current power from all solar panels                |     R      |
+| device-local-dc1-voltage                | Number:ElectricPotential | Current voltage from solar panels, Dc1             |     R      |
+| device-local-dc1-current                | Number:ElectricCurrent   | Current current from solar panels, Dc1             |     R      |
+| device-local-dc1-power                  | Number:Power             | Current power from solar panels, Dc1               |     R      |
+| device-local-dc2-voltage                | Number:ElectricPotential | Current voltage from solar panels, Dc2             |     R      |
+| device-local-dc2-current                | Number:ElectricCurrent   | Current current from solar panels, Dc2             |     R      |
+| device-local-dc2-power                  | Number:Power             | Current power from solar panels, Dc2               |     R      |
+| device-local-dc3-voltage                | Number:ElectricPotential | Current voltage from solar panels, Dc3             |     R      |
+| device-local-dc3-current                | Number:ElectricCurrent   | Current current from solar panels, Dc3             |     R      |
+| device-local-dc3-power                  | Number:Power             | Current power from solar panels, Dc3               |     R      |
+| device-local-akt-home-consumption-solar | Number:Power             | Current consumption from solar panels              |     R      |
+| device-local-akt-home-consumption-bat   | Number:Power             | Current consumption from battery                   |     R      |
+| device-local-akt-home-consumption-grid  | Number:Power             | Current consumption from grid                      |     R      |
+| device-local-phase-sel-home-consump-l1  | Number:Power             | Current home consumption, L1                       |     R      |
+| device-local-phase-sel-home-consump-l2  | Number:Power             | Current home consumption, L2                       |     R      |
+| device-local-phase-sel-home-consump-l3  | Number:Power             | Current home consumption, L3                       |     R      |
+| device-local-grid-freq                  | Number:Frequency         | Current frequency on grid                          |     R      |
+| device-local-grid-cos-phi               | Number:Angle             | Current power factor on grid                       |     R      |
+| statistic-home-consumption-day          | Number:Energy            | Total home consumption today                       |     R      |
+| statistic-own-consumption-day           | Number:Energy            | Total own consumption today                        |     R      |
+| statistic-own-cons-rate-day             | Number:Dimensionless     | Total own consumption rate today                   |     R      |
+| statistic-autonomy-degree-day           | Number:Dimensionless     | Total autonomy degree today                        |     R      |
+| statistic-home-consumption-total        | Number:Energy            | Total home consumption                             |     R      |
+| statistic-own-consumption-total         | Number:Energy            | Total own consumption                              |     R      |
+| statistic-operating-time-total          | Number:Time              | Total operating time                               |     R      |
+| device-local-current                    | Number:ElectricCurrent   | Current                                            |     R      |
+| device-local-current-dir                | Number:Dimensionless     | Current direction of loading/unloading the battery |     R      |
+| device-local-charge-cycles              | Number:Dimensionless     | Total number of charge cycles                      |     R      |
+| device-local-battery-temperature        | Number:Temperature       | Battery current temperature                        |     R      |
+| device-local-loginterval                | Number:Time              | Value for loginterval                              |     R      |
+| device-local-s0-inpulse-cnt             | Number:Dimensionless     | S0-pulse counter                                   |     R      |
+| statistic-own-cons-rate-total           | Number:Dimensionless     | Total own comsumption rate                         |     R      |
+| statistic-autonomy-degree-total         | Number:Dimensionless     | Total autonomy degree                              |     R      |
+| device-local-battery-voltage            | Number:ElectricPotential | Battery current voltage                            |     R      |
+| device-local-bat-state-of-charge        | Number:Dimensionless     | Battery current charge state                       |     R      |
+| device-local-self-consumption           | Number:Power             | Current self consumption                           |     R      |
+| device-local-battery-usage-consumption  | Number:Power             | Battery usage consumption                          |     R      |
+| device-local-smart-battery-control      | Switch                   | Smart battery control                              |     R      |
+| device-local-shadow-management          | Number:Dimensionless     | Shadow management                                  |     R      |
+| device-local-external-module-control    | Number:Dimensionless     | External module control                            |     R      |
 
 The following Channels are writeable
 
-| Channel Type ID                          | Item Type                | Description                                                                      | Read Write |
-|------------------------------------------|--------------------------|----------------------------------------------------------------------------------|:----------:|
-| device-local-battery-usage-consumption-set| String                  | Battery usage consumption level for power-consumption from battery, value = 100 (W)                                                                                                                                                         |     W      |
-| device-local-battery-usage-strategy-set  | String                   | Battery usage strategy, Value = 1 = Automatic, Value = 2 = Automatic economical  |     W      |
-| device-local-smart-battery-control-set   | Switch                   | Smart battery control, Value = OFF / ON                                          |     W      |
-| device-local-battery-charge-time-from-set| String                   | Battery charge time from, Value = 00:00                                          |     W      |
-| device-local-battery-charge-time-to-set  | String                   | Battery charge time to, Value = 23:59                                            |     W      |
-| device-local-max-depth-of-discharge-set  | String                   | Max depth of discharge (SoC), Value = 10                                         |     W      |
-| device-local-shadow-management-set       | String                   | Shadow management, Value = 0 = No shadow management enabled, Value = 1 = Shadow management enabled for DC-Input String 1, Value = 2 = Shadow  management enabled for DC-Input String 2,  Value = 3 = Shadow management enabled for DC-Input String 1 and 2               |     W      |
-| device-local-external-module-control-set | String                   | External module control, Value = 0 = Not Activated, Value = 1 = Activated                                        |     W      |
+|              Channel Type ID               | Item Type |                                                                                                                        Description                                                                                                                         | Read Write |
+|--------------------------------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
+| device-local-battery-usage-consumption-set | String    | Battery usage consumption level for power-consumption from battery, value = 100 (W)                                                                                                                                                                        |     W      |
+| device-local-battery-usage-strategy-set    | String    | Battery usage strategy, Value = 1 = Automatic, Value = 2 = Automatic economical                                                                                                                                                                            |     W      |
+| device-local-smart-battery-control-set     | Switch    | Smart battery control, Value = OFF / ON                                                                                                                                                                                                                    |     W      |
+| device-local-battery-charge-time-from-set  | String    | Battery charge time from, Value = 00:00                                                                                                                                                                                                                    |     W      |
+| device-local-battery-charge-time-to-set    | String    | Battery charge time to, Value = 23:59                                                                                                                                                                                                                      |     W      |
+| device-local-max-depth-of-discharge-set    | String    | Max depth of discharge (SoC), Value = 10                                                                                                                                                                                                                   |     W      |
+| device-local-shadow-management-set         | String    | Shadow management, Value = 0 = No shadow management enabled, Value = 1 = Shadow management enabled for DC-Input String 1, Value = 2 = Shadow  management enabled for DC-Input String 2,  Value = 3 = Shadow management enabled for DC-Input String 1 and 2 |     W      |
+| device-local-external-module-control-set   | String    | External module control, Value = 0 = Not Activated, Value = 1 = Activated                                                                                                                                                                                  |     W      |
 
 ### Third generation devices (PIKO IQ / PLENTICORE plus)
 
-| Channel Type ID                          | Item Type                | Description                                                                      | Read Write |
+|             Channel Type ID              |        Item Type         |                                   Description                                    | Read Write |
 |------------------------------------------|--------------------------|----------------------------------------------------------------------------------|:----------:|
-| deviceLocalDCPower                       | Number:Energy            | Current DC power of the inverter                                                 |      R     |
-| deviceLocalHomeconsumptionFromBattery    | Number:Energy            | Current home consumption obtained from the battery                               |      R     |
-| deviceLocalHomeconsumptionFromGrid       | Number:Energy            | Current home consumption obtained from the grid                                  |      R     |
-| deviceLocalOwnconsumption                | Number:Energy            | Current own comsumption                                                          |      R     |
-| deviceLocalHomeconsumptionFromPV         | Number:Energy            | Current home consumption obtained from photovoltaic                              |      R     |
-| deviceLocalHomeconsumptionTotal          | Number:Energy            | Current total homeconsumption                                                    |      R     |
-| deviceLocalLimitEVUAbsolute              | Number:Energy            | Permitted feed-in quantity as absolute value as specified by the energy supplier |      R     |
-| deviceLocalLimitEVURelativ               | Number:Dimensionless     | Permitted feed-in quantity as relative value as specified by the energy supplier |      R     |
-| deviceLocalWorktime                      | Number:Time              | Uptime of the inverter                                                           |      R     |
-| deviceLocalACPhase1CurrentAmperage       | Number:ElectricCurrent   | Amperage of phase 1                                                              |      R     |
-| deviceLocalACPhase1CurrentPower          | Number:Energy            | Power of phase 1                                                                 |      R     |
-| deviceLocalACPhase1CurrentVoltage        | Number:ElectricPotential | Voltage of phase 1                                                               |      R     |
-| deviceLocalACPhase2CurrentAmperage       | Number:ElectricCurrent   | Amperage of phase 2                                                              |      R     |
-| deviceLocalACPhase2CurrentPower          | Number:Energy            | Power of phase 2                                                                 |      R     |
-| deviceLocalACPhase2CurrentVoltage        | Number:ElectricPotential | Voltage of phase 2                                                               |      R     |
-| deviceLocalACPhase3CurrentAmperage       | Number:ElectricCurrent   | Amperage of phase 3                                                              |      R     |
-| deviceLocalACPhase3CurrentPower          | Number:Energy            | Power of phase 3                                                                 |      R     |
-| deviceLocalACPhase3CurrentVoltage        | Number:ElectricPotential | Voltage of phase 3                                                               |      R     |
-| deviceLocalACCurrentPower                | Number:Energy            | Current AC power of the inverter                                                 |      R     |
-| deviceLocalBatteryLoadingCycles          | Number:Dimensionless     | Amount of loading cycles done by the battery                                     |      R     |
-| deviceLocalBatteryFullChargeCapacity     | Number:ElectricCharge    | Capacity of the battery if charged fully                                         |      R     |
-| deviceLocalBatteryAmperage               | Number:ElectricCurrent   | Current amperage of the battery                                                  |      R     |
-| deviceLocalBatteryPower                  | Number:Energy            | Current battery charge                                                           |      R     |
-| deviceLocalBatteryStageOfCharge          | Number:Dimensionless     | Current battery charge status                                                    |      R     |
-| deviceLocalBatteryVoltage                | Number:ElectricPotential | Current voltage of the battery                                                   |      R     |
-| deviceLocalPVString1Amperage             | Number:ElectricCurrent   | Current amperage of photovoltaic string 1                                        |      R     |
-| deviceLocalPVString1Power                | Number:Energy            | Current power of photovoltaic string 1                                           |      R     |
-| deviceLocalPVString1Voltage              | Number:ElectricPotential | Current voltage of photovoltaic string 1                                         |      R     |
-| deviceLocalPVString2Amperage             | Number:ElectricCurrent   | Current amperage of photovoltaic string 2                                        |      R     |
-| deviceLocalPVString2Power                | Number:Energy            | Current power of photovoltaic string 2                                           |      R     |
-| deviceLocalPVString2Voltage              | Number:ElectricPotential | Current voltage of photovoltaic string 2                                         |      R     |
-| deviceLocalPVString3Amperage             | Number:ElectricCurrent   | Current amperage of photovoltaic string 3                                        |      R     |
-| deviceLocalPVString3Power                | Number:Energy            | Current power of photovoltaic string 3                                           |      R     |
-| deviceLocalPVString3Voltage              | Number:ElectricPotential | Current voltage of photovoltaic string 3                                         |      R     |
-| SCBEventErrorCountMc                     | Number:Dimensionless     | Number of errors reported by the main controller                                 |      R     |
-| SCBEventErrorCountSFH                    | Number:Dimensionless     | Number of errors reported by the grid interface controller                       |      R     |
-| SCBEventErrorCountSCB                    | Number:Dimensionless     | Number of errors reported by the smart communication board                       |      R     |
-| SCBEventWarningCountSCB                  | Number:Dimensionless     | Number of warnings reported by the smart communication board                     |      R     |
-| statisticAutarkyDay                      | Number:Dimensionless     | Autarky ratio of this day                                                        |      R     |
-| statisticAutarkyMonth                    | Number:Dimensionless     | Autarky ratio of this month                                                      |      R     |
-| statisticAutarkyTotal                    | Number:Dimensionless     | Autarky ratio overall                                                            |      R     |
-| statisticAutarkyYear                     | Number:Dimensionless     | Autarky ratio of this year                                                       |      R     |
-| statisticCo2SavingDay                    | Number:Mass              | Savings in Co2 emissions today                                                   |      R     |
-| statisticCo2SavingMonth                  | Number:Mass              | Savings in Co2 emissions this month                                              |      R     |
-| statisticCo2SavingTotal                  | Number:Mass              | Savings in Co2 emissions overall                                                 |      R     |
-| statisticCo2SavingYear                   | Number:Mass              | Savings in Co2 emissions this year                                               |      R     |
-| statisticHomeconsumptionDay              | Number:Energy            | Home consumption today                                                           |      R     |
-| statisticHomeconsumptionMonth            | Number:Energy            | Home consumption this month                                                      |      R     |
-| statisticHomeconsumptionTotal            | Number:Energy            | Home consumption overall                                                         |      R     |
-| statisticHomeconsumptionYear             | Number:Energy            | Home consumption this year                                                       |      R     |
-| statisticHomeconsumptionFromBatteryDay   | Number:Energy            | Home consumption obtained from the battery today                                 |      R     |
-| statisticHomeconsumptionFromBatteryMonth | Number:Energy            | Home consumption obtained from the battery this month                            |      R     |
-| statisticHomeconsumptionFromBatteryTotal | Number:Energy            | Home consumption obtained from the battery overall                               |      R     |
-| statisticHomeconsumptionFromBatteryYear  | Number:Energy            | Home consumption obtained from the battery this year                             |      R     |
-| statisticHomeconsumptionFromGridDay      | Number:Energy            | Home consumption obtained from the grid today                                    |      R     |
-| statisticHomeconsumptionFromGridMonth    | Number:Energy            | Home consumption obtained from the grid this month                               |      R     |
-| statisticHomeconsumptionFromGridTotal    | Number:Energy            | Home consumption obtained from the grid overall                                  |      R     |
-| statisticHomeconsumptionFromGridYear     | Number:Energy            | Home consumption obtained from the grid this year                                |      R     |
-| statisticHomeconsumptionFromPVDay        | Number:Energy            | Home consumption obtained from the photovoltaic plant today                      |      R     |
-| statisticHomeconsumptionFromPVMonth      | Number:Energy            | Home consumption obtained from the photovoltaic plant this month                 |      R     |
-| statisticHomeconsumptionFromPVTotal      | Number:Energy            | Home consumption obtained from the photovoltaic plant overall                    |      R     |
-| statisticHomeconsumptionFromPVYear       | Number:Energy            | Home consumption obtained from the photovoltaic plant this year                  |      R     |
-| statisticOwnconsumptionRateDay           | Number:Dimensionless     | Percentage of electricity demand covered by photovoltaics today                  |      R     |
-| statisticOwnconsumptionRateMonth         | Number:Dimensionless     | Percentage of electricity demand covered by photovoltaics this month             |      R     |
-| statisticOwnconsumptionRateTotal         | Number:Dimensionless     | Percentage of electricity demand covered by photovoltaics overall                |      R     |
-| statisticOwnconsumptionRateYear          | Number:Dimensionless     | Percentage of electricity demand covered by photovoltaics this year              |      R     |
-| statisticYieldDay                        | Number:Energy            | Yield of the photovoltaic plant today                                            |      R     |
-| statisticYieldMonth                      | Number:Energy            | Yield of the photovoltaic plant this month                                       |      R     |
-| statisticYieldTotal                      | Number:Energy            | Yield of the photovoltaic plant overall                                          |      R     |
-| statisticYieldYear                       | Number:Energy            | Yield of the photovoltaic plant this year                                        |      R     |
+| deviceLocalDCPower                       | Number:Energy            | Current DC power of the inverter                                                 |     R      |
+| deviceLocalHomeconsumptionFromBattery    | Number:Energy            | Current home consumption obtained from the battery                               |     R      |
+| deviceLocalHomeconsumptionFromGrid       | Number:Energy            | Current home consumption obtained from the grid                                  |     R      |
+| deviceLocalOwnconsumption                | Number:Energy            | Current own comsumption                                                          |     R      |
+| deviceLocalHomeconsumptionFromPV         | Number:Energy            | Current home consumption obtained from photovoltaic                              |     R      |
+| deviceLocalHomeconsumptionTotal          | Number:Energy            | Current total homeconsumption                                                    |     R      |
+| deviceLocalLimitEVUAbsolute              | Number:Energy            | Permitted feed-in quantity as absolute value as specified by the energy supplier |     R      |
+| deviceLocalLimitEVURelativ               | Number:Dimensionless     | Permitted feed-in quantity as relative value as specified by the energy supplier |     R      |
+| deviceLocalWorktime                      | Number:Time              | Uptime of the inverter                                                           |     R      |
+| deviceLocalACPhase1CurrentAmperage       | Number:ElectricCurrent   | Amperage of phase 1                                                              |     R      |
+| deviceLocalACPhase1CurrentPower          | Number:Energy            | Power of phase 1                                                                 |     R      |
+| deviceLocalACPhase1CurrentVoltage        | Number:ElectricPotential | Voltage of phase 1                                                               |     R      |
+| deviceLocalACPhase2CurrentAmperage       | Number:ElectricCurrent   | Amperage of phase 2                                                              |     R      |
+| deviceLocalACPhase2CurrentPower          | Number:Energy            | Power of phase 2                                                                 |     R      |
+| deviceLocalACPhase2CurrentVoltage        | Number:ElectricPotential | Voltage of phase 2                                                               |     R      |
+| deviceLocalACPhase3CurrentAmperage       | Number:ElectricCurrent   | Amperage of phase 3                                                              |     R      |
+| deviceLocalACPhase3CurrentPower          | Number:Energy            | Power of phase 3                                                                 |     R      |
+| deviceLocalACPhase3CurrentVoltage        | Number:ElectricPotential | Voltage of phase 3                                                               |     R      |
+| deviceLocalACCurrentPower                | Number:Energy            | Current AC power of the inverter                                                 |     R      |
+| deviceLocalBatteryLoadingCycles          | Number:Dimensionless     | Amount of loading cycles done by the battery                                     |     R      |
+| deviceLocalBatteryFullChargeCapacity     | Number:ElectricCharge    | Capacity of the battery if charged fully                                         |     R      |
+| deviceLocalBatteryAmperage               | Number:ElectricCurrent   | Current amperage of the battery                                                  |     R      |
+| deviceLocalBatteryPower                  | Number:Energy            | Current battery charge                                                           |     R      |
+| deviceLocalBatteryStageOfCharge          | Number:Dimensionless     | Current battery charge status                                                    |     R      |
+| deviceLocalBatteryVoltage                | Number:ElectricPotential | Current voltage of the battery                                                   |     R      |
+| deviceLocalPVString1Amperage             | Number:ElectricCurrent   | Current amperage of photovoltaic string 1                                        |     R      |
+| deviceLocalPVString1Power                | Number:Energy            | Current power of photovoltaic string 1                                           |     R      |
+| deviceLocalPVString1Voltage              | Number:ElectricPotential | Current voltage of photovoltaic string 1                                         |     R      |
+| deviceLocalPVString2Amperage             | Number:ElectricCurrent   | Current amperage of photovoltaic string 2                                        |     R      |
+| deviceLocalPVString2Power                | Number:Energy            | Current power of photovoltaic string 2                                           |     R      |
+| deviceLocalPVString2Voltage              | Number:ElectricPotential | Current voltage of photovoltaic string 2                                         |     R      |
+| deviceLocalPVString3Amperage             | Number:ElectricCurrent   | Current amperage of photovoltaic string 3                                        |     R      |
+| deviceLocalPVString3Power                | Number:Energy            | Current power of photovoltaic string 3                                           |     R      |
+| deviceLocalPVString3Voltage              | Number:ElectricPotential | Current voltage of photovoltaic string 3                                         |     R      |
+| SCBEventErrorCountMc                     | Number:Dimensionless     | Number of errors reported by the main controller                                 |     R      |
+| SCBEventErrorCountSFH                    | Number:Dimensionless     | Number of errors reported by the grid interface controller                       |     R      |
+| SCBEventErrorCountSCB                    | Number:Dimensionless     | Number of errors reported by the smart communication board                       |     R      |
+| SCBEventWarningCountSCB                  | Number:Dimensionless     | Number of warnings reported by the smart communication board                     |     R      |
+| statisticAutarkyDay                      | Number:Dimensionless     | Autarky ratio of this day                                                        |     R      |
+| statisticAutarkyMonth                    | Number:Dimensionless     | Autarky ratio of this month                                                      |     R      |
+| statisticAutarkyTotal                    | Number:Dimensionless     | Autarky ratio overall                                                            |     R      |
+| statisticAutarkyYear                     | Number:Dimensionless     | Autarky ratio of this year                                                       |     R      |
+| statisticCo2SavingDay                    | Number:Mass              | Savings in Co2 emissions today                                                   |     R      |
+| statisticCo2SavingMonth                  | Number:Mass              | Savings in Co2 emissions this month                                              |     R      |
+| statisticCo2SavingTotal                  | Number:Mass              | Savings in Co2 emissions overall                                                 |     R      |
+| statisticCo2SavingYear                   | Number:Mass              | Savings in Co2 emissions this year                                               |     R      |
+| statisticHomeconsumptionDay              | Number:Energy            | Home consumption today                                                           |     R      |
+| statisticHomeconsumptionMonth            | Number:Energy            | Home consumption this month                                                      |     R      |
+| statisticHomeconsumptionTotal            | Number:Energy            | Home consumption overall                                                         |     R      |
+| statisticHomeconsumptionYear             | Number:Energy            | Home consumption this year                                                       |     R      |
+| statisticHomeconsumptionFromBatteryDay   | Number:Energy            | Home consumption obtained from the battery today                                 |     R      |
+| statisticHomeconsumptionFromBatteryMonth | Number:Energy            | Home consumption obtained from the battery this month                            |     R      |
+| statisticHomeconsumptionFromBatteryTotal | Number:Energy            | Home consumption obtained from the battery overall                               |     R      |
+| statisticHomeconsumptionFromBatteryYear  | Number:Energy            | Home consumption obtained from the battery this year                             |     R      |
+| statisticHomeconsumptionFromGridDay      | Number:Energy            | Home consumption obtained from the grid today                                    |     R      |
+| statisticHomeconsumptionFromGridMonth    | Number:Energy            | Home consumption obtained from the grid this month                               |     R      |
+| statisticHomeconsumptionFromGridTotal    | Number:Energy            | Home consumption obtained from the grid overall                                  |     R      |
+| statisticHomeconsumptionFromGridYear     | Number:Energy            | Home consumption obtained from the grid this year                                |     R      |
+| statisticHomeconsumptionFromPVDay        | Number:Energy            | Home consumption obtained from the photovoltaic plant today                      |     R      |
+| statisticHomeconsumptionFromPVMonth      | Number:Energy            | Home consumption obtained from the photovoltaic plant this month                 |     R      |
+| statisticHomeconsumptionFromPVTotal      | Number:Energy            | Home consumption obtained from the photovoltaic plant overall                    |     R      |
+| statisticHomeconsumptionFromPVYear       | Number:Energy            | Home consumption obtained from the photovoltaic plant this year                  |     R      |
+| statisticOwnconsumptionRateDay           | Number:Dimensionless     | Percentage of electricity demand covered by photovoltaics today                  |     R      |
+| statisticOwnconsumptionRateMonth         | Number:Dimensionless     | Percentage of electricity demand covered by photovoltaics this month             |     R      |
+| statisticOwnconsumptionRateTotal         | Number:Dimensionless     | Percentage of electricity demand covered by photovoltaics overall                |     R      |
+| statisticOwnconsumptionRateYear          | Number:Dimensionless     | Percentage of electricity demand covered by photovoltaics this year              |     R      |
+| statisticYieldDay                        | Number:Energy            | Yield of the photovoltaic plant today                                            |     R      |
+| statisticYieldMonth                      | Number:Energy            | Yield of the photovoltaic plant this month                                       |     R      |
+| statisticYieldTotal                      | Number:Energy            | Yield of the photovoltaic plant overall                                          |     R      |
+| statisticYieldYear                       | Number:Energy            | Yield of the photovoltaic plant this year                                        |     R      |
 
 ## Thing Configuration
 
@@ -229,13 +229,13 @@ You optionally can define a `userName` and a `password` parameter if the access 
 
 Second generation inverters require 4 mandatory parameters and 1 optional (hasBattery):
 
-| Parameter                | Description                                            | Type    |  Unit   | Default value | Example value |
-|--------------------------|--------------------------------------------------------|---------|---------|---------------|---------------|
-| url                      | Host name or IP address of your device                 | Text    | ---     | ---           | 192.168.0.2   |
-| username                 | Username for your inverter                             | Text    | ---     | ---           | myUsername    |
-| password                 | Password for your inverter                             | Text    | ---     | ---           | myPassword    |
-| refreshInterval          | Pollingintervall of your inverter                      | Integer | Seconds | 60            | 60            |
-| hasBattery               | Type of PIKO 10-20 inverter, with or without battery   | boolean | ---     | --            | false/true    |
+|    Parameter    |                     Description                      |  Type   |  Unit   | Default value | Example value |
+|-----------------|------------------------------------------------------|---------|---------|---------------|---------------|
+| url             | Host name or IP address of your device               | Text    | ---     | ---           | 192.168.0.2   |
+| username        | Username for your inverter                           | Text    | ---     | ---           | myUsername    |
+| password        | Password for your inverter                           | Text    | ---     | ---           | myPassword    |
+| refreshInterval | Pollingintervall of your inverter                    | Integer | Seconds | 60            | 60            |
+| hasBattery      | Type of PIKO 10-20 inverter, with or without battery | boolean | ---     | --            | false/true    |
 
 demo.things
 
@@ -249,7 +249,7 @@ You can define which type of PIKO10-20 inverter you will connect to with paramet
 
 All third generation inverters require to define 3 mandatory configuration parameters:
 
-| Parameter                | Description                                            | Type    |  Unit   | Default value | Example value |
+|        Parameter         |                      Description                       |  Type   |  Unit   | Default value | Example value |
 |--------------------------|--------------------------------------------------------|---------|---------|---------------|---------------|
 | url                      | Host name or IP address of your device                 | Text    | ---     | ---           | 192.168.1.2   |
 | userPassword             | Password you configured on the inverters web front end | Text    | ---     | ---           | myPassword    |
@@ -437,3 +437,4 @@ actions:
       script: KOSTALPIKO1020_SmartBatteryControlSet.sendCommand("OFF")
     type: script.ScriptAction
 ```
+

@@ -27,13 +27,13 @@ If device discovery is not working, this is most likely caused by the inability 
 - **hostname**: Hostname or IP address of the device node.
 - **port**: Port used to communicate with the device.
 - **groupCode**: Group code as specified in "APPENDIX Detailed Requirements for ECHONET Device objects" (<https://echonet.jp/spec_object_rp1_en/>).
-For Air Conditioners the value is '1'.
+  For Air Conditioners the value is '1'.
 - **classCode**: Class code for the device, see **groupCode** for reference information.
-The value for Home Air Conditioners is '48' (0x30).
+  The value for Home Air Conditioners is '48' (0x30).
 - **instance**: Instance identifier if multiple instances are running on the same IP address.
-Typically, this value will be '1'.
+  Typically, this value will be '1'.
 - **pollIntervalMs**: Interval between polls of the device for its current status.
-If multicast is not working this will determine the latency at which changes made directly on the device will be propagated back to openHAB, default is 30 000ms.
+  If multicast is not working this will determine the latency at which changes made directly on the device will be propagated back to openHAB, default is 30 000ms.
 - **retryTimeoutMs**: Length of time the bridge will wait before resubmitting a request, default is 2 000ms.
 
 Because the binding uses UDP, packets can be lost on the network, so retries are necessary.
@@ -46,7 +46,7 @@ The full set of potential channels is available from "APPENDIX Detailed Requirem
 
 The channels currently implemented are:
 
-| Channel                            | Data Type | Description                                                             |
+|              Channel               | Data Type |                               Description                               |
 |------------------------------------|-----------|-------------------------------------------------------------------------|
 | operationStatus                    | Switch    | Switch On/Off the device                                                |
 | installationLocation               | String    | Installation location (option)                                          |
@@ -84,3 +84,4 @@ Bridge echonetlite:bridge:1 [port="3610", multicastAddress="224.0.23.0"] {
 ```java
 Switch HeatPumpBedroom1_OperationStatus "HeatPump Bedroom1 Operation Status" {channel="echonetlite:device:1:HeatPump_Bedroom1:operationStatus"}
 ```
+

@@ -14,8 +14,8 @@ The following are the configurations available to each of the bridges/things:
 
 ### YIO Dock
 
-| Name        | Type   | Required | Default | Description                                         |
-| ----------- | ------ | -------- | ------- | --------------------------------------------------- |
+|    Name     |  Type  | Required | Default |                     Description                     |
+|-------------|--------|----------|---------|-----------------------------------------------------|
 | host        | string | Yes      | (None)  | Host/IP Address or host name of the YIO Dock        |
 | accesstoken | string | Yes      | 0       | The authentication token for the access currently 0 |
 
@@ -25,8 +25,8 @@ The following are the configurations available to each of the bridges/things:
 
 The YIO Dock has the following channels:
 
-| Channel        | Input/Output | Item Type | Description                                                                                                                                                         |
-| -------------- | ------------ | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    Channel     | Input/Output | Item Type |                                                                             Description                                                                             |
+|----------------|--------------|-----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | receiverswitch | Input        | Switch    | The switch to enable disable the IR receiving diode/function                                                                                                        |
 | status         | Output       | String    | The status of the YIO Dock. If the reciever is on than the recognized IR code will be displayed otherwise the IR send status is displayed of the last IR code send. |
 
@@ -76,3 +76,4 @@ sitemap Basic label="YIO Dock" {
     Text item=status
 }
 ```
+

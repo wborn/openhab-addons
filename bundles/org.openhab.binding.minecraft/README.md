@@ -26,7 +26,7 @@ Depending on the thing type, different channels are provided:
 
 ### Server
 
-| Channel Type ID | Item Type | Description                             |
+| Channel Type ID | Item Type |               Description               |
 |-----------------|-----------|-----------------------------------------|
 | name            | String    | Name of Minecraft server                |
 | online          | Switch    | Online status                           |
@@ -37,7 +37,7 @@ Depending on the thing type, different channels are provided:
 
 ### Player
 
-| Channel Type ID            | Item Type | Description                                                |
+|      Channel Type ID       | Item Type |                        Description                         |
 |----------------------------|-----------|------------------------------------------------------------|
 | playerName                 | String    | The name of the player                                     |
 | playerOnline               | Switch    | Is the player connected to the server                      |
@@ -51,7 +51,7 @@ Depending on the thing type, different channels are provided:
 
 ### Sign
 
-| Channel Type ID | Item Type | Description                                  |
+| Channel Type ID | Item Type |                 Description                  |
 |-----------------|-----------|----------------------------------------------|
 | signActive      | Switch    | Does the sign have powered redstone below it |
 
@@ -76,3 +76,4 @@ Bridge minecraft:server:myminecraftserver "Minecraft server for Friends" @ "Mine
   Thing sign sign_name "Example Sign" @ "Minecraft" [ signName="sensor" ]
 }
 ```
+

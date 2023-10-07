@@ -76,20 +76,20 @@ Thing switch-module s1 [ address = "BC00" ]
 
 Defines a `switch-module` with address `BC00`.
 
-| channel   | type   | description  |
-|-----------|--------|--------------|
-| output-1  | Switch | Output 1     |
-| output-2  | Switch | Output 2     |
-| output-3  | Switch | Output 3     |
-| output-4  | Switch | Output 4     |
-| output-5  | Switch | Output 5     |
-| output-6  | Switch | Output 6     |
-| output-7  | Switch | Output 7     |
-| output-8  | Switch | Output 8     |
-| output-9  | Switch | Output 9     |
-| output-10 | Switch | Output 10    |
-| output-11 | Switch | Output 11    |
-| output-12 | Switch | Output 12    |
+|  channel  |  type  | description |
+|-----------|--------|-------------|
+| output-1  | Switch | Output 1    |
+| output-2  | Switch | Output 2    |
+| output-3  | Switch | Output 3    |
+| output-4  | Switch | Output 4    |
+| output-5  | Switch | Output 5    |
+| output-6  | Switch | Output 6    |
+| output-7  | Switch | Output 7    |
+| output-8  | Switch | Output 8    |
+| output-9  | Switch | Output 9    |
+| output-10 | Switch | Output 10   |
+| output-11 | Switch | Output 11   |
+| output-12 | Switch | Output 12   |
 
 #### dimmer-module
 
@@ -99,20 +99,20 @@ Thing dimmer-module d1 [ address = "D969" ]
 
 Defines a `dimmer-module` with address `D969`.
 
-| channel   | type   | description  |
-|-----------|--------|--------------|
-| output-1  | Dimmer | Output 1     |
-| output-2  | Dimmer | Output 2     |
-| output-3  | Dimmer | Output 3     |
-| output-4  | Dimmer | Output 4     |
-| output-5  | Dimmer | Output 5     |
-| output-6  | Dimmer | Output 6     |
-| output-7  | Dimmer | Output 7     |
-| output-8  | Dimmer | Output 8     |
-| output-9  | Dimmer | Output 9     |
-| output-10 | Dimmer | Output 10    |
-| output-11 | Dimmer | Output 11    |
-| output-12 | Dimmer | Output 12    |
+|  channel  |  type  | description |
+|-----------|--------|-------------|
+| output-1  | Dimmer | Output 1    |
+| output-2  | Dimmer | Output 2    |
+| output-3  | Dimmer | Output 3    |
+| output-4  | Dimmer | Output 4    |
+| output-5  | Dimmer | Output 5    |
+| output-6  | Dimmer | Output 6    |
+| output-7  | Dimmer | Output 7    |
+| output-8  | Dimmer | Output 8    |
+| output-9  | Dimmer | Output 9    |
+| output-10 | Dimmer | Output 10   |
+| output-11 | Dimmer | Output 11   |
+| output-12 | Dimmer | Output 12   |
 
 #### rollershutter-module
 
@@ -122,14 +122,14 @@ Thing rollershutter-module r1 [ address = "4C6C" ]
 
 Defines a `rollershutter-module` with address `4C6C`.
 
-| channel   | type          | description  |
-|-----------|---------------|--------------|
-| output-1  | Rollershutter | Output 1     |
-| output-2  | Rollershutter | Output 2     |
-| output-3  | Rollershutter | Output 3     |
-| output-4  | Rollershutter | Output 4     |
-| output-5  | Rollershutter | Output 5     |
-| output-6  | Rollershutter | Output 6     |
+| channel  |     type      | description |
+|----------|---------------|-------------|
+| output-1 | Rollershutter | Output 1    |
+| output-2 | Rollershutter | Output 2    |
+| output-3 | Rollershutter | Output 3    |
+| output-4 | Rollershutter | Output 4    |
+| output-5 | Rollershutter | Output 5    |
+| output-6 | Rollershutter | Output 6    |
 
 In case rollershutters are moving in the oposite direction when sending `UP` or `DOWN` commands, there is a `reverse` parameter, which can be set to `true` in this case to reverse the rollershutter's direction. Defaults to `false`.
 
@@ -181,7 +181,7 @@ where:
 - `moduleId` represents module's id,
 - `channelGroup` represents the first (1) or second (2) channel group in the module.
 
- Example configurations may look like:
+Example configurations may look like:
 
 ```java
 Thing switch-module s1 [ address = "FF2A" ]
@@ -238,8 +238,8 @@ Each discovered button has a Nikobus address appended to its name, same as can b
 ![Nikobus Switch with 2 buttons](doc/s2.png)
 
 ```text
- 1 = A
- 2 = B
+1 = A
+2 = B
 ```
 
 #### 4 buttons switch
@@ -249,8 +249,8 @@ Each discovered button has a Nikobus address appended to its name, same as can b
 maps as
 
 ```text
- 3  1  
- 4  2
+3  1  
+4  2
 ```
 
 so
@@ -269,8 +269,8 @@ so
 maps as
 
 ```text
- 7  5  3  1  
- 8  6  4  2
+7  5  3  1  
+8  6  4  2
 ```
 
 so
@@ -344,3 +344,4 @@ Rollershutter Shutter_GF_Bath "Bathroom" (GF_Bath, gShuttersGF) { channel="nikob
 Rollershutter Shutter_FF_Child "Child's room" (FF_Child, gShuttersFF) { channel="nikobus:rollershutter-module:mypclink:r1:output-4" }
 Rollershutter Shutter_FF_Gallery "Gallery" (FF_Gallery, gShuttersFF) { channel="nikobus:rollershutter-module:mypclink:r1:output-5" }
 ```
+

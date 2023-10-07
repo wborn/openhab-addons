@@ -284,7 +284,7 @@ This is required if your received value is wrapped in a JSON or XML response.
 
 Here are a few examples to unwrap a value from a complex response:
 
-| Received value                                                      | Tr. Service | Transformation                            |
+|                           Received value                            | Tr. Service |              Transformation               |
 |---------------------------------------------------------------------|-------------|-------------------------------------------|
 | `{device: {status: { temperature: 23.2 }}}`                         | JSONPATH    | `JSONPATH:$.device.status.temperature`    |
 | `<device><status><temperature>23.2</temperature></status></device>` | XPath       | `XPath:/device/status/temperature/text()` |
@@ -340,3 +340,4 @@ Any outgoing value transformation will **always** result in a **string** value.
 
 - If you get the error "No MQTT client": Please update your installation.
 - If you use the Mosquitto broker: Please be aware that there is a relatively low setting for retained messages. If at some point messages stop being delivered change the setting.
+

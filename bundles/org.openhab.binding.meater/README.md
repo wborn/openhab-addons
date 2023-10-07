@@ -35,43 +35,43 @@ This might help isolating an individual probe.
 
 #### Configuration Options
 
-| Parameter | Description                                                  | Type   | Default  | Required |
-|-----------|--------------------------------------------------------------|--------|----------|----------|
-| email     | The email used to login to your MEATER Cloud account         | String | NA       | yes      |
-| password  | The password used to login to your MEATER Cloud account      | String | NA       | yes      |
-| refresh   | Specifies the refresh interval in seconds                    | Number | 30       | no       |
+| Parameter |                       Description                       |  Type  | Default | Required |
+|-----------|---------------------------------------------------------|--------|---------|----------|
+| email     | The email used to login to your MEATER Cloud account    | String | NA      | yes      |
+| password  | The password used to login to your MEATER Cloud account | String | NA      | yes      |
+| refresh   | Specifies the refresh interval in seconds               | Number | 30      | no       |
 
 #### Channels
 
 The following channels are supported:
 
-| Channel Type ID | Item Type | Description                                                                                     |
-|-----------------|-----------|-------------------------------------------------------------------------------------------------|
-| status          | String    | Can be used to trigger an instant refresh by sending a `REFRESH` command.|
+| Channel Type ID | Item Type |                                Description                                |
+|-----------------|-----------|---------------------------------------------------------------------------|
+| status          | String    | Can be used to trigger an instant refresh by sending a `REFRESH` command. |
 
 ### MEATER Probe
 
 #### Configuration Options
 
-| Parameter | Description                                                  | Type   | Default  | Required |
-|-----------|--------------------------------------------------------------|--------|----------|----------|
-| deviceId  | Unique id for your MEATER Probe                              | String | NA       | yes      |
+| Parameter |           Description           |  Type  | Default | Required |
+|-----------|---------------------------------|--------|---------|----------|
+| deviceId  | Unique id for your MEATER Probe | String | NA      | yes      |
 
 #### Channels
 
-| Channel Type ID       | Item Type          | Description                                          |
-|-----------------------|--------------------|------------------------------------------------------|
-| internalTemperature   | Number:Temperature | Internal temperature reading of MEATER probe         |
-| ambientTemperature    | Number:Temperature | Ambient temperature reading of MEATER probe. If ambient is less than internal, ambient will equal internal                                                     |
-| cookTargetTemperature | Number:Temperature | Target temperature of current cook                   |
-| cookPeakTemperature   | Number:Temperature | Peak temperature of current cook                     |
-| lastConnection        | DateTime           | Date and time of last probe connection               |
-| cookId                | String             | Unique cook ID of current cook                       |
-| cookName              | String             | Name of selected meat or user given custom name      |
-| cookState             | String             | One of Not Started, Configured, Started, Ready For Resting, Resting, Slightly Underdone, Finished, Slightly Overdone, OVERCOOK!                                 |
-| cookElapsedTime       | Number:Time        | Time since the start of cook in seconds. Default: 0  |
-| cookRemainingTime     | Number:Time        | Remaining time in seconds or UNDEF when unknown.                                                                                  |
-| cookEstimatedEndTime  | DateTime           | Date and time of estimated end time for current cook |
+|    Channel Type ID    |     Item Type      |                                                           Description                                                           |
+|-----------------------|--------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| internalTemperature   | Number:Temperature | Internal temperature reading of MEATER probe                                                                                    |
+| ambientTemperature    | Number:Temperature | Ambient temperature reading of MEATER probe. If ambient is less than internal, ambient will equal internal                      |
+| cookTargetTemperature | Number:Temperature | Target temperature of current cook                                                                                              |
+| cookPeakTemperature   | Number:Temperature | Peak temperature of current cook                                                                                                |
+| lastConnection        | DateTime           | Date and time of last probe connection                                                                                          |
+| cookId                | String             | Unique cook ID of current cook                                                                                                  |
+| cookName              | String             | Name of selected meat or user given custom name                                                                                 |
+| cookState             | String             | One of Not Started, Configured, Started, Ready For Resting, Resting, Slightly Underdone, Finished, Slightly Overdone, OVERCOOK! |
+| cookElapsedTime       | Number:Time        | Time since the start of cook in seconds. Default: 0                                                                             |
+| cookRemainingTime     | Number:Time        | Remaining time in seconds or UNDEF when unknown.                                                                                |
+| cookEstimatedEndTime  | DateTime           | Date and time of estimated end time for current cook                                                                            |
 
 ## Example
 
@@ -141,3 +141,4 @@ DateTime           Probe4CookEstimatedEndTime  {channel="meater:meaterprobe:bloc
 String             Probe4Status                {channel="meater:meaterprobe:block:probe4:status"}
 DateTime           Probe4LastConnection        {channel="meater:meaterprobe:block:probe4:lastConnection"}
 ```
+

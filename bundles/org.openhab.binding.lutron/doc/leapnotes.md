@@ -17,7 +17,6 @@ When it has completed, it will have generated three files: caseta.crt, caseta.ke
 
 Once the key and certificate files have been generated, you will need to load them into a java keystore.
 
-
 You can load a keystore from the key and certificate files on a linux system with the following commands.
 You’ll need access to both the java keytool and openssl.
 

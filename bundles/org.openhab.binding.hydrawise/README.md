@@ -24,13 +24,13 @@ Controller Things require a parent [Account Bridge](#account-bridge-thing)
 
 #### Controller Thing Supported Channel Groups
 
-| channel group ID                              |
-|-----------------------------------------------|
-| [Controller](#controller-thing-1) |
-| [Zones](#zone-channel-group)                  |
-| [All Zones](#all-zones-channel-group)         |
-| [Sensor](#sensor-channel-group)               |
-| [Forecast](#forecast-channel-group)             |
+|           channel group ID            |
+|---------------------------------------|
+| [Controller](#controller-thing-1)     |
+| [Zones](#zone-channel-group)          |
+| [All Zones](#all-zones-channel-group) |
+| [Sensor](#sensor-channel-group)       |
+| [Forecast](#forecast-channel-group)   |
 
 ### Local Thing
 
@@ -42,12 +42,12 @@ Local control may not be available on later Hydrawise controller firmware versio
 
 Use Cases
 
-- The Local thing can be useful when testing zones, as there is no delay when starting/stopping zones as compared to the cloud API which can take anywhere between 5-15 seconds.  
+- The Local thing can be useful when testing zones, as there is no delay when starting/stopping zones as compared to the cloud API which can take anywhere between 5-15 seconds.
 - This is also useful if you wish to not use the cloud scheduling  at all and use openHAB as the irrigation scheduling system.
 
 #### Local Thing Supported Channel Groups
 
-| channel group ID                      |
+|           channel group ID            |
 |---------------------------------------|
 | [Zones](#zone-channel-group)          |
 | [All Zones](#all-zones-channel-group) |
@@ -56,7 +56,7 @@ Use Cases
 
 ### Account Thing
 
-| Configuration Name | type    | required | Comments                                                                                                                  |
+| Configuration Name |  type   | required |                                                         Comments                                                          |
 |--------------------|---------|----------|---------------------------------------------------------------------------------------------------------------------------|
 | userName           | String  | False    | The Hydrawise account user name                                                                                           |
 | password           | String  | False    | The Hydrawise account password                                                                                            |
@@ -66,13 +66,13 @@ Use Cases
 
 ### Controller Thing
 
-| Configuration Name | type    | required | Comments             |
+| Configuration Name |  type   | required |       Comments       |
 |--------------------|---------|----------|----------------------|
 | controllerId       | Integer | True     | ID of the controller |
 
 ### Local Thing
 
-| Configuration Name | type    | required | Comments                                                                                                        |
+| Configuration Name |  type   | required |                                                    Comments                                                     |
 |--------------------|---------|----------|-----------------------------------------------------------------------------------------------------------------|
 | host               | String  | True     | IP or host name of the controller on your network                                                               |
 | username           | String  | True     | User name (usually admin) set on the touch panel of the controller                                              |
@@ -85,7 +85,7 @@ Use Cases
 
 #### System Channel Group
 
-| channel group ID | Description                     |
+| channel group ID |           Description           |
 |------------------|---------------------------------|
 | system           | System status of the controller |
 
@@ -93,7 +93,7 @@ Use Cases
 
 Up to 36 total zones are supported per Local or Cloud thing
 
-| channel group ID | Description               |
+| channel group ID |        Description        |
 |------------------|---------------------------|
 | zone1            | Zone 1 channel group      |
 | zone2            | Zone 1 channel group      |
@@ -104,7 +104,7 @@ Up to 36 total zones are supported per Local or Cloud thing
 
 Up to 4 total sensors are supported per Cloud Thing
 
-| channel group ID | Description            |
+| channel group ID |      Description       |
 |------------------|------------------------|
 | sensor1          | Sensor 1 channel group |
 | sensor2          | Sensor 2 channel group |
@@ -115,7 +115,7 @@ Up to 4 total sensors are supported per Cloud Thing
 
 Up to 3 total weather forecasts are supported per Cloud Thing
 
-| channel group ID | Description     |
+| channel group ID |   Description   |
 |------------------|-----------------|
 | forecast1        | Todays Forecast |
 | forecast2        | Day 2 Forecast  |
@@ -125,7 +125,7 @@ Up to 3 total weather forecasts are supported per Cloud Thing
 
 A single all zone group are supported per Cloud or Local Thing
 
-| channel group ID | Description            |
+| channel group ID |      Description       |
 |------------------|------------------------|
 | allzones         | commands for all zones |
 
@@ -133,7 +133,7 @@ A single all zone group are supported per Cloud or Local Thing
 
 Channels uses across zones, sensors and forecasts
 
-| channel ID                 | type               | Groups         | description                                   | Read Write |
+|         channel ID         |        type        |     Groups     |                  description                  | Read Write |
 |----------------------------|--------------------|----------------|-----------------------------------------------|------------|
 | name                       | String             | zone, sensor   | Descriptive name                              | R          |
 | icon                       | String             | zone           | Icon URL                                      | R          |
@@ -208,3 +208,4 @@ DateTime SprinklerZone3StartTime "3 Left of Drive Lawn Start Time" (SprinklerZon
 Number SprinklerZone3TimeLeft "3 Left of Drive Lawn Time Left" (SprinklerZone3) {channel="hydrawise:controller:myaccount:123456:zone3#timeleft"}
 String SprinklerZone3Icon "3 Left of Drive Lawn Icon" (SprinklerZone3) {channel="hydrawise:controller:myaccount:123456:zone3#icon"}
 ```
+

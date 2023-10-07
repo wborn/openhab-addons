@@ -15,8 +15,8 @@ Auto-discovery is currently not available.
 
 Each inverter requires the following configuration parameters:
 
-| parameter       | required | default | description                                                          |
-| --------------- | -------- | ------- | -------------------------------------------------------------------- |
+|    parameter    | required | default |                             description                              |
+|-----------------|----------|---------|----------------------------------------------------------------------|
 | host            | yes      |         | hostname or IP address of the inverter                               |
 | portNumber      | no       | 12345   | Port number to connect to. This should be `12345` for most inverters |
 | deviceAddress   | no       | 1       | Device address for devices connected serially.                       |
@@ -24,15 +24,15 @@ Each inverter requires the following configuration parameters:
 
 ## Properties
 
-| property        | description                                            |
-| --------------- | ------------------------------------------------------ |
+|    property     |                      description                       |
+|-----------------|--------------------------------------------------------|
 | softwareVersion | Software Version installed on the SolarMax device      |
 | buildNumber     | Firmware Build Number installed on the SolarMax device |
 
 ## Channels
 
-| channel                  | type                     | description                                  |
-| ------------------------ | ------------------------ | -------------------------------------------- |
+|         channel          |           type           |                 description                  |
+|--------------------------|--------------------------|----------------------------------------------|
 | lastUpdated              | DateTime                 | Time when data was last read from the device |
 | startups                 | Number                   | Number of times the device has started       |
 | acPhase1Current          | Number:ElectricCurrent   | Ac Phase 1 Current in Amps                   |

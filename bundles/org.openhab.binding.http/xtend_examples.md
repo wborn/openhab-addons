@@ -64,3 +64,4 @@ I have a BME2080 sensor connected. The Humidity must be diveded by 100 to show h
     return json.sensordatavalues[3].value/100;
 })(input)
 ```
+

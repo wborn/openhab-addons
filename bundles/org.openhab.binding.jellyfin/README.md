@@ -19,10 +19,10 @@ Before you are able to discover clients you should have a bridge to the server s
 
 ## Thing Types
 
-| ThingTypeID   | description             |
-|----------|------------------------------|
-| server (bridge) | Jellyfin server instance |
-| client | Jellyfin controllable client instance |
+|   ThingTypeID   |              description              |
+|-----------------|---------------------------------------|
+| server (bridge) | Jellyfin server instance              |
+| client          | Jellyfin controllable client instance |
 
 ## Authentication
 
@@ -33,7 +33,7 @@ In order to assist you with this process the binding expose a simple login form 
 
 ## Server Thing Configuration
 
-| Config                    | Type    | description                                                                                  |
+|          Config           |  Type   |                                         description                                          |
 |---------------------------|---------|----------------------------------------------------------------------------------------------|
 | hostname                  | text    | Hostname or IP address of the server (required)                                              |
 | port                      | integer | Port of the server (required)                                                                |
@@ -46,7 +46,7 @@ In order to assist you with this process the binding expose a simple login form 
 
 ## Channels
 
-| channel                    | type   | description                                                                                                     |
+|          channel           |  type  |                                                   description                                                   |
 |----------------------------|--------|-----------------------------------------------------------------------------------------------------------------|
 | send-notification          | String | Display message in client                                                                                       |
 | media-control              | Player | Control media playback                                                                                          |
@@ -129,3 +129,4 @@ String strJellyfinAndroidPlayByNextTerms { channel="jellyfin:client:exampleServe
 String strJellyfinAndroidPlayByLastTerms { channel="jellyfin:client:exampleServerId:<JELLYFIN_DEVICE_ID>:play-last-by-terms" }
 String strJellyfinAndroidBrowseByTerms { channel="jellyfin:client:exampleServerId:<JELLYFIN_DEVICE_ID>:browse-by-terms" }
 ```
+

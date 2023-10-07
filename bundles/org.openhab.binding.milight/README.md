@@ -10,13 +10,13 @@ The binding supports Milight/Easybulb bridges from 2014+, iBox from 2016 and iBo
 The Dual White bulbs from 2015 and the new generation of Dual White bulbs are supported.
 RGB/White from 2014 and the new generation RGB/White from 2016 as well as RGB/Cold,Warmwhite and iBox bulbs work.
 
-| Bulb Type          | Milight Bridge | iBox  | iBox2 |
-|--------------------|:--------------:|:-----:|:-----:|
-| Dual White         |       ✓        |       |       |
-| RGB/White          |       ✓        |       |       |
-| 2016 Dual White    |                |   ✓   |   ✓   |
-| 2016 RGB/White     |                |   ✓   |   ✓   |
-| RGB/Cold,Warmwhite |                |   ✓   |   ✓   |
+|     Bulb Type      | Milight Bridge | iBox | iBox2 |
+|--------------------|:--------------:|:----:|:-----:|
+| Dual White         |       ✓        |      |       |
+| RGB/White          |       ✓        |      |       |
+| 2016 Dual White    |                |  ✓   |   ✓   |
+| 2016 RGB/White     |                |  ✓   |   ✓   |
+| RGB/Cold,Warmwhite |                |  ✓   |   ✓   |
 
 Please note that LD382, LD382A, LD686 RGB stripes and bulbs are supported by the
 [WifiLed Binding](https://www.openhab.org/addons/bindings/wifiled/).
@@ -159,3 +159,4 @@ Switch item=AnimationMode      mappings=[DECREASE='-', INCREASE='+']
 Switch item=AnimationSpeed     mappings=[DECREASE='-', INCREASE='+']
 Switch item=Light_GroundfloorN mappings=[ON='Night Mode']
 ```
+

@@ -11,7 +11,7 @@ It is advised that users of the binding upgrade their devices to the latest firm
 
 The binding supports the following Plugwise devices:
 
-| Device Type | Description                                                                              | Thing Type |
+| Device Type |                                       Description                                        | Thing Type |
 |-------------|------------------------------------------------------------------------------------------|------------|
 | Circle      | A power outlet plug that provides energy measurement and switching control of appliances | circle     |
 | Circle+     | A special Circle that coordinates the Zigbee network and acts as network gateway         | circleplus |
@@ -41,7 +41,7 @@ Similarly the MAC addresses of the Scan, Sense and Switch can also be obtained f
 
 ### Stick
 
-| Configuration Parameter | Required | Default      | Description                                                                       |
+| Configuration Parameter | Required |   Default    |                                    Description                                    |
 |-------------------------|----------|--------------|-----------------------------------------------------------------------------------|
 | serialPort              | X        | /dev/ttyUSB0 | The serial port of the Stick, e.g. "/dev/ttyUSB0" for Linux or "COM1" for Windows |
 | messageWaitTime         |          | 150          | The time to wait between messages sent on the Zigbee network (in ms)              |
@@ -54,7 +54,7 @@ To access the serial port of the Stick on Linux, the user running openHAB needs 
 
 ### Circle(+), Stealth
 
-| Configuration Parameter | Required | Default          | Description                                                                                                            |
+| Configuration Parameter | Required |     Default      |                                                      Description                                                       |
 |-------------------------|----------|------------------|------------------------------------------------------------------------------------------------------------------------|
 | macAddress              | X        |                  | The full device MAC address e.g. "000D6F0000A1B2C3"                                                                    |
 | powerStateChanging      |          | commandSwitching | Controls if the power state can be changed with commands or is always on/off (commandSwitching, alwaysOn or alwaysOff) |
@@ -64,7 +64,7 @@ To access the serial port of the Stick on Linux, the user running openHAB needs 
 
 ### Scan
 
-| Configuration Parameter | Required | Default | Description                                                                                                      |
+| Configuration Parameter | Required | Default |                                                   Description                                                    |
 |-------------------------|----------|---------|------------------------------------------------------------------------------------------------------------------|
 | macAddress              | X        |         | The full device MAC address e.g. "000D6F0000A1B2C3"                                                              |
 | sensitivity             |          | medium  | The sensitivity of movement detection (off, medium or high)                                                      |
@@ -75,7 +75,7 @@ To access the serial port of the Stick on Linux, the user running openHAB needs 
 
 ### Sense
 
-| Configuration Parameter | Required | Default         | Description                                                                                                                |
+| Configuration Parameter | Required |     Default     |                                                        Description                                                         |
 |-------------------------|----------|-----------------|----------------------------------------------------------------------------------------------------------------------------|
 | macAddress              | X        |                 | The full device MAC address e.g. "000D6F0000A1B2C3"                                                                        |
 | measurementInterval     |          | 15              | The interval in which the Sense measures the temperature and humidity (in minutes) (5 to 60)                               |
@@ -90,7 +90,7 @@ To access the serial port of the Stick on Linux, the user running openHAB needs 
 
 ### Switch
 
-| Configuration Parameter | Required | Default | Description                                                                      |
+| Configuration Parameter | Required | Default |                                   Description                                    |
 |-------------------------|----------|---------|----------------------------------------------------------------------------------|
 | macAddress              | X        |         | The full device MAC address e.g. "000D6F0000A1B2C3"                              |
 | wakeupInterval          |          | 1440    | The interval in which the Switch wakes up at least once (in minutes) (5 to 1440) |
@@ -98,7 +98,7 @@ To access the serial port of the Stick on Linux, the user running openHAB needs 
 
 ## Channels
 
-| Channel Type ID  | Item Type            | Description                                                                                                                                                                                                        | Thing Types                                      |
+| Channel Type ID  |      Item Type       |                                                                                                    Description                                                                                                     |                   Thing Types                    |
 |------------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
 | clock            | String               | Time as indicated by the internal clock of the device                                                                                                                                                              | circle, circleplus, stealth                      |
 | energy           | Number:Energy        | Energy consumption/production during the last measurement interval                                                                                                                                                 | circle, circleplus, stealth                      |
@@ -242,3 +242,4 @@ sitemap demo label="Main Menu"
 
 }
 ```
+

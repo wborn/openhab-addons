@@ -31,24 +31,24 @@ Optionally, if you want to later receive push notifications on the status of you
 
 The following configuration options are available on the BTicino Smarther Bridge thing:
 
-| Parameter             | Description                                                                                                                                        | Condition |
-|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| subscriptionKey       | This is the Primary Key provided by Legrand when you create a new Account and subscribe to a product                                               | Required  |
-| clientId              | This is the Client ID provided by Legrand when you add a new Application for openHAB to your Legrand account                                       | Required  |
-| clientSecret          | This is the Client Secret provided by Legrand when you add a new Application for openHAB to your Legrand account                                   | Required  |
-| useNotifications      | ON = the bridge subscribes to receive push notifications on devices status change; OFF = status updates are requested (pull) on a periodical basis |           |
-| statusRefreshPeriod   | This is the frequency of the polling requests to the Smarther API to update the bridge status (in minutes)                                         |           |
+|      Parameter      |                                                                    Description                                                                     | Condition |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| subscriptionKey     | This is the Primary Key provided by Legrand when you create a new Account and subscribe to a product                                               | Required  |
+| clientId            | This is the Client ID provided by Legrand when you add a new Application for openHAB to your Legrand account                                       | Required  |
+| clientSecret        | This is the Client Secret provided by Legrand when you add a new Application for openHAB to your Legrand account                                   | Required  |
+| useNotifications    | ON = the bridge subscribes to receive push notifications on devices status change; OFF = status updates are requested (pull) on a periodical basis |           |
+| statusRefreshPeriod | This is the frequency of the polling requests to the Smarther API to update the bridge status (in minutes)                                         |           |
 
 The following configuration options are available on the BTicino Smarther Chronothermostat thing:
 
-| Parameter             | Description                                                                                                                                        | Condition |
-|-----------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
-| plantId               | This is the Plant Id of the location the Chronothermostat module is installed in, provided by Smarther API                                         | Read-only |
-| moduleId              | This is the Module Id of the Chronothermostat module, provided by Smarther API                                                                     | Read-only |
-| settingsAutoupdate    | ON = the thermostat settings are aligned with current status whenever it changes; OFF = settings are aligned to status only upon initialization    |           |
-| programsRefreshPeriod | This is the frequency the Smarther API gateway is called to refresh Programs list used in "automatic" mode (in hours)                              |           |
-| numberOfEndDays       | This is the number of days to be displayed in module settings, as options list for "End Date" field in "manual" mode                               |           |
-| statusRefreshPeriod   | This is the frequency of the polling requests to the Smarther API to update the module status and sensor data (in minutes)                         |           |
+|       Parameter       |                                                                   Description                                                                   | Condition |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|-----------|
+| plantId               | This is the Plant Id of the location the Chronothermostat module is installed in, provided by Smarther API                                      | Read-only |
+| moduleId              | This is the Module Id of the Chronothermostat module, provided by Smarther API                                                                  | Read-only |
+| settingsAutoupdate    | ON = the thermostat settings are aligned with current status whenever it changes; OFF = settings are aligned to status only upon initialization |           |
+| programsRefreshPeriod | This is the frequency the Smarther API gateway is called to refresh Programs list used in "automatic" mode (in hours)                           |           |
+| numberOfEndDays       | This is the number of days to be displayed in module settings, as options list for "End Date" field in "manual" mode                            |           |
+| statusRefreshPeriod   | This is the frequency of the polling requests to the Smarther API to update the module status and sensor data (in minutes)                      |           |
 
 ### Account Creation
 
@@ -92,19 +92,19 @@ If you want to later receive push notifications (device status) from Legrand for
 ### Bridge Configuration
 
 1. Install the binding and make sure the _BTicino Smarther Binding_ is listed on your server, if you have not already done so.
-1. Complete the [Account Creation](#account-creation) and [Application Creation](#application-creation) steps, if you have not already done so.
-1. Make sure you have your Legrand account _Primary Key_ and your Legrand application _Client ID_ and _Client Secret_ identities available.
-1. Go to your preferred openHAB admin UI and add a new Thing - select the **"BTicino Smarther Bridge"**.
-1. Choose new Id for the bridge, unless you like the generated one.
-1. Put in your _Primary Key_ (in _Subscription Key_ field), _Client ID_ and _Cliend Secret_ in their respective fields of the bridge configuration.
-1. Set _Use Notifications_ to `ON` if your openHAB server is reachable from a public https URL (see [Note on notifications](#note-on-notifications)), set `OFF` otherwise.
-1. You can leave the _Bridge Status Refresh Period_ as is.
-1. Save the bridge.
-1. The bridge thing will stay in state _INITIALIZING_ and eventually go _OFFLINE_ - this is fine, as you now have to authorize this bridge with Legrand.
-1. Go to the authorization page of your server (see [Application Creation](#application-creation)) `http://<your openHAB address>:<your openHAB port>/bticinosmarther/connectsmarther`; your newly added bridge should be listed there (along with the available locations).
-1. Press the _"Authorize Bridge"_ button; this will take you either to the login page of Legrand portal or directly to the authorization screen.
-1. Login and/or authorize the application; if the Reply URL is correct you will be returned and the entry should show your bridge is authorized with your Client ID; otherwise, go back to your application configuration on Legrand portal and ensure you have set the right Reply URL (see [Troubleshooting](#troubleshooting) below).
-1. The bridge will be updated with a refresh token and go _ONLINE_ (the refresh token is used to re-authorize the bridge with Legrand Smarther API whenever required).
+2. Complete the [Account Creation](#account-creation) and [Application Creation](#application-creation) steps, if you have not already done so.
+3. Make sure you have your Legrand account _Primary Key_ and your Legrand application _Client ID_ and _Client Secret_ identities available.
+4. Go to your preferred openHAB admin UI and add a new Thing - select the **"BTicino Smarther Bridge"**.
+5. Choose new Id for the bridge, unless you like the generated one.
+6. Put in your _Primary Key_ (in _Subscription Key_ field), _Client ID_ and _Cliend Secret_ in their respective fields of the bridge configuration.
+7. Set _Use Notifications_ to `ON` if your openHAB server is reachable from a public https URL (see [Note on notifications](#note-on-notifications)), set `OFF` otherwise.
+8. You can leave the _Bridge Status Refresh Period_ as is.
+9. Save the bridge.
+10. The bridge thing will stay in state _INITIALIZING_ and eventually go _OFFLINE_ - this is fine, as you now have to authorize this bridge with Legrand.
+11. Go to the authorization page of your server (see [Application Creation](#application-creation)) `http://<your openHAB address>:<your openHAB port>/bticinosmarther/connectsmarther`; your newly added bridge should be listed there (along with the available locations).
+12. Press the _"Authorize Bridge"_ button; this will take you either to the login page of Legrand portal or directly to the authorization screen.
+13. Login and/or authorize the application; if the Reply URL is correct you will be returned and the entry should show your bridge is authorized with your Client ID; otherwise, go back to your application configuration on Legrand portal and ensure you have set the right Reply URL (see [Troubleshooting](#troubleshooting) below).
+14. The bridge will be updated with a refresh token and go _ONLINE_ (the refresh token is used to re-authorize the bridge with Legrand Smarther API whenever required).
 
 ![Tutorial 1](doc/images/tutorial-1.png)
 
@@ -149,19 +149,19 @@ The channels on the bridge are the ones used to get details of current communica
 
 The following channels represent the current operational status of the bridge and must all be referenced with the `status#` prefix.
 
-| Channel Type ID   | Item Type            | Read/Write | Description                                                                                                      | Type     |
-|-------------------|----------------------|------------|------------------------------------------------------------------------------------------------------------------|----------|
-| apiCallsHandled   | Number               | Read-only  | The total number of API calls handled by the bridge                                                              | Common   |
-| notifsReceived    | Number               | Read-only  | The total number of push notifications received by the bridge                                                    | Common   |
-| notifsRejected    | Number               | Read-only  | The total number of push notifications rejected by the bridge (part of the received ones)                        | Common   |
+| Channel Type ID | Item Type | Read/Write |                                        Description                                        |  Type  |
+|-----------------|-----------|------------|-------------------------------------------------------------------------------------------|--------|
+| apiCallsHandled | Number    | Read-only  | The total number of API calls handled by the bridge                                       | Common |
+| notifsReceived  | Number    | Read-only  | The total number of push notifications received by the bridge                             | Common |
+| notifsRejected  | Number    | Read-only  | The total number of push notifications rejected by the bridge (part of the received ones) | Common |
 
 **Configuration Channels:**
 
 The following channels represent convenience configuration channels for the bridge and must all be referenced with the `config#` prefix.
 
-| Channel Type ID   | Item Type            | Read/Write | Description                                                                                                      | Type     |
-|-------------------|----------------------|------------|------------------------------------------------------------------------------------------------------------------|----------|
-| fetchLocations    | Switch               | Read-write | Trigger to manually fetch the updated client locations list from Smarther API                                    | Advanced |
+| Channel Type ID | Item Type | Read/Write |                                  Description                                  |   Type   |
+|-----------------|-----------|------------|-------------------------------------------------------------------------------|----------|
+| fetchLocations  | Switch    | Read-write | Trigger to manually fetch the updated client locations list from Smarther API | Advanced |
 
 ### Devices
 
@@ -169,39 +169,39 @@ The following channels represent convenience configuration channels for the brid
 
 The following channels represent the measures taken from the module on-board sensors and must all be referenced with the `measures#` prefix.
 
-| Channel Type ID   | Item Type            | Read/Write | Description                                                                                                      | Type     |
-|-------------------|----------------------|------------|------------------------------------------------------------------------------------------------------------------|----------|
-| temperature       | Number:Temperature   | Read-only  | Indoor temperature as measured by the sensor (precision of 1/10 degree Celsius)                                  | Common   |
-| humidity          | Number:Dimensionless | Read-only  | Indoor humidity as measured by the sensor (in percentage)                                                        | Common   |
+| Channel Type ID |      Item Type       | Read/Write |                                   Description                                   |  Type  |
+|-----------------|----------------------|------------|---------------------------------------------------------------------------------|--------|
+| temperature     | Number:Temperature   | Read-only  | Indoor temperature as measured by the sensor (precision of 1/10 degree Celsius) | Common |
+| humidity        | Number:Dimensionless | Read-only  | Indoor humidity as measured by the sensor (in percentage)                       | Common |
 
 **Status Channels:**
 
 The following channels represent the current operational status of the module and must all be referenced with the `status#` prefix.
 
-| Channel Type ID   | Item Type            | Read/Write | Description                                                                                                      | Type     |
-|-------------------|----------------------|------------|------------------------------------------------------------------------------------------------------------------|----------|
-| state             | Switch               | Read-only  | Current operational state of the module                                                                          | Common   |
-| function          | String               | Read-only  | Current operational function set on the module (HEATING, COOLING)                                                | Advanced |
-| mode              | String               | Read-only  | Current operational mode set on the module (AUTOMATIC, MANUAL, BOOST, OFF, PROTECTION)                           | Common   |
-| temperature       | Number:Temperature   | Read-only  | Current operational target temperature set on the module (precision of 1/10 degree Celsius)                      | Common   |
-| program           | String               | Read-only  | Current operational program set on the module (valid only for "Automatic" mode)                                  | Common   |
-| endTime           | String               | Read-only  | Current operational end time set on the module                                                                   | Common   |
-| temperatureFormat | String               | Read-only  | Current operational temperature format of the module                                                             | Advanced |
+|  Channel Type ID  |     Item Type      | Read/Write |                                         Description                                         |   Type   |
+|-------------------|--------------------|------------|---------------------------------------------------------------------------------------------|----------|
+| state             | Switch             | Read-only  | Current operational state of the module                                                     | Common   |
+| function          | String             | Read-only  | Current operational function set on the module (HEATING, COOLING)                           | Advanced |
+| mode              | String             | Read-only  | Current operational mode set on the module (AUTOMATIC, MANUAL, BOOST, OFF, PROTECTION)      | Common   |
+| temperature       | Number:Temperature | Read-only  | Current operational target temperature set on the module (precision of 1/10 degree Celsius) | Common   |
+| program           | String             | Read-only  | Current operational program set on the module (valid only for "Automatic" mode)             | Common   |
+| endTime           | String             | Read-only  | Current operational end time set on the module                                              | Common   |
+| temperatureFormat | String             | Read-only  | Current operational temperature format of the module                                        | Advanced |
 
 **Settings Channels:**
 
 The following channels represent the new operational settings to be applied to the module and must all be referenced with the `settings#` prefix.
 
-| Channel Type ID   | Item Type            | Read/Write | Description                                                                                                      | Type     |
-|-------------------|----------------------|------------|------------------------------------------------------------------------------------------------------------------|----------|
-| mode              | String               | Read-write | New operational mode to be set (AUTOMATIC, MANUAL, BOOST, OFF, PROTECTION)                                       | Common   |
-| temperature       | Number:Temperature   | Read-write | New operational set-point temperature to be set (valid only for "Manual" mode, precision of 1/10 degree Celsius) | Common   |
-| program           | Number               | Read-write | New operational program to be set (valid only for "Automatic" mode)                                              | Common   |
-| boostTime         | Number               | Read-write | New operational boost time to be set (valid only for "Boost" mode)                                               | Common   |
-| endDate           | String               | Read-write | New operational end date to be set (valid only for "Manual" mode)                                                | Common   |
-| endHour           | Number               | Read-write | New operational end hour to be set (valid only for "Manual" mode)                                                | Common   |
-| endMinute         | Number               | Read-write | New operational end minute to be set (valid only for "Manual" mode)                                              | Common   |
-| power             | Switch               | Read-write | Power on, send new operational settings to the module                                                            | Common   |
+| Channel Type ID |     Item Type      | Read/Write |                                                   Description                                                    |  Type  |
+|-----------------|--------------------|------------|------------------------------------------------------------------------------------------------------------------|--------|
+| mode            | String             | Read-write | New operational mode to be set (AUTOMATIC, MANUAL, BOOST, OFF, PROTECTION)                                       | Common |
+| temperature     | Number:Temperature | Read-write | New operational set-point temperature to be set (valid only for "Manual" mode, precision of 1/10 degree Celsius) | Common |
+| program         | Number             | Read-write | New operational program to be set (valid only for "Automatic" mode)                                              | Common |
+| boostTime       | Number             | Read-write | New operational boost time to be set (valid only for "Boost" mode)                                               | Common |
+| endDate         | String             | Read-write | New operational end date to be set (valid only for "Manual" mode)                                                | Common |
+| endHour         | Number             | Read-write | New operational end hour to be set (valid only for "Manual" mode)                                                | Common |
+| endMinute       | Number             | Read-write | New operational end minute to be set (valid only for "Manual" mode)                                              | Common |
+| power           | Switch             | Read-write | Power on, send new operational settings to the module                                                            | Common |
 
 _**Note:**_ The `program` and `endDate` channels are Selection channels.
 They are dynamically populated, respectively with the module specific set programs and the next N days (starting from _"Today"_, N driven by the `numberOfEndDays` device configuration option).
@@ -210,9 +210,9 @@ They are dynamically populated, respectively with the module specific set progra
 
 The following channels represent convenience configuration channels for the module and must all be referenced with the `config#` prefix.
 
-| Channel Type ID   | Item Type            | Read/Write | Description                                                                                                      | Type     |
-|-------------------|----------------------|------------|------------------------------------------------------------------------------------------------------------------|----------|
-| fetchPrograms     | Switch               | Read-write | Trigger to manually fetch the updated module programs list from Smarther API                                     | Advanced |
+| Channel Type ID | Item Type | Read/Write |                                 Description                                  |   Type   |
+|-----------------|-----------|------------|------------------------------------------------------------------------------|----------|
+| fetchPrograms   | Switch    | Read-write | Trigger to manually fetch the updated module programs list from Smarther API | Advanced |
 
 ## Full Example
 

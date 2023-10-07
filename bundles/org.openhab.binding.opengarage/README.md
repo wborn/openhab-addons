@@ -22,13 +22,13 @@ As a minimum, the IP address is needed:
 
 ## Channels
 
-| channel              | type          | description                                                                           |
-|----------------------|---------------|---------------------------------------------------------------------------------------|
-| distance             | Number:Length | Distance reading from the OpenGarage controller (default in cm)                       |
-| status-switch        | Switch        | Door status (OFF = Closed, ON = Open), set "invert=true" on channel to invert switch  |
-| status-contact       | Contact       | Door status (Open or Closed)                                                          |
-| status-rollershutter | Rollershutter | Door status (DOWN = Closed, UP = Open)                                                |
-| vehicle-status       | Number        | Report vehicle presence (0=Not Detected, 1=Detected, 2=Unknown)                       |
+|       channel        |     type      |                                     description                                      |
+|----------------------|---------------|--------------------------------------------------------------------------------------|
+| distance             | Number:Length | Distance reading from the OpenGarage controller (default in cm)                      |
+| status-switch        | Switch        | Door status (OFF = Closed, ON = Open), set "invert=true" on channel to invert switch |
+| status-contact       | Contact       | Door status (Open or Closed)                                                         |
+| status-rollershutter | Rollershutter | Door status (DOWN = Closed, UP = Open)                                               |
+| vehicle-status       | Number        | Report vehicle presence (0=Not Detected, 1=Detected, 2=Unknown)                      |
 
 ## Full Example
 
@@ -59,3 +59,4 @@ Rollershutter item=OpenGarage_Status_Rollershutter icon="garage"
 Text item=OpenGarage_Distance label="OG distance"
 Text item=OpenGarage_Vehicle label="Vehicle Presence"
 ```
+

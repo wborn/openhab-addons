@@ -30,14 +30,14 @@ The binding automatically discovers weather stations and forecasts for nearby pl
 
 ### `observation` thing configuration
 
-| Parameter | Type | Required | Description                                                                                                                                                                                                                                                                                                                                                         | Example                              |
-| --------- | ---- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| Parameter | Type | Required |                                                                                                                                                                             Description                                                                                                                                                                             |               Example                |
+|-----------|------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | `fmisid`  | text | ✓        | FMI Station ID. You can FMISID of see all weathers stations at [FMI web site](https://en.ilmatieteenlaitos.fi/observation-stations?p_p_id=stationlistingportlet_WAR_fmiwwwweatherportlets&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-4&p_p_col_count=1&_stationlistingportlet_WAR_fmiwwwweatherportlets_stationGroup=WEATHER#station-listing) | `"852678"` for Espoo Nuuksio station |
 
 ### `forecast` thing configuration
 
-| Parameter  | Type | Required | Description                                                                                          | Example                           |
-| ---------- | ---- | -------- | ---------------------------------------------------------------------------------------------------- | --------------------------------- |
+| Parameter  | Type | Required |                                             Description                                              |                Example                |
+|------------|------|----------|------------------------------------------------------------------------------------------------------|---------------------------------------|
 | `location` | text | ✓        | Latitude longitude location for the forecast. The parameter is given in format `LATITUDE,LONGITUDE`. | `"60.192059, 24.945831"` for Helsinki |
 
 ## Channels
@@ -48,8 +48,8 @@ Observation and forecast things provide slightly different details on weather.
 
 Observation channels are grouped in single group, `current`.
 
-| Channel ID        | Item Type              | Description                                                                                                                                                                       |
-| ----------------- | ---------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    Channel ID     |       Item Type        |                                                                                    Description                                                                                    |
+|-------------------|------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `time`            | `DateTime`             | Observation time                                                                                                                                                                  |
 | `temperature`     | `Number:Temperature`   | Air temperature                                                                                                                                                                   |
 | `humidity`        | `Number:Dimensionless` | Relative Humidity                                                                                                                                                                 |
@@ -81,8 +81,8 @@ You can check the exact forecast time by using the `time` channel.
 
 Since forecasts are updated at certain times of the day, the last forecast values might be unavailable (`UNDEF`). Typically forecasts between now and 44 hours should be available at all times.
 
-| Channel ID                | Item Type              | Description                                                                                                                                                                                       |
-| ------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|        Channel ID         |       Item Type        |                                                                                            Description                                                                                            |
+|---------------------------|------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `time`                    | `DateTime`             | Date of data forecasted                                                                                                                                                                           |
 | `temperature`             | `Number:Temperature`   | Forecasted air temperature                                                                                                                                                                        |
 | `humidity`                | `Number:Dimensionless` | Forecasted relative Humidity                                                                                                                                                                      |
@@ -124,23 +124,23 @@ import json
 with open(fname) as f: j = json.load(f)
 observation = j['fmiweather:observation:station_Helsinki_Kumpula']
 for channel in observation['value']['channels']:
-    channel_id = ':'.join(channel['uid']['segments'])
-    label = channel['label']    
-    item_type = channel['acceptedItemType']
-    if 'clouds' in channel_id:
-        unit = '%.0f %unit%'
-    else if item_type == 'DateTime':
-        unit = '%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS'
-    else:
-        unit = '%.1f %unit%'
-    channel_name = channel['uid']['segments'][-1].split('#')[1]
-    item_name = 'Helsinki'
-    for item_name_part in channel_name.split('-'):
-        item_name += item_name_part[0].upper()
-        item_name += item_name_part[1:]
-    
-    print(('{item_type} {item_name} ' +
-     '"{label} [{unit}]" {{ channel="{channel_id}" }}').format(**locals()))    
+channel_id = ':'.join(channel['uid']['segments'])
+label = channel['label']    
+item_type = channel['acceptedItemType']
+if 'clouds' in channel_id:
+unit = '%.0f %unit%'
+else if item_type == 'DateTime':
+unit = '%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS'
+else:
+unit = '%.1f %unit%'
+channel_name = channel['uid']['segments'][-1].split('#')[1]
+item_name = 'Helsinki'
+for item_name_part in channel_name.split('-'):
+item_name += item_name_part[0].upper()
+item_name += item_name_part[1:]
+
+print(('{item_type} {item_name} ' +
+'"{label} [{unit}]" {{ channel="{channel_id}" }}').format(**locals()))    
 -->
 
 ```java
@@ -169,51 +169,51 @@ import json
 import urllib.request
 
 with urllib.request.urlopen('http://localhost:8080/rest/things') as response:
-   response = response.read()
+response = response.read()
 
 j = json.loads(response)
 for forecast in j:
-    if forecast['UID'] == 'fmiweather:forecast:forecast_Helsinki':
-        break
+if forecast['UID'] == 'fmiweather:forecast:forecast_Helsinki':
+break
 else:
-    raise ValueError('thing not found!')
-    
+raise ValueError('thing not found!')
+
 prev_group = 'None'
 for channel in forecast['channels']:
-    group_name, channel_name = channel['uid'].rsplit(':', 1)[-1].split('#')    
-    channel_id = channel['uid']
-    label = channel['label'] + group_name.replace('forecast', ' ').replace('Hours', 'hour ')
-    
-    item_type = channel['itemType']
-    if 'cloud' in channel_id:
-        unit = '%.0f %unit%'
-    else if item_type == 'DateTime':
-        unit = '%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS'
-    else:
-        unit = '%.1f %unit%'
-    
-    item_name = 'Helsinki'
-    item_name += group_name[0].upper() + group_name[1:]
-    for item_name_part in channel_name.split('-'):
-        item_name += item_name_part[0].upper()
-        item_name += item_name_part[1:]        
-    
-    icon = ''
-    if icon == '': icon = '<wind>' if 'wind' in item_name.lower() else ''
-    if icon == '': icon = '<humidity>' if 'humidity' in item_name.lower() else ''
-    if icon == '': icon = '<pressure>' if 'pressure' in item_name.lower() else ''
-    if icon == '': icon = '<sun_clouds>' if 'weatherid' in item_name.lower() else ''
-    if icon == '': icon = '<time>' if 'time' in item_name.lower() else ''
-    if icon == '': icon = '<temperature>' if 'tempe' in item_name.lower() else ''
-    if icon == '': icon = '<rain>' if 'precipi' in item_name.lower() else ''
-    
-    if prev_group != group_name:
-        print('')
-    prev_group = group_name
-        
-    
-    print(('{item_type} {item_name} ' +
-     '"{label} [{unit}]" {icon} {{ channel="{channel_id}" }}').format(**locals()))       
+group_name, channel_name = channel['uid'].rsplit(':', 1)[-1].split('#')    
+channel_id = channel['uid']
+label = channel['label'] + group_name.replace('forecast', ' ').replace('Hours', 'hour ')
+
+item_type = channel['itemType']
+if 'cloud' in channel_id:
+unit = '%.0f %unit%'
+else if item_type == 'DateTime':
+unit = '%1$tY-%1$tm-%1$tdT%1$tH:%1$tM:%1$tS'
+else:
+unit = '%.1f %unit%'
+
+item_name = 'Helsinki'
+item_name += group_name[0].upper() + group_name[1:]
+for item_name_part in channel_name.split('-'):
+item_name += item_name_part[0].upper()
+item_name += item_name_part[1:]        
+
+icon = ''
+if icon == '': icon = '<wind>' if 'wind' in item_name.lower() else ''
+if icon == '': icon = '<humidity>' if 'humidity' in item_name.lower() else ''
+if icon == '': icon = '<pressure>' if 'pressure' in item_name.lower() else ''
+if icon == '': icon = '<sun_clouds>' if 'weatherid' in item_name.lower() else ''
+if icon == '': icon = '<time>' if 'time' in item_name.lower() else ''
+if icon == '': icon = '<temperature>' if 'tempe' in item_name.lower() else ''
+if icon == '': icon = '<rain>' if 'precipi' in item_name.lower() else ''
+
+if prev_group != group_name:
+print('')
+prev_group = group_name
+
+
+print(('{item_type} {item_name} ' +
+'"{label} [{unit}]" {icon} {{ channel="{channel_id}" }}').format(**locals()))       
 -->
 
 ```java
@@ -1463,3 +1463,4 @@ sitemap fmi_weather label="FMI Weather" {
     }
 }
 ```
+

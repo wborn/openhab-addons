@@ -28,10 +28,10 @@ org.openhab.voice.porcupineks:sensitivity=0.5
 
 ## Magic Word Configuration
 
-The magic word to spot is gathered from your 'Voice' configuration. 
+The magic word to spot is gathered from your 'Voice' configuration.
 The default english keyword models are loaded in the addon (also the english language model) so you can use those without adding anything else.
 
-Note that you can use the pico voice platform to generate your own keyword models. 
+Note that you can use the pico voice platform to generate your own keyword models.
 To use them, you should place the generated file under '\<openHAB userdata\>/porcupine' and configure your magic word to match the file name replacing spaces with '_' and adding the extension '.ppn'.
 As an example, the file generated for the keyword "ok openhab" will be named 'ok_openhab.ppn'.
 
@@ -56,10 +56,9 @@ Remember that they only work with the English language model. (read bellow secti
 * porcupine
 * terminator
 
-
 ## Language support
 
-This service currently supports English, German, French and Spanish. 
+This service currently supports English, German, French and Spanish.
 
 Only the English model binary is included with the addon and will be used if the one for your configured language is not found under '\<openHAB userdata\>/porcupine'.
 
@@ -84,3 +83,4 @@ org.openhab.voice:defaultKS=porcupineks
 org.openhab.voice:keyword=picovoice
 org.openhab.voice:listeningItem=myItemForDialog
 ```
+

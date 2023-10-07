@@ -16,8 +16,8 @@ Write mode needs to be enabled in the thing configuration and for safety reasons
 
 This binding supports direct serial port connection (RS-485 adapter needed) to heat pump but also UDP connection via NibeGW software.
 
-| Thing type      | Description                                      |
-| --------------- | ------------------------------------------------ |
+|   Thing type    |                   Description                    |
+|-----------------|--------------------------------------------------|
 | f1x45-serial    | Serial port connected F1145 and F1245 Heat Pumps |
 | f1x45-udp       | UDP connected Nibe F1145 and F1245 Heat Pumps    |
 | f1x45-simulator | Simulator for Nibe F1145 and F1245 Heat Pumps    |
@@ -132,8 +132,8 @@ nibeheatpump:f1x45-udp:myPump [hostName="192.168.1.50", port=9999, readCommandsP
 
 All supported configuration parameters for UDP connection:
 
-| Property                       | Type    | Default | Required | Description                                                                                                                                                                  |
-| ------------------------------ | ------- | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|            Property            |  Type   | Default | Required |                                                                                 Description                                                                                  |
+|--------------------------------|---------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | hostName                       | String  |         | Yes      | Network address of the Nibe heat pump                                                                                                                                        |
 | port                           | Integer | 9999    | No       | UDP port to listening data packets from the NibeGW                                                                                                                           |
 | readCommandsPort               | Integer | 9999    | No       | UDP port to send read commands to the NibeGW                                                                                                                                 |
@@ -154,8 +154,8 @@ nibeheatpump:f1x45-serial:myPump [serialPort="/dev/ttyUSB0"]
 
 All supported configuration parameters for serial port connection:
 
-| Property                       | Type    | Default | Required | Description                                                                                                                                                                  |
-| ------------------------------ | ------- | ------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|            Property            |  Type   | Default | Required |                                                                                 Description                                                                                  |
+|--------------------------------|---------|---------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | serialPort                     | String  |         | Yes      | Network address of the Nibe heat pump                                                                                                                                        |
 | refreshInterval                | Integer | 60      | No       | States how often a refresh shall occur in seconds                                                                                                                            |
 | enableReadCommands             | Boolean | false   | No       | Enable read commands to read additional variable from Nibe heat pump which are not included to data readout messages. This is experimental feature, use it at your own risk! |
@@ -172,8 +172,8 @@ All supported configuration parameters for serial port connection:
 
 This binding currently supports following channels for F1x45 pump models:
 
-| Channel Type ID | Item Type | Min         | Max        | Type    | Description                                              | Values                                                                                                                                                             |
-| --------------- | --------- | ----------- | ---------- | ------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Channel Type ID | Item Type |     Min     |    Max     |  Type   |                       Description                        |                                                                               Values                                                                               |
+|-----------------|-----------|-------------|------------|---------|----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 40004           | Number    | -32767      | 32767      | Setting | BT1 Outdoor temp                                         |                                                                                                                                                                    |
 | 40005           | Number    | -32767      | 32767      | Setting | EP23-BT2 Supply temp S4                                  |                                                                                                                                                                    |
 | 40006           | Number    | -32767      | 32767      | Setting | EP22-BT2 Supply temp S3                                  |                                                                                                                                                                    |
@@ -922,8 +922,8 @@ This binding currently supports following channels for F1x45 pump models:
 
 This binding currently supports following channels for F1x55 pump models:
 
-| Channel Type ID | Item Type | Min         | Max        | Type    | Description                                              | Values                                                                                                                                                             |
-| --------------- | --------- | ----------- | ---------- | ------- | -------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Channel Type ID | Item Type |     Min     |    Max     |  Type   |                       Description                        |                                                                               Values                                                                               |
+|-----------------|-----------|-------------|------------|---------|----------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 32260           | Number    | 0           | 255        | Setting | NIBE Inverter 216-state                                  |                                                                                                                                                                    |
 | 40004           | Number    | -32767      | 32767      | Setting | BT1 Outdoor Temperature                                  |                                                                                                                                                                    |
 | 40005           | Number    | -32767      | 32767      | Setting | EP23-BT2 Supply temp S4                                  |                                                                                                                                                                    |

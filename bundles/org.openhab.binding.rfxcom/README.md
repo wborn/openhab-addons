@@ -96,8 +96,8 @@ Bridge rfxcom:tcpbridge:sunflower [ host="sunflower", port=10001 ] {
 
 ## Bridge Configuration
 
-| Applies to                        | Parameter Label                | Parameter ID           | Description                                                              | Required | Default |
-| --------------------------------- | ------------------------------ | ---------------------- | ------------------------------------------------------------------------ | -------- | ------- |
+|            Applies to             |        Parameter Label         |      Parameter ID      |                               Description                                | Required | Default |
+|-----------------------------------|--------------------------------|------------------------|--------------------------------------------------------------------------|----------|---------|
 | all                               | Transceiver type               | transceiverType        | Type of the transceiver                                                  | false    |         |
 | all                               | Disable discovery              | disableDiscovery       | Prevent unknown devices from being added to the inbox                    | true     | false   |
 | all                               | Skip transceiver configuration | ignoreConfig           | Do not send config. command, other config will be ignored                | true     | true    |
@@ -144,8 +144,8 @@ The deviceId is used both when receiving and transmitting messages, the subType 
 
 This binding currently supports following channel types:
 
-| Channel Type ID | Item Type     | Description                                                                        |
-| --------------- | ------------- | ---------------------------------------------------------------------------------- |
+| Channel Type ID |   Item Type   |                                    Description                                     |
+|-----------------|---------------|------------------------------------------------------------------------------------|
 | chimesound      | Number        | Id of the chime sound                                                              |
 | command         | Switch        | Command channel.                                                                   |
 | commandId       | Number        | Id of the command (between 0 and 255).                                             |
@@ -184,8 +184,8 @@ This binding currently supports following channel types:
 
 The binding uses the following system channels:
 
-| Channel Type ID        | Item Type | Description                                                                                                                                                                                                           |
-| ---------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    Channel Type ID     | Item Type |                                                                                                      Description                                                                                                      |
+|------------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | system.signal-strength | Number    | Represents signal strength of a device as a Number with values 0, 1, 2, 3 or 4; 0 being worst strength and 4 being best strength.                                                                                     |
 | system.battery-level   | Number    | Represents the battery level as a percentage (0-100%). Bindings for things supporting battery level in a different format (eg 4 levels) should convert to a percentage to provide a consistent battery level reading. |
 | system.low-battery     | Switch    | Represents a low battery warning with possible values on/off.                                                                                                                                                         |
@@ -245,8 +245,8 @@ A BBQ Temperature device
 
 #### Channels
 
-| Name            | Channel Type                        | Item Type | Remarks |
-| --------------- | ----------------------------------- | --------- | ------- |
+|      Name       |            Channel Type             | Item Type | Remarks |
+|-----------------|-------------------------------------|-----------|---------|
 | foodTemperature | [temperature](#channels)            | Number    |         |
 | bbqTemperature  | [temperature](#channels)            | Number    |         |
 | signalLevel     | [system.signal-strength](#channels) | Number    |         |
@@ -264,8 +264,8 @@ A Blinds1 device. Not all blinds support all commands.
 
 #### Channels
 
-| name         | Channel Type                        | Item type     | Remarks |
-| ------------ | ----------------------------------- | ------------- | ------- |
+|     name     |            Channel Type             |   Item type   | Remarks |
+|--------------|-------------------------------------|---------------|---------|
 | command      | [command](#channels)                | Switch        |         |
 | shutter      | [shutter](#channels)                | Rollershutter |         |
 | signalLevel  | [system.signal-strength](#channels) | Number        |         |
@@ -306,8 +306,8 @@ A Chime device
 
 #### Channels
 
-| Name        | Channel Type                        | Item Type | Remarks                                 |
-| ----------- | ----------------------------------- | --------- | --------------------------------------- |
+|    Name     |            Channel Type             | Item Type |                 Remarks                 |
+|-------------|-------------------------------------|-----------|-----------------------------------------|
 | chimeSound  | [chimesound](#channels)             | Number    | not all devices support multiple sounds |
 | signalLevel | [system.signal-strength](#channels) | Number    |                                         |
 
@@ -330,8 +330,8 @@ A Current sensing device.
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type | Remarks |
-| ------------ | ----------------------------------- | --------- | ------- |
+|     Name     |            Channel Type             | Item Type | Remarks |
+|--------------|-------------------------------------|-----------|---------|
 | channel1Amps | [instantamp](#channels)             | Number    |         |
 | channel2Amps | [instantamp](#channels)             | Number    |         |
 | channel3Amps | [instantamp](#channels)             | Number    |         |
@@ -353,8 +353,8 @@ A CurrentEnergy device
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type | Remarks |
-| ------------ | ----------------------------------- | --------- | ------- |
+|     Name     |            Channel Type             | Item Type | Remarks |
+|--------------|-------------------------------------|-----------|---------|
 | channel1Amps | [instantamp](#channels)             | Number    |         |
 | channel2Amps | [instantamp](#channels)             | Number    |         |
 | channel3Amps | [instantamp](#channels)             | Number    |         |
@@ -377,8 +377,8 @@ A Curtain1 device
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type     | Remarks |
-| ------------ | ----------------------------------- | ------------- | ------- |
+|     Name     |            Channel Type             |   Item Type   | Remarks |
+|--------------|-------------------------------------|---------------|---------|
 | command      | [command](#channels)                | Switch        |         |
 | shutter      | [shutter](#channels)                | Rollershutter |         |
 | signalLevel  | [system.signal-strength](#channels) | Number        |         |
@@ -399,8 +399,8 @@ A DateTime device
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type | Remarks |
-| ------------ | ----------------------------------- | --------- | ------- |
+|     Name     |            Channel Type             | Item Type | Remarks |
+|--------------|-------------------------------------|-----------|---------|
 | dateTime     | [datetime](#channels)               | DateTime  |         |
 | signalLevel  | [system.signal-strength](#channels) | Number    |         |
 | batteryLevel | [system.battery-level](#channels)   | Number    |         |
@@ -424,8 +424,8 @@ A Fan device
 
 ##### Channels
 
-| Name        | Channel Type                        | Item Type | Remarks                    |
-| ----------- | ----------------------------------- | --------- | -------------------------- |
+|    Name     |            Channel Type             | Item Type |          Remarks           |
+|-------------|-------------------------------------|-----------|----------------------------|
 | command     | [command](#channels)                | Switch    |                            |
 | fanSpeed    | [fanspeedstring](#channels)         | String    | Options: HI, MED, LOW, OFF |
 | fanLight    | [fanlight](#channels)               | Switch    |                            |
@@ -457,8 +457,8 @@ A Falmec Fan device
 
 ##### Channels
 
-| Name        | Channel Type                        | Item Type | Remarks              |
-| ----------- | ----------------------------------- | --------- | -------------------- |
+|    Name     |            Channel Type             | Item Type |       Remarks        |
+|-------------|-------------------------------------|-----------|----------------------|
 | command     | [command](#channels)                | Switch    |                      |
 | fanSpeed    | [fanspeed](#channels)               | Number    | Options: 1,2,3,4,5,6 |
 | fanLight    | [fanlight](#channels)               | Switch    |                      |
@@ -478,8 +478,8 @@ A Lucci Air DC fan device
 
 ##### Channels
 
-| Name            | Channel Type                        | Item Type     | Remarks                                                      |
-| --------------- | ----------------------------------- | ------------- | ------------------------------------------------------------ |
+|      Name       |            Channel Type             |   Item Type   |                           Remarks                            |
+|-----------------|-------------------------------------|---------------|--------------------------------------------------------------|
 | commandString   | [commandString](#channels)          | String        | Options: POWER, UP, DOWN, LIGHT, REVERSE, NATURAL_FLOW, PAIR |
 | fanSpeedControl | [fanspeedcontrol](#channels)        | RollerShutter | Options: UP / DOWN                                           |
 | fanSpeed        | [fanspeed](#channels)               | Number        | Options: 1,2,3,4,5,6                                         |
@@ -500,8 +500,8 @@ A Lucci Air DC II fan device
 
 ##### Channels
 
-| Name          | Channel Type                        | Item Type | Remarks                            |
-| ------------- | ----------------------------------- | --------- | ---------------------------------- |
+|     Name      |            Channel Type             | Item Type |              Remarks               |
+|---------------|-------------------------------------|-----------|------------------------------------|
 | command       | [command](#channels)                | Switch    |                                    |
 | commandString | [commandString](#channels)          | String    | Options: POWER_OFF, LIGHT, REVERSE |
 | fanSpeed      | [fanspeed](#channels)               | Number    | Options: 1,2,3,4,5,6               |
@@ -522,8 +522,8 @@ A Novy extractor fan.
 
 ##### Channels
 
-| Name            | Channel Type                        | Item Type     | Remarks                                                          |
-| --------------- | ----------------------------------- | ------------- | ---------------------------------------------------------------- |
+|      Name       |            Channel Type             |   Item Type   |                             Remarks                              |
+|-----------------|-------------------------------------|---------------|------------------------------------------------------------------|
 | command         | [command](#channels)                | Switch        |                                                                  |
 | commandString   | [commandString](#channels)          | String        | Options: POWER, UP, DOWN, LIGHT, LEARN, RESET_FILTER, MOOD_LIGHT |
 | fanSpeedControl | [fanspeedcontrol](#channels)        | RollerShutter | Options: UP / DOWN                                               |
@@ -544,8 +544,8 @@ An Energy device
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type | Remarks |
-| ------------ | ----------------------------------- | --------- | ------- |
+|     Name     |            Channel Type             | Item Type | Remarks |
+|--------------|-------------------------------------|-----------|---------|
 | instantPower | [instantpower](#channels)           | Number    |         |
 | totalUsage   | [totalusage](#channels)             | Number    |         |
 | instantAmp   | [instantamp](#channels)             | Number    |         |
@@ -569,8 +569,8 @@ A Humidity device
 
 #### Channels
 
-| Name           | Channel Type                        | Item Type | Remarks |
-| -------------- | ----------------------------------- | --------- | ------- |
+|      Name      |            Channel Type             | Item Type | Remarks |
+|----------------|-------------------------------------|-----------|---------|
 | humidity       | [humidity](#channels)               | Number    |         |
 | humidityStatus | [humiditystatus](#channels)         | String    |         |
 | signalLevel    | [system.signal-strength](#channels) | Number    |         |
@@ -593,8 +593,8 @@ A Lighting1 device
 
 #### Channels
 
-| Name              | Channel Type                        | Item Type | Remarks |
-| ----------------- | ----------------------------------- | --------- | ------- |
+|       Name        |            Channel Type             | Item Type | Remarks |
+|-------------------|-------------------------------------|-----------|---------|
 | command           | [command](#channels)                | Switch    |         |
 | commandString\*\* | [commandString](#channels)          | String    |         |
 | contact           | [contact](#channels)                | Contact   |         |
@@ -636,8 +636,8 @@ A Lighting2 device
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type | Remarks |
-| ------------ | ----------------------------------- | --------- | ------- |
+|     Name     |            Channel Type             | Item Type | Remarks |
+|--------------|-------------------------------------|-----------|---------|
 | command      | [command](#channels)                | Switch    |         |
 | contact      | [command](#channels)                | Contact   |         |
 | dimmingLevel | [dimminglevel](#channels)           | Dimmer    |         |
@@ -674,8 +674,8 @@ Until then, commands 1, 3, 5-13 and 15 are considered ON and 0, 2, 4 and 14 are 
 
 #### Channels
 
-| Name        | Channel Type                        | Item Type | Remarks |
-| ----------- | ----------------------------------- | --------- | ------- |
+|    Name     |            Channel Type             | Item Type | Remarks |
+|-------------|-------------------------------------|-----------|---------|
 | command     | [command](#channels)                | Switch    |         |
 | commandId   | [commandId](#channels)              | Number    |         |
 | signalLevel | [system.signal-strength](#channels) | Number    |         |
@@ -703,8 +703,8 @@ Until then, commands 1, 3, 5-13 and 15 are considered ON and 0, 2, 4 and 14 are 
 There are a number of ways to detect the commandId values for your device.
 
 - You can turn on DEBUG messages for the rfxcom binding by adding the line `<Logger level="DEBUG" name="org.openhab.binding.rfxcom"/>` to your `log4j2.xml`.
-You will then be able to see the commandId in the log file when you trigger the device.  
-- You can link a Number Item to the commandId channel. The item will be updated with the detected commandId when you trigger the device.  
+  You will then be able to see the commandId in the log file when you trigger the device.
+- You can link a Number Item to the commandId channel. The item will be updated with the detected commandId when you trigger the device.
 - You can use RFXmngr to look at the data from the device. Use the last letter/number of the hexadecimal "Code", and convert it from hexadecimal to decimal.
 
 #### Examples
@@ -731,8 +731,8 @@ Switch SocketB                    {channel="rfxcom:lighting4:238adf67:17745b:com
 
 These are some commandIds from the field that may match your devices.
 
-| Brand     | What               | Action       | Command ID | Source                                                                                                 |
-| --------- | ------------------ | ------------ | ---------- | ------------------------------------------------------------------------------------------------------ |
+|   Brand   |        What        |    Action    | Command ID |                                                 Source                                                 |
+|-----------|--------------------|--------------|------------|--------------------------------------------------------------------------------------------------------|
 | Kerui     | Motion Sensor      | Motion       | 10         | [#3103](https://github.com/openhab/openhab-addons/issues/3103)                                         |
 | Kerui     | Door Contact       | door open    | 14         | [#3103](https://github.com/openhab/openhab-addons/issues/3103)                                         |
 | Kerui     | Door Contact       | door closed  | 7          | [#3103](https://github.com/openhab/openhab-addons/issues/3103)                                         |
@@ -754,8 +754,8 @@ A Lighting5 device
 
 #### Channels
 
-| Name              | Channel Type                        | Item Type | Remarks |
-| ----------------- | ----------------------------------- | --------- | ------- |
+|       Name        |            Channel Type             | Item Type | Remarks |
+|-------------------|-------------------------------------|-----------|---------|
 | command           | [command](#channels)                | Switch    |         |
 | commandString\*\* | [commandString](#channels)          | String    |         |
 | contact           | [command](#channels)                | Contact   |         |
@@ -817,8 +817,8 @@ A Lighting6 device
 
 #### Channels
 
-| Name        | Channel Type                        | Item Type | Remarks |
-| ----------- | ----------------------------------- | --------- | ------- |
+|    Name     |            Channel Type             | Item Type | Remarks |
+|-------------|-------------------------------------|-----------|---------|
 | command     | [command](#channels)                | Switch    |         |
 | contact     | [command](#channels)                | Contact   |         |
 | signalLevel | [system.signal-strength](#channels) | Number    |         |
@@ -837,8 +837,8 @@ A Rain device
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type | Remarks |
-| ------------ | ----------------------------------- | --------- | ------- |
+|     Name     |            Channel Type             | Item Type | Remarks |
+|--------------|-------------------------------------|-----------|---------|
 | rainRate     | [rainrate](#channels)               | Number    |         |
 | rainTotal    | [raintotal](#channels)              | Number    |         |
 | signalLevel  | [system.signal-strength](#channels) | Number    |         |
@@ -868,8 +868,8 @@ You can also send raw messages by recording the pulses of an incoming message an
 
 #### Channels
 
-| Name       | Channel Type            | Item Type | Remarks |
-| ---------- | ----------------------- | --------- | ------- |
+|    Name    |      Channel Type       | Item Type | Remarks |
+|------------|-------------------------|-----------|---------|
 | rawMessage | [rawmessage](#channels) | String    |         |
 | rawPayload | [rawpayload](#channels) | String    |         |
 | pulses     | [pulses](#channels)     | String    |         |
@@ -888,25 +888,25 @@ You can also send raw messages by recording the pulses of an incoming message an
   - Number of times to repeat message on transmit. Defaults to 5.
 - onPulses - On Pulses
   - Pulses to send for an ON command. Space delimited pulse lengths in usec.
-  Must be an even number of pulse lengths, with a maximum of 142 total pulses.
-  Max pulse length is 65535. Pulses of value 0 will be transmitted as 10000. See the RFXtfx user guide for more information.
+    Must be an even number of pulse lengths, with a maximum of 142 total pulses.
+    Max pulse length is 65535. Pulses of value 0 will be transmitted as 10000. See the RFXtfx user guide for more information.
 - offPulses - Off Pulses
   - Pulses to send for an OFF command.
-  Space delimited pulse lengths in usec.
-  Must be an even number of pulse lengths, with a maximum of 142 total pulses.
-  Max pulse length is 65535. Pulses of value 0 will be transmitted as 10000. See the RFXtfx user guide for more information.
+    Space delimited pulse lengths in usec.
+    Must be an even number of pulse lengths, with a maximum of 142 total pulses.
+    Max pulse length is 65535. Pulses of value 0 will be transmitted as 10000. See the RFXtfx user guide for more information.
 - openPulses - Open Pulses
   - Pulses to send for an OPEN command.
-  Space delimited pulse lengths in usec.
-  Must be an even number of pulse lengths, with a maximum of 142 total pulses.
-  Max pulse length is 65535. Pulses of value 0 will be transmitted as 10000. See the RFXtfx user guide for more information.
+    Space delimited pulse lengths in usec.
+    Must be an even number of pulse lengths, with a maximum of 142 total pulses.
+    Max pulse length is 65535. Pulses of value 0 will be transmitted as 10000. See the RFXtfx user guide for more information.
 - closedPulses - Closed Pulses
   - Pulses to send for an CLOSED command.
-  Space delimited pulse lengths in usec.
-  Must be an even number of pulse lengths, with a maximum of 142 total pulses.
-  Max pulse length is 65535.
-  Pulses of value 0 will be transmitted as 10000.
-  See the RFXtfx user guide for more information.
+    Space delimited pulse lengths in usec.
+    Must be an even number of pulse lengths, with a maximum of 142 total pulses.
+    Max pulse length is 65535.
+    Pulses of value 0 will be transmitted as 10000.
+    See the RFXtfx user guide for more information.
 
 #### Examples
 
@@ -917,39 +917,35 @@ You can do this using RFXmngr, or you can do this using openhab:
 
 1. Set up a RAW thing to receive raw pulses:
 
-    ```java
-    Bridge rfxcom:tcpbridge:rfxtrx0 [ host="192.168.42.10", port=10001, enableUndecoded=true ] {
-        Thing raw RAW [ deviceId="RAW", subType="RAW_PACKET1" ]
-    }
-    ```
+   ```java
+   Bridge rfxcom:tcpbridge:rfxtrx0 [ host="192.168.42.10", port=10001, enableUndecoded=true ] {
+       Thing raw RAW [ deviceId="RAW", subType="RAW_PACKET1" ]
+   }
+   ```
+2. Add an item to see what the pulses are:
 
-1. Add an item to see what the pulses are:
-
-    ```java
-    String RawPulses { channel="rfxcom:raw:rfxtrx0:RAW:pulses" }
-    ```
-
-1. Activate the device and look at the pulses that are set.
-  Look for a higher value in the pulses, that is likely to be a gap for a repeat.
-  Take the pulses from before the gap. Make sure there are an even number, and if not, drop a 0 on the end.
+   ```java
+   String RawPulses { channel="rfxcom:raw:rfxtrx0:RAW:pulses" }
+   ```
+3. Activate the device and look at the pulses that are set.
+   Look for a higher value in the pulses, that is likely to be a gap for a repeat.
+   Take the pulses from before the gap. Make sure there are an even number, and if not, drop a 0 on the end.
 
 Now you have the pulses, set up a send device:
 
 1. Set up a RAW thing to send a command:
 
-    ```java
-    Bridge rfxcom:tcpbridge:rfxtrx0 [ host="192.168.42.10", port=10001, enableUndecoded=true ] {
-        Thing raw MySwitch [ deviceId="MySwitch", subType="RAW_PACKET1", onPulses="100 200 300 0", offPulses="400 500 600 0" ]
-    }
-    ```
+   ```java
+   Bridge rfxcom:tcpbridge:rfxtrx0 [ host="192.168.42.10", port=10001, enableUndecoded=true ] {
+       Thing raw MySwitch [ deviceId="MySwitch", subType="RAW_PACKET1", onPulses="100 200 300 0", offPulses="400 500 600 0" ]
+   }
+   ```
+2. Add an item to send the command:
 
-1. Add an item to send the command:
-
-    ```java
-    Switch MySwitch { channel="rfxcom:raw:rfxtrx0:MySwitch:command" }
-    ```
-
-1. Use the command to send the raw message.
+   ```java
+   Switch MySwitch { channel="rfxcom:raw:rfxtrx0:MySwitch:command" }
+   ```
+3. Use the command to send the raw message.
 
 ### rfxsensor - RFXCOM RFXSensor
 
@@ -957,8 +953,8 @@ A RFXSensor sensor
 
 #### Channels
 
-| Name             | Channel Type                        | Item Type | Remarks |
-| ---------------- | ----------------------------------- | --------- | ------- |
+|       Name       |            Channel Type             | Item Type | Remarks |
+|------------------|-------------------------------------|-----------|---------|
 | pressure         | [pressure](#channels)               | Number    |         |
 | humidity         | [humidity](#channels)               | Number    |         |
 | referenceVoltage | [voltage](#channels)                | Number    |         |
@@ -977,8 +973,8 @@ A Rfy device
 
 #### Channels
 
-| Name            | Channel Type                        | Item Type     | Remarks                                                                     |
-| --------------- | ----------------------------------- | ------------- | --------------------------------------------------------------------------- |
+|      Name       |            Channel Type             |   Item Type   |                                   Remarks                                   |
+|-----------------|-------------------------------------|---------------|-----------------------------------------------------------------------------|
 | command         | [command](#channels)                | Switch        | Sends a program command to pair with a device when switched from off to on. |
 | program         | [command](#channels)                | Switch        | Send Program Command                                                        |
 | shutter         | [shutter](#channels)                | Rollershutter | Shutter                                                                     |
@@ -1001,8 +997,8 @@ A Security1 device
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type | Remarks |
-| ------------ | ----------------------------------- | --------- | ------- |
+|     Name     |            Channel Type             | Item Type | Remarks |
+|--------------|-------------------------------------|-----------|---------|
 | status       | [status](#channels)                 | String    |         |
 | contact      | [command](#channels)                | Contact   |         |
 | motion       | [motion](#channels)                 | Switch    |         |
@@ -1033,8 +1029,8 @@ A Temperature-Humidity-Barometric device
 
 #### Channels
 
-| Name           | Channel Type                        | Item Type | Remarks |
-| -------------- | ----------------------------------- | --------- | ------- |
+|      Name      |            Channel Type             | Item Type | Remarks |
+|----------------|-------------------------------------|-----------|---------|
 | temperature    | [temperature](#channels)            | Number    |         |
 | humidity       | [humidity](#channels)               | Number    |         |
 | humidityStatus | [humiditystatus](#channels)         | String    |         |
@@ -1048,7 +1044,6 @@ A Temperature-Humidity-Barometric device
 
 - deviceId - Device Id
   - Sensor Id. Example 59648
-
 - subType - Sub Type
   - Specifies device sub type.
     - THB1 - BTHR918, BTHGN129
@@ -1060,8 +1055,8 @@ A Temperature-Humidity device
 
 #### Channels
 
-| Name           | Channel Type                        | Item Type | Remarks |
-| -------------- | ----------------------------------- | --------- | ------- |
+|      Name      |            Channel Type             | Item Type | Remarks |
+|----------------|-------------------------------------|-----------|---------|
 | temperature    | [temperature](#channels)            | Number    |         |
 | humidity       | [humidity](#channels)               | Number    |         |
 | humidityStatus | [humiditystatus](#channels)         | String    |         |
@@ -1073,7 +1068,6 @@ A Temperature-Humidity device
 
 - deviceId - Device Id
   - Sensor Id. Example 56923
-
 - subType - Sub Type
   - Specifies device sub type.
     - TH1 - THGN122/123, THGN132, THGR122/228/238/268
@@ -1096,8 +1090,8 @@ A Temperature-Rain device
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type | Remarks |
-| ------------ | ----------------------------------- | --------- | ------- |
+|     Name     |            Channel Type             | Item Type | Remarks |
+|--------------|-------------------------------------|-----------|---------|
 | temperature  | [temperature](#channels)            | Number    |         |
 | rainTotal    | [raintotal](#channels)              | Number    |         |
 | signalLevel  | [system.signal-strength](#channels) | Number    |         |
@@ -1118,8 +1112,8 @@ A Temperature device
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type | Remarks |
-| ------------ | ----------------------------------- | --------- | ------- |
+|     Name     |            Channel Type             | Item Type | Remarks |
+|--------------|-------------------------------------|-----------|---------|
 | temperature  | [temperature](#channels)            | Number    |         |
 | signalLevel  | [system.signal-strength](#channels) | Number    |         |
 | batteryLevel | [system.battery-level](#channels)   | Number    |         |
@@ -1149,8 +1143,8 @@ A Thermostat1 device
 
 #### Channels
 
-| Name        | Channel Type                        | Item Type | Remarks |
-| ----------- | ----------------------------------- | --------- | ------- |
+|    Name     |            Channel Type             | Item Type | Remarks |
+|-------------|-------------------------------------|-----------|---------|
 | contact     | [command](#channels)                | Contact   |         |
 | setpoint    | [setpoint](#channels)               | Number    |         |
 | temperature | [temperature](#channels)            | Number    |         |
@@ -1171,8 +1165,8 @@ A Thermostat3 device.
 
 #### Channels
 
-| Name              | Channel Type                        | Item Type     | Remarks |
-| ----------------- | ----------------------------------- | ------------- | ------- |
+|       Name        |            Channel Type             |   Item Type   | Remarks |
+|-------------------|-------------------------------------|---------------|---------|
 | command           | [command](#channels)                | Switch        |         |
 | command2nd        | [command](#channels)                | Switch        |         |
 | control\*         | [tempcontrol](#channels)            | Rollershutter |         |
@@ -1219,8 +1213,8 @@ If you need to repeat an undecoded message, consider looking at Raw messages ins
 
 #### Channels
 
-| Name       | Channel Type            | Item Type | Remarks |
-| ---------- | ----------------------- | --------- | ------- |
+|    Name    |      Channel Type       | Item Type | Remarks |
+|------------|-------------------------|-----------|---------|
 | rawMessage | [rawmessage](#channels) | String    |         |
 | rawPayload | [rawpayload](#channels) | String    |         |
 
@@ -1264,8 +1258,8 @@ A UV/Temperature device
 
 #### Channels
 
-| Name         | Channel Type                        | Item Type | Remarks |
-| ------------ | ----------------------------------- | --------- | ------- |
+|     Name     |            Channel Type             | Item Type | Remarks |
+|--------------|-------------------------------------|-----------|---------|
 | uv           | [uv](#channels)                     | Number    |         |
 | temperature  | [temperature](#channels)            | Number    |         |
 | signalLevel  | [system.signal-strength](#channels) | Number    |         |
@@ -1288,8 +1282,8 @@ A Wind device
 
 #### Channels
 
-| Name             | Channel Type                        | Item Type | Remarks                               |
-| ---------------- | ----------------------------------- | --------- | ------------------------------------- |
+|       Name       |            Channel Type             | Item Type |                Remarks                |
+|------------------|-------------------------------------|-----------|---------------------------------------|
 | avgWindSpeed     | [windspeed](#channels)              | Number    | Average Wind Speed                    |
 | windSpeed        | [windspeed](#channels)              | Number    | Wind Gust                             |
 | windDirection    | [winddirection](#channels)          | Number    | Wind Direction                        |
@@ -1312,3 +1306,4 @@ A Wind device
     - WIND5 - UPM WDS500
     - WIND6 - WS2300
     - WIND7 - Alecto WS4500, Auriol H13726, Hama EWS1500, Meteoscan W155/W160, Ventus WS155
+

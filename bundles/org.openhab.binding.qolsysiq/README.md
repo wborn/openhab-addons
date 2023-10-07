@@ -12,7 +12,7 @@ This binding directly interfaces with the panel and does not require cloud acces
 
 ## Supported Things
 
-| Thing               | Description                                                                               | Thing Type | Thing UID |
+|        Thing        |                                        Description                                        | Thing Type | Thing UID |
 |---------------------|-------------------------------------------------------------------------------------------|------------|-----------|
 | Qolsys IQ Panel     | A Qolsys IQ security panel (all current models, which is 2+ and 4 at the time of writing) | Bridge     | panel     |
 | Qolsys IQ Partition | A logical partition which can be armed, disarmed, and is responsible for managing zones   | Bridge     | partition |
@@ -33,7 +33,7 @@ Panel will _reboot_
 
 `Settings` --> `Advanced Settings` --> `Installation` --> `Devices` --> `Wi-Fi Devices` --> `Reveal Secure Token` (copy token to use in panel configuration)
 
-At this point you may add the panel thing in openHAB using the secure token along with the IP or host name of the panel.  
+At this point you may add the panel thing in openHAB using the secure token along with the IP or host name of the panel.
 
 ### Partition (Bridge)
 
@@ -47,15 +47,15 @@ Once a partition is added, zones will be automatically discovered and appear in 
 
 ### `panel` Thing Configuration
 
-| Name              | Type    | Description                                         | Default | Required | Advanced |
-|-------------------|---------|-----------------------------------------------------|---------|----------|----------|
-| hostname          | text    | Hostname or IP address of the device                | N/A     | yes      | no       |
-| port              | integer | Port the device is listening on                     | 12345   | no       | no       |
-| key               | text    | Access token / key found in the panel settings menu | N/A     | yes      | no       |
+|   Name   |  Type   |                     Description                     | Default | Required | Advanced |
+|----------|---------|-----------------------------------------------------|---------|----------|----------|
+| hostname | text    | Hostname or IP address of the device                | N/A     | yes      | no       |
+| port     | integer | Port the device is listening on                     | 12345   | no       | no       |
+| key      | text    | Access token / key found in the panel settings menu | N/A     | yes      | no       |
 
 ### `partition` Thing Configuration
 
-| Name       | Type    | Description                                                                                                                                                                                                 | Default | Required | Advanced |
+|    Name    |  Type   |                                                                                                 Description                                                                                                 | Default | Required | Advanced |
 |------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|----------|----------|
 | id         | integer | Partition id of the panel, staring with '0' for the first partition                                                                                                                                         | N/A     | yes      | no       |
 | disarmCode | text    | Optional disarm code to use when receiving a disarm command without a code. Required for integrations like Alexa and Homekit who do not provide codes when disarming.  Leave blank to always require a code | blank   | no       | no       |
@@ -63,9 +63,9 @@ Once a partition is added, zones will be automatically discovered and appear in 
 
 ### `zone` Thing Configuration
 
-| Name    | Type    | Description                                                                                             | Default | Required | Advanced |
-|---------|---------|---------------------------------------------------------------------------------------------------------|---------|----------|----------|
-| id      | integer | Id of the zone, staring with '1' for the first zone                                                | N/A     | yes      | no       |
+| Name |  Type   |                     Description                     | Default | Required | Advanced |
+|------|---------|-----------------------------------------------------|---------|----------|----------|
+| id   | integer | Id of the zone, staring with '1' for the first zone | N/A     | yes      | no       |
 
 ## Channels
 
@@ -75,7 +75,7 @@ None.
 
 ### Partition Channels
 
-| Channel     | Type   | Read/Write | Description                                                                                                                                                                                                                                                                                | State Options                                              | Command Options            |
+|   Channel   |  Type  | Read/Write |                                                                                                                                        Description                                                                                                                                         |                       State Options                        |      Command Options       |
 |-------------|--------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|----------------------------|
 | armState    | String | RW         | Reports the current partition arm state or sends an arm or disarm command to the system. Security codes can be appended to the command using a colon delimiter (e.g. 'DISARM:123456'). Codes appended to the command will be used in place of the `armCode` configuration property if set. | ALARM, ARM_AWAY, ARM_STAY, DISARM, ENTRY_DELAY, EXIT_DELAY | ARM_AWAY, ARM_STAY, DISARM |
 | alarmState  | String | RW         | Reports on the current alarm state, or triggers an instant alarm                                                                                                                                                                                                                           | AUXILIARY, FIRE, POLICE, ZONEOPEN, NONE                    | AUXILIARY, FIRE, POLICE    |
@@ -84,7 +84,7 @@ None.
 
 ### Zone Channels
 
-| Channel | Type    | Read/Write | Description            | State Options                               |
+| Channel |  Type   | Read/Write |      Description       |                State Options                |
 |---------|---------|------------|------------------------|---------------------------------------------|
 | status  | String  | R          | The zone status        | ACTIVE, CLOSED, OPEN, FAILURE, IDLE, TAMPER |
 | state   | Number  | R          | The zone state         | Number                                      |
@@ -123,3 +123,4 @@ Group      ZoneMotionDetector1                   "Motion Detector 1"            
 Number     ZoneMotionDetector_ZoneState1         "Motion Detector 1 Zone State"                  (ZoneMotionDetector1)    ["Point"]        {channel="qolsysiq:zone:home:0:2:state"}
 String     ZoneMotionDetector_ZoneStatus1        "Motion Detector 1 Zone Status"                 (ZoneMotionDetector1)    ["Point"]        {channel="qolsysiq:zone:home:0:2:status"} 
 ```
+

@@ -25,7 +25,7 @@ Hue bridges are using the Universal Plug and Play (UPnP) protocol for discovery.
 
 ![Philips Hue Bridge](doc/Philips_Hue_Bridge.jpg)
 
-Like the real HUE bridge the service must be put into pairing mode before other applications can access it. 
+Like the real HUE bridge the service must be put into pairing mode before other applications can access it.
 By default the pairing mode disables itself after 1 minute (can be configured).
 
 ## Exposed lights
@@ -168,9 +168,7 @@ You must either
     }
   }
   ```
-
 * or let openHAB run on port 80 (the entire java process requires elevated privileges).
-
 * For Amazon Echo the pairing process may fail due to a 302 response from openHAB, this can be resolved by using a reverse proxy to change the request url from `/api` to `/api/`, for example nginx with the following configuration:
 
   ```
@@ -199,15 +197,16 @@ Please assign "ColorLighting" and "Switchable" to the `WhiteLights` type as expl
 Also note that Amazon Echos are stubborn as.
 You might need to remove all former recognized devices multiple times and perform the search via different Echos and also the web or mobile application.
 
-It might help to (temporarly) lower the emulated bridge version in the configuration as described above, 
+It might help to (temporarly) lower the emulated bridge version in the configuration as described above,
 
 ## Text configuration example
 
 The item label will be used as the Hue device name. Please be aware that textual defined items are generally a bad idea.
-In this case renaming items in Hue compatible Apps will fail.  
+In this case renaming items in Hue compatible Apps will fail.
 
 ```
 Switch  TestSwitch      "Kitchen Switch" [ "Switchable" ]    {channel="..."}
 Color   TestColorBulb   "Bathroom"       [ "ColorLighting" ] {channel="..."}
 Dimmer  TestDimmer      "Hallway"        [ "Lighting" ]      {channel="..."}
 ```
+

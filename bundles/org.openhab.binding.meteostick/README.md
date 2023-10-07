@@ -7,10 +7,10 @@ This is an RF receiver that can receive data directly from Davis weather devices
 
 This binding support 2 different things types
 
-| Thing                | Type   | Description                       |
-|----------------------|--------|-----------------------------------|
-| meteostick_bridge    | Bridge | This is the Meteostick USB stick  |
-| meteostick_davis_iss | Thing  | This is the Davis Vue ISS         |
+|        Thing         |  Type  |           Description            |
+|----------------------|--------|----------------------------------|
+| meteostick_bridge    | Bridge | This is the Meteostick USB stick |
+| meteostick_davis_iss | Thing  | This is the Davis Vue ISS        |
 
 ## Binding Configuration
 
@@ -23,55 +23,55 @@ Next add the sensor and configure the channel number.
 
 ### meteostick_bridge Configuration Options
 
-| Option | Description                                        |
-|--------|----------------------------------------------------|
-| port   | Sets the serial port to be used for the stick      |
-| mode   | Sets the mode (frequency band)                     |
+| Option |                  Description                  |
+|--------|-----------------------------------------------|
+| port   | Sets the serial port to be used for the stick |
+| mode   | Sets the mode (frequency band)                |
 
 Set mode to one of the following depending on your device and region:
 
-| Mode  | Device       | Region           | Frequency |
-|-------|--------------|------------------|-----------|
-| 0     | Davis        | North America    | 915 Mhz   |
-| 1     | Davis        | Europe           | 868 Mhz   |
-| 2     | Davis        | Australia        | 915 Mhz   |
-| 3     | Fine Offset  | North America    | 915 Mhz   |
-| 4     | Fine Offset  | Europe           | 868 Mhz   |
-| 5     | Davis        | New Zealand      | 931.5 Mhz |
+| Mode |   Device    |    Region     | Frequency |
+|------|-------------|---------------|-----------|
+| 0    | Davis       | North America | 915 Mhz   |
+| 1    | Davis       | Europe        | 868 Mhz   |
+| 2    | Davis       | Australia     | 915 Mhz   |
+| 3    | Fine Offset | North America | 915 Mhz   |
+| 4    | Fine Offset | Europe        | 868 Mhz   |
+| 5    | Davis       | New Zealand   | 931.5 Mhz |
 
 ### meteostick_davis_iss Configuration Options
 
-| Option  | Description                               |
-|---------|-------------------------------------------|
-| channel | Sets the RF channel used for this sensor  |
+| Option  |                                                                                   Description                                                                                   |
+|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| channel | Sets the RF channel used for this sensor                                                                                                                                        |
 | spoon   | Size of rain spoon assembly for this sensor in mm.  Default value is 0.254 (0.01") for use with Davis part number 7345.280.  Set to 0.2 for use with Davis part number 7345.319 |
 
 ## Channels
 
 ### Meteostick
 
-| Channel Type ID    | Item Type          | Description        |
+|  Channel Type ID   |     Item Type      |    Description     |
 |--------------------|--------------------|--------------------|
 | pressure           | Number:Pressure    | Air pressure       |
 | indoor-temperature | Number:Temperature | Indoor temperature |
 
 ### Davis ISS
 
-| Channel Type ID     | Item Type             | Description                                     |
-|---------------------|-----------------------|-------------------------------------------------|
-| outdoor-temperature | Number:Temperature    | Outside temperature                             |
-| humidity            | Number                | Humidity                                        |
-| wind-direction      | Number:Angle          | Wind direction                                  |
-| wind-direction-last2min-average | Number:Angle | Wind direction average over last 2 minutes   |
-| wind-speed          | Number:Speed          | Wind speed                                      |
-| wind-speed-last2min-average     | Number:Speed | Wind speed average over last 2 minutes       |
-| wind-speed-last2min-maximum     | Number:Speed | Wind speed maximum over last 2 minutes       |
-| rain-raw            | Number                | Raw rain counter from the tipping spoon sensor  |
-| rain-currenthour    | Number:Length         | The rainfall in the last 60 minutes             |
-| rain-lasthour       | Number:Length         | The rainfall in the previous hour               |
-| solar-power         | Number                | Solar power from the sensor station             |
-| signal-strength     | Number                | Received signal strength                        |
-| low-battery         | Switch                | Low battery warning                             |
+|         Channel Type ID         |     Item Type      |                  Description                   |
+|---------------------------------|--------------------|------------------------------------------------|
+| outdoor-temperature             | Number:Temperature | Outside temperature                            |
+| humidity                        | Number             | Humidity                                       |
+| wind-direction                  | Number:Angle       | Wind direction                                 |
+| wind-direction-last2min-average | Number:Angle       | Wind direction average over last 2 minutes     |
+| wind-speed                      | Number:Speed       | Wind speed                                     |
+| wind-speed-last2min-average     | Number:Speed       | Wind speed average over last 2 minutes         |
+| wind-speed-last2min-maximum     | Number:Speed       | Wind speed maximum over last 2 minutes         |
+| rain-raw                        | Number             | Raw rain counter from the tipping spoon sensor |
+| rain-currenthour                | Number:Length      | The rainfall in the last 60 minutes            |
+| rain-lasthour                   | Number:Length      | The rainfall in the previous hour              |
+| solar-power                     | Number             | Solar power from the sensor station            |
+| signal-strength                 | Number             | Received signal strength                       |
+| low-battery                     | Switch             | Low battery warning                            |
 
 #### Rainfall
 
@@ -86,8 +86,8 @@ This example uploads weather data to for your personal weather station at Weathe
 Steps:
 
 1. Install the [MeteoStick](https://www.smartbedded.com/wiki/index.php/Meteostick) binding for use with your [Davis Vantage Vue Integrated Sensor Suite (ISS)](https://www.davisnet.com/solution/vantage-vue/).
-1. [Register](https://www.wunderground.com/personal-weather-station/signup.asp) your personal weather station with Weather Underground and make note of the station ID and password issued.
-1. Add the following files to your openHAB configuration:
+2. [Register](https://www.wunderground.com/personal-weather-station/signup.asp) your personal weather station with Weather Underground and make note of the station ID and password issued.
+3. Add the following files to your openHAB configuration:
 
 ### things/meteostick.things
 

@@ -9,7 +9,7 @@ Any home automation system based on the OverKiz API is potentially supported.
 
 ## Supported Things
 
- Currently these things are supported:
+Currently these things are supported:
 
 - bridge (cloud bridge, which can discover gateways, roller shutters, awnings, switches and action groups)
 - gateways (gateway status)
@@ -63,7 +63,7 @@ If you are missing some device, check the debug log during the discovery and cre
 
 ### bridge
 
-| Parameter      | Parameter ID  | Required/Optional | Description                                                                          |
+|   Parameter    | Parameter ID  | Required/Optional |                                     Description                                      |
 |----------------|---------------|-------------------|--------------------------------------------------------------------------------------|
 | Cloud portal   | cloudPortal   | Optional          | Cloud portal to connect to                                                           |
 | Email address  | email         | Required          | Email address for the portal                                                         |
@@ -85,13 +85,13 @@ The gateway support for the developer mode is limited as well, so far Connexoon 
 
 ### gateway
 
-| Parameter  | Parameter ID | Required/Optional | Description                               |
+| Parameter  | Parameter ID | Required/Optional |                Description                |
 |------------|--------------|-------------------|-------------------------------------------|
 | Gateway id | id           | Required          | ID of your gateway (sometimes called pin) |
 
 ### other devices
 
-| Parameter  | Parameter ID | Required/Optional | Description                  |
+| Parameter  | Parameter ID | Required/Optional |         Description          |
 |------------|--------------|-------------------|------------------------------|
 | Device URL | url          | Required          | The identifier of the device |
 
@@ -100,8 +100,8 @@ Please see the example below.
 
 ## Channels
 
-| Thing                                                                              | Channel                         | Note                                                                                                                                                                                                                              |
-| ---------------------------------------------------------------------------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|                                       Thing                                        |             Channel             |                                                                                                               Note                                                                                                                |
+|------------------------------------------------------------------------------------|---------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | bridge                                                                             | N.A                             | bridge does not expose any channel                                                                                                                                                                                                |
 | gateway                                                                            | status                          | status of your gateway                                                                                                                                                                                                            |
 | gateway                                                                            | scenarios                       | used to run the scenarios defined in the cloud portal                                                                                                                                                                             |

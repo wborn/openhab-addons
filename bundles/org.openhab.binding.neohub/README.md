@@ -9,7 +9,7 @@ The NeoHub (bridge) binding allows you to connect openHAB via TCP/IP to Heatmise
 
 The binding supports the following types of Thing..
 
-| Thing Type           | Description                                                                               |
+|      Thing Type      |                                        Description                                        |
 |----------------------|-------------------------------------------------------------------------------------------|
 | NeoHub               | The Heatmiser NeoHub bridge which is used to communicate with NeoStat and NeoPlug devices |
 | NeoStat              | Heatmiser Neostat Smart Thermostat                                                        |
@@ -35,15 +35,15 @@ It signs on to the hub using the supplied connection parameters, and it polls th
 The NeoHub supports two Application Programming Interfaces "API" (an older "legacy" one, and a modern one), and this binding can use either of them to communicate with it.
 Before the binding can communicate with the hub, the following Configuration Parameters must be entered.
 
-| Configuration Parameter    | Description                                                                                              |
-|----------------------------|----------------------------------------------------------------------------------------------------------|
-| hostName                   | Host name (IP address) of the NeoHub (example 192.168.1.123)                                             |
-| useWebSocket<sup>1)</sup>  | Use secure WebSocket to connect to  the NeoHub (example `true`)                                          |
-| apiToken<sup>1)</sup>      | API Access Token for secure connection to hub. Create the token in the Heatmiser mobile App              |
-| pollingInterval            | Time (seconds) between polling requests to the NeoHub (Min=4, Max=60, Default=60)                        |
-| socketTimeout              | Time (seconds) to allow for TCP socket connections to the hub to succeed (Min=4, Max=20, Default=5)      |
-| preferLegacyApi            | ADVANCED: Prefer to use older API calls; but if not supported, it switches to new calls (Default=false)  |
-| portNumber<sup>2)</sup>    | ADVANCED: Port number for connection to the NeoHub (Default=0 (automatic))                               |
+|  Configuration Parameter  |                                               Description                                               |
+|---------------------------|---------------------------------------------------------------------------------------------------------|
+| hostName                  | Host name (IP address) of the NeoHub (example 192.168.1.123)                                            |
+| useWebSocket<sup>1)</sup> | Use secure WebSocket to connect to  the NeoHub (example `true`)                                         |
+| apiToken<sup>1)</sup>     | API Access Token for secure connection to hub. Create the token in the Heatmiser mobile App             |
+| pollingInterval           | Time (seconds) between polling requests to the NeoHub (Min=4, Max=60, Default=60)                       |
+| socketTimeout             | Time (seconds) to allow for TCP socket connections to the hub to succeed (Min=4, Max=20, Default=5)     |
+| preferLegacyApi           | ADVANCED: Prefer to use older API calls; but if not supported, it switches to new calls (Default=false) |
+| portNumber<sup>2)</sup>   | ADVANCED: Port number for connection to the NeoHub (Default=0 (automatic))                              |
 
 <sup>1)</sup> If `useWebSocket` is false, the binding will connect via an older and less secure TCP connection, in which case `apiToken` is not required.
 However see the chapter "Connection Refused Errors" below.
@@ -67,7 +67,7 @@ The NeoHub Thing connects to the hub (bridge) to communicate with any Heatmiser 
 Each such Heatmiser device is identified by means of a unique device name in the hub.
 The device name is automatically discovered by the NeoHub Thing, and it is also visible (and changeable) via the Heatmiser App.
 
-| Configuration Parameter | Description                                                                          |
+| Configuration Parameter |                                     Description                                      |
 |-------------------------|--------------------------------------------------------------------------------------|
 | deviceNameInHub         | Device name that identifies the Heatmiser device in the NeoHub and the Heatmiser App |
 
@@ -76,47 +76,47 @@ The device name is automatically discovered by the NeoHub Thing, and it is also 
 The following Channels, and their associated channel types are shown below.
 | Channel        | Data Type            | Description                                                                                                                                  |
 |----------------|----------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| meshNetworkQoS | Number:Dimensionless | RF mesh network Quality-of-Service; this is the percentage of configured devices that are currently connected online via the RF mesh network |  
+| meshNetworkQoS | Number:Dimensionless | RF mesh network Quality-of-Service; this is the percentage of configured devices that are currently connected online via the RF mesh network |
 
 ## Channels for "NeoStat" Thermostat
 
 The following Channels, and their associated channel types are shown below.
 
-| Channel               | Data Type          | Description                                                                 |
-|-----------------------|--------------------|-----------------------------------------------------------------------------|
-| roomTemperature       | Number:Temperature | Actual room temperature                                                     |
-| targetTemperature     | Number:Temperature | Target temperature setting for the room                                     |
-| floorTemperature      | Number:Temperature | Actual floor temperature                                                    |
-| thermostatOutputState | String             | Status of whether the thermostat is Off, or calling for Heat                |
-| occupancyModePresent  | Switch             | The thermostat is in the Present Occupancy Mode (Off=Absent, On=Present)    |
+|        Channel        |     Data Type      |                                     Description                                      |
+|-----------------------|--------------------|--------------------------------------------------------------------------------------|
+| roomTemperature       | Number:Temperature | Actual room temperature                                                              |
+| targetTemperature     | Number:Temperature | Target temperature setting for the room                                              |
+| floorTemperature      | Number:Temperature | Actual floor temperature                                                             |
+| thermostatOutputState | String             | Status of whether the thermostat is Off, or calling for Heat                         |
+| occupancyModePresent  | Switch             | The thermostat is in the Present Occupancy Mode (Off=Absent, On=Present)             |
 | batteryLowAlarm       | Switch             | The battery is low (only applies for battery powered thermostats) (Off=Ok, On=Alarm) |
 
 ## Channels for "NeoPlug" Smart Plug
 
 The following Channels, and their associated channel types are shown below.
 
-| Channel              | Data Type | Description                                              |
-|----------------------|-----------|----------------------------------------------------------|
-| plugOutputState      | Switch    | The output state of the plug switch (Off, On)            |
-| plugAutoMode         | Switch    | The plug is in Automatic Mode (Off=Manual, On=Automatic) |
+|     Channel     | Data Type |                       Description                        |
+|-----------------|-----------|----------------------------------------------------------|
+| plugOutputState | Switch    | The output state of the plug switch (Off, On)            |
+| plugAutoMode    | Switch    | The plug is in Automatic Mode (Off=Manual, On=Automatic) |
 
 ## Channels for "NeoContact" Contact Sensor
 
 The following Channels, and their associated channel types are shown below.
 
-| Channel           | Data Type | Description                                              |
-|-------------------|-----------|----------------------------------------------------------|
-| contactState      | Contact   | The state of the contact                                 |
-| batteryLowAlarm   | Switch    | The battery is low (Off=Ok, On=Alarm)                    |
+|     Channel     | Data Type |              Description              |
+|-----------------|-----------|---------------------------------------|
+| contactState    | Contact   | The state of the contact              |
+| batteryLowAlarm | Switch    | The battery is low (Off=Ok, On=Alarm) |
 
 ## Channels for "NeoTemperatureSensor" Wireless Air Sensor
 
 The following Channels, and their associated channel types are shown below.
 
-| Channel           | Data Type          | Description                                     |
-|-------------------|--------------------|-------------------------------------------------|
-| sensorTemperature | Number:Temperature | Actual measured temperature                     |
-| batteryLowAlarm   | Switch             | The battery is low (Off=Ok, On=Alarm)           |
+|      Channel      |     Data Type      |              Description              |
+|-------------------|--------------------|---------------------------------------|
+| sensorTemperature | Number:Temperature | Actual measured temperature           |
+| batteryLowAlarm   | Switch             | The battery is low (Off=Ok, On=Alarm) |
 
 ## Channel Configuration (Optional)
 
@@ -126,8 +126,8 @@ This is usually a temporary issue (e.g. interference), and the device usually re
 If a device drops out of the mesh, you can select whether openHAB shall either a) change the Channel value to `UNDEF`, or b) hold the value that it had prior to the drop out.
 The choice of a) or b) is determined by an optional Channel configuration parameter `holdOnlineState` as follows.
 
-| Parameter       | Type   | Description                                                                                         |
-|-----------------|--------|-----------------------------------------------------------------------------------------------------|
+|    Parameter    |  Type  |                                                                                                          Description                                                                                                           |
+|-----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | holdOnlineState | Switch | If the respective device drops out of the RF mesh, the behaviour is as follows:<br> - Off: openHAB  changes the Channel's state to `UNDEF`<br> - On: openHAB holds the Channel's state unchanged<br>The default setting is Off |
 
 The purpose of `holdOnlineState` is so you can choose to overlook value fluctuations if drop outs occur e.g. to "hold" the values in a temperature graph display.
@@ -193,3 +193,4 @@ sitemap neohub label="Heatmiser NeoHub"
     }
 }
 ```
+

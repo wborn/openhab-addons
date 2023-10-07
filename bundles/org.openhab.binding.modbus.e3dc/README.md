@@ -11,10 +11,10 @@ See chapter [Thing Configuration](#thing-configuration) how to set them up or ch
 
 First you need a Bridge which establishes the basic connection towards your E3DC device
 
-| Name                  | Thing Type ID | Description                                                                                          |
-|-----------------------|---------------|------------------------------------------------------------------------------------------------------|
-| E3DC Home Power Plant | e3dc          | Provides Power values, String Details, Emergency Power Status and general Information of your E3DC Home Power Plant    |
-| E3DC Wallbox          | e3dc-wallbox  | Provides your Wallbox Settings. Switches like "Sunmode" or "1-Phase Charging" can be changed     |
+|         Name          | Thing Type ID |                                                     Description                                                     |
+|-----------------------|---------------|---------------------------------------------------------------------------------------------------------------------|
+| E3DC Home Power Plant | e3dc          | Provides Power values, String Details, Emergency Power Status and general Information of your E3DC Home Power Plant |
+| E3DC Wallbox          | e3dc-wallbox  | Provides your Wallbox Settings. Switches like "Sunmode" or "1-Phase Charging" can be changed                        |
 
 ## Discovery
 
@@ -35,17 +35,17 @@ The needed Things can be found in the **Modbus Binding** and have to be added ma
 
 1. Create _E3DC Home Power Plant_ and attach it to the previous installed _Modbus TCP Bridge_. Configuration requires an approriate Data Refresh Interval with more than 1000 Milliseconds
 
-1. If you have a Wallbox attached add _E3DC Wallbox_ Thing with your previous installed _E3DC Home Power Plant_ as Bridge. Configuration requires a Wallbox ID between 0 and 7.
+2. If you have a Wallbox attached add _E3DC Wallbox_ Thing with your previous installed _E3DC Home Power Plant_ as Bridge. Configuration requires a Wallbox ID between 0 and 7.
 
 Check the [full example Things](#things) for manual setup.
 
 ### Modbus TCP Slave
 
-| Parameter       | Type    | Description                                                             |
-|-----------------|---------|-------------------------------------------------------------------------|
-| host            | text    | IP Address of your device                                               |
-| port            | integer | TCP Port of your E3DC device Modbus Settings.. Default is 502 |
-| deviceid        | integer | Modbus ID of your E3DC device Modbus Settings. Default is 1           |
+| Parameter |  Type   |                          Description                          |
+|-----------|---------|---------------------------------------------------------------|
+| host      | text    | IP Address of your device                                     |
+| port      | integer | TCP Port of your E3DC device Modbus Settings.. Default is 502 |
+| deviceid  | integer | Modbus ID of your E3DC device Modbus Settings. Default is 1   |
 
 ### E3DC Home Power Plant
 
@@ -58,9 +58,9 @@ Select as Bridge your previously created Modbus TCP Slave.
 
 Select as Bridge your previously created E3DC Home Power Plant.
 
-| Parameter       | Type    | Description                                                                 |
-|-----------------|---------|-----------------------------------------------------------------------------|
-| wallboxId       | integer | E3DC supports up to 8 Wallboxes - select a value from 0 to 7                |
+| Parameter |  Type   |                         Description                          |
+|-----------|---------|--------------------------------------------------------------|
+| wallboxId | integer | E3DC supports up to 8 Wallboxes - select a value from 0 to 7 |
 
 ## Channels
 
@@ -68,7 +68,7 @@ The E3DC device offers quite an amount of channels. For clustering 4 Channel Gro
 
 ### Channel Group _Information Block_
 
-| Channel Label         | Channel Group ID | Channel ID          | Type   | Description                                       |
+|     Channel Label     | Channel Group ID |     Channel ID      |  Type  |                    Description                    |
 |-----------------------|------------------|---------------------|--------|---------------------------------------------------|
 | Modbus-ID             | info             | modbus-id           | String | Modbus ID / Magic Byte of E3DC                    |
 | Modbus Firmware       | info             | modbus-firmware     | String | Version of Modbus Firmware                        |
@@ -80,67 +80,67 @@ The E3DC device offers quite an amount of channels. For clustering 4 Channel Gro
 
 ### Channel Group _Power Block_
 
-| Channel Label                 |  Channel Group ID | Channel ID                   | Type                   | Description                                                                            |
-|-------------------------------|-------------------|------------------------------|------------------------|----------------------------------------------------------------------------------------|
-| PV Output                     | power             | pv-power-supply              |  Number:Power          | Photovoltaic Power Production                                                          |
-| Battery Discharge             | power             | battery-power-supply         |  Number:Power          | Battery discharges and provides Power                                                  |
-| Battery Charge                | power             | battery-power-consumption    |  Number:Power          | Battery charges and consumes Power                                                     |
-| Household Consumption         | power             | household-power-consumption  |  Number:Power          | Household consuming Power                                                              |
-| Grid Power Consumption        | power             | grid-power-consumption       |  Number:Power          | More Photovoltaic Power is produced than needed. Additional Power is consumed by Grid  |
-| Grid Power Supply             | power             | grid-power-supply            |  Number:Power          | Grid Power is needed in order to satisfy your overall Power consumption                |
-| External Power Supply         | power             | external-power-supply        |  Number:Power          | Power produced by an external device which is attached to your E3DC device             |
-| Wallbox Power Consumption     | power             | wallbox-power-consumption    |  Number:Power          | Power consumption of attached Wallboxes                                                |
-| Wallbox PV Power Consumption  | power             | wallbox-pv-power-consumption |  Number:Power          | Photovoltaic Power consumption (PV plus Battery) of attached Wallboxes                 |
-| Autarky                       | power             | autarky-channel              |  Number:Dimensionless  | Your current Autarky Level in Percent                                                  |
-| Self Consumption              | power             | self-consumption             |  Number:Dimensionless  | Your current Photovoltaic Self Consumption Level in Percent                            |
-| Battery State Of Charge       | power             | battery-soc                  |  Number:Dimensionless  | Charge Level of your attached Battery in Percent                                       |
+|        Channel Label         | Channel Group ID |          Channel ID          |         Type         |                                      Description                                      |
+|------------------------------|------------------|------------------------------|----------------------|---------------------------------------------------------------------------------------|
+| PV Output                    | power            | pv-power-supply              | Number:Power         | Photovoltaic Power Production                                                         |
+| Battery Discharge            | power            | battery-power-supply         | Number:Power         | Battery discharges and provides Power                                                 |
+| Battery Charge               | power            | battery-power-consumption    | Number:Power         | Battery charges and consumes Power                                                    |
+| Household Consumption        | power            | household-power-consumption  | Number:Power         | Household consuming Power                                                             |
+| Grid Power Consumption       | power            | grid-power-consumption       | Number:Power         | More Photovoltaic Power is produced than needed. Additional Power is consumed by Grid |
+| Grid Power Supply            | power            | grid-power-supply            | Number:Power         | Grid Power is needed in order to satisfy your overall Power consumption               |
+| External Power Supply        | power            | external-power-supply        | Number:Power         | Power produced by an external device which is attached to your E3DC device            |
+| Wallbox Power Consumption    | power            | wallbox-power-consumption    | Number:Power         | Power consumption of attached Wallboxes                                               |
+| Wallbox PV Power Consumption | power            | wallbox-pv-power-consumption | Number:Power         | Photovoltaic Power consumption (PV plus Battery) of attached Wallboxes                |
+| Autarky                      | power            | autarky-channel              | Number:Dimensionless | Your current Autarky Level in Percent                                                 |
+| Self Consumption             | power            | self-consumption             | Number:Dimensionless | Your current Photovoltaic Self Consumption Level in Percent                           |
+| Battery State Of Charge      | power            | battery-soc                  | Number:Dimensionless | Charge Level of your attached Battery in Percent                                      |
 
 ### Channel Group _String Details Block_
 
-| Channel Label         | Channel Group ID | Channel ID         | Type                      | Description                |
-|-----------------------|------------------|--------------------|---------------------------|----------------------------|
-| String 1 Potential    | strings          | string1-dc-voltage |  Number:ElectricPotential | Voltage on String 1        |
-| String 2 Potential    | strings          | string2-dc-voltage |  Number:ElectricPotential | Voltage on String 2        |
-| String 3 Potential    | strings          | string3-dc-voltage |  Number:ElectricPotential | Voltage on String 3        |
-| String 1 Current      | strings          | string1-dc-current |  Number:ElectricCurrent   | Current on String 1        |
-| String 2 Current      | strings          | string2-dc-current |  Number:ElectricCurrent   | Current on String 2        |
-| String 3 Current      | strings          | string3-dc-current |  Number:ElectricCurrent   | Current on String 3        |
-| String 1 Power        | strings          | string1-dc-output  |  Number:Power             | Power produced by String 1 |
-| String 2 Power        | strings          | string2-dc-output  |  Number:Power             | Power produced by String 2 |
-| String 3 Power        | strings          | string3-dc-output  |  Number:Power             | Power produced by String 3 |
+|   Channel Label    | Channel Group ID |     Channel ID     |           Type           |        Description         |
+|--------------------|------------------|--------------------|--------------------------|----------------------------|
+| String 1 Potential | strings          | string1-dc-voltage | Number:ElectricPotential | Voltage on String 1        |
+| String 2 Potential | strings          | string2-dc-voltage | Number:ElectricPotential | Voltage on String 2        |
+| String 3 Potential | strings          | string3-dc-voltage | Number:ElectricPotential | Voltage on String 3        |
+| String 1 Current   | strings          | string1-dc-current | Number:ElectricCurrent   | Current on String 1        |
+| String 2 Current   | strings          | string2-dc-current | Number:ElectricCurrent   | Current on String 2        |
+| String 3 Current   | strings          | string3-dc-current | Number:ElectricCurrent   | Current on String 3        |
+| String 1 Power     | strings          | string1-dc-output  | Number:Power             | Power produced by String 1 |
+| String 2 Power     | strings          | string2-dc-output  | Number:Power             | Power produced by String 2 |
+| String 3 Power     | strings          | string3-dc-output  | Number:Power             | Power produced by String 3 |
 
 ### Channel _EMS Block_
 
-| Channel Label                               | Channel Group ID | Channel ID                 | Type           | Description                  |
-|---------------------------------------------|------------------|----------------------------|----------------|------------------------------|
-| Emergency Power Status                      | emergency        | emergency-power-status     |  String  | Possible values: EP not supported, EP active, EP not active, EP not available, EP Switch in wrong position, EP Status unknown |
-| Battery Charging Locked                     | emergency        | battery-charging-lock      |  Switch  | Battery charging is locked          |
-| Battery Discharging Locked                  | emergency        | battery-discharging-lock   |  Switch  | Battery discharging is locked |
-| Emergency Power Possible                    | emergency        | emergency-power-possible   |  Switch  | Emergency Power Supply is possible          |
-| Weather Predicted Battery Charging          | emergency        | weather-predicted-charging |  Switch  | Weather Predicted Battery Charging is activated |
-| Regulation Status Of Max Grid Power Supply  | emergency        | regulation-status          |  Switch  | Grid Power Supply is currently regulated |
-| Charge Lock time Active                     | emergency        | charge-lock-time           |  Switch  | Charge Lock Time is currently active |
-| Discharge Lock time Active                  | emergency        | discharge-lock-time        |  Switch  | Discharge Lock Time is currently active |
+|               Channel Label                | Channel Group ID |         Channel ID         |  Type  |                                                          Description                                                          |
+|--------------------------------------------|------------------|----------------------------|--------|-------------------------------------------------------------------------------------------------------------------------------|
+| Emergency Power Status                     | emergency        | emergency-power-status     | String | Possible values: EP not supported, EP active, EP not active, EP not available, EP Switch in wrong position, EP Status unknown |
+| Battery Charging Locked                    | emergency        | battery-charging-lock      | Switch | Battery charging is locked                                                                                                    |
+| Battery Discharging Locked                 | emergency        | battery-discharging-lock   | Switch | Battery discharging is locked                                                                                                 |
+| Emergency Power Possible                   | emergency        | emergency-power-possible   | Switch | Emergency Power Supply is possible                                                                                            |
+| Weather Predicted Battery Charging         | emergency        | weather-predicted-charging | Switch | Weather Predicted Battery Charging is activated                                                                               |
+| Regulation Status Of Max Grid Power Supply | emergency        | regulation-status          | Switch | Grid Power Supply is currently regulated                                                                                      |
+| Charge Lock time Active                    | emergency        | charge-lock-time           | Switch | Charge Lock Time is currently active                                                                                          |
+| Discharge Lock time Active                 | emergency        | discharge-lock-time        | Switch | Discharge Lock Time is currently active                                                                                       |
 
 ### E3DC Wallbox Channels
 
 Some of the Wallbox Settings can be changed. See the Access column if the actual value is Read/Write (RW) or Read Only (RO)
 
-| Channel Label            | Channel ID          | Type    | Access | Description                  |
-|--------------------------|---------------------|---------|--------|------------------------------|
-| Wallbox Available        | wb-available        |  Switch | RO     | Indicates if the Wallbox is attached. Check your Wallbox ID in offline case  |
-| Sun Mode                 | wb-sunmode          |  Switch | RW     | Activate / Deactivate Sun Mode. Off case takes Grid Power to ensure highest possible charging.   |
-| Wallbox Charging Aborted | wb-charging-aborted |  Switch | RW     | Wallbox charging is aborted  |
-| Wallbox Charging         | wb-charging         |  Switch | RO     | Wallbox is charging   |
-| Jack Locked              | wb-jack-locked      |  Switch | RO     | Jack is locked   |
-| Jack Plugged             | wb-jack-plugged     |  Switch | RO     | Jack is plugged    |
-| Schuko Socket On         | wb-schuko-on        |  Switch | RW     | If your Wallbox has an additional Schuko Socket it provides state ON or OFF    |
-| Schuko Socket Plugged    | wb-schuko-plugged   |  Switch | RO     | If your Wallbox has an additional Schuko Socket it provides plugged state ON or OFF    |
-| Schuko Socket Locked     | wb-schuko-locked    |  Switch | RO     | If your Wallbox has an additional Schuko Socket it provides locked state ON or OFF |
-| Schuko 16A Relay On      | wb-schuko-relay-16a |  Switch | RO     | Schuko 16A Relay is ON     |
-| 16A Relay On             | wb-relay-16a        |  Switch | RO     | Wallbox 16A Relay is ON     |
-| 32A Relay On             | wb-relay-32a        |  Switch | RO     | Wallbox 32A Relay is ON    |
-| 1-Phase Charging         | 1-Phase Active      |  Switch | RW     | 1-phase charging is activated. If OFF 3-phase charging is activated    |
+|      Channel Label       |     Channel ID      |  Type  | Access |                                          Description                                           |
+|--------------------------|---------------------|--------|--------|------------------------------------------------------------------------------------------------|
+| Wallbox Available        | wb-available        | Switch | RO     | Indicates if the Wallbox is attached. Check your Wallbox ID in offline case                    |
+| Sun Mode                 | wb-sunmode          | Switch | RW     | Activate / Deactivate Sun Mode. Off case takes Grid Power to ensure highest possible charging. |
+| Wallbox Charging Aborted | wb-charging-aborted | Switch | RW     | Wallbox charging is aborted                                                                    |
+| Wallbox Charging         | wb-charging         | Switch | RO     | Wallbox is charging                                                                            |
+| Jack Locked              | wb-jack-locked      | Switch | RO     | Jack is locked                                                                                 |
+| Jack Plugged             | wb-jack-plugged     | Switch | RO     | Jack is plugged                                                                                |
+| Schuko Socket On         | wb-schuko-on        | Switch | RW     | If your Wallbox has an additional Schuko Socket it provides state ON or OFF                    |
+| Schuko Socket Plugged    | wb-schuko-plugged   | Switch | RO     | If your Wallbox has an additional Schuko Socket it provides plugged state ON or OFF            |
+| Schuko Socket Locked     | wb-schuko-locked    | Switch | RO     | If your Wallbox has an additional Schuko Socket it provides locked state ON or OFF             |
+| Schuko 16A Relay On      | wb-schuko-relay-16a | Switch | RO     | Schuko 16A Relay is ON                                                                         |
+| 16A Relay On             | wb-relay-16a        | Switch | RO     | Wallbox 16A Relay is ON                                                                        |
+| 32A Relay On             | wb-relay-32a        | Switch | RO     | Wallbox 32A Relay is ON                                                                        |
+| 1-Phase Charging         | 1-Phase Active      | Switch | RW     | 1-phase charging is activated. If OFF 3-phase charging is activated                            |
 
 ## Full Example
 

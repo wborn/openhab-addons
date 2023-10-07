@@ -8,13 +8,13 @@ It provides connectivity to the NetworX alarm panels via a RS-232 serial connect
 
 This binding supports the following Thing types
 
-| Thing      | Thing Type | Description                                                            |
-|------------|------------|------------------------------------------------------------------------|
-| bridge     | Bridge     | The  RS-232 interface.                                                 |
-| panel      | Thing      | The basic representation of the alarm System.                          |
-| partition  | Thing      | Represents a controllable area within the alarm system.                |
-| zone       | Thing      | Represents a physical device such as a door, window, or motion sensor. |
-| keypad     | Thing      | Represents a keypad.                                                   |
+|   Thing   | Thing Type |                              Description                               |
+|-----------|------------|------------------------------------------------------------------------|
+| bridge    | Bridge     | The  RS-232 interface.                                                 |
+| panel     | Thing      | The basic representation of the alarm System.                          |
+| partition | Thing      | Represents a controllable area within the alarm system.                |
+| zone      | Thing      | Represents a physical device such as a door, window, or motion sensor. |
+| keypad    | Thing      | Represents a keypad.                                                   |
 
 ## Discovery
 
@@ -30,7 +30,7 @@ For the binding to work the panel has also to be programmed appropriately.
 
 ### Programming locations for the NX-8E control panel
 
-| Location | Segment | Value       | Description                                                                                            |
+| Location | Segment |    Value    |                                              Description                                               |
 |----------|---------|-------------|--------------------------------------------------------------------------------------------------------|
 | 207      | 1       | 1           | Serial Port selector                                                                                   |
 | 208      | 1       | 0 - 4       | Baud rate table<br>0 = 2400 Baud<br>1 = 4800 Baud<br>2 = 9600 Baud<br>3 = 19200 Baud<br>4 = 38400 Baud |
@@ -45,28 +45,28 @@ For the binding to work the panel has also to be programmed appropriately.
 
 ### Programming locations for the NX-584E home automation module
 
-| Location | Segment | Value       | Description                                                                                            |
-|----------|---------|-------------|--------------------------------------------------------------------------------------------------------|
-| 0        | 1       | Off/On      | Home automation protocol<br>1 = Off: Binary. On: ASCII.                                                |
+| Location | Segment |    Value    |                                                                        Description                                                                        |
+|----------|---------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0        | 1       | Off/On      | Home automation protocol<br>1 = Off: Binary. On: ASCII.                                                                                                   |
 | 1        | 1       | 0 - 4       | Baud rate table<br>0 = 600 Baud<br>1 = 1200 Baud<br>2 = 2400 Baud<br>3 = 4800 Baud<br>4 = 9600 Baud<br>5 = 19200 Baud<br>6 = 38400 Baud<br>7 = 76800 Baud |
-| 2        | 1       | 2,5,6,7,8   | Enabling the Transitions                                                                               |
-| 2        | 2       | 1,2,3,4     |                                                                                                        |
-| 3        | 1       | 2,4,5,6,7,8 | Programming the Command/Request enables                                                                |
-| 3        | 2       | 1,2,3,4,5   | (Flags 4 and 5 are not yet functional. Can be ignored.)                                                |
-| 3        | 3       |             |                                                                                                        |
-| 3        | 4       | 5,7,8       |                                                                                                        |
-| 4        | 1       | 192         | Programming the LCD keypad address.                                                                    |
+| 2        | 1       | 2,5,6,7,8   | Enabling the Transitions                                                                                                                                  |
+| 2        | 2       | 1,2,3,4     |                                                                                                                                                           |
+| 3        | 1       | 2,4,5,6,7,8 | Programming the Command/Request enables                                                                                                                   |
+| 3        | 2       | 1,2,3,4,5   | (Flags 4 and 5 are not yet functional. Can be ignored.)                                                                                                   |
+| 3        | 3       |             |                                                                                                                                                           |
+| 3        | 4       | 5,7,8       |                                                                                                                                                           |
+| 4        | 1       | 192         | Programming the LCD keypad address.                                                                                                                       |
 
 ## Thing Configuration
 
 The things can be configured either through the online configuration utility via discovery, or manually through the configuration file.
 The following table shows the available configuration parameters for each thing.
 
-| Thing     | Configuration Parameters                                                                            |
+|   Thing   |                                      Configuration Parameters                                       |
 |-----------|-----------------------------------------------------------------------------------------------------|
 | bridge    | `serialPort` - Serial port for the bridge - Required                                                |
 |           | `protocol` - Protocol used for the communication (Binary, Ascii) - Required - Default = Binary      |
-|           | `baudrate` - Baud rate of the bridge - Required - Default = 9600                                        |
+|           | `baudrate` - Baud rate of the bridge - Required - Default = 9600                                    |
 |           | `maxZoneNumber` - Maximum zone number to be added during discovery - Required - Default = 16        |
 | partition | `partitionNumber` - Partition number (1-8) - Required                                               |
 | zone      | `zoneNumber` - Zone number (1-192) - Required                                                       |
@@ -77,7 +77,7 @@ The following table shows the available configuration parameters for each thing.
 
 Caddx Alarm things support a variety of channels as seen below in the following table:
 
-| Channel                                          | Item Type | Type                | Description                                |
+|                     Channel                      | Item Type |        Type         |                Description                 |
 |--------------------------------------------------|-----------|---------------------|--------------------------------------------|
 | send_Command                                     | String    | Command             | Send a command to the panel                |
 | panel_firmware_version                           | String    | Configuration       | Firmware version                           |
@@ -222,7 +222,7 @@ Caddx Alarm things support a variety of channels as seen below in the following 
 
 The binding supports the following actions on the respective things.
 
-| Thing     | Name                            | Description                                              | Specification                                                   |
+|   Thing   |              Name               |                       Description                        |                          Specification                          |
 |-----------|---------------------------------|----------------------------------------------------------|-----------------------------------------------------------------|
 | bridge    | restart                         | Restart the binding                                      | void restart()                                                  |
 | zone      | bypass                          | Bypass the zone                                          | void bypass()                                                   |
@@ -351,3 +351,4 @@ then
     actions.bypass()
 end
 ```
+

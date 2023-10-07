@@ -175,7 +175,7 @@ iptables -L -n -t nat
 
 Things support the following channels:
 
-| Channel Type ID | Item Type   | Description                                                                               |
+| Channel Type ID |  Item Type  |                                        Description                                        |
 |-----------------|-------------|-------------------------------------------------------------------------------------------|
 | online          | Switch      | This channel indicates whether a device is online                                         |
 | lastseen        | DateTime    | The last seen date/time of the device in question. May be 1. Jan 1970 if no time is known |
@@ -259,3 +259,4 @@ if (actions === null) {
     actions.sendWakeOnLanPacketViaIp()
 }
 ```
+

@@ -15,26 +15,26 @@ its child things.
 
 ### Bridge Thing Configuration
 
-| Property      | Default Value | Required? | Description          |
-| ------------- |:-------------:| :-------: | -------------------- |
-| apiKey        |               | Yes       | The api key to be used with the meteoblue service |
+| Property | Default Value | Required? |                    Description                    |
+|----------|:-------------:|:---------:|---------------------------------------------------|
+| apiKey   |               |    Yes    | The api key to be used with the meteoblue service |
 
 ### Weather Thing Configuration
 
-| Property      | Default Value | Required? | Description          |
-| ------------- |:-------------:| :-------: | -------------------- |
-| location      |               | Yes       | The latitude, longitude, and optionally altitude of the location, separated by commas (e.g. 45.6,45.7,45.8). Altitude, if given, should be in meters.
-| refresh       | 240           | No        | The time between calls to refresh the weather data, in minutes |
-| serviceType   | NonCommercial | No        | The service type to be used.  Either 'Commercial' or 'NonCommercial' |
-| timeZone      |               | No        | The time zone to use for the location. Optional, but the service recommends it be specified. The service gets the time zone from a database if not specified. |
+|  Property   | Default Value | Required? |                                                                          Description                                                                          |
+|-------------|:-------------:|:---------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| location    |               |    Yes    | The latitude, longitude, and optionally altitude of the location, separated by commas (e.g. 45.6,45.7,45.8). Altitude, if given, should be in meters.         |
+| refresh     |      240      |    No     | The time between calls to refresh the weather data, in minutes                                                                                                |
+| serviceType | NonCommercial |    No     | The service type to be used.  Either 'Commercial' or 'NonCommercial'                                                                                          |
+| timeZone    |               |    No     | The time zone to use for the location. Optional, but the service recommends it be specified. The service gets the time zone from a database if not specified. |
 
 ## Channels
 
 ### Channel Groups
 
-| Group Name       | Description |
-| ---------------- | ----------- |
-| forecastToday    | Today's forecast |
+|    Group Name    |     Description     |
+|------------------|---------------------|
+| forecastToday    | Today's forecast    |
 | forecastTomorrow | Tomorrow's forecast |
 | forecastDay2     | Forecast 2 days out |
 | forecastDay3     | Forecast 3 days out |
@@ -46,42 +46,42 @@ its child things.
 
 Each of the following channels is supported in all of the channel groups.
 
-| Channel                  | Item Type          | Description |
-| ------------------------ | ------------------ | ----------- |
-| height                   | Number:Length      | Altitude above sea-level of the location (in meters) |
-| forecastDate             | DateTime           | Forecast date |
-| UVIndex                  | Number             | UltraViolet radiation index at ground level (0-16) |
-| minTemperature           | Number:Temperature | Low temperature |
-| maxTemperature           | Number:Temperature | High temperature |
-| meanTemperature          | Number:Temperature | Mean temperature |
-| feltTemperatureMin       | Number:Temperature | Low "feels like" temperature |
-| feltTemperatureMax       | Number:Temperature | High "feels like" temperature |
-| relativeHumidityMin      | Number             | Low relative humidity |
-| relativeHumidityMax      | Number             | High relative humidity |
-| relativeHumidityMean     | Number             | Mean relative humidity |
-| precipitationProbability | Number             | Percentage probability of precipitation |
-| precipitation            | Number:Length      | Total precipitation (water amount) |
-| convectivePrecipitation  | Number:Length      | Total rainfall (water amount) |
-| rainSpot                 | String             | Precipitation distribution around the location |
-| rainArea                 | Image              | Color-coded image generated from rainSpot |
-| snowFraction             | Number             | Percentage of precipitation falling as snow |
-| snowFall                 | Number:Length      | Total snowfall (calculated) |
-| cardinalWindDirection    | String             | Name of the wind direction (eg. N, S, E, W, etc.) |
-| windDirection            | Number             | Wind direction (in degrees) |
-| minWindSpeed             | Number:Speed       | Low wind speed  |
-| maxWindSpeed             | Number:Speed       | High wind speed |
-| meanWindSpeed            | Number:Speed       | Mean wind speed |
-| minSeaLevelPressure      | Number:Pressure    | Low sea level pressure  |
-| maxSeaLevelPressure      | Number:Pressure    | High sea level pressure |
-| meanSeaLevelPressure     | Number:Pressure    | Mean sea level pressure |
-| condition                | String             | A brief description of the forecast weather condition (e.g. 'Overcast') |
+|         Channel          |     Item Type      |                                                                            Description                                                                             |
+|--------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| height                   | Number:Length      | Altitude above sea-level of the location (in meters)                                                                                                               |
+| forecastDate             | DateTime           | Forecast date                                                                                                                                                      |
+| UVIndex                  | Number             | UltraViolet radiation index at ground level (0-16)                                                                                                                 |
+| minTemperature           | Number:Temperature | Low temperature                                                                                                                                                    |
+| maxTemperature           | Number:Temperature | High temperature                                                                                                                                                   |
+| meanTemperature          | Number:Temperature | Mean temperature                                                                                                                                                   |
+| feltTemperatureMin       | Number:Temperature | Low "feels like" temperature                                                                                                                                       |
+| feltTemperatureMax       | Number:Temperature | High "feels like" temperature                                                                                                                                      |
+| relativeHumidityMin      | Number             | Low relative humidity                                                                                                                                              |
+| relativeHumidityMax      | Number             | High relative humidity                                                                                                                                             |
+| relativeHumidityMean     | Number             | Mean relative humidity                                                                                                                                             |
+| precipitationProbability | Number             | Percentage probability of precipitation                                                                                                                            |
+| precipitation            | Number:Length      | Total precipitation (water amount)                                                                                                                                 |
+| convectivePrecipitation  | Number:Length      | Total rainfall (water amount)                                                                                                                                      |
+| rainSpot                 | String             | Precipitation distribution around the location                                                                                                                     |
+| rainArea                 | Image              | Color-coded image generated from rainSpot                                                                                                                          |
+| snowFraction             | Number             | Percentage of precipitation falling as snow                                                                                                                        |
+| snowFall                 | Number:Length      | Total snowfall (calculated)                                                                                                                                        |
+| cardinalWindDirection    | String             | Name of the wind direction (eg. N, S, E, W, etc.)                                                                                                                  |
+| windDirection            | Number             | Wind direction (in degrees)                                                                                                                                        |
+| minWindSpeed             | Number:Speed       | Low wind speed                                                                                                                                                     |
+| maxWindSpeed             | Number:Speed       | High wind speed                                                                                                                                                    |
+| meanWindSpeed            | Number:Speed       | Mean wind speed                                                                                                                                                    |
+| minSeaLevelPressure      | Number:Pressure    | Low sea level pressure                                                                                                                                             |
+| maxSeaLevelPressure      | Number:Pressure    | High sea level pressure                                                                                                                                            |
+| meanSeaLevelPressure     | Number:Pressure    | Mean sea level pressure                                                                                                                                            |
+| condition                | String             | A brief description of the forecast weather condition (e.g. 'Overcast')                                                                                            |
 |                          |                    | Valid values range from 1 - 17 (see the [meteoblue docs](https://content.meteoblue.com/nl/service-specifications/standards/symbols-and-pictograms#eztoc14635_1_6)) |
-| icon                     | Image              | Image used to represent the forecast (calculated) |
-|                          |                    | see [Image icons](#image-icons) below
-| predictability           | Number             | Estimated certainty of the forecast (percentage) |
-| predictabilityClass      | Number             | Range 0-5 (0=very low, 5=very high) |
-| precipitationHours       | Number             | Total hours of the day with precipitation |
-| humidityGreater90Hours   | Number             | Total hours of the day with relative humidity greater than 90% |
+| icon                     | Image              | Image used to represent the forecast (calculated)                                                                                                                  |
+|                          |                    | see [Image icons](#image-icons) below                                                                                                                              |
+| predictability           | Number             | Estimated certainty of the forecast (percentage)                                                                                                                   |
+| predictabilityClass      | Number             | Range 0-5 (0=very low, 5=very high)                                                                                                                                |
+| precipitationHours       | Number             | Total hours of the day with precipitation                                                                                                                          |
+| humidityGreater90Hours   | Number             | Total hours of the day with relative humidity greater than 90%                                                                                                     |
 
 ## Image Icons
 
@@ -154,3 +154,4 @@ sitemap weather label="Weather"
   }
 }
 ````
+

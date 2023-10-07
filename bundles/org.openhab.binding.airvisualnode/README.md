@@ -21,7 +21,7 @@ The binding has no configuration options, all configuration is done at Thing lev
 
 The thing has a few configuration parameters:
 
-| Parameter | Description                                                                         |
+| Parameter |                                     Description                                     |
 |-----------|-------------------------------------------------------------------------------------|
 | address   | Hostname or IP address of the Node                                                  |
 | username  | The Node Samba share username. Default is 'airvisual'                               |
@@ -35,17 +35,17 @@ Required configuration parameters can be obtained by pressing the center button 
 
 The binding supports the following channels:
 
-| Channel ID      | Item Type             | Description                 |
-|-----------------|-----------------------|-----------------------------|
-| co2             | Number:Dimensionless  | CO2 level, ppm              |
-| humidity        | Number:Dimensionless  | Relative humidity, %        |
-| aqi             | Number:Dimensionless  | Air Quality Index (US)      |
-| pm_25           | Number:Density        | PM2.5 level, µg/m³          |
-| temperature     | Number:Temperature    | Temperature                 |
-| used_memory     | Number                | Used memory                 |
-| timestamp       | DateTime              | Timestamp                   |
-| battery-level   | Number                | Battery level, %            |
-| signal-strength | Number                | Wi-Fi signal strength, 0-4  |
+|   Channel ID    |      Item Type       |        Description         |
+|-----------------|----------------------|----------------------------|
+| co2             | Number:Dimensionless | CO2 level, ppm             |
+| humidity        | Number:Dimensionless | Relative humidity, %       |
+| aqi             | Number:Dimensionless | Air Quality Index (US)     |
+| pm_25           | Number:Density       | PM2.5 level, µg/m³         |
+| temperature     | Number:Temperature   | Temperature                |
+| used_memory     | Number               | Used memory                |
+| timestamp       | DateTime             | Timestamp                  |
+| battery-level   | Number               | Battery level, %           |
+| signal-strength | Number               | Wi-Fi signal strength, 0-4 |
 
 The Node updates measurements data every 5 minutes in active mode and every 15 minutes in power saving mode (screen off).
 
@@ -130,3 +130,4 @@ sitemap home label="Home" {
     }
 }
 ```
+

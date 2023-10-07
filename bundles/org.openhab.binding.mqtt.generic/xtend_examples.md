@@ -190,3 +190,4 @@ receive values from "heatpump/state1" and "heatpump/state2".
 Switch ExampleItem "Heatpump Power" { channel="mqtt:topic:myUnsecureBroker:mything:heatpumpChannel",
                                       channel="mqtt:topic:myUnsecureBroker:mything:heatpumpChannel2" }
 ```
+

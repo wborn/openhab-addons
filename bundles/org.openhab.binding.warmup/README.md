@@ -11,13 +11,13 @@ The binding api implementation has been derived from the implementations at <htt
 
 The Warmup binding supports the following thing types:
 
-| Bridge         | Label             | Description                                                                            |
-|----------------|-------------------|----------------------------------------------------------------------------------------|
-| `my-warmup`    | My Warmup Account | The account credentials for my.warmup.com which acts as an API to the Warmup device(s) |
+|   Bridge    |       Label       |                                      Description                                       |
+|-------------|-------------------|----------------------------------------------------------------------------------------|
+| `my-warmup` | My Warmup Account | The account credentials for my.warmup.com which acts as an API to the Warmup device(s) |
 
-| Thing    | Label | Description                                                                                                          |
-|----------|-------|----------------------------------------------------------------------------------------------------------------------|
-| `room`   | Room  | A room containing an individual Warmup 4iE device which is a WiFi connected device which controls a heating circuit. |
+| Thing  | Label |                                                     Description                                                      |
+|--------|-------|----------------------------------------------------------------------------------------------------------------------|
+| `room` | Room  | A room containing an individual Warmup 4iE device which is a WiFi connected device which controls a heating circuit. |
 
 ### Room
 
@@ -33,7 +33,7 @@ Once credentials are successfully added to the bridge, any rooms (devices) detec
 
 ### My Warmup Account
 
-| config parameter | type    | description                                     | required | default |
+| config parameter |  type   |                   description                   | required | default |
 |------------------|---------|-------------------------------------------------|----------|---------|
 | username         | String  | Username for my.warmup.com                      | true     |         |
 | password         | String  | Password for my.warmup.com                      | true     |         |
@@ -43,14 +43,14 @@ Once credentials are successfully added to the bridge, any rooms (devices) detec
 
 Rooms are configured automatically with a Serial Number on discovery, or can be added manually using the "Device Number" from the device, excluding the last 3 characters. The only supported temperature change is an override, through a default duration configured on the thing. This defaults to 60 minutes.
 
-| config parameter | type    | description                                                        | required | default |
+| config parameter |  type   |                            description                             | required | default |
 |------------------|---------|--------------------------------------------------------------------|----------|---------|
 | serialNumber     | String  | Device Serial Number, excluding last 3 characters                  | true     |         |
 | overrideDuration | Integer | Duration in minutes of override when target temperature is changed | true     | 60      |
 
 ## Channels
 
-| channel             | type               | description                                                                                                                                  | read only |
+|       channel       |        type        |                                                                 description                                                                  | read only |
 |---------------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------------------|-----------|
 | currentTemperature  | Number:Temperature | Currently reported temperature                                                                                                               | true      |
 | targetTemperature   | Number:Temperature | Target temperature                                                                                                                           | false     |
@@ -62,7 +62,7 @@ Rooms are configured automatically with a Serial Number on discovery, or can be 
 
 These run mode statuses are defined for the API. The descriptions are based on inspection of the device behaviour and are not sourced from documentation.
 
-| api value  | ui name          | description                                                                     |
+| api value  |     ui name      |                                   description                                   |
 |------------|------------------|---------------------------------------------------------------------------------|
 | not_set    | Not Set          | Unknown                                                                         |
 | off        | Off              | Device turned off                                                               |
@@ -108,3 +108,4 @@ Text label="Bathroom" {
     Switch item=bathroom_frostProtection
 }
 ```
+

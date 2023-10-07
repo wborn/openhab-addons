@@ -35,8 +35,8 @@ Or you can find it during discovery.
 
 ### Sensibo Sky
 
-| Channel            | Read/write | Item type            | Description                                                                                                         |
-| ------------------ | ---------- | -------------------- | ------------------------------------------------------------------------------------------------------------------- |
+|      Channel       | Read/write |      Item type       |                                                     Description                                                     |
+|--------------------|------------|----------------------|---------------------------------------------------------------------------------------------------------------------|
 | currentTemperature | R          | Number:Temperature   | Measured temperature                                                                                                |
 | currentHumidity    | R          | Number:Dimensionless | Measured relative humidity, reported in percent                                                                     |
 | targetTemperature  | R/W        | Number:Temperature   | Current target temperature for this room                                                                            |
@@ -80,3 +80,4 @@ Selection item=AC_Office_Room_Swing_Mode
 Text item=AC_Office_Room_Current_Temperature  
 Text item=AC_Office_Room_Current_Humidity
 ```
+

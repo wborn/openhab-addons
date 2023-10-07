@@ -9,7 +9,7 @@ All LIFX lights are directly connected to the WLAN and the binding communicates 
 
 The following table lists the thing types of the supported LIFX devices:
 
-| Device Type                  | Thing Type    |
+|         Device Type          |  Thing Type   |
 |------------------------------|---------------|
 | Original 1000                | colorlight    |
 | Color 650                    | colorlight    |
@@ -43,14 +43,14 @@ The following table lists the thing types of the supported LIFX devices:
 The thing type determines the capability of a device and with that the possible ways of interacting with it.
 The following matrix lists the capabilities (channels) for each type:
 
-| Thing Type    | On/Off | Brightness | Color | Color Zone | (Abs) Color Temperature | (Abs) Color Temperature Zone | HEV Cycle | Infrared | Tile Effects |
+|  Thing Type   | On/Off | Brightness | Color | Color Zone | (Abs) Color Temperature | (Abs) Color Temperature Zone | HEV Cycle | Infrared | Tile Effects |
 |---------------|:------:|:----------:|:-----:|:----------:|:-----------------------:|:----------------------------:|:---------:|:--------:|:------------:|
-| colorlight    |    X   |            |   X   |            |            X            |                              |           |          |              |
-| colorhevlight |    X   |            |   X   |            |            X            |                              |     X     |          |              |
-| colorirlight  |    X   |            |   X   |            |            X            |                              |           |     X    |              |
-| colormzlight  |    X   |            |   X   |      X     |            X            |               X              |           |          |              |
-| tilelight     |    X   |      X     |   X   |            |            X            |                              |           |          |       X      |
-| whitelight    |    X   |      X     |       |            |            X            |                              |           |          |              |
+| colorlight    |   X    |            |   X   |            |            X            |                              |           |          |              |
+| colorhevlight |   X    |            |   X   |            |            X            |                              |     X     |          |              |
+| colorirlight  |   X    |            |   X   |            |            X            |                              |           |    X     |              |
+| colormzlight  |   X    |            |   X   |     X      |            X            |              X               |           |          |              |
+| tilelight     |   X    |     X      |   X   |            |            X            |                              |           |          |      X       |
+| whitelight    |   X    |     X      |       |            |            X            |                              |           |          |              |
 
 ## Discovery
 
@@ -85,7 +85,7 @@ Thing lifx:colorirlight:porch [ host="10.120.130.4", fadetime=0 ]
 
 All devices support some of the following channels:
 
-| Channel Type ID    | Item Type          | Description                                                                                                                                                      | Thing Types                                                                  |
+|  Channel Type ID   |     Item Type      |                                                                           Description                                                                            |                                 Thing Types                                  |
 |--------------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------|
 | abstemperature     | Number:Temperature | This channel supports adjusting the color temperature in Kelvin.                                                                                                 | colorlight, colorhevlight, colorirlight, colormzlight, tilelight, whitelight |
 | abstemperaturezone | Number:Temperature | This channel supports adjusting the zone color temperature in Kelvin.                                                                                            | colormzlight                                                                 |
@@ -277,3 +277,4 @@ sitemap demo label="Main Menu"
     }
 }
 ```
+

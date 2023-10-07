@@ -46,3 +46,4 @@ in [Java MessageDigest Algorithms](https://docs.oracle.com/en/java/javase/17/doc
 ```java
 mqtt:broker:pinToPublicKey [ host="192.168.0.44", secure=true, publickeypin=true, publickey="SHA-256:9a6f30e67ae9723579da2575c35daf7da3b370b04ac0bde031f5e1f5e4617eb8" ]
 ```
+

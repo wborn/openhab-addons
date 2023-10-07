@@ -32,7 +32,7 @@ Optional configuration:
 
 The binding supports following channels
 
-| Channel Type ID    | Item Type | Description                                                                                               |
+|  Channel Type ID   | Item Type |                                                Description                                                |
 |--------------------|-----------|-----------------------------------------------------------------------------------------------------------|
 | latest-title       | String    | Contains the title of the last feed entry.                                                                |
 | latest-description | String    | Contains the description of the last feed entry.                                                          |
@@ -68,3 +68,4 @@ String author                 {channel="feed:feed:bbc:author"}
 DateTime published_date       {channel="feed:feed:bbc:last-update"}
 String title                  {channel="feed:feed:bbc:title"}
 ```
+

@@ -50,39 +50,39 @@ Either `macAddres` or `heaterId` must be specified.
 
 ### Home channels
 
-| Channel                       | Read/write      | Item type           | Description |
-| -------------------           | -------------   | ------------------- | ----------- |
-| vacationMode                  | R/W             | Switch              | Vacation mode active. Note: In order to activate vacation mode, both vacationModeStart and vacationModeEnd must be set to valid values  |
-| vacationModeAdvanced          | R/W             | Switch              | Vacation mode advanced active. Can only be activated after vacation mode is active  |
-| vacationModeTargetTemperature | R/W             | Number:Temperature  | Temperature to use when activating vacation mode. Note: If advanced vacation mode is set, this temperature is ignored and the away temperature for each room is used instead  |
-| vacationModeStart             | R/W             | DateTime            | Vacation mode start  |
-| vacationModeEnd               | R/W             | DateTime            | Vacation mode end  |
+|            Channel            | Read/write |     Item type      |                                                                                 Description                                                                                  |
+|-------------------------------|------------|--------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| vacationMode                  | R/W        | Switch             | Vacation mode active. Note: In order to activate vacation mode, both vacationModeStart and vacationModeEnd must be set to valid values                                       |
+| vacationModeAdvanced          | R/W        | Switch             | Vacation mode advanced active. Can only be activated after vacation mode is active                                                                                           |
+| vacationModeTargetTemperature | R/W        | Number:Temperature | Temperature to use when activating vacation mode. Note: If advanced vacation mode is set, this temperature is ignored and the away temperature for each room is used instead |
+| vacationModeStart             | R/W        | DateTime           | Vacation mode start                                                                                                                                                          |
+| vacationModeEnd               | R/W        | DateTime           | Vacation mode end                                                                                                                                                            |
 
 ### Room channels
 
-| Channel             | Read/write    | Item type             | Description |
-| ------------------- | ------------- | --------------------- | ----------- |
-| currentTemperature  | R             | Number:Temperature    | Measured temperature in your room (if more than one heater then it is the average of all heaters) |
-| currentMode         | R             | String                | Current mode (comfort, away, sleep etc) being active |
-| targetTemperature   | R             | Number:Temperature    | Current target temperature for this room (managed by the room program and set by comfort- away- and sleepTemperature) |
-| comfortTemperature  | R/W           | Number:Temperature    | Comfort mode temperature |
-| awayTemperature     | R/W           | Number:Temperature    | Away mode temperature |
-| sleepTemperature    | R/W           | Number:Temperature    | Sleep mode temperature |
-| heatingActive       | R             | Switch                | Whether the heaters in this room are active |
-| program             | R             | String                | Name of program used in this room |
+|      Channel       | Read/write |     Item type      |                                                      Description                                                      |
+|--------------------|------------|--------------------|-----------------------------------------------------------------------------------------------------------------------|
+| currentTemperature | R          | Number:Temperature | Measured temperature in your room (if more than one heater then it is the average of all heaters)                     |
+| currentMode        | R          | String             | Current mode (comfort, away, sleep etc) being active                                                                  |
+| targetTemperature  | R          | Number:Temperature | Current target temperature for this room (managed by the room program and set by comfort- away- and sleepTemperature) |
+| comfortTemperature | R/W        | Number:Temperature | Comfort mode temperature                                                                                              |
+| awayTemperature    | R/W        | Number:Temperature | Away mode temperature                                                                                                 |
+| sleepTemperature   | R/W        | Number:Temperature | Sleep mode temperature                                                                                                |
+| heatingActive      | R          | Switch             | Whether the heaters in this room are active                                                                           |
+| program            | R          | String             | Name of program used in this room                                                                                     |
 
 ### Heater channels
 
-| Channel             | Read/write    | Item type          | Description |
-| ------------------- | ------------- | ------------------ | ----------- |
-| currentTemperature  | R             | Number:Temperature | Measured temperature by this heater |
-| targetTemperature   | R/W           | Number:Temperature | Target temperature for this heater. Channel available only if heater is not connected to a room |
-| currentPower        | R             | Number:Power       | Current power usage in watts. Note that the power attribute of the heater thing config must be set for this channel to be active  |
-| heatingActive       | R             | Switch             | Whether the heater is active/heating  |
-| fanActive           | R/W           | Switch             | Whether the fan (if available) is active (UNTESTED) |
-| independent         | R             | Switch             | Whether this heater is controlled independently or part of a room setup |
-| window              | R             | Contact            | Whether this heater has detected that a window nearby is open/detection of cold air (UNTESTED) |
-| masterSwitch        | R/W           | Switch             | Turn heater ON/OFF. Channel available only if heater is not connected to a room |
+|      Channel       | Read/write |     Item type      |                                                           Description                                                            |
+|--------------------|------------|--------------------|----------------------------------------------------------------------------------------------------------------------------------|
+| currentTemperature | R          | Number:Temperature | Measured temperature by this heater                                                                                              |
+| targetTemperature  | R/W        | Number:Temperature | Target temperature for this heater. Channel available only if heater is not connected to a room                                  |
+| currentPower       | R          | Number:Power       | Current power usage in watts. Note that the power attribute of the heater thing config must be set for this channel to be active |
+| heatingActive      | R          | Switch             | Whether the heater is active/heating                                                                                             |
+| fanActive          | R/W        | Switch             | Whether the fan (if available) is active (UNTESTED)                                                                              |
+| independent        | R          | Switch             | Whether this heater is controlled independently or part of a room setup                                                          |
+| window             | R          | Contact            | Whether this heater has detected that a window nearby is open/detection of cold air (UNTESTED)                                   |
+| masterSwitch       | R/W        | Switch             | Turn heater ON/OFF. Channel available only if heater is not connected to a room                                                  |
 
 ## Full Example
 
@@ -135,3 +135,4 @@ In order to activate vacation mode, follow these steps in a rule:
 - Set end time (DateTime) on `DateTime` item linked to channel type `vacationModeEnd`
 - Activate vacation mode on `Switch` item linked to channel type `vacationMode`
 - Optional - set advanced vacation mode on `Switch` item linked to channel type `vacationModeAdvanced`
+

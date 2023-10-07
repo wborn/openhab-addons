@@ -15,17 +15,17 @@ The information are requested from the timetable api of Deutsche Bahn developer 
 To configure a timetable you first need to register at Deutsche Bahn developer portal and register for timetable API to get an access key.
 
 1. Go to [DB API Marketplace](https://developers.deutschebahn.com/)
-1. Register new account or login with an existing one
-1. If no application is configured yet (check Tab "Anwendungen" at top) create a new application. Only the name is required, for example openHAB, any other fields can be left blank.
-1. Remember the shown **Client ID** and **Client Secret**.
-1. Go to **Katalog** and search for **Timetables** api.
-1. Within **Zugehörige APIs** select the Timetables api.
-1. Select **Abonnieren** at top left of the page.
-1. Select the Nutzungsplan **Free** by clicking **Abonnieren**.
-1. Select the previously created application.
-1. Click **Next**.
-1. Click **Fertig**.
-1. Now you have successfully registered the api within an application. The **Client ID** and **Client Secret** can now be used during bridge configuration.
+2. Register new account or login with an existing one
+3. If no application is configured yet (check Tab "Anwendungen" at top) create a new application. Only the name is required, for example openHAB, any other fields can be left blank.
+4. Remember the shown **Client ID** and **Client Secret**.
+5. Go to **Katalog** and search for **Timetables** api.
+6. Within **Zugehörige APIs** select the Timetables api.
+7. Select **Abonnieren** at top left of the page.
+8. Select the Nutzungsplan **Free** by clicking **Abonnieren**.
+9. Select the previously created application.
+10. Click **Next**.
+11. Click **Fertig**.
+12. Now you have successfully registered the api within an application. The **Client ID** and **Client Secret** can now be used during bridge configuration.
 
 ### Determine the EVA-No of your station
 
@@ -54,7 +54,7 @@ and only trains that matches the given filter will be contained within the timet
 To specify an advanced filter you can
 
 - specify a filter for the value of a given channel. Therefore, you must specify the channel name (with channel group) and specify a compare value like this:
-`departure#line="RE60"` this will select all trains with line RE60
+  `departure#line="RE60"` this will select all trains with line RE60
 - use regular expressions for expected channel values, for example:  `departure#line="RE.*"`, this will match all lines starting with "RE".
 - combine multiple statements as "and" conjunction by using `&`. If used, both parts must match, for example: `departure#line="RE60" & trip#category="WFB"`
 - combine multiple statements as "or" disjunction by using `|`. If used, one of the parts must match, for example: `departure#line="RE60" | departure#line="RE60"`
@@ -99,39 +99,39 @@ Basically most information are available as planned and changed value. This allo
 
 ### Channels for trip information
 
-| channel  | type   | description                  |
-|----------|--------|------------------------------|
-| category | String | Provides the category of the trip, e.g. "ICE" or "RE". |
-| number | String | Provides the trip/train number, e.g. "4523". |
-| filter-flags | String | Provides the filter flags. |
-| trip-type | String | Provides the type of the trip. |
-| owner | String | Provides the owner of the train. A unique short-form and only intended to map a trip to specific evu (EisenbahnVerkehrsUnternehmen). |
+|   channel    |  type  |                                                             description                                                              |
+|--------------|--------|--------------------------------------------------------------------------------------------------------------------------------------|
+| category     | String | Provides the category of the trip, e.g. "ICE" or "RE".                                                                               |
+| number       | String | Provides the trip/train number, e.g. "4523".                                                                                         |
+| filter-flags | String | Provides the filter flags.                                                                                                           |
+| trip-type    | String | Provides the type of the trip.                                                                                                       |
+| owner        | String | Provides the owner of the train. A unique short-form and only intended to map a trip to specific evu (EisenbahnVerkehrsUnternehmen). |
 
 ### Channels for arrival / departure
 
-| channel  | type   | description                  |
-|----------|--------|------------------------------|
-| planned-path  | String | Provides the planned path of a train. |
-| changed-path  | String | Provides the changed path of a train. |
-| planned-platform  | String | Provides the planned platform of a train.  |
-| changed-platform | String | Provides the changed platform of a train. |
-| planned-time | DateTime | Provides the planned time of a train. |
-| changed-time | DateTime | Provides the changed time of a train. |
-| planned-status | String | Provides the planned status (planned, added, cancelled) of a train. |
-| changed-status | String | Provides the changed status (planned, added, cancelled) of a train. |
-| cancellation-time | DateTime | Time when the cancellation of this stop was created. |
-| line | String | The line of the train.  |
-| messages | String | Messages for this train. Contains all translated codes from the messages of the selected train stop. Multiple messages will be separated with a single dash. |
-| hidden | Switch | On if the event should not be shown because travellers are not supposed to enter or exit the train at this stop. |
-| wings | String | A sequence of trip id separated by pipe symbols. |
-| transition | String | Trip id of the next or previous train of a shared train. At the start stop this references the previous trip, at the last stop it references the next trip. |
-| planned-distant-endpoint | String | Planned distant endpoint of a train. |
-| changed-distant-endpoint | String | Changed distant endpoint of a train. |
-| distant-change | Number | Distant change |
-| planned-final-station | String | Planned final station of the train. For arrivals the starting station is returned, for departures the target station is returned. |
-| planned-intermediate-stations | String | Returns the planned stations this train came from (for arrivals) or the stations this train will go to (for departures). Stations will be separated by single dash. |
-| changed-final-station | String | Changed final station of the train. For arrivals the starting station is returned, for departures the target station is returned.  |
-| changed-intermediate-stations | String | Returns the changed stations this train came from (for arrivals) or the stations this train will go to (for departures). Stations will be separated by single dash. |
+|            channel            |   type   |                                                                             description                                                                             |
+|-------------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| planned-path                  | String   | Provides the planned path of a train.                                                                                                                               |
+| changed-path                  | String   | Provides the changed path of a train.                                                                                                                               |
+| planned-platform              | String   | Provides the planned platform of a train.                                                                                                                           |
+| changed-platform              | String   | Provides the changed platform of a train.                                                                                                                           |
+| planned-time                  | DateTime | Provides the planned time of a train.                                                                                                                               |
+| changed-time                  | DateTime | Provides the changed time of a train.                                                                                                                               |
+| planned-status                | String   | Provides the planned status (planned, added, cancelled) of a train.                                                                                                 |
+| changed-status                | String   | Provides the changed status (planned, added, cancelled) of a train.                                                                                                 |
+| cancellation-time             | DateTime | Time when the cancellation of this stop was created.                                                                                                                |
+| line                          | String   | The line of the train.                                                                                                                                              |
+| messages                      | String   | Messages for this train. Contains all translated codes from the messages of the selected train stop. Multiple messages will be separated with a single dash.        |
+| hidden                        | Switch   | On if the event should not be shown because travellers are not supposed to enter or exit the train at this stop.                                                    |
+| wings                         | String   | A sequence of trip id separated by pipe symbols.                                                                                                                    |
+| transition                    | String   | Trip id of the next or previous train of a shared train. At the start stop this references the previous trip, at the last stop it references the next trip.         |
+| planned-distant-endpoint      | String   | Planned distant endpoint of a train.                                                                                                                                |
+| changed-distant-endpoint      | String   | Changed distant endpoint of a train.                                                                                                                                |
+| distant-change                | Number   | Distant change                                                                                                                                                      |
+| planned-final-station         | String   | Planned final station of the train. For arrivals the starting station is returned, for departures the target station is returned.                                   |
+| planned-intermediate-stations | String   | Returns the planned stations this train came from (for arrivals) or the stations this train will go to (for departures). Stations will be separated by single dash. |
+| changed-final-station         | String   | Changed final station of the train. For arrivals the starting station is returned, for departures the target station is returned.                                   |
+| changed-intermediate-stations | String   | Returns the changed stations this train came from (for arrivals) or the stations this train will go to (for departures). Stations will be separated by single dash. |
 
 ## Full Example
 
@@ -362,3 +362,4 @@ slots:
                       font-weight: bold
                       text-align: right
 ```
+

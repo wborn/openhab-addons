@@ -18,7 +18,7 @@ The Binding does not need any specific configuration
 
 The device requires the IP-address and a password as a configuration value in order for the binding to know where to access it and to login to the device.
 
-| Parameter | Description                                          |
+| Parameter |                     Description                      |
 |-----------|------------------------------------------------------|
 | host      | IP-Address of energenie device                       |
 | password  | Password to access energenie device, defaults to "1" |
@@ -27,21 +27,21 @@ The device requires the IP-address and a password as a configuration value in or
 
 The following channels are supported by PM2-LAN, PMS-LAN, PMS2-LAN or PMS-WLAN devices
 
-| channel  | type   | description                                        |
-|----------|--------|----------------------------------------------------|
-| socket1  | Switch | This is the control channel for the first socket   |
-| socket2  | Switch | This is the control channel for the second socket  |
-| socket3  | Switch | This is the control channel for the third socket   |
-| socket4  | Switch | This is the control channel for the fourth socket  |
+| channel |  type  |                    description                    |
+|---------|--------|---------------------------------------------------|
+| socket1 | Switch | This is the control channel for the first socket  |
+| socket2 | Switch | This is the control channel for the second socket |
+| socket3 | Switch | This is the control channel for the third socket  |
+| socket4 | Switch | This is the control channel for the fourth socket |
 
 PWM-LAN devices support the following channels
 
-| channel  | type                     | description                              |
-|----------|--------------------------|------------------------------------------|
-| voltage  | Number:ElectricPotential | Channel for output voltage measurement   |
-| current  | Number:ElectricCurrent   | Channel for output current measurement   |
-| power    | Number:Power             | Channel for output power measurement     |
-| energy   | Number:Energy            | channel for output energy measurement    |
+| channel |           type           |              description               |
+|---------|--------------------------|----------------------------------------|
+| voltage | Number:ElectricPotential | Channel for output voltage measurement |
+| current | Number:ElectricCurrent   | Channel for output current measurement |
+| power   | Number:Power             | Channel for output power measurement   |
+| energy  | Number:Energy            | channel for output energy measurement  |
 
 ## Full Example
 
@@ -91,3 +91,4 @@ sitemap energenie label="Energenie Devices"
        }
 }
 ```
+

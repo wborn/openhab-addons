@@ -14,7 +14,7 @@ The Thing configuration requires the name of the serial port that is used to con
 
 All devices support some of the following channels:
 
-| Channel Type ID | Item Type | Description                                                               |   |   |
+| Channel Type ID | Item Type |                                Description                                |   |   |
 |-----------------|-----------|---------------------------------------------------------------------------|---|---|
 | waterlevel      | Number    | Indicates the % the cistern is filled with water                          |   |   |
 | mode            | String    | Indicates the operation mode of the RME Rain Manager, Automatic or Manual |   |   |
@@ -44,3 +44,4 @@ Switch RMEOverflowAlarm (rme) {channel="rme:manager:m1:overflowalarm"}
 Switch RMECisternBlockedAlarm (rme) {channel="rme:manager:m1:cisternblockedalarm"}
 Switch RMEFilterCleaning(rme) {channel="rme:manager:m1:filtercleaning"}
 ```
+

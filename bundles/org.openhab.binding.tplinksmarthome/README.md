@@ -370,12 +370,12 @@ Manually starting a discovery can also be used to set the ip address directly in
 
 The thing has the following configuration parameters:
 
-| Parameter          | Description                                                                                  |
-|--------------------|----------------------------------------------------------------------------------------------|
-| deviceId           | The TP-Link id of the device.                                                                |
-| ipAddress          | IP Address of the device.                                                                    |
-| refresh            | Refresh interval in seconds. Optional. The default is 30 seconds, and 1 second for switches. |
-| transitionPeriod   | Duration of state changes in milliseconds, only for light bulbs, default 0.                  |
+|    Parameter     |                                         Description                                          |
+|------------------|----------------------------------------------------------------------------------------------|
+| deviceId         | The TP-Link id of the device.                                                                |
+| ipAddress        | IP Address of the device.                                                                    |
+| refresh          | Refresh interval in seconds. Optional. The default is 30 seconds, and 1 second for switches. |
+| transitionPeriod | Duration of state changes in milliseconds, only for light bulbs, default 0.                  |
 
 Either `deviceId` or `ipAddress` must be set.
 
@@ -383,7 +383,7 @@ Either `deviceId` or `ipAddress` must be set.
 
 All devices support some of the following channels:
 
-| Channel Type ID     | Item Type                | Description                                    | Thing types supporting this channel                                                                                                                    |
+|   Channel Type ID   |        Item Type         |                  Description                   |                                                          Thing types supporting this channel                                                           |
 |---------------------|--------------------------|------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
 | switch              | Switch                   | Power the device on or off.                    | EP10, EP40, HS100, HS103, HS105, HS107, HS110, HS200, HS210, HS300, KP100, KP105, KP115, KP200, KP303, KP400, KP401, KS230, RE270K, RE370K             |
 | brightness          | Dimmer                   | Set the brightness of device or dimmer.        | ES20M, HS220, KB100, KL50, KL60, KL110, KL120, KP405, LB100, LB110, LB120, LB200                                                                       |
@@ -401,7 +401,7 @@ The outlet devices (EP40, HS107, HS300, KP200, KP400) have group channels.
 This means the channel is prefixed with the group id.
 The following group ids are available:
 
-| Group ID          | Description                                                                                           |
+|     Group ID      |                                              Description                                              |
 |-------------------|-------------------------------------------------------------------------------------------------------|
 | groupSwitch       | Group id for all general channels. e.g. `groupSwitch#switch`                                          |
 | outlet&lt;number> | The outlet to control. &lt;number> is the number of the outlet (starts with 1). e.g. `outlet1#switch` |
@@ -460,3 +460,4 @@ then
     actions.send(cmd)
 end
 ```
+

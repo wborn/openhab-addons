@@ -21,7 +21,7 @@ The controller does not have any kind of configuration parameters.
 The controller has a single trigger channel `gesture`.
 It generates the following events with a frequency of at most 200ms:
 
-| Event         | Description                                                                |
+|     Event     |                                Description                                 |
 |---------------|----------------------------------------------------------------------------|
 | nohand        | No hand can be seen                                                        |
 | tap           | A tap with a single finger                                                 |
@@ -33,7 +33,7 @@ It generates the following events with a frequency of at most 200ms:
 
 This binding specifies 3 profiles for the `gesture` channel to make it easy to link to existing items:
 
-| Profile           | Description                                                                                                                                                                                                                                                                                           |
+|      Profile      |                                                                                                                                              Description                                                                                                                                              |
 |-------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | leapmotion:switch | Simulates a toggle switch using the "tap" gesture                                                                                                                                                                                                                                                     |
 | leapmotion:dimmer | Sends percentage values and supports two modes (configuration parameter `mode=fingers|height`): - fingers: 20% for every shown finger, i.e. 0=0%, 1=20%, 2=40%, 3=60%, 4=80%, 5=100% - height: If hand shows all 5 fingers, its height above the controller determines the value. Higher is brighter. |
@@ -54,3 +54,4 @@ Switch DemoSwitch  "Switch"         { channel="leapmotion:controller:1:gesture" 
 Color  RGBLight    "RGB Light"      { channel="leapmotion:controller:1:gesture" }
 Dimmer DimmedLight "Dimmer [%d %%]" { channel="leapmotion:controller:1:gesture"[profile="leapmotion:dimmer", mode="fingers"] } 
 ```
+

@@ -40,7 +40,7 @@ Thing autelis:jandy:myPool [ host="192.168.1.10", port="80", user="admin", passw
 
 Pentair devices support the following channels:
 
-| Channel Type ID     | Item Type |
+|   Channel Type ID   | Item Type |
 |---------------------|-----------|
 | system-runstate     | Number    |
 | system-model        | Number    |
@@ -107,7 +107,7 @@ Pentair devices support the following channels:
 
 Jandy devices support the following channels:
 
-| Channel Type ID     | Item Type |
+|   Channel Type ID   | Item Type |
 |---------------------|-----------|
 | system-model        | Number    |
 | system-dip          | Number    |
@@ -165,3 +165,4 @@ Jandy devices support the following channels:
 | chem-phfd1          | Number    |
 | chem-phfd2          | Number    |
 | reboot              | Switch    |
+

@@ -7,8 +7,8 @@ This may work with the older KRP series of wired adapters, but has not been test
 
 ## Supported Things
 
-| Thing             | Daikin Wi-Fi Adapter Model                 |
-| ----------------- | ------------------------------------------ |
+|       Thing       |         Daikin Wi-Fi Adapter Model         |
+|-------------------|--------------------------------------------|
 | `ac_unit`         | BRP069A81, BRP069B41, BRP072A42, BRP072C42 |
 | `airbase_ac_unit` | BRP15B61                                   |
 
@@ -45,8 +45,8 @@ A BRP072C42 adapter requires a registered UUID to authenticate. Upon discovery, 
 The temperature channels have a precision of one half degree Celsius.
 For the BRP072A42 and BRP072C42:
 
-| Channel Name                | Description                                                                                                                     |
-| --------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+|        Channel Name         |                                                           Description                                                           |
+|-----------------------------|---------------------------------------------------------------------------------------------------------------------------------|
 | power                       | Turns the power on/off for the air conditioning unit.                                                                           |
 | settemp                     | The temperature set for the air conditioning unit.                                                                              |
 | indoortemp                  | The indoor temperature as measured by the unit.                                                                                 |
@@ -92,8 +92,8 @@ For the BRP072A42 and BRP072C42:
 
 For the BRP15B61:
 
-| Channel Name    | Description                                                                                                                                                       |
-| --------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  Channel Name   |                                                                            Description                                                                            |
+|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | power           | Turns the power on/off for the air conditioning unit.                                                                                                             |
 | settemp         | The temperature set for the air conditioning unit.                                                                                                                |
 | indoortemp      | The indoor temperature as measured by the unit.                                                                                                                   |
@@ -185,3 +185,4 @@ Switch item=DaikinACUnit_Zone7 visibility=[DaikinACUnit_Power==ON]
 Switch item=DaikinACUnit_Zone8 visibility=[DaikinACUnit_Power==ON]
 
 ```
+

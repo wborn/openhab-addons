@@ -6,7 +6,7 @@ This extension adds support for [Govee](https://www.govee.com/) Bluetooth Device
 
 Only two thing types are supported by this extension at the moment.
 
-| Thing Type ID          | Description                               | Supported Models                                            |
+|     Thing Type ID      |                Description                |                      Supported Models                       |
 |------------------------|-------------------------------------------|-------------------------------------------------------------|
 | goveeHygrometer        | Govee Thermo-Hygrometer                   | H5051,H5071                                                 |
 | goveeHygrometerMonitor | Govee Thermo-Hygrometer w/ Warning Alarms | H5052,H5072,H5074,H5075,H5101,H5102,H5177,H5179,B5175,B5178 |
@@ -19,7 +19,7 @@ As any other Bluetooth device, Govee devices are discovered automatically by the
 
 Govee things have the following configuration parameters:
 
-| Thing                       | Parameter               | Required | Default | Description                                                                       |
+|            Thing            |        Parameter        | Required | Default |                                    Description                                    |
 |-----------------------------|-------------------------|----------|---------|-----------------------------------------------------------------------------------|
 | all                         | address                 | yes      |         | The Bluetooth address of the device (in format "XX:XX:XX:XX:XX:XX")               |
 | all                         | refreshInterval         |          | 300     | How often, in seconds, the sensor data of the device should be refreshed          |
@@ -33,23 +33,23 @@ Govee things have the following configuration parameters:
 | goveeHygrometerMonitor      | humidityWarningMax      |          | 0       | The upper safe humidity threshold <sup>3</sup>                                    |
 
 1. Available to both `goveeHygrometer` and `goveeHygrometerMonitor` thing types.
-1. In °C
-1. Only applies if alarm feature is enabled
+2. In °C
+3. Only applies if alarm feature is enabled
 
 ## Channels
 
 Govee things have the following channels in addition to the default bluetooth channels:
 
-| Thing                       | Channel ID       | Item Type              | Description                                                    |
-|-----------------------------|------------------|------------------------|----------------------------------------------------------------|
-| goveeHygrometer<sup>1</sup> | temperature      | Number:Temperature     | The measured temperature                                       |
-| goveeHygrometer<sup>1</sup> | humidity         | Number:Dimensionless   | The measured relative humidity                                 |
-| goveeHygrometer<sup>1</sup> | battery          | Number:Dimensionless   | The measured battery percentage                                |
-| goveeHygrometerMonitor      | temperatureAlarm | Switch                 | Indicates if current temperature is out of range. <sup>2</sup> |
-| goveeHygrometerMonitor      | humidityAlarm    | Switch                 | Indicates if current humidity is out of range. <sup>2</sup>    |
+|            Thing            |    Channel ID    |      Item Type       |                          Description                           |
+|-----------------------------|------------------|----------------------|----------------------------------------------------------------|
+| goveeHygrometer<sup>1</sup> | temperature      | Number:Temperature   | The measured temperature                                       |
+| goveeHygrometer<sup>1</sup> | humidity         | Number:Dimensionless | The measured relative humidity                                 |
+| goveeHygrometer<sup>1</sup> | battery          | Number:Dimensionless | The measured battery percentage                                |
+| goveeHygrometerMonitor      | temperatureAlarm | Switch               | Indicates if current temperature is out of range. <sup>2</sup> |
+| goveeHygrometerMonitor      | humidityAlarm    | Switch               | Indicates if current humidity is out of range. <sup>2</sup>    |
 
 1. Available to both `goveeHygrometer` and `goveeHygrometerMonitor` thing types.
-1. Only applies if warning alarms are enabled in the configuration.
+2. Only applies if warning alarms are enabled in the configuration.
 
 ## Example
 
@@ -66,3 +66,4 @@ Number:Temperature      temperature "Room Temperature [%.1f %unit%]" { channel="
 Number:Dimensionless    humidity    "Humidity [%.0f %unit%]"         { channel="bluetooth:goveeHygrometer:hci0:beacon:humidity" }
 Number:Dimensionless    battery    "Battery [%.0f %unit%]"         { channel="bluetooth:goveeHygrometer:hci0:beacon:battery" }
 ```
+

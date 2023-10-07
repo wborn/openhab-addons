@@ -48,7 +48,7 @@ If you need to narrow the identification of a device (in case name or descriptio
 
 All devices support some of the following channels:
 
-| Channel Type ID | Item Type | Description                                                             |
+| Channel Type ID | Item Type |                               Description                               |
 |-----------------|-----------|-------------------------------------------------------------------------|
 | volume          | Dimmer    | Volume of an audio device in percent                                    |
 | mute            | Switch    | Mutes the device                                                        |

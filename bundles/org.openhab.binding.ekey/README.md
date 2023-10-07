@@ -6,7 +6,7 @@ This binding connects to [ekey](https://ekey.net/) converter UDP (CV-LAN) using 
 
 This binding only supports one thing type:
 
-| Thing | Thing Type | Description                            |
+| Thing | Thing Type |              Description               |
 |-------|------------|----------------------------------------|
 | cvlan | Thing      | Represents a single ekey converter UDP |
 
@@ -14,7 +14,7 @@ This binding only supports one thing type:
 
 The binding uses the following configuration parameters.
 
-| Parameter | Description                                                                                                                                                                              |
+| Parameter |                                                                                       Description                                                                                        |
 |-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ipAddress | IPv4 address of the eKey udp converter.  A static IP address is recommended.                                                                                                             |
 | port      | The port as configured during the UDP Converter configuration.  e.g. 56000 (Binding default)                                                                                             |
@@ -24,7 +24,7 @@ The binding uses the following configuration parameters.
 
 ## Channels
 
-| Channel ID | Item Type | Protocol | Description                                                                                                                                                                                                                                           | Possible Values                      |
+| Channel ID | Item Type | Protocol |                                                                                                                      Description                                                                                                                      |           Possible Values            |
 |------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | action     | Number    | R/M/H    | This indicates whether access was granted (value=0) or denied (value=-1).                                                                                                                                                                             | 0,-1 (136 and 137 with RARE protocol |
 | fingerId   | Number    | R/M/H    | This indicates the finger that was used by a person.                                                                                                                                                                                                  | 0-9,-1                               |
@@ -131,3 +131,4 @@ transform/ekey_rare_action.map
 136=granted
 137=rejected
 ```
+

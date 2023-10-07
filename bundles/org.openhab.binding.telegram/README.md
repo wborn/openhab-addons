@@ -7,19 +7,14 @@ The Telegram binding allows sending and receiving messages to and from Telegram 
 As described in the Telegram Bot API (<https://core.telegram.org/bots#6-botfather>), this is the manual procedure needed in order to get the necessary information.
 
 1. Create a new Bot and get the Token
-
-    - On a Telegram client open a chat with BotFather.
-    - Send `/newbot` to BotFather and fill in all the needed information. The authentication token that is given will be needed in the next steps.
-    - The token is a combination with double point separated parts of numbers and letters e.g.: 158642643:ABCHL_O-MUovQ1NzrDF5R_nqLbFhPPrg9Jps
-
-1. Create the destination chat
-
-    - Open a chat with your new Bot and send any message to it. The next step will not work unless you send a message to your bot first.
-
-1. Get the chatID
-
-    - Open a browser and invoke `https://api.telegram.org/bot<token>/getUpdates` (where `<token>` is the authentication token previously obtained e.g.:  `https://api.telegram.org/bot158642643:ABCHL_O-MUovQ1NzrDF5R_nqLbFhPPrg9Jps/getUpdates`)
-    - Look at the JSON result to find the value of `id`: that's the chatID.
+   - On a Telegram client open a chat with BotFather.
+   - Send `/newbot` to BotFather and fill in all the needed information. The authentication token that is given will be needed in the next steps.
+   - The token is a combination with double point separated parts of numbers and letters e.g.: 158642643:ABCHL_O-MUovQ1NzrDF5R_nqLbFhPPrg9Jps
+2. Create the destination chat
+   - Open a chat with your new Bot and send any message to it. The next step will not work unless you send a message to your bot first.
+3. Get the chatID
+   - Open a browser and invoke `https://api.telegram.org/bot<token>/getUpdates` (where `<token>` is the authentication token previously obtained e.g.:  `https://api.telegram.org/bot158642643:ABCHL_O-MUovQ1NzrDF5R_nqLbFhPPrg9Jps/getUpdates`)
+   - Look at the JSON result to find the value of `id`: that's the chatID.
 
 Note that if using a Telegram group chat, the group chatIDs are prefixed with a dash that must be included in the config (e.g. `-22334455`).
 If this does not work for you (the JSON response may be empty), or you want to send to _more_ than one recipient (= another chatID), the alternative is to contact (= open a chat with) a Telegram bot to respond with the chatID.
@@ -28,10 +23,9 @@ Another option is `@getidsbot` which gives you much more information.
 Note bots may work or not at any time so eventually you need to try another one.
 
 1. Test the bot
-
-    - Open this URL in your web browser, replacing <token> with the authentication token and <chatId> with the chatId:
-    - `https://api.telegram.org/bot<token>/sendMessage?chat_id=<chatId>&text=testing`
-    - Your Telegram-bot should send you a message with the text: `testing`
+   - Open this URL in your web browser, replacing <token> with the authentication token and <chatId> with the chatId:
+   - `https://api.telegram.org/bot<token>/sendMessage?chat_id=<chatId>&text=testing`
+   - Your Telegram-bot should send you a message with the text: `testing`
 
 **Notice:** By default your bot will only receive messages that either start with the '/' symbol or mention the bot by username (or if you talk to it directly).
 However, if you add your bot to a group you must either talk to BotFather and send the command "/setprivacy" and then disable it or you give admin rights to your bot in that group.
@@ -109,15 +103,15 @@ Thing telegram:telegramBot:Telegram_Bot [ chatIds="ID", botToken="TOKEN", proxyH
 
 ## State Channels
 
-| Channel Type ID                      | Item Type | Description                                                     |
-|--------------------------------------|-----------|-----------------------------------------------------------------|
-| lastMessageText                      | String    | The last received message                                       |
-| lastMessageURL                       | String    | The URL of the last received message content                    |
-| lastMessageDate                      | DateTime  | The date of the last received message (UTC)                     |
-| lastMessageName                      | String    | The full name of the sender of the last received message        |
-| lastMessageUsername                  | String    | The username of the sender of the last received message         |
-| chatId                               | String    | The id of the chat of the last received message                 |
-| replyId                              | String    | The id of the reply which was passed to sendTelegram() as replyId argument. This id can be used to have an unambiguous assignment of the users reply to the message which was sent by the bot             |
+|   Channel Type ID   | Item Type |                                                                                          Description                                                                                          |
+|---------------------|-----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| lastMessageText     | String    | The last received message                                                                                                                                                                     |
+| lastMessageURL      | String    | The URL of the last received message content                                                                                                                                                  |
+| lastMessageDate     | DateTime  | The date of the last received message (UTC)                                                                                                                                                   |
+| lastMessageName     | String    | The full name of the sender of the last received message                                                                                                                                      |
+| lastMessageUsername | String    | The username of the sender of the last received message                                                                                                                                       |
+| chatId              | String    | The id of the chat of the last received message                                                                                                                                               |
+| replyId             | String    | The id of the reply which was passed to sendTelegram() as replyId argument. This id can be used to have an unambiguous assignment of the users reply to the message which was sent by the bot |
 
 All channels are read-only.
 Either `lastMessageText` or `lastMessageURL` are populated for a given message.
@@ -131,7 +125,7 @@ If the message did contain an audio, photo, video or voice, the URL to retrieve 
 When a message is received this channel will be triggered with a simplified version of the message data as the `event`, payload encoded as a JSON string.
 The following table shows the possible fields, any `null` values will be missing from the JSON payload.
 
-| Field            | Type   | Description                           |
+|      Field       |  Type  |              Description              |
 |------------------|--------|---------------------------------------|
 | `message_id`     | Long   | Unique message ID in this chat        |
 | `from`           | String | First and/or last name of sender      |
@@ -156,7 +150,7 @@ See the [`Message` class for details](https://github.com/pengrad/java-telegram-b
 When a Callback Query response is received this channel will be triggered with a simplified version of the callback data as the `event`, payload encoded as a JSON string.
 The following table shows the possible fields, any `null` values will be missing from the JSON payload.
 
-| Field         | Type   | Description                                                |
+|     Field     |  Type  |                        Description                         |
 |---------------|--------|------------------------------------------------------------|
 | `message_id`  | Long   | Unique message ID of the original Query message            |
 | `from`        | String | First and/or last name of sender                           |
@@ -193,16 +187,16 @@ Each of the actions returns true on success or false on failure.
 
 These actions will send a message to all chat ids configured for this bot.
 
-| Action                     | Description  |
-|----------------------------|--------------|
-| sendTelegram(String message) | Sends a message. |
-| sendTelegram(String format, Object... args)          | Sends a formatted message (See <https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Formatter.html> for more information).
-| sendTelegramQuery(String message, String replyId, String... buttons) | Sends a question to the user that can be answered via the defined buttons. The replyId can be freely choosen and is sent back with the answer. Then, the id is required to identify what question has been answered (e.g. in case of multiple open questions). The final result looks like this: ![Telegram Inline Keyboard](doc/queryExample.png). |
-| sendTelegramAnswer(String replyId, String message) | Sends a message after the user has answered a question. You should _always_ call this method after you received an answer. It will remove buttons from the specific question and will also stop the progress bar displayed at the client side. If no message is necessary, just pass `null` here. |
-| sendTelegramPhoto(String photoURL, String caption) | Sends a picture. Can be one of the URL formats, see the Note below, or a base64 encoded image (simple base64 data or data URI scheme). |
-| sendTelegramPhoto(String photoURL, String caption, String username, String password) | Sends a picture which is downloaded from a username/password protected http/https address. |
-| sendTelegramAnimation(String animationURL, String caption) | Send animation files either GIF or H.264/MPEG-4 AVC video without sound. |
-| sendTelegramVideo(String videoURL, String caption) | Send MP4 video files up to 50MB. |
+|                                        Action                                        |                                                                                                                                                                     Description                                                                                                                                                                     |
+|--------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| sendTelegram(String message)                                                         | Sends a message.                                                                                                                                                                                                                                                                                                                                    |
+| sendTelegram(String format, Object... args)                                          | Sends a formatted message (See <https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Formatter.html> for more information).                                                                                                                                                                                                       |
+| sendTelegramQuery(String message, String replyId, String... buttons)                 | Sends a question to the user that can be answered via the defined buttons. The replyId can be freely choosen and is sent back with the answer. Then, the id is required to identify what question has been answered (e.g. in case of multiple open questions). The final result looks like this: ![Telegram Inline Keyboard](doc/queryExample.png). |
+| sendTelegramAnswer(String replyId, String message)                                   | Sends a message after the user has answered a question. You should _always_ call this method after you received an answer. It will remove buttons from the specific question and will also stop the progress bar displayed at the client side. If no message is necessary, just pass `null` here.                                                   |
+| sendTelegramPhoto(String photoURL, String caption)                                   | Sends a picture. Can be one of the URL formats, see the Note below, or a base64 encoded image (simple base64 data or data URI scheme).                                                                                                                                                                                                              |
+| sendTelegramPhoto(String photoURL, String caption, String username, String password) | Sends a picture which is downloaded from a username/password protected http/https address.                                                                                                                                                                                                                                                          |
+| sendTelegramAnimation(String animationURL, String caption)                           | Send animation files either GIF or H.264/MPEG-4 AVC video without sound.                                                                                                                                                                                                                                                                            |
+| sendTelegramVideo(String videoURL, String caption)                                   | Send MP4 video files up to 50MB.                                                                                                                                                                                                                                                                                                                    |
 
 **Note:** In actions that require a file URL, the following formats are acceptable:
 
@@ -405,3 +399,4 @@ then
     }
 end
 ```
+

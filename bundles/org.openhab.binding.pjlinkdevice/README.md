@@ -24,28 +24,28 @@ Autodiscovery is checking all IP addressess of all class C IPv4 subnets connecte
 
 The _pjLinkDevice_ thing type has the following parameters:
 
-| Parameter             | Description                                                                                                                                                  |
-|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ipAddress             | the IPv4 address of the device  **Mandatory**                                                                                                                |
-| tcpPort               | the listening TCP port of the devices. _Optional, the default value is 4352_                                                                                 |
-| adminPassword         | the PJLink password of the device (should be left empty for devices without authentication). _Optional_                                                      |
-| refreshInterval       | the polling interval (in seconds) to update the channel values from the device, can be set to 0 to disable polling. _Optional, the default value is 5_       |
-| refreshPower          | enables polling of the power status. _Optional, the default value is false_                                                                                  |
-| refreshMute           | enables polling of the mute status. _Optional, the default value is false_                                                                                   |
-| refreshInputChannel   | enables polling of the selected input channel. _Optional, the default value is false_                                                                        |
-| refreshLampState      | enables polling of the lamp usage hours and activity. _Optional, the default value is false_                                                                 |
-| autoReconnectInterval | seconds between connection retries when connection to the PJLink device has been lost, 0 means never retry, minimum 30s _Optional, the default value is 60_  |
+|       Parameter       |                                                                         Description                                                                         |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ipAddress             | the IPv4 address of the device  **Mandatory**                                                                                                               |
+| tcpPort               | the listening TCP port of the devices. _Optional, the default value is 4352_                                                                                |
+| adminPassword         | the PJLink password of the device (should be left empty for devices without authentication). _Optional_                                                     |
+| refreshInterval       | the polling interval (in seconds) to update the channel values from the device, can be set to 0 to disable polling. _Optional, the default value is 5_      |
+| refreshPower          | enables polling of the power status. _Optional, the default value is false_                                                                                 |
+| refreshMute           | enables polling of the mute status. _Optional, the default value is false_                                                                                  |
+| refreshInputChannel   | enables polling of the selected input channel. _Optional, the default value is false_                                                                       |
+| refreshLampState      | enables polling of the lamp usage hours and activity. _Optional, the default value is false_                                                                |
+| autoReconnectInterval | seconds between connection retries when connection to the PJLink device has been lost, 0 means never retry, minimum 30s _Optional, the default value is 60_ |
 
 ## Channels
 
-| Channel           | Description                               |
-|-------------------|-------------------------------------------|
-| power             | Switches the device on/off                |
-| input             | Switches the input channel of the device  |
-| audioMute         | Mutes the device audio                    |
-| videoMute         | Mutes the device video                    |
-| lamp1Hours        | The hours lamp 1 has been in use          |
-| lamp1Active       | Shows if lamp 1 is in use                 |
+|   Channel   |               Description                |
+|-------------|------------------------------------------|
+| power       | Switches the device on/off               |
+| input       | Switches the input channel of the device |
+| audioMute   | Mutes the device audio                   |
+| videoMute   | Mutes the device video                   |
+| lamp1Hours  | The hours lamp 1 has been in use         |
+| lamp1Active | Shows if lamp 1 is in use                |
 
 ## Full Example
 
@@ -117,3 +117,4 @@ sitemap sample label="Main Menu" {
   }
 }
 ```
+

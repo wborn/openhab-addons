@@ -15,11 +15,11 @@ Please note that until VDR version 1.7.15 the standard SVDRP port was 2001 and a
 The VDR configuration file svdrphosts.conf needs to be configured to allow SVDRP access from host where openHAB instance is running.
 Please check VDR documentation if you are unsure about this.
 
-| Configuration Parameter | Default          | Required | Description                                                  |
-|-------------------------|------------------|:--------:|--------------------------------------------------------------|
-| host                    |                  |   Yes    | Hostname or IP Address of VDR instance                       |
-| port                    | 6419             |   Yes    | SVDRP Port of VDR instance                                   |
-| refresh                 | 30               |   No     | Interval in seconds the data from VDR instance is refreshed  |
+| Configuration Parameter | Default | Required |                         Description                         |
+|-------------------------|---------|:--------:|-------------------------------------------------------------|
+| host                    |         |   Yes    | Hostname or IP Address of VDR instance                      |
+| port                    | 6419    |   Yes    | SVDRP Port of VDR instance                                  |
+| refresh                 | 30      |    No    | Interval in seconds the data from VDR instance is refreshed |
 
 A typical thing configuration would look like this:
 
@@ -35,7 +35,7 @@ Also you can show information about the current channel's program on your VDR by
 
 To turn on the device VDR is running on please use Wake-On-LAN functionality from Network Binding.
 
-| channel              | type        | description                             |
+|       channel        |    type     |               description               |
 |----------------------|-------------|-----------------------------------------|
 | power                | Switch      | Power State (to switch off VDR)         |
 | channel              | Number      | Current Channel Number (can be changed) |
@@ -114,3 +114,4 @@ Frame label="VDR" {
     }
 }
 ```
+

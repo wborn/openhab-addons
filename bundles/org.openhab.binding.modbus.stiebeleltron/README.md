@@ -10,8 +10,8 @@ In case the modbus extension is not yet installed on the ISG, the ISG Updater To
 This bundle adds the following thing types to the Modbus binding.
 Note, that the things will show up under the Modbus binding.
 
-| Thing              | ThingTypeID | Description                                         |
-| ------------------ | ----------- | --------------------------------------------------- |
+|       Thing        | ThingTypeID |                     Description                     |
+|--------------------|-------------|-----------------------------------------------------|
 | Stiebel Eltron ISG | heatpump    | A stiebel eltron heat pump connected through an ISG |
 
 ## Discovery
@@ -31,8 +31,8 @@ Things in this extension will use the selected bridge to connect to the device.
 
 The following parameters are valid for all thing types:
 
-| Parameter | Type    | Required | Default if omitted | Description                                                                |
-| --------- | ------- | -------- | ------------------ | -------------------------------------------------------------------------- |
+| Parameter |  Type   | Required | Default if omitted |                                Description                                 |
+|-----------|---------|----------|--------------------|----------------------------------------------------------------------------|
 | refresh   | integer | no       | 5                  | Poll interval in seconds. Increase this if you encounter connection errors |
 | maxTries  | integer | no       | 3                  | Number of retries when before giving up reading from this thing.           |
 
@@ -44,8 +44,8 @@ Channels are grouped into channel groups.
 
 This group contains general operational information about the heat pump.
 
-| Channel ID       | Item Type | Read only | Description                                                   |
-| ---------------- | --------- | --------- | ------------------------------------------------------------- |
+|    Channel ID    | Item Type | Read only |                          Description                          |
+|------------------|-----------|-----------|---------------------------------------------------------------|
 | is-heating       | Contact   | true      | OPEN in case the heat pump is currently in heating mode       |
 | is-heating-water | Contact   | true      | OPEN in case the heat pump is currently in heating water mode |
 | is-cooling       | Contact   | true      | OPEN in case the heat pump is currently in cooling mode       |
@@ -56,8 +56,8 @@ This group contains general operational information about the heat pump.
 
 This group contains system paramters of the heat pump.
 
-| Channel ID                  | Item Type          | Read only | Description                                                                                                                                    |
-| --------------------------- | ------------------ | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+|         Channel ID          |     Item Type      | Read only |                                                                  Description                                                                   |
+|-----------------------------|--------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | operation-mode              | Number             | false     | The current operation mode of the heat pump (1=ready mode, 2=program mode, 3=comfort mode, 4=eco mode, 5=heating water mode, 0=emergency mode) |
 | comfort-temperature-heating | Number:Temperature | false     | The current heating comfort temperature                                                                                                        |
 | eco-temperature-heating     | Number:Temperature | false     | The current heating eco temperature                                                                                                            |
@@ -68,8 +68,8 @@ This group contains system paramters of the heat pump.
 
 This group contains general operational information about the device.
 
-| Channel ID                 | Item Type            | Read only | Description                                           |
-| -------------------------- | -------------------- | --------- | ----------------------------------------------------- |
+|         Channel ID         |      Item Type       | Read only |                      Description                      |
+|----------------------------|----------------------|-----------|-------------------------------------------------------|
 | fek-temperature            | Number:Temperature   | true      | The current temperature measured by the FEK           |
 | fek-temperature-setpoint   | Number:Temperature   | true      | The current set point of the FEK temperature          |
 | fek-humidity               | Number:Dimensionless | true      | The current humidity measured by the FEK              |
@@ -87,8 +87,8 @@ This group contains general operational information about the device.
 
 This group contains about the energy consumption and delivery of the heat pump.
 
-| Channel ID              | Item Type     | Read only | Description                                      |
-| ----------------------- | ------------- | --------- | ------------------------------------------------ |
+|       Channel ID        |   Item Type   | Read only |                   Description                    |
+|-------------------------|---------------|-----------|--------------------------------------------------|
 | production-heat-today   | Number:Energy | true      | The heat quantity delivered today                |
 | production-heat-total   | Number:Energy | true      | The heat quantity delivered in total             |
 | production-water-today  | Number:Energy | true      | The water heat quantity delivered today          |
@@ -197,3 +197,4 @@ Text label="Heat pumpt" icon="temperature" {
 }
 
 ```
+

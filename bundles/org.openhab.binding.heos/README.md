@@ -46,12 +46,12 @@ This binding does not require any configuration.
 
 The bridge has the following configuration parameter
 
-| Parameter         | Description                                                 | Required  |
-|-----------------  |------------------------------------------------------------ | --------- |
-| ipAddress         | The network address of the Bridge                           | yes       |
-| username          | The user name to login to the HEOS account                  | no        |
-| password          | The password for the HEOS account                           | no        |
-| heartbeat         | The time in seconds for the HEOS Heartbeat (default = 60 s) | no        |
+| Parameter |                         Description                         | Required |
+|-----------|-------------------------------------------------------------|----------|
+| ipAddress | The network address of the Bridge                           | yes      |
+| username  | The user name to login to the HEOS account                  | no       |
+| password  | The password for the HEOS account                           | no       |
+| heartbeat | The time in seconds for the HEOS Heartbeat (default = 60 s) | no       |
 
 The password and the user name are used to login to the HEOS account.
 This is required to load the favorites, playlists and so on from personal settings.
@@ -65,9 +65,9 @@ Bridge heos:bridge:main "name" [ipAddress="192.168.0.1", unsername="xxx", passwo
 
 Player have the following configuration parameter
 
-| Parameter         | Description                                                | Required  |
-|-----------------  |----------------------------------------------------------- | --------- |
-| pid               | The internal Player ID                                     | yes       |
+| Parameter |      Description       | Required |
+|-----------|------------------------|----------|
+| pid       | The internal Player ID | yes      |
 
 For manual configuration a player can be defined as followed:
 
@@ -85,9 +85,9 @@ For further details refer to the [HEOS CLI](https://rn.dmglobal.com/euheos/HEOS_
 
 Player have the following configuration parameter
 
-| Parameter         | Description                                                                          | Required  |
-|-----------------  |------------------------------------------------------------------------------------- | --------- |
-| members           | The members of the groups. These are the player IDs. IDs have to be separated by ";" | yes       |
+| Parameter |                                     Description                                      | Required |
+|-----------|--------------------------------------------------------------------------------------|----------|
+| members   | The members of the groups. These are the player IDs. IDs have to be separated by ";" | yes      |
 
 Groups will automatically appear in the Inbox if that Group is active.
 To do this, build your Group from the HEOS app, then the group will appear in the Inbox.
@@ -113,27 +113,27 @@ Bridge heos:bridge:main "Bridge" [ipAddress="192.168.0.1", username="userName", 
 
 ### Channels of Thing type 'player'
 
-| Channel ID        | Item Type     | Description                                                           |
-|-----------------  |-----------    |---------------------------------------------------------------------  |
-| Control           | Player        | Play (also ON) / Pause (also OFF) / Next / Previous                   |
-| Volume            | Dimmer        | Volume control / also accepts "DECREASE" & "INCREASE"                 |
-| Mute              | Switch        | Mute the Player                                                       |
-| Title             | String        | Song Title                                                            |
-| Artist            | String        | Song Artist                                                           |
-| Album             | String        | Album Title                                                           |
-| Cover             | Image         | The cover of the actual song                                          |
-| Inputs            | String        | The input to be switched to. Input values from HEOS protocol          |
-| CurrentPosition   | Number:Time   | Shows the current track position in seconds                           |
-| Duration          | Number:Time   | The overall track duration in seconds                                 |
-| Type              | String        | The type of the played media. Station or song for example             |
-| Station           | String        | The station name if it is a station (Spotify shows track name....)    |
-| PlayUrl           | String        | Plays a media file located at the URL                                 |
-| Shuffle           | Switch        | Switches shuffle ON or OFF                                            |
-| RepeatMode        | String        | Defines the repeat mode: Inputs are: "One" , "All" or "Off"           |
-| Favorites         | String        | Plays a favorite. The selection options are retrieved automatically  |
-| Playlists         | String        | Plays a playlist. The selection options are retrieved automatically   |
-| Queue             | String        | Plays from the queue. The queue items are retrieved automatically     |
-| ClearQueue        | Switch        | Clear the queue when turned ON                                        |
+|   Channel ID    |  Item Type  |                             Description                             |
+|-----------------|-------------|---------------------------------------------------------------------|
+| Control         | Player      | Play (also ON) / Pause (also OFF) / Next / Previous                 |
+| Volume          | Dimmer      | Volume control / also accepts "DECREASE" & "INCREASE"               |
+| Mute            | Switch      | Mute the Player                                                     |
+| Title           | String      | Song Title                                                          |
+| Artist          | String      | Song Artist                                                         |
+| Album           | String      | Album Title                                                         |
+| Cover           | Image       | The cover of the actual song                                        |
+| Inputs          | String      | The input to be switched to. Input values from HEOS protocol        |
+| CurrentPosition | Number:Time | Shows the current track position in seconds                         |
+| Duration        | Number:Time | The overall track duration in seconds                               |
+| Type            | String      | The type of the played media. Station or song for example           |
+| Station         | String      | The station name if it is a station (Spotify shows track name....)  |
+| PlayUrl         | String      | Plays a media file located at the URL                               |
+| Shuffle         | Switch      | Switches shuffle ON or OFF                                          |
+| RepeatMode      | String      | Defines the repeat mode: Inputs are: "One" , "All" or "Off"         |
+| Favorites       | String      | Plays a favorite. The selection options are retrieved automatically |
+| Playlists       | String      | Plays a playlist. The selection options are retrieved automatically |
+| Queue           | String      | Plays from the queue. The queue items are retrieved automatically   |
+| ClearQueue      | Switch      | Clear the queue when turned ON                                      |
 
 The `Favorites`, `Playlists`, `Queue` selection options are queried automatically from the HEOS system (if you set up any in the HEOS app).
 This means the available options will be visible in a Selection, you don't have to specify them manually.
@@ -148,28 +148,28 @@ Selection item=LivingRoom_Playlists     label="Playlist" icon="music"
 
 ### Channels of Thing type 'group'
 
-| Channel ID        | Item Type     | Description                                                           |
-|-----------------  |-----------    |--------------------------------------------------------------------   |
-| Control           | Player        | Play (also ON) / Pause (also OFF) / Next / Previous                   |
-| Volume            | Dimmer        | Volume control / also accepts "DECREASE" & "INCREASE"                 |
-| Mute              | Switch        | Mute the Group                                                        |
-| Title             | String        | Song Title                                                            |
-| Artist            | String        | Song Artist                                                           |
-| Album             | String        | Album Title                                                           |
-| Ungroup           | Switch        | Deletes the group (OFF) or generate the group again (ON)              |
-| Cover             | Image         | The cover of the actual song                                          |
-| CurrentPosition   | Number:Time   | Shows the current track position in seconds                           |
-| Duration          | Number:Time   | The overall track duration in seconds                                 |
-| Type              | String        | The type of the played media. Station or song for example             |
-| Station           | String        | The station name if it is a station (Spotify shows track name....)    |
-| Inputs            | String        | The input to be switched to. Input values from HEOS protocol          |
-| PlayUrl           | String        | Plays a media file located at the URL                                 |
-| Shuffle           | Switch        | Switches shuffle ON or OFF                                            |
-| RepeatMode        | String        | Defines the repeat mode: Inputs are: "One" ; "All" or "Off"           |
-| Favorites         | String        | Plays a favorite. The selection options are retrieved automatically  |
-| Playlists         | String        | Plays a playlist. The selection options are retrieved automatically   |
-| Queue             | String        | Plays from the queue. The queue items are retrieved automatically     |
-| ClearQueue        | Switch        | Clear the queue when turned ON                                        |
+|   Channel ID    |  Item Type  |                             Description                             |
+|-----------------|-------------|---------------------------------------------------------------------|
+| Control         | Player      | Play (also ON) / Pause (also OFF) / Next / Previous                 |
+| Volume          | Dimmer      | Volume control / also accepts "DECREASE" & "INCREASE"               |
+| Mute            | Switch      | Mute the Group                                                      |
+| Title           | String      | Song Title                                                          |
+| Artist          | String      | Song Artist                                                         |
+| Album           | String      | Album Title                                                         |
+| Ungroup         | Switch      | Deletes the group (OFF) or generate the group again (ON)            |
+| Cover           | Image       | The cover of the actual song                                        |
+| CurrentPosition | Number:Time | Shows the current track position in seconds                         |
+| Duration        | Number:Time | The overall track duration in seconds                               |
+| Type            | String      | The type of the played media. Station or song for example           |
+| Station         | String      | The station name if it is a station (Spotify shows track name....)  |
+| Inputs          | String      | The input to be switched to. Input values from HEOS protocol        |
+| PlayUrl         | String      | Plays a media file located at the URL                               |
+| Shuffle         | Switch      | Switches shuffle ON or OFF                                          |
+| RepeatMode      | String      | Defines the repeat mode: Inputs are: "One" ; "All" or "Off"         |
+| Favorites       | String      | Plays a favorite. The selection options are retrieved automatically |
+| Playlists       | String      | Plays a playlist. The selection options are retrieved automatically |
+| Queue           | String      | Plays from the queue. The queue items are retrieved automatically   |
+| ClearQueue      | Switch      | Clear the queue when turned ON                                      |
 
 The `Favorites`, `Playlists`, `Queue` selection options are queried automatically from the HEOS system (if you set up any in the HEOS app).
 This means the available options will be visible in a Selection, you don't have to specify them manually.
@@ -177,48 +177,48 @@ You can send commands to these channels from rules by sending the name of the se
 
 ### Available inputs
 
-| Input names   |
-|-------------- |
-| aux_in_1      |
-| aux_in_2      |
-| aux_in_3      |
-| aux_in_4      |
-| aux1          |
-| aux2          |
-| aux3          |
-| aux4          |
-| aux5          |
-| aux6          |
-| aux7          |
-| line_in_1     |
-| line_in_2     |
-| line_in_3     |
-| line_in_4     |
-| coax_in_1     |
-| coax_in_2     |
-| optical_in_1  |
-| optical_in_2  |
-| hdmi_in_1     |
-| hdmi_arc_1    |
-| cable_sat     |
-| dvd           |
-| bluray        |
-| game          |
-| mediaplayer   |
-| cd            |
-| tuner         |
-| hdradio       |
-| tvaudio       |
-| phono         |
+| Input names  |
+|--------------|
+| aux_in_1     |
+| aux_in_2     |
+| aux_in_3     |
+| aux_in_4     |
+| aux1         |
+| aux2         |
+| aux3         |
+| aux4         |
+| aux5         |
+| aux6         |
+| aux7         |
+| line_in_1    |
+| line_in_2    |
+| line_in_3    |
+| line_in_4    |
+| coax_in_1    |
+| coax_in_2    |
+| optical_in_1 |
+| optical_in_2 |
+| hdmi_in_1    |
+| hdmi_arc_1   |
+| cable_sat    |
+| dvd          |
+| bluray       |
+| game         |
+| mediaplayer  |
+| cd           |
+| tuner        |
+| hdradio      |
+| tvaudio      |
+| phono        |
 
 A current list can be found within the HEOS CLI protocol which can be found [here](https://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification_2021.pdf).
 
 ### Channels of Thing type 'bridge'
 
-| Channel ID            | Item Type     | Description                                                                                                                                               |
-|---------------------- |-----------    |--------------------------------------------------------------------------------------------------------------------------------------------------------   |
-| Reboot                | Switch        | Reboot the whole HEOS System. Can be used if you get in trouble with the system                                                                           |
-| BuildGroup            | Switch        | Is used to define a group. The player which shall be grouped has to be selected first. If Switch is then activated the group is built.                    |
+| Channel ID | Item Type |                                                              Description                                                               |
+|------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Reboot     | Switch    | Reboot the whole HEOS System. Can be used if you get in trouble with the system                                                        |
+| BuildGroup | Switch    | Is used to define a group. The player which shall be grouped has to be selected first. If Switch is then activated the group is built. |
 
 For a list of the commands please refer to the [HEOS CLI protocol](https://rn.dmglobal.com/euheos/HEOS_CLI_ProtocolSpecification_2021.pdf).
 
@@ -229,17 +229,17 @@ They are added dynamically if a player is found. The player and group channels a
 
 ### Player Channels
 
-| Channel ID    | Item Type     | Description                                                                                           |
-|------------   |-----------    |-----------------------------------------------------------------------------------------------------  |
-| {playerID}    | Switch        | A channel which represents the player. Please check via UI how the correct Channel Type looks like.   |
+| Channel ID | Item Type |                                             Description                                             |
+|------------|-----------|-----------------------------------------------------------------------------------------------------|
+| {playerID} | Switch    | A channel which represents the player. Please check via UI how the correct Channel Type looks like. |
 
 Example
 
- ```java
- Switch Player_1 "Player [%s]" {channel="heos:bridge:main:P123456789"}
- ```
+```java
+Switch Player_1 "Player [%s]" {channel="heos:bridge:main:P123456789"}
+```
 
- The {playerUID} has either a P in front of the number which indicates that this is a player or a G to indicate this is a group.
+The {playerUID} has either a P in front of the number which indicates that this is a player or a G to indicate this is a group.
 
 ## Full Example
 
@@ -395,13 +395,13 @@ Frame label="Heos Group" visibility=[HeosGroup_Status==ONLINE] {
 Multiple actions are supported by this binding. In classic rules these are accessible as shown in the example below:
 
 ```java
- val actions = getActions("heos","heos:bridge:bridgeId")
- if(null === actions) {
-        logInfo("actions", "Actions not found, check thing ID")
-        return
- } else {
-        actions.playInputFromPlayer(-3213214, "aux_in_1", 89089081)
- }
+val actions = getActions("heos","heos:bridge:bridgeId")
+if(null === actions) {
+       logInfo("actions", "Actions not found, check thing ID")
+       return
+} else {
+       actions.playInputFromPlayer(-3213214, "aux_in_1", 89089081)
+}
 ```
 
 ### playInputFromPlayer(sourcePlayer, sourceInput, destination)

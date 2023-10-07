@@ -3,8 +3,8 @@
 HomeAssistant MQTT Components are recognized as well. The base topic needs to be **homeassistant**.
 The mapping is structured like this:
 
-| HA MQTT                   | Framework     | Example MQTT topic                    |
-| ------------------------- | ------------- | ------------------------------------- |
+|          HA MQTT          |   Framework   |          Example MQTT topic           |
+|---------------------------|---------------|---------------------------------------|
 | Object                    | Thing         | `homeassistant/../../object`          |
 | Component+Node            | Channel Group | `homeassistant/component/node/object` |
 | &rarr; Component Features | Channel       | `state/topic/defined/in/comp/config`  |

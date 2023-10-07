@@ -18,17 +18,17 @@ Settings -> System Settings -> Connect PS Vita System Using Network.
 
 **playstation4** parameters:
 
-| Property            | Default | Required | Description                                                              |
-|---------------------|---------|:--------:|--------------------------------------------------------------------------|
-| ipAddress           |         | Yes      | The IP address of the PlayStation 4                                      |
-| userCredential      |         | Yes      | A key used for authentication, get via PS4-waker.                        |
-| pairingCode         |         | Yes      | This is shown on the PlayStation 4 during pairing, only needed once.     |
-| passCode            |         | (Yes)    | If you use a code to log in your user on the PS4, set this.              |
-| connectionTimeout   |  60     | No       | How long the connection to the PS4 is kept up, seconds.                  |
-| autoConnect         |  false  | No       | If a connection should be establish to the PS4 when it's turned on.      |
-| artworkSize         |  320    | No       | Width and height of downloaded artwork.                                  |
-| outboundIP          |         | No       | Use this if your PS4 is not on the normal openHAB network.               |
-| ipPort              |  997    | No       | The port to probe the PS4 on, no need to change normally.                |
+|     Property      | Default | Required |                             Description                              |
+|-------------------|---------|:--------:|----------------------------------------------------------------------|
+| ipAddress         |         |   Yes    | The IP address of the PlayStation 4                                  |
+| userCredential    |         |   Yes    | A key used for authentication, get via PS4-waker.                    |
+| pairingCode       |         |   Yes    | This is shown on the PlayStation 4 during pairing, only needed once. |
+| passCode          |         |  (Yes)   | If you use a code to log in your user on the PS4, set this.          |
+| connectionTimeout | 60      |    No    | How long the connection to the PS4 is kept up, seconds.              |
+| autoConnect       | false   |    No    | If a connection should be establish to the PS4 when it's turned on.  |
+| artworkSize       | 320     |    No    | Width and height of downloaded artwork.                              |
+| outboundIP        |         |    No    | Use this if your PS4 is not on the normal openHAB network.           |
+| ipPort            | 997     |    No    | The port to probe the PS4 on, no need to change normally.            |
 
 If you want to control your PS4 the first thing you need is your user-credentials, this is a 64 characters HEX string that is easiest obtained by using PS4-waker <https://github.com/dhleong/ps4-waker>.
 To run the PS4-waker you will need a Node.js command prompt (for example: <https://nodejs.org/en/download/>).
@@ -44,22 +44,22 @@ Then, if you have a pass code when you log in to your PS4 you have to specify th
 
 **playstation3** parameters:
 
-| Property            | Default | Required | Description                                                              |
-|---------------------|---------|:--------:|--------------------------------------------------------------------------|
-| ipAddress           |         | Yes      | The IP address of the PlayStation 3                                      |
+| Property  | Default | Required |             Description             |
+|-----------|---------|:--------:|-------------------------------------|
+| ipAddress |         |   Yes    | The IP address of the PlayStation 3 |
 
 ## Channels
 
-| Channel Type ID  | Item Type | Description                                                             | Read/Write |
-|------------------|-----------|-------------------------------------------------------------------------|------------|
-| power            | Switch    | Shows if PlayStation is ON or in standby.                               | RW         |
-| applicationName  | String    | Name of the currently running application.                              | R          |
-| applicationId    | String    | Id of the currently running application.                                | RW         |
-| applicationImage | Image     | Application artwork.                                                    | R          |
-| oskText          | String    | The text from the OnScreenKeyboard.                                     | RW         |
-| sendKey          | String    | Send a key/button push to PS4.                                          | W          |
-| secondScreen     | String    | HTTP link to the second screen.                                         | R          |
-| connect          | Switch    | Connect/disconnect to/from PS4.                                         | RW         |
+| Channel Type ID  | Item Type |                Description                 | Read/Write |
+|------------------|-----------|--------------------------------------------|------------|
+| power            | Switch    | Shows if PlayStation is ON or in standby.  | RW         |
+| applicationName  | String    | Name of the currently running application. | R          |
+| applicationId    | String    | Id of the currently running application.   | RW         |
+| applicationImage | Image     | Application artwork.                       | R          |
+| oskText          | String    | The text from the OnScreenKeyboard.        | RW         |
+| sendKey          | String    | Send a key/button push to PS4.             | W          |
+| secondScreen     | String    | HTTP link to the second screen.            | R          |
+| connect          | Switch    | Connect/disconnect to/from PS4.            | RW         |
 
 ## Full Example
 

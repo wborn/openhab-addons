@@ -15,11 +15,11 @@ Discovery is not possible, due some form input values from the website above are
 For configuration of the **collectionSchedule** thing, you need the form inputs from the aha collections schedule web page. Follow the steps below to get the required configuration parameters from the form input values.
 
 1. Open [aha Abfuhrkalender](https://www.aha-region.de/abholtermine/abfuhrkalender) in your favorite brower with developer-console.
-1. Open the developer console and switch to network tab (for example press F12 in chrome / edge / firefox).
-1. Fill in the form: Select your commune, Street and house number and hit "Suchen".
-1. Select the first request to [https://www.aha-region.de/abholtermine/abfuhrkalender](https://www.aha-region.de/abholtermine/abfuhrkalender) (see first screenshot below)
-1. Check the form data at the end of the request for the form values (see second screenshot below)
-1. Fill in the values from the form input in thing configuration (see examples below)
+2. Open the developer console and switch to network tab (for example press F12 in chrome / edge / firefox).
+3. Fill in the form: Select your commune, Street and house number and hit "Suchen".
+4. Select the first request to [https://www.aha-region.de/abholtermine/abfuhrkalender](https://www.aha-region.de/abholtermine/abfuhrkalender) (see first screenshot below)
+5. Check the form data at the end of the request for the form values (see second screenshot below)
+6. Fill in the values from the form input in thing configuration (see examples below)
 
 ![Chrome Developer Console Top](doc/images/ChromeDevconsoleTop.png "Chrome Developer Console showing request URL")
 
@@ -43,12 +43,12 @@ Grab the values for the configuration parameters from the form data section at t
 
 The thing **aha Waste Collection Schedule** provides four channels for the upcoming day of waste collection for the different waste types.
 
-| channel  | type   | description                  |
-|----------|--------|------------------------------|
-| generalWaste  | DateTime | Next collection day for general waste  |
-| leightweightPackaging  | DateTime | Next collection day for leightweight packaging  |
-| bioWaste  | DateTime | Next collection day for bio waste  |
-| paper  | DateTime | Next collection day for paper  |
+|        channel        |   type   |                  description                   |
+|-----------------------|----------|------------------------------------------------|
+| generalWaste          | DateTime | Next collection day for general waste          |
+| leightweightPackaging | DateTime | Next collection day for leightweight packaging |
+| bioWaste              | DateTime | Next collection day for bio waste              |
+| paper                 | DateTime | Next collection day for paper                  |
 
 ## Full Example
 
@@ -133,3 +133,4 @@ actions:
         }
     type: script.ScriptAction
 ```
+

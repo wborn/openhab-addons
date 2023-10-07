@@ -16,8 +16,8 @@ More details and all documentation about Integra system you can find on their si
 
 This binding supports following thing types:
 
-| Thing type | Description                                                                                                                              |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| Thing type |                                                               Description                                                                |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | ethm-1     | Ethernet bridge, supports [ETHM-1](https://www.satel.pl/en/product/115/) and [ETHM-1 Plus](https://www.satel.pl/en/product/698/) modules |
 | int-rs     | RS-232 bridge, supports [INT-RS](https://www.satel.pl/en/product/123/) and [INT-RS Plus](https://www.satel.pl/en/product/664/) modules   |
 | partition  | Set of zones representing some physical area or logical relation                                                                         |
@@ -31,15 +31,15 @@ This binding supports following thing types:
 ## Discovery
 
 The binding discovers all devices (partitions, zones) defined in the system, but bridge things must be configured manually.
-  
+
 ## Thing Configuration
 
 ### ethm-1 bridge
 
 You can configure the following settings for this bridge:
 
-| Name          | Required | Description                                                                                                                                                                                                                                                                  |
-| ------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|     Name      | Required |                                                                                                                                 Description                                                                                                                                  |
+|---------------|----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | host          | yes      | Host name or IP addres of ETHM-1 module.                                                                                                                                                                                                                                     |
 | port          | no       | TCP port for the integration protocol, defaults to 7094.                                                                                                                                                                                                                     |
 | timeout       | no       | Timeout value in milliseconds for connect, read and write operations, defaults to 5000 (5secs).                                                                                                                                                                              |
@@ -63,8 +63,8 @@ In case you have troubles connecting to the system using this module, please mak
 
 You can configure the following settings for this bridge:
 
-| Name        | Required | Description                                                                                                                                         |
-| ----------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    Name     | Required |                                                                     Description                                                                     |
+|-------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | port        | yes      | Serial port connected to the module.                                                                                                                |
 | timeout     | no       | Timeout value in milliseconds for connect, read and write operations, defaults to 5000 (5secs).                                                     |
 | refresh     | no       | Polling interval in milliseconds, defaults to 5000 (5secs).                                                                                         |
@@ -82,8 +82,8 @@ Bridge satel:int-rs:home [ port="/dev/ttyS0", refresh=1000, userCode="1234" ]
 
 You can configure the following settings for a partition:
 
-| Name        | Required | Description                                                      |
-| ----------- | -------- | ---------------------------------------------------------------- |
+|    Name     | Required |                           Description                            |
+|-------------|----------|------------------------------------------------------------------|
 | id          | yes      | Partition number                                                 |
 | forceArming | no       | Arms the partition regardless of ongoing troubles and violations |
 
@@ -97,8 +97,8 @@ Thing partition partition1 [ id=1, forceArming=true ]
 
 You can configure the following settings for a zone:
 
-| Name        | Required | Description                                                              |
-| ----------- | -------- | ------------------------------------------------------------------------ |
+|    Name     | Required |                               Description                                |
+|-------------|----------|--------------------------------------------------------------------------|
 | id          | yes      | Zone number                                                              |
 | invertState | no       | Changes active (ON) state to 0                                           |
 | wireless    | no       | This zone is monitored by a wireless detector like APD-100, AFD-100, etc |
@@ -113,8 +113,8 @@ Thing zone zone1 [ id=1 ]
 
 You can configure the following settings for an output:
 
-| Name        | Required | Description                                                           |
-| ----------- | -------- | --------------------------------------------------------------------- |
+|    Name     | Required |                              Description                              |
+|-------------|----------|-----------------------------------------------------------------------|
 | id          | yes      | Output number                                                         |
 | invertState | no       | Changes active (ON) state to 0                                        |
 | commandOnly | no       | Accepts commands only, does not update state of the thing             |
@@ -130,8 +130,8 @@ Thing output output1 [ id=1, invertState=true, wireless=false ]
 
 You can configure the following settings for a shutter:
 
-| Name        | Required | Description                                               |
-| ----------- | -------- | --------------------------------------------------------- |
+|    Name     | Required |                        Description                        |
+|-------------|----------|-----------------------------------------------------------|
 | upId        | yes      | Output number for "up" direction                          |
 | downId      | yes      | Output number for "down" direction                        |
 | commandOnly | no       | Accepts commands only, does not update state of the thing |
@@ -166,8 +166,8 @@ Thing event-log EventLog [ ]
 
 You can configure the following settings for this thing:
 
-| Name    | Required | Description                                                |
-| ------- | -------- | ---------------------------------------------------------- |
+|  Name   | Required |                        Description                         |
+|---------|----------|------------------------------------------------------------|
 | id      | yes      | Zone number in the alarm system monitored by this detector |
 | refresh | no       | Polling interval in minutes, defaults to 15                |
 
@@ -181,8 +181,8 @@ Thing atd-100 KitchenTemp [ id=10, refresh=30 ]
 
 ### partition
 
-| Name               | Type   | Description                       |
-| ------------------ | ------ | --------------------------------- |
+|        Name        |  Type  |            Description            |
+|--------------------|--------|-----------------------------------|
 | armed              | Switch | Armed                             |
 | really_armed       | Switch | Really armed                      |
 | armed_mode_1       | Switch | Armed in mode 1                   |
@@ -204,8 +204,8 @@ Thing atd-100 KitchenTemp [ id=10, refresh=30 ]
 
 ### zone
 
-| Name                   | Type   | Description                                               |
-| ---------------------- | ------ | --------------------------------------------------------- |
+|          Name          |  Type  |                        Description                        |
+|------------------------|--------|-----------------------------------------------------------|
 | violation              | Switch | Violation                                                 |
 | tamper                 | Switch | Tamper                                                    |
 | alarm                  | Switch | Alarm                                                     |
@@ -225,22 +225,22 @@ Thing atd-100 KitchenTemp [ id=10, refresh=30 ]
 
 **NOTE:** You can change state of mono/bistable outputs only.
 
-| Name          | Type   | Description                                               |
-| ------------- | ------ | --------------------------------------------------------- |
+|     Name      |  Type  |                        Description                        |
+|---------------|--------|-----------------------------------------------------------|
 | state         | Switch | State of the output                                       |
 | device_lobatt | Switch | Indicates low battery level in the wireless device        |
 | device_nocomm | Switch | Indicates communication troubles with the wireless device |
 
 ### shutter
 
-| Name          | Type          | Description          |
-| ------------- | ------------- | -------------------- |
+|     Name      |     Type      |     Description      |
+|---------------|---------------|----------------------|
 | shutter_state | Rollershutter | State of the shutter |
 
 ### system
 
-| Name            | Type     | Description                                                                                                                        |
-| --------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+|      Name       |   Type   |                                                            Description                                                             |
+|-----------------|----------|------------------------------------------------------------------------------------------------------------------------------------|
 | date_time       | DateTime | Date and time on the alarm system                                                                                                  |
 | troubles        | Switch   | Active when the system has troubles (trouble LED is blinking on a panel)                                                           |
 | troubles_memory | Switch   | Memorized state of system troubles                                                                                                 |
@@ -254,8 +254,8 @@ Thing atd-100 KitchenTemp [ id=10, refresh=30 ]
 
 These channels and the thing will be removed in the future release of the binding. Please use `readEvent` rule action instead.
 
-| Name        | Type     | Description                                                                            |
-| ----------- | -------- | -------------------------------------------------------------------------------------- |
+|    Name     |   Type   |                                      Description                                       |
+|-------------|----------|----------------------------------------------------------------------------------------|
 | index       | Number   | Index of the current record in the event log. Send '-1' to get most recent record.     |
 | prev_index  | Number   | Index of the previous record in the event log. Use this value to iterate over the log. |
 | timestamp   | DateTime | Date and time when the event happened.                                                 |
@@ -264,8 +264,8 @@ These channels and the thing will be removed in the future release of the bindin
 
 ### atd-100
 
-| Name          | Type               | Description                                               |
-| ------------- | ------------------ | --------------------------------------------------------- |
+|     Name      |        Type        |                        Description                        |
+|---------------|--------------------|-----------------------------------------------------------|
 | temperature   | Number:Temperature | Current temperature in the zone                           |
 | device_lobatt | Switch             | Indicates low battery level in the wireless device        |
 | device_nocomm | Switch             | Indicates communication troubles with the wireless device |
@@ -277,8 +277,8 @@ These channels and the thing will be removed in the future release of the bindin
 This action allows you to read one record from the event log placed at index given by input parameter.
 The result of this action is compatible with channels of `event-log` thing and contains following values:
 
-| Name        | Type          | Description                                                                            |
-| ----------- | ------------- | -------------------------------------------------------------------------------------- |
+|    Name     |     Type      |                                      Description                                       |
+|-------------|---------------|----------------------------------------------------------------------------------------|
 | index       | Number        | Index of this record in the event log.                                                 |
 | prev_index  | Number        | Index of the previous record in the event log. Use this value to iterate over the log. |
 | timestamp   | ZonedDateTime | Date and time when the event happened.                                                 |
@@ -502,3 +502,4 @@ You can find such keypad in the [Full Example](#full-example) section.
 ## Media
 
 - [Arming and clearing troubles](https://www.youtube.com/watch?v=ogdgn0Dk1G8)
+
