@@ -565,6 +565,12 @@ Import-Package: \\
                 <endWithNewline/>
               </format>
             </formats>
+            <markdown>
+              <includes>
+                <include>**/*.md</include>
+              </includes>
+              <flexmark/>
+            </markdown>
           </configuration>
           <dependencies>
             <dependency>
