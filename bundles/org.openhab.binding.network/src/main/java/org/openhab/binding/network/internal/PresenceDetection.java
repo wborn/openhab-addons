@@ -25,6 +25,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.eclipse.jdt.annotation.NonNullByDefault;
 import org.eclipse.jdt.annotation.Nullable;
@@ -77,18 +79,19 @@ public class PresenceDetection implements IPRequestReceivedCallback {
     /// State variables (cannot be final because of test dependency injections)
     ExpiringCacheAsync<PresenceDetectionValue> cache;
     private final PresenceDetectionListener updateListener;
+
+    private Set<String> networkInterfaceNames = Set.of();
     private @Nullable ScheduledFuture<?> refreshJob;
     protected @Nullable ExecutorService executorService;
     private String dhcpState = "off";
     private Integer currentCheck = 0;
     int detectionChecks;
+    private String lastReachableNetworkInterfaceName = "";
 
     public PresenceDetection(final PresenceDetectionListener updateListener, int cacheDeviceStateTimeInMS)
             throws IllegalArgumentException {
         this.updateListener = updateListener;
-        cache = new ExpiringCacheAsync<>(cacheDeviceStateTimeInMS, () -> {
-            performPresenceDetection(false);
-        });
+        cache = new ExpiringCacheAsync<>(cacheDeviceStateTimeInMS, () -> performPresenceDetection(false));
     }
 
     public @Nullable String getHostname() {
@@ -135,6 +138,11 @@ public class PresenceDetection implements IPRequestReceivedCallback {
                 return null;
             }
         });
+    }
+
+    public void setNetworkInterfaceNames(Set<String> networkInterfaceNames) {
+        this.networkInterfaceNames = networkInterfaceNames.stream().filter(Predicate.not(String::isBlank))
+                .collect(Collectors.toSet());
     }
 
     public void setServicePorts(Set<Integer> ports) {
@@ -293,7 +301,13 @@ public class PresenceDetection implements IPRequestReceivedCallback {
             detectionChecks += 1;
         }
         if (arpPingMethod.canProceed) {
-            interfaceNames = networkUtils.getInterfaceNames();
+            if (!lastReachableNetworkInterfaceName.isEmpty()) {
+                interfaceNames = Set.of(lastReachableNetworkInterfaceName);
+            } else if (!networkInterfaceNames.isEmpty()) {
+                interfaceNames = networkInterfaceNames;
+            } else {
+                interfaceNames = networkUtils.getInterfaceNames();
+            }
             detectionChecks += interfaceNames.size();
         }
 
@@ -306,7 +320,7 @@ public class PresenceDetection implements IPRequestReceivedCallback {
 
         for (Integer tcpPort : tcpPorts) {
             executorService.execute(() -> {
-                Thread.currentThread().setName("presenceDetectionTCP_" + hostname + " " + String.valueOf(tcpPort));
+                Thread.currentThread().setName("presenceDetectionTCP_" + hostname + " " + tcpPort);
                 performServicePing(tcpPort);
                 checkIfFinished();
             });
@@ -493,6 +507,10 @@ public class PresenceDetection implements IPRequestReceivedCallback {
                             PresenceDetectionValue v = updateReachableValue(PresenceDetectionType.ARP_PING,
                                     getLatency(o, preferResponseTimeAsLatency));
                             updateListener.partialDetectionResult(v);
+                            lastReachableNetworkInterfaceName = interfaceName;
+                        } else if (lastReachableNetworkInterfaceName.equals(interfaceName)) {
+                            logger.trace("{} is no longer reachable on network interface: {}", hostname, interfaceName);
+                            lastReachableNetworkInterfaceName = "";
                         }
                     });
         } catch (IOException e) {
