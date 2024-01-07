@@ -18,6 +18,7 @@ import java.io.OutputStream;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Hashtable;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -69,7 +70,11 @@ public class AccountVerificationServlet extends HttpServlet {
         try {
             servletUrl = "/blink/"
                     + URLEncoder.encode(accountHandler.getThing().getUID().getId(), StandardCharsets.UTF_8);
-            httpService.registerServlet(servletUrl, this, null, httpService.createDefaultHttpContext());
+
+            Hashtable<Object, Object> initParams = new Hashtable<>();
+            initParams.put("servlet-name", servletUrl);
+
+            httpService.registerServlet(servletUrl, this, initParams, httpService.createDefaultHttpContext());
         } catch (NamespaceException | ServletException e) {
             throw new IllegalStateException(e.getMessage());
         }

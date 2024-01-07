@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Hashtable;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -52,7 +53,11 @@ public class ThumbnailServlet extends HttpServlet {
         try {
             servletUrl = "/blink/thumbnail/"
                     + URLEncoder.encode(cameraHandler.getThing().getUID().getId(), StandardCharsets.UTF_8);
-            httpService.registerServlet(servletUrl, this, null, httpService.createDefaultHttpContext());
+
+            Hashtable<Object, Object> initParams = new Hashtable<>();
+            initParams.put("servlet-name", servletUrl);
+
+            httpService.registerServlet(servletUrl, this, initParams, httpService.createDefaultHttpContext());
         } catch (NamespaceException | ServletException e) {
             throw new IllegalStateException(e.getMessage());
         }
