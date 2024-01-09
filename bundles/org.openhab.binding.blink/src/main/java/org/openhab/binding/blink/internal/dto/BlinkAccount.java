@@ -31,7 +31,7 @@ public class BlinkAccount {
     public Account account;
     public Auth auth;
     public Instant lastTokenRefresh;
-    public DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME
+    public static final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ISO_LOCAL_DATE_TIME
             .withZone(ZoneId.from(ZoneOffset.UTC));
 
     public static class Auth {
@@ -69,7 +69,7 @@ public class BlinkAccount {
         props.put(PROPERTY_CLIENT_ID, Long.toString(account.client_id));
         props.put(PROPERTY_TIER, account.tier);
         props.put(PROPERTY_TOKEN, auth.token);
-        props.put(PROPERTY_LAST_TOKEN_REFRESH, dateTimeFormatter.format(lastTokenRefresh));
+        props.put(PROPERTY_LAST_TOKEN_REFRESH, DATE_TIME_FORMATTER.format(lastTokenRefresh));
         return props;
     }
 }
