@@ -25,7 +25,7 @@ import org.openhab.core.thing.ThingTypeUID;
 public class MqttBindingConstants {
     public static final String BINDING_ID = "mqtt";
 
-    // List of all Thing Type UIDs
+    // List of all Thing Type UIDssss
     public static final ThingTypeUID BRIDGE_TYPE_BROKER = new ThingTypeUID(BINDING_ID, "broker");
 
     public static final String PUBLISH_TRIGGER_CHANNEL = "publishTrigger";
